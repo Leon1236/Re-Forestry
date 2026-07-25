@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/giganteum_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/giganteum_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/giganteum_slab_top"
+    }
+  }
+}

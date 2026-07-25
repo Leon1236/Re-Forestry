@@ -1,0 +1,12 @@
+{
+  "icon": "reforestry:trade_station",
+  "name": "for.gui.book.patchouli.entry.mail.trade_station",
+  "category": "reforestry:mail",
+  "pages": [
+    {
+      "type": "crafting",
+      "recipe": "reforestry:trade_station",
+      "text": "for.gui.book.patchouli.entry.mail.trade_station1"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    "reforestry:kauri_planks"
+  ],
+  "result": {
+    "id": "reforestry:kauri_button"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_inventory",
+  "textures": {
+    "texture": "reforestry:block/hill_cherry_planks"
+  }
+}

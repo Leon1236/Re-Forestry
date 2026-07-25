@@ -1,0 +1,9 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "reforestry:item/bees/default/princess.outline",
+    "layer1": "reforestry:item/bees/default/body1",
+    "layer2": "reforestry:item/bees/default/stripes",
+    "layer3": "reforestry:item/bees/default/princess.body2"
+  }
+}

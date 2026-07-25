@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "alveary",
+  "key": {
+    "#": "#c:gems/diamond",
+    "G": "#c:ingots/gold",
+    "X": "reforestry:alveary_plain"
+  },
+  "pattern": [
+    "#G#",
+    " X ",
+    "#G#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:alveary_swarmer"
+  }
+}

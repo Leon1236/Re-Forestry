@@ -1,0 +1,12 @@
+{
+    "parent": "reforestry:block/apiculture/alveary_plain_normal",
+    "textures": {
+      "particle": "reforestry:block/apiculture/alveary.sieve",
+      "down": "reforestry:block/apiculture/alveary.bottom",
+      "up": "reforestry:block/apiculture/alveary.bottom",
+      "north": "reforestry:block/apiculture/alveary.sieve",
+      "east": "reforestry:block/apiculture/alveary.sieve",
+      "south": "reforestry:block/apiculture/alveary.sieve",
+      "west": "reforestry:block/apiculture/alveary.sieve"
+    }
+}

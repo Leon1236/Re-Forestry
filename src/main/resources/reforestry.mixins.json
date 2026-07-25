@@ -1,0 +1,18 @@
+{
+	"required": true,
+	"package": "com.leon1236.reforestry.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"mixins": [
+		"ExampleMixin"
+	],
+	"client": [
+		"client.ItemTintSourcesMixin",
+		"client.SelectItemModelPropertiesMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

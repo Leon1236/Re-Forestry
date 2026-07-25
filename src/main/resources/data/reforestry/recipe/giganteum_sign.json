@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": "reforestry:giganteum_planks",
+    "S": "minecraft:stick"
+  },
+  "pattern": [
+    "PPP",
+    "PPP",
+    " S "
+  ],
+  "result": {
+    "id": "reforestry:giganteum_sign"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "P": "reforestry:pine_planks"
+  },
+  "pattern": [
+    "PP"
+  ],
+  "result": {
+    "id": "reforestry:pine_pressure_plate"
+  }
+}

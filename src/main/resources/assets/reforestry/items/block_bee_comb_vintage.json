@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/block_bee_comb_vintage",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -3308225
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -2180985
+      }
+    ]
+  }
+}

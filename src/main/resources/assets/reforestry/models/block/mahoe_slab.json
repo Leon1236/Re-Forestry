@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "reforestry:block/mahoe_planks",
+    "side": "reforestry:block/mahoe_planks",
+    "top": "reforestry:block/mahoe_planks"
+  }
+}

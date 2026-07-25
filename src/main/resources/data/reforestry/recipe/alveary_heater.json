@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "alveary",
+  "key": {
+    "#": "#c:ingots/gold",
+    "I": "#c:ingots/iron",
+    "S": "#c:stones",
+    "X": "reforestry:alveary_plain"
+  },
+  "pattern": [
+    "#I#",
+    " X ",
+    "SSS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:alveary_heater"
+  }
+}

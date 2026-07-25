@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/bee_comb_sculken",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -15656159
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -16424355
+      }
+    ]
+  }
+}

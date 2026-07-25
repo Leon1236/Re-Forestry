@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "reforestry:block/zebrawood_planks",
+    "side": "reforestry:block/zebrawood_planks",
+    "top": "reforestry:block/zebrawood_planks"
+  }
+}

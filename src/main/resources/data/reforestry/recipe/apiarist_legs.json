@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "apiarist_armour",
+  "key": {
+    "#": "reforestry:woven_silk"
+  },
+  "pattern": [
+    "###",
+    "# #",
+    "# #"
+  ],
+  "result": {
+    "id": "reforestry:apiarist_legs"
+  }
+}

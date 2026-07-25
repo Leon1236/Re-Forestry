@@ -1,0 +1,23 @@
+{
+  "icon": "reforestry:circuit_board_basic",
+  "name": "for.gui.book.patchouli.entry.core.circuit_board",
+  "category": "reforestry:core",
+  "pages": [
+    {
+      "type": "spotlight",
+      "title": "Circuit Boards",
+      "item": "reforestry:circuit_board_intricate",
+      "text": "for.gui.book.patchouli.entry.core.circuit_board1"
+    },
+    {
+      "type": "reforestry:carpenter/double",
+      "item": "reforestry:circuit_board_basic",
+      "item2": "reforestry:circuit_board_enhanced"
+    },
+    {
+      "type": "reforestry:carpenter/double",
+      "item": "reforestry:circuit_board_refined",
+      "item2": "reforestry:circuit_board_intricate"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "reforestry:block/beehives/jungle.bottom",
+    "side": "reforestry:block/beehives/jungle.side",
+    "top": "reforestry:block/beehives/jungle.top"
+  }
+}

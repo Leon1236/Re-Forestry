@@ -1,0 +1,19 @@
+{
+    "variants": {
+      "facing=north": {
+        "model": "reforestry:block/apiary"
+      },
+      "facing=east": {
+        "model": "reforestry:block/apiary",
+        "y": 90
+      },
+      "facing=south": {
+        "model": "reforestry:block/apiary",
+        "y": 180
+      },
+      "facing=west": {
+        "model": "reforestry:block/apiary",
+        "y": -90
+      }
+	}
+}

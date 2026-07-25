@@ -1,0 +1,19 @@
+{
+    "variants": {
+      "facing=north": {
+        "model": "reforestry:block/mailbox"
+      },
+      "facing=east": {
+        "model": "reforestry:block/mailbox",
+        "y": 90
+      },
+      "facing=south": {
+        "model": "reforestry:block/mailbox",
+        "y": 180
+      },
+      "facing=west": {
+        "model": "reforestry:block/mailbox",
+        "y": -90
+      }
+	}
+}

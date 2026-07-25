@@ -1,0 +1,27 @@
+{
+  "icon": "reforestry:stamp_1n",
+  "name": "for.gui.book.patchouli.entry.mail.stamps",
+  "category": "reforestry:mail",
+  "pages": [
+    {
+      "type": "crafting",
+      "recipe": "reforestry:stamp_1n",
+      "text": "for.gui.book.patchouli.entry.mail.stamps1"
+    },
+    {
+      "type": "crafting",
+      "recipe": "reforestry:stamp_2n",
+      "recipe2": "reforestry:stamp_5n"
+    },
+    {
+      "type": "crafting",
+      "recipe": "reforestry:stamp_10n",
+      "recipe2": "reforestry:stamp_20n"
+    },
+    {
+      "type": "crafting",
+      "recipe": "reforestry:stamp_50n",
+      "recipe2": "reforestry:stamp_100n"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/mahogany_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/mahogany_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/mahogany_slab_top"
+    }
+  }
+}

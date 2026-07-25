@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "P": "reforestry:mahoe_planks"
+  },
+  "pattern": [
+    "PP"
+  ],
+  "result": {
+    "id": "reforestry:mahoe_pressure_plate"
+  }
+}

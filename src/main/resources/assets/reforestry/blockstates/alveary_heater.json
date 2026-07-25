@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "state=on": {
+      "model": "reforestry:block/apiculture/alveary_heater_on"
+    },
+    "state=off": {
+      "model": "reforestry:block/apiculture/alveary_heater_off"
+    }
+  }
+}

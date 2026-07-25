@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/kapok_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/kapok_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/kapok_slab_top"
+    }
+  }
+}

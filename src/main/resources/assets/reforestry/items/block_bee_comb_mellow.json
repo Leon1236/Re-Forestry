@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/block_bee_comb_mellow",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -1696
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -7839744
+      }
+    ]
+  }
+}

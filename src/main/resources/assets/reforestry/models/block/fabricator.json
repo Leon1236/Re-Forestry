@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+      "particle": "reforestry:block/fabricator.4",
+      "down": "reforestry:block/fabricator.0",
+      "up": "reforestry:block/fabricator.1",
+      "north": "reforestry:block/fabricator.3",
+      "east": "reforestry:block/fabricator.4",
+      "south": "reforestry:block/fabricator.2",
+      "west": "reforestry:block/fabricator.4"
+    }
+}

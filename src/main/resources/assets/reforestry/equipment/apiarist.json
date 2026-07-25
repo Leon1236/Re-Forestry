@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "reforestry:apiarist"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "reforestry:apiarist"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "reforestry:apiarist"
+      }
+    ]
+  }
+}

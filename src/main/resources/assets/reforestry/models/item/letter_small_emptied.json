@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "reforestry:item/mail/letter.1.emptied"
+  }
+}

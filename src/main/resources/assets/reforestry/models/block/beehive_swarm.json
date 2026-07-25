@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "reforestry:block/beehives/swarm.bottom",
+    "side": "reforestry:block/beehives/swarm.side",
+    "top": "reforestry:block/beehives/swarm.top"
+  }
+}

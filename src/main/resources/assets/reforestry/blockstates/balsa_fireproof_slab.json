@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/balsa_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/balsa_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/balsa_slab_top"
+    }
+  }
+}

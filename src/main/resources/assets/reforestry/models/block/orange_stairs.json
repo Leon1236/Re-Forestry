@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "reforestry:block/orange_planks",
+    "side": "reforestry:block/orange_planks",
+    "top": "reforestry:block/orange_planks"
+  }
+}

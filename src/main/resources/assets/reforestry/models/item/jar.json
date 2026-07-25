@@ -1,0 +1,7 @@
+{
+  "loader": "reforestry:fluid_container",
+  "gui_light": "front",
+  "empty": "reforestry:item/jar_empty",
+  "filled": "reforestry:item/jar_filled",
+  "type": "jar"
+}

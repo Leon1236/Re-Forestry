@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "reforestry:block/cocobolo_planks",
+    "side": "reforestry:block/cocobolo_planks",
+    "top": "reforestry:block/cocobolo_planks"
+  }
+}

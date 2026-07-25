@@ -1,0 +1,16 @@
+{
+  "icon": "reforestry:soldering_iron",
+  "name": "for.gui.book.patchouli.entry.core.soldering_iron",
+  "category": "reforestry:core",
+  "pages": [
+    {
+      "type": "reforestry:carpenter/single",
+      "item": "reforestry:soldering_iron",
+      "text": "for.gui.book.patchouli.entry.core.soldering_iron1"
+    },
+    {
+      "type": "text",
+      "text": "for.gui.book.patchouli.entry.core.soldering_iron2"
+    }
+  ]
+}

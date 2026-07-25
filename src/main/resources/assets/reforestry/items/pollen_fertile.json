@@ -1,0 +1,14 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/pollen_fertile",
+    "tints": [
+      {
+        "type": "reforestry:pollen"
+      },
+      {
+        "type": "reforestry:pollen"
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "reforestry:block/citrus_pressure_plate"
+    },
+    "powered=true": {
+      "model": "reforestry:block/citrus_pressure_plate_down"
+    }
+  }
+}

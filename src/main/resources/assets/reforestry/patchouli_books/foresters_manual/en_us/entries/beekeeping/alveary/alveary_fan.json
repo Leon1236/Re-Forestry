@@ -1,0 +1,16 @@
+{
+  "name": "for.gui.book.patchouli.entry.beekeeping.alveary.fan",
+  "category": "reforestry:alveary",
+  "icon": "reforestry:alveary_fan",
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "recipe": "reforestry:alveary_fan",
+      "text": "for.gui.book.patchouli.entry.beekeeping.alveary.fan1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "for.gui.book.patchouli.entry.beekeeping.alveary.fan2"
+    }
+  ]
+}

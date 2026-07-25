@@ -1,0 +1,8 @@
+{
+  "parent": "reforestry:item/mirror_hands",
+  "textures": {
+    "layer0": "reforestry:item/bees/default/larvae.outline",
+    "layer1": "reforestry:item/bees/default/larvae.body",
+    "layer2": "reforestry:item/bees/default/larvae.body2"
+  }
+}

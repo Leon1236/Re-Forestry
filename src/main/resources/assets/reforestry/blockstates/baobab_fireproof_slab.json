@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/baobab_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/baobab_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/baobab_slab_top"
+    }
+  }
+}

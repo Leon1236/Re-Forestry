@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/pollen_cluster_normal",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -6125019
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -6125019
+      }
+    ]
+  }
+}

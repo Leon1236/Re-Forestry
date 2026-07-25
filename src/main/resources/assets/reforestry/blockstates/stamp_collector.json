@@ -1,0 +1,19 @@
+{
+    "variants": {
+      "facing=north": {
+        "model": "reforestry:block/stamp_collector"
+      },
+      "facing=east": {
+        "model": "reforestry:block/stamp_collector",
+        "y": 90
+      },
+      "facing=south": {
+        "model": "reforestry:block/stamp_collector",
+        "y": 180
+      },
+      "facing=west": {
+        "model": "reforestry:block/stamp_collector",
+        "y": -90
+      }
+	}
+}

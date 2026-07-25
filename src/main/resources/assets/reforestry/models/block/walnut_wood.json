@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "reforestry:block/walnut_log",
+    "side": "reforestry:block/walnut_log"
+  }
+}

@@ -1,0 +1,12 @@
+{
+	"name": "for.gui.book.patchouli.entry.core.wrench",
+	"icon": "reforestry:wrench",
+	"category": "reforestry:core",
+	"pages": [
+		{
+			"type": "crafting",
+			"recipe": "reforestry:wrench",
+			"text": "for.gui.book.patchouli.entry.core.wrench1"
+		}
+	]
+}

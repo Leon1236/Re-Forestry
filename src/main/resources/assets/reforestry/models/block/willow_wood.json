@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "reforestry:block/willow_log",
+    "side": "reforestry:block/willow_log"
+  }
+}

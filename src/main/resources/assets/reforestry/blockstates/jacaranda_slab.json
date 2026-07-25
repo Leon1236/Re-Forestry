@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/jacaranda_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/jacaranda_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/jacaranda_slab_top"
+    }
+  }
+}

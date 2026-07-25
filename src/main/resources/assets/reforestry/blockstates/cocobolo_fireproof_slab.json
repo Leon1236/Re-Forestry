@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/cocobolo_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/cocobolo_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/cocobolo_slab_top"
+    }
+  }
+}

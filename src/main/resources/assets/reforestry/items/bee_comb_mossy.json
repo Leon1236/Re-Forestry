@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/bee_comb_mossy",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -14011629
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -8480455
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "for.gui.book.patchouli.entry.beekeeping.house",
+  "category": "reforestry:beekeeping",
+  "icon": "reforestry:bee_house",
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "recipe": "reforestry:bee_house",
+      "text": "for.gui.book.patchouli.entry.beekeeping.house1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "for.gui.book.patchouli.entry.beekeeping.house2"
+    }
+  ]
+}

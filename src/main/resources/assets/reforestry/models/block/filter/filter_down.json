@@ -1,0 +1,6 @@
+{
+	"parent": "reforestry:block/filter/filter_side",
+	"textures": {
+      "wool": "block/black_wool"
+	}
+}

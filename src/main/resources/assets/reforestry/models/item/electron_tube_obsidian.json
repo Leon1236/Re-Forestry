@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "reforestry:item/thermionic_tubes.0",
+    "layer1": "reforestry:item/thermionic_tubes.1"
+  }
+}

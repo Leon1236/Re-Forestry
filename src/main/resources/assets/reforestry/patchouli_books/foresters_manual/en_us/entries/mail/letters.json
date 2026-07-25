@@ -1,0 +1,17 @@
+{
+  "icon": "reforestry:letter_empty_fresh",
+  "name": "for.gui.book.patchouli.entry.mail.letters",
+  "category": "reforestry:mail",
+  "pages": [
+    {
+      "type": "crafting",
+      "recipe": "reforestry:letter_empty_fresh",
+      "text": "for.gui.book.patchouli.entry.mail.letters1"
+    },
+    {
+      "type": "reforestry:carpenter/single",
+      "item": "reforestry:letter_empty_fresh",
+      "text": "for.gui.book.patchouli.entry.mail.letters2"
+    }
+  ]
+}

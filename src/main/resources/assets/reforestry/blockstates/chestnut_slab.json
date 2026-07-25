@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/chestnut_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/chestnut_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/chestnut_slab_top"
+    }
+  }
+}

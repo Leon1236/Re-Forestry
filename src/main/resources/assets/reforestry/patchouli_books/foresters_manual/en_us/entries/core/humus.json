@@ -1,0 +1,17 @@
+{
+  "icon": "reforestry:humus",
+  "name": "for.gui.book.patchouli.entry.core.humus",
+  "category": "reforestry:core",
+  "pages": [
+    {
+      "type": "crafting",
+      "recipe": "reforestry:humus_compost",
+      "recipe2": "reforestry:humus_fertilizer"
+    },
+    {
+      "type": "reforestry:carpenter/single",
+      "item": "reforestry:humus",
+      "text": "for.gui.book.patchouli.entry.core.humus1"
+    }
+  ]
+}

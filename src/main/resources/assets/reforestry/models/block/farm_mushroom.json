@@ -1,0 +1,7 @@
+{
+	"parent": "reforestry:block/farm_parent",
+	"textures": {
+      "particle": "reforestry:block/farm_mushroom_particle",
+      "farm": "reforestry:block/farm_mushroom"
+	}
+}

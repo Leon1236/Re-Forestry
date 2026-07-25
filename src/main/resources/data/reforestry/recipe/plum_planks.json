@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "#reforestry:plum_logs"
+  ],
+  "result": {
+    "count": 4,
+    "id": "reforestry:plum_planks"
+  }
+}

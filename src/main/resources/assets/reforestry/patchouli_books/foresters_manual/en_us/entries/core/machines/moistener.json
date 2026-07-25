@@ -1,0 +1,12 @@
+{
+  "icon": "reforestry:moistener",
+  "name": "for.gui.book.patchouli.entry.core.machine.moistener",
+  "category": "reforestry:machines",
+  "pages": [
+    {
+      "type": "crafting",
+      "recipe": "reforestry:moistener",
+      "text": "for.gui.book.patchouli.entry.core.machine.moistener1"
+    }
+  ]
+}

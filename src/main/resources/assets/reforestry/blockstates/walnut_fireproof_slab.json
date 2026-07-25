@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/walnut_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/walnut_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/walnut_slab_top"
+    }
+  }
+}

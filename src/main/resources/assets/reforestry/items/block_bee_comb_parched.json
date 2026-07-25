@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/block_bee_comb_parched",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -256
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -2310637
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "icon": "reforestry:catalogue",
+  "name": "for.gui.book.patchouli.entry.mail.catalogue",
+  "category": "reforestry:mail",
+  "pages": [
+    {
+      "type": "crafting",
+      "recipe": "reforestry:catalogue",
+      "text": "for.gui.book.patchouli.entry.mail.catalogue1"
+    }
+  ]
+}

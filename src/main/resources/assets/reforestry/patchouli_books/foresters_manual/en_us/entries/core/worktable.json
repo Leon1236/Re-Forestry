@@ -1,0 +1,16 @@
+{
+  "icon": "reforestry:worktable",
+  "name": "for.gui.book.patchouli.entry.core.worktable",
+  "category": "reforestry:core",
+  "pages": [
+    {
+      "type": "crafting",
+      "recipe": "reforestry:worktable",
+      "text": "for.gui.book.patchouli.entry.core.worktable1"
+    },
+    {
+      "type": "text",
+      "text": "for.gui.book.patchouli.entry.core.worktable2"
+    }
+  ]
+}

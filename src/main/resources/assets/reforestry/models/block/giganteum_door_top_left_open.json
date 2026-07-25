@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left_open",
+  "textures": {
+    "bottom": "reforestry:block/giganteum_door_bottom",
+    "top": "reforestry:block/giganteum_door_top"
+  }
+}

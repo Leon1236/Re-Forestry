@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "type=hygro": { "model": "reforestry:greenhouse/hygro" },
+		"type=heater": { "model": "reforestry:greenhouse/heater" },
+		"type=fan": { "model": "reforestry:greenhouse/fan" },
+		"type=humidifier": { "model": "reforestry:greenhouse/humidifier" },
+		"type=dehumidifier": { "model": "reforestry:greenhouse/dehumidifier" }
+	}
+}

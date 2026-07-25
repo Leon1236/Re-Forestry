@@ -1,0 +1,10 @@
+{
+  "dont_generate_book": true,
+  "use_resource_pack": true,
+  "custom_book_item": "reforestry:foresters_manual",
+  "advancements_tab": "reforestry:root",
+  "name": "item.reforestry.foresters_manual",
+  "landing_text": "for.gui.book.patchouli.landing_text",
+  "book_texture": "reforestry:textures/gui/almanac/foresters_manual.png",
+  "i18n": true
+}

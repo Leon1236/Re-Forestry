@@ -1,0 +1,9 @@
+{
+  "parent": "reforestry:item/mirror_hands",
+  "textures": {
+    "layer0": "reforestry:item/bees/cube/queen.outline",
+    "layer1": "reforestry:item/bees/cube/body1",
+    "layer2": "reforestry:item/bees/cube/stripes",
+    "layer3": "reforestry:item/bees/cube/queen.body2"
+  }
+}

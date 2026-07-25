@@ -1,0 +1,61 @@
+{
+  "icon": "reforestry:wrench",
+  "name": "for.gui.book.patchouli.entry.farming.farm_layout",
+  "category": "reforestry:farming",
+  "pages": [
+    {
+      "type": "text",
+      "text": "for.gui.book.patchouli.entry.farming.farm_layout1"
+    },
+    {
+      "type": "reforestry:farm_layout",
+      "text": "for.gui.book.patchouli.entry.farming.farm_layout2",
+      "image": "reforestry:textures/gui/almanac/fam_layouts/3x3_512.png",
+      "texture_width": 256,
+      "texture_height": 256,
+      "width": 89,
+      "height": 89,
+      "anchor": 2
+    },
+    {
+      "type": "reforestry:farm_layout",
+      "text": "for.gui.book.patchouli.entry.farming.farm_layout3",
+      "image": "reforestry:textures/gui/almanac/fam_layouts/3x4_512.png",
+      "texture_width": 256,
+      "texture_height": 256,
+      "width": 85,
+      "height": 89,
+      "anchor": 3
+    },
+    {
+      "type": "reforestry:farm_layout",
+      "text": "for.gui.book.patchouli.entry.farming.farm_layout4",
+      "image": "reforestry:textures/gui/almanac/fam_layouts/4x4_512.png",
+      "texture_width": 256,
+      "texture_height": 256,
+      "width": 89,
+      "height": 89,
+      "anchor": 4
+    },
+    {
+      "type": "reforestry:farm_layout_large",
+      "text": "for.gui.book.patchouli.entry.farming.farm_layout5",
+      "image": "reforestry:textures/gui/almanac/fam_layouts/3x5_512.png",
+      "texture_width": 512,
+      "texture_height": 512,
+      "width": 82,
+      "height": 89,
+      "anchor": 5
+    },
+    {
+      "type": "reforestry:farm_layout_large",
+      "text": "for.gui.book.patchouli.entry.farming.farm_layout6",
+      "image": "reforestry:textures/gui/almanac/fam_layouts/5x5_512.png",
+      "texture_width": 512,
+      "texture_height": 512,
+      "width": 89,
+      "height": 89,
+      "anchor": 6
+    }
+  ]
+}

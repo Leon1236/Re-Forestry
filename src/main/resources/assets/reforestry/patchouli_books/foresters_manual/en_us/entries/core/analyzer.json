@@ -1,0 +1,12 @@
+{
+  "icon": "reforestry:analyzer",
+  "name": "for.gui.book.patchouli.entry.core.analyzer",
+  "category": "reforestry:core",
+  "pages": [
+    {
+      "type": "crafting",
+      "recipe": "reforestry:analyzer",
+      "text": "for.gui.book.patchouli.entry.core.analyzer1"
+    }
+  ]
+}

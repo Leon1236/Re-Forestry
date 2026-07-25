@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/bee_comb_kaolin",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -10589043
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -5260842
+      }
+    ]
+  }
+}

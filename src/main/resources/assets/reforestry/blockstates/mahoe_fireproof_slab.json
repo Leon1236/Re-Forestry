@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/mahoe_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/mahoe_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/mahoe_slab_top"
+    }
+  }
+}

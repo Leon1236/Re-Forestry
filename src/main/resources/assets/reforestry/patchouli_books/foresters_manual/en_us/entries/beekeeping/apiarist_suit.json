@@ -1,0 +1,25 @@
+{
+  "name": "for.gui.book.patchouli.entry.beekeeping.suit",
+  "category": "reforestry:beekeeping",
+  "icon": "reforestry:apiarist_chest",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "for.gui.book.patchouli.entry.beekeeping.suit1"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "reforestry:apiarist_helmet",
+      "recipe2": "reforestry:apiarist_chest"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "reforestry:apiarist_legs",
+      "recipe2": "reforestry:apiarist_boots"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "for.gui.book.patchouli.entry.beekeeping.suit2"
+    }
+  ]
+}

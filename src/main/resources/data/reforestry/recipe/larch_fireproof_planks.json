@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "#reforestry:fireproof_larch_logs"
+  ],
+  "result": {
+    "count": 4,
+    "id": "reforestry:larch_fireproof_planks"
+  }
+}

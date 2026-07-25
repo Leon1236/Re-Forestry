@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/olive_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/olive_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/olive_slab_top"
+    }
+  }
+}

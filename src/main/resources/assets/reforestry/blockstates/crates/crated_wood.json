@@ -1,0 +1,22 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "forge:multi-layer",
+        "custom": {
+            "base": "reforestry:crates/cratedWood#contained",
+            "Solid": "reforestry:crate#crate",
+            "TRANSLUCENT": "reforestry:crates/cratedWood#contained"
+        },
+        "transform": "forge:default-item"
+     },
+    "variants": {
+      "": [
+        {}
+      ],
+      "inventory": [{ }],
+      "contained": [{
+          "model": "oak_log",
+          "transform": { "scale": 0.5, "translation":[ -0.0625, 0, 0 ] }
+        }]
+    }
+}

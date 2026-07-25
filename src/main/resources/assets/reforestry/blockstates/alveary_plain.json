@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "type=normal": {
+      "model": "reforestry:block/apiculture/alveary_plain_normal"
+    },
+    "type=entrance_right": {
+      "model": "reforestry:block/apiculture/alveary_plain_entrance_right"
+    },
+    "type=entrance": {
+      "model": "reforestry:block/apiculture/alveary_plain_entrance"
+    },
+    "type=entrance_left": {
+      "model": "reforestry:block/apiculture/alveary_plain_entrance_left"
+    }
+  }
+}

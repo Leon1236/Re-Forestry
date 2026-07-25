@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/macrocarpa_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/macrocarpa_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/macrocarpa_slab_top"
+    }
+  }
+}

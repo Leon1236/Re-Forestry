@@ -1,0 +1,12 @@
+{
+  "icon": "reforestry:raintank",
+  "name": "for.gui.book.patchouli.entry.core.machine.raintank",
+  "category": "reforestry:machines",
+  "pages": [
+    {
+      "type": "crafting",
+      "recipe":  "reforestry:raintank",
+      "text": "for.gui.book.patchouli.entry.core.machine.raintank1"
+    }
+  ]
+}

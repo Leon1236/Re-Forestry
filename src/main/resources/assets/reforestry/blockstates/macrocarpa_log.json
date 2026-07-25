@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "reforestry:block/macrocarpa_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "reforestry:block/macrocarpa_log"
+    },
+    "axis=z": {
+      "model": "reforestry:block/macrocarpa_log",
+      "x": 90
+    }
+  }
+}

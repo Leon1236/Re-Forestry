@@ -1,0 +1,22 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "forge:multi-layer",
+        "custom": {
+            "base": "reforestry:crate#crate",
+            "Solid": "reforestry:crate#crate",
+            "Cutout": "reforestry:crates/cratedWood#wood"
+        },
+        "transform": "forge:default-item"
+     },
+    "variants": {
+      "": [
+        {}
+      ],
+      "inventory": [{ }],
+      "wood": [{
+          "model": "oak_log",
+          "transform": { "scale": 0.5, "translation":[ -0.0625, 0, 0 ] }
+        }]
+    }
+}

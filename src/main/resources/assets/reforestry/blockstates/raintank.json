@@ -1,0 +1,19 @@
+{
+    "variants": {
+      "facing=north": {
+        "model": "reforestry:block/raintank"
+      },
+      "facing=east": {
+        "model": "reforestry:block/raintank",
+        "y": 90
+      },
+      "facing=south": {
+        "model": "reforestry:block/raintank",
+        "y": 180
+      },
+      "facing=west": {
+        "model": "reforestry:block/raintank",
+        "y": -90
+      }
+	}
+}

@@ -1,0 +1,11 @@
+/*
+!/.gitignore
+!/build.gradle
+!/settings.gradle
+!/gradle.properties
+!/gradlew
+!/gradlew.bat
+!/gradle/
+!/src/
+
+**/graphify-out/

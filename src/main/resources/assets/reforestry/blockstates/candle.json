@@ -1,0 +1,10 @@
+{
+    "variants": {
+      "state=off": {
+        "model": "reforestry:block/candle_up_off"
+      },
+      "state=on": {
+        "model": "reforestry:block/candle_up_on"
+      }
+    }
+}

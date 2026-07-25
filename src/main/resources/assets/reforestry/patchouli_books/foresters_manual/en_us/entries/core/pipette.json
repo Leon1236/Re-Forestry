@@ -1,0 +1,12 @@
+{
+  "icon": "reforestry:pipette",
+  "name": "for.gui.book.patchouli.entry.core.pipette",
+  "category": "reforestry:core",
+  "pages": [
+    {
+      "type": "crafting",
+      "recipe": "reforestry:pipette",
+      "text": "for.gui.book.patchouli.entry.core.pipette1"
+    }
+  ]
+}

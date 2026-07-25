@@ -1,0 +1,19 @@
+{
+    "variants": {
+      "facing=north": {
+        "model": "reforestry:block/fabricator"
+      },
+      "facing=east": {
+        "model": "reforestry:block/fabricator",
+        "y": 90
+      },
+      "facing=south": {
+        "model": "reforestry:block/fabricator",
+        "y": 180
+      },
+      "facing=west": {
+        "model": "reforestry:block/fabricator",
+        "y": -90
+      }
+	}
+}

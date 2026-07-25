@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/zebrawood_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/zebrawood_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/zebrawood_slab_top"
+    }
+  }
+}

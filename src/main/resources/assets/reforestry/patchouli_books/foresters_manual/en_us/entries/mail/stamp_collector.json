@@ -1,0 +1,12 @@
+{
+  "icon": "reforestry:stamp_collector",
+  "name": "for.gui.book.patchouli.entry.mail.stamp_collector",
+  "category": "reforestry:mail",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "reforestry:stamp_collector",
+      "text": "for.gui.book.patchouli.entry.mail.stamp_collector1"
+    }
+  ]
+}

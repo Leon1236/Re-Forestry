@@ -1,0 +1,12 @@
+{
+  "icon": "reforestry:escritoire",
+  "name": "for.gui.book.patchouli.entry.core.escritoire",
+  "category": "reforestry:core",
+  "pages": [
+    {
+      "type": "reforestry:carpenter/single",
+      "item": "reforestry:escritoire",
+      "text": "for.gui.book.patchouli.entry.core.escritoire1"
+    }
+  ]
+}

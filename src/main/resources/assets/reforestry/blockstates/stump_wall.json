@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "reforestry:block/stump"
+    },
+    "facing=south": {
+      "model": "reforestry:block/stump",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "reforestry:block/stump",
+      "y": 180
+    },
+    "facing=north": {
+      "model": "reforestry:block/stump",
+      "y": 270
+    }
+  }
+}

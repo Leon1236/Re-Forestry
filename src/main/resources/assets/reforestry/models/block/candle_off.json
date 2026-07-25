@@ -1,0 +1,7 @@
+{
+    "parent": "reforestry:block/candle",
+    "textures": {
+      "candle_stump": "reforestry:block/candle_stump_unlit",
+      "candle_tip": "reforestry:block/candle_tip_unlit"
+    }
+}

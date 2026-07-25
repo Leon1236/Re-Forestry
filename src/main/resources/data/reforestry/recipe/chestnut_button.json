@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    "reforestry:chestnut_planks"
+  ],
+  "result": {
+    "id": "reforestry:chestnut_button"
+  }
+}

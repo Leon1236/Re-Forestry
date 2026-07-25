@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_right",
+  "textures": {
+    "bottom": "reforestry:block/kapok_door_bottom",
+    "top": "reforestry:block/kapok_door_top"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "icon": "reforestry:tin_ore",
+  "name": "for.gui.book.patchouli.entry.core.ores",
+  "category": "reforestry:core",
+  "pages": [
+    {
+      "type": "text",
+      "text": "for.gui.book.patchouli.entry.core.ores1"
+    },
+    {
+      "type": "spotlight",
+      "item": "reforestry:apatite_ore",
+      "text": "for.gui.book.patchouli.entry.core.ores2"
+    },
+    {
+      "type": "spotlight",
+      "item": "minecraft:copper_ore",
+      "text": "for.gui.book.patchouli.entry.core.ores3"
+    },
+    {
+      "type": "spotlight",
+      "item": "reforestry:tin_ore",
+      "text": "for.gui.book.patchouli.entry.core.ores4"
+    }
+  ]
+}

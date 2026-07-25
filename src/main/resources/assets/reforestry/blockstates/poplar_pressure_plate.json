@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "reforestry:block/poplar_pressure_plate"
+    },
+    "powered=true": {
+      "model": "reforestry:block/poplar_pressure_plate_down"
+    }
+  }
+}

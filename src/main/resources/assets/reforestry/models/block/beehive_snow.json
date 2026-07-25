@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "reforestry:block/beehives/snow.bottom",
+    "side": "reforestry:block/beehives/snow.side",
+    "top": "reforestry:block/beehives/snow.top"
+  }
+}

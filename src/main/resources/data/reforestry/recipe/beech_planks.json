@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "#reforestry:beech_logs"
+  ],
+  "result": {
+    "count": 4,
+    "id": "reforestry:beech_planks"
+  }
+}

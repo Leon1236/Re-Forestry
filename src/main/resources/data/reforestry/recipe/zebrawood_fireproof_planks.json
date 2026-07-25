@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "#reforestry:fireproof_zebrawood_logs"
+  ],
+  "result": {
+    "count": 4,
+    "id": "reforestry:zebrawood_fireproof_planks"
+  }
+}

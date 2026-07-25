@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/propolis_silky",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -2228480
+      }
+    ]
+  }
+}

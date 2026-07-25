@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/plum_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/plum_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/plum_slab_top"
+    }
+  }
+}

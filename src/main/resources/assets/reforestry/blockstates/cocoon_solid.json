@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "age=0": { "model": "reforestry:block/cocoon_early" },
+    "age=1": { "model": "reforestry:block/cocoon_middle" },
+    "age=2": { "model": "reforestry:block/cocoon_late" }
+  }
+}

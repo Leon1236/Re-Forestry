@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_right",
+  "textures": {
+    "bottom": "reforestry:block/hill_cherry_door_bottom",
+    "top": "reforestry:block/hill_cherry_door_top"
+  }
+}

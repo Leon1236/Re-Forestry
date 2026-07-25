@@ -1,0 +1,7 @@
+{
+  "parent": "block/cocoa_stage2",
+  "textures": {
+    "particle": "reforestry:block/pods/papaya.2",
+    "cocoa": "reforestry:block/pods/papaya.2"
+  }
+}

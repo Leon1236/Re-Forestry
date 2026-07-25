@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "#reforestry:fireproof_mahoe_logs"
+  ],
+  "result": {
+    "count": 4,
+    "id": "reforestry:mahoe_fireproof_planks"
+  }
+}

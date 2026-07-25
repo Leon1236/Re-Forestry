@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "reforestry:block/giganteum_planks",
+    "side": "reforestry:block/giganteum_planks",
+    "top": "reforestry:block/giganteum_planks"
+  }
+}

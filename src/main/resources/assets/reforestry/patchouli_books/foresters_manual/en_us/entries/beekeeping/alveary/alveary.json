@@ -1,0 +1,41 @@
+{
+  "name": "for.gui.book.patchouli.entry.beekeeping.alveary",
+  "category": "reforestry:alveary",
+  "icon": "reforestry:alveary_plain",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "reforestry:alveary_plain",
+      "link_recipe": true,
+      "text": "for.gui.book.patchouli.entry.beekeeping.alveary1"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [ "reforestry:textures/gui/almanac/scraps/alveary_2.png" ],
+      "text": "for.gui.book.patchouli.entry.beekeeping.alveary2"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "for.gui.book.patchouli.entry.beekeeping.alveary3"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "for.gui.book.patchouli.entry.beekeeping.alveary",
+      "__COMMENT__": "TODO: Implement multiblock in code",
+      "multiblock": {
+        "pattern": [
+          [ "sss", "sss", "sss" ],
+          [ "aaa", "aaa", "aaa" ],
+          [ "aaa", "aaa", "aaa" ],
+          [ "aaa", "a0a", "aaa" ]
+        ],
+        "mapping": {
+          "a": "reforestry:alveary_plain",
+          "s": "#minecraft:wooden_slabs",
+          "0": "reforestry:alveary_plain"
+        },
+        "symmetrical": true
+      }
+    }
+  ]
+}

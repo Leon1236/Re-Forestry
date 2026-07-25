@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "#reforestry:padauk_logs"
+  ],
+  "result": {
+    "count": 4,
+    "id": "reforestry:padauk_planks"
+  }
+}

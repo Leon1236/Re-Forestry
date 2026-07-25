@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "reforestry",
+	"version": "${version}",
+	"name": "Re-Forestry",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://github.com/Leon1236/Re-Forestry",
+		"sources": "https://github.com/Leon1236/Re-Forestry"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/reforestry/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.leon1236.reforestry.ReForestry"
+		],
+		"client": [
+			"com.leon1236.reforestry.ReForestryClient"
+		],
+		"fabric-datagen": [
+			"com.leon1236.reforestry.ReForestryDataGenerator"
+		],
+		"reforestry:plugin": [
+			"com.leon1236.reforestry.core.plugin.ReforestryPlugin"
+		]
+	},
+	"mixins": [
+		"reforestry.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

@@ -1,0 +1,9 @@
+{
+    "parent": "item/generated",
+    "textures": {
+      "layer0": "reforestry:item/habitat_screen_0",
+      "layer1": "reforestry:item/habitat_screen_1",
+      "layer2": "reforestry:item/habitat_screen_2",
+      "layer3": "reforestry:item/habitat_screen_3"
+    }
+}

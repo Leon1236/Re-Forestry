@@ -1,0 +1,17 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/bee_larvae_ge",
+    "tints": [
+      {
+        "type": "reforestry:bee_outline"
+      },
+      {
+        "type": "reforestry:bee_body"
+      },
+      {
+        "type": "reforestry:bee_stripes"
+      }
+    ]
+  }
+}

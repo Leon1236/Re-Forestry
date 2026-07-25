@@ -1,0 +1,43 @@
+{
+  "name": "for.gui.book.patchouli.entry.core.tubes",
+  "category": "reforestry:core",
+  "icon": "reforestry:electron_tube_copper",
+  "pages": [
+    {
+      "type": "spotlight",
+      "title": "for.gui.book.patchouli.entry.core.tubes",
+      "item": "reforestry:electron_tube_copper",
+      "text": "for.gui.book.patchouli.entry.core.tubes1"
+    },
+    {
+      "type": "reforestry:fabricator/double",
+      "item": "reforestry:electron_tube_tin",
+      "item2": "reforestry:electron_tube_copper"
+    },
+    {
+      "type": "reforestry:fabricator/double",
+      "item": "reforestry:electron_tube_bronze",
+      "item2": "reforestry:electron_tube_gold"
+    },
+    {
+      "type": "reforestry:fabricator/double",
+      "item": "reforestry:electron_tube_obsidian",
+      "item2": "reforestry:electron_tube_blaze"
+    },
+    {
+      "type": "reforestry:fabricator/double",
+      "item": "reforestry:electron_tube_emerald",
+      "item2": "reforestry:electron_tube_apatite"
+    },
+    {
+      "type": "reforestry:fabricator/double",
+      "item": "reforestry:electron_tube_diamond",
+      "item2": "reforestry:electron_tube_lapis"
+    },
+    {
+      "type": "reforestry:fabricator/double",
+      "item": "reforestry:electron_tube_ender",
+      "item2": "reforestry:electron_tube_copper"
+    }
+  ]
+}

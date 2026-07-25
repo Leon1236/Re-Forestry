@@ -1,0 +1,16 @@
+{
+  "icon": "reforestry:bog_earth",
+  "name": "for.gui.book.patchouli.entry.core.bog_earth",
+  "category": "reforestry:core",
+  "pages": [
+    {
+      "type": "crafting",
+      "recipe": "reforestry:bog_earth_wax_capsule",
+      "text": "for.gui.book.patchouli.entry.core.bog_earth1"
+    },
+    {
+      "type": "reforestry:carpenter/single",
+      "item": "reforestry:bog_earth"
+    }
+  ]
+}

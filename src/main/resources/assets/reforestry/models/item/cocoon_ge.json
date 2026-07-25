@@ -1,0 +1,17 @@
+{
+  "parent": "reforestry:item/cocoon_early",
+  "overrides": [
+    {
+      "model": "reforestry:item/cocoon_middle",
+      "predicate": {
+        "reforestry:age": 1
+      }
+    },
+    {
+      "model": "reforestry:item/cocoon_late",
+      "predicate": {
+        "reforestry:age": 2
+      }
+    }
+  ]
+}

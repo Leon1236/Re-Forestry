@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/bee_comb_simmering",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -6809319
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -96456
+      }
+    ]
+  }
+}

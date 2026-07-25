@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "#reforestry:fireproof_macrocarpa_logs"
+  ],
+  "result": {
+    "count": 4,
+    "id": "reforestry:macrocarpa_fireproof_planks"
+  }
+}

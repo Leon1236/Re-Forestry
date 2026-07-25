@@ -1,0 +1,16 @@
+{
+  "icon": "reforestry:fertilizer_compound",
+  "name": "for.gui.book.patchouli.entry.core.fertilizer_compound",
+  "category": "reforestry:core",
+  "pages": [
+    {
+      "type": "crafting",
+      "recipe": "reforestry:fertilizer_ash",
+      "recipe2": "reforestry:fertilizer_apatite"
+    },
+    {
+      "type": "text",
+      "text": "for.gui.book.patchouli.entry.core.fertilizer_compound1"
+    }
+  ]
+}

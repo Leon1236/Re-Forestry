@@ -1,0 +1,7 @@
+{
+  "loader": "reforestry:fluid_container",
+  "gui_light": "front",
+  "empty": "item/glass_bottle",
+  "filled": "reforestry:item/glass_filled",
+  "type": "glass"
+}

@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/propolis_volcanic",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -1555160
+      }
+    ]
+  }
+}
