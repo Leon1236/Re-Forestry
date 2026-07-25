@@ -1,16 +1,26 @@
 package com.leon1236.reforestry.arboriculture.tiles;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureTiles;
+import com.leon1236.reforestry.arboriculture.genetics.ITreeSpecies;
 import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureArboriculture;
 import com.leon1236.reforestry.arboriculture.worldgen.SimpleTreeGenerator;
+import com.leon1236.reforestry.core.worldgen.FeatureBase;
+
+import java.util.Optional;
 
 public class TileSapling extends TileTreeContainer {
     private static final String NBT_TIMES_TICKED = "TimesTicked";
@@ -52,6 +62,12 @@ public class TileSapling extends TileTreeContainer {
         if (timesTicked < getRequiredMaturity()) {
             return true;
         }
+        Feature<NoneFeatureConfiguration> generator = genome.getActiveAllele(TreeChromosomes.SPECIES).value()
+                .getGenerator().getTreeFeature(genome.getActiveAllele(TreeChromosomes.SPECIES).value());
+        if (generator instanceof FeatureArboriculture arboricultureGenerator) {
+            arboricultureGenerator.preGenerate(genome, level, random, getBlockPos());
+            return arboricultureGenerator.getValidGrowthPos(level, getBlockPos()) != null;
+        }
         return SimpleTreeGenerator.findGrowthOrigin(level, genome, getBlockPos()) != null;
     }
 
@@ -69,6 +85,23 @@ public class TileSapling extends TileTreeContainer {
             return;
         }
 
-        SimpleTreeGenerator.grow(level, genome, random, getBlockPos());
+        ITreeSpecies species = genome.getActiveAllele(TreeChromosomes.SPECIES).value();
+        Feature<NoneFeatureConfiguration> generator = species.getGenerator().getTreeFeature(species);
+        if (generator instanceof FeatureBase base) {
+            base.place(genome, level, random, getBlockPos(), false);
+        } else if (level instanceof ServerLevel serverLevel) {
+            boolean generated = generator.place(new FeaturePlaceContext<>(
+                    Optional.empty(),
+                    serverLevel,
+                    serverLevel.getChunkSource().getGenerator(),
+                    random,
+                    getBlockPos(),
+                    FeatureConfiguration.NONE));
+            if (!generated) {
+                SimpleTreeGenerator.grow(level, genome, random, getBlockPos());
+            }
+        } else {
+            SimpleTreeGenerator.grow(level, genome, random, getBlockPos());
+        }
     }
 }

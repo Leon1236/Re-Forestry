@@ -1,18 +1,36 @@
 package com.leon1236.reforestry.core.utils;
 
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.Heightmap;
 
 public final class VecUtil {
+    public static final Comparator<BlockPos> TOP_DOWN_COMPARATOR = (a, b) -> Integer.compare(b.getY(), a.getY());
+
     private VecUtil() {
+    }
+
+    public static Direction direction(Vec3i a, Vec3i b) {
+        int x = Math.abs(a.getX() - b.getX());
+        int y = Math.abs(a.getY() - b.getY());
+        int z = Math.abs(a.getZ() - b.getZ());
+        int max = Math.max(x, Math.max(y, z));
+        if (max == x) {
+            return Direction.EAST;
+        } else if (max == z) {
+            return Direction.SOUTH;
+        } else {
+            return Direction.UP;
+        }
     }
 
     public static BlockPos getRandomPositionInArea(RandomSource random, Vec3i area) {

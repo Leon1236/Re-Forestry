@@ -26,7 +26,7 @@ import com.leon1236.reforestry.api.genetics.alleles.IRegistryAllele;
 import com.leon1236.reforestry.api.plugin.IMutationsRegistration;
 import com.leon1236.reforestry.api.plugin.ITreeSpeciesBuilder;
 import com.leon1236.reforestry.arboriculture.worldgen.DefaultTreeGenerator;
-import com.leon1236.reforestry.arboriculture.worldgen.FeatureSimpleTree;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureTreeVanilla;
 import com.leon1236.reforestry.core.genetics.mutations.MutationsRegistration;
 
 public final class TreeSpeciesBuilder implements ITreeSpeciesBuilder {
@@ -186,7 +186,7 @@ public final class TreeSpeciesBuilder implements ITreeSpeciesBuilder {
     ITreeSpecies buildSpecies() {
         ITreeGenerator resolvedGenerator = this.generator;
         if (resolvedGenerator == null) {
-            resolvedGenerator = new DefaultTreeGenerator(FeatureSimpleTree::new, this.woodType);
+            resolvedGenerator = new DefaultTreeGenerator(FeatureTreeVanilla::new, this.woodType);
         }
         return new TreeSpecies(
                 id,
