@@ -1,0 +1,26 @@
+{
+  "type": "reforestry:carpenter",
+  "time": 5,
+  "recipe": {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "key": {
+      "#": "minecraft:dirt",
+      "X": "reforestry:mulch"
+    },
+    "pattern": [
+      "###",
+      "#X#",
+      "###"
+    ],
+    "result": {
+      "id": "reforestry:humus",
+      "count": 9
+    },
+    "show_notification": true
+  },
+  "liquid": {
+    "fluid": "minecraft:water",
+    "amount": 1000
+  }
+}

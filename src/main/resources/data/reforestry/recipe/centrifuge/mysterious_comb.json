@@ -1,0 +1,15 @@
+{
+  "type": "reforestry:centrifuge",
+  "input": "reforestry:bee_comb_mysterious",
+  "time": 20,
+  "products": [
+    {
+      "item": "reforestry:propolis_pulsating",
+      "chance": 1.0
+    },
+    {
+      "item": "reforestry:honey_drop",
+      "chance": 0.4
+    }
+  ]
+}

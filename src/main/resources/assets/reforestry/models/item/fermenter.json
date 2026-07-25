@@ -1,3 +1,6 @@
 {
-    "parent": "reforestry:item/factory_tesr"
+  "parent": "reforestry:item/factory_tesr",
+  "textures": {
+    "particle": "reforestry:block/fermenter.0"
+  }
 }

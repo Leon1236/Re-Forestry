@@ -1,0 +1,13 @@
+{
+  "type": "reforestry:squeezer_container",
+  "container": {
+    "item": "reforestry:refractory",
+    "count": 1
+  },
+  "time": 10,
+  "remnants": {
+    "item": "reforestry:refractory_wax",
+    "count": 1
+  },
+  "remnantsChance": 0.1
+}

@@ -1,0 +1,13 @@
+{
+  "type": "reforestry:squeezer_container",
+  "container": {
+    "item": "reforestry:can",
+    "count": 1
+  },
+  "time": 10,
+  "remnants": {
+    "item": "reforestry:ingot_tin",
+    "count": 1
+  },
+  "remnantsChance": 0.05
+}

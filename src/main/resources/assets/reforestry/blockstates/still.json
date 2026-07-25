@@ -1,7 +1,8 @@
 {
   "variants": {
-    "": {
-      "model": "reforestry:block/still"
-    }
+    "facing=north": { "model": "reforestry:block/still" },
+    "facing=south": { "model": "reforestry:block/still", "y": 180 },
+    "facing=west": { "model": "reforestry:block/still", "y": 270 },
+    "facing=east": { "model": "reforestry:block/still", "y": 90 }
   }
 }

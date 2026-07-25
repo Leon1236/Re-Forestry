@@ -1,0 +1,19 @@
+{
+  "type": "reforestry:centrifuge",
+  "input": "reforestry:bee_comb_vintage",
+  "time": 20,
+  "products": [
+    {
+      "item": "reforestry:beeswax",
+      "chance": 1.0
+    },
+    {
+      "item": "reforestry:honeydew",
+      "chance": 0.9
+    },
+    {
+      "item": "reforestry:amber",
+      "chance": 0.5
+    }
+  ]
+}

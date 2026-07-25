@@ -1,0 +1,10 @@
+{
+  "model": {
+    "type": "minecraft:special",
+    "base": "reforestry:item/factory_tesr",
+    "model": {
+      "type": "reforestry:machine",
+      "texture": "fermenter_"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "reforestry:carpenter",
+  "time": 5,
+  "recipe": {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "key": {
+      "#": "reforestry:pollen_cluster_normal",
+      "X": "minecraft:gunpowder",
+      "Y": "reforestry:can",
+      "Z": "reforestry:honey_drop"
+    },
+    "pattern": [
+      "Z#Z",
+      "#Y#",
+      "X#X"
+    ],
+    "result": {
+      "id": "reforestry:iodine_capsule",
+      "count": 1
+    },
+    "show_notification": true
+  },
+  "liquid": {
+    "fluid": "minecraft:water",
+    "amount": 1000
+  }
+}

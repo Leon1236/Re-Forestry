@@ -1,0 +1,18 @@
+{
+  "type": "reforestry:squeezer",
+  "time": 60,
+  "resources": [
+    {
+      "item": "minecraft:honey_block"
+    }
+  ],
+  "output": {
+    "fluid": "reforestry:honey",
+    "amount": 800
+  },
+  "remnant": {
+    "item": "minecraft:air",
+    "count": 0
+  },
+  "chance": 0.0
+}

@@ -6,13 +6,16 @@ import com.leon1236.reforestry.api.climate.IClimateManager;
 import com.leon1236.reforestry.api.core.IErrorManager;
 import com.leon1236.reforestry.api.genetics.IAlleleManager;
 import com.leon1236.reforestry.api.modules.IModuleManager;
+import com.leon1236.reforestry.api.circuits.ICircuitManager;
 import com.leon1236.reforestry.apiculture.hives.HiveManager;
+import com.leon1236.reforestry.core.circuits.CircuitManager;
 import com.leon1236.reforestry.core.climate.ForestryClimateManager;
 import com.leon1236.reforestry.core.errors.ErrorManager;
 import com.leon1236.reforestry.core.genetics.alleles.AlleleManager;
 import com.leon1236.reforestry.modules.ModuleManager;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMultimap;
 
 public final class ForestryApiImpl implements IForestryApi {
     private static final ForestryApiImpl INSTANCE = new ForestryApiImpl();
@@ -20,6 +23,7 @@ public final class ForestryApiImpl implements IForestryApi {
     private final ForestryClimateManager climateManager = new ForestryClimateManager();
     private final ErrorManager errorManager = new ErrorManager();
     private IHiveManager hiveManager = new HiveManager(ImmutableMap.of());
+    private ICircuitManager circuitManager = new CircuitManager(ImmutableMultimap.of(), ImmutableMap.of(), ImmutableMap.of());
 
     private ForestryApiImpl() {
     }
@@ -34,6 +38,10 @@ public final class ForestryApiImpl implements IForestryApi {
 
     public void setHiveManager(IHiveManager hiveManager) {
         this.hiveManager = hiveManager;
+    }
+
+    public void setCircuitManager(ICircuitManager circuitManager) {
+        this.circuitManager = circuitManager;
     }
 
     @Override
@@ -59,5 +67,10 @@ public final class ForestryApiImpl implements IForestryApi {
     @Override
     public IHiveManager getHiveManager() {
         return hiveManager;
+    }
+
+    @Override
+    public ICircuitManager getCircuitManager() {
+        return circuitManager;
     }
 }

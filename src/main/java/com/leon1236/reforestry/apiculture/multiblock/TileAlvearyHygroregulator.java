@@ -1,7 +1,5 @@
 package com.leon1236.reforestry.apiculture.multiblock;
 
-import java.util.List;
-
 import org.jetbrains.annotations.Nullable;
 
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
@@ -11,6 +9,7 @@ import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Inventory;
@@ -27,25 +26,23 @@ import net.minecraft.world.level.storage.ValueOutput;
 import com.leon1236.reforestry.api.climate.IClimateControlled;
 import com.leon1236.reforestry.api.multiblock.IAlvearyComponent;
 import com.leon1236.reforestry.api.multiblock.IMultiblockComponent;
+import com.leon1236.reforestry.api.recipes.IHygroregulatorRecipe;
 import com.leon1236.reforestry.apiculture.blocks.BlockAlvearyType;
 import com.leon1236.reforestry.apiculture.gui.ContainerAlvearyHygroregulator;
 import com.leon1236.reforestry.apiculture.inventory.InventoryAlvearyPart;
+import com.leon1236.reforestry.core.recipes.RecipeUtils;
 
 public class TileAlvearyHygroregulator extends TileAlveary
 		implements IAlvearyComponent.Climatiser<MultiblockLogicAlveary>, IMultiblockComponent.HasInventory {
 	public static final int SLOT_INPUT = 0;
 	public static final long TANK_CAPACITY = FluidConstants.BUCKET * 10;
 
-	private static final List<HygroregulatorRecipe> RECIPES = List.of(
-			new HygroregulatorRecipe(Fluids.WATER, FluidConstants.BUCKET / 10, (byte) 1, (byte) 0, 20),
-			new HygroregulatorRecipe(Fluids.LAVA, FluidConstants.BUCKET / 10, (byte) -1, (byte) 1, 20));
-
 	private final SingleFluidStorage tank = SingleFluidStorage.withFixedCapacity(TANK_CAPACITY, this::setChanged);
 	private final InventoryAlvearyPart inventory = new InventoryAlvearyPart(1, this::setChanged,
 			(slot, stack) -> isFluidContainer(stack));
 
 	@Nullable
-	private HygroregulatorRecipe currentRecipe;
+	private IHygroregulatorRecipe currentRecipe;
 	private int heatTicks;
 
 	public TileAlvearyHygroregulator(BlockPos pos, BlockState state) {
@@ -64,9 +61,9 @@ public class TileAlvearyHygroregulator extends TileAlveary
 	@Override
 	public void changeClimate(int tickCount, IClimateControlled climateControlled) {
 		if (this.heatTicks <= 0) {
-			this.currentRecipe = recipeFor(this.tank.variant);
-			if (this.currentRecipe != null && drain(this.currentRecipe.amount())) {
-				this.heatTicks = this.currentRecipe.duration();
+			this.currentRecipe = resolveRecipe();
+			if (this.currentRecipe != null && drain(this.currentRecipe.getInputFluidAmount())) {
+				this.heatTicks = workDuration(this.currentRecipe);
 			} else {
 				this.currentRecipe = null;
 			}
@@ -77,14 +74,27 @@ public class TileAlvearyHygroregulator extends TileAlveary
 				this.heatTicks = 0;
 			} else {
 				this.heatTicks--;
-				climateControlled.addHumidityChange(this.currentRecipe.humiditySteps());
-				climateControlled.addTemperatureChange(this.currentRecipe.temperatureSteps());
+				climateControlled.addHumidityChange(this.currentRecipe.getHumiditySteps());
+				climateControlled.addTemperatureChange(this.currentRecipe.getTemperatureSteps());
 			}
 		}
 
 		if (tickCount % 20 == 0) {
 			drainContainer();
 		}
+	}
+
+	private static int workDuration(IHygroregulatorRecipe recipe) {
+		int retainTime = recipe.getRetainTime();
+		return retainTime > 0 ? retainTime : 20;
+	}
+
+	@Nullable
+	private IHygroregulatorRecipe resolveRecipe() {
+		if (this.level instanceof ServerLevel serverLevel) {
+			return RecipeUtils.getHygroregulatorRecipe(serverLevel, this.tank.variant, this.tank.amount);
+		}
+		return null;
 	}
 
 	private boolean drain(long amount) {
@@ -115,19 +125,6 @@ public class TileAlvearyHygroregulator extends TileAlveary
 	}
 
 	@Nullable
-	private static HygroregulatorRecipe recipeFor(FluidVariant variant) {
-		if (variant.isBlank()) {
-			return null;
-		}
-		for (HygroregulatorRecipe recipe : RECIPES) {
-			if (variant.getFluid() == recipe.fluid()) {
-				return recipe;
-			}
-		}
-		return null;
-	}
-
-	@Nullable
 	private static Fluid bucketFluid(ItemStack stack) {
 		if (stack.is(Items.WATER_BUCKET)) {
 			return Fluids.WATER;
@@ -147,7 +144,7 @@ public class TileAlvearyHygroregulator extends TileAlveary
 		super.loadAdditional(input);
 		this.tank.readValue(input.childOrEmpty("Tank"));
 		this.heatTicks = input.getIntOr("TransferTime", 0);
-		this.currentRecipe = recipeFor(this.tank.variant);
+		this.currentRecipe = resolveRecipe();
 
 		NonNullList<ItemStack> items = NonNullList.withSize(this.inventory.getContainerSize(), ItemStack.EMPTY);
 		ContainerHelper.loadAllItems(input, items);
@@ -168,8 +165,5 @@ public class TileAlvearyHygroregulator extends TileAlveary
 	@Override
 	public AbstractContainerMenu createMenu(int containerId, Inventory playerInventory, Player player) {
 		return new ContainerAlvearyHygroregulator(containerId, playerInventory, this);
-	}
-
-	private record HygroregulatorRecipe(Fluid fluid, long amount, byte humiditySteps, byte temperatureSteps, int duration) {
 	}
 }

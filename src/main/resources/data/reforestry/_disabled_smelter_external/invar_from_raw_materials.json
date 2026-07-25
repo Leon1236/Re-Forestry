@@ -1,0 +1,24 @@
+{
+  "type": "reforestry:smelter",
+  "inputs": [
+    {
+      "count": 2,
+      "ingredient": {
+        "tag": "c:raw_materials/iron"
+      }
+    },
+    {
+      "count": 1,
+      "ingredient": {
+        "tag": "c:raw_materials/nickel"
+      }
+    }
+  ],
+  "output": {
+    "count": 3,
+    "ingredient": {
+      "tag": "c:ingots/invar"
+    }
+  },
+  "processingTime": 40
+}

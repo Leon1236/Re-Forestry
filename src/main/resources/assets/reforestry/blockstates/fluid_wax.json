@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "reforestry:block/fluid_wax"
+    },
+    "level=1": {
+      "model": "reforestry:block/fluid_wax"
+    },
+    "level=2": {
+      "model": "reforestry:block/fluid_wax"
+    },
+    "level=3": {
+      "model": "reforestry:block/fluid_wax"
+    },
+    "level=4": {
+      "model": "reforestry:block/fluid_wax"
+    },
+    "level=5": {
+      "model": "reforestry:block/fluid_wax"
+    },
+    "level=6": {
+      "model": "reforestry:block/fluid_wax"
+    },
+    "level=7": {
+      "model": "reforestry:block/fluid_wax"
+    },
+    "level=8": {
+      "model": "reforestry:block/fluid_wax"
+    },
+    "level=9": {
+      "model": "reforestry:block/fluid_wax"
+    },
+    "level=10": {
+      "model": "reforestry:block/fluid_wax"
+    },
+    "level=11": {
+      "model": "reforestry:block/fluid_wax"
+    },
+    "level=12": {
+      "model": "reforestry:block/fluid_wax"
+    },
+    "level=13": {
+      "model": "reforestry:block/fluid_wax"
+    },
+    "level=14": {
+      "model": "reforestry:block/fluid_wax"
+    },
+    "level=15": {
+      "model": "reforestry:block/fluid_wax"
+    }
+  }
+}

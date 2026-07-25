@@ -1,6 +1,9 @@
 package com.leon1236.reforestry.core.features;
 
 import com.leon1236.reforestry.ReForestry;
+import com.leon1236.reforestry.core.fluids.ForestryFluids;
+import com.leon1236.reforestry.core.features.FluidsItems;
+import com.leon1236.reforestry.core.items.definitions.EnumContainerType;
 import com.leon1236.reforestry.modules.features.FeatureCreativeTab;
 import com.leon1236.reforestry.modules.features.FeatureItem;
 import com.leon1236.reforestry.modules.features.IFeatureRegistry;
@@ -42,6 +45,13 @@ public class CoreCreativeTabs {
             output.accept(CoreItems.COMPOST.item());
             output.accept(CoreItems.FERTILIZER_COMPOUND.item());
             output.accept(CoreItems.MULCH.item());
+            for (FeatureItem<?> feature : CoreItems.CIRCUITBOARDS.getAll().values()) {
+                output.accept(feature.item());
+            }
+            for (FeatureItem<?> feature : CoreItems.ELECTRON_TUBES.getAll().values()) {
+                output.accept(feature.item());
+            }
+            output.accept(CoreItems.SOLDERING_IRON.item());
             for (FeatureItem<?> feature : CoreItems.CRAFTING_MATERIALS.getAll().values()) {
                 output.accept(feature.item());
             }
@@ -58,6 +68,13 @@ public class CoreCreativeTabs {
             output.accept(CoreBlocks.TIN_ORE.item());
             output.accept(CoreBlocks.DEEPSLATE_TIN_ORE.item());
             output.accept(CoreBlocks.RAW_TIN_BLOCK.item());
+            for (ForestryFluids fluid : ForestryFluids.values()) {
+                output.accept(fluid.getBucket());
+            }
+            for (EnumContainerType type : EnumContainerType.values()) {
+                output.accept(FluidsItems.CONTAINERS.item(type));
+                output.accept(FluidsItems.createFilled(type, ForestryFluids.BIOMASS));
+            }
         });
     });
 

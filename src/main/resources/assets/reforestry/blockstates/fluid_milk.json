@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "reforestry:block/fluid_milk"
+    },
+    "level=1": {
+      "model": "reforestry:block/fluid_milk"
+    },
+    "level=2": {
+      "model": "reforestry:block/fluid_milk"
+    },
+    "level=3": {
+      "model": "reforestry:block/fluid_milk"
+    },
+    "level=4": {
+      "model": "reforestry:block/fluid_milk"
+    },
+    "level=5": {
+      "model": "reforestry:block/fluid_milk"
+    },
+    "level=6": {
+      "model": "reforestry:block/fluid_milk"
+    },
+    "level=7": {
+      "model": "reforestry:block/fluid_milk"
+    },
+    "level=8": {
+      "model": "reforestry:block/fluid_milk"
+    },
+    "level=9": {
+      "model": "reforestry:block/fluid_milk"
+    },
+    "level=10": {
+      "model": "reforestry:block/fluid_milk"
+    },
+    "level=11": {
+      "model": "reforestry:block/fluid_milk"
+    },
+    "level=12": {
+      "model": "reforestry:block/fluid_milk"
+    },
+    "level=13": {
+      "model": "reforestry:block/fluid_milk"
+    },
+    "level=14": {
+      "model": "reforestry:block/fluid_milk"
+    },
+    "level=15": {
+      "model": "reforestry:block/fluid_milk"
+    }
+  }
+}

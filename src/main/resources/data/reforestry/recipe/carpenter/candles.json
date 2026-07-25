@@ -1,0 +1,22 @@
+{
+  "type": "reforestry:carpenter",
+  "time": 5,
+  "recipe": {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "key": {
+      "#": "reforestry:beeswax",
+      "X": "minecraft:string"
+    },
+    "pattern": [
+      "# #",
+      " X ",
+      "# #"
+    ],
+    "result": {
+      "id": "minecraft:candle",
+      "count": 4
+    },
+    "show_notification": true
+  }
+}

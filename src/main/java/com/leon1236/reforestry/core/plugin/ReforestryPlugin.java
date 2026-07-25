@@ -9,11 +9,17 @@ import net.minecraft.world.level.block.Blocks;
 
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.api.apiculture.ForestryBeeEffects;
+import com.leon1236.reforestry.api.circuits.ForestryCircuitLayouts;
+import com.leon1236.reforestry.api.circuits.ForestryCircuitSocketTypes;
+import com.leon1236.reforestry.api.plugin.ICircuitRegistration;
 import com.leon1236.reforestry.api.plugin.IApicultureRegistration;
 import com.leon1236.reforestry.api.plugin.IArboricultureRegistration;
 import com.leon1236.reforestry.api.plugin.IForestryPlugin;
 import com.leon1236.reforestry.apiculture.features.ApicultureEffects;
 import com.leon1236.reforestry.apiculture.features.ApicultureItems;
+import com.leon1236.reforestry.core.circuits.EnumElectronTube;
+import com.leon1236.reforestry.core.features.CoreItems;
+import com.leon1236.reforestry.factory.circuits.CircuitMachineUpgrade;
 import com.leon1236.reforestry.apiculture.genetics.DefaultBeeSpecies;
 import com.leon1236.reforestry.apiculture.genetics.effects.AggressiveBeeEffect;
 import com.leon1236.reforestry.apiculture.genetics.effects.DummyBeeEffect;
@@ -139,5 +145,19 @@ public final class ReforestryPlugin implements IForestryPlugin {
         registration.registerCharcoalPitWall(Blocks.DIRT, 2);
         registration.registerCharcoalPitWall(Blocks.GRAVEL, 1);
         registration.registerCharcoalPitWall(Blocks.NETHERRACK, 3);
+    }
+
+    @Override
+    public void registerCircuits(ICircuitRegistration circuits) {
+        circuits.registerLayout(ForestryCircuitLayouts.MACHINE_UPGRADE, ForestryCircuitSocketTypes.MACHINE);
+        circuits.registerCircuit(ForestryCircuitLayouts.MACHINE_UPGRADE,
+                new ItemStack(CoreItems.ELECTRON_TUBES.get(EnumElectronTube.BLAZE).item()),
+                new CircuitMachineUpgrade("machine.speed.boost.1", 0.125, 0.05f, 1.0f));
+        circuits.registerCircuit(ForestryCircuitLayouts.MACHINE_UPGRADE,
+                new ItemStack(CoreItems.ELECTRON_TUBES.get(EnumElectronTube.GOLD).item()),
+                new CircuitMachineUpgrade("machine.efficiency.1", 0, -0.10f, 1.0f));
+        circuits.registerCircuit(ForestryCircuitLayouts.MACHINE_UPGRADE,
+                new ItemStack(CoreItems.ELECTRON_TUBES.get(EnumElectronTube.AMBER).item()),
+                new CircuitMachineUpgrade("machine.fortune.1", 0, 0.05f, 1.25f));
     }
 }

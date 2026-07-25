@@ -1,0 +1,13 @@
+{
+  "type": "reforestry:fermenter",
+  "resource": {
+    "tag": "c:crops/potato"
+  },
+  "fluidResource": {
+    "fluid": "minecraft:water",
+    "amount": 1
+  },
+  "fermentationValue": 100,
+  "modifier": 1.0,
+  "output": "reforestry:biomass"
+}

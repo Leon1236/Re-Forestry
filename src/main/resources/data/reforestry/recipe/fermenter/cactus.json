@@ -1,0 +1,13 @@
+{
+  "type": "reforestry:fermenter",
+  "resource": {
+    "item": "minecraft:cactus"
+  },
+  "fluidResource": {
+    "fluid": "minecraft:water",
+    "amount": 1
+  },
+  "fermentationValue": 50,
+  "modifier": 1.0,
+  "output": "reforestry:biomass"
+}

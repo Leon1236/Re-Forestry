@@ -24,10 +24,17 @@ import com.leon1236.reforestry.core.errors.ErrorManager;
 import com.leon1236.reforestry.core.features.CoreBlocks;
 import com.leon1236.reforestry.core.features.CoreCreativeTabs;
 import com.leon1236.reforestry.core.features.CoreItems;
+import com.leon1236.reforestry.core.features.CoreMenuTypes;
+import com.leon1236.reforestry.core.features.CoreTiles;
+import com.leon1236.reforestry.core.features.FluidsItems;
+import com.leon1236.reforestry.core.fluids.ForestryFluids;
 import com.leon1236.reforestry.core.multiblock.MultiblockEventHandler;
+import com.leon1236.reforestry.core.plugin.PluginManager;
 
 @ForestryModule(name = "Core", description = "Shared foundation the other modules build on.")
 public class ModuleCore implements IForestryModule {
+    private static boolean circuitsRegistered;
+
     @Override
     public Identifier getId() {
         return ReForestry.id("core");
@@ -43,7 +50,11 @@ public class ModuleCore implements IForestryModule {
         registerErrors();
         ForestryConfig.init();
         CoreItems.init();
+        CoreMenuTypes.init();
         CoreBlocks.init();
+        ForestryFluids.init();
+        FluidsItems.init();
+        CoreTiles.init();
         CoreCreativeTabs.init();
         BeeManager.armorApiaristHelper = new ArmorApiaristHelper();
         MultiblockEventHandler.register();
@@ -64,6 +75,10 @@ public class ModuleCore implements IForestryModule {
 
     private static void registerClimateReloadHooks() {
         CommonLifecycleEvents.TAGS_LOADED.register((registries, client) -> {
+            if (!circuitsRegistered) {
+                PluginManager.runCircuitRegistration();
+                circuitsRegistered = true;
+            }
             if (!client) {
                 reloadBiomes(registries.lookupOrThrow(Registries.BIOME));
             }

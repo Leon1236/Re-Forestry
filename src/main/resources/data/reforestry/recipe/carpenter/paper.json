@@ -1,0 +1,24 @@
+{
+  "type": "reforestry:carpenter",
+  "time": 5,
+  "recipe": {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "key": {
+      "#": "reforestry:wood_pulp"
+    },
+    "pattern": [
+      "#",
+      "#"
+    ],
+    "result": {
+      "id": "minecraft:paper",
+      "count": 1
+    },
+    "show_notification": true
+  },
+  "liquid": {
+    "fluid": "minecraft:water",
+    "amount": 250
+  }
+}

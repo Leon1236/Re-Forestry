@@ -1,0 +1,15 @@
+{
+  "type": "reforestry:centrifuge",
+  "input": "reforestry:bee_comb_cocoa",
+  "time": 20,
+  "products": [
+    {
+      "item": "reforestry:beeswax",
+      "chance": 1.0
+    },
+    {
+      "item": "minecraft:cocoa_beans",
+      "chance": 0.5
+    }
+  ]
+}

@@ -1,12 +1,12 @@
 {
-    "parent": "block/cube",
-    "textures": {
-      "particle": "reforestry:block/tradestation.4",
-      "down": "reforestry:block/tradestation.0",
-      "up": "reforestry:block/tradestation.1",
-      "north": "reforestry:block/tradestation.3",
-      "east": "reforestry:block/tradestation.4",
-      "south": "reforestry:block/tradestation.2",
-      "west": "reforestry:block/tradestation.4"
-    }
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "reforestry:block/tradestation.4",
+    "down": "reforestry:block/tradestation.0",
+    "up": "reforestry:block/tradestation.1",
+    "north": "reforestry:block/tradestation.3",
+    "east": "reforestry:block/tradestation.4",
+    "south": "reforestry:block/tradestation.2",
+    "west": "reforestry:block/tradestation.4"
+  }
 }

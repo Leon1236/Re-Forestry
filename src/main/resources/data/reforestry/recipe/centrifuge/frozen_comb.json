@@ -1,0 +1,23 @@
+{
+  "type": "reforestry:centrifuge",
+  "input": "reforestry:bee_comb_frozen",
+  "time": 20,
+  "products": [
+    {
+      "item": "reforestry:beeswax",
+      "chance": 0.8
+    },
+    {
+      "item": "reforestry:honey_drop",
+      "chance": 0.7
+    },
+    {
+      "item": "minecraft:snowball",
+      "chance": 0.4
+    },
+    {
+      "item": "reforestry:pollen_cluster_crystalline",
+      "chance": 0.2
+    }
+  ]
+}

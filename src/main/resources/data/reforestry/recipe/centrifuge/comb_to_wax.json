@@ -1,0 +1,11 @@
+{
+  "type": "reforestry:centrifuge",
+  "input": "minecraft:honeycomb",
+  "time": 20,
+  "products": [
+    {
+      "item": "reforestry:beeswax",
+      "chance": 1.0
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+package com.leon1236.reforestry.core.recipes;
+
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.world.item.crafting.Ingredient;
+
+import com.leon1236.reforestry.core.recipes.LegacyIngredientCodec;
+
+public record IngredientStack(Ingredient ingredient, int count) {
+    public static final Codec<IngredientStack> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+            LegacyIngredientCodec.CODEC.fieldOf("ingredient").forGetter(IngredientStack::ingredient),
+            Codec.intRange(1, Integer.MAX_VALUE).fieldOf("count").forGetter(IngredientStack::count)
+    ).apply(instance, IngredientStack::new));
+
+    public static final StreamCodec<RegistryFriendlyByteBuf, IngredientStack> STREAM_CODEC = StreamCodec.composite(
+            Ingredient.CONTENTS_STREAM_CODEC, IngredientStack::ingredient,
+            ByteBufCodecs.VAR_INT, IngredientStack::count,
+            IngredientStack::new
+    );
+}

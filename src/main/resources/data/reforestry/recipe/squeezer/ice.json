@@ -1,0 +1,30 @@
+{
+  "type": "reforestry:squeezer",
+  "time": 10,
+  "resources": [
+    {
+      "item": "minecraft:snowball"
+    },
+    {
+      "item": "reforestry:ice_shard"
+    },
+    {
+      "item": "reforestry:ice_shard"
+    },
+    {
+      "item": "reforestry:ice_shard"
+    },
+    {
+      "item": "reforestry:ice_shard"
+    }
+  ],
+  "output": {
+    "fluid": "reforestry:ice",
+    "amount": 4000
+  },
+  "remnant": {
+    "item": "minecraft:air",
+    "count": 0
+  },
+  "chance": 0.0
+}

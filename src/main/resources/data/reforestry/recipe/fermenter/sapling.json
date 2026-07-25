@@ -1,0 +1,13 @@
+{
+  "type": "reforestry:fermenter",
+  "resource": {
+    "tag": "minecraft:saplings"
+  },
+  "fluidResource": {
+    "fluid": "minecraft:water",
+    "amount": 1
+  },
+  "fermentationValue": 250,
+  "modifier": 1.0,
+  "output": "reforestry:biomass"
+}

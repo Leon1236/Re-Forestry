@@ -1,0 +1,27 @@
+{
+  "type": "reforestry:carpenter",
+  "time": 5,
+  "recipe": {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "key": {
+      "#": "minecraft:dirt",
+      "X": "#minecraft:sand",
+      "Y": "reforestry:mulch"
+    },
+    "pattern": [
+      "#X#",
+      "XYX",
+      "#X#"
+    ],
+    "result": {
+      "id": "reforestry:bog_earth",
+      "count": 8
+    },
+    "show_notification": true
+  },
+  "liquid": {
+    "fluid": "minecraft:water",
+    "amount": 1000
+  }
+}

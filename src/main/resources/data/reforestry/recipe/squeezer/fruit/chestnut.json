@@ -1,0 +1,18 @@
+{
+  "type": "reforestry:squeezer",
+  "time": 70,
+  "resources": [
+    {
+      "tag": "c:fruits/chestnut"
+    }
+  ],
+  "output": {
+    "fluid": "reforestry:seed_oil",
+    "amount": 80
+  },
+  "remnant": {
+    "item": "reforestry:mulch",
+    "count": 1
+  },
+  "chance": 0.02
+}

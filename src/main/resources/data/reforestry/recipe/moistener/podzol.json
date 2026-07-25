@@ -1,0 +1,11 @@
+{
+  "type": "reforestry:moistener",
+  "resource": {
+    "item": "minecraft:spruce_leaves"
+  },
+  "product": {
+    "count": 1,
+    "item": "minecraft:podzol"
+  },
+  "time": 5000
+}

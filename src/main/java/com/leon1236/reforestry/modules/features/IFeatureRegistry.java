@@ -3,6 +3,7 @@ package com.leon1236.reforestry.modules.features;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
 import org.jetbrains.annotations.Nullable;
@@ -24,6 +25,8 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -102,5 +105,10 @@ public interface IFeatureRegistry {
     default <T extends ParticleOptions> FeatureParticleType<T> particleType(String name, ParticleType<T> type) {
         Identifier registryId = Identifier.fromNamespaceAndPath(getModuleId().getNamespace(), name);
         return new FeatureParticleType<>(getModuleId(), name, registryId, type);
+    }
+
+    default <R extends Recipe<?>> FeatureRecipeType<R> recipeType(String name, Supplier<RecipeSerializer<? extends R>> serializer) {
+        Identifier registryId = Identifier.fromNamespaceAndPath(getModuleId().getNamespace(), name);
+        return new FeatureRecipeType<>(getModuleId(), name, registryId, serializer);
     }
 }

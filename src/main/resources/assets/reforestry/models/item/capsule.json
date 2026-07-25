@@ -1,10 +1,6 @@
 {
-  "loader": "reforestry:fluid_container",
-  "parent": "forge:item/default",
-  "gui_light": "front",
+  "parent": "minecraft:item/generated",
   "textures": {
-    "base": "reforestry:item/liquids/capsule.bottle",
-    "fluid": "reforestry:item/liquids/capsule.contents"
+    "layer0": "reforestry:item/liquids/capsule.bottle"
   }
 }
-

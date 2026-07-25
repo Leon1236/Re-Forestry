@@ -1,0 +1,9 @@
+{
+  "parent": "reforestry:block/machines/base_machine",
+  "textures": {
+    "base": "reforestry:block/machines/smelter/base",
+    "product_tank": "reforestry:block/machines/tank_empty",
+    "resource_tank": "reforestry:block/machines/tank_empty",
+    "particle": "reforestry:block/machines/smelter/particles"
+  }
+}

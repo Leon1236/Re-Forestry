@@ -1,5 +1,6 @@
 {
+  "parent": "minecraft:block/cube_all",
   "textures": {
-    "particle": "reforestry:block/analyzer.0"
+    "all": "reforestry:block/analyzer.0"
   }
 }

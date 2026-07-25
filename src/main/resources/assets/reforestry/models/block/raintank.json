@@ -1,12 +1,12 @@
 {
-    "parent": "block/cube",
-    "textures": {
-      "particle": "reforestry:block/raintank.0",
-      "down": "reforestry:block/raintank.0",
-      "up": "reforestry:block/raintank.1",
-      "north": "reforestry:block/raintank.0",
-      "east": "reforestry:block/raintank.0",
-      "south": "reforestry:block/raintank.0",
-      "west": "reforestry:block/raintank.0"
-    }
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "reforestry:block/raintank.0",
+    "down": "reforestry:block/raintank.0",
+    "up": "reforestry:block/raintank.1",
+    "north": "reforestry:block/raintank.0",
+    "east": "reforestry:block/raintank.0",
+    "south": "reforestry:block/raintank.0",
+    "west": "reforestry:block/raintank.0"
+  }
 }

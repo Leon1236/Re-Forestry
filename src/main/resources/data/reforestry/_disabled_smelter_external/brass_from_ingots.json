@@ -1,0 +1,24 @@
+{
+  "type": "reforestry:smelter",
+  "inputs": [
+    {
+      "count": 1,
+      "ingredient": {
+        "tag": "c:ingots/copper"
+      }
+    },
+    {
+      "count": 1,
+      "ingredient": {
+        "tag": "c:ingots/zinc"
+      }
+    }
+  ],
+  "output": {
+    "count": 2,
+    "ingredient": {
+      "tag": "c:ingots/brass"
+    }
+  },
+  "processingTime": 40
+}

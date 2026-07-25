@@ -1,0 +1,18 @@
+{
+  "type": "reforestry:squeezer",
+  "time": 10,
+  "resources": [
+    {
+      "tag": "c:seeds"
+    }
+  ],
+  "output": {
+    "fluid": "reforestry:seed_oil",
+    "amount": 10
+  },
+  "remnant": {
+    "item": "minecraft:air",
+    "count": 0
+  },
+  "chance": 0.0
+}

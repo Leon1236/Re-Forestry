@@ -1,0 +1,18 @@
+{
+  "type": "reforestry:squeezer",
+  "time": 10,
+  "resources": [
+    {
+      "tag": "c:fruits/papaya"
+    }
+  ],
+  "output": {
+    "fluid": "reforestry:juice",
+    "amount": 600
+  },
+  "remnant": {
+    "item": "reforestry:mulch",
+    "count": 1
+  },
+  "chance": 0.1
+}

@@ -16,6 +16,8 @@ import com.leon1236.reforestry.core.blocks.BlockBogEarth;
 import com.leon1236.reforestry.core.blocks.BlockHumus;
 import com.leon1236.reforestry.core.blocks.BlockResourceStorage;
 import com.leon1236.reforestry.core.blocks.EnumResourceType;
+import com.leon1236.reforestry.core.energy.BlockCreativeEnergy;
+import com.leon1236.reforestry.core.energy.BlockDebugPowered;
 import com.leon1236.reforestry.modules.features.FeatureBlock;
 import com.leon1236.reforestry.modules.features.FeatureBlockGroup;
 import com.leon1236.reforestry.modules.features.IFeatureRegistry;
@@ -66,6 +68,12 @@ public class CoreBlocks {
     public static final FeatureBlock<Block> RAW_TIN_BLOCK = REGISTRY.block("raw_tin_block",
             properties -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RAW_COPPER_BLOCK).setId(key("raw_tin_block"))),
             BlockItem::new);
+
+    public static final FeatureBlock<BlockCreativeEnergy> CREATIVE_ENERGY = REGISTRY.block("debug_creative_energy",
+            BlockCreativeEnergy::new, BlockItem::new);
+
+    public static final FeatureBlock<BlockDebugPowered> DEBUG_POWERED = REGISTRY.block("debug_powered",
+            BlockDebugPowered::new, BlockItem::new);
 
     public static void init() {
     }

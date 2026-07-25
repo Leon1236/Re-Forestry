@@ -1,0 +1,13 @@
+{
+  "type": "reforestry:fermenter",
+  "resource": {
+    "tag": "c:mushrooms"
+  },
+  "fluidResource": {
+    "fluid": "reforestry:honey",
+    "amount": 1
+  },
+  "fermentationValue": 50,
+  "modifier": 1.5,
+  "output": "reforestry:biomass"
+}

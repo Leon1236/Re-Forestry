@@ -1,0 +1,15 @@
+{
+  "type": "reforestry:carpenter",
+  "time": 5,
+  "recipe": {
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+      "reforestry:broken_bronze_pickaxe"
+    ],
+    "result": {
+      "id": "reforestry:ingot_bronze",
+      "count": 2
+    }
+  }
+}

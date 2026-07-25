@@ -1,7 +1,8 @@
 {
   "variants": {
-    "": {
-      "model": "reforestry:block/moistener"
-    }
+    "facing=north": { "model": "reforestry:block/moistener" },
+    "facing=south": { "model": "reforestry:block/moistener", "y": 180 },
+    "facing=west": { "model": "reforestry:block/moistener", "y": 270 },
+    "facing=east": { "model": "reforestry:block/moistener", "y": 90 }
   }
 }

@@ -1,0 +1,19 @@
+{
+  "type": "reforestry:centrifuge",
+  "input": "reforestry:bee_comb_sculken",
+  "time": 20,
+  "products": [
+    {
+      "item": "reforestry:beeswax",
+      "chance": 1.0
+    },
+    {
+      "item": "reforestry:experience_drop",
+      "chance": 0.9
+    },
+    {
+      "item": "minecraft:sculk",
+      "chance": 0.2
+    }
+  ]
+}

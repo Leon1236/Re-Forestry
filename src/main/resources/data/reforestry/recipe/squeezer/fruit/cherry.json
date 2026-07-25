@@ -1,0 +1,18 @@
+{
+  "type": "reforestry:squeezer",
+  "time": 20,
+  "resources": [
+    {
+      "tag": "c:fruits/cherry"
+    }
+  ],
+  "output": {
+    "fluid": "reforestry:juice",
+    "amount": 50
+  },
+  "remnant": {
+    "item": "reforestry:mulch",
+    "count": 1
+  },
+  "chance": 0.05
+}

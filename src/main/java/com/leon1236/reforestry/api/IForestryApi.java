@@ -1,5 +1,6 @@
 package com.leon1236.reforestry.api;
 
+import com.leon1236.reforestry.api.circuits.ICircuitManager;
 import com.leon1236.reforestry.api.apiculture.hives.IHiveManager;
 import com.leon1236.reforestry.api.climate.IClimateManager;
 import com.leon1236.reforestry.api.core.IErrorManager;
@@ -19,4 +20,6 @@ public interface IForestryApi {
     IErrorManager getErrorManager();
 
     IHiveManager getHiveManager();
+
+    ICircuitManager getCircuitManager();
 }

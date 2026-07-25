@@ -1,0 +1,15 @@
+{
+  "type": "reforestry:centrifuge",
+  "input": "reforestry:bee_comb_silky",
+  "time": 20,
+  "products": [
+    {
+      "item": "reforestry:honey_drop",
+      "chance": 1.0
+    },
+    {
+      "item": "reforestry:propolis_silky",
+      "chance": 0.8
+    }
+  ]
+}

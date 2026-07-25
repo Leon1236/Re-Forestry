@@ -1,0 +1,19 @@
+{
+  "type": "reforestry:fabricator_smelting",
+  "resource": [
+    {
+      "item": "minecraft:sandstone"
+    },
+    {
+      "item": "minecraft:smooth_sandstone"
+    },
+    {
+      "item": "minecraft:chiseled_sandstone"
+    }
+  ],
+  "product": {
+    "fluid": "reforestry:glass",
+    "amount": 4000
+  },
+  "melting": 4800
+}

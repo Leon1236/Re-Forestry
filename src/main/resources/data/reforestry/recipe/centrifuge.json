@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "#c:glass_blocks/colorless",
+    "X": "#c:ingots/copper",
+    "Y": "reforestry:sturdy_machine"
+  },
+  "pattern": [
+    "X#X",
+    "XYX",
+    "X#X"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:centrifuge"
+  }
+}

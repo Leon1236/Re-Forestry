@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/electron_tube_ender",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -14330271
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -13390419
+      }
+    ]
+  }
+}

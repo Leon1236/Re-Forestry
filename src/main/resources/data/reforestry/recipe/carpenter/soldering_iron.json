@@ -1,0 +1,26 @@
+{
+  "type": "reforestry:carpenter",
+  "time": 40,
+  "recipe": {
+    "type": "minecraft:crafting_shaped",
+    "category": "equipment",
+    "key": {
+      "#": "#c:ingots/iron",
+      "B": "#c:ingots/bronze"
+    },
+    "pattern": [
+      " # ",
+      "# #",
+      "  B"
+    ],
+    "result": {
+      "id": "reforestry:soldering_iron",
+      "count": 1
+    },
+    "show_notification": true
+  },
+  "liquid": {
+    "fluid": "minecraft:water",
+    "amount": 1000
+  }
+}

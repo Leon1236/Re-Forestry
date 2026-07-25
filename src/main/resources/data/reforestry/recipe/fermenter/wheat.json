@@ -1,0 +1,11 @@
+{
+  "type": "reforestry:fermenter",
+  "resource": "minecraft:wheat",
+  "fluidResource": {
+    "fluid": "minecraft:water",
+    "amount": 1
+  },
+  "fermentationValue": 50,
+  "modifier": 1.0,
+  "output": "reforestry:biomass"
+}

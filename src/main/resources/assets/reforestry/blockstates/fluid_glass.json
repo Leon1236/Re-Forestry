@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "reforestry:block/fluid_glass"
+    },
+    "level=1": {
+      "model": "reforestry:block/fluid_glass"
+    },
+    "level=2": {
+      "model": "reforestry:block/fluid_glass"
+    },
+    "level=3": {
+      "model": "reforestry:block/fluid_glass"
+    },
+    "level=4": {
+      "model": "reforestry:block/fluid_glass"
+    },
+    "level=5": {
+      "model": "reforestry:block/fluid_glass"
+    },
+    "level=6": {
+      "model": "reforestry:block/fluid_glass"
+    },
+    "level=7": {
+      "model": "reforestry:block/fluid_glass"
+    },
+    "level=8": {
+      "model": "reforestry:block/fluid_glass"
+    },
+    "level=9": {
+      "model": "reforestry:block/fluid_glass"
+    },
+    "level=10": {
+      "model": "reforestry:block/fluid_glass"
+    },
+    "level=11": {
+      "model": "reforestry:block/fluid_glass"
+    },
+    "level=12": {
+      "model": "reforestry:block/fluid_glass"
+    },
+    "level=13": {
+      "model": "reforestry:block/fluid_glass"
+    },
+    "level=14": {
+      "model": "reforestry:block/fluid_glass"
+    },
+    "level=15": {
+      "model": "reforestry:block/fluid_glass"
+    }
+  }
+}

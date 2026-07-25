@@ -1,12 +1,12 @@
 {
-    "parent": "block/cube",
-    "textures": {
-      "particle": "reforestry:block/apiary.4",
-      "down": "reforestry:block/apiary.0",
-      "up": "reforestry:block/apiary.1",
-      "north": "reforestry:block/apiary.2",
-      "east": "reforestry:block/apiary.4",
-      "south": "reforestry:block/apiary.4",
-      "west": "reforestry:block/apiary.4"
-    }
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "reforestry:block/apiary.4",
+    "down": "reforestry:block/apiary.0",
+    "up": "reforestry:block/apiary.1",
+    "north": "reforestry:block/apiary.2",
+    "east": "reforestry:block/apiary.4",
+    "south": "reforestry:block/apiary.4",
+    "west": "reforestry:block/apiary.4"
+  }
 }

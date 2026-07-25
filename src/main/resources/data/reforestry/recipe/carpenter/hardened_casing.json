@@ -1,0 +1,26 @@
+{
+  "type": "reforestry:carpenter",
+  "time": 75,
+  "recipe": {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "key": {
+      "X": "minecraft:diamond",
+      "Y": "reforestry:sturdy_machine"
+    },
+    "pattern": [
+      "X X",
+      " Y ",
+      "X X"
+    ],
+    "result": {
+      "id": "reforestry:hardened_machine",
+      "count": 1
+    },
+    "show_notification": true
+  },
+  "liquid": {
+    "fluid": "minecraft:water",
+    "amount": 5000
+  }
+}

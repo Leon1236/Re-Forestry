@@ -1,0 +1,12 @@
+{
+  "type": "reforestry:still",
+  "input": {
+    "fluid": "reforestry:biomass",
+    "amount": 10
+  },
+  "output": {
+    "fluid": "reforestry:bio_ethanol",
+    "amount": 3
+  },
+  "time": 100
+}

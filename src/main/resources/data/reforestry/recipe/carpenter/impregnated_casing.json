@@ -1,0 +1,25 @@
+{
+  "type": "reforestry:carpenter",
+  "time": 50,
+  "recipe": {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "key": {
+      "#": "#minecraft:logs"
+    },
+    "pattern": [
+      "###",
+      "# #",
+      "###"
+    ],
+    "result": {
+      "id": "reforestry:impregnated_casing",
+      "count": 1
+    },
+    "show_notification": true
+  },
+  "liquid": {
+    "fluid": "reforestry:seed_oil",
+    "amount": 250
+  }
+}

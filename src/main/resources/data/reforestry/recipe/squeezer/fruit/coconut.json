@@ -1,0 +1,18 @@
+{
+  "type": "reforestry:squeezer",
+  "time": 10,
+  "resources": [
+    {
+      "tag": "c:fruits/coconut"
+    }
+  ],
+  "output": {
+    "fluid": "reforestry:milk",
+    "amount": 500
+  },
+  "remnant": {
+    "item": "reforestry:mulch",
+    "count": 1
+  },
+  "chance": 0.25
+}

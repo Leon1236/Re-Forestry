@@ -1,7 +1,8 @@
 {
   "variants": {
-    "": {
-      "model": "reforestry:block/squeezer"
-    }
+    "facing=north": { "model": "reforestry:block/squeezer" },
+    "facing=south": { "model": "reforestry:block/squeezer", "y": 180 },
+    "facing=west": { "model": "reforestry:block/squeezer", "y": 270 },
+    "facing=east": { "model": "reforestry:block/squeezer", "y": 90 }
   }
 }

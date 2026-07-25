@@ -1,0 +1,21 @@
+{
+  "type": "reforestry:carpenter",
+  "time": 100,
+  "recipe": {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "key": {
+      "#": "reforestry:pulsating_mesh"
+    },
+    "pattern": [
+      " # ",
+      "###",
+      " # "
+    ],
+    "result": {
+      "id": "minecraft:ender_pearl",
+      "count": 1
+    },
+    "show_notification": true
+  }
+}

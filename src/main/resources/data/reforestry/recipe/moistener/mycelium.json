@@ -1,0 +1,11 @@
+{
+  "type": "reforestry:moistener",
+  "resource": {
+    "item": "minecraft:wheat_seeds"
+  },
+  "product": {
+    "count": 1,
+    "item": "minecraft:mycelium"
+  },
+  "time": 5000
+}

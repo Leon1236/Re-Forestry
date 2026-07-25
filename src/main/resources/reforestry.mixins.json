@@ -7,7 +7,8 @@
 	],
 	"client": [
 		"client.ItemTintSourcesMixin",
-		"client.SelectItemModelPropertiesMixin"
+		"client.SelectItemModelPropertiesMixin",
+		"client.SpecialModelRenderersMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

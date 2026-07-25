@@ -1,0 +1,26 @@
+{
+  "type": "reforestry:squeezer",
+  "time": 20,
+  "resources": [
+    {
+      "item": "reforestry:phosphor"
+    },
+    [
+      {
+        "item": "minecraft:sand"
+      },
+      {
+        "item": "minecraft:red_sand"
+      }
+    ]
+  ],
+  "output": {
+    "fluid": "minecraft:lava",
+    "amount": 500
+  },
+  "remnant": {
+    "item": "minecraft:air",
+    "count": 0
+  },
+  "chance": 0.0
+}

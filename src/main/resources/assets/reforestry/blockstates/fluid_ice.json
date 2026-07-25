@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "reforestry:block/fluid_ice"
+    },
+    "level=1": {
+      "model": "reforestry:block/fluid_ice"
+    },
+    "level=2": {
+      "model": "reforestry:block/fluid_ice"
+    },
+    "level=3": {
+      "model": "reforestry:block/fluid_ice"
+    },
+    "level=4": {
+      "model": "reforestry:block/fluid_ice"
+    },
+    "level=5": {
+      "model": "reforestry:block/fluid_ice"
+    },
+    "level=6": {
+      "model": "reforestry:block/fluid_ice"
+    },
+    "level=7": {
+      "model": "reforestry:block/fluid_ice"
+    },
+    "level=8": {
+      "model": "reforestry:block/fluid_ice"
+    },
+    "level=9": {
+      "model": "reforestry:block/fluid_ice"
+    },
+    "level=10": {
+      "model": "reforestry:block/fluid_ice"
+    },
+    "level=11": {
+      "model": "reforestry:block/fluid_ice"
+    },
+    "level=12": {
+      "model": "reforestry:block/fluid_ice"
+    },
+    "level=13": {
+      "model": "reforestry:block/fluid_ice"
+    },
+    "level=14": {
+      "model": "reforestry:block/fluid_ice"
+    },
+    "level=15": {
+      "model": "reforestry:block/fluid_ice"
+    }
+  }
+}

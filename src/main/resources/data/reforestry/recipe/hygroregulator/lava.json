@@ -1,0 +1,10 @@
+{
+  "type": "reforestry:hygroregulator",
+  "liquid": {
+    "fluid": "minecraft:lava",
+    "amount": 1
+  },
+  "humidity_steps": -1,
+  "temperature_steps": 1,
+  "time": 0
+}

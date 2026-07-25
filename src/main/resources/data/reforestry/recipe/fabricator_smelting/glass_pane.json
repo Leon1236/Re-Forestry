@@ -1,0 +1,11 @@
+{
+  "type": "reforestry:fabricator_smelting",
+  "resource": {
+    "item": "minecraft:glass_pane"
+  },
+  "product": {
+    "fluid": "reforestry:glass",
+    "amount": 375
+  },
+  "melting": 1000
+}

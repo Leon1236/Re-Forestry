@@ -1,0 +1,13 @@
+{
+  "type": "reforestry:squeezer_container",
+  "container": {
+    "item": "reforestry:capsule",
+    "count": 1
+  },
+  "time": 10,
+  "remnants": {
+    "item": "reforestry:beeswax",
+    "count": 1
+  },
+  "remnantsChance": 0.1
+}

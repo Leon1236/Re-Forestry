@@ -14,4 +14,7 @@ public interface IForestryPlugin {
 
     default void registerArboriculture(IArboricultureRegistration registration) {
     }
+
+    default void registerCircuits(ICircuitRegistration registration) {
+    }
 }

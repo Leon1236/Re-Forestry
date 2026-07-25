@@ -10,6 +10,7 @@ import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.api.plugin.IForestryPlugin;
 import com.leon1236.reforestry.arboriculture.charcoal.CharcoalManager;
 import com.leon1236.reforestry.core.ForestryApiImpl;
+import com.leon1236.reforestry.core.circuits.CircuitManager;
 
 public final class PluginManager {
     private static final String PLUGIN_ENTRYPOINT_KEY = "reforestry:plugin";
@@ -34,6 +35,18 @@ public final class PluginManager {
             plugin.registerArboriculture(registration);
         }
         CharcoalManager.setInstance(registration.getCharcoalManager());
+    }
+
+    public static void runCircuitRegistration() {
+        CircuitRegistrationImpl registration = new CircuitRegistrationImpl();
+        for (IForestryPlugin plugin : plugins()) {
+            plugin.registerCircuits(registration);
+        }
+        var layouts = registration.buildLayouts();
+        ((ForestryApiImpl) ForestryApiImpl.get()).setCircuitManager(new CircuitManager(
+                registration.buildCircuitHolders(layouts),
+                layouts,
+                registration.buildCircuits()));
     }
 
     private static List<IForestryPlugin> plugins() {

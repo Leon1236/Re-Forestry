@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import com.leon1236.reforestry.apiculture.ModuleApiculture;
 import com.leon1236.reforestry.arboriculture.ModuleArboriculture;
 import com.leon1236.reforestry.core.ModuleCore;
+import com.leon1236.reforestry.factory.ModuleFactory;
 import com.leon1236.reforestry.modules.ModuleManager;
 
 public class ReForestry implements ModInitializer {
@@ -22,7 +23,7 @@ public class ReForestry implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Hello Fabric world!");
-		ModuleManager.INSTANCE.load(List.of(new ModuleCore(), new ModuleApiculture(), new ModuleArboriculture()));
+		ModuleManager.INSTANCE.load(List.of(new ModuleCore(), new ModuleApiculture(), new ModuleArboriculture(), new ModuleFactory()));
 	}
 
 	public static Identifier id(String path) {

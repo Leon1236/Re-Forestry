@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "reforestry:block/fluid_short_mead"
+    },
+    "level=1": {
+      "model": "reforestry:block/fluid_short_mead"
+    },
+    "level=2": {
+      "model": "reforestry:block/fluid_short_mead"
+    },
+    "level=3": {
+      "model": "reforestry:block/fluid_short_mead"
+    },
+    "level=4": {
+      "model": "reforestry:block/fluid_short_mead"
+    },
+    "level=5": {
+      "model": "reforestry:block/fluid_short_mead"
+    },
+    "level=6": {
+      "model": "reforestry:block/fluid_short_mead"
+    },
+    "level=7": {
+      "model": "reforestry:block/fluid_short_mead"
+    },
+    "level=8": {
+      "model": "reforestry:block/fluid_short_mead"
+    },
+    "level=9": {
+      "model": "reforestry:block/fluid_short_mead"
+    },
+    "level=10": {
+      "model": "reforestry:block/fluid_short_mead"
+    },
+    "level=11": {
+      "model": "reforestry:block/fluid_short_mead"
+    },
+    "level=12": {
+      "model": "reforestry:block/fluid_short_mead"
+    },
+    "level=13": {
+      "model": "reforestry:block/fluid_short_mead"
+    },
+    "level=14": {
+      "model": "reforestry:block/fluid_short_mead"
+    },
+    "level=15": {
+      "model": "reforestry:block/fluid_short_mead"
+    }
+  }
+}

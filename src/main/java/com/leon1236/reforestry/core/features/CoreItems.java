@@ -9,6 +9,10 @@ import net.minecraft.world.item.ItemUseAnimation;
 import net.minecraft.world.item.component.Consumable;
 
 import com.leon1236.reforestry.ReForestry;
+import com.leon1236.reforestry.core.circuits.EnumCircuitBoardType;
+import com.leon1236.reforestry.core.circuits.EnumElectronTube;
+import com.leon1236.reforestry.core.circuits.ItemCircuitBoard;
+import com.leon1236.reforestry.core.circuits.ItemSolderingIron;
 import com.leon1236.reforestry.core.items.EnumCraftingMaterial;
 import com.leon1236.reforestry.core.items.EnumFruit;
 import com.leon1236.reforestry.core.items.ItemBeesWax;
@@ -79,6 +83,19 @@ public class CoreItems {
                             .build())), EnumFruit.values())
                     .identifier("fruit")
                     .create();
+
+    public static final FeatureItemGroup<ItemCircuitBoard, EnumCircuitBoardType> CIRCUITBOARDS =
+            REGISTRY.itemGroup((type, properties) -> new ItemCircuitBoard(type, properties), EnumCircuitBoardType.values())
+                    .identifier("circuit_board")
+                    .create();
+
+    public static final FeatureItemGroup<Item, EnumElectronTube> ELECTRON_TUBES =
+            REGISTRY.itemGroup((type, properties) -> new Item(properties), EnumElectronTube.values())
+                    .identifier("electron_tube")
+                    .create();
+
+    public static final FeatureItem<ItemSolderingIron> SOLDERING_IRON =
+            REGISTRY.item("soldering_iron", properties -> new ItemSolderingIron(properties.durability(59)));
 
     public static void init() {
         FuelValueEvents.BUILD.register((builder, context) -> {

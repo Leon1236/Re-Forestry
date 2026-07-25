@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "reforestry:block/fluid_biomass"
+    },
+    "level=1": {
+      "model": "reforestry:block/fluid_biomass"
+    },
+    "level=2": {
+      "model": "reforestry:block/fluid_biomass"
+    },
+    "level=3": {
+      "model": "reforestry:block/fluid_biomass"
+    },
+    "level=4": {
+      "model": "reforestry:block/fluid_biomass"
+    },
+    "level=5": {
+      "model": "reforestry:block/fluid_biomass"
+    },
+    "level=6": {
+      "model": "reforestry:block/fluid_biomass"
+    },
+    "level=7": {
+      "model": "reforestry:block/fluid_biomass"
+    },
+    "level=8": {
+      "model": "reforestry:block/fluid_biomass"
+    },
+    "level=9": {
+      "model": "reforestry:block/fluid_biomass"
+    },
+    "level=10": {
+      "model": "reforestry:block/fluid_biomass"
+    },
+    "level=11": {
+      "model": "reforestry:block/fluid_biomass"
+    },
+    "level=12": {
+      "model": "reforestry:block/fluid_biomass"
+    },
+    "level=13": {
+      "model": "reforestry:block/fluid_biomass"
+    },
+    "level=14": {
+      "model": "reforestry:block/fluid_biomass"
+    },
+    "level=15": {
+      "model": "reforestry:block/fluid_biomass"
+    }
+  }
+}

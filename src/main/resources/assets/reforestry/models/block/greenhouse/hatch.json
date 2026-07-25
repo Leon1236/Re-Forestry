@@ -1,6 +1,6 @@
 {
-    "parent": "block/cube_all",
-    "textures": {
-      "all": "reforestry:block/greenhouse_deprecated/hatch"
-    }
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "reforestry:block/greenhouse_deprecated/hatch"
+  }
 }

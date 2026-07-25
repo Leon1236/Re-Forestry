@@ -1,12 +1,12 @@
 {
-    "parent": "block/cube",
-    "textures": {
-      "particle": "reforestry:block/apiculture/alveary.plain",
-      "down": "reforestry:block/apiculture/alveary.bottom",
-      "up": "reforestry:block/apiculture/alveary.bottom",
-      "north": "reforestry:block/apiculture/alveary.plain",
-      "east": "reforestry:block/apiculture/alveary.plain",
-      "south": "reforestry:block/apiculture/alveary.plain",
-      "west": "reforestry:block/apiculture/alveary.plain"
-    }
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "reforestry:block/apiculture/alveary.plain",
+    "down": "reforestry:block/apiculture/alveary.bottom",
+    "up": "reforestry:block/apiculture/alveary.bottom",
+    "north": "reforestry:block/apiculture/alveary.plain",
+    "east": "reforestry:block/apiculture/alveary.plain",
+    "south": "reforestry:block/apiculture/alveary.plain",
+    "west": "reforestry:block/apiculture/alveary.plain"
+  }
 }
