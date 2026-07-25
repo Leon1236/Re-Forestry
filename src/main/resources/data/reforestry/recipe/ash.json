@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "experience": 0.0,
+  "ingredient": "reforestry:peat",
+  "result": {
+    "id": "reforestry:ash"
+  }
+}

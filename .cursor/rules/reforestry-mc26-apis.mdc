@@ -1,0 +1,45 @@
+---
+description: Minecraft 26.2 API replacements — never copy deprecated CE/vanilla helpers
+globs: **/*.java
+alwaysApply: true
+---
+
+# Minecraft 26.2 — do not use these deprecated APIs
+
+CE and older vanilla call sites often still use methods that are `@Deprecated` on 26.2. **Never port them as-is.** Look up the replacement in MCP `Minecraft-26.2` first.
+
+## Chunk loaded checks
+
+| Do not use | Use instead |
+|---|---|
+| `LevelReader.hasChunkAt(BlockPos)` / `hasChunkAt(x, z)` | On **`Level`**: `level.isLoaded(pos)` |
+| `LevelReader.hasChunksAt(...)` | Loop `getChunkSource().hasChunk(chunkX, chunkZ)` (or keep a small local helper) |
+| Blind `hasChunkAt` copy from CE | Same as above |
+
+When the type is only **`LevelAccessor`** / worldgen (no `Level`):
+
+```java
+level.getChunkSource().hasChunk(
+	SectionPos.blockToSectionCoord(pos.getX()),
+	SectionPos.blockToSectionCoord(pos.getZ())
+);
+```
+
+Apiculture already uses `Level.isLoaded` — match that when you have a `Level`.
+
+## BoundingBox (immutable style)
+
+| Do not use | Use instead |
+|---|---|
+| `box.encapsulate(BlockPos)` / `box.encapsulate(BoundingBox)` | `BoundingBox.encapsulating(a, b)` (returns a **new** box) |
+| `box.move(dx, dy, dz)` / `box.move(Vec3i)` | `box.moved(dx, dy, dz)` |
+
+Example:
+
+```java
+boundingBox = BoundingBox.encapsulating(boundingBox, new BoundingBox(pos));
+```
+
+## Habit
+
+Before writing any method copied from Forestry CE / Immersive Forestry / old MC: check whether it is `@Deprecated` in `Minecraft-26.2`. If it is, use the replacement above (or search MCP for the new name). Prefer fixing the call site over `@SuppressWarnings("deprecation")`.

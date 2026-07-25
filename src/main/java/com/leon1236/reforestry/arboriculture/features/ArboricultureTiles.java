@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.entity.BlockEntityTypes;
 import net.minecraft.world.level.block.entity.SignBlockEntity;
 
 import com.leon1236.reforestry.ReForestry;
+import com.leon1236.reforestry.arboriculture.tiles.TileFruitPod;
 import com.leon1236.reforestry.arboriculture.tiles.TileLeaves;
 import com.leon1236.reforestry.arboriculture.tiles.TileSapling;
 import com.leon1236.reforestry.modules.features.FeatureBlockEntityType;
@@ -29,6 +30,9 @@ public class ArboricultureTiles {
 
     public static final FeatureBlockEntityType<TileLeaves> LEAVES = REGISTRY.blockEntityType("leaves",
             TileLeaves::new, ArboricultureBlocks.LEAVES.block());
+
+    public static final FeatureBlockEntityType<TileFruitPod> PODS = REGISTRY.blockEntityType("pods",
+            TileFruitPod::new, ArboricultureBlocks.PODS.blockArray());
 
     public static void init() {
         Stream.concat(ArboricultureBlocks.HANGING_SIGN.getAll().values().stream().map(feature -> (Block) feature.block()),

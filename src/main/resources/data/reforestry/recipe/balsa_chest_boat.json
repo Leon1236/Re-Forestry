@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "chest_boat",
+  "ingredients": [
+    "minecraft:chest",
+    "reforestry:balsa_boat"
+  ],
+  "result": {
+    "id": "reforestry:balsa_chest_boat"
+  }
+}

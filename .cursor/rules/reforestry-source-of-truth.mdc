@@ -1,0 +1,38 @@
+---
+description: Never invent registry ids or CE paths — verify via minecraft-mods MCP / mods.db
+alwaysApply: true
+---
+
+# Source of truth — never invent
+
+**Rule:** Never invent a path, class name, or registry id. Verify against reference source first.
+
+## Access order (use this, not random grep)
+
+1. **Local Re-Forestry architecture / “what calls what”** → `graphify query` (or `path` / `explain`) against `graphify-out/`, then Read the cited files under `src/`. Graph was built on live `src/` only.
+2. **Reference mods (CE, Fabric API, Energy, …)** → MCP `user-minecraft-mods`: `search_code` → `get_file`. **Never** open `MarkDown_Maker/Markdown_files/*.md` or `files/mods MD/*.md` as primary reading (those dumps are too large for context; `mods.db` is their searchable form).
+3. **Minecraft vanilla APIs** → MCP repo `Minecraft-26.2` (Loom-mapped sources). **Not** `FabricMC-yarn` (mappings project, not game code), **not** raw jars.
+4. **Durable findings** → short notes under `queries/` (reuse before re-researching).
+
+Human summary: `queries/research-stack.md`.
+
+**MCP tools:** `list_mods`, `search_code(query, repo?, language?, limit?)`, `get_file(repo, path)`, `list_files(repo, path_prefix?)`.
+
+DB path (fallback / scripts): see `CLAUDE.md` §2. Copy to a writable path before SQLite if the mount is read-only.
+
+| Repo | Use for |
+|---|---|
+| `thedarkcolour-ForestryCE` | **Primary** — Forge 1.20.1 Forestry CE |
+| `thedarkcolour-Immersive-Forestry` | NeoForge 1.21.1 fork; check for newer fixes |
+| `ForestryMC-ForestryMC` | 1.12.2 only — content CE dropped |
+| `thedarkcolour-gendustry` | Modern Gendustry (Forestry module shape) |
+| `ACGaming-Binnie` | Extra Bees/Trees **data** (extract, don't translate code) |
+| `FabricMC-fabric-api` | Fabric API names / hooks |
+| `FabricMC-yarn` | Yarn **mappings/tooling** only — not Minecraft source |
+| `Minecraft-26.2` | Vanilla MC game code (Yarn-named, from Loom genSources) |
+| `TechReborn-Energy` | Fabric energy API |
+| `mezz-JustEnoughItems` | JEI + a real Fabric 26.2 mod layout example |
+
+**Project docs (link, don't duplicate):** `files/forge-fabric-mapping.md`, `files/genetics-data-model.md`, `files/registry-inventory-*.md`, `files/addon-integration-mapping.md`. CSV `forestry:` prefixes → read as `reforestry:`.
+
+**Local reference assets (do not edit, only coppy where assets should go inide the reforestry/resources):** `for textures only/...`

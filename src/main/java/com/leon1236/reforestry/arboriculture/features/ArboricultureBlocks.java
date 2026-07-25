@@ -25,8 +25,10 @@ import com.leon1236.reforestry.arboriculture.blocks.BlockDefaultLeaves;
 import com.leon1236.reforestry.arboriculture.blocks.BlockDefaultLeavesFruit;
 import com.leon1236.reforestry.arboriculture.blocks.BlockForestryButton;
 import com.leon1236.reforestry.arboriculture.blocks.BlockForestryLeaves;
+import com.leon1236.reforestry.arboriculture.blocks.BlockFruitPod;
 import com.leon1236.reforestry.arboriculture.blocks.BlockSapling;
 import com.leon1236.reforestry.arboriculture.blocks.ForestryLeafType;
+import com.leon1236.reforestry.arboriculture.blocks.ForestryPodType;
 import com.leon1236.reforestry.arboriculture.blocks.BlockForestryDoor;
 import com.leon1236.reforestry.arboriculture.blocks.BlockForestryFence;
 import com.leon1236.reforestry.arboriculture.blocks.BlockForestryFenceGate;
@@ -223,6 +225,12 @@ public class ArboricultureBlocks {
             REGISTRY.blockGroup(BlockDecorativeLeaves::new, ForestryLeafType.VALUES)
                     .item(ItemBlockDecorativeLeaves::new)
                     .identifier("decorative_leaves", FeatureGroup.IdentifierType.SUFFIX)
+                    .create();
+
+    public static final FeatureBlockGroup<BlockFruitPod, ForestryPodType> PODS =
+            REGISTRY.blockGroup(BlockFruitPod::new, ForestryPodType.VALUES)
+                    .item((block, properties) -> new net.minecraft.world.item.BlockItem(block, properties))
+                    .identifier("pods")
                     .create();
 
     private static BlockBehaviour.Properties woodProperties(BlockBehaviour.Properties properties) {

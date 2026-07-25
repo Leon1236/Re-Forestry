@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "minecraft:stick",
+    "B": "reforestry:ingot_bronze"
+  },
+  "pattern": [
+    "  B",
+    " # ",
+    "#  "
+  ],
+  "result": {
+    "id": "reforestry:grafter"
+  }
+}

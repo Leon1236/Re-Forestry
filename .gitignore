@@ -7,5 +7,12 @@
 !/gradlew.bat
 !/gradle/
 !/src/
+!/files/
+!/queries/
+!/tools/
+!/.cursor/
 
+/files/mods MD/
+__pycache__/
+*.pyc
 **/graphify-out/

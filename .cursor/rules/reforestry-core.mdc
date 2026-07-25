@@ -1,0 +1,30 @@
+---
+description: Re-Forestry project identity, audience, layout, and current focus
+alwaysApply: true
+---
+
+# Re-Forestry — project core
+
+**What this is:** Fabric port of Forestry for **Minecraft 26.2**. Modid `reforestry`. Main class `ReForestry.java` in package `com.leon1236.reforestry`.
+
+**Audience:** The developer is new to coding. Explain in plain language what you change and why. Keep diffs small and reviewable. 
+
+**Namespace & packages**
+- Registry/resource namespace: `reforestry` (blocks, items, assets, data).
+- Java root: `com.leon1236.reforestry.<module>.*` (mirrors CE's `forestry.<module>.*`).
+- Assets: `assets/reforestry/...` — data: `data/reforestry/...`.
+
+**Shell paths:** Project path contains spaces. Always quote paths in shell commands.
+
+**Audience:** The developer is new to coding. Explain in plain language what you change and why. Keep diffs small and reviewable. 
+
+**Namespace & packages**
+- Registry/resource namespace: `reforestry` (blocks, items, assets, data).
+- Java root: `com.leon1236.reforestry.<module>.*` (mirrors CE's `forestry.<module>.*`).
+- Assets: `assets/reforestry/...` — data: `data/reforestry/...`.
+
+**Shell paths:** Project path contains spaces. Always quote paths in shell commands.
+
+**Where we are:** Phase 5 arboriculture **done** (11.9i). Optional polish: **11.9c** (vanilla/default leaf pollen); **11.9h** deferred. For finished features, read and update `files/implemented-features.md` (not `CLAUDE.md`). `CLAUDE.md` is build guidance only — do not treat it as the status tracker or rewrite it into rules.
+
+**Target stack (confirm on fabricmc.net/develop if touching build files):** MC 26.2, Java 25, Fabric Loom 1.17, Gradle 9.5.1, Fabric Loader 0.19.3, Fabric API 0.155.2+26.2.

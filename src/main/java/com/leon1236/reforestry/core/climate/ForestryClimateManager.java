@@ -1,6 +1,7 @@
 package com.leon1236.reforestry.core.climate;
 
-import java.util.IdentityHashMap;
+import java.util.HashMap;
+import java.util.Map;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -17,27 +18,43 @@ import com.leon1236.reforestry.api.core.HumidityType;
 import com.leon1236.reforestry.api.core.TemperatureType;
 
 public final class ForestryClimateManager implements IClimateManager {
-    private final IdentityHashMap<ResourceKey<Biome>, TemperatureType> temperatures = new IdentityHashMap<>();
-    private final IdentityHashMap<ResourceKey<Biome>, HumidityType> humidities = new IdentityHashMap<>();
+    private final Map<ResourceKey<Biome>, TemperatureType> temperatures = new HashMap<>();
+    private final Map<ResourceKey<Biome>, HumidityType> humidities = new HashMap<>();
 
     @Override
     public TemperatureType getTemperature(Holder<Biome> biome) {
-        return getTemperature(biome instanceof Holder.Reference<Biome> reference ? reference.key() : biome.unwrapKey().orElseThrow());
+        ResourceKey<Biome> key = biomeKey(biome);
+        if (key != null) {
+            TemperatureType cached = temperatures.get(key);
+            if (cached != null) {
+                return cached;
+            }
+        }
+        return resolveTemperature(biome);
     }
 
     @Override
     public TemperatureType getTemperature(ResourceKey<Biome> biome) {
-        return temperatures.getOrDefault(biome, TemperatureType.NORMAL);
+        TemperatureType cached = temperatures.get(biome);
+        return cached != null ? cached : TemperatureType.NORMAL;
     }
 
     @Override
     public HumidityType getHumidity(Holder<Biome> biome) {
-        return getHumidity(biome instanceof Holder.Reference<Biome> reference ? reference.key() : biome.unwrapKey().orElseThrow());
+        ResourceKey<Biome> key = biomeKey(biome);
+        if (key != null) {
+            HumidityType cached = humidities.get(key);
+            if (cached != null) {
+                return cached;
+            }
+        }
+        return resolveHumidity(biome);
     }
 
     @Override
     public HumidityType getHumidity(ResourceKey<Biome> biome) {
-        return humidities.getOrDefault(biome, HumidityType.NORMAL);
+        HumidityType cached = humidities.get(biome);
+        return cached != null ? cached : HumidityType.NORMAL;
     }
 
     @Override
@@ -66,29 +83,33 @@ public final class ForestryClimateManager implements IClimateManager {
         humidities.clear();
 
         registry.listElements().forEach(holder -> {
-            boolean hasTemperatureTag = false;
-            boolean hasHumidityTag = false;
-
-            for (TemperatureType temperature : TemperatureType.VALUES) {
-                if (holder.is(temperature.tag)) {
-                    temperatures.put(holder.key(), temperature);
-                    hasTemperatureTag = true;
-                    break;
-                }
-            }
-            for (HumidityType humidity : HumidityType.VALUES) {
-                if (holder.is(humidity.tag)) {
-                    humidities.put(holder.key(), humidity);
-                    hasHumidityTag = true;
-                    break;
-                }
-            }
-            if (!hasTemperatureTag) {
-                temperatures.put(holder.key(), TemperatureType.getFromValue(holder.value().getBaseTemperature()));
-            }
-            if (!hasHumidityTag) {
-                humidities.put(holder.key(), HumidityType.getFromValue(BiomeDownfall.get(holder.value())));
-            }
+            temperatures.put(holder.key(), resolveTemperature(holder));
+            humidities.put(holder.key(), resolveHumidity(holder));
         });
+    }
+
+    private static ResourceKey<Biome> biomeKey(Holder<Biome> biome) {
+        if (biome instanceof Holder.Reference<Biome> reference) {
+            return reference.key();
+        }
+        return biome.unwrapKey().orElse(null);
+    }
+
+    private static TemperatureType resolveTemperature(Holder<Biome> biome) {
+        for (TemperatureType temperature : TemperatureType.VALUES) {
+            if (biome.is(temperature.tag)) {
+                return temperature;
+            }
+        }
+        return TemperatureType.getFromValue(biome.value().getBaseTemperature());
+    }
+
+    private static HumidityType resolveHumidity(Holder<Biome> biome) {
+        for (HumidityType humidity : HumidityType.VALUES) {
+            if (biome.is(humidity.tag)) {
+                return humidity;
+            }
+        }
+        return HumidityType.getFromValue(BiomeDownfall.get(biome.value()));
     }
 }

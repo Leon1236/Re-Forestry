@@ -1,0 +1,24 @@
+{
+  "mcpServers": {
+    "minecraft-mods": {
+      "type": "stdio",
+      "command": "${workspaceFolder}/MarkDown_Maker/Markdown_files/.venv/bin/python",
+      "args": [
+        "${workspaceFolder}/MarkDown_Maker/Markdown_files/server.py"
+      ]
+    },
+    "minecraft-world": {
+      "type": "stdio",
+      "command": "${workspaceFolder}/MarkDown_Maker/Markdown_files/.venv/bin/python",
+      "args": [
+        "${workspaceFolder}/tools/minecraft_world_mcp/server.py"
+      ],
+      "env": {
+        "REFORESTRY_RCON_HOST": "127.0.0.1",
+        "REFORESTRY_RCON_PORT": "25575",
+        "REFORESTRY_RCON_PASSWORD": "reforestry-dev",
+        "REFORESTRY_RUN_DIR": "${workspaceFolder}/run"
+      }
+    }
+  }
+}

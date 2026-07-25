@@ -8,6 +8,7 @@ import net.fabricmc.loader.api.entrypoint.EntrypointContainer;
 
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.api.plugin.IForestryPlugin;
+import com.leon1236.reforestry.arboriculture.charcoal.CharcoalManager;
 import com.leon1236.reforestry.core.ForestryApiImpl;
 
 public final class PluginManager {
@@ -32,6 +33,7 @@ public final class PluginManager {
         for (IForestryPlugin plugin : plugins()) {
             plugin.registerArboriculture(registration);
         }
+        CharcoalManager.setInstance(registration.getCharcoalManager());
     }
 
     private static List<IForestryPlugin> plugins() {

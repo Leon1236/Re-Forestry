@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "reforestry:log_pile"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:decorative_log_pile"
+  }
+}

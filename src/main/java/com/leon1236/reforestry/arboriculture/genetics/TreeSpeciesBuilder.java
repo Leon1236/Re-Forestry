@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -47,7 +48,7 @@ public final class TreeSpeciesBuilder implements ITreeSpeciesBuilder {
     private HumidityType humidity = HumidityType.NORMAL;
     private final HashSet<BlockState> vanillaStates = new HashSet<>();
     private final HashSet<Item> vanillaItems = new HashSet<>();
-    private ItemStack decorativeLeaves = ItemStack.EMPTY;
+    private Supplier<ItemStack> decorativeLeaves = () -> ItemStack.EMPTY;
 
     TreeSpeciesBuilder(Identifier id, String genus, String species, boolean dominant, int escritoireColor, IWoodType woodType) {
         this.id = id;
@@ -103,7 +104,7 @@ public final class TreeSpeciesBuilder implements ITreeSpeciesBuilder {
     }
 
     @Override
-    public TreeSpeciesBuilder setDecorativeLeaves(ItemStack stack) {
+    public TreeSpeciesBuilder setDecorativeLeaves(Supplier<ItemStack> stack) {
         this.decorativeLeaves = stack;
         return this;
     }
@@ -153,7 +154,7 @@ public final class TreeSpeciesBuilder implements ITreeSpeciesBuilder {
 
     @Override
     public ItemStack getDecorativeLeaves() {
-        return this.decorativeLeaves;
+        return this.decorativeLeaves.get();
     }
 
     @Override

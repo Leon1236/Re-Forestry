@@ -11,9 +11,10 @@ import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 
 import com.leon1236.reforestry.api.core.IBlockSubtype;
+import com.leon1236.reforestry.api.core.IItemSubtype;
 import com.leon1236.reforestry.api.genetics.IGenome;
 
-public interface IWoodType extends IBlockSubtype {
+public interface IWoodType extends IBlockSubtype, IItemSubtype {
     float getHardness();
 
     WoodType getVanillaWoodType();

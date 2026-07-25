@@ -17,6 +17,9 @@ import net.minecraft.core.particles.ParticleType;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -75,6 +78,13 @@ public interface IFeatureRegistry {
             String name, FabricBlockEntityTypeBuilder.Factory<T> factory, Block... blocks) {
         Identifier registryId = Identifier.fromNamespaceAndPath(getModuleId().getNamespace(), name);
         return new FeatureBlockEntityType<>(getModuleId(), name, registryId, factory, blocks);
+    }
+
+    default <E extends Entity> FeatureEntityType<E> entity(
+            String name, EntityType.EntityFactory<E> factory, MobCategory category,
+            UnaryOperator<EntityType.Builder<E>> configurator) {
+        Identifier registryId = Identifier.fromNamespaceAndPath(getModuleId().getNamespace(), name);
+        return new FeatureEntityType<>(getModuleId(), name, registryId, factory, category, configurator);
     }
 
     default <T extends AbstractContainerMenu, D> FeatureMenuType<T, D> menuType(

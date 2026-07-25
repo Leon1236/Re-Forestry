@@ -2,13 +2,17 @@ package com.leon1236.reforestry.arboriculture.genetics;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.IdentityHashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.jetbrains.annotations.Nullable;
+
 import com.google.common.collect.ImmutableMap;
 
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.block.state.BlockState;
 
 import com.leon1236.reforestry.api.arboriculture.IWoodType;
 import com.leon1236.reforestry.api.genetics.IGenome;
@@ -23,6 +27,7 @@ public final class ArboricultureGenetics {
     private static final Map<Identifier, TreeSpeciesBuilder> builders = new LinkedHashMap<>();
     private static final Map<Identifier, ITreeSpecies> speciesById = new LinkedHashMap<>();
     private static final Map<Identifier, IGenome> defaultGenomes = new LinkedHashMap<>();
+    private static final IdentityHashMap<BlockState, IGenome> vanillaIndividuals = new IdentityHashMap<>();
     private static final Map<MutationPair, List<Mutation>> mutationsByPair = new LinkedHashMap<>();
     private static boolean finalized = false;
 
@@ -66,11 +71,28 @@ public final class ArboricultureGenetics {
             }
             leafType.setSpecies(species);
         }
+        vanillaIndividuals.clear();
+        for (ITreeSpecies species : speciesById.values()) {
+            IGenome genome = defaultGenomes.get(species.id());
+            for (BlockState state : species.getVanillaLeafStates()) {
+                vanillaIndividuals.put(state, genome);
+            }
+        }
         finalized = true;
+    }
+
+    @Nullable
+    public static IGenome getVanillaIndividual(BlockState state) {
+        return vanillaIndividuals.get(state);
     }
 
     public static List<Mutation> getMutations(Identifier firstSpecies, Identifier secondSpecies) {
         return mutationsByPair.getOrDefault(MutationPair.of(firstSpecies, secondSpecies), List.of());
+    }
+
+    @Nullable
+    public static ITreeSpecies getSpeciesSafe(Identifier id) {
+        return speciesById.get(id);
     }
 
     public static ITreeSpecies getSpecies(Identifier id) {
@@ -91,5 +113,9 @@ public final class ArboricultureGenetics {
 
     public static Collection<Identifier> getAllSpeciesIds() {
         return speciesById.keySet();
+    }
+
+    public static Collection<ITreeSpecies> getAllSpecies() {
+        return speciesById.values();
     }
 }

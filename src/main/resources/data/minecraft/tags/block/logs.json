@@ -51,6 +51,12 @@
     "reforestry:dark_oak_fireproof_log",
     "reforestry:cherry_fireproof_log",
     "reforestry:mangrove_fireproof_log",
-    "reforestry:pale_oak_fireproof_log"
+    "reforestry:pale_oak_fireproof_log",
+    "reforestry:mangrove_fireproof_wood",
+    "reforestry:mangrove_fireproof_stripped_log",
+    "reforestry:mangrove_fireproof_stripped_wood",
+    "reforestry:pale_oak_fireproof_wood",
+    "reforestry:pale_oak_fireproof_stripped_log",
+    "reforestry:pale_oak_fireproof_stripped_wood"
   ]
 }

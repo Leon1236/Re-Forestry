@@ -31,7 +31,6 @@ public class FeatureElm extends FeatureTree {
 	@Override
 	protected void generateLeaves(IGenome genome, LevelAccessor level, RandomSource rand, TreeBlockTypeLeaf leaf, TreeContour contour, BlockPos startPos) {
 		int leafSpawn = this.height + 1;
-		float adjustedGirth = this.girth * .75f;
 
 		FeatureHelper.generateEllipsoid(level, startPos.offset(this.girth / 2, leafSpawn -= 1, this.girth / 2), this.girth + 2.25f, 2, this.girth + 2.25f, 1.25f, leaf, FeatureHelper.EnumReplaceMode.SOFT, contour);
 		FeatureHelper.generateEllipsoid(level, startPos.offset(this.girth / 2, leafSpawn -= 2, this.girth / 2), this.girth + 3.875f, 2.5f, this.girth + 3.875f, 1.25f, leaf, FeatureHelper.EnumReplaceMode.SOFT, contour);

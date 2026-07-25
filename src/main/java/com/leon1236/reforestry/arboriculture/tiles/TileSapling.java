@@ -17,7 +17,6 @@ import com.leon1236.reforestry.arboriculture.features.ArboricultureTiles;
 import com.leon1236.reforestry.arboriculture.genetics.ITreeSpecies;
 import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
 import com.leon1236.reforestry.arboriculture.worldgen.FeatureArboriculture;
-import com.leon1236.reforestry.arboriculture.worldgen.SimpleTreeGenerator;
 import com.leon1236.reforestry.core.worldgen.FeatureBase;
 
 import java.util.Optional;
@@ -68,7 +67,7 @@ public class TileSapling extends TileTreeContainer {
             arboricultureGenerator.preGenerate(genome, level, random, getBlockPos());
             return arboricultureGenerator.getValidGrowthPos(level, getBlockPos()) != null;
         }
-        return SimpleTreeGenerator.findGrowthOrigin(level, genome, getBlockPos()) != null;
+        return true;
     }
 
     public void tryGrow(RandomSource random, boolean boneMealed) {
@@ -90,18 +89,13 @@ public class TileSapling extends TileTreeContainer {
         if (generator instanceof FeatureBase base) {
             base.place(genome, level, random, getBlockPos(), false);
         } else if (level instanceof ServerLevel serverLevel) {
-            boolean generated = generator.place(new FeaturePlaceContext<>(
+            generator.place(new FeaturePlaceContext<>(
                     Optional.empty(),
                     serverLevel,
                     serverLevel.getChunkSource().getGenerator(),
                     random,
                     getBlockPos(),
                     FeatureConfiguration.NONE));
-            if (!generated) {
-                SimpleTreeGenerator.grow(level, genome, random, getBlockPos());
-            }
-        } else {
-            SimpleTreeGenerator.grow(level, genome, random, getBlockPos());
         }
     }
 }

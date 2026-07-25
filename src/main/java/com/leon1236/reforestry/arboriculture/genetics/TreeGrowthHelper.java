@@ -4,6 +4,7 @@ import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.arboriculture.tiles.TileSapling;
 import it.unimi.dsi.fastutil.objects.Object2BooleanOpenHashMap;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.SectionPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.LevelAccessor;
@@ -97,7 +98,7 @@ public class TreeGrowthHelper {
 	}
 
 	private static boolean isSapling(IGenome genome, LevelAccessor level, BlockPos pos) {
-		if (!level.hasChunkAt(pos)) {
+		if (!level.getChunkSource().hasChunk(SectionPos.blockToSectionCoord(pos.getX()), SectionPos.blockToSectionCoord(pos.getZ()))) {
 			return false;
 		}
 

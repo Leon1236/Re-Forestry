@@ -23,6 +23,7 @@ loom {
 	runs {
 		client {
 			vmArg "-Xmx4G"
+			programArgs "--username", "Dev"
 		}
 		server {
 			vmArg "-Xmx2G"

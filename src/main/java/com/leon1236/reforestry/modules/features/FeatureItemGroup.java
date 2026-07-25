@@ -15,6 +15,10 @@ public class FeatureItemGroup<I extends Item, S extends IItemSubtype> extends Fe
         super(featureByType);
     }
 
+    public I item(S subtype) {
+        return get(subtype).item();
+    }
+
     public static class Builder<I extends Item, S extends IItemSubtype> extends FeatureGroup.Builder<S, Builder<I, S>> {
         private final BiFunction<S, Item.Properties, I> constructor;
 

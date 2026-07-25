@@ -1,6 +1,7 @@
 package com.leon1236.reforestry.arboriculture.genetics;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -35,7 +36,7 @@ record TreeSpecies(
         ITreeGenerator generator,
         List<BlockState> vanillaLeafStates,
         List<Item> vanillaSaplingItems,
-        ItemStack decorativeLeaves,
+        Supplier<ItemStack> decorativeLeaves,
         float rarity) implements ITreeSpecies {
     @Override
     public ITreeGenerator getGenerator() {
@@ -44,7 +45,7 @@ record TreeSpecies(
 
     @Override
     public ItemStack getDecorativeLeaves() {
-        return decorativeLeaves;
+        return decorativeLeaves.get();
     }
 
     @Override

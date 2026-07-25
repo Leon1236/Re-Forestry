@@ -84,11 +84,29 @@ public class ArboricultureCreativeTabs {
                     }
                 }
             }
-            for (FeatureBlock<?> feature : ArboricultureBlocks.LEAVES_DECORATIVE.getAll().values()) {
+            for (FeatureBlockGroup<?, ?> group : List.of(
+                    ArboricultureBlocks.LEAVES_DEFAULT,
+                    ArboricultureBlocks.LEAVES_DEFAULT_FRUIT,
+                    ArboricultureBlocks.LEAVES_DECORATIVE)) {
+                for (FeatureBlock<?> feature : group.getAll().values()) {
+                    if (feature.item() != null) {
+                        output.accept(feature.item());
+                    }
+                }
+            }
+            for (FeatureBlock<?> feature : ArboricultureBlocks.PODS.getAll().values()) {
                 if (feature.item() != null) {
                     output.accept(feature.item());
                 }
             }
+            for (ForestryWoodType type : ForestryWoodType.VALUES) {
+                output.accept(ArboricultureItems.BOAT.item(type));
+                output.accept(ArboricultureItems.CHEST_BOAT.item(type));
+            }
+            output.accept(CharcoalBlocks.LOG_PILE.item());
+            output.accept(CharcoalBlocks.DECORATIVE_LOG_PILE.item());
+            output.accept(CharcoalBlocks.CHARCOAL.item());
+            output.accept(CharcoalBlocks.ASH.item());
         });
     });
 

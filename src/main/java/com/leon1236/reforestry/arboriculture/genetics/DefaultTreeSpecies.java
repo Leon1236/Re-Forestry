@@ -11,21 +11,54 @@ import com.leon1236.reforestry.api.core.TemperatureType;
 import com.leon1236.reforestry.api.plugin.IArboricultureRegistration;
 import com.leon1236.reforestry.arboriculture.ForestryWoodType;
 import com.leon1236.reforestry.arboriculture.VanillaWoodType;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureAcacia;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureBalsa;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureBaobab;
 import com.leon1236.reforestry.arboriculture.worldgen.FeatureBeech;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureCamelthorn;
 import com.leon1236.reforestry.arboriculture.worldgen.FeatureCherryVanilla;
 import com.leon1236.reforestry.arboriculture.worldgen.FeatureChestnut;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureCocobolo;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureCoconut;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureDate;
 import com.leon1236.reforestry.arboriculture.worldgen.FeatureDogwood;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureEbony;
 import com.leon1236.reforestry.arboriculture.worldgen.FeatureElm;
 import com.leon1236.reforestry.arboriculture.worldgen.FeatureFeijoa;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureFir;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureGiganteum;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureGinkgo;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureGreenheart;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureIpe;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureJacaranda;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureJungle;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureKapok;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureKauri;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureLarch;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureLemon;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureMacrocarpa;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureMahoe;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureMahogany;
 import com.leon1236.reforestry.arboriculture.worldgen.FeatureMaple;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureOlive;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureOrange;
+import com.leon1236.reforestry.arboriculture.worldgen.FeaturePadauk;
+import com.leon1236.reforestry.arboriculture.worldgen.FeaturePapaya;
 import com.leon1236.reforestry.arboriculture.worldgen.FeaturePear;
+import com.leon1236.reforestry.arboriculture.worldgen.FeaturePewen;
+import com.leon1236.reforestry.arboriculture.worldgen.FeaturePine;
 import com.leon1236.reforestry.arboriculture.worldgen.FeaturePlum;
 import com.leon1236.reforestry.arboriculture.worldgen.FeaturePoplar;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureSequoia;
 import com.leon1236.reforestry.arboriculture.worldgen.FeatureSilverLime;
 import com.leon1236.reforestry.arboriculture.worldgen.FeatureSourCherry;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureSpruce;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureTeak;
 import com.leon1236.reforestry.arboriculture.worldgen.FeatureTreeVanilla;
 import com.leon1236.reforestry.arboriculture.worldgen.FeatureWalnut;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureWenge;
 import com.leon1236.reforestry.arboriculture.worldgen.FeatureWillow;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureZebrano;
 import com.leon1236.reforestry.core.genetics.ForestryAlleles;
 import com.leon1236.reforestry.core.genetics.alleles.AlleleManager;
 
@@ -35,7 +68,7 @@ public final class DefaultTreeSpecies {
 
     public static void register(IArboricultureRegistration registration) {
         registration.registerSpecies(ReForestry.id("tree_oak"), "quercus", "robur", false, 0x48b518, VanillaWoodType.OAK)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.OAK))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.OAK))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.OAK).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.OAK).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(Blocks.OAK_LEAVES.getStateDefinition().getPossibleStates())
@@ -48,7 +81,7 @@ public final class DefaultTreeSpecies {
                 });
 
         registration.registerSpecies(ReForestry.id("tree_birch"), "betula", "pendula", false, 0x80a755, VanillaWoodType.BIRCH)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.BIRCH))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.BIRCH))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.BIRCH).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.BIRCH).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(Blocks.BIRCH_LEAVES.getStateDefinition().getPossibleStates())
@@ -60,7 +93,7 @@ public final class DefaultTreeSpecies {
                 });
 
         registration.registerSpecies(ReForestry.id("tree_lime"), "tilia", "tomentosa", true, 0x5ea107, ForestryWoodType.LIME)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.LIME))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.LIME))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.LIME).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.LIME).block().getStateDefinition().getPossibleStates())
                 .setTreeFeature(FeatureSilverLime::new)
@@ -75,7 +108,7 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_hill_cherry"), "prunus", "cerasus", true, 0x84aa37, ForestryWoodType.HILL_CHERRY)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.SOUR_CHERRY))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.SOUR_CHERRY))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.SOUR_CHERRY).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.SOUR_CHERRY).block().getStateDefinition().getPossibleStates())
                 .setTreeFeature(FeatureSourCherry::new)
@@ -93,7 +126,7 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_walnut"), "juglans", "regia", true, 0x798c55, ForestryWoodType.WALNUT)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.WALNUT))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.WALNUT))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.WALNUT).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.WALNUT).block().getStateDefinition().getPossibleStates())
                 .setTreeFeature(FeatureWalnut::new)
@@ -110,7 +143,7 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_chestnut"), "castanea", "sativa", true, 0x7e8e4d, ForestryWoodType.CHESTNUT)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.CHESTNUT))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.CHESTNUT))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.CHESTNUT).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.CHESTNUT).block().getStateDefinition().getPossibleStates())
                 .setTreeFeature(FeatureChestnut::new)
@@ -126,7 +159,7 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_pear"), "pyrus", "communis", true, 0x448944, ForestryWoodType.PEAR)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.PEAR))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.PEAR))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.PEAR).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.PEAR).block().getStateDefinition().getPossibleStates())
                 .setTreeFeature(FeaturePear::new)
@@ -143,7 +176,7 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_plum"), "prunus", "domestica", true, 0x589246, ForestryWoodType.PLUM)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.PLUM))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.PLUM))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.PLUM).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.PLUM).block().getStateDefinition().getPossibleStates())
                 .setTreeFeature(FeaturePlum::new)
@@ -161,7 +194,7 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_feijoa"), "feijoa", "sellowiana", true, 0x99baa4, ForestryWoodType.FEIJOA)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.FEIJOA))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.FEIJOA))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.FEIJOA).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.FEIJOA).block().getStateDefinition().getPossibleStates())
                 .setTreeFeature(FeatureFeijoa::new)
@@ -176,7 +209,7 @@ public final class DefaultTreeSpecies {
                 });
 
         registration.registerSpecies(ReForestry.id("tree_elm"), "ulmus", "glabra", true, 0xddfa52, ForestryWoodType.ELM)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.ELM))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.ELM))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.ELM).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.ELM).block().getStateDefinition().getPossibleStates())
                 .setTreeFeature(FeatureElm::new)
@@ -191,7 +224,7 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_maple"), "acer", "saccharum", true, 0xd4f425, ForestryWoodType.MAPLE)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.MAPLE))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.MAPLE))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.MAPLE).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.MAPLE).block().getStateDefinition().getPossibleStates())
                 .setTreeFeature(FeatureMaple::new)
@@ -206,7 +239,7 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_beech"), "fagus", "sylvatica", true, 0xad301a, ForestryWoodType.BEECH)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.BEECH))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.BEECH))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.BEECH).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.BEECH).block().getStateDefinition().getPossibleStates())
                 .setTreeFeature(FeatureBeech::new)
@@ -221,7 +254,7 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_poplar"), "populus", "alba", true, 0xa3b8a5, ForestryWoodType.POPLAR)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.POPLAR))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.POPLAR))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.POPLAR).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.POPLAR).block().getStateDefinition().getPossibleStates())
                 .setTreeFeature(FeaturePoplar::new)
@@ -235,7 +268,7 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_dark_oak"), "quercus", "velutina", false, 0x48b518, VanillaWoodType.DARK_OAK)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.DARK_OAK))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.DARK_OAK))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.DARK_OAK).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.DARK_OAK).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(Blocks.DARK_OAK_LEAVES.getStateDefinition().getPossibleStates())
@@ -249,7 +282,7 @@ public final class DefaultTreeSpecies {
                 });
 
         registration.registerSpecies(ReForestry.id("tree_willow"), "salix", "alba", true, 0xa3b8a5, ForestryWoodType.WILLOW)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.WILLOW))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.WILLOW))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.WILLOW).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.WILLOW).block().getStateDefinition().getPossibleStates())
                 .setTreeFeature(FeatureWillow::new)
@@ -265,7 +298,7 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_cherry"), "prunus", "serrulata", false, 0xf7b9dc, VanillaWoodType.CHERRY)
-                .setDecorativeLeaves(new ItemStack(Items.CHERRY_LEAVES))
+                .setDecorativeLeaves(() -> new ItemStack(Items.CHERRY_LEAVES))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.CHERRY_VANILLA).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.CHERRY_VANILLA).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(Blocks.CHERRY_LEAVES.getStateDefinition().getPossibleStates())
@@ -279,7 +312,7 @@ public final class DefaultTreeSpecies {
                 });
 
         registration.registerSpecies(ReForestry.id("tree_dogwood"), "cornus", "florida", true, 0xf4f4f4, ForestryWoodType.DOGWOOD)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.DOGWOOD))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.DOGWOOD))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.DOGWOOD).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.DOGWOOD).block().getStateDefinition().getPossibleStates())
                 .setTreeFeature(FeatureDogwood::new)
@@ -294,10 +327,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_jacaranda"), "jacaranda", "mimosofolia", true, 0xc18ffb, ForestryWoodType.JACARANDA)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.JACARANDA))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.JACARANDA))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.JACARANDA).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.JACARANDA).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureJacaranda::new)
                 .setAuthority("Spear")
                 .setGenome(genome -> {
                     genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALL);
@@ -306,10 +339,10 @@ public final class DefaultTreeSpecies {
                 });
 
         registration.registerSpecies(ReForestry.id("tree_ipe"), "handroanthus", "serratifolius", true, 0xfdd207, ForestryWoodType.IPE)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.IPE))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.IPE))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.IPE).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.IPE).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureIpe::new)
                 .setGenome(genome -> {
                     genome.set(TreeChromosomes.SAPPINESS, ForestryAlleles.SAPPINESS_LOWER);
                     genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_LARGE);
@@ -320,10 +353,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_ginkgo"), "ginkgo", "bilboa", true, 0xfcd54a, ForestryWoodType.GINKGO)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.GINKGO))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.GINKGO))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.GINKGO).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.GINKGO).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureGinkgo::new)
                 .setAuthority("Spear")
                 .setGenome(genome -> {
                     genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_LARGE);
@@ -333,12 +366,12 @@ public final class DefaultTreeSpecies {
                 });
 
         registration.registerSpecies(ReForestry.id("tree_spruce"), "picea", "mariana", false, 0x619961, VanillaWoodType.SPRUCE)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.SPRUCE))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.SPRUCE))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.SPRUCE).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.SPRUCE).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(Blocks.SPRUCE_LEAVES.getStateDefinition().getPossibleStates())
                 .addVanillaSapling(Items.SPRUCE_SAPLING)
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureSpruce::new)
                 .setGenome(genome -> {
                     genome.set(TreeChromosomes.SAPLINGS, ForestryAlleles.SAPLINGS_AVERAGE);
                     genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_AVERAGE);
@@ -346,10 +379,10 @@ public final class DefaultTreeSpecies {
                 });
 
         registration.registerSpecies(ReForestry.id("tree_larch"), "larix", "decidua", true, 0x698f90, ForestryWoodType.LARCH)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.LARCH))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.LARCH))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.LARCH).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.LARCH).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureLarch::new)
                 .setTemperature(TemperatureType.COLD)
                 .setRarity(0.0025f)
                 .setGenome(genome -> {
@@ -362,10 +395,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_pine"), "picea", "ponderosa", true, 0xfeff8f, ForestryWoodType.PINE)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.PINE))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.PINE))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.PINE).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.PINE).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeaturePine::new)
                 .setTemperature(TemperatureType.COLD)
                 .setRarity(0.0025f)
                 .setGenome(genome -> {
@@ -378,10 +411,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_fir"), "abies", "balsamea", true, 0x395a39, ForestryWoodType.FIR)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.FIR))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.FIR))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.FIR).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.FIR).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureFir::new)
                 .setAuthority("Spear")
                 .setGenome(genome -> {
                     genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_LARGE);
@@ -393,10 +426,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_macrocarpa"), "hesperocyparis", "macrocarpa", true, 0x5d7121, ForestryWoodType.MACROCARPA)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.MACROCARPA))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.MACROCARPA))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.MACROCARPA).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.MACROCARPA).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureMacrocarpa::new)
                 .setAuthority("Spear")
                 .setGenome(genome -> {
                     genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_LARGE);
@@ -410,10 +443,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_sequoia"), "sequoia", "sempervirens", true, 0x418e71, ForestryWoodType.SEQUOIA)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.SEQUOIA))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.SEQUOIA))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.SEQUOIA).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.SEQUOIA).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureSequoia::new)
                 .setGenome(genome -> {
                     genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_LARGEST);
                     genome.set(TreeChromosomes.SAPPINESS, ForestryAlleles.SAPPINESS_LOWER);
@@ -426,10 +459,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_giant_sequoia"), "sequoiadendron", "giganteum", true, 0x738434, ForestryWoodType.GIGANTEUM)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.GIANT_SEQUOIA))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.GIANT_SEQUOIA))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.GIANT_SEQUOIA).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.GIANT_SEQUOIA).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureGiganteum::new)
                 .setGenome(genome -> {
                     genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_GIGANTIC);
                     genome.set(TreeChromosomes.SAPPINESS, ForestryAlleles.SAPPINESS_LOWEST);
@@ -442,10 +475,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_pewen"), "araucaria", "araucana", true, 0x455419, ForestryWoodType.PEWEN)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.PEWEN))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.PEWEN))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.PEWEN).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.PEWEN).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeaturePewen::new)
                 .setAuthority("Spear")
                 .setGenome(genome -> {
                     genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_LARGER);
@@ -458,10 +491,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_kauri"), "agathis", "australis", true, 0x97af64, ForestryWoodType.KAURI)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.KAURI))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.KAURI))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.KAURI).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.KAURI).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureKauri::new)
                 .setAuthority("Spear")
                 .setGenome(genome -> {
                     genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_LARGEST);
@@ -475,12 +508,12 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_jungle"), "theobroma", "cacao", false, 0x764952, VanillaWoodType.JUNGLE)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.JUNGLE))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.JUNGLE))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.JUNGLE).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.JUNGLE).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(Blocks.JUNGLE_LEAVES.getStateDefinition().getPossibleStates())
                 .addVanillaSapling(Items.JUNGLE_SAPLING)
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureJungle::new)
                 .setGenome(genome -> {
                     genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(DefaultFruits.COCOA, DefaultFruits.COCOA.isDominant()));
                     genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_LARGER);
@@ -488,10 +521,10 @@ public final class DefaultTreeSpecies {
                 });
 
         registration.registerSpecies(ReForestry.id("tree_teak"), "tectona", "grandis", true, 0xfeff8f, ForestryWoodType.TEAK)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.TEAK))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.TEAK))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.TEAK).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.TEAK).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureTeak::new)
                 .setTemperature(TemperatureType.WARM)
                 .setHumidity(HumidityType.DAMP)
                 .setRarity(0.0025f)
@@ -504,10 +537,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_kapok"), "ceiba", "pentandra", true, 0x89987b, ForestryWoodType.KAPOK)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.KAPOK))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.KAPOK))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.KAPOK).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.KAPOK).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureKapok::new)
                 .setGenome(genome -> {
                     genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_LARGE);
                     genome.set(TreeChromosomes.SAPPINESS, ForestryAlleles.SAPPINESS_LOW);
@@ -518,10 +551,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_balsa"), "ochroma", "pyramidale", true, 0x59ac00, ForestryWoodType.BALSA)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.BALSA))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.BALSA))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.BALSA).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.BALSA).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureBalsa::new)
                 .setTemperature(TemperatureType.WARM)
                 .setHumidity(HumidityType.DAMP)
                 .setRarity(0.0005f)
@@ -535,10 +568,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_orange"), "citrus", "sinensis", true, 0x57ad3f, ForestryWoodType.ORANGE)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.ORANGE))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.ORANGE))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.ORANGE).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.ORANGE).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureOrange::new)
                 .setAuthority("Spear")
                 .setGenome(genome -> {
                     genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLER);
@@ -552,10 +585,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_ebony"), "diospyros", "pentamera", true, 0xa2d24a, ForestryWoodType.EBONY)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.EBONY))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.EBONY))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.EBONY).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.EBONY).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureEbony::new)
                 .setTemperature(TemperatureType.WARM)
                 .setHumidity(HumidityType.DAMP)
                 .setRarity(0.0005f)
@@ -570,10 +603,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_sipiri"), "chlorocardium", "rodiei", true, 0x678911, ForestryWoodType.GREENHEART)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.GREENHEART))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.GREENHEART))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.GREENHEART).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.GREENHEART).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureGreenheart::new)
                 .setTemperature(TemperatureType.WARM)
                 .setHumidity(HumidityType.DAMP)
                 .setRarity(0.0025f)
@@ -587,10 +620,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_lemon"), "citrus", "limon", true, 0x5c8429, ForestryWoodType.CITRUS)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.LEMON))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.LEMON))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.LEMON).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.LEMON).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureLemon::new)
                 .setGenome(genome -> {
                     genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(DefaultFruits.LEMON, DefaultFruits.LEMON.isDominant()));
                     genome.set(TreeChromosomes.YIELD, ForestryAlleles.YIELD_HIGH);
@@ -602,10 +635,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_zebrawood"), "microberlinia", "brazzavillensis", true, 0xa2d24a, ForestryWoodType.ZEBRAWOOD)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.ZEBRANO))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.ZEBRANO))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.ZEBRANO).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.ZEBRANO).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureZebrano::new)
                 .setTemperature(TemperatureType.WARM)
                 .setHumidity(HumidityType.DAMP)
                 .setRarity(0.0005f)
@@ -620,10 +653,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_mahogany"), "swietenia", "macrophylla", true, 0x8ab154, ForestryWoodType.MAHOGANY)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.MAHOGANY))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.MAHOGANY))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.MAHOGANY).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.MAHOGANY).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureMahogany::new)
                 .setTemperature(TemperatureType.WARM)
                 .setHumidity(HumidityType.DAMP)
                 .setRarity(0.0005f)
@@ -638,10 +671,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_coconut"), "cocos", "nucifera", true, 0x4f750f, ForestryWoodType.COCONUT)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.COCONUT))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.COCONUT))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.COCONUT).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.COCONUT).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureCoconut::new)
                 .setAuthority("Spear")
                 .setGenome(genome -> {
                     genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_LARGE);
@@ -655,10 +688,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_papaya"), "carica", "papaya", true, 0x74b225, ForestryWoodType.PAPAYA)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.PAPAYA))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.PAPAYA))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.PAPAYA).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.PAPAYA).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeaturePapaya::new)
                 .setTemperature(TemperatureType.WARM)
                 .setHumidity(HumidityType.DAMP)
                 .setRarity(0.005f)
@@ -673,19 +706,19 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_acacia"), "acacia", "aneura", false, 0x616101, VanillaWoodType.ACACIA)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.ACACIA_VANILLA))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.ACACIA_VANILLA))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.ACACIA_VANILLA).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.ACACIA_VANILLA).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(Blocks.ACACIA_LEAVES.getStateDefinition().getPossibleStates())
                 .addVanillaSapling(Items.ACACIA_SAPLING)
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureAcacia::new)
                 .setAuthority("Binnie");
 
         registration.registerSpecies(ReForestry.id("tree_desert_acacia"), "vachellia", "erioloba", true, 0x748c1c, ForestryWoodType.ACACIA_DESERT)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.CAMELTHORN))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.CAMELTHORN))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.CAMELTHORN).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.CAMELTHORN).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureCamelthorn::new)
                 .setTemperature(TemperatureType.WARM)
                 .setHumidity(HumidityType.ARID)
                 .setRarity(0.005f)
@@ -700,10 +733,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_padauk"), "pterocarpus", "soyauxii", true, 0xd0df8c, ForestryWoodType.PADAUK)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.PADAUK))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.PADAUK))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.PADAUK).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.PADAUK).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeaturePadauk::new)
                 .setTemperature(TemperatureType.WARM)
                 .setRarity(0.005f)
                 .setGenome(genome -> {
@@ -715,10 +748,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_cocobolo"), "dalbergia", "retusa", true, 0x6aa17a, ForestryWoodType.COCOBOLO)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.COCOBOLO))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.COCOBOLO))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.COCOBOLO).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.COCOBOLO).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureCocobolo::new)
                 .setTemperature(TemperatureType.WARM)
                 .setRarity(0.0005f)
                 .setGenome(genome -> {
@@ -729,10 +762,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_wenge"), "millettia", "laurentii", true, 0xada157, ForestryWoodType.WENGE)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.WENGE))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.WENGE))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.WENGE).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.WENGE).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureWenge::new)
                 .setTemperature(TemperatureType.WARM)
                 .setHumidity(HumidityType.DAMP)
                 .setGenome(genome -> {
@@ -744,10 +777,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_mahoe"), "talipariti", "elatum", true, 0xa0ba1b, ForestryWoodType.MAHOE)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.MAHOE))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.MAHOE))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.MAHOE).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.MAHOE).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureMahoe::new)
                 .setTemperature(TemperatureType.WARM)
                 .setRarity(0.000005f)
                 .setGenome(genome -> {
@@ -760,10 +793,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_baobab"), "adansonia", "grandidieri", true, 0xfeff8f, ForestryWoodType.BAOBAB)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.BAOBAB))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.BAOBAB))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.BAOBAB).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.BAOBAB).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureBaobab::new)
                 .setTemperature(TemperatureType.WARM)
                 .setHumidity(HumidityType.DAMP)
                 .setRarity(0.005f)
@@ -778,10 +811,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_date"), "phoenix", "dactylifera", true, 0xcbcd79, ForestryWoodType.PALM)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.DATE))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.DATE))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.DATE).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.DATE).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureDate::new)
                 .setTemperature(TemperatureType.WARM)
                 .setHumidity(HumidityType.DAMP)
                 .setRarity(0.005f)
@@ -797,10 +830,10 @@ public final class DefaultTreeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("tree_olive"), "olea", "europaea", true, 0xb7b792, ForestryWoodType.OLIVE)
-                .setDecorativeLeaves(ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.OLIVE))
+                .setDecorativeLeaves(() -> ArboricultureBlocks.LEAVES_DECORATIVE.stack(ForestryLeafType.OLIVE))
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT.get(ForestryLeafType.OLIVE).block().getStateDefinition().getPossibleStates())
                 .addVanillaStates(ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(ForestryLeafType.OLIVE).block().getStateDefinition().getPossibleStates())
-                .setTreeFeature(FeatureTreeVanilla::new)
+                .setTreeFeature(FeatureOlive::new)
                 .setAuthority("Spear")
                 .setGenome(genome -> {
                     genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLER);

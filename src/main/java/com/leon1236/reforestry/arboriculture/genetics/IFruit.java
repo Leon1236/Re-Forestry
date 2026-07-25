@@ -6,12 +6,15 @@ import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
 
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.api.genetics.alleles.IRegistryAlleleValue;
@@ -46,6 +49,10 @@ public interface IFruit extends IRegistryAlleleValue {
     boolean requiresFruitBlocks();
 
     boolean trySpawnFruitBlock(IGenome genome, LevelAccessor level, RandomSource rand, BlockPos pos);
+
+    default TagKey<Block> getLogTag() {
+        return BlockTags.JUNGLE_LOGS;
+    }
 
     record Product(Item item, float chance) {
     }

@@ -5,6 +5,7 @@ import java.util.function.Supplier;
 
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Blocks;
 
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.api.apiculture.ForestryBeeEffects;
@@ -132,5 +133,11 @@ public final class ReforestryPlugin implements IForestryPlugin {
     @Override
     public void registerArboriculture(IArboricultureRegistration registration) {
         DefaultTreeSpecies.register(registration);
+        registration.registerCharcoalPitWall(Blocks.CLAY, 3);
+        registration.registerCharcoalPitWall(Blocks.END_STONE, 6);
+        registration.registerCharcoalPitWall(Blocks.END_STONE_BRICKS, 6);
+        registration.registerCharcoalPitWall(Blocks.DIRT, 2);
+        registration.registerCharcoalPitWall(Blocks.GRAVEL, 1);
+        registration.registerCharcoalPitWall(Blocks.NETHERRACK, 3);
     }
 }

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "#reforestry:fireproof_dark_oak_logs"
+  ],
+  "result": {
+    "count": 4,
+    "id": "reforestry:dark_oak_fireproof_planks"
+  }
+}

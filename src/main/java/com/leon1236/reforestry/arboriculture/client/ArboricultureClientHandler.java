@@ -5,15 +5,19 @@ import java.util.List;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockColorRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry;
 
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.model.object.boat.BoatModel;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.StandingSignRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.network.chat.Component;
 
 import com.leon1236.reforestry.api.client.IClientModuleHandler;
 import com.leon1236.reforestry.arboriculture.blocks.ForestryLeafType;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureBlocks;
+import com.leon1236.reforestry.arboriculture.features.ArboricultureEntities;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureTiles;
 import com.leon1236.reforestry.arboriculture.items.ItemGrafter;
 
@@ -34,6 +38,11 @@ public class ArboricultureClientHandler implements IClientModuleHandler {
         }
 
         BlockEntityRenderers.register(ArboricultureTiles.SIGN.type(), StandingSignRenderer::new);
+
+        ModelLayerRegistry.registerModelLayer(ForestryBoatRenderer.BOAT_MODEL_LAYER, BoatModel::createBoatModel);
+        ModelLayerRegistry.registerModelLayer(ForestryBoatRenderer.CHEST_BOAT_MODEL_LAYER, BoatModel::createChestBoatModel);
+        EntityRenderers.register(ArboricultureEntities.BOAT.entityType(), context -> new ForestryBoatRenderer<>(context, false));
+        EntityRenderers.register(ArboricultureEntities.CHEST_BOAT.entityType(), context -> new ForestryBoatRenderer<>(context, true));
 
         ItemTooltipCallback.EVENT.register((stack, context, tooltipFlag, lines) -> {
             if (stack.getItem() instanceof ItemGrafter && !stack.isDamaged()) {

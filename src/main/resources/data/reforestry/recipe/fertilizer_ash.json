@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "#c:dusts/ash",
+    "X": "#c:gems/apatite"
+  },
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "result": {
+    "count": 16,
+    "id": "reforestry:fertilizer_compound"
+  }
+}

@@ -81,6 +81,13 @@ public final class ReforestryBiomeTags {
         public static final TagKey<Block> SWARM_BEE_GROUND =
                 TagKey.create(Registries.BLOCK, ReForestry.id("hive_grounds/swarm"));
 
+        public static final TagKey<Block> PALM_LOGS =
+                TagKey.create(Registries.BLOCK, ReForestry.id("palm_logs"));
+        public static final TagKey<Block> PAPAYA_LOGS =
+                TagKey.create(Registries.BLOCK, ReForestry.id("papaya_logs"));
+        public static final TagKey<Block> COCONUT_LOGS =
+                TagKey.create(Registries.BLOCK, ReForestry.id("coconut_logs"));
+
         private Blocks() {
         }
     }

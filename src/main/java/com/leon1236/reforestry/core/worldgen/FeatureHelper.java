@@ -11,6 +11,7 @@ import com.leon1236.reforestry.arboriculture.worldgen.TreeContour;
 import com.leon1236.reforestry.core.utils.VecUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.SectionPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
@@ -35,7 +36,7 @@ public class FeatureHelper {
 	}
 
 	public static boolean addBlock(LevelAccessor world, BlockPos pos, ITreeBlockType type, EnumReplaceMode replaceMode, TreeContour contour) {
-		if (!world.hasChunkAt(pos)) {
+		if (!world.getChunkSource().hasChunk(SectionPos.blockToSectionCoord(pos.getX()), SectionPos.blockToSectionCoord(pos.getZ()))) {
 			return false;
 		}
 

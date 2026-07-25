@@ -1,0 +1,27 @@
+---
+description: Coding conventions — CE mirroring, Fabric over Mixin, API-first, tools scripts
+alwaysApply: true
+---
+
+# Conventions
+
+- **No code comments** — clean code only.
+- **Mirror CE** paths and names; registry ids are contracts, not style.
+- **Prefer Fabric API hooks over Mixins.** Mixin only when no hook exists; keep it minimal.
+- **No Fabric equivalent?** Write down the chosen approach (in the change summary / CLAUDE.md when durable) — do not improvise silently.
+- **API-first:** new systems get a public `api/` interface before the implementation. Dogfood via `IForestryPlugin` / `reforestry:plugin` entrypoint.
+- **Bulk data** (species, mutations, block families): extract via scripts in `tools/` — never type from memory. Reuse/extend existing tools; new repeatable scripts go in `tools/` with a one-line usage comment at the top.
+- **Namespace renames:** use `tools/rename_namespace.py`, not hand edits.
+- **Addon modules** stay under one namespace: `reforestry:gendustry`, `reforestry:extra_bees`, `reforestry:extra_trees`.
+- **Exploration notes:** save agent research under `queries/`; reuse if a similar question comes up.
+
+**Forge → Fabric (highlights):** DeferredRegister → direct `Registry.register` at init; capabilities → `fabric-transfer-api-v1`; energy → Team Reborn `EnergyStorage`; `@Mod` → `ModInitializer` / client entrypoints in `fabric.mod.json`. Full table: `files/forge-fabric-mapping.md`.
+
+**Registration shape (do not register one-off when a group fits):**
+```java
+REGISTRY.blockGroup(BlockConstructor::new, SomeEnum.values())
+    .item(...)
+    .identifier("prefix") // optional
+    .create();
+```
+`IdentifierType`: TYPE_ONLY (default) / PREFIX / SUFFIX — see CLAUDE.md §3.

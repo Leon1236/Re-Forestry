@@ -4,7 +4,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 
 import org.jetbrains.annotations.Nullable;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -44,7 +43,7 @@ public sealed interface TreeContour {
 			if (this.boundingBox == null) {
 				this.boundingBox = new BoundingBox(pos);
 			} else {
-				this.boundingBox.encapsulate(pos);
+				this.boundingBox = BoundingBox.encapsulating(this.boundingBox, new BoundingBox(pos));
 			}
 		}
 
