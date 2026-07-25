@@ -84,6 +84,11 @@ public class ArboricultureCreativeTabs {
                     }
                 }
             }
+            for (FeatureBlock<?> feature : ArboricultureBlocks.LEAVES_DECORATIVE.getAll().values()) {
+                if (feature.item() != null) {
+                    output.accept(feature.item());
+                }
+            }
         });
     });
 

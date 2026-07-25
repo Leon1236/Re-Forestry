@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/tree_date_default_leaves_fruit",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -3420807
+      }
+    ]
+  }
+}

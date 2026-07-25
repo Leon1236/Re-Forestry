@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/tree_giant_sequoia_default_leaves",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -9206732
+      }
+    ]
+  }
+}

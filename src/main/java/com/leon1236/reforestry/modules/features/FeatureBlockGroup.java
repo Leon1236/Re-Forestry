@@ -9,6 +9,7 @@ import org.jetbrains.annotations.Nullable;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
@@ -18,6 +19,18 @@ public class FeatureBlockGroup<B extends Block, S extends IBlockSubtype> extends
 
     private FeatureBlockGroup(ImmutableMap<S, FeatureBlock<B>> featureByType) {
         super(featureByType);
+    }
+
+    public ItemStack stack(S subtype) {
+        BlockItem item = get(subtype).item();
+        if (item == null) {
+            throw new IllegalStateException("No item for subtype: " + subtype);
+        }
+        return new ItemStack(item);
+    }
+
+    public Block[] blockArray() {
+        return getAll().values().stream().map(FeatureBlock::block).toArray(Block[]::new);
     }
 
     @FunctionalInterface

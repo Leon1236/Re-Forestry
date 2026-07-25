@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/tree_kapok_default_leaves",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -7759749
+      }
+    ]
+  }
+}

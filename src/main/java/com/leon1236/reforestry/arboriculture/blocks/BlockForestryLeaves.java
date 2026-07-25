@@ -8,8 +8,10 @@ import org.jetbrains.annotations.Nullable;
 import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ColorParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.ParticleUtils;
 import net.minecraft.util.RandomSource;
@@ -17,6 +19,10 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemInstance;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.BonemealableBlock;
@@ -32,6 +38,7 @@ import com.leon1236.reforestry.api.arboriculture.IToolGrafter;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureDataComponents;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureItems;
+import com.leon1236.reforestry.arboriculture.genetics.ITreeSpecies;
 import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
 import com.leon1236.reforestry.arboriculture.tiles.TileLeaves;
 
@@ -106,6 +113,13 @@ public class BlockForestryLeaves extends LeavesBlock implements EntityBlock, Bon
             return List.of();
         }
 
+        if (keepsLeaves(params)) {
+            ItemStack decorative = genome.getActiveAllele(TreeChromosomes.SPECIES).value().getDecorativeLeaves();
+            if (!decorative.isEmpty()) {
+                return List.of(decorative.copy());
+            }
+        }
+
         List<ItemStack> drops = new ArrayList<>();
         if (leaves.hasFruit()) {
             drops.addAll(leaves.pickFruit());
@@ -121,6 +135,30 @@ public class BlockForestryLeaves extends LeavesBlock implements EntityBlock, Bon
         }
 
         return drops;
+    }
+
+    @Override
+    protected ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state, boolean includeData) {
+        if (!(level.getBlockEntity(pos) instanceof TileLeaves leaves) || leaves.getGenome() == null) {
+            return ItemStack.EMPTY;
+        }
+        ITreeSpecies species = leaves.getGenome().getActiveAllele(TreeChromosomes.SPECIES).value();
+        ItemStack decorative = species.getDecorativeLeaves();
+        return decorative.isEmpty() ? ItemStack.EMPTY : decorative.copy();
+    }
+
+    private static boolean keepsLeaves(LootParams.Builder params) {
+        ItemInstance toolInstance = params.getOptionalParameter(LootContextParams.TOOL);
+        if (!(toolInstance instanceof ItemStack tool)) {
+            return false;
+        }
+        if (tool.is(Items.SHEARS)) {
+            return true;
+        }
+        Holder<Enchantment> silkTouch = params.getLevel().registryAccess()
+                .lookupOrThrow(Registries.ENCHANTMENT)
+                .getOrThrow(Enchantments.SILK_TOUCH);
+        return EnchantmentHelper.getItemEnchantmentLevel(silkTouch, tool) > 0;
     }
 
     private static float getSaplingModifier(LootParams.Builder params, Level level, BlockPos pos) {

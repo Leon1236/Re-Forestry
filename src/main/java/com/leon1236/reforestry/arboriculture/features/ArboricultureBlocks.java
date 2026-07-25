@@ -20,9 +20,13 @@ import com.leon1236.reforestry.api.arboriculture.WoodBlockKind;
 import com.leon1236.reforestry.arboriculture.ForestryWoodType;
 import com.leon1236.reforestry.arboriculture.VanillaWoodType;
 import com.leon1236.reforestry.arboriculture.WoodAccess;
+import com.leon1236.reforestry.arboriculture.blocks.BlockDecorativeLeaves;
+import com.leon1236.reforestry.arboriculture.blocks.BlockDefaultLeaves;
+import com.leon1236.reforestry.arboriculture.blocks.BlockDefaultLeavesFruit;
 import com.leon1236.reforestry.arboriculture.blocks.BlockForestryButton;
 import com.leon1236.reforestry.arboriculture.blocks.BlockForestryLeaves;
 import com.leon1236.reforestry.arboriculture.blocks.BlockSapling;
+import com.leon1236.reforestry.arboriculture.blocks.ForestryLeafType;
 import com.leon1236.reforestry.arboriculture.blocks.BlockForestryDoor;
 import com.leon1236.reforestry.arboriculture.blocks.BlockForestryFence;
 import com.leon1236.reforestry.arboriculture.blocks.BlockForestryFenceGate;
@@ -36,10 +40,12 @@ import com.leon1236.reforestry.arboriculture.blocks.BlockForestryStandingSign;
 import com.leon1236.reforestry.arboriculture.blocks.BlockForestryTrapdoor;
 import com.leon1236.reforestry.arboriculture.blocks.BlockForestryWallHangingSign;
 import com.leon1236.reforestry.arboriculture.blocks.BlockForestryWallSign;
+import com.leon1236.reforestry.arboriculture.items.ItemBlockDecorativeLeaves;
 import com.leon1236.reforestry.arboriculture.items.ItemBlockForestryDoor;
 import com.leon1236.reforestry.arboriculture.items.ItemBlockForestryHangingSign;
 import com.leon1236.reforestry.arboriculture.items.ItemBlockForestrySign;
 import com.leon1236.reforestry.arboriculture.items.ItemBlockForestryWood;
+import com.leon1236.reforestry.arboriculture.items.ItemBlockLeaves;
 import com.leon1236.reforestry.arboriculture.items.ItemBlockWood;
 import com.leon1236.reforestry.modules.features.FeatureBlock;
 import com.leon1236.reforestry.modules.features.FeatureBlockGroup;
@@ -201,6 +207,24 @@ public class ArboricultureBlocks {
                     .randomTicks().noOcclusion()),
             null);
 
+    public static final FeatureBlockGroup<BlockDefaultLeaves, ForestryLeafType> LEAVES_DEFAULT =
+            REGISTRY.blockGroup(BlockDefaultLeaves::new, ForestryLeafType.VALUES)
+                    .item(ItemBlockLeaves::new)
+                    .identifier("default_leaves", FeatureGroup.IdentifierType.SUFFIX)
+                    .create();
+
+    public static final FeatureBlockGroup<BlockDefaultLeavesFruit, ForestryLeafType> LEAVES_DEFAULT_FRUIT =
+            REGISTRY.blockGroup(BlockDefaultLeavesFruit::new, ForestryLeafType.VALUES)
+                    .item(ItemBlockLeaves::new)
+                    .identifier("default_leaves_fruit", FeatureGroup.IdentifierType.SUFFIX)
+                    .create();
+
+    public static final FeatureBlockGroup<BlockDecorativeLeaves, ForestryLeafType> LEAVES_DECORATIVE =
+            REGISTRY.blockGroup(BlockDecorativeLeaves::new, ForestryLeafType.VALUES)
+                    .item(ItemBlockDecorativeLeaves::new)
+                    .identifier("decorative_leaves", FeatureGroup.IdentifierType.SUFFIX)
+                    .create();
+
     private static BlockBehaviour.Properties woodProperties(BlockBehaviour.Properties properties) {
         return properties.strength(2.0F, 3.0F).sound(SoundType.WOOD);
     }
@@ -242,6 +266,16 @@ public class ArboricultureBlocks {
             WoodAccess.INSTANCE.register(type, WoodBlockKind.LOG, true, FIREPROOF_LOG.get(type).block().defaultBlockState());
             WoodAccess.INSTANCE.register(type, WoodBlockKind.LOG, false, vanillaLogBlock(type).defaultBlockState());
         }
+        for (FeatureBlock<?> feature : LEAVES_DEFAULT.getAll().values()) {
+            net.fabricmc.fabric.api.registry.FlammableBlockRegistry.getDefaultInstance().add(feature.block(), 30, 60);
+        }
+        for (FeatureBlock<?> feature : LEAVES_DEFAULT_FRUIT.getAll().values()) {
+            net.fabricmc.fabric.api.registry.FlammableBlockRegistry.getDefaultInstance().add(feature.block(), 30, 60);
+        }
+        for (FeatureBlock<?> feature : LEAVES_DECORATIVE.getAll().values()) {
+            net.fabricmc.fabric.api.registry.FlammableBlockRegistry.getDefaultInstance().add(feature.block(), 30, 60);
+        }
+        net.fabricmc.fabric.api.registry.FlammableBlockRegistry.getDefaultInstance().add(LEAVES.block(), 30, 60);
     }
 
     private static Block vanillaLogBlock(VanillaWoodType type) {

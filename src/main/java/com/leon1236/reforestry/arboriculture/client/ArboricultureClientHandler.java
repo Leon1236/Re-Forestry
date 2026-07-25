@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.blockentity.StandingSignRenderer;
 import net.minecraft.network.chat.Component;
 
 import com.leon1236.reforestry.api.client.IClientModuleHandler;
+import com.leon1236.reforestry.arboriculture.blocks.ForestryLeafType;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureBlocks;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureTiles;
 import com.leon1236.reforestry.arboriculture.items.ItemGrafter;
@@ -24,10 +25,14 @@ public class ArboricultureClientHandler implements IClientModuleHandler {
             ctx.registerBlockStateResolver(ArboricultureBlocks.SAPLING.block(), new SaplingBlockStateResolver());
         });
         BlockColorRegistry.register(List.of(new LeafFoliageTintSource()), ArboricultureBlocks.LEAVES.block());
+        for (ForestryLeafType type : ForestryLeafType.VALUES) {
+            DefaultLeafFoliageTintSource tint = new DefaultLeafFoliageTintSource(type);
+            BlockColorRegistry.register(List.of(tint),
+                    ArboricultureBlocks.LEAVES_DEFAULT.get(type).block(),
+                    ArboricultureBlocks.LEAVES_DEFAULT_FRUIT.get(type).block(),
+                    ArboricultureBlocks.LEAVES_DECORATIVE.get(type).block());
+        }
 
-        // ArboricultureTiles.SIGN is a custom BlockEntityType<SignBlockEntity>, not vanilla's
-        // BlockEntityTypes.SIGN, so vanilla's own BlockEntityRenderers.bootstrap() never covers it -
-        // without this, all standing/wall Forestry signs render with no text/geometry at all.
         BlockEntityRenderers.register(ArboricultureTiles.SIGN.type(), StandingSignRenderer::new);
 
         ItemTooltipCallback.EVENT.register((stack, context, tooltipFlag, lines) -> {

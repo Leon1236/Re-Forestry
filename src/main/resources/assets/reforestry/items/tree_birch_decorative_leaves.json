@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/tree_birch_decorative_leaves",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -8345771
+      }
+    ]
+  }
+}

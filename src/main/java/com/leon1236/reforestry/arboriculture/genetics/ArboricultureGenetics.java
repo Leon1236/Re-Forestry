@@ -13,6 +13,7 @@ import net.minecraft.resources.Identifier;
 import com.leon1236.reforestry.api.arboriculture.IWoodType;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.api.genetics.alleles.IRegistryAllele;
+import com.leon1236.reforestry.arboriculture.blocks.ForestryLeafType;
 import com.leon1236.reforestry.core.genetics.alleles.AlleleManager;
 import com.leon1236.reforestry.core.genetics.mutations.Mutation;
 import com.leon1236.reforestry.core.genetics.mutations.MutationBuilder;
@@ -56,6 +57,14 @@ public final class ArboricultureGenetics {
                 mutationsByPair.computeIfAbsent(MutationPair.of(mutation.firstParent(), mutation.secondParent()),
                         pair -> new ArrayList<>()).add(mutation);
             }
+        }
+        for (ForestryLeafType leafType : ForestryLeafType.allValues()) {
+            ITreeSpecies species = speciesById.get(leafType.getSpeciesId());
+            if (species == null) {
+                throw new IllegalStateException("Invalid ForestryLeafType " + leafType.getSerializedName()
+                        + ": no tree species found with ID: " + leafType.getSpeciesId());
+            }
+            leafType.setSpecies(species);
         }
         finalized = true;
     }
