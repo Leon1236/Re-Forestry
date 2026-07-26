@@ -7,7 +7,6 @@ import net.minecraft.world.item.ItemStack;
 
 import com.leon1236.reforestry.api.IForestryApi;
 import com.leon1236.reforestry.core.circuits.ISocketable;
-import com.leon1236.reforestry.core.circuits.ItemCircuitBoard;
 import com.leon1236.reforestry.core.circuits.ItemSolderingIron;
 import com.leon1236.reforestry.core.circuits.SocketHelper;
 import com.leon1236.reforestry.core.inventory.InventoryUtil;

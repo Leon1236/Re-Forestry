@@ -28,7 +28,6 @@ import com.leon1236.reforestry.factory.recipes.HygroregulatorRecipe;
 import com.leon1236.reforestry.factory.recipes.MoistenerRecipe;
 import com.leon1236.reforestry.core.fluids.FluidContainerHelper;
 import com.leon1236.reforestry.core.inventory.InventoryUtil;
-import com.leon1236.reforestry.core.recipes.CraftingInputHelper;
 import com.leon1236.reforestry.factory.recipes.CarpenterRecipe;
 import com.leon1236.reforestry.factory.recipes.SqueezerRecipe;
 

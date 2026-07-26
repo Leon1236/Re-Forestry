@@ -33,7 +33,6 @@ import com.leon1236.reforestry.core.fluids.FluidContainerHelper;
 import com.leon1236.reforestry.core.fluids.FluidUnits;
 import com.leon1236.reforestry.core.fluids.MultiFluidTank;
 import com.leon1236.reforestry.core.inventory.InventoryUtil;
-import com.leon1236.reforestry.core.recipes.RecipeFluidAmount;
 import com.leon1236.reforestry.core.recipes.RecipeUtils;
 import com.leon1236.reforestry.core.render.TankRenderInfo;
 import com.leon1236.reforestry.core.tiles.IRenderableTile;
@@ -386,7 +385,6 @@ public class TileCarpenter extends TilePowered implements WorldlyContainer, IRen
         super.saveAdditional(output);
         ContainerHelper.saveAllItems(output, items);
         this.tanks.writeValue(output.child("Tanks"));
-        output.store("CraftPreview", ItemStack.CODEC, this.craftPreview.getItem(0));
     }
 
     @Override
@@ -395,7 +393,6 @@ public class TileCarpenter extends TilePowered implements WorldlyContainer, IRen
         items.clear();
         ContainerHelper.loadAllItems(input, items);
         this.tanks.readValue(input.childOrEmpty("Tanks"));
-        this.craftPreview.setItem(0, input.read("CraftPreview", ItemStack.CODEC).orElse(ItemStack.EMPTY));
         this.currentRecipe = null;
         checkRecipe();
     }

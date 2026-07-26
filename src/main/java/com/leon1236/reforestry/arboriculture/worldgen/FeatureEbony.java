@@ -19,7 +19,7 @@ public class FeatureEbony extends FeatureTree {
 	public void generateTrunk(LevelAccessor level, List<BlockPos> logOrigins, List<BlockPos> branchCoords, RandomSource rand, TreeBlockTypeLog wood, BlockPos startPos) {
 		int trunksGenerated = 0;
 
-		// TODO: Anything but this
+
 		for (int x = 0; x < this.girth; x++) {
 			for (int z = 0; z < this.girth; z++) {
 				if (rand.nextFloat() < 0.6f) {

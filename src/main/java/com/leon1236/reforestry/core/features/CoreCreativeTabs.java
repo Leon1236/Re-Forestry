@@ -2,7 +2,6 @@ package com.leon1236.reforestry.core.features;
 
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.core.fluids.ForestryFluids;
-import com.leon1236.reforestry.core.features.FluidsItems;
 import com.leon1236.reforestry.core.items.definitions.EnumContainerType;
 import com.leon1236.reforestry.modules.features.FeatureCreativeTab;
 import com.leon1236.reforestry.modules.features.FeatureItem;
@@ -15,6 +14,7 @@ public class CoreCreativeTabs {
     public static final FeatureCreativeTab REFORESTRY = REGISTRY.creativeTab(ReForestry.MOD_ID, tab -> {
         tab.icon(() -> CoreItems.BEESWAX.item().getDefaultInstance());
         tab.displayItems((parameters, output) -> {
+            output.accept(CoreItems.FORESTERS_MANUAL.item());
             output.accept(CoreItems.BEESWAX.item());
             output.accept(CoreItems.APATITE.item());
             output.accept(CoreItems.RAW_TIN.item());
@@ -24,6 +24,7 @@ public class CoreCreativeTabs {
             output.accept(CoreItems.GEAR_BRONZE.item());
             output.accept(CoreItems.GEAR_COPPER.item());
             output.accept(CoreItems.GEAR_TIN.item());
+            output.accept(CoreItems.GEAR_IRON.item());
             output.accept(CoreItems.STURDY_CASING.item());
             output.accept(CoreItems.HARDENED_CASING.item());
             output.accept(CoreItems.IMPREGNATED_CASING.item());
@@ -34,12 +35,25 @@ public class CoreCreativeTabs {
             output.accept(CoreItems.BROKEN_BRONZE_AXE.item());
             output.accept(CoreItems.BROKEN_BRONZE_SWORD.item());
             output.accept(CoreItems.BROKEN_BRONZE_HOE.item());
+            output.accept(CoreItems.BRONZE_PICKAXE.item());
+            output.accept(CoreItems.BRONZE_SHOVEL.item());
+            output.accept(CoreItems.BRONZE_AXE.item());
+            output.accept(CoreItems.BRONZE_SWORD.item());
+            output.accept(CoreItems.BRONZE_HOE.item());
+            output.accept(CoreItems.KIT_PICKAXE.item());
+            output.accept(CoreItems.KIT_SHOVEL.item());
+            output.accept(CoreItems.KIT_AXE.item());
+            output.accept(CoreItems.KIT_SWORD.item());
+            output.accept(CoreItems.KIT_HOE.item());
             output.accept(CoreItems.MOULDY_WHEAT.item());
             output.accept(CoreItems.DECAYING_WHEAT.item());
             output.accept(CoreItems.IODINE_CHARGE.item());
             output.accept(CoreItems.DISSIPATION_CHARGE.item());
             output.accept(CoreItems.REFRACTORY_WAX.item());
             output.accept(CoreItems.ASH.item());
+            output.accept(CoreItems.ASH_BRICK.item());
+            output.accept(CoreItems.WAX_BRICK.item());
+            output.accept(CoreItems.REFRACTORY_WAX_BRICK.item());
             output.accept(CoreItems.PEAT.item());
             output.accept(CoreItems.BITUMINOUS_PEAT.item());
             output.accept(CoreItems.COMPOST.item());
@@ -52,6 +66,11 @@ public class CoreCreativeTabs {
                 output.accept(feature.item());
             }
             output.accept(CoreItems.SOLDERING_IRON.item());
+            output.accept(CoreItems.WRENCH.item());
+            output.accept(CoreItems.PIPETTE.item());
+            output.accept(CoreItems.SPECTACLES.item());
+            output.accept(CoreItems.RESEARCH_NOTE.item());
+            output.accept(CoreItems.PORTABLE_ALYZER.item());
             for (FeatureItem<?> feature : CoreItems.CRAFTING_MATERIALS.getAll().values()) {
                 output.accept(feature.item());
             }

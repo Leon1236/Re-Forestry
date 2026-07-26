@@ -18,8 +18,6 @@ import com.leon1236.reforestry.api.circuits.ICircuitBoard;
 import com.leon1236.reforestry.api.circuits.ICircuitLayout;
 import com.leon1236.reforestry.core.features.CoreItems;
 
-import java.util.List;
-
 public class ItemCircuitBoard extends Item {
     private final EnumCircuitBoardType type;
 

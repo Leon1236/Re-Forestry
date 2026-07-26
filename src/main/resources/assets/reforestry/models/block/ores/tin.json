@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "reforestry:block/ores/tin"
+    "all": "reforestry:block/tin_ore"
   }
 }

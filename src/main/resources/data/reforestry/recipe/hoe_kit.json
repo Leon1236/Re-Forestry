@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "reforestry:bronze_hoe",
+    "reforestry:carton"
+  ],
+  "result": {
+    "id": "reforestry:hoe_kit"
+  }
+}

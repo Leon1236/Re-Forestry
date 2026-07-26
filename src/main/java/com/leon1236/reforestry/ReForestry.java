@@ -14,6 +14,7 @@ import com.leon1236.reforestry.arboriculture.ModuleArboriculture;
 import com.leon1236.reforestry.core.ModuleCore;
 import com.leon1236.reforestry.factory.ModuleFactory;
 import com.leon1236.reforestry.modules.ModuleManager;
+import com.leon1236.reforestry.storage.ModuleStorage;
 
 public class ReForestry implements ModInitializer {
 	public static final String MOD_ID = "reforestry";
@@ -23,7 +24,12 @@ public class ReForestry implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Hello Fabric world!");
-		ModuleManager.INSTANCE.load(List.of(new ModuleCore(), new ModuleApiculture(), new ModuleArboriculture(), new ModuleFactory()));
+		ModuleManager.INSTANCE.load(List.of(
+				new ModuleCore(),
+				new ModuleApiculture(),
+				new ModuleArboriculture(),
+				new ModuleFactory(),
+				new ModuleStorage()));
 	}
 
 	public static Identifier id(String path) {

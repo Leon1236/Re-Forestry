@@ -6,9 +6,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-
 import com.leon1236.reforestry.core.gui.ContainerSolderingIron;
 
 public class ItemSolderingIron extends Item implements ISolderingIron {

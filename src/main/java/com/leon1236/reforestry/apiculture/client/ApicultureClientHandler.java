@@ -24,8 +24,8 @@ public class ApicultureClientHandler implements IClientModuleHandler {
         MenuScreens.register(ApicultureMenuTypes.ALVEARY_SIEVE.type(), ScreenAlvearySieve::new);
         MenuScreens.register(ApicultureMenuTypes.ALVEARY_SWARMER.type(), ScreenAlvearySwarmer::new);
 
-        ParticleProviderRegistry.getInstance().register(ApicultureParticles.BEE_ROUND_TRIP.type(), BeeTravelParticle.Provider::new);
-        ParticleProviderRegistry.getInstance().register(ApicultureParticles.BEE_EXPLORER.type(), BeeTravelParticle.Provider::new);
+        ParticleProviderRegistry.getInstance().register(ApicultureParticles.BEE_ROUND_TRIP.type(), BeeTravelParticle.RoundTripProvider::new);
+        ParticleProviderRegistry.getInstance().register(ApicultureParticles.BEE_EXPLORER.type(), BeeTravelParticle.ExploreProvider::new);
 
         Block[] combBlocks = ApicultureBlocks.BEE_COMB.getAll().values().stream()
                 .map(FeatureBlock<BlockHoneyComb>::block)

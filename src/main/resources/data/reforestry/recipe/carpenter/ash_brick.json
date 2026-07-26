@@ -1,0 +1,22 @@
+{
+  "type": "reforestry:carpenter",
+  "time": 5,
+  "recipe": {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "key": {
+      "#": "reforestry:ash"
+    },
+    "pattern": [
+      "##"
+    ],
+    "result": {
+      "id": "reforestry:brick_ash"
+    },
+    "show_notification": true
+  },
+  "liquid": {
+    "fluid": "minecraft:water",
+    "amount": 50
+  }
+}

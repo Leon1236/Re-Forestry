@@ -28,6 +28,7 @@ public class ScreenBottler extends ScreenForestry<ContainerBottler> {
 
 	public ScreenBottler(ContainerBottler menu, Inventory inventory, Component title) {
 		super(menu, inventory, title, IMAGE_WIDTH, IMAGE_HEIGHT);
+		addTankClickRegion(TANK_X, TANK_Y, TANK_WIDTH, TANK_HEIGHT, 0);
 	}
 
 	@Override

@@ -38,6 +38,7 @@ public class ScreenFabricator extends ScreenForestry<ContainerFabricator> {
 
     public ScreenFabricator(ContainerFabricator menu, Inventory inventory, Component title) {
         super(menu, inventory, title, IMAGE_WIDTH, IMAGE_HEIGHT);
+        addTankClickRegion(MOLTEN_TANK_X, TANK_Y, TANK_WIDTH, TANK_HEIGHT, 0);
     }
 
     @Override

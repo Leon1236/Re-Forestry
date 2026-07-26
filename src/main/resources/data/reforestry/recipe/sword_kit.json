@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "reforestry:bronze_sword",
+    "reforestry:carton"
+  ],
+  "result": {
+    "id": "reforestry:sword_kit"
+  }
+}

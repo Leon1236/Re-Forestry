@@ -1,6 +1,7 @@
 {
   "textures": {
-    "butterfly": "reforestry:item/butterflies/lepi_brimstone"
+    "particle": "#butterfly",
+    "butterfly": "reforestry:item/butterfly/brimstone"
   },
   "gui_light": "front",
   "elements": [

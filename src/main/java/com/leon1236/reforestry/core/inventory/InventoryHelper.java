@@ -1,6 +1,5 @@
 package com.leon1236.reforestry.core.inventory;
 
-import net.minecraft.world.Container;
 import net.minecraft.world.WorldlyContainer;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;

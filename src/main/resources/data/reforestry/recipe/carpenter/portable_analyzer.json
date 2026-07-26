@@ -1,0 +1,28 @@
+{
+  "type": "reforestry:carpenter",
+  "time": 100,
+  "recipe": {
+    "type": "minecraft:crafting_shaped",
+    "category": "equipment",
+    "key": {
+      "#": "#c:glass_panes",
+      "D": "#c:gems/diamond",
+      "R": "#c:dusts/redstone",
+      "X": "#c:ingots/tin"
+    },
+    "pattern": [
+      "X#X",
+      "X#X",
+      "RDR"
+    ],
+    "result": {
+      "id": "reforestry:portable_alyzer",
+      "count": 1
+    },
+    "show_notification": true
+  },
+  "liquid": {
+    "fluid": "minecraft:water",
+    "amount": 2000
+  }
+}

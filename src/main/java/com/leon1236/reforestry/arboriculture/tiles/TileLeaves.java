@@ -7,12 +7,14 @@ import org.jetbrains.annotations.Nullable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
+import com.leon1236.reforestry.api.core.ISpectacleBlock;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureTiles;
 import com.leon1236.reforestry.arboriculture.genetics.IFruit;
@@ -21,7 +23,7 @@ import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
 import com.leon1236.reforestry.arboriculture.genetics.TreeMating;
 import com.leon1236.reforestry.core.genetics.mutations.Mutation;
 
-public class TileLeaves extends TileTreeContainer {
+public class TileLeaves extends TileTreeContainer implements ISpectacleBlock {
     private static final String NBT_MATE_GENOME = "MateGenome";
     private static final String NBT_RIPENING_TIME = "RipeningTime";
     private static final String NBT_IS_FRUIT_LEAF = "IsFruitLeaf";
@@ -53,6 +55,11 @@ public class TileLeaves extends TileTreeContainer {
 
     public boolean isPollinated() {
         return mateGenome != null;
+    }
+
+    @Override
+    public boolean isHighlighted(Player player) {
+        return isPollinated();
     }
 
     @Override

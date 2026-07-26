@@ -1,0 +1,22 @@
+{
+  "type": "reforestry:carpenter",
+  "time": 20,
+  "box": "reforestry:carton",
+  "recipe": {
+    "type": "minecraft:crafting_shaped",
+    "category": "equipment",
+    "key": {
+      "#": "#c:ingots/bronze",
+      "X": "minecraft:stick"
+    },
+    "pattern": [
+      " # ",
+      " X ",
+      " X "
+    ],
+    "result": {
+      "id": "reforestry:kit_shovel"
+    },
+    "show_notification": true
+  }
+}

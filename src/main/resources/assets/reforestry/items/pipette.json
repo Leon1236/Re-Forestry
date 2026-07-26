@@ -1,6 +1,15 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "reforestry:item/pipette"
+    "model": "reforestry:item/pipette",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -1
+      },
+      {
+        "type": "reforestry:pipette_fluid"
+      }
+    ]
   }
 }

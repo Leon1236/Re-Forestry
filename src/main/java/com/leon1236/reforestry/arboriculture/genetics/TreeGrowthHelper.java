@@ -26,8 +26,7 @@ public class TreeGrowthHelper {
 	 */
 	@Nullable
 	public static BlockPos getGrowthPos(LevelAccessor level, IGenome genome, BlockPos pos, int expectedGirth, int expectedHeight) {
-		// TODO use MutableBlockPos to reduce BlockPos allocations.
-		// Check if the tree has enough saplings to grow
+
 		BlockPos growthPos = hasSufficientSaplingsAroundSapling(genome, level, pos, expectedGirth);
 		if (growthPos == null) {
 			return null;

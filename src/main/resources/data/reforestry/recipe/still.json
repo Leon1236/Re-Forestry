@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": "#c:glass_blocks/colorless",
-    "X": "#c:ingots/iron",
+    "X": "reforestry:gear_iron",
     "Y": "reforestry:sturdy_machine"
   },
   "pattern": [

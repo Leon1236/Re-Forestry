@@ -76,7 +76,8 @@ public final class MutationBuilder implements IMutationBuilder {
         return this;
     }
 
-    public Mutation build(Identifier result) {
-        return new Mutation(firstParent, secondParent, result, chancePercent / 100f, List.copyOf(conditions), Map.copyOf(specialAlleles));
+    public Mutation build(Identifier typeId, Identifier result) {
+        return new Mutation(typeId, firstParent, secondParent, result, chancePercent / 100f,
+                List.copyOf(conditions), Map.copyOf(specialAlleles));
     }
 }

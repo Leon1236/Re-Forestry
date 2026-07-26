@@ -1,7 +1,6 @@
 package com.leon1236.reforestry.apiculture.items;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -17,6 +16,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.phys.Vec3;
 
 import com.leon1236.reforestry.api.apiculture.hives.IHiveTile;
+import com.leon1236.reforestry.core.render.ParticleRender;
 
 public class ItemSmoker extends Item {
     public ItemSmoker(Properties properties) {
@@ -54,7 +54,7 @@ public class ItemSmoker extends Item {
         Vec3 smokePos = lookDistance.add(entity.position()).add(scaledOffset);
 
         if (level.isClientSide()) {
-            level.addParticle(ParticleTypes.SMOKE, smokePos.x, smokePos.y + 1, smokePos.z, 0, 0.01, 0);
+            ParticleRender.addEntitySmokeFX(level, smokePos.x, smokePos.y + 1, smokePos.z);
         }
 
         BlockPos blockPos = BlockPos.containing(smokePos.x, smokePos.y + 1, smokePos.z);
@@ -75,7 +75,6 @@ public class ItemSmoker extends Item {
         BlockEntity blockEntity = context.getLevel().getBlockEntity(context.getClickedPos());
         if (blockEntity instanceof IHiveTile hive) {
             hive.calmBees();
-            return InteractionResult.SUCCESS;
         }
         return InteractionResult.PASS;
     }

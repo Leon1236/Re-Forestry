@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "reforestry:bronze_shovel",
+    "reforestry:carton"
+  ],
+  "result": {
+    "id": "reforestry:kit_shovel"
+  }
+}

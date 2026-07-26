@@ -5,14 +5,18 @@ import java.util.Optional;
 
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
+import net.minecraft.world.item.ItemStack;
 
 import com.leon1236.reforestry.ReForestry;
+import com.leon1236.reforestry.api.core.IToolPipette;
 import com.leon1236.reforestry.apiculture.gui.ContainerAlvearyHygroregulator;
+import com.leon1236.reforestry.core.gui.IContainerLiquidTanks;
 
 public class ScreenAlvearyHygroregulator extends AbstractContainerScreen<ContainerAlvearyHygroregulator> {
     private static final Identifier TEXTURE = ReForestry.id("textures/gui/hygroregulator.png");
@@ -29,6 +33,19 @@ public class ScreenAlvearyHygroregulator extends AbstractContainerScreen<Contain
 
     public ScreenAlvearyHygroregulator(ContainerAlvearyHygroregulator menu, Inventory inventory, Component title) {
         super(menu, inventory, title, IMAGE_WIDTH, IMAGE_HEIGHT);
+    }
+
+    @Override
+    public boolean mouseClicked(MouseButtonEvent event, boolean doubleClick) {
+        ItemStack carried = this.menu.getCarried();
+        if (this.menu instanceof IContainerLiquidTanks
+                && carried.getItem() instanceof IToolPipette
+                && isHovering(TANK_X, TANK_Y, TANK_WIDTH, TANK_HEIGHT, event.x(), event.y())
+                && this.menu.clickMenuButton(this.minecraft.player, 0)) {
+            this.minecraft.gameMode.handleInventoryButtonClick(this.menu.containerId, 0);
+            return true;
+        }
+        return super.mouseClicked(event, doubleClick);
     }
 
     @Override

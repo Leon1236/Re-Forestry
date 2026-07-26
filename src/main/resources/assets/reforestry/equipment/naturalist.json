@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "reforestry:naturalist"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "reforestry:naturalist"
+      }
+    ]
+  }
+}

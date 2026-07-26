@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": "#c:dusts/wood",
+    "X": "reforestry:refractory_wax"
+  },
+  "pattern": [
+    "#X",
+    "X#"
+  ],
+  "result": {
+    "count": 2,
+    "id": "reforestry:brick_refractory_wax"
+  }
+}

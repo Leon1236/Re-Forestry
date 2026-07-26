@@ -15,6 +15,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.state.BlockState;
 
 import com.leon1236.reforestry.api.arboriculture.IWoodType;
+import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.api.genetics.alleles.IRegistryAllele;
 import com.leon1236.reforestry.arboriculture.blocks.ForestryLeafType;
@@ -58,7 +59,7 @@ public final class ArboricultureGenetics {
         TreeChromosomes.SPECIES.populate(ImmutableMap.copyOf(speciesById));
         for (TreeSpeciesBuilder builder : builders.values()) {
             for (MutationBuilder mutationBuilder : builder.mutations().builders()) {
-                Mutation mutation = mutationBuilder.build(builder.id());
+                Mutation mutation = mutationBuilder.build(ForestrySpeciesTypes.TREE, builder.id());
                 mutationsByPair.computeIfAbsent(MutationPair.of(mutation.firstParent(), mutation.secondParent()),
                         pair -> new ArrayList<>()).add(mutation);
             }
@@ -88,6 +89,36 @@ public final class ArboricultureGenetics {
 
     public static List<Mutation> getMutations(Identifier firstSpecies, Identifier secondSpecies) {
         return mutationsByPair.getOrDefault(MutationPair.of(firstSpecies, secondSpecies), List.of());
+    }
+
+    public static List<Mutation> getAllMutations() {
+        List<Mutation> all = new ArrayList<>();
+        for (List<Mutation> mutations : mutationsByPair.values()) {
+            all.addAll(mutations);
+        }
+        return all;
+    }
+
+    public static List<Mutation> getMutationsFrom(Identifier species) {
+        List<Mutation> found = new ArrayList<>();
+        for (List<Mutation> mutations : mutationsByPair.values()) {
+            for (Mutation mutation : mutations) {
+                if (mutation.isPartner(species)) {
+                    found.add(mutation);
+                }
+            }
+        }
+        return found;
+    }
+
+    @Nullable
+    public static Mutation findMutation(Identifier parent0, Identifier parent1, @Nullable Identifier result) {
+        for (Mutation mutation : getMutationsFrom(parent0)) {
+            if (mutation.isPartner(parent1) && (result == null || mutation.result().equals(result))) {
+                return mutation;
+            }
+        }
+        return null;
     }
 
     @Nullable

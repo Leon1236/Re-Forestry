@@ -23,11 +23,14 @@ import com.leon1236.reforestry.core.config.ForestryConfig;
 import com.leon1236.reforestry.core.errors.ErrorManager;
 import com.leon1236.reforestry.core.features.CoreBlocks;
 import com.leon1236.reforestry.core.features.CoreCreativeTabs;
+import com.leon1236.reforestry.core.features.CoreDataComponents;
 import com.leon1236.reforestry.core.features.CoreItems;
 import com.leon1236.reforestry.core.features.CoreMenuTypes;
 import com.leon1236.reforestry.core.features.CoreTiles;
 import com.leon1236.reforestry.core.features.FluidsItems;
 import com.leon1236.reforestry.core.fluids.ForestryFluids;
+import com.leon1236.reforestry.core.genetics.GeneticItemHelper;
+import com.leon1236.reforestry.core.genetics.loot.ResearchNoteLoot;
 import com.leon1236.reforestry.core.multiblock.MultiblockEventHandler;
 import com.leon1236.reforestry.core.plugin.PluginManager;
 
@@ -49,7 +52,10 @@ public class ModuleCore implements IForestryModule {
     public void init() {
         registerErrors();
         ForestryConfig.init();
+        CoreDataComponents.init();
+        GeneticItemHelper.bootstrap();
         CoreItems.init();
+        ResearchNoteLoot.init();
         CoreMenuTypes.init();
         CoreBlocks.init();
         ForestryFluids.init();

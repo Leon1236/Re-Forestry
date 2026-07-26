@@ -32,6 +32,8 @@ public class ScreenFermenter extends ScreenForestry<ContainerFermenter> {
 
 	public ScreenFermenter(ContainerFermenter menu, Inventory inventory, Component title) {
 		super(menu, inventory, title, IMAGE_WIDTH, IMAGE_HEIGHT);
+		addTankClickRegion(RESOURCE_TANK_X, TANK_Y, TANK_WIDTH, TANK_HEIGHT, 0);
+		addTankClickRegion(PRODUCT_TANK_X, TANK_Y, TANK_WIDTH, TANK_HEIGHT, 1);
 	}
 
 	@Override

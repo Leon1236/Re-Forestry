@@ -1,5 +1,6 @@
 {
 	"textures": {
+      "particle": "#filter",
       "filter": "reforestry:block/genetic_filter",
       "wool": "block/red_wool",
       "wool_blue": "block/blue_wool"

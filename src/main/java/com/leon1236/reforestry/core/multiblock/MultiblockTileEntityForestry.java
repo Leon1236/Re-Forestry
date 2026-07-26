@@ -8,6 +8,7 @@ import com.mojang.authlib.GameProfile;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.UUIDUtil;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -15,10 +16,11 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
 import com.leon1236.reforestry.api.core.ILocationProvider;
+import com.leon1236.reforestry.api.core.ISpectacleBlock;
 import com.leon1236.reforestry.api.multiblock.IMultiblockLogic;
 import com.leon1236.reforestry.api.multiblock.MultiblockTileEntityBase;
 
-public abstract class MultiblockTileEntityForestry<T extends IMultiblockLogic> extends MultiblockTileEntityBase<T> implements ILocationProvider {
+public abstract class MultiblockTileEntityForestry<T extends IMultiblockLogic> extends MultiblockTileEntityBase<T> implements ILocationProvider, ISpectacleBlock {
 	@Nullable
 	private GameProfile owner;
 
@@ -60,5 +62,12 @@ public abstract class MultiblockTileEntityForestry<T extends IMultiblockLogic> e
 
 	public final void setOwner(GameProfile owner) {
 		this.owner = owner;
+	}
+
+	@Override
+	public boolean isHighlighted(Player player) {
+		return player.isCreative()
+				&& getMultiblockLogic().getController() instanceof IMultiblockControllerInternal internal
+				&& getBlockPos().equals(internal.getReferenceCoord());
 	}
 }

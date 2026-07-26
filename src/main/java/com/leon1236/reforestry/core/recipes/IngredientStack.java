@@ -8,8 +8,6 @@ import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.crafting.Ingredient;
 
-import com.leon1236.reforestry.core.recipes.LegacyIngredientCodec;
-
 public record IngredientStack(Ingredient ingredient, int count) {
     public static final Codec<IngredientStack> CODEC = RecordCodecBuilder.create(instance -> instance.group(
             LegacyIngredientCodec.CODEC.fieldOf("ingredient").forGetter(IngredientStack::ingredient),

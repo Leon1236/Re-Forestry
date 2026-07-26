@@ -9,7 +9,12 @@ import com.mojang.authlib.GameProfile;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.Difficulty;
@@ -42,24 +47,28 @@ import com.leon1236.reforestry.api.apiculture.IBeekeepingLogic;
 import com.leon1236.reforestry.api.apiculture.hives.IHiveTile;
 import com.leon1236.reforestry.api.core.HumidityType;
 import com.leon1236.reforestry.api.core.IErrorLogic;
+import com.leon1236.reforestry.api.core.ISpectacleBlock;
 import com.leon1236.reforestry.api.core.TemperatureType;
 import com.leon1236.reforestry.api.genetics.IGenome;
+import com.leon1236.reforestry.api.util.TickHelper;
 import com.leon1236.reforestry.apiculture.WorldgenBeekeepingLogic;
 import com.leon1236.reforestry.apiculture.blocks.BlockBeeHive;
 import com.leon1236.reforestry.apiculture.features.ApicultureDataComponents;
 import com.leon1236.reforestry.apiculture.features.ApicultureTiles;
 import com.leon1236.reforestry.apiculture.genetics.ApicultureGenetics;
 import com.leon1236.reforestry.core.damage.CoreDamageTypes;
+import com.leon1236.reforestry.core.tiles.IActivatable;
 
-public class TileHive extends BlockEntity implements IHiveTile, IBeeHousing {
+public class TileHive extends BlockEntity implements IHiveTile, IActivatable, IBeeHousing, ISpectacleBlock {
     private final NonNullList<ItemStack> contained = NonNullList.withSize(2, ItemStack.EMPTY);
     private final HiveBeeHousingInventory inventory = new HiveBeeHousingInventory(this);
     private final WorldgenBeekeepingLogic beeLogic = new WorldgenBeekeepingLogic(this);
     private final IErrorLogic errorLogic = IForestryApi.INSTANCE.getErrorManager().createErrorLogic();
+    private final TickHelper tickHelper = new TickHelper(0);
 
+    private boolean active;
     private boolean angry;
     private int calmTime;
-    private int tickCounter;
 
     public TileHive(BlockEntityType<? extends TileHive> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
@@ -74,14 +83,20 @@ public class TileHive extends BlockEntity implements IHiveTile, IBeeHousing {
     }
 
     public void tick(Level level) {
-        tickCounter++;
+        tickHelper.onTick();
+
         if (level.isClientSide()) {
+            if (active) {
+                beeLogic.canWork();
+                if (tickHelper.updateOnInterval(4) && beeLogic.canDoBeeFX()) {
+                    beeLogic.doBeeFX();
+                }
+            }
             return;
         }
 
         boolean canWork = beeLogic.canWork();
-        int interval = angry ? 10 : 200;
-        if (tickCounter % interval == 0) {
+        if (tickHelper.updateOnInterval(angry ? 10 : 200)) {
             if (calmTime == 0) {
                 if (canWork && angry && level.getDifficulty() != Difficulty.PEACEFUL) {
                     AABB boundingBox = new AABB(worldPosition).inflate(2.0);
@@ -100,6 +115,8 @@ public class TileHive extends BlockEntity implements IHiveTile, IBeeHousing {
                 calmTime--;
             }
         }
+
+        setActive(calmTime == 0);
     }
 
     private boolean isValidBeeTarget(LivingEntity input) {
@@ -151,6 +168,36 @@ public class TileHive extends BlockEntity implements IHiveTile, IBeeHousing {
     public void calmBees() {
         calmTime = 5;
         angry = false;
+        setActive(false);
+    }
+
+    @Override
+    public boolean isActive() {
+        return active;
+    }
+
+    @Override
+    public void setActive(boolean active) {
+        if (this.active == active) {
+            return;
+        }
+        this.active = active;
+        if (level != null && !level.isClientSide()) {
+            setChanged();
+            level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
+        }
+    }
+
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    @Override
+    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+        CompoundTag tag = saveCustomOnly(registries);
+        tag.putBoolean("active", calmTime == 0);
+        return tag;
     }
 
     @Override
@@ -283,6 +330,7 @@ public class TileHive extends BlockEntity implements IHiveTile, IBeeHousing {
         ContainerHelper.saveAllItems(output, contained);
         output.putBoolean("angry", angry);
         output.putInt("calmTime", calmTime);
+        output.putBoolean("active", active);
     }
 
     @Override
@@ -292,5 +340,6 @@ public class TileHive extends BlockEntity implements IHiveTile, IBeeHousing {
         ContainerHelper.loadAllItems(input, contained);
         angry = input.getBooleanOr("angry", false);
         calmTime = input.getIntOr("calmTime", 0);
+        active = input.getBooleanOr("active", calmTime == 0);
     }
 }

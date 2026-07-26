@@ -1,19 +1,25 @@
 package com.leon1236.reforestry.factory.gui;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
+import net.fabricmc.fabric.api.transfer.v1.fluid.base.SingleFluidStorage;
+
+import com.leon1236.reforestry.api.core.IToolPipette;
 import com.leon1236.reforestry.core.fluids.FluidUnits;
 import com.leon1236.reforestry.core.fluids.ForestryFluids;
+import com.leon1236.reforestry.core.fluids.PipetteTankHelper;
 import com.leon1236.reforestry.core.gui.ContainerMachine;
+import com.leon1236.reforestry.core.gui.IContainerLiquidTanks;
 import com.leon1236.reforestry.factory.features.FactoryMenuTypes;
 import com.leon1236.reforestry.factory.tiles.TileStill;
 
-public class ContainerStill extends ContainerMachine<TileStill> {
+public class ContainerStill extends ContainerMachine<TileStill> implements IContainerLiquidTanks {
     private static final int CAN_X = 10;
     private static final int CAN_Y = 36;
     private static final int RESOURCE_X = 150;
@@ -76,6 +82,34 @@ public class ContainerStill extends ContainerMachine<TileStill> {
 
     public int getTankCapacityMb() {
         return (int) FluidUnits.dropletsToMb(TileStill.TANK_CAPACITY);
+    }
+
+    @Override
+    public boolean clickMenuButton(Player player, int id) {
+        if (getTank(id) == null || !(player.containerMenu.getCarried().getItem() instanceof IToolPipette)) {
+            return false;
+        }
+        if (player instanceof ServerPlayer serverPlayer) {
+            handlePipetteClick(id, serverPlayer);
+        }
+        return true;
+    }
+
+    @Override
+    public void handlePipetteClick(int slot, ServerPlayer player) {
+        SingleFluidStorage tank = getTank(slot);
+        if (tank != null) {
+            PipetteTankHelper.handlePipetteClick(tank, player, this);
+        }
+    }
+
+    @Override
+    public SingleFluidStorage getTank(int slot) {
+        return switch (slot) {
+            case 0 -> tile.getResourceTank();
+            case 1 -> tile.getProductTank();
+            default -> null;
+        };
     }
 
     @Override

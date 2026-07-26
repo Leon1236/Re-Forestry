@@ -10,10 +10,7 @@ import com.leon1236.reforestry.api.circuits.ICircuit;
 import com.leon1236.reforestry.api.circuits.ICircuitBoard;
 import com.leon1236.reforestry.api.circuits.ICircuitLayout;
 import com.leon1236.reforestry.api.circuits.ICircuitManager;
-import com.leon1236.reforestry.core.circuits.ItemCircuitBoard;
-
 import org.jetbrains.annotations.Nullable;
-
 import java.util.Collection;
 import java.util.List;
 
