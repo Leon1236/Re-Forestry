@@ -1,0 +1,25 @@
+{
+  "type": "reforestry:fabricator",
+  "molten": {
+    "fluid": "reforestry:glass",
+    "amount": 500
+  },
+  "plan": [],
+  "recipe": {
+    "type": "minecraft:crafting_shaped",
+    "category": "building",
+    "key": {
+      "#": "reforestry:refractory_wax",
+      "X": "reforestry:acacia_desert_planks"
+    },
+    "pattern": [
+      "XXX",
+      "X#X",
+      "XXX"
+    ],
+    "result": {
+      "count": 8,
+      "id": "reforestry:acacia_desert_fireproof_planks"
+    }
+  }
+}

@@ -1,22 +1,27 @@
 package com.leon1236.reforestry.factory.gui;
 
+import java.util.List;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
 import com.leon1236.reforestry.core.fluids.FluidUnits;
 import com.leon1236.reforestry.core.gui.ContainerMachine;
+import com.leon1236.reforestry.core.gui.MachineGuiRecipes;
 import com.leon1236.reforestry.factory.features.FactoryMenuTypes;
 import com.leon1236.reforestry.factory.tiles.TileMoistener;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.fabricmc.fabric.api.transfer.v1.fluid.base.SingleFluidStorage;
-import com.leon1236.reforestry.api.core.IToolPipette;
+import com.leon1236.reforestry.api.gui.IContainerRecipeBook;
+import com.leon1236.reforestry.api.gui.MachineRecipeEntry;
 import com.leon1236.reforestry.core.fluids.PipetteTankHelper;
 import com.leon1236.reforestry.core.gui.IContainerLiquidTanks;
 
-public class ContainerMoistener extends ContainerMachine<TileMoistener> implements IContainerLiquidTanks {
+public class ContainerMoistener extends ContainerMachine<TileMoistener> implements IContainerLiquidTanks, IContainerRecipeBook {
     private static final int INVENTORY_Y = 84;
 
     private final net.minecraft.world.inventory.SimpleContainerData tankData = new net.minecraft.world.inventory.SimpleContainerData(2);
@@ -97,8 +102,28 @@ public class ContainerMoistener extends ContainerMachine<TileMoistener> implemen
 
 
     @Override
+    public List<MachineRecipeEntry> getGuiRecipes() {
+        Level level = tile.getLevel();
+        if (level == null) {
+            return List.of();
+        }
+        return MachineGuiRecipes.moistener(level);
+    }
+
+    @Override
+    public boolean selectRecipe(int index, Player player) {
+        return false;
+    }
+
+    @Override
     public boolean clickMenuButton(Player player, int id) {
-        if (getTank(id) == null || !(player.containerMenu.getCarried().getItem() instanceof IToolPipette)) {
+        if (super.clickMenuButton(player, id)) {
+            return true;
+        }
+        if (IContainerRecipeBook.isRecipeButton(id)) {
+            return selectRecipe(IContainerRecipeBook.recipeIndex(id), player);
+        }
+        if (getTank(id) == null || !PipetteTankHelper.canHandleClick(player.containerMenu.getCarried())) {
             return false;
         }
         if (player instanceof ServerPlayer serverPlayer) {

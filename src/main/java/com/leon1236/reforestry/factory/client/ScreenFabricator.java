@@ -1,5 +1,6 @@
 package com.leon1236.reforestry.factory.client;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,7 +21,7 @@ public class ScreenFabricator extends ScreenForestry<ContainerFabricator> {
     private static final int MOLTEN_TANK_X = 26;
     private static final int TANK_Y = 48;
     private static final int TANK_WIDTH = 16;
-    private static final int TANK_HEIGHT = 58;
+    private static final int TANK_HEIGHT = 16;
 
     private static final int HEAT_METER_X = 55;
     private static final int HEAT_METER_Y = 17;
@@ -83,21 +84,30 @@ public class ScreenFabricator extends ScreenForestry<ContainerFabricator> {
 
     private void drawTank(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY, int tankX, int amountMb, int fluidType) {
         int capacity = menu.getTankCapacityMb();
-        if (amountMb > 0 && capacity > 0) {
+        boolean empty = amountMb <= 0;
+        if (!empty && capacity > 0) {
             int filled = Math.min(TANK_HEIGHT, TANK_HEIGHT * amountMb / capacity);
             int color = fluidType == 1 ? GLASS_COLOR : 0xFF808080;
             int x = leftPos + tankX;
             int y = topPos + TANK_Y + (TANK_HEIGHT - filled);
             guiGraphics.fill(x, y, x + TANK_WIDTH, y + filled, color);
+        } else {
+            drawRecipeGhostTank(guiGraphics, tankX, TANK_Y, TANK_WIDTH, TANK_HEIGHT, capacity, GLASS_COLOR, true);
         }
 
         int tankLeft = leftPos + tankX;
         int tankTop = topPos + TANK_Y;
         if (mouseX >= tankLeft && mouseX < tankLeft + TANK_WIDTH && mouseY >= tankTop && mouseY < tankTop + TANK_HEIGHT) {
-            Component fluidName = fluidType == 1
-                    ? Component.translatable("fluid_type.reforestry.glass")
-                    : Component.translatable("for.gui.empty");
-            List<Component> lines = List.of(fluidName, Component.literal(amountMb + " / " + capacity + " mB"));
+            List<Component> lines = new ArrayList<>();
+            if (empty && hasRecipeGhostLiquid()) {
+                appendRecipeGhostTankTooltip(lines);
+            } else {
+                Component fluidName = fluidType == 1
+                        ? Component.translatable("fluid_type.reforestry.glass")
+                        : Component.translatable("for.gui.empty");
+                lines.add(fluidName);
+                lines.add(Component.literal(amountMb + " / " + capacity + " mB"));
+            }
             guiGraphics.setTooltipForNextFrame(font, lines, Optional.<TooltipComponent>empty(), mouseX, mouseY);
         }
     }

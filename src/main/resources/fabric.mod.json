@@ -26,6 +26,9 @@
 		],
 		"reforestry:plugin": [
 			"com.leon1236.reforestry.core.plugin.ReforestryPlugin"
+		],
+		"jei_mod_plugin": [
+			"com.leon1236.reforestry.factory.compat.jei.FactoryJeiPlugin"
 		]
 	},
 	"mixins": [
@@ -36,5 +39,8 @@
 		"minecraft": "~26.2",
 		"java": ">=25",
 		"fabric-api": "*"
+	},
+	"suggests": {
+		"jei": "*"
 	}
 }

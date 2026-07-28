@@ -34,6 +34,7 @@ import com.leon1236.reforestry.api.recipes.IMoistenerRecipe;
 import com.leon1236.reforestry.core.fluids.FilteredFluidStorage;
 import com.leon1236.reforestry.core.fluids.FluidContainerHelper;
 import com.leon1236.reforestry.core.fluids.FluidUnits;
+import com.leon1236.reforestry.core.access.WorldlyAccessHelper;
 import com.leon1236.reforestry.core.inventory.InventoryUtil;
 import com.leon1236.reforestry.core.recipes.RecipeUtils;
 import com.leon1236.reforestry.core.render.TankRenderInfo;
@@ -137,10 +138,10 @@ public class TileMoistener extends TileBase implements WorldlyContainer, IRender
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, TileMoistener tile) {
+        tile.doWork();
         if (tile.updateOnInterval(20)) {
             FluidContainerHelper.drainIntoTank(tile, SLOT_PRODUCT, tile.resourceTank);
         }
-        tile.doWork();
         tile.syncErrors();
     }
 
@@ -538,21 +539,19 @@ public class TileMoistener extends TileBase implements WorldlyContainer, IRender
 
     @Override
     public int[] getSlotsForFace(Direction direction) {
-        return InventoryUtil.contiguousSlots(SLOT_COUNT);
+        return WorldlyAccessHelper.getSlotsForFace(this, SLOT_COUNT, direction);
     }
 
     @Override
     public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction direction) {
-        return canPlaceItem(slot, stack);
+        return WorldlyAccessHelper.canPlaceItemThroughFace(this, canPlaceItem(slot, stack), direction);
     }
 
     @Override
     public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction direction) {
-        if (slot == SLOT_PRODUCT) {
-            return true;
-        }
-        return slot >= SLOT_STASH_1 && slot < SLOT_RESERVOIR_1 + SLOT_RESERVOIR_COUNT
-                && findMoistenerFuel(stack) == null;
+        boolean allowed = slot == SLOT_PRODUCT
+                || (slot >= SLOT_STASH_1 && slot < SLOT_RESERVOIR_1 + SLOT_RESERVOIR_COUNT && findMoistenerFuel(stack) == null);
+        return WorldlyAccessHelper.canTakeItemThroughFace(this, allowed, direction);
     }
 
     @Override

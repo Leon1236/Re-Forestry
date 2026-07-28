@@ -1,0 +1,25 @@
+{
+  "type": "reforestry:carpenter",
+  "time": 80,
+  "recipe": {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "key": {
+      "#": "#c:ingots/gold",
+      "R": "minecraft:redstone"
+    },
+    "pattern": [
+      "R#R",
+      "R#R",
+      "R#R"
+    ],
+    "result": {
+      "id": "reforestry:circuit_board_intricate"
+    },
+    "show_notification": true
+  },
+  "liquid": {
+    "fluid": "minecraft:water",
+    "amount": 1000
+  }
+}

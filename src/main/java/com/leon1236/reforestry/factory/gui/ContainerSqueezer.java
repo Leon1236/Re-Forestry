@@ -1,25 +1,30 @@
 package com.leon1236.reforestry.factory.gui;
 
+import java.util.List;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.Fluid;
 
 import com.leon1236.reforestry.core.fluids.FluidUnits;
 import com.leon1236.reforestry.core.gui.ContainerSocketedMachine;
+import com.leon1236.reforestry.core.gui.MachineGuiRecipes;
 import com.leon1236.reforestry.factory.features.FactoryMenuTypes;
 import com.leon1236.reforestry.factory.tiles.TileSqueezer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.fabricmc.fabric.api.transfer.v1.fluid.base.SingleFluidStorage;
-import com.leon1236.reforestry.api.core.IToolPipette;
+import com.leon1236.reforestry.api.gui.IContainerRecipeBook;
+import com.leon1236.reforestry.api.gui.MachineRecipeEntry;
 import com.leon1236.reforestry.core.fluids.PipetteTankHelper;
 import com.leon1236.reforestry.core.gui.IContainerLiquidTanks;
 
-public class ContainerSqueezer extends ContainerSocketedMachine<TileSqueezer> implements IContainerLiquidTanks {
+public class ContainerSqueezer extends ContainerSocketedMachine<TileSqueezer> implements IContainerLiquidTanks, IContainerRecipeBook {
     private static final int RESOURCE_X = 17;
     private static final int RESOURCE_Y = 21;
     private static final int SOCKET_X = 75;
@@ -91,8 +96,28 @@ public class ContainerSqueezer extends ContainerSocketedMachine<TileSqueezer> im
 
 
     @Override
+    public List<MachineRecipeEntry> getGuiRecipes() {
+        Level level = tile.getLevel();
+        if (level == null) {
+            return List.of();
+        }
+        return MachineGuiRecipes.squeezer(level);
+    }
+
+    @Override
+    public boolean selectRecipe(int index, Player player) {
+        return false;
+    }
+
+    @Override
     public boolean clickMenuButton(Player player, int id) {
-        if (getTank(id) == null || !(player.containerMenu.getCarried().getItem() instanceof IToolPipette)) {
+        if (super.clickMenuButton(player, id)) {
+            return true;
+        }
+        if (IContainerRecipeBook.isRecipeButton(id)) {
+            return selectRecipe(IContainerRecipeBook.recipeIndex(id), player);
+        }
+        if (getTank(id) == null || !PipetteTankHelper.canHandleClick(player.containerMenu.getCarried())) {
             return false;
         }
         if (player instanceof ServerPlayer serverPlayer) {

@@ -1,0 +1,19 @@
+{
+  "type": "reforestry:carpenter",
+  "time": 5,
+  "recipe": {
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+      "#minecraft:logs"
+    ],
+    "result": {
+      "id": "reforestry:wood_pulp",
+      "count": 4
+    }
+  },
+  "liquid": {
+    "fluid": "minecraft:water",
+    "amount": 250
+  }
+}

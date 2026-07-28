@@ -12,7 +12,6 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 
-import com.leon1236.reforestry.api.core.IToolPipette;
 import com.leon1236.reforestry.apiculture.features.ApicultureMenuTypes;
 import com.leon1236.reforestry.apiculture.multiblock.TileAlvearyHygroregulator;
 import com.leon1236.reforestry.core.fluids.PipetteTankHelper;
@@ -53,7 +52,7 @@ public class ContainerAlvearyHygroregulator extends ContainerAlvearyPart<TileAlv
 
     @Override
     public boolean clickMenuButton(Player player, int id) {
-        if (getTank(id) == null || !(player.containerMenu.getCarried().getItem() instanceof IToolPipette)) {
+        if (getTank(id) == null || !PipetteTankHelper.canHandleClick(player.containerMenu.getCarried())) {
             return false;
         }
         if (player instanceof ServerPlayer serverPlayer) {

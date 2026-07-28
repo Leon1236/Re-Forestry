@@ -11,6 +11,7 @@ import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.level.Level;
 
 import com.leon1236.reforestry.api.recipes.ICarpenterRecipe;
 import com.leon1236.reforestry.api.recipes.IFabricatorRecipe;
@@ -144,11 +145,11 @@ public final class RecipeUtils {
         return getMoistenerRecipe(level, stack) != null;
     }
 
-    public static boolean isCarpenterBox(ServerLevel level, ItemStack stack) {
+    public static boolean isCarpenterBox(Level level, ItemStack stack) {
         if (stack.isEmpty()) {
             return false;
         }
-        for (RecipeHolder<?> holder : level.recipeAccess().getRecipes()) {
+        for (RecipeHolder<?> holder : level.recipeAccess().getSynchronizedRecipes().recipes()) {
             if (holder.value() instanceof ICarpenterRecipe recipe
                     && recipe.getBox() != null
                     && recipe.getBox().test(stack)) {

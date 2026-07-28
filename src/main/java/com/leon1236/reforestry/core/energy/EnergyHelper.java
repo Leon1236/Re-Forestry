@@ -6,6 +6,8 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import team.reborn.energy.api.EnergyStorage;
 import team.reborn.energy.api.base.SimpleEnergyStorage;
 
+import com.leon1236.reforestry.api.core.ISidedAccess;
+import com.leon1236.reforestry.core.access.AccessStorageHelper;
 import com.leon1236.reforestry.core.tiles.IPowerHandler;
 
 public final class EnergyHelper {
@@ -27,6 +29,11 @@ public final class EnergyHelper {
     }
 
     public static <T extends BlockEntity & IPowerHandler> void registerSided(BlockEntityType<T> type) {
-        EnergyStorage.SIDED.registerForBlockEntity((tile, direction) -> tile.getEnergyManager(), type);
+        EnergyStorage.SIDED.registerForBlockEntity((tile, direction) -> {
+            if (tile instanceof ISidedAccess access) {
+                return AccessStorageHelper.wrapEnergy(access, direction, tile.getEnergyManager());
+            }
+            return tile.getEnergyManager();
+        }, type);
     }
 }

@@ -1,0 +1,26 @@
+{
+  "type": "reforestry:fabricator",
+  "molten": {
+    "fluid": "reforestry:glass",
+    "amount": 500
+  },
+  "plan": [],
+  "recipe": {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "key": {
+      "#": "#c:ingots/bronze",
+      "B": "#c:slimeballs",
+      "E": "#c:gems/emerald"
+    },
+    "pattern": [
+      "#E#",
+      "B B",
+      "#E#"
+    ],
+    "result": {
+      "count": 1,
+      "id": "reforestry:flexible_casing"
+    }
+  }
+}

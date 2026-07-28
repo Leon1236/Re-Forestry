@@ -78,8 +78,19 @@ public class MachineSpecialRenderer implements NoDataSpecialModelRenderer {
 			boolean hasFoil,
 			int outlineColor
 	) {
+		submit(poseStack, submitNodeCollector, lightCoords, overlayCoords, outlineColor, Direction.SOUTH);
+	}
+
+	public void submit(
+			PoseStack poseStack,
+			SubmitNodeCollector submitNodeCollector,
+			int lightCoords,
+			int overlayCoords,
+			int outlineColor,
+			Direction facing
+	) {
 		poseStack.pushPose();
-		RenderUtil.rotateByHorizontalDirection(poseStack, Direction.SOUTH);
+		RenderUtil.rotateByHorizontalDirection(poseStack, facing);
 		poseStack.translate(0.5, 0.5, 0.5);
 		poseStack.mulPose(Axis.XP.rotation(-Mth.HALF_PI));
 		poseStack.translate(-0.5, -0.5, -0.5);

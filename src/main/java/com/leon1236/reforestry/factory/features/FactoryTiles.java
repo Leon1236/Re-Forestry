@@ -1,9 +1,8 @@
 package com.leon1236.reforestry.factory.features;
 
-import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
-
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.core.energy.EnergyHelper;
+import com.leon1236.reforestry.core.fluids.FluidHelper;
 import com.leon1236.reforestry.core.inventory.InventoryHelper;
 import com.leon1236.reforestry.factory.tiles.TileBottler;
 import com.leon1236.reforestry.factory.tiles.TileCarpenter;
@@ -59,23 +58,23 @@ public class FactoryTiles {
         InventoryHelper.registerSided(SMELTER.type());
         EnergyHelper.registerSided(STILL.type());
         InventoryHelper.registerSided(STILL.type());
-        FluidStorage.SIDED.registerForBlockEntity((tile, direction) -> tile.getTankManager(), STILL.type());
+        FluidHelper.registerSided(STILL.type(), TileStill::getTankManager);
         EnergyHelper.registerSided(SQUEEZER.type());
         InventoryHelper.registerSided(SQUEEZER.type());
-        FluidStorage.SIDED.registerForBlockEntity((tile, direction) -> tile.getTankManager(), SQUEEZER.type());
+        FluidHelper.registerSided(SQUEEZER.type(), TileSqueezer::getTankManager);
         EnergyHelper.registerSided(BOTTLER.type());
         InventoryHelper.registerSided(BOTTLER.type());
-        FluidStorage.SIDED.registerForBlockEntity((tile, direction) -> tile.getTankManager(), BOTTLER.type());
+        FluidHelper.registerSided(BOTTLER.type(), TileBottler::getTankManager);
         EnergyHelper.registerSided(CARPENTER.type());
         InventoryHelper.registerSided(CARPENTER.type());
-        FluidStorage.SIDED.registerForBlockEntity((tile, direction) -> tile.getTankManager(), CARPENTER.type());
+        FluidHelper.registerSided(CARPENTER.type(), TileCarpenter::getTankManager);
         EnergyHelper.registerSided(FERMENTER.type());
         InventoryHelper.registerSided(FERMENTER.type());
-        FluidStorage.SIDED.registerForBlockEntity((tile, direction) -> tile.getTankManager(), FERMENTER.type());
+        FluidHelper.registerSided(FERMENTER.type(), TileFermenter::getTankManager);
         EnergyHelper.registerSided(FABRICATOR.type());
         InventoryHelper.registerSided(FABRICATOR.type());
-        FluidStorage.SIDED.registerForBlockEntity((tile, direction) -> tile.getTankManager(), FABRICATOR.type());
+        FluidHelper.registerSided(FABRICATOR.type(), TileFabricator::getTankManager);
         InventoryHelper.registerSided(MOISTENER.type());
-        FluidStorage.SIDED.registerForBlockEntity((tile, direction) -> tile.getResourceTank(), MOISTENER.type());
+        FluidHelper.registerSided(MOISTENER.type(), TileMoistener::getResourceTank);
     }
 }

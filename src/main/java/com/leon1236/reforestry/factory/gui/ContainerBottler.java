@@ -1,5 +1,7 @@
 package com.leon1236.reforestry.factory.gui;
 
+import java.util.List;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
@@ -10,7 +12,8 @@ import net.minecraft.world.item.ItemStack;
 
 import net.fabricmc.fabric.api.transfer.v1.fluid.base.SingleFluidStorage;
 
-import com.leon1236.reforestry.api.core.IToolPipette;
+import com.leon1236.reforestry.api.gui.IContainerRecipeBook;
+import com.leon1236.reforestry.api.gui.MachineRecipeEntry;
 import com.leon1236.reforestry.core.fluids.FluidUnits;
 import com.leon1236.reforestry.core.fluids.ForestryFluids;
 import com.leon1236.reforestry.core.fluids.PipetteTankHelper;
@@ -19,7 +22,7 @@ import com.leon1236.reforestry.core.gui.IContainerLiquidTanks;
 import com.leon1236.reforestry.factory.features.FactoryMenuTypes;
 import com.leon1236.reforestry.factory.tiles.TileBottler;
 
-public class ContainerBottler extends ContainerMachine<TileBottler> implements IContainerLiquidTanks {
+public class ContainerBottler extends ContainerMachine<TileBottler> implements IContainerLiquidTanks, IContainerRecipeBook {
     private static final int FULL_INPUT_X = 18;
     private static final int FULL_INPUT_Y = 7;
     private static final int EMPTYING_X = 18;
@@ -92,8 +95,24 @@ public class ContainerBottler extends ContainerMachine<TileBottler> implements I
     }
 
     @Override
+    public List<MachineRecipeEntry> getGuiRecipes() {
+        return List.of();
+    }
+
+    @Override
+    public boolean selectRecipe(int index, Player player) {
+        return false;
+    }
+
+    @Override
     public boolean clickMenuButton(Player player, int id) {
-        if (getTank(id) == null || !(player.containerMenu.getCarried().getItem() instanceof IToolPipette)) {
+        if (super.clickMenuButton(player, id)) {
+            return true;
+        }
+        if (IContainerRecipeBook.isRecipeButton(id)) {
+            return selectRecipe(IContainerRecipeBook.recipeIndex(id), player);
+        }
+        if (getTank(id) == null || !PipetteTankHelper.canHandleClick(player.containerMenu.getCarried())) {
             return false;
         }
         if (player instanceof ServerPlayer serverPlayer) {

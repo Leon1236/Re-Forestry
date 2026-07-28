@@ -14,8 +14,8 @@ import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.ItemStack;
 
 import com.leon1236.reforestry.ReForestry;
-import com.leon1236.reforestry.api.core.IToolPipette;
 import com.leon1236.reforestry.apiculture.gui.ContainerAlvearyHygroregulator;
+import com.leon1236.reforestry.core.fluids.PipetteTankHelper;
 import com.leon1236.reforestry.core.gui.IContainerLiquidTanks;
 
 public class ScreenAlvearyHygroregulator extends AbstractContainerScreen<ContainerAlvearyHygroregulator> {
@@ -39,7 +39,7 @@ public class ScreenAlvearyHygroregulator extends AbstractContainerScreen<Contain
     public boolean mouseClicked(MouseButtonEvent event, boolean doubleClick) {
         ItemStack carried = this.menu.getCarried();
         if (this.menu instanceof IContainerLiquidTanks
-                && carried.getItem() instanceof IToolPipette
+                && PipetteTankHelper.canHandleClick(carried)
                 && isHovering(TANK_X, TANK_Y, TANK_WIDTH, TANK_HEIGHT, event.x(), event.y())
                 && this.menu.clickMenuButton(this.minecraft.player, 0)) {
             this.minecraft.gameMode.handleInventoryButtonClick(this.menu.containerId, 0);

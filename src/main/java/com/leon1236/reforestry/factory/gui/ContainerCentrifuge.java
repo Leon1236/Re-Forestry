@@ -1,14 +1,21 @@
 package com.leon1236.reforestry.factory.gui;
 
+import java.util.List;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.level.Level;
 
+import com.leon1236.reforestry.api.gui.IContainerRecipeBook;
+import com.leon1236.reforestry.api.gui.MachineRecipeEntry;
 import com.leon1236.reforestry.core.gui.ContainerSocketedMachine;
+import com.leon1236.reforestry.core.gui.MachineGuiRecipes;
 import com.leon1236.reforestry.factory.features.FactoryMenuTypes;
 import com.leon1236.reforestry.factory.tiles.TileCentrifuge;
 
-public class ContainerCentrifuge extends ContainerSocketedMachine<TileCentrifuge> {
+public class ContainerCentrifuge extends ContainerSocketedMachine<TileCentrifuge> implements IContainerRecipeBook {
     private static final int RESOURCE_X = 16;
     private static final int RESOURCE_Y = 37;
     private static final int SOCKET_X = 79;
@@ -51,5 +58,30 @@ public class ContainerCentrifuge extends ContainerSocketedMachine<TileCentrifuge
 
     public short getErrorId(int index) {
         return (short) tile.getErrorData().get(index + 1);
+    }
+
+    @Override
+    public List<MachineRecipeEntry> getGuiRecipes() {
+        Level level = tile.getLevel();
+        if (level == null) {
+            return List.of();
+        }
+        return MachineGuiRecipes.centrifuge(level);
+    }
+
+    @Override
+    public boolean selectRecipe(int index, Player player) {
+        return false;
+    }
+
+    @Override
+    public boolean clickMenuButton(Player player, int id) {
+        if (super.clickMenuButton(player, id)) {
+            return true;
+        }
+        if (IContainerRecipeBook.isRecipeButton(id)) {
+            return selectRecipe(IContainerRecipeBook.recipeIndex(id), player);
+        }
+        return false;
     }
 }

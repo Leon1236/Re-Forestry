@@ -1,6 +1,7 @@
 package com.leon1236.reforestry.core.fluids;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.level.Level;
@@ -24,9 +25,9 @@ public class BlockForestryFluid extends LiquidBlock {
                                  InsideBlockEffectApplier effectApplier, boolean isPrecise) {
         if (this.freezing) {
             entity.setIsInPowderSnow(true);
-        } else if (this.burning) {
+        } else if (this.burning && level instanceof ServerLevel serverLevel) {
             entity.igniteForSeconds(5.0F);
-            entity.hurt(level.damageSources().lava(), 1.0F);
+            entity.hurtServer(serverLevel, level.damageSources().lava(), 1.0F);
         }
     }
 }

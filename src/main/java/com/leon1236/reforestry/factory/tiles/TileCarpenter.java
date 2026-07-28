@@ -27,11 +27,13 @@ import net.minecraft.world.level.storage.ValueOutput;
 import com.leon1236.reforestry.api.IForestryApi;
 import com.leon1236.reforestry.api.core.ForestryError;
 import com.leon1236.reforestry.api.core.IErrorLogic;
+import com.leon1236.reforestry.api.predicates.CarpenterInputFluids;
 import com.leon1236.reforestry.api.recipes.ICarpenterRecipe;
 import com.leon1236.reforestry.core.fluids.FilteredFluidStorage;
 import com.leon1236.reforestry.core.fluids.FluidContainerHelper;
 import com.leon1236.reforestry.core.fluids.FluidUnits;
 import com.leon1236.reforestry.core.fluids.MultiFluidTank;
+import com.leon1236.reforestry.core.access.WorldlyAccessHelper;
 import com.leon1236.reforestry.core.inventory.InventoryUtil;
 import com.leon1236.reforestry.core.recipes.RecipeUtils;
 import com.leon1236.reforestry.core.render.TankRenderInfo;
@@ -59,6 +61,15 @@ public class TileCarpenter extends TilePowered implements WorldlyContainer, IRen
     private static final long TANK_CAPACITY_MB = 10000;
     public static final long TANK_CAPACITY = FluidUnits.mbToDroplets(TANK_CAPACITY_MB);
 
+    private static final int[] AUTOMATION_SLOTS = {
+            SLOT_BOX, SLOT_CAN_INPUT, SLOT_PRODUCT,
+            SLOT_STORAGE_1, SLOT_STORAGE_1 + 1, SLOT_STORAGE_1 + 2, SLOT_STORAGE_1 + 3,
+            SLOT_STORAGE_1 + 4, SLOT_STORAGE_1 + 5, SLOT_STORAGE_1 + 6, SLOT_STORAGE_1 + 7,
+            SLOT_STORAGE_1 + 8, SLOT_STORAGE_1 + 9, SLOT_STORAGE_1 + 10, SLOT_STORAGE_1 + 11,
+            SLOT_STORAGE_1 + 12, SLOT_STORAGE_1 + 13, SLOT_STORAGE_1 + 14, SLOT_STORAGE_1 + 15,
+            SLOT_STORAGE_1 + 16, SLOT_STORAGE_1 + 17
+    };
+
     private final NonNullList<ItemStack> items = NonNullList.withSize(SLOT_COUNT, ItemStack.EMPTY);
     private final SimpleContainer craftPreview = new SimpleContainer(1);
     private final MultiFluidTank tanks;
@@ -67,22 +78,6 @@ public class TileCarpenter extends TilePowered implements WorldlyContainer, IRen
 
     @Nullable
     private ICarpenterRecipe currentRecipe;
-
-    private final ContainerData progressData = new ContainerData() {
-        @Override
-        public int get(int index) {
-            return getProgressScaled(100);
-        }
-
-        @Override
-        public void set(int index, int value) {
-        }
-
-        @Override
-        public int getCount() {
-            return 1;
-        }
-    };
 
     private final ContainerData errorData = new ContainerData() {
         @Override
@@ -115,16 +110,27 @@ public class TileCarpenter extends TilePowered implements WorldlyContainer, IRen
     public TileCarpenter(BlockPos pos, BlockState state) {
         super(FactoryTiles.CARPENTER.type(), pos, state, CAPACITY, MAX_RECEIVE);
         this.tanks = MultiFluidTank.builder(this::setChanged)
-                .tank("Resource", TANK_CAPACITY)
+                .tank("Resource", TANK_CAPACITY, CarpenterInputFluids::test)
                 .build();
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, TileCarpenter tile) {
-        if (tile.updateOnInterval(20)) {
-            FluidContainerHelper.drainContainers(tile.getResourceTank(), tile, SLOT_CAN_INPUT, SLOT_STORAGE_1, true);
-        }
         tile.doWork();
+        if (tile.updateOnInterval(20)) {
+            FluidContainerHelper.drainIntoTank(tile, SLOT_CAN_INPUT, tile.getResourceTank());
+            tile.stowEmptyCanInput();
+        }
         tile.syncErrors();
+    }
+
+    private void stowEmptyCanInput() {
+        ItemStack stack = getItem(SLOT_CAN_INPUT);
+        if (!FluidContainerHelper.isEmptyContainer(stack)) {
+            return;
+        }
+        if (InventoryUtil.tryAddStack(this, stack, SLOT_STORAGE_1, SLOT_STORAGE_COUNT, true)) {
+            setItem(SLOT_CAN_INPUT, ItemStack.EMPTY);
+        }
     }
 
     public MultiFluidTank getTankManager() {
@@ -147,10 +153,6 @@ public class TileCarpenter extends TilePowered implements WorldlyContainer, IRen
 
     public Container getCraftPreviewInventory() {
         return this.craftPreview;
-    }
-
-    public ContainerData getProgressData() {
-        return progressData;
     }
 
     public ContainerData getErrorData() {
@@ -337,10 +339,11 @@ public class TileCarpenter extends TilePowered implements WorldlyContainer, IRen
     public boolean canPlaceItem(int slot, ItemStack stack) {
         Level level = getLevel();
         if (slot == SLOT_CAN_INPUT) {
-            return FluidContainerHelper.isFilledContainer(stack);
+            return FluidContainerHelper.isFilledContainer(stack)
+                    && FluidContainerHelper.canTankAccept(getResourceTank(), FluidContainerHelper.fluidIn(stack));
         }
         if (slot == SLOT_BOX) {
-            return level instanceof ServerLevel serverLevel && RecipeUtils.isCarpenterBox(serverLevel, stack);
+            return level != null && RecipeUtils.isCarpenterBox(level, stack);
         }
         if (slot >= SLOT_CRAFTING_1 && slot < SLOT_CRAFTING_1 + SLOT_CRAFTING_COUNT) {
             return true;
@@ -363,21 +366,21 @@ public class TileCarpenter extends TilePowered implements WorldlyContainer, IRen
 
     @Override
     public int[] getSlotsForFace(Direction direction) {
-        return new int[] {SLOT_CAN_INPUT, SLOT_PRODUCT, SLOT_STORAGE_1, SLOT_STORAGE_1 + 1, SLOT_STORAGE_1 + 2,
-                SLOT_STORAGE_1 + 3, SLOT_STORAGE_1 + 4, SLOT_STORAGE_1 + 5, SLOT_STORAGE_1 + 6, SLOT_STORAGE_1 + 7,
-                SLOT_STORAGE_1 + 8, SLOT_STORAGE_1 + 9, SLOT_STORAGE_1 + 10, SLOT_STORAGE_1 + 11, SLOT_STORAGE_1 + 12,
-                SLOT_STORAGE_1 + 13, SLOT_STORAGE_1 + 14, SLOT_STORAGE_1 + 15, SLOT_STORAGE_1 + 16,
-                SLOT_STORAGE_1 + 17};
+        return WorldlyAccessHelper.getSlotsForFace(this, AUTOMATION_SLOTS, direction);
     }
 
     @Override
     public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction direction) {
-        return slot == SLOT_CAN_INPUT || (slot >= SLOT_STORAGE_1 && slot < SLOT_STORAGE_1 + SLOT_STORAGE_COUNT);
+        return WorldlyAccessHelper.canPlaceItemThroughFace(this,
+                slot == SLOT_BOX
+                        || slot == SLOT_CAN_INPUT
+                        || (slot >= SLOT_STORAGE_1 && slot < SLOT_STORAGE_1 + SLOT_STORAGE_COUNT),
+                direction);
     }
 
     @Override
     public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction direction) {
-        return slot == SLOT_PRODUCT;
+        return WorldlyAccessHelper.canTakeItemThroughFace(this, slot == SLOT_PRODUCT, direction);
     }
 
     @Override

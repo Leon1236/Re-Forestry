@@ -16,6 +16,8 @@ import com.leon1236.reforestry.modules.features.FeatureRecipeType;
 import com.leon1236.reforestry.modules.features.IFeatureRegistry;
 import com.leon1236.reforestry.modules.features.ModFeatureRegistry;
 
+import net.fabricmc.fabric.api.recipe.v1.sync.RecipeSynchronization;
+
 public class FactoryRecipeTypes {
     private static final IFeatureRegistry REGISTRY = ModFeatureRegistry.get(ReForestry.id("factory"));
 
@@ -53,5 +55,16 @@ public class FactoryRecipeTypes {
             REGISTRY.recipeType("hygroregulator", () -> HygroregulatorRecipe.SERIALIZER);
 
     public static void init() {
+        RecipeSynchronization.synchronizeRecipeSerializer(CENTRIFUGE.serializer());
+        RecipeSynchronization.synchronizeRecipeSerializer(SMELTER.serializer());
+        RecipeSynchronization.synchronizeRecipeSerializer(STILL.serializer());
+        RecipeSynchronization.synchronizeRecipeSerializer(SQUEEZER.serializer());
+        RecipeSynchronization.synchronizeRecipeSerializer(SQUEEZER_CONTAINER.serializer());
+        RecipeSynchronization.synchronizeRecipeSerializer(CARPENTER.serializer());
+        RecipeSynchronization.synchronizeRecipeSerializer(FERMENTER.serializer());
+        RecipeSynchronization.synchronizeRecipeSerializer(FABRICATOR_SMELTING.serializer());
+        RecipeSynchronization.synchronizeRecipeSerializer(FABRICATOR.serializer());
+        RecipeSynchronization.synchronizeRecipeSerializer(MOISTENER.serializer());
+        RecipeSynchronization.synchronizeRecipeSerializer(HYGROREGULATOR.serializer());
     }
 }

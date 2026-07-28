@@ -1,6 +1,8 @@
 package com.leon1236.reforestry.core.tiles;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
@@ -22,9 +24,31 @@ public abstract class TilePowered extends TileBase implements IPowerHandler, IMa
     private int energyPerWorkCycle;
     private int workCounter;
     private int noPowerTime;
+    private int syncedProgress;
     protected float speedMultiplier = 1.0f;
     protected float powerMultiplier = 1.0f;
     protected double outputMultiplier = 1.0;
+
+    private final ContainerData progressData = new ContainerData() {
+        @Override
+        public int get(int index) {
+            Level level = getLevel();
+            if (level != null && level.isClientSide()) {
+                return syncedProgress;
+            }
+            return getProgressScaled(100);
+        }
+
+        @Override
+        public void set(int index, int value) {
+            syncedProgress = value;
+        }
+
+        @Override
+        public int getCount() {
+            return 1;
+        }
+    };
 
     protected TilePowered(BlockEntityType<?> type, BlockPos pos, BlockState state, long capacity, long maxReceive) {
         super(type, pos, state);
@@ -39,6 +63,10 @@ public abstract class TilePowered extends TileBase implements IPowerHandler, IMa
     @Override
     public SimpleEnergyStorage getEnergyManager() {
         return this.energyStorage;
+    }
+
+    public ContainerData getProgressData() {
+        return this.progressData;
     }
 
     public int getWorkCounter() {
@@ -87,6 +115,13 @@ public abstract class TilePowered extends TileBase implements IPowerHandler, IMa
     protected abstract boolean workCycle();
 
     public void doWork() {
+        doWork(true);
+    }
+
+    public void doWork(boolean advanceTick) {
+        if (advanceTick) {
+            advanceTicks();
+        }
         if (!updateOnInterval(WORK_TICK_INTERVAL)) {
             return;
         }

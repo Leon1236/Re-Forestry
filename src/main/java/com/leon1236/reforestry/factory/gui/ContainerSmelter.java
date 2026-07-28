@@ -1,17 +1,23 @@
 package com.leon1236.reforestry.factory.gui;
 
+import java.util.List;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
+import com.leon1236.reforestry.api.gui.IContainerRecipeBook;
+import com.leon1236.reforestry.api.gui.MachineRecipeEntry;
 import com.leon1236.reforestry.core.gui.ContainerSocketedMachine;
+import com.leon1236.reforestry.core.gui.MachineGuiRecipes;
 import com.leon1236.reforestry.factory.features.FactoryMenuTypes;
 import com.leon1236.reforestry.factory.tiles.TileSmelter;
 
-public class ContainerSmelter extends ContainerSocketedMachine<TileSmelter> {
+public class ContainerSmelter extends ContainerSocketedMachine<TileSmelter> implements IContainerRecipeBook {
     private static final int INPUT_X = 21;
     private static final int INPUT_Y = 21;
     private static final int SOCKET_X = 95;
@@ -57,6 +63,31 @@ public class ContainerSmelter extends ContainerSocketedMachine<TileSmelter> {
 
     public short getErrorId(int index) {
         return (short) tile.getErrorData().get(index + 1);
+    }
+
+    @Override
+    public List<MachineRecipeEntry> getGuiRecipes() {
+        Level level = tile.getLevel();
+        if (level == null) {
+            return List.of();
+        }
+        return MachineGuiRecipes.smelter(level);
+    }
+
+    @Override
+    public boolean selectRecipe(int index, Player player) {
+        return false;
+    }
+
+    @Override
+    public boolean clickMenuButton(Player player, int id) {
+        if (super.clickMenuButton(player, id)) {
+            return true;
+        }
+        if (IContainerRecipeBook.isRecipeButton(id)) {
+            return selectRecipe(IContainerRecipeBook.recipeIndex(id), player);
+        }
+        return false;
     }
 
     private static final class PreviewSlot extends Slot {

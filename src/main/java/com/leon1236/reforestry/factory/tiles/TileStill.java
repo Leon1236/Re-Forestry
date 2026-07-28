@@ -32,7 +32,7 @@ import com.leon1236.reforestry.core.fluids.FluidContainerHelper;
 import com.leon1236.reforestry.core.fluids.FluidUnits;
 import com.leon1236.reforestry.core.fluids.ForestryFluids;
 import com.leon1236.reforestry.core.fluids.MultiFluidTank;
-import com.leon1236.reforestry.core.inventory.InventoryUtil;
+import com.leon1236.reforestry.core.access.WorldlyAccessHelper;
 import com.leon1236.reforestry.core.render.TankRenderInfo;
 import com.leon1236.reforestry.core.tiles.IRenderableTile;
 import com.leon1236.reforestry.core.tiles.TilePowered;
@@ -62,21 +62,6 @@ public class TileStill extends TilePowered implements WorldlyContainer, IRendera
     private FluidVariant bufferedVariant = FluidVariant.blank();
     private long bufferedAmount;
 
-    private final ContainerData progressData = new ContainerData() {
-        @Override
-        public int get(int index) {
-            return getProgressScaled(100);
-        }
-
-        @Override
-        public void set(int index, int value) {
-        }
-
-        @Override
-        public int getCount() {
-            return 1;
-        }
-    };
 
     private final ContainerData errorData = new ContainerData() {
         @Override
@@ -115,6 +100,7 @@ public class TileStill extends TilePowered implements WorldlyContainer, IRendera
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, TileStill tile) {
+        tile.doWork();
         if (tile.updateOnInterval(20)) {
             FluidContainerHelper.drainIntoTank(tile, SLOT_CAN, tile.tanks.tank("Resource"));
             FilteredFluidStorage productTank = tile.tanks.tank("Product");
@@ -122,7 +108,6 @@ public class TileStill extends TilePowered implements WorldlyContainer, IRendera
                 FluidContainerHelper.fillFromTank(tile, SLOT_RESOURCE, SLOT_PRODUCT, productTank);
             }
         }
-        tile.doWork();
         tile.syncErrors();
     }
 
@@ -148,9 +133,6 @@ public class TileStill extends TilePowered implements WorldlyContainer, IRendera
         return TankRenderInfo.of(getProductTank());
     }
 
-    public ContainerData getProgressData() {
-        return progressData;
-    }
 
     public ContainerData getErrorData() {
         return errorData;
@@ -331,17 +313,17 @@ public class TileStill extends TilePowered implements WorldlyContainer, IRendera
 
     @Override
     public int[] getSlotsForFace(Direction direction) {
-        return InventoryUtil.contiguousSlots(SLOT_COUNT);
+        return WorldlyAccessHelper.getSlotsForFace(this, SLOT_COUNT, direction);
     }
 
     @Override
     public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction direction) {
-        return canPlaceItem(slot, stack);
+        return WorldlyAccessHelper.canPlaceItemThroughFace(this, canPlaceItem(slot, stack), direction);
     }
 
     @Override
     public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction direction) {
-        return slot == SLOT_PRODUCT;
+        return WorldlyAccessHelper.canTakeItemThroughFace(this, slot == SLOT_PRODUCT, direction);
     }
 
     @Override

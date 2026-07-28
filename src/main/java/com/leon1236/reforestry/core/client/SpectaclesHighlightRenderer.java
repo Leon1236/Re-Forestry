@@ -41,7 +41,7 @@ public final class SpectaclesHighlightRenderer {
 			int playerChunkX = SectionPos.blockToSectionCoord(playerPos.getX());
 			int playerChunkZ = SectionPos.blockToSectionCoord(playerPos.getZ());
 
-			try (var ignored = context.levelRenderer().collectPerFrameRenderThreadGizmos()) {
+			try (var _ = context.levelRenderer().collectPerFrameRenderThreadGizmos()) {
 				for (int chunkX = playerChunkX - renderDistance; chunkX <= playerChunkX + renderDistance; chunkX++) {
 					for (int chunkZ = playerChunkZ - renderDistance; chunkZ <= playerChunkZ + renderDistance; chunkZ++) {
 						if (!minecraft.level.getChunkSource().hasChunk(chunkX, chunkZ)) {

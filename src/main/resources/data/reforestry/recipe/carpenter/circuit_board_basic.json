@@ -5,7 +5,7 @@
     "type": "minecraft:crafting_shaped",
     "category": "misc",
     "key": {
-      "#": "reforestry:ingot_tin",
+      "#": "#c:ingots/tin",
       "R": "minecraft:redstone"
     },
     "pattern": [
@@ -14,8 +14,7 @@
       "R R"
     ],
     "result": {
-      "id": "reforestry:circuit_board_basic",
-      "count": 1
+      "id": "reforestry:circuit_board_basic"
     },
     "show_notification": true
   },

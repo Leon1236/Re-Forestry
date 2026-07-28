@@ -1,26 +1,24 @@
 {
   "type": "reforestry:carpenter",
-  "time": 20,
+  "time": 50,
   "recipe": {
     "type": "minecraft:crafting_shaped",
     "category": "misc",
     "key": {
-      "#": "minecraft:redstone",
-      "X": "minecraft:blaze_powder"
+      "#": "#minecraft:logs"
     },
     "pattern": [
-      " X ",
-      "#X#",
-      "XXX"
+      "#",
+      "#"
     ],
     "result": {
-      "id": "reforestry:electron_tube_blaze",
-      "count": 4
+      "id": "reforestry:impregnated_stick",
+      "count": 2
     },
     "show_notification": true
   },
   "liquid": {
-    "fluid": "minecraft:water",
-    "amount": 1000
+    "fluid": "reforestry:seed_oil",
+    "amount": 100
   }
 }

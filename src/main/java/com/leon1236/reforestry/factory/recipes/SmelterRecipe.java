@@ -14,6 +14,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 
 import com.leon1236.reforestry.api.recipes.ISmelterRecipe;
+import com.leon1236.reforestry.core.recipes.CraftingPatternHelper;
 import com.leon1236.reforestry.core.recipes.IngredientStack;
 import com.leon1236.reforestry.factory.features.FactoryRecipeTypes;
 
@@ -40,10 +41,11 @@ public record SmelterRecipe(List<IngredientStack> inputs, IngredientStack output
 
     @Override
     public ItemStack getOutput() {
-        return output.ingredient().items()
-                .findFirst()
-                .map(holder -> new ItemStack(holder, output.count()))
-                .orElse(ItemStack.EMPTY);
+        ItemStack stack = CraftingPatternHelper.firstStack(output.ingredient());
+        if (stack.isEmpty()) {
+            return ItemStack.EMPTY;
+        }
+        return stack.copyWithCount(output.count());
     }
 
     @Override

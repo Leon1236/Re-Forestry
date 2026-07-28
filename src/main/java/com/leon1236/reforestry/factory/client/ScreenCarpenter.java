@@ -1,5 +1,6 @@
 package com.leon1236.reforestry.factory.client;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -51,25 +52,35 @@ public class ScreenCarpenter extends ScreenForestry<ContainerCarpenter> {
 	private void drawTank(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY) {
 		int amountMb = menu.getResourceAmountMb();
 		int capacity = menu.getTankCapacityMb();
-		if (amountMb > 0 && capacity > 0) {
+		boolean empty = amountMb <= 0;
+		if (!empty && capacity > 0) {
 			int filled = Math.min(TANK_HEIGHT, TANK_HEIGHT * amountMb / capacity);
 			int color = colorFor(menu.getResourceFluid());
 			int x = leftPos + TANK_X;
 			int y = topPos + TANK_Y + (TANK_HEIGHT - filled);
 			guiGraphics.fill(x, y, x + TANK_WIDTH, y + filled, color);
+		} else {
+			drawRecipeGhostTank(guiGraphics, TANK_X, TANK_Y, TANK_WIDTH, TANK_HEIGHT, capacity,
+					colorFor(hasRecipeGhostLiquid() ? getRecipeGhostFluid().getFluid() : null), true);
 		}
 
 		int tankLeft = leftPos + TANK_X;
 		int tankTop = topPos + TANK_Y;
 		if (mouseX >= tankLeft && mouseX < tankLeft + TANK_WIDTH && mouseY >= tankTop && mouseY < tankTop + TANK_HEIGHT) {
-			Fluid fluid = menu.getResourceFluid();
-			Component fluidName;
-			if (fluid == null || fluid.defaultFluidState().isEmpty()) {
-				fluidName = Component.translatable("for.gui.empty");
+			List<Component> lines = new ArrayList<>();
+			if (empty && hasRecipeGhostLiquid()) {
+				appendRecipeGhostTankTooltip(lines);
 			} else {
-				fluidName = FluidVariantAttributes.getName(FluidVariant.of(fluid));
+				Fluid fluid = menu.getResourceFluid();
+				Component fluidName;
+				if (fluid == null || fluid.defaultFluidState().isEmpty()) {
+					fluidName = Component.translatable("for.gui.empty");
+				} else {
+					fluidName = FluidVariantAttributes.getName(FluidVariant.of(fluid));
+				}
+				lines.add(fluidName);
+				lines.add(Component.literal(amountMb + " / " + capacity + " mB"));
 			}
-			List<Component> lines = List.of(fluidName, Component.literal(amountMb + " / " + capacity + " mB"));
 			guiGraphics.setTooltipForNextFrame(font, lines, Optional.<TooltipComponent>empty(), mouseX, mouseY);
 		}
 	}

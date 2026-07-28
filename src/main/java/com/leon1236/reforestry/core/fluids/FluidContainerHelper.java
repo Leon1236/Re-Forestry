@@ -50,7 +50,7 @@ public final class FluidContainerHelper {
         if (handler == null) {
             return false;
         }
-        try (Transaction transaction = Transaction.openOuter()) {
+        try (Transaction transaction = Transaction.openNested(Transaction.getCurrentUnsafe())) {
             return handler.insert(variant, 1, transaction) > 0;
         }
     }
@@ -143,8 +143,37 @@ public final class FluidContainerHelper {
         if (input.isEmpty()) {
             return FillStatus.INVALID_INPUT;
         }
-        ItemStack outputStack = container.getItem(outputSlot);
 
+        Fluid bucket = bucketFluid(input);
+        if (bucket != null) {
+            ItemStack emptyBucket = new ItemStack(Items.BUCKET);
+            ItemStack outputStack = container.getItem(outputSlot);
+            if (!outputStack.isEmpty()
+                    && (!ItemStack.isSameItemSameComponents(outputStack, emptyBucket)
+                    || outputStack.getCount() + 1 > outputStack.getMaxStackSize())) {
+                return FillStatus.NO_SPACE;
+            }
+            try (Transaction transaction = Transaction.openOuter()) {
+                if (tank.insert(FluidVariant.of(bucket), FluidConstants.BUCKET, transaction) != FluidConstants.BUCKET) {
+                    return FillStatus.NO_SPACE_FLUID;
+                }
+                if (!doDrain) {
+                    return FillStatus.SUCCESS;
+                }
+                transaction.commit();
+            }
+            if (doDrain) {
+                if (outputStack.isEmpty()) {
+                    container.setItem(outputSlot, emptyBucket);
+                } else {
+                    outputStack.grow(1);
+                }
+                container.removeItem(inputSlot, 1);
+            }
+            return FillStatus.SUCCESS;
+        }
+
+        ItemStack outputStack = container.getItem(outputSlot);
         ItemStack simulated = input.copyWithCount(1);
         ContainerItemContext simulateContext = ContainerItemContext.withConstant(simulated);
         Storage<FluidVariant> simulateStorage = simulateContext.find(FluidStorage.ITEM);
@@ -152,64 +181,41 @@ public final class FluidContainerHelper {
             return FillStatus.INVALID_INPUT;
         }
 
+        ItemStack drainedItemSimulated;
         try (Transaction transaction = Transaction.openOuter()) {
             if (StorageUtil.move(simulateStorage, tank, variant -> true, FluidConstants.BUCKET, transaction) <= 0) {
                 return FillStatus.INVALID_INPUT;
             }
+            drainedItemSimulated = simulateContext.getItemVariant().toStack(1);
         }
 
-        ItemStack drainedSimulated = input.copyWithCount(1);
-        ContainerItemContext drainContext = ContainerItemContext.withConstant(drainedSimulated);
-        Storage<FluidVariant> drainStorage = drainContext.find(FluidStorage.ITEM);
-        if (drainStorage == null) {
-            return FillStatus.INVALID_INPUT;
-        }
-
-        try (Transaction transaction = Transaction.openOuter()) {
-            if (StorageUtil.move(drainStorage, tank, variant -> true, FluidConstants.BUCKET, transaction) <= 0) {
-                return FillStatus.INVALID_INPUT;
-            }
-            transaction.commit();
-        }
-
-        ItemStack drainedItem = drainContext.getItemVariant().toStack(1);
-        if (!outputStack.isEmpty() && !drainedItem.isEmpty()
-                && (!ItemStack.isSameItemSameComponents(outputStack, drainedItem)
+        if (!outputStack.isEmpty() && !drainedItemSimulated.isEmpty()
+                && (!ItemStack.isSameItemSameComponents(outputStack, drainedItemSimulated)
                 || outputStack.getCount() + 1 > outputStack.getMaxStackSize())) {
-            return FillStatus.NO_SPACE;
+            if (input.getCount() > 1 || !isEmptyContainer(drainedItemSimulated)) {
+                return FillStatus.NO_SPACE;
+            }
         }
 
         if (!doDrain) {
             return FillStatus.SUCCESS;
         }
 
-        ContainerItemContext realContext = itemContext(container, inputSlot);
-        Storage<FluidVariant> realStorage = realContext.find(FluidStorage.ITEM);
-        if (realStorage == null) {
-            return FillStatus.INVALID_INPUT;
-        }
-
-        try (Transaction transaction = Transaction.openOuter()) {
-            if (StorageUtil.move(realStorage, tank, variant -> true, FluidConstants.BUCKET, transaction) <= 0) {
-                return FillStatus.INVALID_INPUT;
+        if (drainIntoTank(container, inputSlot, tank)) {
+            ItemStack resultItem = container.getItem(inputSlot);
+            if (!resultItem.isEmpty() && isEmptyContainer(resultItem) && input.getCount() == 1) {
+                if (outputStack.isEmpty()) {
+                    container.setItem(outputSlot, resultItem.copyWithCount(1));
+                    container.setItem(inputSlot, ItemStack.EMPTY);
+                } else if (ItemStack.isSameItemSameComponents(outputStack, resultItem)
+                        && outputStack.getCount() < outputStack.getMaxStackSize()) {
+                    outputStack.grow(1);
+                    container.setItem(inputSlot, ItemStack.EMPTY);
+                }
             }
-            transaction.commit();
+            return FillStatus.SUCCESS;
         }
-
-        ItemStack resultItem = realContext.getItemVariant().toStack(input.getCount());
-        if (!resultItem.isEmpty() && isEmptyContainer(resultItem)) {
-            if (outputStack.isEmpty()) {
-                container.setItem(outputSlot, resultItem.copyWithCount(1));
-            } else {
-                outputStack.grow(1);
-            }
-            container.removeItem(inputSlot, 1);
-        } else if (!resultItem.isEmpty() && isFilledContainer(resultItem)) {
-            container.setItem(inputSlot, resultItem);
-        } else {
-            container.removeItem(inputSlot, 1);
-        }
-        return FillStatus.SUCCESS;
+        return FillStatus.INVALID_INPUT;
     }
 
     public static boolean isEmptyContainer(ItemStack stack) {
@@ -220,10 +226,16 @@ public final class FluidContainerHelper {
     }
 
     public static boolean isFilledContainer(ItemStack stack) {
+        if (stack.isEmpty()) {
+            return false;
+        }
         if (stack.getItem() instanceof ItemFluidContainerForestry) {
             return FluidContainerContents.get(stack).amount() > 0;
         }
-        return bucketFluid(stack) != null;
+        if (bucketFluid(stack) != null) {
+            return true;
+        }
+        return hasExtractableFluid(stack);
     }
 
     public static boolean isDrainableFilledContainer(ItemStack stack) {
@@ -231,10 +243,16 @@ public final class FluidContainerHelper {
             FluidContainerContents contents = FluidContainerContents.get(stack);
             return contents.amount() >= FluidConstants.BUCKET;
         }
-        return bucketFluid(stack) != null;
+        if (bucketFluid(stack) != null) {
+            return true;
+        }
+        return hasExtractableFluid(stack);
     }
 
     public static boolean drainFromSlotToTank(Container container, int slot, Storage<FluidVariant> tank) {
+        if (Transaction.isOpen()) {
+            return false;
+        }
         ItemStack stack = container.getItem(slot);
         if (stack.isEmpty()) {
             return false;
@@ -261,19 +279,35 @@ public final class FluidContainerHelper {
             return FluidContainerContents.get(stack).variant();
         }
         Fluid fluid = bucketFluid(stack);
-        return fluid == null || fluid == Fluids.EMPTY ? FluidVariant.blank() : FluidVariant.of(fluid);
+        if (fluid != null && fluid != Fluids.EMPTY) {
+            return FluidVariant.of(fluid);
+        }
+        ContainerItemContext context = ContainerItemContext.withConstant(stack.copyWithCount(1));
+        Storage<FluidVariant> storage = context.find(FluidStorage.ITEM);
+        if (storage == null) {
+            return FluidVariant.blank();
+        }
+        for (var view : storage.nonEmptyViews()) {
+            if (!view.isResourceBlank() && view.getAmount() > 0) {
+                return view.getResource();
+            }
+        }
+        return FluidVariant.blank();
     }
 
     public static boolean canTankAccept(Storage<FluidVariant> tank, FluidVariant variant) {
         if (variant.isBlank()) {
             return false;
         }
-        try (Transaction transaction = Transaction.openOuter()) {
+        try (Transaction transaction = Transaction.openNested(Transaction.getCurrentUnsafe())) {
             return tank.insert(variant, 1, transaction) > 0;
         }
     }
 
     public static boolean drainIntoTank(Container container, int slot, Storage<FluidVariant> tank) {
+        if (Transaction.isOpen()) {
+            return false;
+        }
         ItemStack stack = container.getItem(slot);
         if (stack.isEmpty()) {
             return false;
@@ -296,6 +330,9 @@ public final class FluidContainerHelper {
     }
 
     public static boolean fillFromTank(Container container, int inputSlot, int outputSlot, Storage<FluidVariant> tank) {
+        if (Transaction.isOpen()) {
+            return false;
+        }
         ItemStack input = container.getItem(inputSlot);
         if (input.isEmpty() || !isEmptyContainer(input)) {
             return false;
@@ -362,16 +399,28 @@ public final class FluidContainerHelper {
         return false;
     }
 
+    private static boolean hasExtractableFluid(ItemStack stack) {
+        ContainerItemContext context = ContainerItemContext.withConstant(stack.copyWithCount(1));
+        Storage<FluidVariant> storage = context.find(FluidStorage.ITEM);
+        if (storage == null) {
+            return false;
+        }
+        for (var view : storage.nonEmptyViews()) {
+            if (!view.isResourceBlank() && view.getAmount() > 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private static Fluid bucketFluid(ItemStack stack) {
-        if (stack.is(Items.WATER_BUCKET)) {
-            return Fluids.WATER;
+        if (!(stack.getItem() instanceof net.minecraft.world.item.BucketItem bucket)) {
+            return null;
         }
-        if (stack.is(Items.LAVA_BUCKET)) {
-            return Fluids.LAVA;
+        Fluid fluid = bucket.getContent();
+        if (fluid == null || fluid == Fluids.EMPTY || fluid.getBucket() != bucket) {
+            return null;
         }
-        if (stack.is(Items.MILK_BUCKET)) {
-            return Fluids.EMPTY;
-        }
-        return null;
+        return fluid;
     }
 }

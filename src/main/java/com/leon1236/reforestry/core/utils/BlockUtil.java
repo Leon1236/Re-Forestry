@@ -61,10 +61,12 @@ public final class BlockUtil {
             if (!level.isLoaded(relative)) {
                 return false;
             }
-        } else if (!world.hasChunk(
-                SectionPos.blockToSectionCoord(relative.getX()),
-                SectionPos.blockToSectionCoord(relative.getZ()))) {
-            return false;
+        } else if (world instanceof LevelAccessor accessor) {
+            if (!accessor.getChunkSource().hasChunk(
+                    SectionPos.blockToSectionCoord(relative.getX()),
+                    SectionPos.blockToSectionCoord(relative.getZ()))) {
+                return false;
+            }
         }
         return world.getBlockState(relative).is(logTag);
     }

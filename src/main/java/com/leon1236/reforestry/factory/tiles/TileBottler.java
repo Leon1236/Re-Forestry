@@ -36,7 +36,7 @@ import com.leon1236.reforestry.core.fluids.FluidContainerHelper;
 import com.leon1236.reforestry.core.fluids.FluidContainerHelper.FillStatus;
 import com.leon1236.reforestry.core.fluids.FluidUnits;
 import com.leon1236.reforestry.core.fluids.MultiFluidTank;
-import com.leon1236.reforestry.core.inventory.InventoryUtil;
+import com.leon1236.reforestry.core.access.WorldlyAccessHelper;
 import com.leon1236.reforestry.core.render.TankRenderInfo;
 import com.leon1236.reforestry.core.tiles.IRenderableTile;
 import com.leon1236.reforestry.core.tiles.TilePowered;
@@ -71,21 +71,6 @@ public class TileBottler extends TilePowered implements WorldlyContainer, IRende
     @Nullable
     private BottlerRecipe currentRecipe;
 
-    private final ContainerData progressData = new ContainerData() {
-        @Override
-        public int get(int index) {
-            return getProgressScaled(100);
-        }
-
-        @Override
-        public void set(int index, int value) {
-        }
-
-        @Override
-        public int getCount() {
-            return 1;
-        }
-    };
 
     private final ContainerData recipeData = new ContainerData() {
         @Override
@@ -139,6 +124,7 @@ public class TileBottler extends TilePowered implements WorldlyContainer, IRende
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, TileBottler tile) {
+        tile.advanceTicks();
         if (tile.updateOnInterval(20)) {
             ItemStack leftProcessing = tile.getItem(SLOT_EMPTYING_PROCESSING);
             if (leftProcessing.isEmpty()) {
@@ -164,7 +150,7 @@ public class TileBottler extends TilePowered implements WorldlyContainer, IRende
             }
         }
 
-        tile.doWork();
+        tile.doWork(false);
         tile.syncErrors();
     }
 
@@ -186,9 +172,6 @@ public class TileBottler extends TilePowered implements WorldlyContainer, IRende
         return TankRenderInfo.EMPTY;
     }
 
-    public ContainerData getProgressData() {
-        return progressData;
-    }
 
     public ContainerData getRecipeData() {
         return recipeData;
@@ -229,6 +212,10 @@ public class TileBottler extends TilePowered implements WorldlyContainer, IRende
         }
         this.canDump.clear();
         for (Direction facing : Direction.values()) {
+            if (!getAccess(facing).allowsOutput()) {
+                this.canDump.put(facing, false);
+                continue;
+            }
             this.canDump.put(facing, FluidContainerHelper.canAcceptFluid(level, worldPosition.relative(facing), facing.getOpposite(), variant));
         }
         for (Direction facing : Direction.values()) {
@@ -450,17 +437,18 @@ public class TileBottler extends TilePowered implements WorldlyContainer, IRende
 
     @Override
     public int[] getSlotsForFace(Direction direction) {
-        return InventoryUtil.contiguousSlots(SLOT_COUNT);
+        return WorldlyAccessHelper.getSlotsForFace(this, SLOT_COUNT, direction);
     }
 
     @Override
     public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction direction) {
-        return canPlaceItem(slot, stack);
+        return WorldlyAccessHelper.canPlaceItemThroughFace(this, canPlaceItem(slot, stack), direction);
     }
 
     @Override
     public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction direction) {
-        return slot == SLOT_OUTPUT_EMPTY_CONTAINER || slot == SLOT_OUTPUT_FULL_CONTAINER;
+        return WorldlyAccessHelper.canTakeItemThroughFace(this,
+                slot == SLOT_OUTPUT_EMPTY_CONTAINER || slot == SLOT_OUTPUT_FULL_CONTAINER, direction);
     }
 
     @Override

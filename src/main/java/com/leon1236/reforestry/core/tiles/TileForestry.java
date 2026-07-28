@@ -24,8 +24,11 @@ public abstract class TileForestry extends BlockEntity implements IErrorLogicSou
         this.tickHelper = new TickHelper(pos.hashCode());
     }
 
-    protected final boolean updateOnInterval(int tickInterval) {
+    protected final void advanceTicks() {
         tickHelper.onTick();
+    }
+
+    protected final boolean updateOnInterval(int tickInterval) {
         return tickHelper.updateOnInterval(tickInterval);
     }
 

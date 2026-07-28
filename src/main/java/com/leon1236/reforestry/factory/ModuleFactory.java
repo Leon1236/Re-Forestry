@@ -52,16 +52,17 @@ public class ModuleFactory implements IForestryModule {
         FactoryMenuTypes.init();
         FactoryCreativeTabs.init();
         CommonLifecycleEvents.TAGS_LOADED.register((registries, client) -> seedFuels());
-        ServerLifecycleEvents.SERVER_STARTED.register(ModuleFactory::reloadFabricatorMoltenFluids);
+        ServerLifecycleEvents.SERVER_STARTED.register(ModuleFactory::reloadFluidFilters);
         ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((server, resourceManager, success) -> {
             if (success) {
-                reloadFabricatorMoltenFluids(server);
+                reloadFluidFilters(server);
             }
         });
     }
 
-    private static void reloadFabricatorMoltenFluids(MinecraftServer server) {
+    private static void reloadFluidFilters(MinecraftServer server) {
         FabricatorMoltenFluidSetup.reload(server.overworld());
+        CarpenterInputFluidSetup.reload(server.overworld());
     }
 
     @Override

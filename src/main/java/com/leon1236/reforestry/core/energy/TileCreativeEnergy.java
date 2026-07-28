@@ -13,7 +13,7 @@ import team.reborn.energy.api.base.InfiniteEnergyStorage;
 import com.leon1236.reforestry.core.features.CoreTiles;
 
 public class TileCreativeEnergy extends BlockEntity {
-    private static final long PUSH_RATE_PER_TICK = 1000;
+    private static final long PUSH_RATE_PER_TICK = 10_000;
 
     public TileCreativeEnergy(BlockPos pos, BlockState state) {
         super(CoreTiles.CREATIVE_ENERGY.type(), pos, state);

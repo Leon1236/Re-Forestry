@@ -1,25 +1,33 @@
 package com.leon1236.reforestry.factory.gui;
 
+import java.util.List;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.ContainerInput;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
 import com.leon1236.reforestry.core.fluids.FluidUnits;
 import com.leon1236.reforestry.core.fluids.ForestryFluids;
 import com.leon1236.reforestry.core.gui.ContainerMachine;
+import com.leon1236.reforestry.core.gui.MachineGuiRecipes;
+import com.leon1236.reforestry.core.gui.PhantomSlotHelper;
+import com.leon1236.reforestry.core.gui.SlotGhostCrafting;
 import com.leon1236.reforestry.factory.features.FactoryMenuTypes;
 import com.leon1236.reforestry.factory.tiles.TileFabricator;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.fabricmc.fabric.api.transfer.v1.fluid.base.SingleFluidStorage;
-import com.leon1236.reforestry.api.core.IToolPipette;
+import com.leon1236.reforestry.api.gui.IContainerRecipeBook;
+import com.leon1236.reforestry.api.gui.MachineRecipeEntry;
 import com.leon1236.reforestry.core.fluids.PipetteTankHelper;
 import com.leon1236.reforestry.core.gui.IContainerLiquidTanks;
 
-public class ContainerFabricator extends ContainerMachine<TileFabricator> implements IContainerLiquidTanks {
+public class ContainerFabricator extends ContainerMachine<TileFabricator> implements IContainerLiquidTanks, IContainerRecipeBook {
     private static final int SLOT_GAP = 18;
     private static final int STORAGE_X = 8;
     private static final int STORAGE_Y = 84;
@@ -67,7 +75,7 @@ public class ContainerFabricator extends ContainerMachine<TileFabricator> implem
         for (int row = 0; row < 3; row++) {
             for (int column = 0; column < 3; column++) {
                 int index = column + row * 3;
-                addSlot(new CraftMatrixSlot(craftingInventory, index, CRAFT_X + column * SLOT_GAP, CRAFT_Y + row * SLOT_GAP));
+                addSlot(new SlotGhostCrafting(craftingInventory, index, CRAFT_X + column * SLOT_GAP, CRAFT_Y + row * SLOT_GAP));
             }
         }
     }
@@ -114,14 +122,57 @@ public class ContainerFabricator extends ContainerMachine<TileFabricator> implem
 
 
     @Override
+    public List<MachineRecipeEntry> getGuiRecipes() {
+        Level level = tile.getLevel();
+        if (level == null) {
+            return List.of();
+        }
+        return MachineGuiRecipes.fabricator(level);
+    }
+
+    @Override
+    public boolean selectRecipe(int index, Player player) {
+        List<MachineRecipeEntry> recipes = getGuiRecipes();
+        if (index < 0 || index >= recipes.size()) {
+            return false;
+        }
+        MachineRecipeEntry entry = recipes.get(index);
+        if (!entry.hasPattern()) {
+            return false;
+        }
+        long timeMs = System.currentTimeMillis();
+        Container crafting = tile.getCraftingInventory();
+        for (int i = 0; i < 9; i++) {
+            ItemStack stack = entry.patternStack(i, timeMs);
+            crafting.setItem(i, stack.isEmpty() ? ItemStack.EMPTY : stack);
+        }
+        return true;
+    }
+
+    @Override
     public boolean clickMenuButton(Player player, int id) {
-        if (getTank(id) == null || !(player.containerMenu.getCarried().getItem() instanceof IToolPipette)) {
+        if (super.clickMenuButton(player, id)) {
+            return true;
+        }
+        if (IContainerRecipeBook.isRecipeButton(id)) {
+            return selectRecipe(IContainerRecipeBook.recipeIndex(id), player);
+        }
+        if (getTank(id) == null || !PipetteTankHelper.canHandleClick(player.containerMenu.getCarried())) {
             return false;
         }
         if (player instanceof ServerPlayer serverPlayer) {
             handlePipetteClick(id, serverPlayer);
         }
         return true;
+    }
+
+    @Override
+    public void clicked(int slotIndex, int button, ContainerInput input, Player player) {
+        if (slotIndex >= 0 && slotIndex < slots.size() && slots.get(slotIndex) instanceof SlotGhostCrafting ghost) {
+            PhantomSlotHelper.clickGhost(ghost, button, input, player);
+            return;
+        }
+        super.clicked(slotIndex, button, input, player);
     }
 
     @Override
@@ -180,12 +231,6 @@ public class ContainerFabricator extends ContainerMachine<TileFabricator> implem
         @Override
         public boolean mayPlace(ItemStack stack) {
             return false;
-        }
-    }
-
-    private static final class CraftMatrixSlot extends Slot {
-        CraftMatrixSlot(Container container, int index, int x, int y) {
-            super(container, index, x, y);
         }
     }
 }

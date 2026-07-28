@@ -33,6 +33,7 @@ import com.leon1236.reforestry.api.recipes.IFabricatorSmeltingRecipe;
 import com.leon1236.reforestry.core.fluids.FilteredFluidStorage;
 import com.leon1236.reforestry.core.fluids.FluidUnits;
 import com.leon1236.reforestry.core.fluids.MultiFluidTank;
+import com.leon1236.reforestry.core.access.WorldlyAccessHelper;
 import com.leon1236.reforestry.core.inventory.InventoryUtil;
 import com.leon1236.reforestry.core.recipes.RecipeUtils;
 import com.leon1236.reforestry.core.tiles.TilePowered;
@@ -247,7 +248,7 @@ public class TileFabricator extends TilePowered implements WorldlyContainer {
             trySmelting();
         }
 
-        if (moltenTank.getAmount() > 0 && this.heat < getMeltingPoint() - 100) {
+        if (moltenTank.getAmount() > 0 && getEnergyManager().amount <= 0) {
             try (Transaction transaction = Transaction.openOuter()) {
                 moltenTank.extract(moltenTank.getResource(), SOLIDIFY_DRAIN, transaction);
                 transaction.commit();
@@ -501,17 +502,18 @@ public class TileFabricator extends TilePowered implements WorldlyContainer {
         for (int i = 0; i < SLOT_INVENTORY_COUNT; i++) {
             slots[i + 2] = SLOT_INVENTORY_1 + i;
         }
-        return slots;
+        return WorldlyAccessHelper.getSlotsForFace(this, slots, direction);
     }
 
     @Override
     public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction direction) {
-        return slot == SLOT_METAL || (slot >= SLOT_INVENTORY_1 && slot < SLOT_INVENTORY_1 + SLOT_INVENTORY_COUNT);
+        return WorldlyAccessHelper.canPlaceItemThroughFace(this,
+                slot == SLOT_METAL || (slot >= SLOT_INVENTORY_1 && slot < SLOT_INVENTORY_1 + SLOT_INVENTORY_COUNT), direction);
     }
 
     @Override
     public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction direction) {
-        return slot == SLOT_RESULT;
+        return WorldlyAccessHelper.canTakeItemThroughFace(this, slot == SLOT_RESULT, direction);
     }
 
     @Override

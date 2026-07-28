@@ -33,6 +33,7 @@ import com.leon1236.reforestry.core.fluids.FilteredFluidStorage;
 import com.leon1236.reforestry.core.fluids.FluidContainerHelper;
 import com.leon1236.reforestry.core.fluids.FluidUnits;
 import com.leon1236.reforestry.core.fluids.MultiFluidTank;
+import com.leon1236.reforestry.core.access.WorldlyAccessHelper;
 import com.leon1236.reforestry.core.inventory.InventoryUtil;
 import com.leon1236.reforestry.core.items.FluidContainerContents;
 import com.leon1236.reforestry.core.items.ItemFluidContainerForestry;
@@ -68,21 +69,6 @@ public class TileSqueezer extends SocketedPoweredTile implements WorldlyContaine
     @Nullable
     private ISqueezerRecipe currentRecipe;
 
-    private final ContainerData progressData = new ContainerData() {
-        @Override
-        public int get(int index) {
-            return getProgressScaled(100);
-        }
-
-        @Override
-        public void set(int index, int value) {
-        }
-
-        @Override
-        public int getCount() {
-            return 1;
-        }
-    };
 
     private final ContainerData errorData = new ContainerData() {
         @Override
@@ -120,13 +106,13 @@ public class TileSqueezer extends SocketedPoweredTile implements WorldlyContaine
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, TileSqueezer tile) {
+        tile.doWork();
         if (tile.updateOnInterval(20)) {
             FilteredFluidStorage productTank = tile.getProductTank();
             if (productTank.getAmount() > 0) {
                 FluidContainerHelper.fillFromTank(tile, SLOT_CAN_INPUT, SLOT_CAN_OUTPUT, productTank);
             }
         }
-        tile.doWork();
         tile.syncErrors();
     }
 
@@ -148,9 +134,6 @@ public class TileSqueezer extends SocketedPoweredTile implements WorldlyContaine
         return TankRenderInfo.of(getProductTank());
     }
 
-    public ContainerData getProgressData() {
-        return progressData;
-    }
 
     public ContainerData getErrorData() {
         return errorData;
@@ -396,17 +379,17 @@ public class TileSqueezer extends SocketedPoweredTile implements WorldlyContaine
 
     @Override
     public int[] getSlotsForFace(Direction direction) {
-        return InventoryUtil.contiguousSlots(SLOT_COUNT);
+        return WorldlyAccessHelper.getSlotsForFace(this, SLOT_COUNT, direction);
     }
 
     @Override
     public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction direction) {
-        return canPlaceItem(slot, stack);
+        return WorldlyAccessHelper.canPlaceItemThroughFace(this, canPlaceItem(slot, stack), direction);
     }
 
     @Override
     public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction direction) {
-        return slot == SLOT_REMNANT || slot == SLOT_CAN_OUTPUT;
+        return WorldlyAccessHelper.canTakeItemThroughFace(this, slot == SLOT_REMNANT || slot == SLOT_CAN_OUTPUT, direction);
     }
 
     @Override

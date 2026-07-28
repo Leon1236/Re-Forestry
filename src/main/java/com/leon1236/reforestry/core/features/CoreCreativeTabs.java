@@ -87,6 +87,8 @@ public class CoreCreativeTabs {
             output.accept(CoreBlocks.TIN_ORE.item());
             output.accept(CoreBlocks.DEEPSLATE_TIN_ORE.item());
             output.accept(CoreBlocks.RAW_TIN_BLOCK.item());
+            output.accept(CoreBlocks.CREATIVE_ENERGY.item());
+            output.accept(CoreBlocks.DEBUG_POWERED.item());
             for (ForestryFluids fluid : ForestryFluids.values()) {
                 output.accept(fluid.getBucket());
             }
