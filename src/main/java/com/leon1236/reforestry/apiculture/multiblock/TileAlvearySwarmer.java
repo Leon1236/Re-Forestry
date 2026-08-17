@@ -24,6 +24,7 @@ import com.leon1236.reforestry.api.multiblock.IAlvearyComponent;
 import com.leon1236.reforestry.api.multiblock.IMultiblockComponent;
 import com.leon1236.reforestry.apiculture.blocks.BlockAlveary;
 import com.leon1236.reforestry.apiculture.blocks.BlockAlvearyType;
+import com.leon1236.reforestry.apiculture.BeeStackHelper;
 import com.leon1236.reforestry.apiculture.features.ApicultureDataComponents;
 import com.leon1236.reforestry.apiculture.features.ApicultureItems;
 import com.leon1236.reforestry.apiculture.gui.ContainerAlvearySwarmer;
@@ -79,8 +80,11 @@ public class TileAlvearySwarmer extends TileAlveary implements IActivatable,
 			return;
 		}
 
+		ItemStack queenStack = getMultiblockLogic().getController().beeInventory().getQueen();
 		ItemStack princess = new ItemStack(ApicultureItems.BEE_PRINCESS.item());
 		princess.set(ApicultureDataComponents.BEE_GENOME.type(), queenGenome);
+		BeeStackHelper.setGeneration(princess, BeeStackHelper.getGeneration(queenStack));
+		BeeStackHelper.setPristine(princess, false);
 		this.pendingSpawns.push(princess);
 	}
 

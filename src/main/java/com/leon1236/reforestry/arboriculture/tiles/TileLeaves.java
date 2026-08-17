@@ -15,7 +15,10 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
 import com.leon1236.reforestry.api.core.ISpectacleBlock;
+import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
+import com.leon1236.reforestry.api.genetics.IBreedingTracker;
 import com.leon1236.reforestry.api.genetics.IGenome;
+import com.leon1236.reforestry.core.genetics.root.BreedingTrackerManager;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureTiles;
 import com.leon1236.reforestry.arboriculture.genetics.IFruit;
 import com.leon1236.reforestry.arboriculture.genetics.ITreeSpecies;
@@ -162,8 +165,22 @@ public class TileLeaves extends TileTreeContainer implements ISpectacleBlock {
     }
 
     private void onMutationDiscovered(Mutation mutation) {
+        Level level = this.level;
+        if (level == null || level.isClientSide()) {
+            return;
+        }
+        IBreedingTracker tracker = BreedingTrackerManager.INSTANCE.getTracker(
+                ForestrySpeciesTypes.TREE, level, null);
+        tracker.registerMutation(mutation);
     }
 
     private void onSpeciesDiscovered(ITreeSpecies species) {
+        Level level = this.level;
+        if (level == null || level.isClientSide()) {
+            return;
+        }
+        IBreedingTracker tracker = BreedingTrackerManager.INSTANCE.getTracker(
+                ForestrySpeciesTypes.TREE, level, null);
+        tracker.registerBirth(species.id());
     }
 }

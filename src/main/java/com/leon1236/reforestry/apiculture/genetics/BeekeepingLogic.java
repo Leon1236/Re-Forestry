@@ -1,5 +1,7 @@
 package com.leon1236.reforestry.apiculture.genetics;
 
+import org.jetbrains.annotations.Nullable;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -15,15 +17,20 @@ import net.minecraft.world.level.block.Block;
 
 import com.leon1236.reforestry.api.apiculture.IBeeHousing;
 import com.leon1236.reforestry.api.apiculture.IBeeListener;
-import com.leon1236.reforestry.api.apiculture.IBeeModifier;
 import com.leon1236.reforestry.api.apiculture.IBeekeepingLogic;
 import com.leon1236.reforestry.api.apiculture.genetics.IBeeEffect;
 import com.leon1236.reforestry.api.core.ForestryError;
 import com.leon1236.reforestry.api.core.IError;
 import com.leon1236.reforestry.api.core.IErrorLogic;
+import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
 import com.leon1236.reforestry.api.genetics.IEffectData;
+import com.leon1236.reforestry.api.genetics.IBreedingTracker;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.api.genetics.pollen.IPollenType;
+import com.leon1236.reforestry.apiculture.genetics.IBeeSpecies;
+import com.leon1236.reforestry.core.genetics.root.BreedingTrackerManager;
+import com.leon1236.reforestry.apiculture.BeeHousingModifier;
+import com.leon1236.reforestry.apiculture.BeeStackHelper;
 import com.leon1236.reforestry.apiculture.HasFlowersCache;
 import com.leon1236.reforestry.apiculture.features.ApicultureDataComponents;
 import com.leon1236.reforestry.apiculture.features.ApicultureItems;
@@ -33,9 +40,10 @@ import com.leon1236.reforestry.core.genetics.pollen.PollenTypes;
 
 public final class BeekeepingLogic implements IBeekeepingLogic {
     private static final int WORK_THROTTLE = 550;
-    private static final float SECOND_PRINCESS_CHANCE = 0.1f;
+    private static final float SECOND_PRINCESS_CHANCE = 0.0f;
 
     private final IBeeHousing housing;
+    private final BeeHousingModifier beeModifier;
     private final HasFlowersCache hasFlowersCache = new HasFlowersCache();
     private final QueenCanWorkCache queenCanWorkCache = new QueenCanWorkCache();
     private int throttleCounter;
@@ -45,6 +53,7 @@ public final class BeekeepingLogic implements IBeekeepingLogic {
 
     public BeekeepingLogic(IBeeHousing housing) {
         this.housing = housing;
+        this.beeModifier = new BeeHousingModifier(housing);
     }
 
     public void setClientFlowerPositions(List<BlockPos> flowerPositions) {
@@ -140,10 +149,7 @@ public final class BeekeepingLogic implements IBeekeepingLogic {
 
         IBeeSpecies primary = genome.getActiveAllele(BeeChromosomes.SPECIES).value();
         IBeeSpecies secondary = genome.getInactiveAllele(BeeChromosomes.SPECIES).value();
-        float speed = genome.getActiveAllele(BeeChromosomes.SPEED).value();
-        for (IBeeModifier modifier : housing.getBeeModifiers()) {
-            speed = modifier.modifyProductionSpeed(genome, speed);
-        }
+        float speed = beeModifier.modifyProductionSpeed(genome, genome.getActiveAllele(BeeChromosomes.SPEED).value());
         RandomSource random = housing.level().getRandom();
         for (IBeeSpecies.Product product : primary.products()) {
             if (random.nextFloat() <= product.chance() * speed) {
@@ -261,10 +267,7 @@ public final class BeekeepingLogic implements IBeekeepingLogic {
             return;
         }
         int pollination = genome.getActiveAllele(BeeChromosomes.POLLINATION).value();
-        float pollinationChance = pollination;
-        for (IBeeModifier modifier : housing.getBeeModifiers()) {
-            pollinationChance = modifier.modifyPollination(genome, pollinationChance);
-        }
+        float pollinationChance = beeModifier.modifyPollination(genome, pollination);
         if (random.nextInt(100) >= pollinationChance) {
             return;
         }
@@ -319,13 +322,17 @@ public final class BeekeepingLogic implements IBeekeepingLogic {
         ItemStack queenStack = new ItemStack(ApicultureItems.BEE_QUEEN.item());
         queenStack.set(ApicultureDataComponents.BEE_GENOME.type(), princessGenome);
         queenStack.set(ApicultureDataComponents.BEE_MATE_GENOME.type(), droneGenome);
+        BeeStackHelper.copyCaptivityTraits(princessStack, queenStack);
 
         housing.beeInventory().setQueen(queenStack);
         housing.beeInventory().setDrone(ItemStack.EMPTY);
     }
 
     private void ageQueen(ItemStack queenStack, IGenome genome, RandomSource random) {
-        int lifeUsed = queenStack.getOrDefault(ApicultureDataComponents.BEE_LIFE_USED.type(), 0) + 1;
+        IGenome mateGenome = queenStack.get(ApicultureDataComponents.BEE_MATE_GENOME.type());
+        float ageStep = beeModifier.modifyAging(genome, mateGenome, 1.0f);
+        int lifeIncrement = computeLifeIncrement(ageStep, random);
+        int lifeUsed = queenStack.getOrDefault(ApicultureDataComponents.BEE_LIFE_USED.type(), 0) + lifeIncrement;
         int lifespan = genome.getActiveAllele(BeeChromosomes.LIFESPAN).value();
         if (lifeUsed < lifespan) {
             queenStack.set(ApicultureDataComponents.BEE_LIFE_USED.type(), lifeUsed);
@@ -333,23 +340,65 @@ public final class BeekeepingLogic implements IBeekeepingLogic {
             return;
         }
 
-        IGenome mateGenome = queenStack.get(ApicultureDataComponents.BEE_MATE_GENOME.type());
         if (mateGenome != null) {
-            spawnOffspring(genome, mateGenome, random);
+            spawnOffspring(queenStack, genome, mateGenome, random);
         }
         housing.beeInventory().setQueen(ItemStack.EMPTY);
     }
 
-    private void spawnOffspring(IGenome own, IGenome mate, RandomSource random) {
-        int princessCount = 1 + (random.nextFloat() < SECOND_PRINCESS_CHANCE ? 1 : 0);
-        for (int i = 0; i < princessCount; i++) {
-            insertOrDrop(createBeeStack(ApicultureItems.BEE_PRINCESS.item(), rollOffspringGenome(own, mate, random)));
+    private static int computeLifeIncrement(float ageStep, RandomSource random) {
+        if (ageStep < 0f) {
+            return Integer.MAX_VALUE;
+        }
+        if (ageStep == 0f) {
+            return 0;
+        }
+        int lifeIncrement = 0;
+        while (ageStep > 1.0f) {
+            lifeIncrement++;
+            ageStep--;
+        }
+        if (random.nextFloat() < ageStep) {
+            lifeIncrement++;
+        }
+        return lifeIncrement;
+    }
+
+    private void spawnOffspring(ItemStack queenStack, IGenome own, IGenome mate, RandomSource random) {
+        int fertility = own.getActiveAllele(BeeChromosomes.FERTILITY).value();
+        boolean pristine = BeeStackHelper.isPristine(queenStack);
+        int generation = BeeStackHelper.getGeneration(queenStack);
+
+        if (fertility >= 1) {
+            int princessCount = 1 + (random.nextFloat() < SECOND_PRINCESS_CHANCE ? 1 : 0);
+            for (int i = 0; i < princessCount; i++) {
+                ItemStack princess = trySpawnPrincess(own, mate, random, pristine, generation);
+                if (princess != null) {
+                    insertOrDrop(princess);
+                }
+            }
         }
 
-        int droneCount = Math.max(1, own.getActiveAllele(BeeChromosomes.FERTILITY).value());
+        int droneCount = Math.max(1, fertility);
         for (int i = 0; i < droneCount; i++) {
-            insertOrDrop(createBeeStack(ApicultureItems.BEE_DRONE.item(), rollOffspringGenome(own, mate, random)));
+            insertOrDrop(createBeeStack(ApicultureItems.BEE_DRONE.item(), rollOffspringGenome(own, mate, random), true, 0));
         }
+    }
+
+    @Nullable
+    private ItemStack trySpawnPrincess(IGenome own, IGenome mate, RandomSource random, boolean pristine, int generation) {
+        if (!pristine) {
+            float decayModifier = beeModifier.modifyGeneticDecay(own, 1f);
+            if (BeeStackHelper.checkIgnobleDecay(random, generation, decayModifier)) {
+                return null;
+            }
+        }
+
+        return createBeeStack(
+                ApicultureItems.BEE_PRINCESS.item(),
+                rollOffspringGenome(own, mate, random),
+                pristine,
+                generation + 1);
     }
 
     private IGenome rollOffspringGenome(IGenome own, IGenome mate, RandomSource random) {
@@ -362,14 +411,30 @@ public final class BeekeepingLogic implements IBeekeepingLogic {
     }
 
     private void onMutationDiscovered(Mutation mutation) {
+        Level level = housing.level();
+        if (level == null || level.isClientSide()) {
+            return;
+        }
+        IBreedingTracker tracker = BreedingTrackerManager.INSTANCE.getTracker(
+                ForestrySpeciesTypes.BEE, level, housing.getOwner());
+        tracker.registerMutation(mutation);
     }
 
     private void onSpeciesDiscovered(IBeeSpecies species) {
+        Level level = housing.level();
+        if (level == null || level.isClientSide()) {
+            return;
+        }
+        IBreedingTracker tracker = BreedingTrackerManager.INSTANCE.getTracker(
+                ForestrySpeciesTypes.BEE, level, housing.getOwner());
+        tracker.registerBirth(species.id());
     }
 
-    private ItemStack createBeeStack(Item item, IGenome genome) {
+    private ItemStack createBeeStack(Item item, IGenome genome, boolean pristine, int generation) {
         ItemStack stack = new ItemStack(item);
         stack.set(ApicultureDataComponents.BEE_GENOME.type(), genome);
+        BeeStackHelper.setPristine(stack, pristine);
+        BeeStackHelper.setGeneration(stack, generation);
         return stack;
     }
 

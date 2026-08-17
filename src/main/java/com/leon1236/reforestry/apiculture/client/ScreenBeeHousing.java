@@ -13,7 +13,8 @@ import com.leon1236.reforestry.apiculture.gui.ContainerBeeHousing;
 import com.leon1236.reforestry.apiculture.tiles.TileBeeHousing;
 
 public class ScreenBeeHousing extends ScreenForestry<ContainerBeeHousing> {
-    private static final Identifier TEXTURE = ReForestry.id("textures/gui/apiary.png");
+    private static final Identifier TEXTURE_APIARY = ReForestry.id("textures/gui/apiary.png");
+    private static final Identifier TEXTURE_BEE_HOUSE = ReForestry.id("textures/gui/alveary.png");
     private static final int IMAGE_WIDTH = 176;
     private static final int IMAGE_HEIGHT = 190;
 
@@ -26,12 +27,14 @@ public class ScreenBeeHousing extends ScreenForestry<ContainerBeeHousing> {
 
     public ScreenBeeHousing(ContainerBeeHousing menu, Inventory inventory, Component title) {
         super(menu, inventory, title, IMAGE_WIDTH, IMAGE_HEIGHT);
+        setHintKey(menu.hasFrames() ? "apiary" : "bee_house");
     }
 
     @Override
     public void extractBackground(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY, float delta) {
         super.extractBackground(guiGraphics, mouseX, mouseY, delta);
-        guiGraphics.blit(RenderPipelines.GUI_TEXTURED, TEXTURE, leftPos, topPos, 0.0f, 0.0f, imageWidth, imageHeight, 256, 256);
+        Identifier texture = menu.hasFrames() ? TEXTURE_APIARY : TEXTURE_BEE_HOUSE;
+        guiGraphics.blit(RenderPipelines.GUI_TEXTURED, texture, leftPos, topPos, 0.0f, 0.0f, imageWidth, imageHeight, 256, 256);
 
         int filled = METER_HEIGHT * menu.getWorkProgressPercent() / 100;
         if (filled > 0) {

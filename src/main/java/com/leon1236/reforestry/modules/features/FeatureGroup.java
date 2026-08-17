@@ -1,6 +1,7 @@
 package com.leon1236.reforestry.modules.features;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.function.BiFunction;
 
 import com.google.common.collect.ImmutableMap;
@@ -21,7 +22,7 @@ public abstract class FeatureGroup<S extends IFeatureSubtype, F extends ModFeatu
         if (feature == null) {
             throw new IllegalArgumentException("No feature registered for subtype: " + subtype);
         }
-        return feature;
+        return Objects.requireNonNull(feature);
     }
 
     public ImmutableMap<S, F> getAll() {

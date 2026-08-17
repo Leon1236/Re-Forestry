@@ -33,6 +33,7 @@ public class ScreenFermenter extends ScreenForestry<ContainerFermenter> {
 
 	public ScreenFermenter(ContainerFermenter menu, Inventory inventory, Component title) {
 		super(menu, inventory, title, IMAGE_WIDTH, IMAGE_HEIGHT);
+		setHintKey("fermenter");
 		addTankClickRegion(RESOURCE_TANK_X, TANK_Y, TANK_WIDTH, TANK_HEIGHT, 0);
 		addTankClickRegion(PRODUCT_TANK_X, TANK_Y, TANK_WIDTH, TANK_HEIGHT, 1);
 	}
@@ -42,8 +43,8 @@ public class ScreenFermenter extends ScreenForestry<ContainerFermenter> {
 		super.extractBackground(guiGraphics, mouseX, mouseY, delta);
 		FactoryGuiTextures.blitBackground(guiGraphics, FactoryGuiTextures.FERMENTER, leftPos, topPos, imageWidth, imageHeight);
 
-		drawTank(guiGraphics, mouseX, mouseY, RESOURCE_TANK_X, menu.getResourceAmountMb(), menu.getResourceFluidType(), true);
-		drawTank(guiGraphics, mouseX, mouseY, PRODUCT_TANK_X, menu.getProductAmountMb(), menu.getProductFluidType(), false);
+		drawTank(guiGraphics, mouseX, mouseY, RESOURCE_TANK_X, menu.getResourceAmountMb(), menu.getResourceFluidType());
+		drawTank(guiGraphics, mouseX, mouseY, PRODUCT_TANK_X, menu.getProductAmountMb(), menu.getProductFluidType());
 
 		int fuelRemain = menu.getFuelProgressScaled(16);
 		if (fuelRemain > 0) {
@@ -61,53 +62,25 @@ public class ScreenFermenter extends ScreenForestry<ContainerFermenter> {
 				TileFermenter.ERROR_SLOT_COUNT, mouseX, mouseY);
 	}
 
-	private void drawTank(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY, int tankX, int amountMb, int fluidType, boolean showRecipeGhost) {
+	private void drawTank(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY, int tankX, int amountMb, int fluidType) {
 		int capacity = menu.getTankCapacityMb();
-		boolean empty = amountMb <= 0;
-		if (!empty && capacity > 0) {
+		if (amountMb > 0 && capacity > 0) {
 			int filled = Math.min(TANK_HEIGHT, TANK_HEIGHT * amountMb / capacity);
 			int color = colorFor(fluidType);
 			int x = leftPos + tankX;
 			int y = topPos + TANK_Y + (TANK_HEIGHT - filled);
 			guiGraphics.fill(x, y, x + TANK_WIDTH, y + filled, color);
-		} else if (showRecipeGhost) {
-			drawRecipeGhostTank(guiGraphics, tankX, TANK_Y, TANK_WIDTH, TANK_HEIGHT, capacity,
-					ghostColorFor(), true);
 		}
 
 		int tankLeft = leftPos + tankX;
 		int tankTop = topPos + TANK_Y;
 		if (mouseX >= tankLeft && mouseX < tankLeft + TANK_WIDTH && mouseY >= tankTop && mouseY < tankTop + TANK_HEIGHT) {
 			List<Component> lines = new ArrayList<>();
-			if (empty && showRecipeGhost && hasRecipeGhostLiquid()) {
-				appendRecipeGhostTankTooltip(lines);
-			} else {
-				lines.add(nameFor(fluidType));
-				lines.add(Component.literal(amountMb + " / " + capacity + " mB"));
-			}
+			lines.add(nameFor(fluidType));
+			lines.add(Component.literal(amountMb + " / " + capacity + " mB"));
 			guiGraphics.setTooltipForNextFrame(font, lines, Optional.<TooltipComponent>empty(), mouseX, mouseY);
 		}
 	}
-
-	private int ghostColorFor() {
-		if (!hasRecipeGhostLiquid()) {
-			return 0xFF808080;
-		}
-		var fluid = getRecipeGhostFluid().getFluid();
-		if (fluid == net.minecraft.world.level.material.Fluids.WATER
-				|| fluid == net.minecraft.world.level.material.Fluids.FLOWING_WATER) {
-			return WATER_COLOR;
-		}
-		String path = net.minecraft.core.registries.BuiltInRegistries.FLUID.getKey(fluid).getPath();
-		return switch (path) {
-			case "juice" -> JUICE_COLOR;
-			case "honey" -> HONEY_COLOR;
-			case "biomass" -> BIOMASS_COLOR;
-			case "short_mead" -> SHORT_MEAD_COLOR;
-			default -> 0xFF808080;
-		};
-	}
-
 
 	private static int colorFor(int fluidType) {
 		return switch (fluidType) {

@@ -10,21 +10,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.material.Fluid;
 
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
 
-import com.leon1236.reforestry.api.core.Product;
 import com.leon1236.reforestry.api.gui.MachineRecipeEntry;
 import com.leon1236.reforestry.core.recipes.CraftingPatternHelper;
 import com.leon1236.reforestry.factory.recipes.CarpenterRecipe;
-import com.leon1236.reforestry.factory.recipes.CentrifugeRecipe;
 import com.leon1236.reforestry.factory.recipes.FabricatorRecipe;
-import com.leon1236.reforestry.factory.recipes.FermenterRecipe;
-import com.leon1236.reforestry.factory.recipes.MoistenerRecipe;
-import com.leon1236.reforestry.factory.recipes.SmelterRecipe;
-import com.leon1236.reforestry.factory.recipes.SqueezerRecipe;
-import com.leon1236.reforestry.factory.recipes.StillRecipe;
 
 public final class MachineGuiRecipes {
 	private MachineGuiRecipes() {
@@ -61,91 +53,6 @@ public final class MachineGuiRecipes {
 					entries.add(MachineRecipeEntry.of(result, pattern, liquid.variant(), liquid.amountMb()));
 				} else {
 					entries.add(MachineRecipeEntry.of(result, pattern));
-				}
-			}
-		}
-		return mergeByResultItem(entries);
-	}
-
-	public static List<MachineRecipeEntry> centrifuge(Level level) {
-		List<MachineRecipeEntry> entries = new ArrayList<>();
-		for (RecipeHolder<?> holder : recipes(level)) {
-			if (holder.value() instanceof CentrifugeRecipe recipe) {
-				List<Product> products = recipe.getAllProducts();
-				if (products.isEmpty()) {
-					continue;
-				}
-				ItemStack result = products.getFirst().createStack();
-				if (!result.isEmpty()) {
-					entries.add(MachineRecipeEntry.of(result));
-				}
-			}
-		}
-		return mergeByResultItem(entries);
-	}
-
-	public static List<MachineRecipeEntry> smelter(Level level) {
-		List<MachineRecipeEntry> entries = new ArrayList<>();
-		for (RecipeHolder<?> holder : recipes(level)) {
-			if (holder.value() instanceof SmelterRecipe recipe) {
-				ItemStack result = recipe.getOutput();
-				if (!result.isEmpty()) {
-					entries.add(MachineRecipeEntry.of(result));
-				}
-			}
-		}
-		return mergeByResultItem(entries);
-	}
-
-	public static List<MachineRecipeEntry> moistener(Level level) {
-		List<MachineRecipeEntry> entries = new ArrayList<>();
-		for (RecipeHolder<?> holder : recipes(level)) {
-			if (holder.value() instanceof MoistenerRecipe recipe) {
-				ItemStack result = recipe.getProduct();
-				if (!result.isEmpty()) {
-					entries.add(MachineRecipeEntry.of(result));
-				}
-			}
-		}
-		return mergeByResultItem(entries);
-	}
-
-	public static List<MachineRecipeEntry> squeezer(Level level) {
-		List<MachineRecipeEntry> entries = new ArrayList<>();
-		for (RecipeHolder<?> holder : recipes(level)) {
-			if (holder.value() instanceof SqueezerRecipe recipe) {
-				ItemStack remnant = recipe.getRemnants();
-				ItemStack display = !remnant.isEmpty() ? remnant : fluidBucket(recipe.getOutputFluid());
-				if (!display.isEmpty()) {
-					entries.add(MachineRecipeEntry.of(display));
-				}
-			}
-		}
-		return mergeByResultItem(entries);
-	}
-
-	public static List<MachineRecipeEntry> still(Level level) {
-		List<MachineRecipeEntry> entries = new ArrayList<>();
-		for (RecipeHolder<?> holder : recipes(level)) {
-			if (holder.value() instanceof StillRecipe recipe) {
-				ItemStack display = fluidBucket(recipe.getOutputFluid());
-				if (!display.isEmpty()) {
-					entries.add(MachineRecipeEntry.of(display, recipe.input().variant(), recipe.input().amountMb()));
-				}
-			}
-		}
-		return mergeByResultItem(entries);
-	}
-
-	public static List<MachineRecipeEntry> fermenter(Level level) {
-		List<MachineRecipeEntry> entries = new ArrayList<>();
-		for (RecipeHolder<?> holder : recipes(level)) {
-			if (holder.value() instanceof FermenterRecipe recipe) {
-				ItemStack display = fluidBucket(FluidVariant.of(recipe.getOutput()));
-				if (!display.isEmpty()) {
-					entries.add(MachineRecipeEntry.of(display,
-							recipe.fluidResource().variant(),
-							recipe.fluidResource().amountMb()));
 				}
 			}
 		}
@@ -221,15 +128,6 @@ public final class MachineGuiRecipes {
 
 	private static Collection<RecipeHolder<?>> recipes(Level level) {
 		return level.recipeAccess().getSynchronizedRecipes().recipes();
-	}
-
-	private static ItemStack fluidBucket(FluidVariant variant) {
-		if (variant.isBlank()) {
-			return ItemStack.EMPTY;
-		}
-		Fluid fluid = variant.getFluid();
-		Item bucket = fluid.getBucket();
-		return bucket == null ? ItemStack.EMPTY : new ItemStack(bucket);
 	}
 
 	private record OptionalFluid(FluidVariant variant, int amountMb) {

@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import net.minecraft.client.gui.GuiGraphicsExtractor;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
@@ -14,6 +13,7 @@ import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariantAttributes;
 
 import com.leon1236.reforestry.core.client.GuiErrorTabs;
+import com.leon1236.reforestry.core.client.RenderUtil;
 import com.leon1236.reforestry.core.client.ScreenForestry;
 import com.leon1236.reforestry.factory.gui.ContainerSqueezer;
 import com.leon1236.reforestry.factory.tiles.TileSqueezer;
@@ -30,6 +30,7 @@ public class ScreenSqueezer extends ScreenForestry<ContainerSqueezer> {
 
 	public ScreenSqueezer(ContainerSqueezer menu, Inventory inventory, Component title) {
 		super(menu, inventory, title, IMAGE_WIDTH, IMAGE_HEIGHT);
+		setHintKey("squeezer");
 		addTankClickRegion(TANK_X, TANK_Y, TANK_WIDTH, TANK_HEIGHT, 0);
 	}
 
@@ -79,11 +80,7 @@ public class ScreenSqueezer extends ScreenForestry<ContainerSqueezer> {
 		if (fluid == null || fluid.defaultFluidState().isEmpty()) {
 			return 0xFF808080;
 		}
-		int hash = BuiltInRegistries.FLUID.getKey(fluid).hashCode();
-		int r = 64 + (hash & 0x7F);
-		int g = 64 + ((hash >> 8) & 0x7F);
-		int b = 64 + ((hash >> 16) & 0x7F);
-		return 0xFF000000 | (r << 16) | (g << 8) | b;
+		return 0xFF000000 | (RenderUtil.getFluidColor(fluid) & 0xFFFFFF);
 	}
 
 }

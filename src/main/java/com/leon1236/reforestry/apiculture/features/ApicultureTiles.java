@@ -18,6 +18,7 @@ import com.leon1236.reforestry.apiculture.multiblock.TileAlvearyStabiliser;
 import com.leon1236.reforestry.apiculture.multiblock.TileAlvearySwarmer;
 import com.leon1236.reforestry.apiculture.tiles.TileBeeHousing;
 import com.leon1236.reforestry.apiculture.tiles.TileHive;
+import com.leon1236.reforestry.core.inventory.InventoryHelper;
 import com.leon1236.reforestry.modules.features.FeatureBlock;
 import com.leon1236.reforestry.modules.features.FeatureBlockEntityType;
 import com.leon1236.reforestry.modules.features.IFeatureRegistry;
@@ -78,6 +79,8 @@ public class ApicultureTiles {
     }
 
     public static void init() {
+        InventoryHelper.registerSided(APIARY.type());
+        InventoryHelper.registerSided(ALVEARY.type());
         EnergyStorage.SIDED.registerForBlockEntity((tile, direction) -> tile.getEnergyStorage(), ALVEARY_FAN.type());
         EnergyStorage.SIDED.registerForBlockEntity((tile, direction) -> tile.getEnergyStorage(), ALVEARY_HEATER.type());
         FluidStorage.SIDED.registerForBlockEntity((tile, direction) -> tile.getTank(), ALVEARY_HYGRO.type());

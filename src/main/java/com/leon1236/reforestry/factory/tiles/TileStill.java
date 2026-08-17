@@ -30,7 +30,6 @@ import com.leon1236.reforestry.api.recipes.IStillRecipe;
 import com.leon1236.reforestry.core.fluids.FilteredFluidStorage;
 import com.leon1236.reforestry.core.fluids.FluidContainerHelper;
 import com.leon1236.reforestry.core.fluids.FluidUnits;
-import com.leon1236.reforestry.core.fluids.ForestryFluids;
 import com.leon1236.reforestry.core.fluids.MultiFluidTank;
 import com.leon1236.reforestry.core.access.WorldlyAccessHelper;
 import com.leon1236.reforestry.core.render.TankRenderInfo;
@@ -94,8 +93,8 @@ public class TileStill extends TilePowered implements WorldlyContainer, IRendera
     public TileStill(BlockPos pos, BlockState state) {
         super(FactoryTiles.STILL.type(), pos, state, CAPACITY, MAX_RECEIVE);
         this.tanks = MultiFluidTank.builder(this::setChanged)
-                .tank("Resource", TANK_CAPACITY, FilteredFluidStorage.only(ForestryFluids.BIOMASS.getFluid()))
-                .tank("Product", TANK_CAPACITY, FilteredFluidStorage.only(ForestryFluids.BIO_ETHANOL.getFluid()))
+                .tank("Resource", TANK_CAPACITY, FilteredFluidStorage.any())
+                .tank("Product", TANK_CAPACITY, FilteredFluidStorage.any())
                 .build();
     }
 
@@ -105,7 +104,7 @@ public class TileStill extends TilePowered implements WorldlyContainer, IRendera
             FluidContainerHelper.drainIntoTank(tile, SLOT_CAN, tile.tanks.tank("Resource"));
             FilteredFluidStorage productTank = tile.tanks.tank("Product");
             if (productTank.getAmount() > 0) {
-                FluidContainerHelper.fillFromTank(tile, SLOT_RESOURCE, SLOT_PRODUCT, productTank);
+                FluidContainerHelper.fillContainers(productTank, tile, SLOT_RESOURCE, SLOT_PRODUCT, productTank.getResource(), true);
             }
         }
         tile.syncErrors();
@@ -169,10 +168,10 @@ public class TileStill extends TilePowered implements WorldlyContainer, IRendera
 
             if (this.bufferedAmount <= 0) {
                 FilteredFluidStorage resourceTank = getResourceTank();
-                long drainAmount = (long) this.currentRecipe.getCyclesPerUnit() * this.currentRecipe.getInputAmount();
+                long drainAmount = this.currentRecipe.getInputAmount();
                 FluidVariant sourceVariant = this.bufferedAmount > 0 ? this.bufferedVariant : resourceTank.getResource();
                 long sourceAmount = this.bufferedAmount > 0 ? this.bufferedAmount : resourceTank.getAmount();
-                if (sourceVariant.isBlank() || sourceAmount < this.currentRecipe.getInputAmount()) {
+                if (sourceVariant.isBlank() || sourceAmount < drainAmount) {
                     hasLiquidResource = false;
                 } else if (this.bufferedAmount <= 0) {
                     try (Transaction transaction = Transaction.openOuter()) {
@@ -203,8 +202,7 @@ public class TileStill extends TilePowered implements WorldlyContainer, IRendera
         if (this.currentRecipe == null) {
             return false;
         }
-        int cycles = this.currentRecipe.getCyclesPerUnit();
-        long outputAmount = this.currentRecipe.getOutputAmount() * cycles;
+        long outputAmount = this.currentRecipe.getOutputAmount();
         FilteredFluidStorage productTank = getProductTank();
         try (Transaction transaction = Transaction.openOuter()) {
             if (productTank.insert(this.currentRecipe.getOutputFluid(), outputAmount, transaction) != outputAmount) {

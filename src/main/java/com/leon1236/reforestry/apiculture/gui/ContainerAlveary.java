@@ -8,11 +8,15 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
+import com.leon1236.reforestry.api.core.HumidityType;
+import com.leon1236.reforestry.api.core.TemperatureType;
+import com.leon1236.reforestry.api.gui.IContainerClimate;
+import com.leon1236.reforestry.api.gui.IContainerEnergy;
 import com.leon1236.reforestry.apiculture.InventoryBeeHousing;
 import com.leon1236.reforestry.apiculture.features.ApicultureMenuTypes;
 import com.leon1236.reforestry.apiculture.multiblock.TileAlveary;
 
-public class ContainerAlveary extends AbstractContainerMenu {
+public class ContainerAlveary extends AbstractContainerMenu implements IContainerEnergy, IContainerClimate {
     private static final int[][] PRODUCT_SLOT_POSITIONS = {
             {116, 52}, {137, 39}, {137, 65}, {116, 78}, {95, 65}, {95, 39}, {116, 26},
     };
@@ -40,6 +44,8 @@ public class ContainerAlveary extends AbstractContainerMenu {
         addStandardInventorySlots(playerInventory, 8, 107);
         addDataSlots(tile.getProgressData());
         addDataSlots(tile.getErrorData());
+        addDataSlots(tile.getEnergyData());
+        addDataSlots(tile.getClimateData());
         tile.getBeekeepingLogic().onGuiOpened();
     }
 
@@ -57,6 +63,36 @@ public class ContainerAlveary extends AbstractContainerMenu {
 
     public short getErrorId(int index) {
         return (short) tile.getErrorData().get(index + 1);
+    }
+
+    @Override
+    public int getEnergyStored() {
+        return tile.getEnergyData().get(0);
+    }
+
+    @Override
+    public int getEnergyCapacity() {
+        return tile.getEnergyData().get(1);
+    }
+
+    @Override
+    public int getEnergyMaxReceive() {
+        return tile.getEnergyData().get(2);
+    }
+
+    @Override
+    public int getEnergyUsage() {
+        return tile.getEnergyData().get(3);
+    }
+
+    @Override
+    public TemperatureType getTemperature() {
+        return TemperatureType.VALUES.get(tile.getClimateData().get(0));
+    }
+
+    @Override
+    public HumidityType getHumidity() {
+        return HumidityType.VALUES.get(tile.getClimateData().get(1));
     }
 
     private static TileAlveary resolveTile(Inventory playerInventory, BlockPos pos) {

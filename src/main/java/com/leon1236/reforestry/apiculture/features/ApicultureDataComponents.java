@@ -26,6 +26,14 @@ public class ApicultureDataComponents {
             builder -> builder.persistent(Codec.INT)
                     .networkSynchronized(ByteBufCodecs.VAR_INT));
 
+    public static final FeatureDataComponent<Boolean> BEE_PRISTINE = REGISTRY.dataComponent("bee_pristine",
+            builder -> builder.persistent(Codec.BOOL)
+                    .networkSynchronized(ByteBufCodecs.BOOL));
+
+    public static final FeatureDataComponent<Integer> BEE_GENERATION = REGISTRY.dataComponent("bee_generation",
+            builder -> builder.persistent(Codec.INT)
+                    .networkSynchronized(ByteBufCodecs.VAR_INT));
+
     public static void init() {
     }
 }

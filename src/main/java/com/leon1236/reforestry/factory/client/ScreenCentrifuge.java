@@ -15,6 +15,7 @@ public class ScreenCentrifuge extends ScreenForestry<ContainerCentrifuge> {
 
 	public ScreenCentrifuge(ContainerCentrifuge menu, Inventory inventory, Component title) {
 		super(menu, inventory, title, IMAGE_WIDTH, IMAGE_HEIGHT);
+		setHintKey("centrifuge");
 	}
 
 	@Override

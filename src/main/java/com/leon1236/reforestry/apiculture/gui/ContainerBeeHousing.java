@@ -8,10 +8,13 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
+import com.leon1236.reforestry.api.core.HumidityType;
+import com.leon1236.reforestry.api.core.TemperatureType;
+import com.leon1236.reforestry.api.gui.IContainerClimate;
 import com.leon1236.reforestry.apiculture.features.ApicultureMenuTypes;
 import com.leon1236.reforestry.apiculture.tiles.TileBeeHousing;
 
-public class ContainerBeeHousing extends AbstractContainerMenu {
+public class ContainerBeeHousing extends AbstractContainerMenu implements IContainerClimate {
     private static final int[][] PRODUCT_SLOT_POSITIONS = {
             {116, 52}, {137, 39}, {137, 65}, {116, 78}, {95, 65}, {95, 39}, {116, 26},
     };
@@ -49,7 +52,12 @@ public class ContainerBeeHousing extends AbstractContainerMenu {
         addStandardInventorySlots(playerInventory, 8, 107);
         addDataSlots(housing.getProgressData());
         addDataSlots(housing.getErrorData());
+        addDataSlots(housing.getClimateData());
         housing.getBeekeepingLogic().onGuiOpened();
+    }
+
+    public boolean hasFrames() {
+        return housing.hasFrames();
     }
 
     public int getWorkProgressPercent() {
@@ -62,6 +70,16 @@ public class ContainerBeeHousing extends AbstractContainerMenu {
 
     public short getErrorId(int index) {
         return (short) housing.getErrorData().get(index + 1);
+    }
+
+    @Override
+    public TemperatureType getTemperature() {
+        return TemperatureType.VALUES.get(housing.getClimateData().get(0));
+    }
+
+    @Override
+    public HumidityType getHumidity() {
+        return HumidityType.VALUES.get(housing.getClimateData().get(1));
     }
 
     private static TileBeeHousing resolveHousing(Inventory playerInventory, BlockPos pos) {

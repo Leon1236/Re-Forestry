@@ -15,6 +15,7 @@ public class ScreenSmelter extends ScreenForestry<ContainerSmelter> {
 
 	public ScreenSmelter(ContainerSmelter menu, Inventory inventory, Component title) {
 		super(menu, inventory, title, IMAGE_WIDTH, IMAGE_HEIGHT);
+		setHintKey("smelter");
 	}
 
 	@Override

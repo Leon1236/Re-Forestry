@@ -50,7 +50,7 @@ public final class FluidContainerHelper {
         if (handler == null) {
             return false;
         }
-        try (Transaction transaction = Transaction.openNested(Transaction.getCurrentUnsafe())) {
+        try (Transaction transaction = Transaction.openOuter()) {
             return handler.insert(variant, 1, transaction) > 0;
         }
     }
@@ -62,6 +62,33 @@ public final class FluidContainerHelper {
             return FillStatus.INVALID_INPUT;
         }
         ItemStack output = container.getItem(outputSlot);
+
+        if (input.is(Items.BUCKET)) {
+            net.minecraft.world.item.Item filledBucketItem = variant.getFluid().getBucket();
+            if (filledBucketItem == null || filledBucketItem == Items.BUCKET) {
+                return FillStatus.INVALID_INPUT;
+            }
+            if (!output.isEmpty() && (!output.is(filledBucketItem) || output.getCount() >= output.getMaxStackSize())) {
+                return FillStatus.NO_SPACE;
+            }
+            if (!doFill) {
+                return FillStatus.SUCCESS;
+            }
+            try (Transaction transaction = Transaction.openOuter()) {
+                if (tank.extract(variant, FluidConstants.BUCKET, transaction) != FluidConstants.BUCKET) {
+                    return FillStatus.NO_FLUID;
+                }
+                transaction.commit();
+            }
+            ItemStack filledBucket = new ItemStack(filledBucketItem);
+            if (output.isEmpty()) {
+                container.setItem(outputSlot, filledBucket);
+            } else {
+                output.grow(1);
+            }
+            container.removeItem(inputSlot, 1);
+            return FillStatus.SUCCESS;
+        }
 
         ContainerItemContext context = ContainerItemContext.withConstant(input.copyWithCount(1));
         Storage<FluidVariant> itemStorage = context.find(FluidStorage.ITEM);
@@ -299,7 +326,7 @@ public final class FluidContainerHelper {
         if (variant.isBlank()) {
             return false;
         }
-        try (Transaction transaction = Transaction.openNested(Transaction.getCurrentUnsafe())) {
+        try (Transaction transaction = Transaction.openOuter()) {
             return tank.insert(variant, 1, transaction) > 0;
         }
     }

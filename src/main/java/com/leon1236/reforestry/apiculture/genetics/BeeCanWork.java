@@ -9,8 +9,8 @@ import net.minecraft.core.Vec3i;
 import net.minecraft.world.level.Level;
 
 import com.leon1236.reforestry.api.apiculture.IBeeHousing;
-import com.leon1236.reforestry.api.apiculture.IBeeModifier;
 import com.leon1236.reforestry.api.apiculture.LightPreference;
+import com.leon1236.reforestry.apiculture.BeeHousingModifier;
 import com.leon1236.reforestry.api.core.ForestryError;
 import com.leon1236.reforestry.api.core.HumidityType;
 import com.leon1236.reforestry.api.core.IError;
@@ -86,11 +86,7 @@ public final class BeeCanWork {
     }
 
     public static Vec3i getAdjustedTerritory(IGenome genome, IBeeHousing housing) {
-        Vec3i territory = genome.getActiveAllele(BeeChromosomes.TERRITORY).value();
-        for (IBeeModifier modifier : housing.getBeeModifiers()) {
-            territory = modifier.modifyTerritory(genome, territory);
-        }
-        return territory;
+        return new BeeHousingModifier(housing).modifyTerritory(genome, genome.getActiveAllele(BeeChromosomes.TERRITORY).value());
     }
 
     public static Vec3i getParticleArea(IGenome genome, IBeeHousing housing) {
@@ -107,35 +103,20 @@ public final class BeeCanWork {
     }
 
     public static boolean isAlwaysActive(IGenome genome, IBeeHousing housing) {
-        for (IBeeModifier modifier : housing.getBeeModifiers()) {
-            if (modifier.isAlwaysActive(genome)) {
-                return true;
-            }
-        }
-        return false;
+        return new BeeHousingModifier(housing).isAlwaysActive(genome);
     }
 
     private static boolean canWorkUnderground(IGenome genome, IBeeHousing housing) {
         if (genome.getActiveAllele(BeeChromosomes.CAVE_DWELLING).value()) {
             return true;
         }
-        for (IBeeModifier modifier : housing.getBeeModifiers()) {
-            if (modifier.isSunlightSimulated()) {
-                return true;
-            }
-        }
-        return false;
+        return new BeeHousingModifier(housing).isSunlightSimulated();
     }
 
     private static boolean canFlyInRain(IGenome genome, IBeeHousing housing) {
         if (genome.getActiveAllele(BeeChromosomes.TOLERATES_RAIN).value()) {
             return true;
         }
-        for (IBeeModifier modifier : housing.getBeeModifiers()) {
-            if (modifier.isSealed()) {
-                return true;
-            }
-        }
-        return false;
+        return new BeeHousingModifier(housing).isSealed();
     }
 }

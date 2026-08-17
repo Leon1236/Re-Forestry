@@ -1,28 +1,26 @@
 package com.leon1236.reforestry.factory.gui;
 
-import java.util.List;
-
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.material.Fluid;
 
 import net.fabricmc.fabric.api.transfer.v1.fluid.base.SingleFluidStorage;
 
-import com.leon1236.reforestry.api.gui.IContainerRecipeBook;
-import com.leon1236.reforestry.api.gui.MachineRecipeEntry;
+import com.leon1236.reforestry.api.gui.IContainerEnergy;
 import com.leon1236.reforestry.core.fluids.FluidUnits;
-import com.leon1236.reforestry.core.fluids.ForestryFluids;
 import com.leon1236.reforestry.core.fluids.PipetteTankHelper;
 import com.leon1236.reforestry.core.gui.ContainerMachine;
 import com.leon1236.reforestry.core.gui.IContainerLiquidTanks;
 import com.leon1236.reforestry.factory.features.FactoryMenuTypes;
 import com.leon1236.reforestry.factory.tiles.TileBottler;
 
-public class ContainerBottler extends ContainerMachine<TileBottler> implements IContainerLiquidTanks, IContainerRecipeBook {
+public class ContainerBottler extends ContainerMachine<TileBottler> implements IContainerLiquidTanks, IContainerEnergy {
     private static final int FULL_INPUT_X = 18;
     private static final int FULL_INPUT_Y = 7;
     private static final int EMPTYING_X = 18;
@@ -37,11 +35,6 @@ public class ContainerBottler extends ContainerMachine<TileBottler> implements I
     private static final int FULL_OUTPUT_Y = 63;
     private static final int INVENTORY_Y = 84;
 
-    private static final int FLUID_NONE = 0;
-    private static final int FLUID_BIOMASS = 1;
-    private static final int FLUID_WATER = 2;
-    private static final int FLUID_OTHER = 3;
-
     private final SimpleContainerData tankData = new SimpleContainerData(2);
 
     public ContainerBottler(int containerId, Inventory playerInventory, BlockPos pos) {
@@ -53,6 +46,7 @@ public class ContainerBottler extends ContainerMachine<TileBottler> implements I
         addDataSlots(tile.getProgressData());
         addDataSlots(tile.getRecipeData());
         addDataSlots(tile.getErrorData());
+        addDataSlots(tile.getEnergyData());
         addDataSlots(tankData);
     }
 
@@ -86,8 +80,12 @@ public class ContainerBottler extends ContainerMachine<TileBottler> implements I
         return tankData.get(0);
     }
 
-    public int getResourceFluidType() {
+    public int getResourceFluidId() {
         return tankData.get(1);
+    }
+
+    public Fluid getResourceFluid() {
+        return BuiltInRegistries.FLUID.byId(getResourceFluidId());
     }
 
     public int getTankCapacityMb() {
@@ -95,22 +93,29 @@ public class ContainerBottler extends ContainerMachine<TileBottler> implements I
     }
 
     @Override
-    public List<MachineRecipeEntry> getGuiRecipes() {
-        return List.of();
+    public int getEnergyStored() {
+        return tile.getEnergyData().get(0);
     }
 
     @Override
-    public boolean selectRecipe(int index, Player player) {
-        return false;
+    public int getEnergyCapacity() {
+        return tile.getEnergyData().get(1);
+    }
+
+    @Override
+    public int getEnergyMaxReceive() {
+        return tile.getEnergyData().get(2);
+    }
+
+    @Override
+    public int getEnergyUsage() {
+        return tile.getEnergyData().get(3);
     }
 
     @Override
     public boolean clickMenuButton(Player player, int id) {
         if (super.clickMenuButton(player, id)) {
             return true;
-        }
-        if (IContainerRecipeBook.isRecipeButton(id)) {
-            return selectRecipe(IContainerRecipeBook.recipeIndex(id), player);
         }
         if (getTank(id) == null || !PipetteTankHelper.canHandleClick(player.containerMenu.getCarried())) {
             return false;
@@ -136,27 +141,11 @@ public class ContainerBottler extends ContainerMachine<TileBottler> implements I
 
     @Override
     public void broadcastChanges() {
-        syncTank();
-        super.broadcastChanges();
-    }
-
-    private void syncTank() {
         var tank = tile.getResourceTank();
         tankData.set(0, (int) FluidUnits.dropletsToMb(tank.getAmount()));
-        tankData.set(1, fluidTypeOf(tank.getResource().getFluid()));
-    }
-
-    private static int fluidTypeOf(net.minecraft.world.level.material.Fluid fluid) {
-        if (ForestryFluids.BIOMASS.is(fluid)) {
-            return FLUID_BIOMASS;
-        }
-        if (fluid == net.minecraft.world.level.material.Fluids.WATER) {
-            return FLUID_WATER;
-        }
-        if (fluid == net.minecraft.world.level.material.Fluids.EMPTY) {
-            return FLUID_NONE;
-        }
-        return FLUID_OTHER;
+        Fluid fluid = tank.getResource().getFluid();
+        tankData.set(1, BuiltInRegistries.FLUID.getId(fluid));
+        super.broadcastChanges();
     }
 
     private static final class InputSlot extends Slot {
@@ -191,7 +180,7 @@ public class ContainerBottler extends ContainerMachine<TileBottler> implements I
         }
 
         @Override
-        public void onTake(net.minecraft.world.entity.player.Player player, ItemStack stack) {
+        public void onTake(Player player, ItemStack stack) {
             super.onTake(player, stack);
             tile.onProcessingSlotTake(slotIndex);
         }

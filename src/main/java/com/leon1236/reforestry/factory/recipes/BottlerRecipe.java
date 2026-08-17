@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.transfer.v1.context.ContainerItemContext;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
 import net.fabricmc.fabric.api.transfer.v1.storage.Storage;
+import net.fabricmc.fabric.api.transfer.v1.storage.StorageView;
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 
 import net.minecraft.world.item.ItemStack;
@@ -36,28 +37,58 @@ public final class BottlerRecipe {
         if (!FluidContainerHelper.isFilledContainer(filled)) {
             return null;
         }
+
+        ItemStack working = filled.copyWithCount(1);
+        ContainerItemContext context = ContainerItemContext.withConstant(working);
+        Storage<FluidVariant> storage = context.find(FluidStorage.ITEM);
+        if (storage != null) {
+            try (Transaction transaction = Transaction.openOuter()) {
+                FluidVariant resource = FluidVariant.blank();
+                long drained = 0;
+                for (StorageView<FluidVariant> view : storage.nonEmptyViews()) {
+                    resource = view.getResource();
+                    drained = storage.extract(resource, Long.MAX_VALUE, transaction);
+                    break;
+                }
+                if (drained <= 0 || resource.isBlank()) {
+                    return null;
+                }
+                transaction.commit();
+                ItemStack empty = context.getItemVariant().toStack(1);
+                if (empty.isEmpty()) {
+                    empty = emptyFallback(filled);
+                }
+                return new BottlerRecipe(empty, resource, drained, filled.copyWithCount(1), false);
+            }
+        }
+
         FluidVariant variant = FluidContainerHelper.fluidIn(filled);
-        if (variant.isBlank()) {
-            return null;
-        }
         long amount = amountIn(filled);
-        if (amount <= 0) {
+        if (variant.isBlank() || amount <= 0) {
             return null;
         }
-        ItemStack empty;
-        if (filled.is(Items.WATER_BUCKET) || filled.is(Items.LAVA_BUCKET)) {
-            empty = new ItemStack(Items.BUCKET);
-        } else {
-            empty = new ItemStack(filled.getItem());
+        return new BottlerRecipe(emptyFallback(filled), variant, amount, filled.copyWithCount(1), false);
+    }
+
+    private static ItemStack emptyFallback(ItemStack filled) {
+        if (filled.is(Items.WATER_BUCKET) || filled.is(Items.LAVA_BUCKET) || filled.is(Items.POWDER_SNOW_BUCKET)) {
+            return new ItemStack(Items.BUCKET);
         }
-        return new BottlerRecipe(filled.copyWithCount(1), variant, amount, empty, false);
+        if (filled.getItem() instanceof ItemFluidContainerForestry) {
+            ItemStack empty = new ItemStack(filled.getItem());
+            FluidContainerContents.set(empty, FluidVariant.blank(), 0);
+            return empty;
+        }
+        return new ItemStack(filled.getItem());
     }
 
     private static long amountIn(ItemStack stack) {
         if (stack.getItem() instanceof ItemFluidContainerForestry) {
             return FluidContainerContents.get(stack).amount();
         }
-        return FluidContainerHelper.isFilledContainer(stack) ? net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants.BUCKET : 0;
+        return FluidContainerHelper.isFilledContainer(stack)
+                ? net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants.BUCKET
+                : 0;
     }
 
     @Nullable

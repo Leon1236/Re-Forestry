@@ -7,16 +7,15 @@ import org.jetbrains.annotations.Nullable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.WorldlyContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
@@ -28,6 +27,7 @@ import com.leon1236.reforestry.api.core.IErrorLogic;
 import com.leon1236.reforestry.api.recipes.ICentrifugeRecipe;
 import com.leon1236.reforestry.core.access.WorldlyAccessHelper;
 import com.leon1236.reforestry.core.inventory.InventoryUtil;
+import com.leon1236.reforestry.core.recipes.RecipeUtils;
 import com.leon1236.reforestry.core.tiles.SocketedPoweredTile;
 import com.leon1236.reforestry.factory.features.FactoryTiles;
 import com.leon1236.reforestry.factory.gui.ContainerCentrifuge;
@@ -45,6 +45,7 @@ public class TileCentrifuge extends SocketedPoweredTile implements WorldlyContai
     private static final int ENERGY_PER_RECIPE_TIME = ENERGY_PER_WORK_CYCLE / 20;
 
     private final NonNullList<ItemStack> items = NonNullList.withSize(SLOT_COUNT, ItemStack.EMPTY);
+    private final SimpleContainer craftPreviewInventory = new SimpleContainer(1);
     private final ArrayDeque<ItemStack> pendingProducts = new ArrayDeque<>();
     private final int[] syncedErrorIds = new int[ERROR_SLOT_COUNT];
     private int syncedErrorCount;
@@ -89,9 +90,12 @@ public class TileCentrifuge extends SocketedPoweredTile implements WorldlyContai
         tile.syncErrors();
     }
 
-
     public ContainerData getErrorData() {
         return errorData;
+    }
+
+    public Container getCraftPreviewInventory() {
+        return craftPreviewInventory;
     }
 
     private void syncErrors() {
@@ -134,11 +138,16 @@ public class TileCentrifuge extends SocketedPoweredTile implements WorldlyContai
             return true;
         }
         if (!pendingProducts.isEmpty()) {
+            craftPreviewInventory.setItem(0, ItemStack.EMPTY);
             return false;
         }
         if (currentRecipe == null || getLevel() == null) {
             return false;
         }
+
+        ItemStack previewStack = getItem(SLOT_RESOURCE).copy();
+        previewStack.setCount(1);
+        craftPreviewInventory.setItem(0, previewStack);
 
         pendingProducts.addAll(currentRecipe.getProducts(getLevel().getRandom(), getOutputMultiplier()));
         removeItem(SLOT_RESOURCE, 1);
@@ -146,7 +155,7 @@ public class TileCentrifuge extends SocketedPoweredTile implements WorldlyContai
     }
 
     private void checkRecipe(ItemStack resource) {
-        ICentrifugeRecipe matching = findRecipe(resource);
+        ICentrifugeRecipe matching = RecipeUtils.getCentrifugeRecipe(getLevel(), resource);
         if (currentRecipe != matching) {
             currentRecipe = matching;
             if (matching != null) {
@@ -155,20 +164,6 @@ public class TileCentrifuge extends SocketedPoweredTile implements WorldlyContai
                 setEnergyPerWorkCycle(recipeTime * ENERGY_PER_RECIPE_TIME);
             }
         }
-    }
-
-    @Nullable
-    private ICentrifugeRecipe findRecipe(ItemStack stack) {
-        if (stack.isEmpty() || !(getLevel() instanceof ServerLevel serverLevel)) {
-            return null;
-        }
-        var recipes = serverLevel.recipeAccess().getRecipes();
-        for (RecipeHolder<?> holder : recipes) {
-            if (holder.value() instanceof ICentrifugeRecipe recipe && recipe.getInput().test(stack)) {
-                return recipe;
-            }
-        }
-        return null;
     }
 
     private boolean tryAddPending() {
@@ -180,6 +175,9 @@ public class TileCentrifuge extends SocketedPoweredTile implements WorldlyContai
         boolean added = InventoryUtil.tryAddStack(this, next, SLOT_PRODUCT_1, SLOT_PRODUCT_COUNT, true);
         if (added) {
             pendingProducts.removeFirst();
+            if (pendingProducts.isEmpty()) {
+                craftPreviewInventory.setItem(0, ItemStack.EMPTY);
+            }
         }
 
         getErrorLogic().setCondition(!added, ForestryError.NO_SPACE_INVENTORY);
@@ -231,7 +229,7 @@ public class TileCentrifuge extends SocketedPoweredTile implements WorldlyContai
 
     @Override
     public boolean canPlaceItem(int slot, ItemStack stack) {
-        return slot == SLOT_RESOURCE;
+        return slot == SLOT_RESOURCE && RecipeUtils.isCentrifugeInput(getLevel(), stack);
     }
 
     @Override
@@ -265,6 +263,11 @@ public class TileCentrifuge extends SocketedPoweredTile implements WorldlyContai
         super.saveAdditional(output);
         ContainerHelper.saveAllItems(output, items);
         saveSockets(output);
+
+        ValueOutput.TypedOutputList<ItemStack> pending = output.list("PendingProducts", ItemStack.CODEC);
+        for (ItemStack stack : pendingProducts) {
+            pending.add(stack);
+        }
     }
 
     @Override
@@ -273,6 +276,11 @@ public class TileCentrifuge extends SocketedPoweredTile implements WorldlyContai
         items.clear();
         ContainerHelper.loadAllItems(input, items);
         loadSockets(input);
+
+        pendingProducts.clear();
+        for (ItemStack stack : input.listOrEmpty("PendingProducts", ItemStack.CODEC)) {
+            pendingProducts.add(stack);
+        }
     }
 
     @Nullable

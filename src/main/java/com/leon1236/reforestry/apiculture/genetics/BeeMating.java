@@ -6,6 +6,7 @@ import net.minecraft.util.RandomSource;
 
 import com.leon1236.reforestry.api.apiculture.IBeeHousing;
 import com.leon1236.reforestry.api.genetics.IGenome;
+import com.leon1236.reforestry.apiculture.BeeHousingModifier;
 import com.leon1236.reforestry.core.genetics.Mating;
 import com.leon1236.reforestry.core.genetics.mutations.Mutation;
 
@@ -17,11 +18,13 @@ public final class BeeMating {
     }
 
     public static MatingResult resolveOffspringGenome(IGenome parent1, IGenome parent2, IBeeHousing housing, RandomSource random) {
+        BeeHousingModifier modifier = new BeeHousingModifier(housing);
         Mating.MatingResult result = Mating.resolveOffspringGenome(
                 BeeChromosomes.SPECIES,
                 ApicultureGenetics::getDefaultGenome,
                 ApicultureGenetics::getMutations,
-                parent1, parent2, housing.level(), housing.position(), random);
+                parent1, parent2, housing.level(), housing.position(), random,
+                (mutation, chance, genome0, genome1) -> modifier.modifyMutationChance(genome0, genome1, mutation, chance));
         return new MatingResult(result.genome(), result.mutation());
     }
 }

@@ -63,25 +63,28 @@ public final class JeiRecipeLayoutHelper {
 		craftingGridHelper.setInputs(craftingSlots, VanillaTypes.ITEM_STACK, inputs, width, height);
 	}
 
+	public static void setCraftingItems(
+			List<IRecipeSlotBuilder> craftingSlots,
+			List<Ingredient> ingredients,
+			int width,
+			int height,
+			ICraftingGridHelper craftingGridHelper
+	) {
+		List<List<ItemStack>> inputs = new ArrayList<>(ingredients.size());
+		for (Ingredient ingredient : ingredients) {
+			inputs.add(stacksFromIngredient(ingredient));
+		}
+		craftingGridHelper.setInputs(craftingSlots, VanillaTypes.ITEM_STACK, inputs, width, height);
+	}
+
 	private static List<ItemStack> stacksFromOptional(Optional<Ingredient> cell) {
 		if (cell.isEmpty()) {
 			return List.of();
 		}
-		return stacksFromIngredient(cell.get());
+		return CraftingPatternHelper.stacksFromIngredient(cell.get());
 	}
 
 	private static List<ItemStack> stacksFromIngredient(Ingredient ingredient) {
-		if (ingredient == null || ingredient.isEmpty()) {
-			return List.of();
-		}
-		List<ItemStack> stacks = ingredient.items()
-				.map(ItemStack::new)
-				.filter(stack -> !stack.isEmpty())
-				.toList();
-		if (!stacks.isEmpty()) {
-			return stacks;
-		}
-		ItemStack fallback = CraftingPatternHelper.firstStack(ingredient);
-		return fallback.isEmpty() ? List.of() : List.of(fallback);
+		return CraftingPatternHelper.stacksFromIngredient(ingredient);
 	}
 }

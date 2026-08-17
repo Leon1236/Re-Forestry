@@ -70,16 +70,21 @@ public class TileBottler extends TilePowered implements WorldlyContainer, IRende
 
     @Nullable
     private BottlerRecipe currentRecipe;
-
+    private int syncedFillRecipe;
 
     private final ContainerData recipeData = new ContainerData() {
         @Override
         public int get(int index) {
+            Level level = getLevel();
+            if (level != null && level.isClientSide()) {
+                return syncedFillRecipe;
+            }
             return currentRecipe != null && currentRecipe.fillRecipe ? 1 : 0;
         }
 
         @Override
         public void set(int index, int value) {
+            syncedFillRecipe = value;
         }
 
         @Override

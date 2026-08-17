@@ -1,0 +1,14 @@
+{
+  "values": [
+    "reforestry:bottler",
+    "reforestry:carpenter",
+    "reforestry:centrifuge",
+    "reforestry:fabricator",
+    "reforestry:fermenter",
+    "reforestry:moistener",
+    "reforestry:smelter",
+    "reforestry:squeezer",
+    "reforestry:still",
+    "reforestry:rainmaker"
+  ]
+}

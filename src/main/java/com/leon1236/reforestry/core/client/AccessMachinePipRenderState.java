@@ -21,6 +21,7 @@ public record AccessMachinePipRenderState(
 		float yaw,
 		float pitch,
 		float scale,
+		@Nullable Direction hoveredFace,
 		int x0,
 		int y0,
 		int x1,
@@ -41,13 +42,14 @@ public record AccessMachinePipRenderState(
 			float yaw,
 			float pitch,
 			float scale,
+			@Nullable Direction hoveredFace,
 			int x0,
 			int y0,
 			int x1,
 			int y1,
 			@Nullable ScreenRectangle scissorArea
 	) {
-		this(machineState, neighborStates, accessModes, entityModel, yaw, pitch, scale, x0, y0, x1, y1, scissorArea,
+		this(machineState, neighborStates, accessModes, entityModel, yaw, pitch, scale, hoveredFace, x0, y0, x1, y1, scissorArea,
 				PictureInPictureRenderState.getBounds(x0, y0, x1, y1, scissorArea));
 	}
 

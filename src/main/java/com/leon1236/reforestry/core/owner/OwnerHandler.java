@@ -1,7 +1,5 @@
 package com.leon1236.reforestry.core.owner;
 
-import java.util.UUID;
-
 import org.jetbrains.annotations.Nullable;
 
 import com.mojang.authlib.GameProfile;
@@ -30,12 +28,9 @@ public class OwnerHandler implements IOwnerHandler, INbtWritable, INbtReadable {
 
 	@Override
 	public void read(CompoundTag data, HolderLookup.Provider registries) {
-		data.getString("owner_name").ifPresent(name -> {
-			UUID id = data.getIntArray("owner_uuid")
-					.map(UUIDUtil::uuidFromIntArray)
-					.orElse(null);
-			setOwner(new GameProfile(id, name));
-		});
+		data.getString("owner_name").ifPresent(name -> data.getIntArray("owner_uuid")
+				.map(UUIDUtil::uuidFromIntArray)
+				.ifPresent(id -> setOwner(new GameProfile(id, name))));
 	}
 
 	@Override

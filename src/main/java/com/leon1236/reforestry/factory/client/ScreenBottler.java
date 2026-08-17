@@ -1,5 +1,6 @@
 package com.leon1236.reforestry.factory.client;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -7,8 +8,13 @@ import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
+import net.minecraft.world.level.material.Fluid;
+
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariantAttributes;
 
 import com.leon1236.reforestry.core.client.GuiErrorTabs;
+import com.leon1236.reforestry.core.client.RenderUtil;
 import com.leon1236.reforestry.core.client.ScreenForestry;
 import com.leon1236.reforestry.factory.gui.ContainerBottler;
 import com.leon1236.reforestry.factory.tiles.TileBottler;
@@ -22,12 +28,10 @@ public class ScreenBottler extends ScreenForestry<ContainerBottler> {
 	private static final int TANK_WIDTH = 16;
 	private static final int TANK_HEIGHT = 58;
 
-	private static final int BIOMASS_COLOR = 0xFF648429;
-	private static final int WATER_COLOR = 0xFF3F76E4;
-
 
 	public ScreenBottler(ContainerBottler menu, Inventory inventory, Component title) {
 		super(menu, inventory, title, IMAGE_WIDTH, IMAGE_HEIGHT);
+		setHintKey("bottler");
 		addTankClickRegion(TANK_X, TANK_Y, TANK_WIDTH, TANK_HEIGHT, 0);
 	}
 
@@ -52,10 +56,10 @@ public class ScreenBottler extends ScreenForestry<ContainerBottler> {
 	private void drawTank(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY) {
 		int amountMb = menu.getResourceAmountMb();
 		int capacity = menu.getTankCapacityMb();
-		int fluidType = menu.getResourceFluidType();
+		Fluid fluid = menu.getResourceFluid();
 		if (amountMb > 0 && capacity > 0) {
 			int filled = Math.min(TANK_HEIGHT, TANK_HEIGHT * amountMb / capacity);
-			int color = colorFor(fluidType);
+			int color = colorFor(fluid);
 			int x = leftPos + TANK_X;
 			int y = topPos + TANK_Y + (TANK_HEIGHT - filled);
 			guiGraphics.fill(x, y, x + TANK_WIDTH, y + filled, color);
@@ -64,27 +68,23 @@ public class ScreenBottler extends ScreenForestry<ContainerBottler> {
 		int tankLeft = leftPos + TANK_X;
 		int tankTop = topPos + TANK_Y;
 		if (mouseX >= tankLeft && mouseX < tankLeft + TANK_WIDTH && mouseY >= tankTop && mouseY < tankTop + TANK_HEIGHT) {
-			Component fluidName = nameFor(fluidType);
-			List<Component> lines = List.of(fluidName, Component.literal(amountMb + " / " + capacity + " mB"));
+			List<Component> lines = new ArrayList<>();
+			Component fluidName;
+			if (fluid == null || fluid.defaultFluidState().isEmpty()) {
+				fluidName = Component.translatable("for.gui.empty");
+			} else {
+				fluidName = FluidVariantAttributes.getName(FluidVariant.of(fluid));
+			}
+			lines.add(fluidName);
+			lines.add(Component.literal(amountMb + " / " + capacity + " mB"));
 			guiGraphics.setTooltipForNextFrame(font, lines, Optional.<TooltipComponent>empty(), mouseX, mouseY);
 		}
 	}
 
-
-	private static int colorFor(int fluidType) {
-		return switch (fluidType) {
-			case 1 -> BIOMASS_COLOR;
-			case 2 -> WATER_COLOR;
-			default -> 0xFF808080;
-		};
+	private static int colorFor(Fluid fluid) {
+		if (fluid == null || fluid.defaultFluidState().isEmpty()) {
+			return 0xFF808080;
+		}
+		return 0xFF000000 | (RenderUtil.getFluidColor(fluid) & 0xFFFFFF);
 	}
-
-	private static Component nameFor(int fluidType) {
-		return switch (fluidType) {
-			case 1 -> Component.translatable("fluid_type.reforestry.biomass");
-			case 2 -> Component.translatable("block.minecraft.water");
-			default -> Component.translatable("for.gui.empty");
-		};
-	}
-
 }

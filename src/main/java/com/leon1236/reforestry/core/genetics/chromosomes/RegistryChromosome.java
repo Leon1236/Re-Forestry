@@ -25,7 +25,11 @@ final class RegistryChromosome<V extends IRegistryAlleleValue> implements IRegis
 
     @Override
     public Optional<V> getSafe(Identifier valueId) {
-        return valuesById == null ? Optional.empty() : Optional.ofNullable(valuesById.get(valueId));
+        if (valuesById == null) {
+            return Optional.empty();
+        }
+        V value = valuesById.get(valueId);
+        return value == null ? Optional.empty() : Optional.of(value);
     }
 
     @Override

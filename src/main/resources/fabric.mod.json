@@ -28,6 +28,7 @@
 			"com.leon1236.reforestry.core.plugin.ReforestryPlugin"
 		],
 		"jei_mod_plugin": [
+			"com.leon1236.reforestry.core.compat.jei.CoreJeiPlugin",
 			"com.leon1236.reforestry.factory.compat.jei.FactoryJeiPlugin"
 		]
 	},

@@ -15,8 +15,8 @@ import com.leon1236.reforestry.core.tiles.IActivatable;
 
 public abstract class TileAlvearyClimatiser extends TileAlveary
 		implements IActivatable, IAlvearyComponent.Climatiser<MultiblockLogicAlveary> {
-	public static final long CAPACITY = 2000;
-	public static final long MAX_INSERT = 1000;
+	public static final long CAPACITY = 1000;
+	public static final long MAX_INSERT = 2000;
 
 	private static final int FE_PER_OPERATION = 50;
 	private static final int MAX_WORKING_TIME = 20;

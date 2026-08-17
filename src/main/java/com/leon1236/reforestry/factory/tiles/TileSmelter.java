@@ -1,9 +1,7 @@
 package com.leon1236.reforestry.factory.tiles;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -32,7 +30,6 @@ import com.leon1236.reforestry.api.core.IErrorLogic;
 import com.leon1236.reforestry.api.recipes.ISmelterRecipe;
 import com.leon1236.reforestry.core.access.WorldlyAccessHelper;
 import com.leon1236.reforestry.core.inventory.InventoryUtil;
-import com.leon1236.reforestry.core.recipes.IngredientStack;
 import com.leon1236.reforestry.core.tiles.SocketedPoweredTile;
 import com.leon1236.reforestry.factory.features.FactoryTiles;
 import com.leon1236.reforestry.factory.gui.ContainerSmelter;
@@ -45,7 +42,7 @@ public class TileSmelter extends SocketedPoweredTile implements WorldlyContainer
     public static final int SLOT_COUNT = SLOT_OUTPUT + 1;
     public static final int ERROR_SLOT_COUNT = 4;
 
-    private static final int TICKS_PER_RECIPE_TIME = 1;
+    private static final float TICKS_PER_RECIPE_TIME = 3.6f;
     private static final int ENERGY_PER_WORK_CYCLE = 2000;
     private static final int ENERGY_PER_RECIPE_TIME = ENERGY_PER_WORK_CYCLE / 10;
     private static final long CAPACITY = 40000;
@@ -130,7 +127,7 @@ public class TileSmelter extends SocketedPoweredTile implements WorldlyContainer
         if (hasResources && hasRecipe) {
             ItemStack output = currentRecipe.getOutput();
             if (!output.isEmpty()) {
-                canAdd = InventoryUtil.tryAddStack(this, output, SLOT_OUTPUT, 1, true);
+                canAdd = InventoryUtil.tryAddStack(this, output, SLOT_OUTPUT, 1, true, false);
             }
         }
 
@@ -147,11 +144,17 @@ public class TileSmelter extends SocketedPoweredTile implements WorldlyContainer
         if (currentRecipe == null) {
             return false;
         }
-        if (!removeResources(currentRecipe.getInputs())) {
+        ItemStack output = currentRecipe.getOutput();
+        if (output.isEmpty()) {
             return false;
         }
-        InventoryUtil.tryAddStack(this, currentRecipe.getOutput(), SLOT_OUTPUT, 1, true);
-        return true;
+        if (!InventoryUtil.tryAddStack(this, output, SLOT_OUTPUT, 1, true, false)) {
+            return false;
+        }
+        if (!InventoryUtil.consumeIngredientStacks(this, SLOT_INPUT_1, SLOT_INPUT_COUNT, currentRecipe.getInputs())) {
+            return false;
+        }
+        return InventoryUtil.tryAddStack(this, output, SLOT_OUTPUT, 1, true, true);
     }
 
     private boolean checkRecipe() {
@@ -161,11 +164,12 @@ public class TileSmelter extends SocketedPoweredTile implements WorldlyContainer
             if (matching != null) {
                 craftPreviewInventory.setItem(0, matching.getOutput());
                 int recipeTime = matching.getProcessingTime();
-                setTicksPerWorkCycle(recipeTime * TICKS_PER_RECIPE_TIME);
-                setEnergyPerWorkCycle(recipeTime * ENERGY_PER_RECIPE_TIME);
+                setTicksPerWorkCycle(Math.max(1, Math.round(recipeTime * TICKS_PER_RECIPE_TIME)));
+                setEnergyPerWorkCycle(Math.round(recipeTime * TICKS_PER_RECIPE_TIME * ENERGY_PER_RECIPE_TIME));
             } else {
                 craftPreviewInventory.clearContent();
                 setTicksPerWorkCycle(0);
+                setEnergyPerWorkCycle(0);
             }
         }
         getErrorLogic().setCondition(currentRecipe == null, ForestryError.NO_RECIPE);
@@ -203,42 +207,6 @@ public class TileSmelter extends SocketedPoweredTile implements WorldlyContainer
             }
         }
         return stacks;
-    }
-
-    private boolean removeResources(List<IngredientStack> requirements) {
-        Map<Integer, Integer> toRemove = new HashMap<>();
-
-        for (IngredientStack requirement : requirements) {
-            int remaining = requirement.count();
-            for (int slot = SLOT_INPUT_1; slot < SLOT_INPUT_1 + SLOT_INPUT_COUNT; slot++) {
-                if (remaining <= 0) {
-                    break;
-                }
-                ItemStack stack = getItem(slot);
-                if (stack.isEmpty() || !requirement.ingredient().test(stack)) {
-                    continue;
-                }
-                int take = Math.min(remaining, stack.getCount());
-                toRemove.merge(slot, take, Integer::sum);
-                remaining -= take;
-            }
-            if (remaining > 0) {
-                return false;
-            }
-        }
-
-        for (Map.Entry<Integer, Integer> entry : toRemove.entrySet()) {
-            int slot = entry.getKey();
-            int amount = entry.getValue();
-            ItemStack stack = getItem(slot);
-            if (stack.getCount() <= amount) {
-                setItem(slot, ItemStack.EMPTY);
-            } else {
-                stack.shrink(amount);
-            }
-        }
-        setChanged();
-        return true;
     }
 
     @Override

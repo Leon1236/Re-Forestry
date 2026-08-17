@@ -25,6 +25,10 @@ public abstract class TilePowered extends TileBase implements IPowerHandler, IMa
     private int workCounter;
     private int noPowerTime;
     private int syncedProgress;
+    private int syncedEnergyStored;
+    private int syncedEnergyCapacity;
+    private int syncedEnergyMaxReceive;
+    private int syncedEnergyUsage;
     protected float speedMultiplier = 1.0f;
     protected float powerMultiplier = 1.0f;
     protected double outputMultiplier = 1.0;
@@ -50,6 +54,38 @@ public abstract class TilePowered extends TileBase implements IPowerHandler, IMa
         }
     };
 
+    private final ContainerData energyData = new ContainerData() {
+        @Override
+        public int get(int index) {
+            Level level = getLevel();
+            boolean client = level != null && level.isClientSide();
+            return switch (index) {
+                case 0 -> client ? syncedEnergyStored : (int) energyStorage.amount;
+                case 1 -> client ? syncedEnergyCapacity : (int) energyStorage.capacity;
+                case 2 -> client ? syncedEnergyMaxReceive : (int) energyStorage.maxInsert;
+                case 3 -> client ? syncedEnergyUsage : getCurrentEnergyUsage();
+                default -> 0;
+            };
+        }
+
+        @Override
+        public void set(int index, int value) {
+            switch (index) {
+                case 0 -> syncedEnergyStored = value;
+                case 1 -> syncedEnergyCapacity = value;
+                case 2 -> syncedEnergyMaxReceive = value;
+                case 3 -> syncedEnergyUsage = value;
+                default -> {
+                }
+            }
+        }
+
+        @Override
+        public int getCount() {
+            return 4;
+        }
+    };
+
     protected TilePowered(BlockEntityType<?> type, BlockPos pos, BlockState state, long capacity, long maxReceive) {
         super(type, pos, state);
         this.energyStorage = new SimpleEnergyStorage(capacity, maxReceive, 0) {
@@ -67,6 +103,10 @@ public abstract class TilePowered extends TileBase implements IPowerHandler, IMa
 
     public ContainerData getProgressData() {
         return this.progressData;
+    }
+
+    public ContainerData getEnergyData() {
+        return this.energyData;
     }
 
     public int getWorkCounter() {
@@ -88,6 +128,17 @@ public abstract class TilePowered extends TileBase implements IPowerHandler, IMa
 
     public int getEnergyPerWorkCycle() {
         return Math.round(this.energyPerWorkCycle * this.powerMultiplier);
+    }
+
+    public int getCurrentEnergyUsage() {
+        if (!hasWork()) {
+            return 0;
+        }
+        int ticks = getTicksPerWorkCycle();
+        if (ticks <= 0) {
+            return 0;
+        }
+        return (int) Math.ceil(getEnergyPerWorkCycle() / (double) ticks);
     }
 
     protected double getOutputMultiplier() {
@@ -135,11 +186,17 @@ public abstract class TilePowered extends TileBase implements IPowerHandler, IMa
         }
 
         if (!hasWork()) {
+            this.noPowerTime = 0;
+            errorLogic.setCondition(false, ForestryError.NO_POWER);
             return;
         }
 
         int ticksPerWorkCycle = getTicksPerWorkCycle();
         int energyPerWorkCycle = getEnergyPerWorkCycle();
+
+        if (ticksPerWorkCycle <= 0) {
+            return;
+        }
 
         if (this.workCounter < ticksPerWorkCycle) {
             boolean consumedEnergy = EnergyHelper.consumeEnergyToDoWork(this.energyStorage, ticksPerWorkCycle, energyPerWorkCycle);

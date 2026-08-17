@@ -1,0 +1,15 @@
+{
+  "type": "reforestry:centrifuge",
+  "input": "reforestry:propolis_silky",
+  "time": 5,
+  "products": [
+    {
+      "item": "reforestry:silk_wisp",
+      "chance": 0.6
+    },
+    {
+      "item": "reforestry:propolis_normal",
+      "chance": 0.1
+    }
+  ]
+}

@@ -1,23 +1,22 @@
 package com.leon1236.reforestry.factory.gui;
 
-import java.util.List;
-
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.item.ItemStack;
 
-import com.leon1236.reforestry.api.gui.IContainerRecipeBook;
-import com.leon1236.reforestry.api.gui.MachineRecipeEntry;
+import com.leon1236.reforestry.api.gui.IContainerEnergy;
 import com.leon1236.reforestry.core.gui.ContainerSocketedMachine;
-import com.leon1236.reforestry.core.gui.MachineGuiRecipes;
 import com.leon1236.reforestry.factory.features.FactoryMenuTypes;
 import com.leon1236.reforestry.factory.tiles.TileCentrifuge;
 
-public class ContainerCentrifuge extends ContainerSocketedMachine<TileCentrifuge> implements IContainerRecipeBook {
+public class ContainerCentrifuge extends ContainerSocketedMachine<TileCentrifuge> implements IContainerEnergy {
     private static final int RESOURCE_X = 16;
     private static final int RESOURCE_Y = 37;
+    private static final int PREVIEW_X = 49;
+    private static final int PREVIEW_Y = 37;
     private static final int SOCKET_X = 79;
     private static final int SOCKET_Y = 37;
     private static final int PRODUCT_X = 112;
@@ -34,16 +33,18 @@ public class ContainerCentrifuge extends ContainerSocketedMachine<TileCentrifuge
         super(FactoryMenuTypes.CENTRIFUGE.type(), containerId, playerInventory, tile, INVENTORY_Y);
         addDataSlots(tile.getProgressData());
         addDataSlots(tile.getErrorData());
+        addDataSlots(tile.getEnergyData());
     }
 
     @Override
     protected void addMachineSlots(TileCentrifuge tile) {
-        addSlot(new Slot(tile, TileCentrifuge.SLOT_RESOURCE, RESOURCE_X, RESOURCE_Y));
+        addSlot(new FilteredSlot(tile, TileCentrifuge.SLOT_RESOURCE, RESOURCE_X, RESOURCE_Y));
+        addSlot(new PreviewSlot(tile.getCraftPreviewInventory(), 0, PREVIEW_X, PREVIEW_Y));
         addCircuitSocket(0, SOCKET_X, SOCKET_Y);
         for (int i = 0; i < TileCentrifuge.SLOT_PRODUCT_COUNT; i++) {
             int column = i % PRODUCT_COLUMNS;
             int row = i / PRODUCT_COLUMNS;
-            addSlot(new Slot(tile, TileCentrifuge.SLOT_PRODUCT_1 + i,
+            addSlot(new OutputSlot(tile, TileCentrifuge.SLOT_PRODUCT_1 + i,
                     PRODUCT_X + column * PRODUCT_GAP, PRODUCT_Y + row * PRODUCT_GAP));
         }
     }
@@ -61,27 +62,63 @@ public class ContainerCentrifuge extends ContainerSocketedMachine<TileCentrifuge
     }
 
     @Override
-    public List<MachineRecipeEntry> getGuiRecipes() {
-        Level level = tile.getLevel();
-        if (level == null) {
-            return List.of();
-        }
-        return MachineGuiRecipes.centrifuge(level);
+    public int getEnergyStored() {
+        return tile.getEnergyData().get(0);
     }
 
     @Override
-    public boolean selectRecipe(int index, Player player) {
-        return false;
+    public int getEnergyCapacity() {
+        return tile.getEnergyData().get(1);
     }
 
     @Override
-    public boolean clickMenuButton(Player player, int id) {
-        if (super.clickMenuButton(player, id)) {
-            return true;
+    public int getEnergyMaxReceive() {
+        return tile.getEnergyData().get(2);
+    }
+
+    @Override
+    public int getEnergyUsage() {
+        return tile.getEnergyData().get(3);
+    }
+
+    private static final class FilteredSlot extends Slot {
+        private final TileCentrifuge tile;
+
+        FilteredSlot(TileCentrifuge tile, int index, int x, int y) {
+            super(tile, index, x, y);
+            this.tile = tile;
         }
-        if (IContainerRecipeBook.isRecipeButton(id)) {
-            return selectRecipe(IContainerRecipeBook.recipeIndex(id), player);
+
+        @Override
+        public boolean mayPlace(ItemStack stack) {
+            return tile.canPlaceItem(getContainerSlot(), stack);
         }
-        return false;
+    }
+
+    private static final class PreviewSlot extends Slot {
+        PreviewSlot(Container container, int index, int x, int y) {
+            super(container, index, x, y);
+        }
+
+        @Override
+        public boolean mayPickup(Player player) {
+            return false;
+        }
+
+        @Override
+        public boolean mayPlace(ItemStack stack) {
+            return false;
+        }
+    }
+
+    private static final class OutputSlot extends Slot {
+        OutputSlot(TileCentrifuge tile, int index, int x, int y) {
+            super(tile, index, x, y);
+        }
+
+        @Override
+        public boolean mayPlace(ItemStack stack) {
+            return false;
+        }
     }
 }

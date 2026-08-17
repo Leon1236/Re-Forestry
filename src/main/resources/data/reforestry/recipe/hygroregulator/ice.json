@@ -1,0 +1,10 @@
+{
+  "type": "reforestry:hygroregulator",
+  "liquid": {
+    "fluid": "reforestry:ice",
+    "amount": 1
+  },
+  "humidity_steps": 2,
+  "temperature_steps": -2,
+  "time": 10
+}

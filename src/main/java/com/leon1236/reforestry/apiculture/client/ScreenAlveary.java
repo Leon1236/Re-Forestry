@@ -26,6 +26,7 @@ public class ScreenAlveary extends ScreenForestry<ContainerAlveary> {
 
     public ScreenAlveary(ContainerAlveary menu, Inventory inventory, Component title) {
         super(menu, inventory, title, IMAGE_WIDTH, IMAGE_HEIGHT);
+        setHintKey("alveary");
     }
 
     @Override

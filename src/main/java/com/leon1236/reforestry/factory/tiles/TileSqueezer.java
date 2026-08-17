@@ -110,7 +110,7 @@ public class TileSqueezer extends SocketedPoweredTile implements WorldlyContaine
         if (tile.updateOnInterval(20)) {
             FilteredFluidStorage productTank = tile.getProductTank();
             if (productTank.getAmount() > 0) {
-                FluidContainerHelper.fillFromTank(tile, SLOT_CAN_INPUT, SLOT_CAN_OUTPUT, productTank);
+                FluidContainerHelper.fillContainers(productTank, tile, SLOT_CAN_INPUT, SLOT_CAN_OUTPUT, productTank.getResource(), true);
             }
         }
         tile.syncErrors();
@@ -176,7 +176,7 @@ public class TileSqueezer extends SocketedPoweredTile implements WorldlyContaine
                     }
                 }
                 if (!this.currentRecipe.getRemnants().isEmpty()) {
-                    canAdd = InventoryUtil.tryAddStack(this, this.currentRecipe.getRemnants(), SLOT_REMNANT, 1, true);
+                    canAdd = InventoryUtil.tryAddStack(this, this.currentRecipe.getRemnants(), SLOT_REMNANT, 1, true, false);
                 }
             }
         }

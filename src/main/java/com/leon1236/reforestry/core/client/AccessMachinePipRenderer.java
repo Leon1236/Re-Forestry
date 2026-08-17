@@ -43,10 +43,10 @@ public final class AccessMachinePipRenderer extends PictureInPictureRenderer<Acc
 	private static final Matrix4f IDENTITY = new Matrix4f();
 	private static final int FULL_BRIGHT = LightCoordsUtil.FULL_BRIGHT;
 	private static final int GHOST_ALPHA_BYTE = Mth.clamp(Math.round(AccessMachinePipRenderState.GHOST_ALPHA * 255.0f), 1, 255);
-	private static final float FACE_HIT_RADIUS = 0.48f;
 	private static final float DEG = (float) Math.PI / 180.0f;
 	private static final float FACE_TINT_DEPTH = -0.002f;
-	private static final int FACE_TINT_ALPHA_ENTITY = 0x70;
+	private static final int FACE_TINT_ALPHA = 0x78;
+	private static final int FACE_TINT_ALPHA_HOVER = 0xB0;
 
 	private final BlockModelRenderState machineRenderState = new BlockModelRenderState();
 	private final BlockModelRenderState ghostRenderState = new BlockModelRenderState();
@@ -69,16 +69,14 @@ public final class AccessMachinePipRenderer extends PictureInPictureRenderer<Acc
 
 		poseStack.pushPose();
 		poseStack.translate(-0.5f, -0.5f, -0.5f);
-		// TODO: fix TESR/entity-model machines (carpenter, centrifuge, …) in this access PiP —
-		// face winding, Z-flip vs picking, and I/O tint overlay still look wrong vs block models.
 		if (state.entityModel()) {
 			renderTesrMachine(state, poseStack, submitNodeCollector);
-			updateAccessFaceTints(this.accessTintRenderState, state, FACE_TINT_ALPHA_ENTITY);
-			this.accessTintRenderState.submit(poseStack, submitNodeCollector, FULL_BRIGHT, OverlayTexture.NO_OVERLAY, 0);
 		} else {
-			updateMachineWithAccessTint(this.machineRenderState, state);
+			updateMachineModel(this.machineRenderState, state);
 			this.machineRenderState.submit(poseStack, submitNodeCollector, FULL_BRIGHT, OverlayTexture.NO_OVERLAY, 0);
 		}
+		updateAccessFaceTints(this.accessTintRenderState, state);
+		this.accessTintRenderState.submit(poseStack, submitNodeCollector, FULL_BRIGHT, OverlayTexture.NO_OVERLAY, 0);
 		poseStack.popPose();
 
 		for (Direction direction : Direction.values()) {
@@ -158,20 +156,22 @@ public final class AccessMachinePipRenderer extends PictureInPictureRenderer<Acc
 		poseStack.mulPose(Axis.YP.rotationDegrees(yawDegrees));
 	}
 
-	static Matrix4f viewMatrix(float yawDegrees, float pitchDegrees, boolean entityModel) {
-		float zScale = entityModel ? -1.0f : 1.0f;
-		return new Matrix4f()
-				.scaling(1.0f, -1.0f, zScale)
-				.rotateX(pitchDegrees * DEG)
-				.rotateY(yawDegrees * DEG);
-	}
-
 	static float yawToShowFacing(Direction facing, boolean entityModel) {
 		float yaw = facing.toYRot();
 		return entityModel ? yaw + 180.0f : yaw;
 	}
 
-	static Direction pickMachineFace(
+	static Matrix4f pickViewMatrix(float yawDegrees, float pitchDegrees, boolean entityModel) {
+		Matrix4f matrix = new Matrix4f().scaling(1.0f, 1.0f, -1.0f);
+		if (entityModel) {
+			matrix.scale(1.0f, -1.0f, -1.0f);
+		} else {
+			matrix.scale(1.0f, -1.0f, 1.0f);
+		}
+		return matrix.rotateX(pitchDegrees * DEG).rotateY(yawDegrees * DEG);
+	}
+
+	static @Nullable Direction pickMachineFace(
 			double mouseX,
 			double mouseY,
 			float centerX,
@@ -181,56 +181,81 @@ public final class AccessMachinePipRenderer extends PictureInPictureRenderer<Acc
 			float pitchDegrees,
 			boolean entityModel
 	) {
-		Matrix4f matrix = viewMatrix(yawDegrees, pitchDegrees, entityModel);
-		float hitRadius = FACE_HIT_RADIUS * scale;
-		float hitRadiusSq = hitRadius * hitRadius;
+		Matrix4f matrix = pickViewMatrix(yawDegrees, pitchDegrees, entityModel);
 
 		Direction best = null;
-		float bestDepth = Float.NEGATIVE_INFINITY;
-		float bestDistSq = Float.POSITIVE_INFINITY;
+		float bestDepth = Float.POSITIVE_INFINITY;
 		Vector3f point = new Vector3f();
 		Vector3f normal = new Vector3f();
+		float[] xs = new float[4];
+		float[] ys = new float[4];
 
 		for (Direction direction : Direction.values()) {
 			normal.set(direction.getStepX(), direction.getStepY(), direction.getStepZ());
 			matrix.transformDirection(normal);
-			if (normal.z() <= 0.0f) {
+			if (normal.z() >= 0.0f) {
 				continue;
 			}
 
-			point.set(direction.getStepX() * 0.5f, direction.getStepY() * 0.5f, direction.getStepZ() * 0.5f);
-			matrix.transformPosition(point);
-
-			float screenX = centerX + point.x * scale;
-			float screenY = centerY + point.y * scale;
-			float dx = (float) mouseX - screenX;
-			float dy = (float) mouseY - screenY;
-			float distSq = dx * dx + dy * dy;
-			if (distSq > hitRadiusSq) {
+			float depthSum = 0.0f;
+			for (int corner = 0; corner < 4; corner++) {
+				faceCorner(direction, corner, point);
+				matrix.transformPosition(point);
+				xs[corner] = centerX + point.x * scale;
+				ys[corner] = centerY + point.y * scale;
+				depthSum += point.z;
+			}
+			if (!pointInConvexQuad(mouseX, mouseY, xs, ys)) {
 				continue;
 			}
 
-			if (point.z > bestDepth + 0.001f || (Math.abs(point.z - bestDepth) <= 0.001f && distSq < bestDistSq)) {
+			float depth = depthSum * 0.25f;
+			if (depth < bestDepth) {
 				best = direction;
-				bestDepth = point.z;
-				bestDistSq = distSq;
+				bestDepth = depth;
 			}
 		}
 		return best;
 	}
 
-	private static void updateMachineWithAccessTint(BlockModelRenderState renderState, AccessMachinePipRenderState state) {
+	private static void faceCorner(Direction face, int corner, Vector3f out) {
+		float u = (corner == 0 || corner == 3) ? -0.5f : 0.5f;
+		float v = (corner == 0 || corner == 1) ? -0.5f : 0.5f;
+		switch (face) {
+			case DOWN -> out.set(u, -0.5f, v);
+			case UP -> out.set(u, 0.5f, -v);
+			case NORTH -> out.set(-u, v, -0.5f);
+			case SOUTH -> out.set(u, v, 0.5f);
+			case WEST -> out.set(-0.5f, v, u);
+			case EAST -> out.set(0.5f, v, -u);
+		}
+	}
+
+	private static boolean pointInConvexQuad(double px, double py, float[] xs, float[] ys) {
+		boolean sign = false;
+		boolean hasSign = false;
+		for (int i = 0; i < 4; i++) {
+			int j = (i + 1) % 4;
+			double cross = (xs[j] - xs[i]) * (py - ys[i]) - (ys[j] - ys[i]) * (px - xs[i]);
+			if (cross == 0.0) {
+				continue;
+			}
+			boolean positive = cross > 0.0;
+			if (!hasSign) {
+				sign = positive;
+				hasSign = true;
+			} else if (sign != positive) {
+				return false;
+			}
+		}
+		return hasSign;
+	}
+
+	private static void updateMachineModel(BlockModelRenderState renderState, AccessMachinePipRenderState state) {
 		renderState.clear();
 		BlockState blockState = state.machineState();
 		BlockStateModel model = Minecraft.getInstance().getModelManager().getBlockStateModelSet().get(blockState);
 		QuadEmitter emitter = renderState.setupMesh(IDENTITY, false);
-		emitter.pushTransform(quad -> {
-			Direction face = faceOf(quad.cullFace(), quad.nominalFace(), quad.lightFace());
-			if (face != null) {
-				quad.multiplyColor(tintFor(state.access(face)));
-			}
-			return true;
-		});
 		model.emitQuads(
 				emitter,
 				BlockAndTintGetter.EMPTY,
@@ -238,17 +263,17 @@ public final class AccessMachinePipRenderer extends PictureInPictureRenderer<Acc
 				blockState,
 				renderState.scratchRandomSource(42L),
 				direction -> false);
-		emitter.popTransform();
 	}
 
-	private static void updateAccessFaceTints(BlockModelRenderState renderState, AccessMachinePipRenderState state, int alpha) {
+	private static void updateAccessFaceTints(BlockModelRenderState renderState, AccessMachinePipRenderState state) {
 		renderState.clear();
 		QuadEmitter emitter = renderState.setupMesh(IDENTITY, true);
 		Material.Baked material = new Material.Baked(
 				Minecraft.getInstance().getAtlasManager().get(Sheets.BLOCKS_MAPPER.defaultNamespaceApply("white_wool")),
 				false);
 		for (Direction face : Direction.values()) {
-			int color = (tintFor(state.access(face)) & 0x00FFFFFF) | (alpha << 24);
+			int alpha = face == state.hoveredFace() ? FACE_TINT_ALPHA_HOVER : FACE_TINT_ALPHA;
+			int color = (tintRgb(state.access(face)) & 0x00FFFFFF) | (alpha << 24);
 			emitter.square(face, 0.0f, 0.0f, 1.0f, 1.0f, FACE_TINT_DEPTH);
 			emitter.color(color, color, color, color);
 			emitter.materialBake(material, MutableQuadView.BAKE_LOCK_UV);
@@ -282,17 +307,7 @@ public final class AccessMachinePipRenderer extends PictureInPictureRenderer<Acc
 		emitter.popTransform();
 	}
 
-	private static @Nullable Direction faceOf(@Nullable Direction cullFace, @Nullable Direction nominalFace, Direction lightFace) {
-		if (cullFace != null) {
-			return cullFace;
-		}
-		if (nominalFace != null) {
-			return nominalFace;
-		}
-		return lightFace;
-	}
-
-	private static int tintFor(AccessMode mode) {
+	private static int tintRgb(AccessMode mode) {
 		return switch (mode) {
 			case NONE -> 0xFF9A9A9A;
 			case INPUT -> 0xFF3A8CFF;

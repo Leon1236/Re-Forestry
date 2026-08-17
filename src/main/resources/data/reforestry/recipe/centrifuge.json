@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": "#c:glass_blocks/colorless",
-    "X": "#c:ingots/copper",
+    "X": "#c:ingots/bronze",
     "Y": "reforestry:sturdy_machine"
   },
   "pattern": [

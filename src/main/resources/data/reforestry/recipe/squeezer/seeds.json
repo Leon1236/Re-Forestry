@@ -11,8 +11,8 @@
     "amount": 10
   },
   "remnant": {
-    "item": "minecraft:air",
-    "count": 0
+    "item": "reforestry:mulch",
+    "count": 1
   },
-  "chance": 0.0
+  "chance": 0.01
 }

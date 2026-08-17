@@ -52,8 +52,8 @@ public class TileFermenter extends TilePowered implements WorldlyContainer, IRen
     public static final int SLOT_COUNT = 5;
     public static final int ERROR_SLOT_COUNT = 4;
 
-    private static final long CAPACITY = 80000;
-    private static final long MAX_RECEIVE = 2000;
+    private static final long CAPACITY = 100000;
+    private static final long MAX_RECEIVE = 8000;
     private static final int ENERGY_PER_WORK_CYCLE = 4200;
     private static final long TANK_CAPACITY_MB = 10000;
     public static final long TANK_CAPACITY = FluidUnits.mbToDroplets(TANK_CAPACITY_MB);
@@ -133,6 +133,7 @@ public class TileFermenter extends TilePowered implements WorldlyContainer, IRen
     public TileFermenter(BlockPos pos, BlockState state) {
         super(FactoryTiles.FERMENTER.type(), pos, state, CAPACITY, MAX_RECEIVE);
         setEnergyPerWorkCycle(ENERGY_PER_WORK_CYCLE);
+        setTicksPerWorkCycle(8);
         this.tanks = MultiFluidTank.builder(this::setChanged)
                 .tank("Resource", TANK_CAPACITY, FilteredFluidStorage.any())
                 .tank("Product", TANK_CAPACITY, FilteredFluidStorage.only(ForestryFluids.BIOMASS.getFluid(), ForestryFluids.SHORT_MEAD.getFluid()))
@@ -145,7 +146,7 @@ public class TileFermenter extends TilePowered implements WorldlyContainer, IRen
             FluidContainerHelper.drainIntoTank(tile, SLOT_INPUT, tile.getResourceTank());
             FilteredFluidStorage productTank = tile.getProductTank();
             if (productTank.getAmount() > 0) {
-                FluidContainerHelper.fillFromTank(tile, SLOT_CAN_INPUT, SLOT_CAN_OUTPUT, productTank);
+                FluidContainerHelper.fillContainers(productTank, tile, SLOT_CAN_INPUT, SLOT_CAN_OUTPUT, productTank.getResource(), true);
             }
         }
         tile.syncErrors();
@@ -284,10 +285,12 @@ public class TileFermenter extends TilePowered implements WorldlyContainer, IRen
         this.fuelBurnTime--;
         this.fermentationTime -= fermented;
 
-        if (this.fermentationTime <= 0) {
-            this.currentRecipe = null;
-            this.fermentationTotalTime = 0;
+        if (this.fermentationTime > 0) {
+            return false;
         }
+
+        this.currentRecipe = null;
+        this.fermentationTotalTime = 0;
         return true;
     }
 
@@ -338,9 +341,6 @@ public class TileFermenter extends TilePowered implements WorldlyContainer, IRen
 
     @Nullable
     private static FermenterFuel findFermenterFuel(ItemStack stack) {
-        if (FuelManager.fermenterFuel == null) {
-            return null;
-        }
         for (var entry : FuelManager.fermenterFuel.entrySet()) {
             if (ItemStack.isSameItem(entry.getKey(), stack)) {
                 return entry.getValue();

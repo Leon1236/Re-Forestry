@@ -1,5 +1,9 @@
 package com.leon1236.reforestry.factory.compat.jei;
 
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.helpers.IJeiHelpers;
@@ -11,20 +15,27 @@ import mezz.jei.api.registration.IRecipeTransferRegistration;
 import mezz.jei.api.registration.IGuiHandlerRegistration;
 
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.ItemStack;
 
 import com.leon1236.reforestry.ReForestry;
+import com.leon1236.reforestry.api.fuels.FuelManager;
+import com.leon1236.reforestry.api.fuels.RainSubstrate;
 import com.leon1236.reforestry.api.recipes.ICarpenterRecipe;
 import com.leon1236.reforestry.api.recipes.ICentrifugeRecipe;
 import com.leon1236.reforestry.api.recipes.IFabricatorRecipe;
 import com.leon1236.reforestry.api.recipes.IFermenterRecipe;
 import com.leon1236.reforestry.api.recipes.IMoistenerRecipe;
 import com.leon1236.reforestry.api.recipes.ISmelterRecipe;
+import com.leon1236.reforestry.api.recipes.ISqueezerContainerRecipe;
 import com.leon1236.reforestry.api.recipes.ISqueezerRecipe;
 import com.leon1236.reforestry.api.recipes.IStillRecipe;
 import com.leon1236.reforestry.core.client.ScreenForestry;
+import com.leon1236.reforestry.core.compat.jei.JeiDescriptions;
 import com.leon1236.reforestry.core.compat.jei.JeiRecipeSources;
 import com.leon1236.reforestry.core.compat.jei.ReforestryJeiRecipeTypes;
 import com.leon1236.reforestry.factory.blocks.BlockTypeFactoryPlain;
+import com.leon1236.reforestry.factory.blocks.BlockTypeFactoryTesr;
+import com.leon1236.reforestry.factory.client.ScreenBottler;
 import com.leon1236.reforestry.factory.client.ScreenCarpenter;
 import com.leon1236.reforestry.factory.client.ScreenCentrifuge;
 import com.leon1236.reforestry.factory.client.ScreenFabricator;
@@ -51,10 +62,12 @@ public class FactoryJeiPlugin implements IModPlugin {
 				new CarpenterRecipeCategory<>(jeiHelpers.getGuiHelper(), fluidHelper),
 				new CentrifugeRecipeCategory(jeiHelpers.getGuiHelper()),
 				new FermenterRecipeCategory<>(jeiHelpers.getGuiHelper(), fluidHelper),
-				new MoistenerRecipeCategory(jeiHelpers.getGuiHelper()),
+				new MoistenerRecipeCategory<>(jeiHelpers.getGuiHelper(), fluidHelper),
 				new SmelterRecipeCategory(jeiHelpers.getGuiHelper()),
 				new SqueezerRecipeCategory<>(jeiHelpers.getGuiHelper(), fluidHelper),
-				new StillRecipeCategory<>(jeiHelpers.getGuiHelper(), fluidHelper)
+				new StillRecipeCategory<>(jeiHelpers.getGuiHelper(), fluidHelper),
+				new BottlerRecipeCategory<>(jeiHelpers.getGuiHelper(), fluidHelper),
+				new RainmakerRecipeCategory(jeiHelpers.getGuiHelper())
 		);
 	}
 
@@ -66,8 +79,23 @@ public class FactoryJeiPlugin implements IModPlugin {
 		registry.addRecipes(ReforestryJeiRecipeTypes.FERMENTER, JeiRecipeSources.collect(IFermenterRecipe.class));
 		registry.addRecipes(ReforestryJeiRecipeTypes.MOISTENER, JeiRecipeSources.collect(IMoistenerRecipe.class));
 		registry.addRecipes(ReforestryJeiRecipeTypes.SMELTER, JeiRecipeSources.collect(ISmelterRecipe.class));
-		registry.addRecipes(ReforestryJeiRecipeTypes.SQUEEZER, JeiRecipeSources.collect(ISqueezerRecipe.class));
+		registry.addRecipes(ReforestryJeiRecipeTypes.SQUEEZER, JeiRecipeSources.collect(ISqueezerRecipe.class).stream()
+				.filter(recipe -> !(recipe instanceof ISqueezerContainerRecipe))
+				.toList());
 		registry.addRecipes(ReforestryJeiRecipeTypes.STILL, JeiRecipeSources.collect(IStillRecipe.class));
+		registry.addRecipes(ReforestryJeiRecipeTypes.BOTTLER, BottlerRecipeMaker.getRecipes(registry.getIngredientManager()));
+		registry.addRecipes(ReforestryJeiRecipeTypes.RAINMAKER, rainmakerRecipes());
+
+		JeiDescriptions.addDescription(registry, FactoryBlocks.PLAIN.get(BlockTypeFactoryPlain.BOTTLER).block());
+		JeiDescriptions.addDescription(registry, FactoryBlocks.PLAIN.get(BlockTypeFactoryPlain.CARPENTER).block());
+		JeiDescriptions.addDescription(registry, FactoryBlocks.PLAIN.get(BlockTypeFactoryPlain.CENTRIFUGE).block());
+		JeiDescriptions.addDescription(registry, FactoryBlocks.PLAIN.get(BlockTypeFactoryPlain.FABRICATOR).block());
+		JeiDescriptions.addDescription(registry, FactoryBlocks.PLAIN.get(BlockTypeFactoryPlain.FERMENTER).block());
+		JeiDescriptions.addDescription(registry, FactoryBlocks.PLAIN.get(BlockTypeFactoryPlain.MOISTENER).block());
+		JeiDescriptions.addDescription(registry, FactoryBlocks.PLAIN.get(BlockTypeFactoryPlain.SMELTER).block());
+		JeiDescriptions.addDescription(registry, FactoryBlocks.PLAIN.get(BlockTypeFactoryPlain.SQUEEZER).block());
+		JeiDescriptions.addDescription(registry, FactoryBlocks.PLAIN.get(BlockTypeFactoryPlain.STILL).block());
+		JeiDescriptions.addDescription(registry, FactoryBlocks.TESR.get(BlockTypeFactoryTesr.RAINMAKER).block());
 	}
 
 	@Override
@@ -80,6 +108,8 @@ public class FactoryJeiPlugin implements IModPlugin {
 		registry.addCraftingStation(ReforestryJeiRecipeTypes.SMELTER, FactoryBlocks.PLAIN.get(BlockTypeFactoryPlain.SMELTER).block());
 		registry.addCraftingStation(ReforestryJeiRecipeTypes.SQUEEZER, FactoryBlocks.PLAIN.get(BlockTypeFactoryPlain.SQUEEZER).block());
 		registry.addCraftingStation(ReforestryJeiRecipeTypes.STILL, FactoryBlocks.PLAIN.get(BlockTypeFactoryPlain.STILL).block());
+		registry.addCraftingStation(ReforestryJeiRecipeTypes.BOTTLER, FactoryBlocks.PLAIN.get(BlockTypeFactoryPlain.BOTTLER).block());
+		registry.addCraftingStation(ReforestryJeiRecipeTypes.RAINMAKER, FactoryBlocks.TESR.get(BlockTypeFactoryTesr.RAINMAKER).block());
 	}
 
 	@Override
@@ -99,5 +129,17 @@ public class FactoryJeiPlugin implements IModPlugin {
 		registry.addRecipeClickArea(ScreenSmelter.class, 95, 57, 16, 16, ReforestryJeiRecipeTypes.SMELTER);
 		registry.addRecipeClickArea(ScreenSqueezer.class, 76, 41, 43, 16, ReforestryJeiRecipeTypes.SQUEEZER);
 		registry.addRecipeClickArea(ScreenStill.class, 73, 17, 33, 57, ReforestryJeiRecipeTypes.STILL);
+		registry.addRecipeClickArea(ScreenBottler.class, 107, 33, 26, 22, ReforestryJeiRecipeTypes.BOTTLER);
+		registry.addRecipeClickArea(ScreenBottler.class, 45, 33, 26, 22, ReforestryJeiRecipeTypes.BOTTLER);
+	}
+
+	private static List<RainSubstrate> rainmakerRecipes() {
+		Map<ItemStack, RainSubstrate> substrates = FuelManager.rainSubstrate;
+		if (substrates == null || substrates.isEmpty()) {
+			return List.of();
+		}
+		return substrates.values().stream()
+				.sorted(Comparator.comparingInt(RainSubstrate::duration))
+				.toList();
 	}
 }

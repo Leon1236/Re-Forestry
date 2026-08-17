@@ -5,10 +5,12 @@ import org.jetbrains.annotations.Nullable;
 import net.fabricmc.fabric.api.menu.v1.ExtendedMenuProvider;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
+import net.minecraft.world.WorldlyContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -33,20 +35,28 @@ import com.leon1236.reforestry.api.core.IErrorLogic;
 import com.leon1236.reforestry.api.core.TemperatureType;
 import com.leon1236.reforestry.api.multiblock.IAlvearyComponent;
 import com.leon1236.reforestry.api.multiblock.IMultiblockController;
+import com.leon1236.reforestry.apiculture.InventoryBeeHousing;
 import com.leon1236.reforestry.apiculture.blocks.BlockAlveary;
 import com.leon1236.reforestry.apiculture.blocks.BlockAlvearyType;
 import com.leon1236.reforestry.apiculture.features.ApicultureTiles;
 import com.leon1236.reforestry.apiculture.gui.ContainerAlveary;
+import com.leon1236.reforestry.core.inventory.InventoryUtil;
 import com.leon1236.reforestry.core.multiblock.MultiblockTileEntityForestry;
 
 public class TileAlveary extends MultiblockTileEntityForestry<MultiblockLogicAlveary>
-		implements IBeeHousing, IAlvearyComponent<MultiblockLogicAlveary>, Container, ExtendedMenuProvider<BlockPos> {
+		implements IBeeHousing, IAlvearyComponent<MultiblockLogicAlveary>, WorldlyContainer, ExtendedMenuProvider<BlockPos> {
 	public static final int ERROR_SLOT_COUNT = 8;
 
 	private final BlockAlvearyType type;
 	private int syncedProgress;
 	private final int[] syncedErrorIds = new int[ERROR_SLOT_COUNT];
 	private int syncedErrorCount;
+	private int syncedEnergyStored;
+	private int syncedEnergyCapacity;
+	private int syncedEnergyMaxReceive;
+	private int syncedEnergyUsage;
+	private int syncedTemperatureOrdinal;
+	private int syncedHumidityOrdinal;
 
 	private final ContainerData progressData = new ContainerData() {
 		@Override
@@ -65,6 +75,82 @@ public class TileAlveary extends MultiblockTileEntityForestry<MultiblockLogicAlv
 		@Override
 		public int getCount() {
 			return 1;
+		}
+	};
+
+	private final ContainerData energyData = new ContainerData() {
+		@Override
+		public int get(int index) {
+			if (isClient()) {
+				return switch (index) {
+					case 0 -> syncedEnergyStored;
+					case 1 -> syncedEnergyCapacity;
+					case 2 -> syncedEnergyMaxReceive;
+					case 3 -> syncedEnergyUsage;
+					default -> 0;
+				};
+			}
+			IAlvearyControllerInternal controller = getController();
+			if (!(controller instanceof AlvearyController alveary)) {
+				return 0;
+			}
+			return switch (index) {
+				case 0 -> alveary.getAggregatedEnergyStored();
+				case 1 -> alveary.getAggregatedEnergyCapacity();
+				case 2 -> alveary.getAggregatedEnergyMaxReceive();
+				case 3 -> alveary.getAggregatedEnergyUsage();
+				default -> 0;
+			};
+		}
+
+		@Override
+		public void set(int index, int value) {
+			switch (index) {
+				case 0 -> syncedEnergyStored = value;
+				case 1 -> syncedEnergyCapacity = value;
+				case 2 -> syncedEnergyMaxReceive = value;
+				case 3 -> syncedEnergyUsage = value;
+				default -> {
+				}
+			}
+		}
+
+		@Override
+		public int getCount() {
+			return 4;
+		}
+	};
+
+	private final ContainerData climateData = new ContainerData() {
+		@Override
+		public int get(int index) {
+			if (isClient()) {
+				return switch (index) {
+					case 0 -> syncedTemperatureOrdinal;
+					case 1 -> syncedHumidityOrdinal;
+					default -> 0;
+				};
+			}
+			return switch (index) {
+				case 0 -> temperature().ordinal();
+				case 1 -> humidity().ordinal();
+				default -> 0;
+			};
+		}
+
+		@Override
+		public void set(int index, int value) {
+			switch (index) {
+				case 0 -> syncedTemperatureOrdinal = value;
+				case 1 -> syncedHumidityOrdinal = value;
+				default -> {
+				}
+			}
+		}
+
+		@Override
+		public int getCount() {
+			return 2;
 		}
 	};
 
@@ -118,6 +204,14 @@ public class TileAlveary extends MultiblockTileEntityForestry<MultiblockLogicAlv
 
 	public ContainerData getErrorData() {
 		return this.errorData;
+	}
+
+	public ContainerData getEnergyData() {
+		return this.energyData;
+	}
+
+	public ContainerData getClimateData() {
+		return this.climateData;
 	}
 
 	private boolean isClient() {
@@ -279,6 +373,21 @@ public class TileAlveary extends MultiblockTileEntityForestry<MultiblockLogicAlv
 	@Override
 	public void clearContent() {
 		getInternalInventory().clearContent();
+	}
+
+	@Override
+	public int[] getSlotsForFace(Direction direction) {
+		return InventoryUtil.contiguousSlots(InventoryBeeHousing.SLOT_COUNT);
+	}
+
+	@Override
+	public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction direction) {
+		return getInternalInventory().canPlaceItem(slot, stack);
+	}
+
+	@Override
+	public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction direction) {
+		return InventoryBeeHousing.isProductSlot(slot);
 	}
 
 	@Override

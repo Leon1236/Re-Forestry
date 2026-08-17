@@ -128,8 +128,7 @@ public class InventoryBeeHousing implements Container, IBeeHousingInventory {
 		items.clear();
 	}
 
-	@Override
-	public boolean canPlaceItem(int slot, ItemStack stack) {
+	public static boolean canAcceptBee(int slot, ItemStack stack) {
 		if (!(stack.getItem() instanceof ItemBeeGE bee)) {
 			return false;
 		}
@@ -140,6 +139,15 @@ public class InventoryBeeHousing implements Container, IBeeHousingInventory {
 			return "drone".equals(bee.lifeStage());
 		}
 		return false;
+	}
+
+	public static boolean isProductSlot(int slot) {
+		return slot >= SLOT_PRODUCT_1 && slot < SLOT_PRODUCT_1 + SLOT_PRODUCT_COUNT;
+	}
+
+	@Override
+	public boolean canPlaceItem(int slot, ItemStack stack) {
+		return canAcceptBee(slot, stack);
 	}
 
 	public void save(ValueOutput output) {

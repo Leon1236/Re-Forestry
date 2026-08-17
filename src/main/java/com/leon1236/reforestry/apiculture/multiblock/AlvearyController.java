@@ -1,6 +1,8 @@
 package com.leon1236.reforestry.apiculture.multiblock;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.jetbrains.annotations.Nullable;
@@ -53,6 +55,10 @@ import com.leon1236.reforestry.core.multiblock.RectangularMultiblockControllerBa
 
 public class AlvearyController extends RectangularMultiblockControllerBase implements IAlvearyControllerInternal, IClimateControlled {
 	private static final int WILDCARD_COLOR = 0xffdc16;
+	private static final int FLOWER_SCAN_RADIUS_XZ = 5;
+	private static final int FLOWER_SCAN_RADIUS_Y = 3;
+	private static final int FLOWER_RESCAN_INTERVAL = 100;
+	private static final int FE_PER_OPERATION = 50;
 
 	private final InventoryBeeHousing inventory;
 	private final IBeekeepingLogic beekeepingLogic;
@@ -65,6 +71,7 @@ public class AlvearyController extends RectangularMultiblockControllerBase imple
 	private IClimateProvider climate = IForestryApi.INSTANCE.getClimateManager().createDummyClimateProvider();
 	private byte temperatureSteps;
 	private byte humiditySteps;
+	private final List<BlockPos> clientFlowerPositions = new ArrayList<>();
 
 	public AlvearyController(Level level) {
 		super(level, AlvearyMultiblockSizeLimits.INSTANCE);
@@ -243,16 +250,74 @@ public class AlvearyController extends RectangularMultiblockControllerBase imple
 		}
 
 		ItemStack queen = this.inventory.getQueen();
-		if (!(queen.getItem() instanceof ItemBeeGE beeItem) || !"queen".equals(beeItem.lifeStage())) {
+		if (queen.isEmpty() || !(queen.getItem() instanceof ItemBeeGE beeItem) || !"queen".equals(beeItem.lifeStage())) {
 			return;
 		}
 
+		if (tickCount % FLOWER_RESCAN_INTERVAL == 0) {
+			scanForFlowers();
+		}
 		if (updateOnInterval(10)) {
+			if (this.beekeepingLogic instanceof BeekeepingLogic logic) {
+				logic.setClientFlowerPositions(this.clientFlowerPositions);
+			}
 			this.beekeepingLogic.doBeeFX();
 		}
 		if (updateOnInterval(50)) {
 			spawnPollenDust(queenColor(queen));
 		}
+	}
+
+	private void scanForFlowers() {
+		this.clientFlowerPositions.clear();
+		BlockPos center = getCenterCoord();
+		for (BlockPos candidate : BlockPos.betweenClosed(
+				center.offset(-FLOWER_SCAN_RADIUS_XZ, -FLOWER_SCAN_RADIUS_Y, -FLOWER_SCAN_RADIUS_XZ),
+				center.offset(FLOWER_SCAN_RADIUS_XZ, FLOWER_SCAN_RADIUS_Y, FLOWER_SCAN_RADIUS_XZ))) {
+			if (this.level.getBlockState(candidate).is(BlockTags.FLOWERS)) {
+				this.clientFlowerPositions.add(candidate.immutable());
+			}
+		}
+	}
+
+	public int getAggregatedEnergyStored() {
+		int stored = 0;
+		for (IAlvearyComponent.Climatiser<?> climatiser : this.climatisers) {
+			if (climatiser instanceof TileAlvearyClimatiser tile) {
+				stored += (int) tile.getEnergyStorage().amount;
+			}
+		}
+		return stored;
+	}
+
+	public int getAggregatedEnergyCapacity() {
+		int capacity = 0;
+		for (IAlvearyComponent.Climatiser<?> climatiser : this.climatisers) {
+			if (climatiser instanceof TileAlvearyClimatiser) {
+				capacity += (int) TileAlvearyClimatiser.CAPACITY;
+			}
+		}
+		return capacity;
+	}
+
+	public int getAggregatedEnergyMaxReceive() {
+		int maxReceive = 0;
+		for (IAlvearyComponent.Climatiser<?> climatiser : this.climatisers) {
+			if (climatiser instanceof TileAlvearyClimatiser) {
+				maxReceive += (int) TileAlvearyClimatiser.MAX_INSERT;
+			}
+		}
+		return maxReceive;
+	}
+
+	public int getAggregatedEnergyUsage() {
+		int usage = 0;
+		for (IAlvearyComponent.Climatiser<?> climatiser : this.climatisers) {
+			if (climatiser instanceof TileAlvearyClimatiser tile && tile.isActive()) {
+				usage += FE_PER_OPERATION;
+			}
+		}
+		return usage;
 	}
 
 	private static int queenColor(ItemStack queen) {

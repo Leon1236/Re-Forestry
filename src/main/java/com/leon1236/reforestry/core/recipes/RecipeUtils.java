@@ -14,6 +14,7 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 
 import com.leon1236.reforestry.api.recipes.ICarpenterRecipe;
+import com.leon1236.reforestry.api.recipes.ICentrifugeRecipe;
 import com.leon1236.reforestry.api.recipes.IFabricatorRecipe;
 import com.leon1236.reforestry.api.recipes.IFabricatorSmeltingRecipe;
 import com.leon1236.reforestry.api.recipes.IFermenterRecipe;
@@ -34,6 +35,26 @@ import com.leon1236.reforestry.factory.recipes.SqueezerRecipe;
 
 public final class RecipeUtils {
     private RecipeUtils() {
+    }
+
+    @Nullable
+    public static ICentrifugeRecipe getCentrifugeRecipe(Level level, ItemStack stack) {
+        if (stack.isEmpty() || level == null) {
+            return null;
+        }
+        Iterable<RecipeHolder<?>> recipes = level instanceof ServerLevel serverLevel
+                ? serverLevel.recipeAccess().getRecipes()
+                : level.recipeAccess().getSynchronizedRecipes().recipes();
+        for (RecipeHolder<?> holder : recipes) {
+            if (holder.value() instanceof ICentrifugeRecipe recipe && recipe.getInput().test(stack)) {
+                return recipe;
+            }
+        }
+        return null;
+    }
+
+    public static boolean isCentrifugeInput(Level level, ItemStack stack) {
+        return getCentrifugeRecipe(level, stack) != null;
     }
 
     public static boolean isSqueezerIngredient(ServerLevel level, ItemStack stack) {

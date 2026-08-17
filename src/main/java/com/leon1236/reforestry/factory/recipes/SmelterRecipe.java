@@ -61,17 +61,23 @@ public record SmelterRecipe(List<IngredientStack> inputs, IngredientStack output
     }
 
     public static boolean canAlloy(ISmelterRecipe recipe, List<ItemStack> contents) {
+        int[] reserved = new int[contents.size()];
         for (IngredientStack input : recipe.getInputs()) {
-            int found = 0;
-            for (ItemStack stack : contents) {
-                if (input.ingredient().test(stack)) {
-                    found += stack.getCount();
-                    if (found >= input.count()) {
-                        break;
-                    }
+            int remaining = input.count();
+            for (int i = 0; i < contents.size() && remaining > 0; i++) {
+                ItemStack stack = contents.get(i);
+                if (stack.isEmpty() || !input.ingredient().test(stack)) {
+                    continue;
                 }
+                int available = stack.getCount() - reserved[i];
+                if (available <= 0) {
+                    continue;
+                }
+                int take = Math.min(remaining, available);
+                reserved[i] += take;
+                remaining -= take;
             }
-            if (found < input.count()) {
+            if (remaining > 0) {
                 return false;
             }
         }

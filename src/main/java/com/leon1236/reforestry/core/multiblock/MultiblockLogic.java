@@ -24,7 +24,7 @@ public abstract class MultiblockLogic<T extends IMultiblockControllerInternal> i
 
 	protected MultiblockLogic(Class<T> controllerClass) {
 		this.controllerClass = controllerClass;
-		this.controller = null;
+		clearController();
 		this.visited = false;
 		this.saveMultiblockData = false;
 		this.cachedMultiblockData = null;
@@ -32,10 +32,19 @@ public abstract class MultiblockLogic<T extends IMultiblockControllerInternal> i
 
 	public void setController(@Nullable IMultiblockControllerInternal controller) {
 		if (controller == null) {
-			this.controller = null;
+			clearController();
 		} else if (this.controllerClass.isAssignableFrom(controller.getClass())) {
 			this.controller = this.controllerClass.cast(controller);
 		}
+	}
+
+	private void clearController() {
+		this.controller = absent();
+	}
+
+	@Nullable
+	private static <X> X absent() {
+		return null;
 	}
 
 	public Class<T> getControllerClass() {
@@ -63,11 +72,23 @@ public abstract class MultiblockLogic<T extends IMultiblockControllerInternal> i
 	}
 
 	protected void detachSelf(Level world, IMultiblockComponent part, boolean chunkUnloading) {
+		if (chunkUnloading) {
+			snapshotMultiblockDataForUnload(world);
+		}
 		if (this.controller != null) {
 			this.controller.detachBlock(part, chunkUnloading);
-			this.controller = null;
+			clearController();
 		}
 		MultiblockRegistry.onPartRemovedFromWorld(world, part);
+	}
+
+	private void snapshotMultiblockDataForUnload(Level world) {
+		if (!isMultiblockSaveDelegate() || this.controller == null) {
+			return;
+		}
+		CompoundTag multiblockData = new CompoundTag();
+		this.controller.write(multiblockData, world.registryAccess());
+		this.cachedMultiblockData = multiblockData;
 	}
 
 	@Override
@@ -82,21 +103,29 @@ public abstract class MultiblockLogic<T extends IMultiblockControllerInternal> i
 
 	@Override
 	public void write(ValueOutput output, HolderLookup.Provider registries) {
-		if (isMultiblockSaveDelegate() && this.controller != null) {
-			CompoundTag multiblockData = new CompoundTag();
-			this.controller.write(multiblockData, registries);
+		CompoundTag multiblockData = getMultiblockDataToSave(registries);
+		if (multiblockData != null) {
 			output.store("multiblockData", CompoundTag.CODEC, multiblockData);
 		}
 	}
 
 	@Override
 	public CompoundTag write(CompoundTag data, HolderLookup.Provider registries) {
-		if (isMultiblockSaveDelegate() && this.controller != null) {
-			CompoundTag multiblockData = new CompoundTag();
-			this.controller.write(multiblockData, registries);
+		CompoundTag multiblockData = getMultiblockDataToSave(registries);
+		if (multiblockData != null) {
 			data.put("multiblockData", multiblockData);
 		}
 		return data;
+	}
+
+	@Nullable
+	private CompoundTag getMultiblockDataToSave(HolderLookup.Provider registries) {
+		if (isMultiblockSaveDelegate() && this.controller != null) {
+			CompoundTag multiblockData = new CompoundTag();
+			this.controller.write(multiblockData, registries);
+			return multiblockData;
+		}
+		return this.cachedMultiblockData;
 	}
 
 	public final void assertDetached(IMultiblockComponent part) {
@@ -105,7 +134,7 @@ public abstract class MultiblockLogic<T extends IMultiblockControllerInternal> i
 			ReForestry.LOGGER.info(
 					"[assert] Part @ ({}, {}, {}) should be detached already, but detected that it was not. This is not a fatal error, and will be repaired, but is unusual.",
 					coords.getX(), coords.getY(), coords.getZ());
-			this.controller = null;
+			clearController();
 		}
 	}
 

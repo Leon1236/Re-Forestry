@@ -15,11 +15,15 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.client.renderer.Rect2i;
 import net.minecraft.network.chat.Component;
+import net.minecraft.client.multiplayer.MultiPlayerGameMode;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
+import com.leon1236.reforestry.api.gui.IContainerClimate;
+import com.leon1236.reforestry.api.gui.IContainerEnergy;
 import com.leon1236.reforestry.api.gui.IContainerRecipeBook;
 import com.leon1236.reforestry.api.gui.IContainerSidedAccess;
 import com.leon1236.reforestry.api.gui.MachineRecipeEntry;
@@ -40,6 +44,14 @@ public abstract class ScreenForestry<T extends AbstractContainerMenu> extends Ab
 	@Nullable
 	private GuiAccessLedger accessLedger;
 	@Nullable
+	private GuiPowerLedger powerLedger;
+	@Nullable
+	private GuiClimateLedger climateLedger;
+	@Nullable
+	private GuiHintLedger hintLedger;
+	@Nullable
+	private String hintKey;
+	@Nullable
 	private FluidVariant recipeGhostFluid;
 	private int recipeGhostAmountMb;
 	@Nullable
@@ -52,6 +64,29 @@ public abstract class ScreenForestry<T extends AbstractContainerMenu> extends Ab
 		}
 		if (menu instanceof ContainerMachine<?> machine && menu instanceof IContainerSidedAccess sidedAccess) {
 			this.accessLedger = new GuiAccessLedger(sidedAccess, machine.getTile());
+		}
+		if (menu instanceof IContainerEnergy energy) {
+			this.powerLedger = new GuiPowerLedger(energy);
+		}
+		if (menu instanceof IContainerClimate climate) {
+			int climateTopOffset = this.powerLedger != null ? 36 : 8;
+			this.climateLedger = new GuiClimateLedger(climate, climateTopOffset);
+		}
+	}
+
+	protected void setHintKey(@Nullable String hintKey) {
+		this.hintKey = hintKey;
+	}
+
+	@Override
+	protected void init() {
+		super.init();
+		this.hintLedger = null;
+		if (this.hintKey != null) {
+			List<String> hints = ForestryHints.get(this.hintKey);
+			if (!hints.isEmpty()) {
+				this.hintLedger = new GuiHintLedger(hints, this.font);
+			}
 		}
 	}
 
@@ -125,8 +160,17 @@ public abstract class ScreenForestry<T extends AbstractContainerMenu> extends Ab
 	@Override
 	public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) {
 		super.extractRenderState(graphics, mouseX, mouseY, partialTick);
+		if (this.hintLedger != null) {
+			this.hintLedger.draw(graphics, this.font, this.leftPos, this.topPos, this.imageHeight, mouseX, mouseY);
+		}
 		if (this.recipeLedger != null) {
 			this.recipeLedger.draw(graphics, this.font, this.leftPos, this.topPos, this.imageHeight, mouseX, mouseY);
+		}
+		if (this.powerLedger != null) {
+			this.powerLedger.draw(graphics, this.font, this.leftPos, this.topPos, this.imageWidth, mouseX, mouseY);
+		}
+		if (this.climateLedger != null) {
+			this.climateLedger.draw(graphics, this.font, this.leftPos, this.topPos, this.imageWidth, mouseX, mouseY);
 		}
 		if (this.accessLedger != null) {
 			this.accessLedger.draw(graphics, this.font, this.leftPos, this.topPos, this.imageWidth, this.imageHeight, mouseX, mouseY);
@@ -135,6 +179,15 @@ public abstract class ScreenForestry<T extends AbstractContainerMenu> extends Ab
 
 	@Override
 	public boolean mouseClicked(MouseButtonEvent event, boolean doubleClick) {
+		if (this.powerLedger != null && this.powerLedger.mouseClicked(event.x(), event.y())) {
+			return true;
+		}
+		if (this.climateLedger != null && this.climateLedger.mouseClicked(event.x(), event.y())) {
+			return true;
+		}
+		if (this.hintLedger != null && this.hintLedger.mouseClicked(event.x(), event.y())) {
+			return true;
+		}
 		if (tryAccessLedgerClick(event)) {
 			return true;
 		}
@@ -145,22 +198,6 @@ public abstract class ScreenForestry<T extends AbstractContainerMenu> extends Ab
 			return true;
 		}
 		return super.mouseClicked(event, doubleClick);
-	}
-
-	@Override
-	public boolean mouseDragged(MouseButtonEvent event, double dx, double dy) {
-		if (this.accessLedger != null && this.accessLedger.mouseDragged(event.x(), event.y())) {
-			return true;
-		}
-		return super.mouseDragged(event, dx, dy);
-	}
-
-	@Override
-	public boolean mouseReleased(MouseButtonEvent event) {
-		if (tryAccessLedgerRelease(event)) {
-			return true;
-		}
-		return super.mouseReleased(event);
 	}
 
 	@Override
@@ -175,26 +212,25 @@ public abstract class ScreenForestry<T extends AbstractContainerMenu> extends Ab
 		if (this.accessLedger == null || !(this.menu instanceof IContainerSidedAccess)) {
 			return false;
 		}
-		return this.accessLedger.mouseClicked(event.x(), event.y(), buttonId -> {
-			if (this.menu.clickMenuButton(this.minecraft.player, buttonId)) {
-				this.minecraft.gameMode.handleInventoryButtonClick(this.menu.containerId, buttonId);
-			}
-		});
-	}
-
-	protected boolean tryAccessLedgerRelease(MouseButtonEvent event) {
-		if (this.accessLedger == null || !(this.menu instanceof IContainerSidedAccess)) {
+		LocalPlayer player = this.minecraft.player;
+		MultiPlayerGameMode gameMode = this.minecraft.gameMode;
+		if (player == null || gameMode == null) {
 			return false;
 		}
-		return this.accessLedger.mouseReleased(event.x(), event.y(), buttonId -> {
-			if (this.menu.clickMenuButton(this.minecraft.player, buttonId)) {
-				this.minecraft.gameMode.handleInventoryButtonClick(this.menu.containerId, buttonId);
+		return this.accessLedger.mouseClicked(event.x(), event.y(), buttonId -> {
+			if (this.menu.clickMenuButton(player, buttonId)) {
+				gameMode.handleInventoryButtonClick(this.menu.containerId, buttonId);
 			}
 		});
 	}
 
 	protected boolean tryRecipeLedgerClick(MouseButtonEvent event) {
 		if (this.recipeLedger == null || !(this.menu instanceof IContainerRecipeBook recipeBook)) {
+			return false;
+		}
+		LocalPlayer player = this.minecraft.player;
+		MultiPlayerGameMode gameMode = this.minecraft.gameMode;
+		if (player == null || gameMode == null) {
 			return false;
 		}
 		return this.recipeLedger.mouseClicked(event.x(), event.y(), index -> {
@@ -213,8 +249,8 @@ public abstract class ScreenForestry<T extends AbstractContainerMenu> extends Ab
 				}
 			}
 			int buttonId = IContainerRecipeBook.recipeButtonId(index);
-			if (this.menu.clickMenuButton(this.minecraft.player, buttonId)) {
-				this.minecraft.gameMode.handleInventoryButtonClick(this.menu.containerId, buttonId);
+			if (this.menu.clickMenuButton(player, buttonId)) {
+				gameMode.handleInventoryButtonClick(this.menu.containerId, buttonId);
 			}
 		});
 	}
@@ -223,14 +259,19 @@ public abstract class ScreenForestry<T extends AbstractContainerMenu> extends Ab
 		if (!(this.menu instanceof IContainerLiquidTanks)) {
 			return false;
 		}
+		LocalPlayer player = this.minecraft.player;
+		MultiPlayerGameMode gameMode = this.minecraft.gameMode;
+		if (player == null || gameMode == null) {
+			return false;
+		}
 		ItemStack carried = this.menu.getCarried();
 		if (!PipetteTankHelper.canHandleClick(carried)) {
 			return false;
 		}
 		for (TankClickRegion region : this.tankRegions) {
 			if (isHovering(region.x, region.y, region.width, region.height, event.x(), event.y())
-					&& this.menu.clickMenuButton(this.minecraft.player, region.tankSlot)) {
-				this.minecraft.gameMode.handleInventoryButtonClick(this.menu.containerId, region.tankSlot);
+					&& this.menu.clickMenuButton(player, region.tankSlot)) {
+				gameMode.handleInventoryButtonClick(this.menu.containerId, region.tankSlot);
 				return true;
 			}
 		}
@@ -284,8 +325,17 @@ public abstract class ScreenForestry<T extends AbstractContainerMenu> extends Ab
 
 	public List<Rect2i> getRecipeLedgerAreas() {
 		List<Rect2i> areas = new ArrayList<>();
+		if (this.hintLedger != null) {
+			areas.addAll(this.hintLedger.getExtraAreas());
+		}
 		if (this.recipeLedger != null) {
 			areas.addAll(this.recipeLedger.getExtraAreas());
+		}
+		if (this.powerLedger != null) {
+			areas.addAll(this.powerLedger.getExtraAreas());
+		}
+		if (this.climateLedger != null) {
+			areas.addAll(this.climateLedger.getExtraAreas());
 		}
 		if (this.accessLedger != null) {
 			areas.addAll(this.accessLedger.getExtraAreas());

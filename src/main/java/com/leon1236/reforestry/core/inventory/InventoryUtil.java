@@ -7,6 +7,8 @@ import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 
+import com.leon1236.reforestry.core.recipes.IngredientStack;
+
 public final class InventoryUtil {
     public static final int[] NO_SLOTS = new int[0];
 
@@ -68,6 +70,28 @@ public final class InventoryUtil {
         return true;
     }
 
+    public static boolean canConsumeIngredientStacks(Container inventory, int slotStart, int slotCount, List<IngredientStack> requirements) {
+        return createConsumeStacks(requirements, slotCount, index -> inventory.getItem(slotStart + index)).length > 0;
+    }
+
+    public static boolean consumeIngredientStacks(Container inventory, int slotStart, int slotCount, List<IngredientStack> requirements) {
+        int[] consumeStacks = createConsumeStacks(requirements, slotCount, index -> inventory.getItem(slotStart + index));
+        if (consumeStacks.length == 0) {
+            return false;
+        }
+        for (int i = 0; i < consumeStacks.length; i++) {
+            int count = consumeStacks[i];
+            if (count <= 0) {
+                continue;
+            }
+            ItemStack removed = inventory.removeItem(slotStart + i, count);
+            if (removed.getCount() < count) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     private static final int[] EMPTY_CONSUME = new int[0];
 
     private static int[] createConsume(List<Ingredient> ingredients, int stockCount, java.util.function.IntFunction<ItemStack> stock) {
@@ -93,10 +117,42 @@ public final class InventoryUtil {
         return required;
     }
 
+    private static int[] createConsumeStacks(List<IngredientStack> requirements, int stockCount, java.util.function.IntFunction<ItemStack> stock) {
+        int[] required = new int[stockCount];
+        for (IngredientStack requirement : requirements) {
+            Ingredient ingredient = requirement.ingredient();
+            int remaining = requirement.count();
+            if (ingredient.isEmpty() || remaining <= 0) {
+                return EMPTY_CONSUME;
+            }
+            for (int i = 0; i < stockCount && remaining > 0; i++) {
+                ItemStack offer = stock.apply(i);
+                if (offer.isEmpty() || !ingredient.test(offer)) {
+                    continue;
+                }
+                int available = offer.getCount() - required[i];
+                if (available <= 0) {
+                    continue;
+                }
+                int take = Math.min(remaining, available);
+                required[i] += take;
+                remaining -= take;
+            }
+            if (remaining > 0) {
+                return EMPTY_CONSUME;
+            }
+        }
+        return required;
+    }
+
     public static boolean tryAddStack(Container inventory, ItemStack stack, int startSlot, int slots, boolean all) {
+        return tryAddStack(inventory, stack, startSlot, slots, all, true);
+    }
+
+    public static boolean tryAddStack(Container inventory, ItemStack stack, int startSlot, int slots, boolean all, boolean doAdd) {
         int added = addStack(inventory, stack, startSlot, slots, false);
         boolean success = all ? added == stack.getCount() : added > 0;
-        if (success) {
+        if (success && doAdd) {
             addStack(inventory, stack, startSlot, slots, true);
         }
         return success;

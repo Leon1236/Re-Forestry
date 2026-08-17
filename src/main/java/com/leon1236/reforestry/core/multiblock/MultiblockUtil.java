@@ -50,10 +50,10 @@ public final class MultiblockUtil {
 			BlockGetter world, BlockPos pos, Class<C> componentClass, Class<L> logicClass) {
 		C component = getComponent(world, pos, componentClass);
 		if (component == null) {
-			return null;
+			return absent();
 		}
 		IMultiblockLogic logic = component.getMultiblockLogic();
-		return logicClass.isInstance(logic) ? logicClass.cast(logic) : null;
+		return logicClass.isInstance(logic) ? logicClass.cast(logic) : absent();
 	}
 
 	@Nullable
@@ -61,9 +61,14 @@ public final class MultiblockUtil {
 			BlockGetter world, BlockPos pos, Class<C> componentClass, Class<L> logicClass, Class<M> controllerClass) {
 		L logic = getLogic(world, pos, componentClass, logicClass);
 		if (logic == null || !logic.isConnected()) {
-			return null;
+			return absent();
 		}
 		IMultiblockController controller = logic.getController();
-		return controllerClass.isInstance(controller) ? controllerClass.cast(controller) : null;
+		return controllerClass.isInstance(controller) ? controllerClass.cast(controller) : absent();
+	}
+
+	@Nullable
+	private static <X> X absent() {
+		return null;
 	}
 }

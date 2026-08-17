@@ -7,6 +7,8 @@ import java.util.Optional;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
+import org.jetbrains.annotations.Nullable;
+
 import com.google.common.collect.ImmutableMap;
 
 import net.minecraft.core.BlockPos;
@@ -31,20 +33,35 @@ public final class Mating {
     public record MatingResult(IGenome genome, Optional<Mutation> mutation) {
     }
 
+    @FunctionalInterface
+    public interface MutationChanceModifier {
+        float modify(Mutation mutation, float chance, IGenome parent1, IGenome parent2);
+    }
+
     public static <S extends IRegistryAlleleValue> MatingResult resolveOffspringGenome(
             IRegistryChromosome<S> speciesChromosome,
             Function<Identifier, IGenome> defaultGenomeLookup,
             BiFunction<Identifier, Identifier, List<Mutation>> mutationsLookup,
             IGenome parent1, IGenome parent2, Level level, BlockPos pos, RandomSource random) {
+        return resolveOffspringGenome(speciesChromosome, defaultGenomeLookup, mutationsLookup,
+                parent1, parent2, level, pos, random, null);
+    }
+
+    public static <S extends IRegistryAlleleValue> MatingResult resolveOffspringGenome(
+            IRegistryChromosome<S> speciesChromosome,
+            Function<Identifier, IGenome> defaultGenomeLookup,
+            BiFunction<Identifier, Identifier, List<Mutation>> mutationsLookup,
+            IGenome parent1, IGenome parent2, Level level, BlockPos pos, RandomSource random,
+            @Nullable MutationChanceModifier chanceModifier) {
         IKaryotype karyotype = parent1.karyotype();
 
         Identifier active1 = parent1.getActiveAllele(speciesChromosome).value().id();
         Identifier active2 = parent2.getActiveAllele(speciesChromosome).value().id();
-        Optional<Mutation> mutation = attemptMutation(mutationsLookup, active1, active2, level, pos, parent1, parent2, random);
+        Optional<Mutation> mutation = attemptMutation(mutationsLookup, active1, active2, level, pos, parent1, parent2, random, chanceModifier);
         if (mutation.isEmpty()) {
             Identifier inactive1 = parent1.getInactiveAllele(speciesChromosome).value().id();
             Identifier inactive2 = parent2.getInactiveAllele(speciesChromosome).value().id();
-            mutation = attemptMutation(mutationsLookup, inactive1, inactive2, level, pos, parent1, parent2, random);
+            mutation = attemptMutation(mutationsLookup, inactive1, inactive2, level, pos, parent1, parent2, random, chanceModifier);
         }
 
         ImmutableMap.Builder<IChromosome<?>, AllelePair<?>> resultChromosomes = ImmutableMap.builder();
@@ -76,11 +93,15 @@ public final class Mating {
 
     private static Optional<Mutation> attemptMutation(BiFunction<Identifier, Identifier, List<Mutation>> mutationsLookup,
                                                         Identifier firstSpecies, Identifier secondSpecies, Level level,
-                                                        BlockPos pos, IGenome parent1, IGenome parent2, RandomSource random) {
+                                                        BlockPos pos, IGenome parent1, IGenome parent2, RandomSource random,
+                                                        @Nullable MutationChanceModifier chanceModifier) {
         List<Mutation> candidates = new ArrayList<>(mutationsLookup.apply(firstSpecies, secondSpecies));
         shuffle(candidates, random);
         for (Mutation candidate : candidates) {
             float chance = candidate.getChance(level, pos, parent1, parent2);
+            if (chanceModifier != null) {
+                chance = chanceModifier.modify(candidate, chance, parent1, parent2);
+            }
             if (chance > 0f && random.nextFloat() < chance) {
                 return Optional.of(candidate);
             }

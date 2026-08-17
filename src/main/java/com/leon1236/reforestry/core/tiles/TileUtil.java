@@ -35,6 +35,11 @@ public final class TileUtil {
 		if (tileClass.isInstance(tileEntity)) {
 			return tileClass.cast(tileEntity);
 		}
+		return absent();
+	}
+
+	@Nullable
+	private static <X> X absent() {
 		return null;
 	}
 

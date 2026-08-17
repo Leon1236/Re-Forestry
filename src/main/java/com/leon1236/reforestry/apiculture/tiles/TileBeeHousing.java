@@ -10,6 +10,7 @@ import com.mojang.authlib.GameProfile;
 import net.fabricmc.fabric.api.menu.v1.ExtendedMenuProvider;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.particles.DustParticleOptions;
@@ -19,6 +20,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.util.ARGB;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.WorldlyContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -49,13 +51,15 @@ import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.apiculture.ApiaryBeeListener;
 import com.leon1236.reforestry.apiculture.ApiaryBeeModifier;
 import com.leon1236.reforestry.apiculture.BeehouseBeeModifier;
+import com.leon1236.reforestry.apiculture.InventoryBeeHousing;
 import com.leon1236.reforestry.apiculture.features.ApicultureDataComponents;
 import com.leon1236.reforestry.apiculture.genetics.BeeChromosomes;
 import com.leon1236.reforestry.apiculture.genetics.BeekeepingLogic;
 import com.leon1236.reforestry.apiculture.gui.ContainerBeeHousing;
 import com.leon1236.reforestry.apiculture.items.ItemBeeGE;
+import com.leon1236.reforestry.core.inventory.InventoryUtil;
 
-public class TileBeeHousing extends BlockEntity implements Container, IBeeHousing, IBeeHousingInventory,
+public class TileBeeHousing extends BlockEntity implements WorldlyContainer, IBeeHousing, IBeeHousingInventory,
         ExtendedMenuProvider<BlockPos> {
     public static final int SLOT_QUEEN = 0;
     public static final int SLOT_DRONE = 1;
@@ -79,6 +83,8 @@ public class TileBeeHousing extends BlockEntity implements Container, IBeeHousin
     private int workProgressPercent;
     private final int[] syncedErrorIds = new int[ERROR_SLOT_COUNT];
     private int syncedErrorCount;
+    private int syncedTemperatureOrdinal;
+    private int syncedHumidityOrdinal;
     private final ContainerData progressData = new ContainerData() {
         @Override
         public int get(int index) {
@@ -122,6 +128,39 @@ public class TileBeeHousing extends BlockEntity implements Container, IBeeHousin
             return ERROR_SLOT_COUNT + 1;
         }
     };
+    private final ContainerData climateData = new ContainerData() {
+        @Override
+        public int get(int index) {
+            Level level = getLevel();
+            if (level != null && level.isClientSide()) {
+                return switch (index) {
+                    case 0 -> syncedTemperatureOrdinal;
+                    case 1 -> syncedHumidityOrdinal;
+                    default -> 0;
+                };
+            }
+            return switch (index) {
+                case 0 -> temperature().ordinal();
+                case 1 -> humidity().ordinal();
+                default -> 0;
+            };
+        }
+
+        @Override
+        public void set(int index, int value) {
+            switch (index) {
+                case 0 -> syncedTemperatureOrdinal = value;
+                case 1 -> syncedHumidityOrdinal = value;
+                default -> {
+                }
+            }
+        }
+
+        @Override
+        public int getCount() {
+            return 2;
+        }
+    };
 
     public TileBeeHousing(BlockEntityType<?> type, BlockPos pos, BlockState state, String translationKey, boolean hasFrames) {
         super(type, pos, state);
@@ -148,6 +187,10 @@ public class TileBeeHousing extends BlockEntity implements Container, IBeeHousin
 
     public ContainerData getErrorData() {
         return errorData;
+    }
+
+    public ContainerData getClimateData() {
+        return climateData;
     }
 
     @Override
@@ -403,9 +446,33 @@ public class TileBeeHousing extends BlockEntity implements Container, IBeeHousin
             return false;
         }
         if (slot >= SLOT_FRAME_1) {
-            return stack.getItem() instanceof IHiveFrame;
+            return stack.getItem() instanceof IHiveFrame && getItem(slot).isEmpty();
         }
-        return true;
+        return InventoryBeeHousing.canAcceptBee(slot, stack);
+    }
+
+    @Override
+    public int[] getSlotsForFace(Direction direction) {
+        if (!hasFrames) {
+            return InventoryUtil.NO_SLOTS;
+        }
+        return InventoryUtil.contiguousSlots(SLOT_COUNT);
+    }
+
+    @Override
+    public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction direction) {
+        if (!hasFrames || slot >= SLOT_FRAME_1) {
+            return false;
+        }
+        return canPlaceItem(slot, stack);
+    }
+
+    @Override
+    public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction direction) {
+        if (!hasFrames) {
+            return false;
+        }
+        return InventoryBeeHousing.isProductSlot(slot);
     }
 
     @Override

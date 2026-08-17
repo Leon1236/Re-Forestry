@@ -2,7 +2,9 @@ package com.leon1236.reforestry.apiculture.gui;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
 
 import com.leon1236.reforestry.apiculture.features.ApicultureMenuTypes;
 import com.leon1236.reforestry.apiculture.multiblock.TileAlvearySieve;
@@ -23,9 +25,32 @@ public class ContainerAlvearySieve extends ContainerAlvearyPart<TileAlvearySieve
     @Override
     protected void addPartSlots(TileAlvearySieve tile) {
         for (int i = 0; i < POLLEN_SLOT_POSITIONS.length; i++) {
-            addSlot(new Slot(tile, TileAlvearySieve.SLOT_POLLEN_1 + i,
+            addSlot(new SieveSlot(tile, TileAlvearySieve.SLOT_POLLEN_1 + i,
                     POLLEN_SLOT_POSITIONS[i][0], POLLEN_SLOT_POSITIONS[i][1]));
         }
-        addSlot(new Slot(tile, TileAlvearySieve.SLOT_SIEVE, 43, 39));
+        addSlot(new SieveSlot(tile, TileAlvearySieve.SLOT_SIEVE, 43, 39));
+    }
+
+    private static final class SieveSlot extends Slot {
+        private final TileAlvearySieve tile;
+        private final int slotIndex;
+
+        SieveSlot(TileAlvearySieve tile, int slotIndex, int x, int y) {
+            super(tile, slotIndex, x, y);
+            this.tile = tile;
+            this.slotIndex = slotIndex;
+        }
+
+        @Override
+        public void onTake(Player player, ItemStack stack) {
+            super.onTake(player, stack);
+            if (slotIndex == TileAlvearySieve.SLOT_SIEVE) {
+                for (int i = 0; i < TileAlvearySieve.SLOT_POLLEN_COUNT; i++) {
+                    tile.setItem(TileAlvearySieve.SLOT_POLLEN_1 + i, ItemStack.EMPTY);
+                }
+            } else {
+                tile.setItem(TileAlvearySieve.SLOT_SIEVE, ItemStack.EMPTY);
+            }
+        }
     }
 }

@@ -8,7 +8,7 @@
   ],
   "output": {
     "fluid": "reforestry:milk",
-    "amount": 500
+    "amount": 50
   },
   "remnant": {
     "item": "reforestry:mulch",
