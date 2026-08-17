@@ -30,6 +30,7 @@ public class ReForestry implements ModInitializer {
 				new ModuleArboriculture(),
 				new ModuleFactory(),
 				new ModuleStorage()));
+		ModuleStorage.registerOptionalCrates();
 	}
 
 	public static Identifier id(String path) {

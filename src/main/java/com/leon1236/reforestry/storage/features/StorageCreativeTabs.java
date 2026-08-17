@@ -11,6 +11,9 @@ public class StorageCreativeTabs {
 	public static final FeatureCreativeTab STORAGE = REGISTRY.creativeTab("storage", tab -> {
 		tab.icon(() -> BackpackItems.MINER_BACKPACK.item().getDefaultInstance());
 		tab.displayItems((parameters, output) -> {
+			output.accept(BackpackItems.APIARIST_BACKPACK.item());
+			output.accept(BackpackItems.ARBORIST_BACKPACK.item());
+			output.accept(BackpackItems.LEPIDOPTERIST_BACKPACK.item());
 			output.accept(BackpackItems.MINER_BACKPACK.item());
 			output.accept(BackpackItems.MINER_BACKPACK_T_2.item());
 			output.accept(BackpackItems.DIGGER_BACKPACK.item());
@@ -25,6 +28,10 @@ public class StorageCreativeTabs {
 			output.accept(BackpackItems.BUILDER_BACKPACK_T_2.item());
 			output.accept(BackpackItems.BREWER_BACKPACK.item());
 			output.accept(BackpackItems.BREWER_BACKPACK_T_2.item());
+			output.accept(CrateItems.CRATE.item());
+			for (var crate : CrateItems.getCrates()) {
+				output.accept(crate.item());
+			}
 		});
 	});
 

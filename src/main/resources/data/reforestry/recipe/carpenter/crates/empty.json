@@ -1,0 +1,25 @@
+{
+  "type": "reforestry:carpenter",
+  "time": 20,
+  "recipe": {
+    "category": "misc",
+    "type": "minecraft:crafting_shaped",
+    "key": {
+      "#": "#minecraft:logs"
+    },
+    "pattern": [
+      " # ",
+      "# #",
+      " # "
+    ],
+    "result": {
+      "id": "reforestry:crate",
+      "count": 24
+    },
+    "show_notification": true
+  },
+  "liquid": {
+    "fluid": "minecraft:water",
+    "amount": 1000
+  }
+}

@@ -13,5 +13,6 @@ public class StorageClientHandler implements IClientModuleHandler {
 	@Override
 	public void registerClient() {
 		MenuScreens.register(StorageMenuTypes.BACKPACK.type(), ScreenBackpack::new);
+		MenuScreens.register(StorageMenuTypes.NATURALIST_BACKPACK.type(), ScreenNaturalistInventory::new);
 	}
 }

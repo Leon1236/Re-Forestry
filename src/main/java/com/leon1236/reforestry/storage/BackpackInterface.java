@@ -12,6 +12,7 @@ import com.leon1236.reforestry.api.storage.EnumBackpackType;
 import com.leon1236.reforestry.api.storage.IBackpackDefinition;
 import com.leon1236.reforestry.api.storage.IBackpackInterface;
 import com.leon1236.reforestry.storage.items.ItemBackpack;
+import com.leon1236.reforestry.storage.items.ItemBackpackNaturalist;
 
 public class BackpackInterface implements IBackpackInterface {
 	@Override
@@ -31,7 +32,7 @@ public class BackpackInterface implements IBackpackInterface {
 		Objects.requireNonNull(speciesTypeId, "speciesTypeId must not be null");
 		Objects.requireNonNull(tab, "tab must not be null");
 		Objects.requireNonNull(properties, "properties must not be null");
-		throw new UnsupportedOperationException("ItemBackpackNaturalist lands in Track B4");
+		return new ItemBackpackNaturalist(speciesTypeId, definition, properties);
 	}
 
 	@Override

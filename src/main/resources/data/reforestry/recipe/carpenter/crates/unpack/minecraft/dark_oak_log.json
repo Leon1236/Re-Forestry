@@ -1,0 +1,16 @@
+{
+  "type": "reforestry:carpenter",
+  "time": 5,
+  "recipe": {
+    "category": "misc",
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+      "reforestry:crated_dark_oak_log"
+    ],
+    "result": {
+      "id": "minecraft:dark_oak_log",
+      "count": 9
+    },
+    "show_notification": true
+  }
+}

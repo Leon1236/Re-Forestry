@@ -1,0 +1,16 @@
+{
+  "type": "reforestry:carpenter",
+  "time": 5,
+  "recipe": {
+    "category": "misc",
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+      "reforestry:crated_humus"
+    ],
+    "result": {
+      "id": "reforestry:humus",
+      "count": 9
+    },
+    "show_notification": true
+  }
+}

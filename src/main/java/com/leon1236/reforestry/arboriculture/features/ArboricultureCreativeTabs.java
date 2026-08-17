@@ -7,6 +7,8 @@ import net.minecraft.world.item.ItemStack;
 
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.arboriculture.ForestryWoodType;
+import com.leon1236.reforestry.modules.ModuleManager;
+import com.leon1236.reforestry.storage.features.BackpackItems;
 import com.leon1236.reforestry.arboriculture.VanillaWoodType;
 import com.leon1236.reforestry.arboriculture.genetics.ArboricultureGenetics;
 import com.leon1236.reforestry.modules.features.FeatureBlock;
@@ -61,6 +63,9 @@ public class ArboricultureCreativeTabs {
     public static final FeatureCreativeTab ARBORICULTURE = REGISTRY.creativeTab("arboriculture", tab -> {
         tab.icon(() -> ArboricultureBlocks.FIREPROOF_LOG.get(VanillaWoodType.OAK).item().getDefaultInstance());
         tab.displayItems((parameters, output) -> {
+            if (ModuleManager.INSTANCE.isModuleLoaded(ReForestry.id("storage"))) {
+                output.accept(BackpackItems.ARBORIST_BACKPACK.item());
+            }
             output.accept(ArboricultureItems.GRAFTER.item());
             output.accept(ArboricultureItems.GRAFTER_PROVEN.item());
             for (Identifier speciesId : ArboricultureGenetics.getAllSpeciesIds()) {

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "#minecraft:wool",
+    "V": "#c:rods/wooden",
+    "X": "#c:strings",
+    "Y": "reforestry:bee_chest"
+  },
+  "pattern": [
+    "X#X",
+    "VYV",
+    "X#X"
+  ],
+  "result": {
+    "id": "reforestry:apiarist_bag"
+  }
+}

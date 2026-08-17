@@ -5,6 +5,8 @@ import net.minecraft.world.item.ItemStack;
 
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.apiculture.blocks.BlockHiveType;
+import com.leon1236.reforestry.modules.ModuleManager;
+import com.leon1236.reforestry.storage.features.BackpackItems;
 import com.leon1236.reforestry.apiculture.genetics.ApicultureGenetics;
 import com.leon1236.reforestry.apiculture.items.EnumHoneyComb;
 import com.leon1236.reforestry.modules.features.FeatureCreativeTab;
@@ -29,6 +31,9 @@ public class ApicultureCreativeTabs {
                 if (hive.getKey() != BlockHiveType.SWARM && hive.getValue().item() != null) {
                     output.accept(hive.getValue().item());
                 }
+            }
+            if (ModuleManager.INSTANCE.isModuleLoaded(ReForestry.id("storage"))) {
+                output.accept(BackpackItems.APIARIST_BACKPACK.item());
             }
             output.accept(ApicultureItems.SCOOP.item());
             output.accept(ApicultureItems.SCOOP_PROVEN.item());

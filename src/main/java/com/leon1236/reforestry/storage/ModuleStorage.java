@@ -10,12 +10,16 @@ import net.minecraft.resources.Identifier;
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.api.ForestryTags;
 import com.leon1236.reforestry.api.client.IClientModuleHandler;
+import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
 import com.leon1236.reforestry.api.modules.ForestryModule;
 import com.leon1236.reforestry.api.modules.IForestryModule;
 import com.leon1236.reforestry.api.storage.IBackpackInterface;
+import com.leon1236.reforestry.apiculture.features.ApicultureCrates;
 import com.leon1236.reforestry.core.config.ForestryConfig;
+import com.leon1236.reforestry.modules.ModuleManager;
 import com.leon1236.reforestry.storage.client.StorageClientHandler;
 import com.leon1236.reforestry.storage.features.BackpackItems;
+import com.leon1236.reforestry.storage.features.CrateItems;
 import com.leon1236.reforestry.storage.features.StorageCreativeTabs;
 import com.leon1236.reforestry.storage.features.StorageDataComponents;
 import com.leon1236.reforestry.storage.features.StorageItems;
@@ -33,6 +37,9 @@ public class ModuleStorage implements IForestryModule {
 	public static final BackpackDefinition ADVENTURER = new BackpackDefinition(0x7fb8c2, WHITE, new BackpackFilter(ForestryTags.Items.ADVENTURER_ALLOW, ForestryTags.Items.ADVENTURER_REJECT));
 	public static final BackpackDefinition BUILDER = new BackpackDefinition(0xdd3a3a, WHITE, new BackpackFilter(ForestryTags.Items.BUILDER_ALLOW, ForestryTags.Items.BUILDER_REJECT));
 	public static final BackpackDefinition BREWER = new BackpackDefinition(0xBD7CBD, WHITE, new BackpackFilter(ForestryTags.Items.BREWER_ALLOW, ForestryTags.Items.BREWER_REJECT));
+	public static final BackpackDefinition APIARIST = new BackpackDefinition(0xc4923d, WHITE, BACKPACK_INTERFACE.createNaturalistBackpackFilter(ForestrySpeciesTypes.BEE));
+	public static final BackpackDefinition ARBORIST = new BackpackDefinition(0x657e3a, WHITE, BACKPACK_INTERFACE.createNaturalistBackpackFilter(ForestrySpeciesTypes.TREE));
+	public static final BackpackDefinition LEPIDOPTERIST = new BackpackDefinition(0x995b31, WHITE, BACKPACK_INTERFACE.createNaturalistBackpackFilter(ForestrySpeciesTypes.BUTTERFLY));
 
 	@Override
 	public Identifier getId() {
@@ -48,6 +55,7 @@ public class ModuleStorage implements IForestryModule {
 	public void init() {
 		StorageDataComponents.init();
 		StorageItems.init();
+		CrateItems.init();
 		BackpackItems.init();
 		StorageMenuTypes.init();
 		StorageCreativeTabs.init();
@@ -64,5 +72,14 @@ public class ModuleStorage implements IForestryModule {
 	@Override
 	public void registerClientHandler(Consumer<IClientModuleHandler> registrar) {
 		registrar.accept(new StorageClientHandler());
+	}
+
+	public static void registerOptionalCrates() {
+		if (!ModuleManager.INSTANCE.isModuleLoaded(ReForestry.id("storage"))) {
+			return;
+		}
+		if (ModuleManager.INSTANCE.isModuleLoaded(ReForestry.id("apiculture"))) {
+			ApicultureCrates.init();
+		}
 	}
 }

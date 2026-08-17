@@ -7,6 +7,7 @@ import net.minecraft.world.item.ItemStack;
 
 import com.leon1236.reforestry.api.storage.IBackpackDefinition;
 import com.leon1236.reforestry.storage.gui.ContainerBackpack;
+import com.leon1236.reforestry.storage.gui.ContainerNaturalistBackpack;
 import com.leon1236.reforestry.storage.items.ItemBackpack;
 
 public final class PickupHandlerStorage {
@@ -18,7 +19,7 @@ public final class PickupHandlerStorage {
 		if (itemstack.isEmpty()) {
 			return false;
 		}
-		if (player.containerMenu instanceof ContainerBackpack) {
+		if (player.containerMenu instanceof ContainerBackpack || player.containerMenu instanceof ContainerNaturalistBackpack) {
 			return false;
 		}
 		topOffPlayerInventory(player, itemstack);

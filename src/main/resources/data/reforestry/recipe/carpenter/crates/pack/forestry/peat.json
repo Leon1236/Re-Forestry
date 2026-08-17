@@ -1,0 +1,26 @@
+{
+  "type": "reforestry:carpenter",
+  "time": 5,
+  "recipe": {
+    "category": "misc",
+    "type": "minecraft:crafting_shaped",
+    "key": {
+      "#": "reforestry:peat"
+    },
+    "pattern": [
+      "###",
+      "###",
+      "###"
+    ],
+    "result": {
+      "id": "reforestry:crated_peat",
+      "count": 1
+    },
+    "show_notification": true
+  },
+  "box": "reforestry:crate",
+  "liquid": {
+    "fluid": "minecraft:water",
+    "amount": 100
+  }
+}
