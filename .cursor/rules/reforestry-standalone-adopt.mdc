@@ -1,0 +1,33 @@
+---
+description: Adopted external code must be standalone — no hard deps on other mods unless intentional interop
+alwaysApply: true
+---
+
+# Standalone mod — no accidental foreign-mod deps
+
+Re-Forestry is a **standalone** Fabric mod. Reference clones (GitHub under `MarkDown_Maker/`, MCP dumps, other mods) are **source to adopt**, not libraries to depend on.
+
+## When adopting external code
+
+1. **Copy/adapt into `com.leon1236.reforestry.*`** (and `reforestry` assets/data). Strip foreign package names from shipped code.
+2. **Do not** add the donor mod to `fabric.mod.json` `depends`, `recommends`, or `suggests` just because you reused its ideas or pasted its logic.
+3. **Rewrite away** donor-specific APIs (their items, registries, capabilities, attachment types, network ids, config mods, Trinkets/Curios-only paths, etc.) into Re-Forestry / Fabric API / vanilla equivalents.
+4. **API-first:** public contracts live under `api/`; impl dogfoods them. The game and addons must not need the donor mod installed.
+
+## When a foreign mod dependency *is* allowed
+
+Only for **intentional interop** — Re-Forestry deliberately connects to that mod (e.g. JEI recipe plugin, optional Trinkets slot, energy API already chosen for the project).
+
+| Allowed | Not allowed |
+|---------|-------------|
+| Soft/optional compat under `compat/` + `FabricLoader.isModLoaded` | Core backpacks, machines, genetics requiring another content mod |
+| Documented stack deps (Fabric API, Energy, etc.) | `depends` on Traveler’s Backpack, Forestry CE jar, etc. because code was adopted from them |
+| Optional entrypoints (`jei_mod_plugin`, …) | Importing `com.tiviacz.*` / other mod classes from `src/` |
+
+## Checklist before merging adopted code
+
+- [ ] No compile/runtime reference to the donor mod’s classes or mod id (unless this change *is* that compat)
+- [ ] `fabric.mod.json` / Gradle deps unchanged for the donor (unless intentional interop)
+- [ ] Behavior works with **only** Re-Forestry + its declared stack installed
+
+Donor clones stay under `MarkDown_Maker/` / MCP — never treat them as a required install for players.

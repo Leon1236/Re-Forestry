@@ -6,10 +6,11 @@ alwaysApply: true
 # Conventions
 
 - **No code comments** — clean code only.
-- **Mirror CE** paths and names; registry ids are contracts, not style.
+- **Mirror CE** registry ids and feature names; registry ids are contracts, not style. Primary CE is **1.21.1**; keep our current package layout.
 - **Prefer Fabric API hooks over Mixins.** Mixin only when no hook exists; keep it minimal.
 - **No Fabric equivalent?** Write down the chosen approach (in the change summary / CLAUDE.md when durable) — do not improvise silently.
 - **API-first:** new systems get a public `api/` interface before the implementation. Dogfood via `IForestryPlugin` / `reforestry:plugin` entrypoint.
+- **Standalone adopt:** code from GitHub clones / other mods is copied into our packages — no player dependency on the donor mod unless the change is intentional interop. See `reforestry-standalone-adopt.mdc`.
 - **Bulk data** (species, mutations, block families): extract via scripts in `tools/` — never type from memory. Reuse/extend existing tools; new repeatable scripts go in `tools/` with a one-line usage comment at the top.
 - **Namespace renames:** use `tools/rename_namespace.py`, not hand edits.
 - **Addon modules** stay under one namespace: `reforestry:gendustry`, `reforestry:extra_bees`, `reforestry:extra_trees`.

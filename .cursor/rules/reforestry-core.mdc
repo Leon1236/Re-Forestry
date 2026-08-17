@@ -11,7 +11,7 @@ alwaysApply: true
 
 **Namespace & packages**
 - Registry/resource namespace: `reforestry` (blocks, items, assets, data).
-- Java root: `com.leon1236.reforestry.<module>.*` (mirrors CE's `forestry.<module>.*`).
+- Java root: `com.leon1236.reforestry.<module>.*` (our layout; CE 1.21.1 reorganized some packages — map onto our existing modules, do not reshuffle).
 - Assets: `assets/reforestry/...` — data: `data/reforestry/...`.
 
 **Shell paths:** Project path contains spaces. Always quote paths in shell commands.
@@ -20,7 +20,7 @@ alwaysApply: true
 
 **Namespace & packages**
 - Registry/resource namespace: `reforestry` (blocks, items, assets, data).
-- Java root: `com.leon1236.reforestry.<module>.*` (mirrors CE's `forestry.<module>.*`).
+- Java root: `com.leon1236.reforestry.<module>.*` (our layout; CE 1.21.1 reorganized some packages — map onto our existing modules, do not reshuffle).
 - Assets: `assets/reforestry/...` — data: `data/reforestry/...`.
 
 **Shell paths:** Project path contains spaces. Always quote paths in shell commands.

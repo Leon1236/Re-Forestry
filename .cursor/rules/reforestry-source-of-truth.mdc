@@ -9,12 +9,13 @@ alwaysApply: true
 
 ## Access order (use this, not random grep)
 
-1. **Local Re-Forestry architecture / “what calls what”** → `graphify query` (or `path` / `explain`) against `graphify-out/`, then Read the cited files under `src/`. Graph was built on live `src/` only.
-2. **Reference mods (CE, Fabric API, Energy, …)** → MCP `user-minecraft-mods`: `search_code` → `get_file`. **Never** open `MarkDown_Maker/Markdown_files/*.md` or `files/mods MD/*.md` as primary reading (those dumps are too large for context; `mods.db` is their searchable form).
-3. **Minecraft vanilla APIs** → MCP repo `Minecraft-26.2` (Loom-mapped sources). **Not** `FabricMC-yarn` (mappings project, not game code), **not** raw jars.
-4. **Durable findings** → short notes under `queries/` (reuse before re-researching).
+1. **Local Re-Forestry architecture / “what calls what”** → `graphify query` / `path` / `explain` against `graphify-out/`, or `python3 tools/graphify_query.py local "…"`. Then Read the cited files under `src/`.
+2. **Reference-repo architecture** (CE / JEI / Fabric API / … call graphs) → `python3 tools/graphify_query.py <repo|alias> "…"` (graphs under `MarkDown_Maker/graphify/<repo>/graphify-out/`; index `MarkDown_Maker/graphify/index.json`). Aliases: `CE` (1.21.1), `CE20` (frozen 1.20.1), `IF`, `JEI`, `FAPI`, `Energy`, `MC`, …
+3. **Reference file text / exact paths** → MCP `user-minecraft-mods`: `search_code` → `get_file`. **Never** open `MarkDown_Maker/Markdown_files/*.md` or `files/mods MD/*.md` as primary reading (those dumps are too large for context; `mods.db` is their searchable form).
+4. **Minecraft vanilla APIs** → MCP repo `Minecraft-26.2` (Loom-mapped sources), or graph `python3 tools/graphify_query.py mc "…"`. **Not** `FabricMC-yarn` (mappings project, not game code), **not** raw jars.
+5. **Durable findings** → short notes under `queries/` (reuse before re-researching).
 
-Human summary: `queries/research-stack.md`.
+Human summary: `queries/research-stack.md`. Refresh GitHub clones + Markdown + mods.db + graphs: `python3 tools/refresh_reference_clones.py` (`--check` first). Rebuild local: `GRAPHIFY_FORCE=1 graphify extract ./src/main/java --code-only` → keep outputs in root `graphify-out/`.
 
 **MCP tools:** `list_mods`, `search_code(query, repo?, language?, limit?)`, `get_file(repo, path)`, `list_files(repo, path_prefix?)`.
 
@@ -22,8 +23,9 @@ DB path (fallback / scripts): see `CLAUDE.md` §2. Copy to a writable path befor
 
 | Repo | Use for |
 |---|---|
-| `thedarkcolour-ForestryCE` | **Primary** — Forge 1.20.1 Forestry CE |
-| `thedarkcolour-Immersive-Forestry` | NeoForge 1.21.1 fork; check for newer fixes |
+| `thedarkcolour-ForestryCE` | **Primary** — Forestry CE `1.21.1` (GitHub default). Alias `CE`. |
+| `thedarkcolour-ForestryCE-1.20.1` | Frozen final snapshot of CE `1.20.1`. Alias `CE20`. Recipe/texture extract scripts still read this layout. |
+| `thedarkcolour-Immersive-Forestry` | Local NeoForge 1.21.1 fork only — upstream GitHub repo is gone. Prefer CE `1.21.1` first. |
 | `ForestryMC-ForestryMC` | 1.12.2 only — content CE dropped |
 | `thedarkcolour-gendustry` | Modern Gendustry (Forestry module shape) |
 | `ACGaming-Binnie` | Extra Bees/Trees **data** (extract, don't translate code) |
@@ -32,7 +34,11 @@ DB path (fallback / scripts): see `CLAUDE.md` §2. Copy to a writable path befor
 | `Minecraft-26.2` | Vanilla MC game code (Yarn-named, from Loom genSources) |
 | `TechReborn-Energy` | Fabric energy API |
 | `mezz-JustEnoughItems` | JEI + a real Fabric 26.2 mod layout example |
+| `Tutorials-By-Kaupenjoe-Fabric-Tutorial-26.X` | Simple Fabric **26.2** patterns (blocks, screens, datagen) — not Forestry logic |
+| `Tiviacz1337-Travelers-Backpack` | Traveler's Backpack **Fabric** (`26.1-fabric`) — backpacks / inventory / Trinkets patterns |
+| `SuperMartijn642-SuperMartijn642sCoreLib` | SuperMartijn642 Core Lib — shared GUI / config helpers across MC versions |
+| `bernie-g-geckolib` | GeckoLib — animation / geo model engine (common + loader modules) |
 
 **Project docs (link, don't duplicate):** `files/forge-fabric-mapping.md`, `files/genetics-data-model.md`, `files/registry-inventory-*.md`, `files/addon-integration-mapping.md`. CSV `forestry:` prefixes → read as `reforestry:`.
 
-**Local reference assets (do not edit, only coppy where assets should go inide the reforestry/resources):** `for textures only/...`
+**Local reference assets (do not edit, only copy into `assets/reforestry/`):** `for textures only/...`. Recipe/datagen extract scripts follow the latest frozen CE 1.20.1 clone via `tools/ce_paths.py`.
