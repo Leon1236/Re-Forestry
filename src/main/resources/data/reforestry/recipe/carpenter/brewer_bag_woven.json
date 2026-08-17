@@ -1,0 +1,26 @@
+{
+  "type": "reforestry:carpenter",
+  "time": 200,
+  "recipe": {
+    "type": "minecraft:crafting_shaped",
+    "category": "equipment",
+    "key": {
+      "W": "reforestry:woven_silk",
+      "X": "minecraft:diamond",
+      "T": "reforestry:brewer_bag"
+    },
+    "pattern": [
+      "WXW",
+      "WTW",
+      "WWW"
+    ],
+    "result": {
+      "id": "reforestry:brewer_bag_woven"
+    },
+    "show_notification": true
+  },
+  "liquid": {
+    "fluid": "minecraft:water",
+    "amount": 1000
+  }
+}

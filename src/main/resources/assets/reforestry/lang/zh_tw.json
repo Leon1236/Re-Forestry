@@ -1625,6 +1625,7 @@
   "for.jei.description.forester_bag": "會自動撿起植物及相關物品的額外背包。",
   "for.jei.description.hunter_bag": "會自動撿起生物掉落物及相關物品的額外背包。",
   "for.jei.description.miner_bag": "會自動撿起礦石及貴重挖礦相關物品的額外背包。",
+  "for.jei.description.brewer_bag": "會自動撿起藥水、瓶子及其他釀造相關物品的額外背包。",
   "for.jei.description.apiarist_bag": "會自動撿起蜜蜂的額外背包。",
   "for.jei.description.lepidopterist_bag": "會自動撿起蝴蝶的額外背包。",
   "for.jei.rainmaker.causes.rain": "造雨",

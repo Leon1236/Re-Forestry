@@ -16,6 +16,7 @@ public final class ForestryConfig {
     private static double treesSpawnNaturally = 1.0;
     private static int charcoalAmountBase = 8;
     private static int charcoalWallCheckRange = 16;
+    private static boolean enableBackpackResupply = true;
 
     private ForestryConfig() {
     }
@@ -30,6 +31,10 @@ public final class ForestryConfig {
 
     public static int charcoalWallCheckRange() {
         return charcoalWallCheckRange;
+    }
+
+    public static boolean enableBackpackResupply() {
+        return enableBackpackResupply;
     }
 
     public static void init() {
@@ -48,6 +53,7 @@ public final class ForestryConfig {
         if (charcoalWallCheckRange < 1) {
             charcoalWallCheckRange = 1;
         }
+        enableBackpackResupply = parseBoolean(loaded.get("storage.enable_backpack_resupply"), true);
     }
 
     private static void write(Map<String, String> existing) {
@@ -75,6 +81,12 @@ public final class ForestryConfig {
                 writer.newLine();
                 String rangeValue = existing.getOrDefault("charcoal.wall_check_range", "16");
                 writer.write("charcoal.wall_check_range=" + rangeValue);
+                writer.newLine();
+                writer.newLine();
+                writer.write("# When true, backpacks in Resupply mode top off matching stacks in the player inventory.");
+                writer.newLine();
+                String resupplyValue = existing.getOrDefault("storage.enable_backpack_resupply", "true");
+                writer.write("storage.enable_backpack_resupply=" + resupplyValue);
                 writer.newLine();
             }
         } catch (IOException e) {
@@ -114,6 +126,19 @@ public final class ForestryConfig {
         } catch (NumberFormatException e) {
             return fallback;
         }
+    }
+
+    private static boolean parseBoolean(String raw, boolean fallback) {
+        if (raw == null || raw.isEmpty()) {
+            return fallback;
+        }
+        if ("true".equalsIgnoreCase(raw) || "yes".equalsIgnoreCase(raw) || "1".equals(raw)) {
+            return true;
+        }
+        if ("false".equalsIgnoreCase(raw) || "no".equalsIgnoreCase(raw) || "0".equals(raw)) {
+            return false;
+        }
+        return fallback;
     }
 
     private static int parseInt(String raw, int fallback) {

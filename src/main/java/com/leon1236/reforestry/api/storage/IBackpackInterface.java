@@ -8,9 +8,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
 public interface IBackpackInterface {
-	Item createBackpack(IBackpackDefinition definition, EnumBackpackType type);
+	Item createBackpack(IBackpackDefinition definition, EnumBackpackType type, Item.Properties properties);
 
-	Item createNaturalistBackpack(IBackpackDefinition definition, Identifier speciesTypeId, CreativeModeTab tab);
+	Item createNaturalistBackpack(IBackpackDefinition definition, Identifier speciesTypeId, CreativeModeTab tab, Item.Properties properties);
 
 	Predicate<ItemStack> createNaturalistBackpackFilter(Identifier speciesTypeId);
 }

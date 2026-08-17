@@ -3,6 +3,8 @@ package com.leon1236.reforestry.core.inventory;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jetbrains.annotations.Nullable;
+
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.Container;
@@ -15,14 +17,25 @@ import net.minecraft.world.item.component.ItemContainerContents;
 
 public abstract class ItemInventory implements Container {
 	protected final Player player;
+	@Nullable
 	private final InteractionHand hand;
+	@Nullable
+	private final ItemStack directParent;
 	private final Item parentItem;
 	private final NonNullList<ItemStack> inventoryStacks;
 
 	protected ItemInventory(Player player, InteractionHand hand, int size) {
+		this(player, hand, player.getItemInHand(hand), size);
+	}
+
+	protected ItemInventory(Player player, int size, ItemStack parent) {
+		this(player, null, parent, size);
+	}
+
+	private ItemInventory(Player player, @Nullable InteractionHand hand, ItemStack parent, int size) {
 		this.player = player;
 		this.hand = hand;
-		ItemStack parent = player.getItemInHand(hand);
+		this.directParent = hand == null ? parent : null;
 		this.parentItem = parent.getItem();
 		this.inventoryStacks = NonNullList.withSize(size, ItemStack.EMPTY);
 		ItemContainerContents contents = parent.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY);
@@ -30,15 +43,34 @@ public abstract class ItemInventory implements Container {
 	}
 
 	protected ItemStack getParent() {
-		ItemStack held = this.player.getItemInHand(this.hand);
-		if (held.isEmpty() || held.getItem() != this.parentItem) {
+		if (this.hand != null) {
+			ItemStack held = this.player.getItemInHand(this.hand);
+			if (held.isEmpty() || held.getItem() != this.parentItem) {
+				return ItemStack.EMPTY;
+			}
+			return held;
+		}
+		if (this.directParent == null || this.directParent.isEmpty() || this.directParent.getItem() != this.parentItem) {
 			return ItemStack.EMPTY;
 		}
-		return held;
+		return this.directParent;
 	}
 
+	@Nullable
 	public InteractionHand getHand() {
 		return this.hand;
+	}
+
+	public static int getOccupiedSlotCount(ItemStack stack, int size) {
+		NonNullList<ItemStack> slots = NonNullList.withSize(size, ItemStack.EMPTY);
+		stack.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY).copyInto(slots);
+		int occupied = 0;
+		for (ItemStack slot : slots) {
+			if (!slot.isEmpty()) {
+				occupied++;
+			}
+		}
+		return occupied;
 	}
 
 	protected void writeToParent() {

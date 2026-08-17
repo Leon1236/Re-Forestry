@@ -1,0 +1,15 @@
+{
+  "values": [
+    "#c:obsidians",
+    "#c:ores",
+    "#c:dusts",
+    "#c:gems",
+    "#c:ingots",
+    "#c:nuggets",
+    "#c:raw_materials",
+    "#minecraft:coals",
+    "reforestry:bronze_pickaxe",
+    "reforestry:kit_pickaxe",
+    "reforestry:broken_bronze_pickaxe"
+  ]
+}
