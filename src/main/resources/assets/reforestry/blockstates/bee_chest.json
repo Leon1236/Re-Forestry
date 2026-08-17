@@ -1,7 +1,8 @@
 {
   "variants": {
-    "": {
-      "model": "reforestry:block/bee_chest"
-    }
+    "facing=north": { "model": "reforestry:block/bee_chest" },
+    "facing=south": { "model": "reforestry:block/bee_chest", "y": 180 },
+    "facing=west": { "model": "reforestry:block/bee_chest", "y": 270 },
+    "facing=east": { "model": "reforestry:block/bee_chest", "y": 90 }
   }
 }

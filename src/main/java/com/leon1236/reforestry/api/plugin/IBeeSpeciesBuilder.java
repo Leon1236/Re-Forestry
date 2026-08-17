@@ -4,6 +4,7 @@ import java.util.function.Consumer;
 
 import net.minecraft.world.item.Item;
 
+import com.leon1236.reforestry.api.apiculture.IBeeJubilance;
 import com.leon1236.reforestry.api.core.HumidityType;
 import com.leon1236.reforestry.api.core.TemperatureType;
 import com.leon1236.reforestry.api.genetics.IGenomeBuilder;
@@ -28,6 +29,8 @@ public interface IBeeSpeciesBuilder {
     IBeeSpeciesBuilder addProduct(Item item, int count, float chance);
 
     IBeeSpeciesBuilder addSpecialty(Item item, float chance);
+
+    IBeeSpeciesBuilder setJubilance(IBeeJubilance jubilance);
 
     IBeeSpeciesBuilder setGenome(Consumer<IGenomeBuilder> genome);
 

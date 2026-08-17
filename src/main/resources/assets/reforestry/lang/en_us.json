@@ -662,6 +662,7 @@
   "itemGroup.agriculture": "Forestry Agriculture",
   "itemGroup.mail": "Forestry Mail",
   "itemGroup.factory": "Forestry Factory",
+  "itemGroup.worktable": "Forestry Worktable",
   "block.reforestry.analyzer": "Analyzer",
   "block.reforestry.escritoire": "Escritoire",
   "block.reforestry.database": "Database",

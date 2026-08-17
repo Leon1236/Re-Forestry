@@ -8,6 +8,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
 
 import com.leon1236.reforestry.ReForestry;
+import com.leon1236.reforestry.api.apiculture.BeeManager;
 import com.leon1236.reforestry.api.apiculture.ForestryBeeEffects;
 import com.leon1236.reforestry.api.circuits.ForestryCircuitLayouts;
 import com.leon1236.reforestry.api.circuits.ForestryCircuitSocketTypes;
@@ -21,14 +22,29 @@ import com.leon1236.reforestry.core.circuits.EnumElectronTube;
 import com.leon1236.reforestry.core.features.CoreItems;
 import com.leon1236.reforestry.factory.circuits.CircuitMachineUpgrade;
 import com.leon1236.reforestry.apiculture.genetics.DefaultBeeSpecies;
+import com.leon1236.reforestry.apiculture.genetics.JubilanceFactory;
 import com.leon1236.reforestry.apiculture.genetics.effects.AggressiveBeeEffect;
+import com.leon1236.reforestry.apiculture.genetics.effects.AgingBeeEffect;
+import com.leon1236.reforestry.apiculture.genetics.effects.AscensionBeeEffect;
+import com.leon1236.reforestry.apiculture.genetics.effects.CreeperBeeEffect;
 import com.leon1236.reforestry.apiculture.genetics.effects.DummyBeeEffect;
 import com.leon1236.reforestry.apiculture.genetics.effects.ExplorationBeeEffect;
+import com.leon1236.reforestry.apiculture.genetics.effects.FertileBeeEffect;
+import com.leon1236.reforestry.apiculture.genetics.effects.FungificationBeeEffect;
 import com.leon1236.reforestry.apiculture.genetics.effects.GlacialBeeEffect;
+import com.leon1236.reforestry.apiculture.genetics.effects.GlowBerryGrowEffect;
+import com.leon1236.reforestry.apiculture.genetics.effects.GuardianBeeEffect;
 import com.leon1236.reforestry.apiculture.genetics.effects.HeroicBeeEffect;
+import com.leon1236.reforestry.apiculture.genetics.effects.IgnitionBeeEffect;
 import com.leon1236.reforestry.apiculture.genetics.effects.MisanthropeBeeEffect;
+import com.leon1236.reforestry.apiculture.genetics.effects.PhasingBeeEffect;
 import com.leon1236.reforestry.apiculture.genetics.effects.PotionBeeEffect;
 import com.leon1236.reforestry.apiculture.genetics.effects.PotionBeeEffectExclusive;
+import com.leon1236.reforestry.apiculture.genetics.effects.RadioactiveBeeEffect;
+import com.leon1236.reforestry.apiculture.genetics.effects.RepulsionBeeEffect;
+import com.leon1236.reforestry.apiculture.genetics.effects.ResurrectionBeeEffect;
+import com.leon1236.reforestry.apiculture.genetics.effects.SculkSpreadBeeEffect;
+import com.leon1236.reforestry.apiculture.genetics.effects.SifterBeeEffect;
 import com.leon1236.reforestry.apiculture.genetics.effects.SnowingBeeEffect;
 import com.leon1236.reforestry.apiculture.hives.HiveDefinition;
 import com.leon1236.reforestry.apiculture.items.EnumHoneyComb;
@@ -44,6 +60,7 @@ public final class ReforestryPlugin implements IForestryPlugin {
 
     @Override
     public void registerApiculture(IApicultureRegistration registration) {
+        BeeManager.jubilanceFactory = new JubilanceFactory();
         registerBeeEffects(registration);
         DefaultBeeSpecies.register(registration);
 
@@ -107,28 +124,28 @@ public final class ReforestryPlugin implements IForestryPlugin {
         apiculture.registerBeeEffect(ForestryBeeEffects.MIASMIC, new PotionBeeEffect(ForestryBeeEffects.MIASMIC, false, MobEffects.POISON, 600, 100, 0.1f));
         apiculture.registerBeeEffect(ForestryBeeEffects.MISANTHROPE, new MisanthropeBeeEffect());
         apiculture.registerBeeEffect(ForestryBeeEffects.GLACIAL, new GlacialBeeEffect());
-        apiculture.registerBeeEffect(ForestryBeeEffects.RADIOACTIVE, new DummyBeeEffect(ForestryBeeEffects.RADIOACTIVE, true));
-        apiculture.registerBeeEffect(ForestryBeeEffects.CREEPER, new DummyBeeEffect(ForestryBeeEffects.CREEPER, false));
-        apiculture.registerBeeEffect(ForestryBeeEffects.IGNITION, new DummyBeeEffect(ForestryBeeEffects.IGNITION, false));
+        apiculture.registerBeeEffect(ForestryBeeEffects.RADIOACTIVE, new RadioactiveBeeEffect());
+        apiculture.registerBeeEffect(ForestryBeeEffects.CREEPER, new CreeperBeeEffect());
+        apiculture.registerBeeEffect(ForestryBeeEffects.IGNITION, new IgnitionBeeEffect());
         apiculture.registerBeeEffect(ForestryBeeEffects.EXPLORATION, new ExplorationBeeEffect());
         apiculture.registerBeeEffect(ForestryBeeEffects.EASTER, new DummyBeeEffect(ForestryBeeEffects.EASTER, true));
         apiculture.registerBeeEffect(ForestryBeeEffects.SNOWING, new SnowingBeeEffect());
         apiculture.registerBeeEffect(ForestryBeeEffects.DRUNKARD, new PotionBeeEffect(ForestryBeeEffects.DRUNKARD, false, MobEffects.NAUSEA, 100));
-        apiculture.registerBeeEffect(ForestryBeeEffects.REANIMATION, new DummyBeeEffect(ForestryBeeEffects.REANIMATION, true));
-        apiculture.registerBeeEffect(ForestryBeeEffects.RESURRECTION, new DummyBeeEffect(ForestryBeeEffects.RESURRECTION, true));
-        apiculture.registerBeeEffect(ForestryBeeEffects.REPULSION, new DummyBeeEffect(ForestryBeeEffects.REPULSION, false));
-        apiculture.registerBeeEffect(ForestryBeeEffects.FERTILE, new DummyBeeEffect(ForestryBeeEffects.FERTILE, true));
-        apiculture.registerBeeEffect(ForestryBeeEffects.MYCOPHILIC, new DummyBeeEffect(ForestryBeeEffects.MYCOPHILIC, false));
-        apiculture.registerBeeEffect(ForestryBeeEffects.SIFTER, new DummyBeeEffect(ForestryBeeEffects.SIFTER, false));
+        apiculture.registerBeeEffect(ForestryBeeEffects.REANIMATION, new ResurrectionBeeEffect(ForestryBeeEffects.REANIMATION, ResurrectionBeeEffect.getReanimationList()));
+        apiculture.registerBeeEffect(ForestryBeeEffects.RESURRECTION, new ResurrectionBeeEffect(ForestryBeeEffects.RESURRECTION, ResurrectionBeeEffect.getResurrectionList()));
+        apiculture.registerBeeEffect(ForestryBeeEffects.REPULSION, new RepulsionBeeEffect());
+        apiculture.registerBeeEffect(ForestryBeeEffects.FERTILE, new FertileBeeEffect());
+        apiculture.registerBeeEffect(ForestryBeeEffects.MYCOPHILIC, new FungificationBeeEffect());
+        apiculture.registerBeeEffect(ForestryBeeEffects.SIFTER, new SifterBeeEffect());
         apiculture.registerBeeEffect(ForestryBeeEffects.HAKUNA_MATATA, new PotionBeeEffectExclusive(
                 ForestryBeeEffects.HAKUNA_MATATA, false, ApicultureEffects.HAKUNA_MATATA, 20 * 60 * 3, 100, 1.0f, ApicultureEffects.MATATA));
-        apiculture.registerBeeEffect(ForestryBeeEffects.GLOW_BERRY_GROW, new DummyBeeEffect(ForestryBeeEffects.GLOW_BERRY_GROW, false));
-        apiculture.registerBeeEffect(ForestryBeeEffects.REJUVENATION, new DummyBeeEffect(ForestryBeeEffects.REJUVENATION, false));
-        apiculture.registerBeeEffect(ForestryBeeEffects.CHRONOPHAGE, new DummyBeeEffect(ForestryBeeEffects.CHRONOPHAGE, false));
-        apiculture.registerBeeEffect(ForestryBeeEffects.GUARDIAN, new DummyBeeEffect(ForestryBeeEffects.GUARDIAN, false));
-        apiculture.registerBeeEffect(ForestryBeeEffects.PHASING, new DummyBeeEffect(ForestryBeeEffects.PHASING, false));
-        apiculture.registerBeeEffect(ForestryBeeEffects.ASCENSION, new DummyBeeEffect(ForestryBeeEffects.ASCENSION, false));
-        apiculture.registerBeeEffect(ForestryBeeEffects.SCULK, new DummyBeeEffect(ForestryBeeEffects.SCULK, false));
+        apiculture.registerBeeEffect(ForestryBeeEffects.GLOW_BERRY_GROW, new GlowBerryGrowEffect());
+        apiculture.registerBeeEffect(ForestryBeeEffects.REJUVENATION, new AgingBeeEffect(ForestryBeeEffects.REJUVENATION, false, false));
+        apiculture.registerBeeEffect(ForestryBeeEffects.CHRONOPHAGE, new AgingBeeEffect(ForestryBeeEffects.CHRONOPHAGE, false, true));
+        apiculture.registerBeeEffect(ForestryBeeEffects.GUARDIAN, new GuardianBeeEffect());
+        apiculture.registerBeeEffect(ForestryBeeEffects.PHASING, new PhasingBeeEffect());
+        apiculture.registerBeeEffect(ForestryBeeEffects.ASCENSION, new AscensionBeeEffect());
+        apiculture.registerBeeEffect(ForestryBeeEffects.SCULK, new SculkSpreadBeeEffect());
         apiculture.registerBeeEffect(ForestryBeeEffects.DARKNESS, new PotionBeeEffect(ForestryBeeEffects.DARKNESS, false, MobEffects.DARKNESS, 150));
     }
 

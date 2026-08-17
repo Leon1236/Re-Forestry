@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": "minecraft:book",
+    "C": "#c:chests/wooden",
+    "T": "#c:player_workstations/crafting_tables"
+  },
+  "pattern": [
+    "B",
+    "T",
+    "C"
+  ],
+  "result": {
+    "id": "reforestry:worktable"
+  }
+}

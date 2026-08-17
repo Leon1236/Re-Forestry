@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "T": "reforestry:portable_alyzer",
+    "X": "#c:ingots/bronze",
+    "Y": "reforestry:sturdy_machine"
+  },
+  "pattern": [
+    "XTX",
+    " Y ",
+    "X X"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:analyzer"
+  }
+}

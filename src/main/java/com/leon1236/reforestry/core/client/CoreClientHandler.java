@@ -20,5 +20,7 @@ public class CoreClientHandler implements IClientModuleHandler {
 		GeneticClientManager.INSTANCE.bootstrap();
 		MenuScreens.register(CoreMenuTypes.SOLDERING_IRON.type(), ScreenSolderingIron::new);
 		MenuScreens.register(CoreMenuTypes.ALYZER.type(), ScreenPortableAnalyzer::new);
+		MenuScreens.register(CoreMenuTypes.NATURALIST_CHEST.type(), ScreenNaturalistChest::new);
+		MenuScreens.register(CoreMenuTypes.ANALYZER.type(), ScreenAnalyzer::new);
 	}
 }

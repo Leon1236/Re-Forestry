@@ -164,6 +164,14 @@ public final class BeekeepingLogic implements IBeekeepingLogic {
             }
         }
 
+        if (primary.isJubilant(genome, housing) && secondary.isJubilant(genome, housing)) {
+            for (IBeeSpecies.Product product : primary.specialties()) {
+                if (random.nextFloat() < product.chance() * speed) {
+                    housing.beeInventory().addProduct(new ItemStack(product.item(), product.count()));
+                }
+            }
+        }
+
         for (IBeeListener listener : housing.getBeeListeners()) {
             listener.wearOutEquipment(1);
         }
@@ -326,6 +334,9 @@ public final class BeekeepingLogic implements IBeekeepingLogic {
 
         housing.beeInventory().setQueen(queenStack);
         housing.beeInventory().setDrone(ItemStack.EMPTY);
+        if (princessGenome != null) {
+            onSpeciesDiscovered(princessGenome.getActiveAllele(BeeChromosomes.SPECIES).value());
+        }
     }
 
     private void ageQueen(ItemStack queenStack, IGenome genome, RandomSource random) {

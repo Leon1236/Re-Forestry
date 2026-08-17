@@ -1,7 +1,8 @@
 {
   "variants": {
-    "": {
-      "model": "reforestry:block/butterfly_chest"
-    }
+    "facing=north": { "model": "reforestry:block/butterfly_chest" },
+    "facing=south": { "model": "reforestry:block/butterfly_chest", "y": 180 },
+    "facing=west": { "model": "reforestry:block/butterfly_chest", "y": 270 },
+    "facing=east": { "model": "reforestry:block/butterfly_chest", "y": 90 }
   }
 }

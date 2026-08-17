@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": "#c:glass_blocks/colorless",
+    "X": "#reforestry:combs",
+    "Y": "#c:chests/wooden"
+  },
+  "pattern": [
+    " G ",
+    "XYX",
+    "XXX"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:bee_chest"
+  }
+}

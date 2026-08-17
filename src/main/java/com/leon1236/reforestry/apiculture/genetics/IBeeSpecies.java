@@ -4,9 +4,12 @@ import java.util.List;
 
 import net.minecraft.world.item.Item;
 
+import com.leon1236.reforestry.api.apiculture.IBeeHousing;
+import com.leon1236.reforestry.api.apiculture.IBeeJubilance;
 import com.leon1236.reforestry.api.core.HumidityType;
 import com.leon1236.reforestry.api.core.IClimateSensitive;
 import com.leon1236.reforestry.api.core.TemperatureType;
+import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.api.genetics.alleles.IRegistryAlleleValue;
 
 public interface IBeeSpecies extends IRegistryAlleleValue, IClimateSensitive {
@@ -31,6 +34,12 @@ public interface IBeeSpecies extends IRegistryAlleleValue, IClimateSensitive {
     List<Product> products();
 
     List<Product> specialties();
+
+    IBeeJubilance jubilance();
+
+    default boolean isJubilant(IGenome genome, IBeeHousing housing) {
+        return jubilance().isJubilant(this, genome, housing);
+    }
 
     @Override
     TemperatureType getTemperature();

@@ -7,6 +7,7 @@ import java.util.function.Consumer;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 
+import com.leon1236.reforestry.api.apiculture.IBeeJubilance;
 import com.leon1236.reforestry.api.core.HumidityType;
 import com.leon1236.reforestry.api.core.TemperatureType;
 import com.leon1236.reforestry.api.genetics.IGenome;
@@ -31,6 +32,7 @@ public final class BeeSpeciesBuilder implements IBeeSpeciesBuilder {
     private HumidityType humidity = HumidityType.NORMAL;
     private final List<IBeeSpecies.Product> products = new ArrayList<>();
     private final List<IBeeSpecies.Product> specialties = new ArrayList<>();
+    private IBeeJubilance jubilance = DefaultBeeJubilance.INSTANCE;
     private Consumer<IGenomeBuilder> genome = builder -> {
     };
     private final MutationsRegistration mutations = new MutationsRegistration();
@@ -106,6 +108,12 @@ public final class BeeSpeciesBuilder implements IBeeSpeciesBuilder {
     }
 
     @Override
+    public BeeSpeciesBuilder setJubilance(IBeeJubilance jubilance) {
+        this.jubilance = jubilance;
+        return this;
+    }
+
+    @Override
     public BeeSpeciesBuilder setGenome(Consumer<IGenomeBuilder> genome) {
         this.genome = genome;
         return this;
@@ -131,7 +139,7 @@ public final class BeeSpeciesBuilder implements IBeeSpeciesBuilder {
 
     IBeeSpecies buildSpecies() {
         return new BeeSpecies(id, genus, species, dominant, outlineColor, bodyColor, stripesColor, secret, glint,
-                authority, temperature, humidity, List.copyOf(products), List.copyOf(specialties));
+                authority, temperature, humidity, List.copyOf(products), List.copyOf(specialties), jubilance);
     }
 
     IGenome buildGenome(IRegistryAllele<IBeeSpecies> speciesAllele) {

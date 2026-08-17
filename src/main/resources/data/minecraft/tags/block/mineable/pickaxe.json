@@ -9,6 +9,7 @@
     "reforestry:smelter",
     "reforestry:squeezer",
     "reforestry:still",
-    "reforestry:rainmaker"
+    "reforestry:rainmaker",
+    "reforestry:analyzer"
   ]
 }

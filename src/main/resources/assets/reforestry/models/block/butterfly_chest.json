@@ -1,5 +1,6 @@
 {
+  "parent": "minecraft:block/cube_all",
   "textures": {
-    "particle": "reforestry:block/lepi_chest.0"
+    "all": "reforestry:block/lepi_chest.0"
   }
 }

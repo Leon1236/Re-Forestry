@@ -1,6 +1,8 @@
 package com.leon1236.reforestry.core.features;
 
 import com.leon1236.reforestry.ReForestry;
+import com.leon1236.reforestry.core.blocks.BlockTypeCore;
+import com.leon1236.reforestry.core.blocks.NaturalistChestBlockType;
 import com.leon1236.reforestry.core.fluids.ForestryFluids;
 import com.leon1236.reforestry.core.items.definitions.EnumContainerType;
 import com.leon1236.reforestry.modules.features.FeatureCreativeTab;
@@ -71,6 +73,10 @@ public class CoreCreativeTabs {
             output.accept(CoreItems.SPECTACLES.item());
             output.accept(CoreItems.RESEARCH_NOTE.item());
             output.accept(CoreItems.PORTABLE_ALYZER.item());
+            output.accept(CoreBlocks.NATURALIST_CHESTS.get(NaturalistChestBlockType.BEE_CHEST).item());
+            output.accept(CoreBlocks.NATURALIST_CHESTS.get(NaturalistChestBlockType.TREE_CHEST).item());
+            output.accept(CoreBlocks.NATURALIST_CHESTS.get(NaturalistChestBlockType.BUTTERFLY_CHEST).item());
+            output.accept(CoreBlocks.MACHINES.get(BlockTypeCore.ANALYZER).item());
             for (FeatureItem<?> feature : CoreItems.CRAFTING_MATERIALS.getAll().values()) {
                 output.accept(feature.item());
             }

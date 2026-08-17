@@ -13,9 +13,13 @@ import net.minecraft.world.level.material.MapColor;
 
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.core.blocks.BlockBogEarth;
+import com.leon1236.reforestry.core.blocks.BlockCoreMachine;
 import com.leon1236.reforestry.core.blocks.BlockHumus;
+import com.leon1236.reforestry.core.blocks.BlockNaturalistChest;
 import com.leon1236.reforestry.core.blocks.BlockResourceStorage;
+import com.leon1236.reforestry.core.blocks.BlockTypeCore;
 import com.leon1236.reforestry.core.blocks.EnumResourceType;
+import com.leon1236.reforestry.core.blocks.NaturalistChestBlockType;
 import com.leon1236.reforestry.core.energy.BlockCreativeEnergy;
 import com.leon1236.reforestry.core.energy.BlockDebugPowered;
 import com.leon1236.reforestry.modules.features.FeatureBlock;
@@ -74,6 +78,16 @@ public class CoreBlocks {
 
     public static final FeatureBlock<BlockDebugPowered> DEBUG_POWERED = REGISTRY.block("debug_powered",
             BlockDebugPowered::new, BlockItem::new);
+
+    public static final FeatureBlockGroup<BlockNaturalistChest, NaturalistChestBlockType> NATURALIST_CHESTS =
+            REGISTRY.blockGroup(BlockNaturalistChest::new, NaturalistChestBlockType.values())
+                    .item(BlockItem::new)
+                    .create();
+
+    public static final FeatureBlockGroup<BlockCoreMachine, BlockTypeCore> MACHINES =
+            REGISTRY.blockGroup(BlockCoreMachine::new, BlockTypeCore.values())
+                    .item(BlockItem::new)
+                    .create();
 
     public static void init() {
     }

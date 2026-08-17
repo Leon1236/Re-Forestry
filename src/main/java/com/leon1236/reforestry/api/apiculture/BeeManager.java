@@ -6,6 +6,9 @@ public final class BeeManager {
     @Nullable
     public static IArmorApiaristHelper armorApiaristHelper;
 
+    @Nullable
+    public static IJubilanceFactory jubilanceFactory;
+
     private BeeManager() {
     }
 }

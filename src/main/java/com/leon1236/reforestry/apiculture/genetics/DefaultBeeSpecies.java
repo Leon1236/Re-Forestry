@@ -299,10 +299,12 @@ public final class DefaultBeeSpecies {
         });
 
         registration.registerSpecies(ReForestry.id("bee_monastic"), "monapis", "monachus", false, 0x42371c)
+                .setJubilance(HermitBeeJubilance.INSTANCE)
                 .addProduct(ApicultureItems.BEE_COMBS.get(EnumHoneyComb.WHEATEN).item(), 0.3f)
                 .addSpecialty(ApicultureItems.BEE_COMBS.get(EnumHoneyComb.MELLOW).item(), 0.1f);
 
         registration.registerSpecies(ReForestry.id("bee_secluded"), "monapis", "contractus", true, 0x7b6634)
+                .setJubilance(HermitBeeJubilance.INSTANCE)
                 .addSpecialty(ApicultureItems.BEE_COMBS.get(EnumHoneyComb.MELLOW).item(), 0.2f)
                 .setGenome(genome -> {
                     genome.set(BeeChromosomes.POLLINATION, ForestryAlleles.POLLINATION_FASTEST);
@@ -313,6 +315,7 @@ public final class DefaultBeeSpecies {
 
         registration.registerSpecies(ReForestry.id("bee_hermitic"), "monapis", "anachoreta", false, 0xffd46c)
                 .setGlint(true)
+                .setJubilance(HermitBeeJubilance.INSTANCE)
                 .addSpecialty(ApicultureItems.BEE_COMBS.get(EnumHoneyComb.MELLOW).item(), 0.2f)
                 .setGenome(genome -> {
                     genome.set(BeeChromosomes.POLLINATION, ForestryAlleles.POLLINATION_FASTEST);
@@ -425,6 +428,7 @@ public final class DefaultBeeSpecies {
                 .setHumidity(HumidityType.DAMP)
                 .setAuthority("MysteriousAges")
                 .addProduct(ApicultureItems.BEE_COMBS.get(EnumHoneyComb.MOSSY).item(), 0.39f)
+                .addSpecialty(CoreItems.PEAT.item(), 0.08f)
                 .setGenome(genome -> {
                     genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
                     genome.set(BeeChromosomes.EFFECT, ForestryAlleles.EFFECT_MYCOPHILIC);
