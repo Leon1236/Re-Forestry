@@ -14,6 +14,7 @@ import net.minecraft.server.level.ServerPlayer;
 import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
 import com.leon1236.reforestry.api.genetics.IBreedingTracker;
 import com.leon1236.reforestry.core.genetics.root.BreedingTrackerManager;
+import com.leon1236.reforestry.core.network.packets.EscritoireGameSyncPayload;
 import com.leon1236.reforestry.core.network.packets.GenomeTrackerSyncPayload;
 import com.leon1236.reforestry.core.network.packets.WorktableRecipeRequestPayload;
 
@@ -29,6 +30,7 @@ public final class PacketRegistry {
 
 	public static void init() {
 		registerClientbound(GenomeTrackerSyncPayload.TYPE, GenomeTrackerSyncPayload.STREAM_CODEC);
+		registerClientbound(EscritoireGameSyncPayload.TYPE, EscritoireGameSyncPayload.STREAM_CODEC);
 		registerServerbound(WorktableRecipeRequestPayload.TYPE, WorktableRecipeRequestPayload.STREAM_CODEC);
 		ServerPlayNetworking.registerGlobalReceiver(WorktableRecipeRequestPayload.TYPE, WorktableRecipeRequestPayload::handle);
 		ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> syncBreedingTrackers(handler.getPlayer()));

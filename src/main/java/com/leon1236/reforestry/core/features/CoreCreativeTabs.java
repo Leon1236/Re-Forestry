@@ -77,6 +77,7 @@ public class CoreCreativeTabs {
             output.accept(CoreBlocks.NATURALIST_CHESTS.get(NaturalistChestBlockType.TREE_CHEST).item());
             output.accept(CoreBlocks.NATURALIST_CHESTS.get(NaturalistChestBlockType.BUTTERFLY_CHEST).item());
             output.accept(CoreBlocks.MACHINES.get(BlockTypeCore.ANALYZER).item());
+            output.accept(CoreBlocks.MACHINES.get(BlockTypeCore.ESCRITOIRE).item());
             for (FeatureItem<?> feature : CoreItems.CRAFTING_MATERIALS.getAll().values()) {
                 output.accept(feature.item());
             }

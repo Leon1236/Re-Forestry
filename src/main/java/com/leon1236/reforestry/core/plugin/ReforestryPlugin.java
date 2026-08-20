@@ -1,6 +1,7 @@
 package com.leon1236.reforestry.core.plugin;
 
 import java.util.List;
+import java.util.Map;
 import java.util.function.Supplier;
 
 import net.minecraft.resources.Identifier;
@@ -18,8 +19,11 @@ import com.leon1236.reforestry.api.plugin.IArboricultureRegistration;
 import com.leon1236.reforestry.api.plugin.IForestryPlugin;
 import com.leon1236.reforestry.apiculture.features.ApicultureEffects;
 import com.leon1236.reforestry.apiculture.features.ApicultureItems;
+import com.leon1236.reforestry.apiculture.genetics.BeeChromosomes;
 import com.leon1236.reforestry.core.circuits.EnumElectronTube;
 import com.leon1236.reforestry.core.features.CoreItems;
+import com.leon1236.reforestry.core.genetics.ForestryAlleles;
+import com.leon1236.reforestry.core.genetics.alleles.AlleleManager;
 import com.leon1236.reforestry.factory.circuits.CircuitMachineUpgrade;
 import com.leon1236.reforestry.apiculture.genetics.DefaultBeeSpecies;
 import com.leon1236.reforestry.apiculture.genetics.JubilanceFactory;
@@ -114,6 +118,21 @@ public final class ReforestryPlugin implements IForestryPlugin {
 
         registration.registerHive(ReForestry.id("bee_embittered"), HiveDefinition.NETHER)
                 .addDrop(0.80, ReForestry.id("bee_embittered"), simmerComb, 0.7f);
+
+        registration.addVillageBee(ReForestry.id("bee_forest"), false);
+        registration.addVillageBee(ReForestry.id("bee_meadows"), false);
+        registration.addVillageBee(ReForestry.id("bee_modest"), false);
+        registration.addVillageBee(ReForestry.id("bee_marshy"), false);
+        registration.addVillageBee(ReForestry.id("bee_wintry"), false);
+        registration.addVillageBee(ReForestry.id("bee_tropical"), false);
+        registration.addVillageBee(ReForestry.id("bee_savanna"), false);
+
+        registration.addVillageBee(ReForestry.id("bee_forest"), true, Map.of(
+                BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, true)));
+        registration.addVillageBee(ReForestry.id("bee_common"), true, Map.of(
+                BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_1,
+                BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_1));
+        registration.addVillageBee(ReForestry.id("bee_valiant"), true);
     }
 
     private static void registerBeeEffects(IApicultureRegistration apiculture) {

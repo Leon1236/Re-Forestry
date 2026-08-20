@@ -15,6 +15,7 @@ import net.minecraft.util.ExtraCodecs;
 
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.core.client.AnalyzerSpecialRenderer;
+import com.leon1236.reforestry.core.client.EscritoireSpecialRenderer;
 import com.leon1236.reforestry.core.client.MachineSpecialRenderer;
 import com.leon1236.reforestry.core.client.MillSpecialRenderer;
 import com.leon1236.reforestry.core.client.NaturalistChestSpecialRenderer;
@@ -31,5 +32,6 @@ public class SpecialModelRenderersMixin {
 		ID_MAPPER.put(ReForestry.id("mill"), MillSpecialRenderer.Unbaked.MAP_CODEC);
 		ID_MAPPER.put(ReForestry.id("naturalist_chest"), NaturalistChestSpecialRenderer.Unbaked.MAP_CODEC);
 		ID_MAPPER.put(ReForestry.id("analyzer"), AnalyzerSpecialRenderer.Unbaked.MAP_CODEC);
+		ID_MAPPER.put(ReForestry.id("escritoire"), EscritoireSpecialRenderer.Unbaked.MAP_CODEC);
 	}
 }

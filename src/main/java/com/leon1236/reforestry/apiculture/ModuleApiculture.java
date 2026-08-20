@@ -24,6 +24,8 @@ import com.leon1236.reforestry.apiculture.features.ApicultureParticles;
 import com.leon1236.reforestry.apiculture.features.ApicultureTiles;
 import com.leon1236.reforestry.apiculture.genetics.ApicultureGenetics;
 import com.leon1236.reforestry.apiculture.loot.SnifferAmberDroneLoot;
+import com.leon1236.reforestry.apiculture.villagers.ApicultureVillagers;
+import com.leon1236.reforestry.apiculture.worldgen.VillagerJigsaw;
 import com.leon1236.reforestry.core.commands.ReforestryCommands;
 import com.leon1236.reforestry.core.plugin.PluginManager;
 
@@ -54,6 +56,8 @@ public class ModuleApiculture implements IForestryModule {
         ApicultureParticles.init();
         ApicultureFeatures.init();
         ApicultureCreativeTabs.init();
+        ApicultureVillagers.init();
+        VillagerJigsaw.init();
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) ->
                 ReforestryCommands.registerSubcommand(dispatcher, CommandBee.register()));
     }

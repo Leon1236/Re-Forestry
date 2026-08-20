@@ -1,0 +1,21 @@
+{
+  "wants": {
+    "id": "reforestry:propolis_normal",
+    "count": {
+      "type": "minecraft:uniform",
+      "min": 2,
+      "max": 4
+    }
+  },
+  "gives": "reforestry:bee_drone_ge",
+  "max_uses": 8,
+  "xp": 6,
+  "reputation_discount": 0.0,
+  "given_item_modifiers": [
+    {
+      "function": "reforestry:set_random_mundane_drone",
+      "min_count": 1,
+      "max_count": 1
+    }
+  ]
+}

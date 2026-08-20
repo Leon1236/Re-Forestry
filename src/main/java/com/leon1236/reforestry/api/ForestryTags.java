@@ -32,6 +32,8 @@ public final class ForestryTags {
 		public static final TagKey<Item> BREWER_ALLOW = itemTag("backpack/allow/brewer");
 		public static final TagKey<Item> BREWER_REJECT = itemTag("backpack/reject/brewer");
 
+		public static final TagKey<Item> VILLAGE_COMBS = itemTag("village_combs");
+
 		private Items() {
 		}
 	}

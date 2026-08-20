@@ -18,6 +18,7 @@ public final class ForestryConfig {
     private static int charcoalWallCheckRange = 16;
     private static boolean enableBackpackResupply = true;
     private static boolean pollinateVanillaLeaves = true;
+    private static double escritoireBountyMultiplier = 1.0;
 
     private ForestryConfig() {
     }
@@ -42,6 +43,10 @@ public final class ForestryConfig {
         return pollinateVanillaLeaves;
     }
 
+    public static double escritoireBountyMultiplier() {
+        return escritoireBountyMultiplier;
+    }
+
     public static void init() {
         Map<String, String> existing = read();
         write(existing);
@@ -60,6 +65,10 @@ public final class ForestryConfig {
         }
         enableBackpackResupply = parseBoolean(loaded.get("storage.enable_backpack_resupply"), true);
         pollinateVanillaLeaves = parseBoolean(loaded.get("bees.pollinate_vanilla_leaves"), true);
+        escritoireBountyMultiplier = parseDouble(loaded.get("genetics.escritoire_bounty_multiplier"), 1.0);
+        if (escritoireBountyMultiplier < 0.0) {
+            escritoireBountyMultiplier = 0.0;
+        }
     }
 
     private static void write(Map<String, String> existing) {
@@ -99,6 +108,12 @@ public final class ForestryConfig {
                 writer.newLine();
                 String pollinateValue = existing.getOrDefault("bees.pollinate_vanilla_leaves", "true");
                 writer.write("bees.pollinate_vanilla_leaves=" + pollinateValue);
+                writer.newLine();
+                writer.newLine();
+                writer.write("# Multiplies bee product/specialty chance from winning the escritoire game (not mutation notes).");
+                writer.newLine();
+                String bountyValue = existing.getOrDefault("genetics.escritoire_bounty_multiplier", "1.0");
+                writer.write("genetics.escritoire_bounty_multiplier=" + bountyValue);
                 writer.newLine();
             }
         } catch (IOException e) {

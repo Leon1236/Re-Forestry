@@ -14,6 +14,7 @@ import com.leon1236.reforestry.core.errors.ErrorManager;
 import com.leon1236.reforestry.core.genetics.alleles.AlleleManager;
 import com.leon1236.reforestry.modules.ModuleManager;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
 
@@ -22,7 +23,7 @@ public final class ForestryApiImpl implements IForestryApi {
 
     private final ForestryClimateManager climateManager = new ForestryClimateManager();
     private final ErrorManager errorManager = new ErrorManager();
-    private IHiveManager hiveManager = new HiveManager(ImmutableMap.of());
+    private IHiveManager hiveManager = new HiveManager(ImmutableMap.of(), ImmutableList.of(), ImmutableList.of());
     private ICircuitManager circuitManager = new CircuitManager(ImmutableMultimap.of(), ImmutableMap.of(), ImmutableMap.of());
 
     private ForestryApiImpl() {

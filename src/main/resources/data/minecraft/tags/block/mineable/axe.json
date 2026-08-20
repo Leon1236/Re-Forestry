@@ -1,6 +1,11 @@
 {
   "values": [
     "reforestry:worktable",
+    "reforestry:analyzer",
+    "reforestry:escritoire",
+    "reforestry:bee_chest",
+    "reforestry:tree_chest",
+    "reforestry:butterfly_chest",
     "reforestry:apiary",
     "reforestry:bee_house",
     "reforestry:alveary_block",
