@@ -17,4 +17,7 @@ public interface IForestryPlugin {
 
     default void registerCircuits(ICircuitRegistration registration) {
     }
+
+    default void registerFilter(IFilterRegistration registration) {
+    }
 }

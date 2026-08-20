@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "tag": "c:gears/bronze"
+    },
+    "D": {
+      "tag": "c:gems/diamond"
+    },
+    "F": [
+      {
+        "tag": "reforestry:genetic_samples"
+      },
+      {
+        "tag": "reforestry:forestry_fruits"
+      }
+    ],
+    "G": {
+      "tag": "c:glass_blocks/colorless"
+    },
+    "W": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    "WDW",
+    "FGF",
+    "BDB"
+  ],
+  "result": {
+    "count": 2,
+    "id": "reforestry:genetic_filter"
+  }
+}

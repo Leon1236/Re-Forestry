@@ -12,6 +12,7 @@ import com.leon1236.reforestry.modules.features.FeatureCreativeTab;
 import com.leon1236.reforestry.modules.features.FeatureItem;
 import com.leon1236.reforestry.modules.features.IFeatureRegistry;
 import com.leon1236.reforestry.modules.features.ModFeatureRegistry;
+import com.leon1236.reforestry.sorting.features.SortingBlocks;
 
 public class CoreCreativeTabs {
     private static final IFeatureRegistry REGISTRY = ModFeatureRegistry.get(ReForestry.id("core"));
@@ -81,6 +82,9 @@ public class CoreCreativeTabs {
             output.accept(CoreBlocks.NATURALIST_CHESTS.get(NaturalistChestBlockType.BUTTERFLY_CHEST).item());
             output.accept(CoreBlocks.MACHINES.get(BlockTypeCore.ANALYZER).item());
             output.accept(CoreBlocks.MACHINES.get(BlockTypeCore.ESCRITOIRE).item());
+            if (ModuleManager.INSTANCE.isModuleLoaded(ReForestry.id("sorting"))) {
+                output.accept(SortingBlocks.FILTER.item());
+            }
             for (FeatureItem<?> feature : CoreItems.CRAFTING_MATERIALS.getAll().values()) {
                 output.accept(feature.item());
             }

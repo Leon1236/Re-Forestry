@@ -11,11 +11,13 @@ import com.leon1236.reforestry.api.plugin.IForestryPlugin;
 import com.leon1236.reforestry.arboriculture.charcoal.CharcoalManager;
 import com.leon1236.reforestry.core.ForestryApiImpl;
 import com.leon1236.reforestry.core.circuits.CircuitManager;
+import com.leon1236.reforestry.sorting.FilterManager;
 
 public final class PluginManager {
     private static final String PLUGIN_ENTRYPOINT_KEY = "reforestry:plugin";
 
     private static List<IForestryPlugin> cachedPlugins;
+    private static boolean filtersRegistered;
 
     private PluginManager() {
     }
@@ -47,6 +49,18 @@ public final class PluginManager {
                 registration.buildCircuitHolders(layouts),
                 layouts,
                 registration.buildCircuits()));
+    }
+
+    public static void runFilterRegistration() {
+        if (filtersRegistered) {
+            return;
+        }
+        filtersRegistered = true;
+        FilterRegistrationImpl registration = new FilterRegistrationImpl();
+        for (IForestryPlugin plugin : plugins()) {
+            plugin.registerFilter(registration);
+        }
+        ((ForestryApiImpl) ForestryApiImpl.get()).setFilterManager(new FilterManager(registration.getFilterRuleTypes()));
     }
 
     private static List<IForestryPlugin> plugins() {

@@ -16,6 +16,7 @@ import com.leon1236.reforestry.api.circuits.ForestryCircuitSocketTypes;
 import com.leon1236.reforestry.api.plugin.ICircuitRegistration;
 import com.leon1236.reforestry.api.plugin.IApicultureRegistration;
 import com.leon1236.reforestry.api.plugin.IArboricultureRegistration;
+import com.leon1236.reforestry.api.plugin.IFilterRegistration;
 import com.leon1236.reforestry.api.plugin.IForestryPlugin;
 import com.leon1236.reforestry.apiculture.features.ApicultureEffects;
 import com.leon1236.reforestry.apiculture.features.ApicultureItems;
@@ -53,6 +54,11 @@ import com.leon1236.reforestry.apiculture.genetics.effects.SnowingBeeEffect;
 import com.leon1236.reforestry.apiculture.hives.HiveDefinition;
 import com.leon1236.reforestry.apiculture.items.EnumHoneyComb;
 import com.leon1236.reforestry.arboriculture.genetics.DefaultTreeSpecies;
+import com.leon1236.reforestry.apiculture.genetics.ApicultureFilterRule;
+import com.leon1236.reforestry.apiculture.genetics.ApicultureFilterRuleType;
+import com.leon1236.reforestry.arboriculture.genetics.ArboricultureFilterRuleType;
+import com.leon1236.reforestry.modules.ModuleManager;
+import com.leon1236.reforestry.sorting.DefaultFilterRuleType;
 
 import net.minecraft.world.effect.MobEffects;
 
@@ -181,6 +187,18 @@ public final class ReforestryPlugin implements IForestryPlugin {
         registration.registerCharcoalPitWall(Blocks.DIRT, 2);
         registration.registerCharcoalPitWall(Blocks.GRAVEL, 1);
         registration.registerCharcoalPitWall(Blocks.NETHERRACK, 3);
+    }
+
+    @Override
+    public void registerFilter(IFilterRegistration registration) {
+        registration.registerFilterRuleTypes(DefaultFilterRuleType.values());
+        if (ModuleManager.INSTANCE.isModuleLoaded(ReForestry.id("apiculture"))) {
+            ApicultureFilterRule.init();
+            registration.registerFilterRuleTypes(ApicultureFilterRuleType.values());
+        }
+        if (ModuleManager.INSTANCE.isModuleLoaded(ReForestry.id("arboriculture"))) {
+            registration.registerFilterRuleTypes(ArboricultureFilterRuleType.values());
+        }
     }
 
     @Override

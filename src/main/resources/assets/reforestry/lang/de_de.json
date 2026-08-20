@@ -1283,6 +1283,8 @@
   "item.PipeitemPropolis.name": "Bienenrohr",
   "tile.for.genetic_filter.name": "Genfilter",
   "tile.for.genetic_filter.0.name": "Genfilter",
+  "block.reforestry.genetic_filter": "Genfilter",
+  "block.reforestry.genetic_filter.0": "Genfilter",
   "for.gui.filter.seletion": "Filterauswahl",
   "for.gui.filter.reforestry.default.anything": "Alles",
   "for.gui.filter.reforestry.default.closed": "Geschlossen",

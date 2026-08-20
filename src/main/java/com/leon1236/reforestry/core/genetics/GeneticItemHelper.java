@@ -92,16 +92,26 @@ public final class GeneticItemHelper implements IndividualItems.Access {
 		}
 		stack.set(CoreDataComponents.ANALYZED.type(), true);
 		IBreedingTracker tracker = BreedingTrackerManager.INSTANCE.getTracker(typeId, player.level(), player.getGameProfile());
-		tracker.registerSpecies(speciesId(genome, typeId, true));
-		tracker.registerSpecies(speciesId(genome, typeId, false));
+		Identifier active = speciesId(genome, typeId, true);
+		Identifier inactive = speciesId(genome, typeId, false);
+		if (active != null) {
+			tracker.registerSpecies(active);
+		}
+		if (inactive != null) {
+			tracker.registerSpecies(inactive);
+		}
 		return true;
 	}
 
-	private static Identifier speciesId(IGenome genome, Identifier typeId, boolean active) {
+	@Nullable
+	public static Identifier speciesId(IGenome genome, Identifier typeId, boolean active) {
 		if (typeId.equals(ForestrySpeciesTypes.TREE)) {
 			return alleleSpeciesId(genome, TreeChromosomes.SPECIES, active);
 		}
-		return alleleSpeciesId(genome, BeeChromosomes.SPECIES, active);
+		if (typeId.equals(ForestrySpeciesTypes.BEE)) {
+			return alleleSpeciesId(genome, BeeChromosomes.SPECIES, active);
+		}
+		return null;
 	}
 
 	private static <V extends IRegistryAlleleValue> Identifier alleleSpeciesId(

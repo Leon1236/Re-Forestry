@@ -1265,6 +1265,8 @@
   "item.PipeitemPropolis.name": "養蜂家管線",
   "tile.for.genetic_filter.name": "基因過濾器",
   "tile.for.genetic_filter.0.name": "基因過濾器",
+  "block.reforestry.genetic_filter": "基因過濾器",
+  "block.reforestry.genetic_filter.0": "基因過濾器",
   "for.gui.filter.seletion": "過濾器選擇",
   "for.gui.filter.reforestry.default.anything": "任何",
   "for.gui.filter.reforestry.default.closed": "關閉",

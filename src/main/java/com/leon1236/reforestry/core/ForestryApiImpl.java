@@ -5,6 +5,7 @@ import com.leon1236.reforestry.api.apiculture.hives.IHiveManager;
 import com.leon1236.reforestry.api.climate.IClimateManager;
 import com.leon1236.reforestry.api.core.IErrorManager;
 import com.leon1236.reforestry.api.genetics.IAlleleManager;
+import com.leon1236.reforestry.api.genetics.filter.IFilterManager;
 import com.leon1236.reforestry.api.modules.IModuleManager;
 import com.leon1236.reforestry.api.circuits.ICircuitManager;
 import com.leon1236.reforestry.apiculture.hives.HiveManager;
@@ -25,6 +26,7 @@ public final class ForestryApiImpl implements IForestryApi {
     private final ErrorManager errorManager = new ErrorManager();
     private IHiveManager hiveManager = new HiveManager(ImmutableMap.of(), ImmutableList.of(), ImmutableList.of());
     private ICircuitManager circuitManager = new CircuitManager(ImmutableMultimap.of(), ImmutableMap.of(), ImmutableMap.of());
+    private IFilterManager filterManager;
 
     private ForestryApiImpl() {
     }
@@ -43,6 +45,10 @@ public final class ForestryApiImpl implements IForestryApi {
 
     public void setCircuitManager(ICircuitManager circuitManager) {
         this.circuitManager = circuitManager;
+    }
+
+    public void setFilterManager(IFilterManager filterManager) {
+        this.filterManager = filterManager;
     }
 
     @Override
@@ -73,5 +79,14 @@ public final class ForestryApiImpl implements IForestryApi {
     @Override
     public ICircuitManager getCircuitManager() {
         return circuitManager;
+    }
+
+    @Override
+    public IFilterManager getFilterManager() {
+        IFilterManager manager = this.filterManager;
+        if (manager == null) {
+            throw new IllegalStateException("IFilterManager not initialized yet. Wait until the sorting module has loaded");
+        }
+        return manager;
     }
 }
