@@ -17,6 +17,7 @@ public final class ForestryConfig {
     private static int charcoalAmountBase = 8;
     private static int charcoalWallCheckRange = 16;
     private static boolean enableBackpackResupply = true;
+    private static boolean pollinateVanillaLeaves = true;
 
     private ForestryConfig() {
     }
@@ -37,6 +38,10 @@ public final class ForestryConfig {
         return enableBackpackResupply;
     }
 
+    public static boolean pollinateVanillaLeaves() {
+        return pollinateVanillaLeaves;
+    }
+
     public static void init() {
         Map<String, String> existing = read();
         write(existing);
@@ -54,6 +59,7 @@ public final class ForestryConfig {
             charcoalWallCheckRange = 1;
         }
         enableBackpackResupply = parseBoolean(loaded.get("storage.enable_backpack_resupply"), true);
+        pollinateVanillaLeaves = parseBoolean(loaded.get("bees.pollinate_vanilla_leaves"), true);
     }
 
     private static void write(Map<String, String> existing) {
@@ -87,6 +93,12 @@ public final class ForestryConfig {
                 writer.newLine();
                 String resupplyValue = existing.getOrDefault("storage.enable_backpack_resupply", "true");
                 writer.write("storage.enable_backpack_resupply=" + resupplyValue);
+                writer.newLine();
+                writer.newLine();
+                writer.write("# Whether bees and player-held pollen can convert vanilla / default Forestry leaves into genetic leaves.");
+                writer.newLine();
+                String pollinateValue = existing.getOrDefault("bees.pollinate_vanilla_leaves", "true");
+                writer.write("bees.pollinate_vanilla_leaves=" + pollinateValue);
                 writer.newLine();
             }
         } catch (IOException e) {

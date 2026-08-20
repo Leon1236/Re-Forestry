@@ -1,6 +1,20 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "reforestry:item/crated_simmering_comb"
+    "model": "reforestry:item/crated_simmering_comb",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -1
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -6809319
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -96456
+      }
+    ]
   }
 }

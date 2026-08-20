@@ -954,6 +954,7 @@ public final class DefaultBeeSpecies {
                 .setSecret(true)
                 .setAuthority("TheDarkColour")
                 .addProduct(ApicultureItems.BEE_COMBS.get(EnumHoneyComb.POWDERY).item(), 0.45f)
+                .addProduct(new FireworkProduct(0.20f))
                 .setGenome(genome -> {
                     genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_UP_2);
                     genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_UP_1);

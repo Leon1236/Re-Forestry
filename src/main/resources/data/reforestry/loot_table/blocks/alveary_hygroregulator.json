@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "reforestry:alveary_hygro"
+          "name": "reforestry:alveary_hygroregulator"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "reforestry:blocks/alveary_hygro"
+  "random_sequence": "reforestry:blocks/alveary_hygroregulator"
 }

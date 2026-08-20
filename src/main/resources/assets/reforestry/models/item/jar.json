@@ -1,7 +1,7 @@
 {
-  "loader": "reforestry:fluid_container",
-  "gui_light": "front",
-  "empty": "reforestry:item/jar_empty",
-  "filled": "reforestry:item/jar_filled",
-  "type": "jar"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "reforestry:item/liquids/jar.bottle",
+    "layer1": "reforestry:item/liquids/jar.contents"
+  }
 }

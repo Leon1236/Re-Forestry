@@ -103,6 +103,11 @@ public final class ApicultureGenetics {
         return species;
     }
 
+    @Nullable
+    public static IBeeSpecies getSpeciesSafe(Identifier id) {
+        return speciesById.get(id);
+    }
+
     public static IGenome getDefaultGenome(Identifier id) {
         IGenome genome = defaultGenomes.get(id);
         if (genome == null) {

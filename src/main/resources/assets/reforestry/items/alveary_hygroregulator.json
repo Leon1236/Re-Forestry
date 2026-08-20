@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "reforestry:item/alveary_hygro"
+    "model": "reforestry:item/alveary_hygroregulator"
   }
 }

@@ -921,6 +921,8 @@
   "for.multiblock.alveary.type": "蜂箱組",
   "for.multiblock.farm.type": "農場",
   "entity.Villager.arborist": "林業家",
+  "entity.minecraft.villager.reforestry.arborist": "林業家",
+  "entity.reforestry.villager.arborist": "林業家",
   "for.arboriculture.effect.none": "無效果",
   "for.chat.command.reforestry.tree.desc": "- %s： 植樹命令。",
   "for.chat.command.reforestry.tree.help": "樹木相關的命令。",

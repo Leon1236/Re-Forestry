@@ -23,6 +23,6 @@ public final class MutationConditionBiome implements IMutationCondition {
 
     @Override
     public Component getDescription() {
-        return Component.translatable("mutation.condition.reforestry.biome");
+        return Component.translatable("for.mutation.condition.biome.single", biomeTag.location().toString());
     }
 }

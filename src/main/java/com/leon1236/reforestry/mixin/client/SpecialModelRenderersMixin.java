@@ -14,8 +14,10 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.util.ExtraCodecs;
 
 import com.leon1236.reforestry.ReForestry;
+import com.leon1236.reforestry.core.client.AnalyzerSpecialRenderer;
 import com.leon1236.reforestry.core.client.MachineSpecialRenderer;
 import com.leon1236.reforestry.core.client.MillSpecialRenderer;
+import com.leon1236.reforestry.core.client.NaturalistChestSpecialRenderer;
 
 @Mixin(SpecialModelRenderers.class)
 public class SpecialModelRenderersMixin {
@@ -27,5 +29,7 @@ public class SpecialModelRenderersMixin {
 	private static void reforestry$bootstrap(CallbackInfo info) {
 		ID_MAPPER.put(ReForestry.id("machine"), MachineSpecialRenderer.Unbaked.MAP_CODEC);
 		ID_MAPPER.put(ReForestry.id("mill"), MillSpecialRenderer.Unbaked.MAP_CODEC);
+		ID_MAPPER.put(ReForestry.id("naturalist_chest"), NaturalistChestSpecialRenderer.Unbaked.MAP_CODEC);
+		ID_MAPPER.put(ReForestry.id("analyzer"), AnalyzerSpecialRenderer.Unbaked.MAP_CODEC);
 	}
 }

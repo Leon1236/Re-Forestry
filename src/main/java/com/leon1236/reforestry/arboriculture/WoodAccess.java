@@ -4,6 +4,7 @@ import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -35,5 +36,9 @@ public enum WoodAccess {
             throw new IllegalArgumentException("No " + kind.getSerializedName() + " registered for wood type: " + woodType.getSerializedName());
         }
         return state;
+    }
+
+    public ItemStack getStack(IWoodType woodType, WoodBlockKind kind, boolean fireproof) {
+        return new ItemStack(getBlockState(woodType, kind, fireproof).getBlock());
     }
 }

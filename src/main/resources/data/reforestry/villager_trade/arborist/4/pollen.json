@@ -1,0 +1,22 @@
+{
+  "wants": {
+    "id": "minecraft:emerald",
+    "count": {
+      "type": "minecraft:uniform",
+      "min": 5,
+      "max": 20
+    }
+  },
+  "gives": "reforestry:pollen_fertile",
+  "max_uses": 8,
+  "xp": 15,
+  "reputation_discount": 0.0,
+  "given_item_modifiers": [
+    {
+      "function": "reforestry:set_random_tree_genome",
+      "max_complexity": 10,
+      "min_count": 1,
+      "max_count": 1
+    }
+  ]
+}

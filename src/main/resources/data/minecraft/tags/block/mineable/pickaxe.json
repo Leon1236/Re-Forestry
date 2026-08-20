@@ -10,6 +10,8 @@
     "reforestry:squeezer",
     "reforestry:still",
     "reforestry:rainmaker",
-    "reforestry:analyzer"
+    "reforestry:analyzer",
+    "reforestry:wax_block",
+    "reforestry:wax_block_refractory"
   ]
 }

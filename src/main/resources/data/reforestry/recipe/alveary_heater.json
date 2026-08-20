@@ -6,7 +6,7 @@
     "#": "#c:ingots/gold",
     "I": "#c:ingots/iron",
     "S": "#c:stones",
-    "X": "reforestry:alveary_plain"
+    "X": "reforestry:alveary_block"
   },
   "pattern": [
     "#I#",

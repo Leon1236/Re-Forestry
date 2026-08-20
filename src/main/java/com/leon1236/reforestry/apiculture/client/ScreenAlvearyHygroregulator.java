@@ -12,9 +12,14 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.material.Fluid;
+
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariantAttributes;
 
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.apiculture.gui.ContainerAlvearyHygroregulator;
+import com.leon1236.reforestry.core.client.RenderUtil;
 import com.leon1236.reforestry.core.fluids.PipetteTankHelper;
 import com.leon1236.reforestry.core.gui.IContainerLiquidTanks;
 
@@ -27,9 +32,6 @@ public class ScreenAlvearyHygroregulator extends AbstractContainerScreen<Contain
     private static final int TANK_Y = 17;
     private static final int TANK_WIDTH = 16;
     private static final int TANK_HEIGHT = 58;
-
-    private static final int WATER_COLOR = 0xFF3F76E4;
-    private static final int LAVA_COLOR = 0xFFCF5A17;
 
     public ScreenAlvearyHygroregulator(ContainerAlvearyHygroregulator menu, Inventory inventory, Component title) {
         super(menu, inventory, title, IMAGE_WIDTH, IMAGE_HEIGHT);
@@ -53,13 +55,14 @@ public class ScreenAlvearyHygroregulator extends AbstractContainerScreen<Contain
         super.extractBackground(guiGraphics, mouseX, mouseY, delta);
         guiGraphics.blit(RenderPipelines.GUI_TEXTURED, TEXTURE, leftPos, topPos, 0.0f, 0.0f, imageWidth, imageHeight, 256, 256);
 
-        int fluidType = menu.getFluidType();
+        Fluid fluid = menu.getResourceFluid();
         int amount = menu.getFluidAmountInMillibuckets();
         int capacity = menu.getCapacityInMillibuckets();
+        boolean empty = fluid == null || fluid.defaultFluidState().isEmpty() || amount <= 0;
 
-        if (fluidType != ContainerAlvearyHygroregulator.FLUID_NONE && amount > 0 && capacity > 0) {
+        if (!empty && capacity > 0) {
             int filled = Math.min(TANK_HEIGHT, TANK_HEIGHT * amount / capacity);
-            int color = fluidType == ContainerAlvearyHygroregulator.FLUID_LAVA ? LAVA_COLOR : WATER_COLOR;
+            int color = 0xFF000000 | (RenderUtil.getFluidColor(fluid) & 0xFFFFFF);
             int x = leftPos + TANK_X;
             int y = topPos + TANK_Y + (TANK_HEIGHT - filled);
             guiGraphics.fill(x, y, x + TANK_WIDTH, y + filled, color);
@@ -68,11 +71,9 @@ public class ScreenAlvearyHygroregulator extends AbstractContainerScreen<Contain
         int tankLeft = leftPos + TANK_X;
         int tankTop = topPos + TANK_Y;
         if (mouseX >= tankLeft && mouseX < tankLeft + TANK_WIDTH && mouseY >= tankTop && mouseY < tankTop + TANK_HEIGHT) {
-            Component fluidName = switch (fluidType) {
-                case ContainerAlvearyHygroregulator.FLUID_WATER -> Component.translatable("block.minecraft.water");
-                case ContainerAlvearyHygroregulator.FLUID_LAVA -> Component.translatable("block.minecraft.lava");
-                default -> Component.translatable("for.gui.empty");
-            };
+            Component fluidName = empty
+                    ? Component.translatable("for.gui.empty")
+                    : FluidVariantAttributes.getName(FluidVariant.of(fluid));
             List<Component> lines = List.of(fluidName, Component.literal(amount + " / " + capacity + " mB"));
             guiGraphics.setTooltipForNextFrame(font, lines, Optional.<TooltipComponent>empty(), mouseX, mouseY);
         }

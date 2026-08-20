@@ -47,4 +47,12 @@ public interface IBeeModifier {
     default boolean isHellish() {
         return false;
     }
+
+    default boolean providesFlowers() {
+        return false;
+    }
+
+    default boolean isClimateFullyTolerant() {
+        return false;
+    }
 }

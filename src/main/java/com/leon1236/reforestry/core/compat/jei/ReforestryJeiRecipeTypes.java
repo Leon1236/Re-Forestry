@@ -1,6 +1,7 @@
 package com.leon1236.reforestry.core.compat.jei;
 
 import com.leon1236.reforestry.ReForestry;
+import com.leon1236.reforestry.api.arboriculture.ICharcoalPileWall;
 import com.leon1236.reforestry.api.fuels.RainSubstrate;
 import com.leon1236.reforestry.api.recipes.ICarpenterRecipe;
 import com.leon1236.reforestry.api.recipes.ICentrifugeRecipe;
@@ -35,6 +36,8 @@ public final class ReforestryJeiRecipeTypes {
 			IRecipeType.create(ReForestry.id("bottler"), BottlerRecipe.class);
 	public static final IRecipeType<RainSubstrate> RAINMAKER =
 			IRecipeType.create(ReForestry.id("rainmaker"), RainSubstrate.class);
+	public static final IRecipeType<ICharcoalPileWall> CHARCOAL_PILE =
+			IRecipeType.create(ReForestry.id("charcoal.pile"), ICharcoalPileWall.class);
 
 	private ReforestryJeiRecipeTypes() {
 	}

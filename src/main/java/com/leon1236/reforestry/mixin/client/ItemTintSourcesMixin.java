@@ -18,6 +18,7 @@ import com.leon1236.reforestry.apiculture.client.BeeBodyTintSource;
 import com.leon1236.reforestry.apiculture.client.BeeOutlineTintSource;
 import com.leon1236.reforestry.apiculture.client.BeeStripesTintSource;
 import com.leon1236.reforestry.arboriculture.client.PollenTintSource;
+import com.leon1236.reforestry.core.client.FluidContainerTintSource;
 import com.leon1236.reforestry.core.client.PipetteFluidTintSource;
 
 @Mixin(ItemTintSources.class)
@@ -33,5 +34,6 @@ public class ItemTintSourcesMixin {
         ID_MAPPER.put(ReForestry.id("bee_outline"), BeeOutlineTintSource.MAP_CODEC);
         ID_MAPPER.put(ReForestry.id("pollen"), PollenTintSource.MAP_CODEC);
         ID_MAPPER.put(ReForestry.id("pipette_fluid"), PipetteFluidTintSource.MAP_CODEC);
+        ID_MAPPER.put(ReForestry.id("fluid_container"), FluidContainerTintSource.MAP_CODEC);
     }
 }

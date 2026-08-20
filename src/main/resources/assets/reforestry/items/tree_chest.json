@@ -1,6 +1,10 @@
 {
   "model": {
-    "type": "minecraft:model",
-    "model": "reforestry:item/tree_chest"
+    "type": "minecraft:special",
+    "base": "reforestry:item/factory_tesr",
+    "model": {
+      "type": "reforestry:naturalist_chest",
+      "texture": "arbchest"
+    }
   }
 }

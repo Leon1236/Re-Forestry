@@ -63,6 +63,7 @@ public class ModuleFactory implements IForestryModule {
     private static void reloadFluidFilters(MinecraftServer server) {
         FabricatorMoltenFluidSetup.reload(server.overworld());
         CarpenterInputFluidSetup.reload(server.overworld());
+        HygroregulatorFluidSetup.reload(server.overworld());
     }
 
     @Override

@@ -2109,6 +2109,7 @@
   "advancements.reforestry.root.description": "Деревья, пчёлы и многое другое!",
   "entity.minecraft.villager.reforestry.beekeeper": "Пчеловод",
   "entity.minecraft.villager.reforestry.arborist": "Лесовод",
+  "entity.reforestry.villager.arborist": "Лесовод",
   "entity.reforestry.chest_boat": "Грузовая лодка",
   "entity.reforestry.boat": "Лодка",
   "entity.reforestry.butterfly": "Бабочка",

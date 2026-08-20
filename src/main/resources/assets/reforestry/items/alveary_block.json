@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "reforestry:item/alveary_plain"
+    "model": "reforestry:item/alveary_block"
   }
 }

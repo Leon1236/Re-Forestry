@@ -35,7 +35,7 @@ import com.leon1236.reforestry.api.apiculture.hives.IHiveDrop;
 import com.leon1236.reforestry.api.apiculture.hives.IHiveTile;
 import com.leon1236.reforestry.api.core.ReforestryBiomeTags;
 import com.leon1236.reforestry.api.genetics.IGenome;
-import com.leon1236.reforestry.apiculture.features.ApicultureDataComponents;
+import com.leon1236.reforestry.apiculture.BeeStackHelper;
 import com.leon1236.reforestry.apiculture.features.ApicultureItems;
 import com.leon1236.reforestry.apiculture.features.ApicultureTiles;
 import com.leon1236.reforestry.apiculture.tiles.TileHive;
@@ -133,9 +133,9 @@ public class BlockBeeHive extends BaseEntityBlock {
             for (IHiveDrop drop : shuffled) {
                 if (random.nextDouble() < drop.getChance(level, pos, fortune)) {
                     IGenome genome = drop.createGenome(level, pos);
-                    ItemStack princess = new ItemStack(ApicultureItems.BEE_PRINCESS.item());
-                    princess.set(ApicultureDataComponents.BEE_GENOME.type(), genome);
-                    drops.add(princess);
+                    boolean ignoble = random.nextFloat() < drop.getIgnobleChance(level, pos, fortune);
+                    drops.add(BeeStackHelper.createBeeStack(
+                            ApicultureItems.BEE_PRINCESS.item(), genome, !ignoble, 0));
                     hasPrincess = true;
                     break;
                 }
@@ -146,9 +146,8 @@ public class BlockBeeHive extends BaseEntityBlock {
             for (IHiveDrop drop : shuffled) {
                 if (random.nextDouble() < drop.getChance(level, pos, fortune)) {
                     IGenome genome = drop.createGenome(level, pos);
-                    ItemStack drone = new ItemStack(ApicultureItems.BEE_DRONE.item());
-                    drone.set(ApicultureDataComponents.BEE_GENOME.type(), genome);
-                    drops.add(drone);
+                    drops.add(BeeStackHelper.createBeeStack(
+                            ApicultureItems.BEE_DRONE.item(), genome, true, 0));
                     break;
                 }
             }

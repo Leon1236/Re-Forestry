@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "reforestry:alveary_plain"
+          "name": "reforestry:alveary_block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "reforestry:blocks/alveary_plain"
+  "random_sequence": "reforestry:blocks/alveary_block"
 }

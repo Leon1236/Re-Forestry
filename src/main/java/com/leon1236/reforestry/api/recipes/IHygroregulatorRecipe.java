@@ -12,4 +12,11 @@ public interface IHygroregulatorRecipe extends IForestryRecipe {
     byte getHumiditySteps();
 
     byte getTemperatureSteps();
+
+    default boolean matches(FluidVariant variant, long amount) {
+        return !variant.isBlank()
+                && !getInputFluid().isBlank()
+                && variant.getFluid() == getInputFluid().getFluid()
+                && amount >= getInputFluidAmount();
+    }
 }

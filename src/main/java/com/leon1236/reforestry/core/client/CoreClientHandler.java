@@ -2,11 +2,16 @@ package com.leon1236.reforestry.core.client;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry;
+
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 
 import com.leon1236.reforestry.api.client.IClientModuleHandler;
 import com.leon1236.reforestry.core.client.genetics.GeneticClientManager;
 import com.leon1236.reforestry.core.features.CoreMenuTypes;
+import com.leon1236.reforestry.core.features.CoreTiles;
+import com.leon1236.reforestry.core.genetics.root.ClientBreedingHandler;
 import com.leon1236.reforestry.core.fluids.client.FluidClientHandler;
 import com.leon1236.reforestry.core.multiblock.MultiblockClientEventHandler;
 
@@ -14,10 +19,20 @@ import com.leon1236.reforestry.core.multiblock.MultiblockClientEventHandler;
 public class CoreClientHandler implements IClientModuleHandler {
 	@Override
 	public void registerClient() {
+		ClientBreedingHandler.register();
 		MultiblockClientEventHandler.register();
 		FluidClientHandler.registerClient();
 		SpectaclesHighlightRenderer.register();
 		GeneticClientManager.INSTANCE.bootstrap();
+
+		ModelLayerRegistry.registerModelLayer(ForestryModelLayers.NATURALIST_CHEST_LAYER, RenderNaturalistChest::createBodyLayer);
+		ModelLayerRegistry.registerModelLayer(ForestryModelLayers.ANALYZER_LAYER, RenderAnalyzer::createBodyLayer);
+
+		BlockEntityRenderers.register(CoreTiles.BEE_CHEST.type(), ctx -> new RenderNaturalistChest(ctx, "apiaristchest"));
+		BlockEntityRenderers.register(CoreTiles.TREE_CHEST.type(), ctx -> new RenderNaturalistChest(ctx, "arbchest"));
+		BlockEntityRenderers.register(CoreTiles.BUTTERFLY_CHEST.type(), ctx -> new RenderNaturalistChest(ctx, "lepichest"));
+		BlockEntityRenderers.register(CoreTiles.ANALYZER.type(), RenderAnalyzer::new);
+
 		MenuScreens.register(CoreMenuTypes.SOLDERING_IRON.type(), ScreenSolderingIron::new);
 		MenuScreens.register(CoreMenuTypes.ALYZER.type(), ScreenPortableAnalyzer::new);
 		MenuScreens.register(CoreMenuTypes.NATURALIST_CHEST.type(), ScreenNaturalistChest::new);

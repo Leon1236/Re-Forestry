@@ -32,6 +32,7 @@ import com.leon1236.reforestry.core.fluids.ForestryFluids;
 import com.leon1236.reforestry.core.genetics.GeneticItemHelper;
 import com.leon1236.reforestry.core.genetics.loot.ResearchNoteLoot;
 import com.leon1236.reforestry.core.multiblock.MultiblockEventHandler;
+import com.leon1236.reforestry.core.network.PacketRegistry;
 import com.leon1236.reforestry.core.plugin.PluginManager;
 
 @ForestryModule(name = "Core", description = "Shared foundation the other modules build on.")
@@ -64,6 +65,7 @@ public class ModuleCore implements IForestryModule {
         CoreCreativeTabs.init();
         BeeManager.armorApiaristHelper = new ArmorApiaristHelper();
         MultiblockEventHandler.register();
+        PacketRegistry.init();
         registerClimateReloadHooks();
     }
 

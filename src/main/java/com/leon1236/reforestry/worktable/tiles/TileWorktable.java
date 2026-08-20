@@ -193,6 +193,15 @@ public class TileWorktable extends TileBase implements WorldlyContainer, ICrafte
 		setChangedAndSync();
 	}
 
+	public void applyGhostCrafting(List<ItemStack> stacks) {
+		for (int slot = 0; slot < this.craftingDisplay.getContainerSize(); slot++) {
+			ItemStack stack = slot < stacks.size() ? stacks.get(slot) : ItemStack.EMPTY;
+			this.craftingDisplay.setItem(slot, stack.isEmpty() ? ItemStack.EMPTY : stack.copyWithCount(1));
+		}
+		updateCurrentRecipeFromDisplay();
+		setChangedAndSync();
+	}
+
 	public void updateCurrentRecipeFromDisplay() {
 		setCurrentRecipe(this.craftingDisplay);
 	}

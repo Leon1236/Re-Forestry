@@ -1,0 +1,22 @@
+{
+  "wants": {
+    "id": "minecraft:emerald",
+    "count": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 4
+    }
+  },
+  "gives": "reforestry:larch_planks",
+  "max_uses": 8,
+  "xp": 2,
+  "reputation_discount": 0.0,
+  "given_item_modifiers": [
+    {
+      "function": "reforestry:set_random_forestry_wood",
+      "kind": "planks",
+      "min_count": 10,
+      "max_count": 32
+    }
+  ]
+}

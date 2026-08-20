@@ -9,6 +9,7 @@ import com.leon1236.reforestry.modules.ModuleManager;
 import com.leon1236.reforestry.storage.features.BackpackItems;
 import com.leon1236.reforestry.apiculture.genetics.ApicultureGenetics;
 import com.leon1236.reforestry.apiculture.items.EnumHoneyComb;
+import com.leon1236.reforestry.apiculture.items.ItemCreativeHiveFrame;
 import com.leon1236.reforestry.modules.features.FeatureCreativeTab;
 import com.leon1236.reforestry.modules.features.FeatureItem;
 import com.leon1236.reforestry.modules.features.IFeatureRegistry;
@@ -22,14 +23,16 @@ public class ApicultureCreativeTabs {
         tab.displayItems((parameters, output) -> {
             output.accept(ApicultureBlocks.BEE_HOUSE.item());
             output.accept(ApicultureBlocks.APIARY.item());
-            for (var alveary : ApicultureBlocks.ALVEARY.getAll().values()) {
-                if (alveary.item() != null) {
-                    output.accept(alveary.item());
-                }
-            }
             for (var hive : ApicultureBlocks.BEEHIVE.getAll().entrySet()) {
                 if (hive.getKey() != BlockHiveType.SWARM && hive.getValue().item() != null) {
                     output.accept(hive.getValue().item());
+                }
+            }
+            output.accept(ApicultureBlocks.WAX_BLOCK.item());
+            output.accept(ApicultureBlocks.REFRACTORY_WAX_BLOCK.item());
+            for (var alveary : ApicultureBlocks.ALVEARY.getAll().values()) {
+                if (alveary.item() != null) {
+                    output.accept(alveary.item());
                 }
             }
             if (ModuleManager.INSTANCE.isModuleLoaded(ReForestry.id("storage"))) {
@@ -42,6 +45,7 @@ public class ApicultureCreativeTabs {
             output.accept(ApicultureItems.FRAME_IMPREGNATED.item());
             output.accept(ApicultureItems.FRAME_PROVEN.item());
             output.accept(ApicultureItems.FRAME_CREATIVE.item());
+            output.accept(ItemCreativeHiveFrame.forceMutationsStack(ApicultureItems.FRAME_CREATIVE.item()));
             output.accept(ApicultureItems.APIARIST_HELMET.item());
             output.accept(ApicultureItems.APIARIST_CHEST.item());
             output.accept(ApicultureItems.APIARIST_LEGS.item());

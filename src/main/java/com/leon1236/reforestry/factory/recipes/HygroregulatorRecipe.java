@@ -62,12 +62,6 @@ public record HygroregulatorRecipe(
         return this.temperatureSteps;
     }
 
-    public boolean matches(FluidVariant variant, long amount) {
-        return !variant.isBlank()
-                && variant.getFluid() == getInputFluid().getFluid()
-                && amount >= getInputFluidAmount();
-    }
-
     @Override
     public RecipeSerializer<? extends HygroregulatorRecipe> getSerializer() {
         return SERIALIZER;

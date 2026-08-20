@@ -1,5 +1,5 @@
 {
-  "parent": "reforestry:block/apiculture/alveary_hygro",
+  "parent": "reforestry:block/apiculture/alveary_hygroregulator",
   "display": {
     "thirdperson": {
       "rotation": [

@@ -1,5 +1,5 @@
 {
-  "parent": "reforestry:block/apiculture/alveary_stabiliser",
+  "parent": "reforestry:block/apiculture/alveary_stabilizer",
   "display": {
     "thirdperson": {
       "rotation": [

@@ -1,6 +1,15 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "reforestry:item/refractory"
+    "model": "reforestry:item/refractory",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -1
+      },
+      {
+        "type": "reforestry:fluid_container"
+      }
+    ]
   }
 }

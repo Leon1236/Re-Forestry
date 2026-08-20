@@ -2,6 +2,7 @@ package com.leon1236.reforestry.apiculture.items;
 
 import java.util.function.Consumer;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -9,6 +10,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
 
 import com.leon1236.reforestry.api.genetics.IGenome;
+import com.leon1236.reforestry.apiculture.BeeStackHelper;
 import com.leon1236.reforestry.apiculture.features.ApicultureDataComponents;
 import com.leon1236.reforestry.apiculture.genetics.BeeChromosomes;
 import com.leon1236.reforestry.apiculture.genetics.BeeGeneticsTooltips;
@@ -42,6 +44,18 @@ public class ItemBeeGE extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display,
             Consumer<Component> tooltip, TooltipFlag flag) {
+        if (stack.get(ApicultureDataComponents.BEE_GENOME.type()) == null) {
+            return;
+        }
+        if (!"drone".equals(lifeStage)) {
+            if (BeeStackHelper.isPristine(stack)) {
+                tooltip.accept(Component.translatable("for.bees.stock.pristine")
+                        .withStyle(ChatFormatting.YELLOW, ChatFormatting.ITALIC));
+            } else {
+                tooltip.accept(Component.translatable("for.bees.stock.ignoble")
+                        .withStyle(ChatFormatting.YELLOW));
+            }
+        }
         GeneticsTooltips.appendGeneticsTooltip(stack, tooltip, genome -> BeeGeneticsTooltips.addAnalyzedTooltip(genome, tooltip));
     }
 

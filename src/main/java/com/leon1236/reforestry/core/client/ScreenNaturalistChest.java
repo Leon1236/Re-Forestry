@@ -13,10 +13,6 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
 import com.leon1236.reforestry.ReForestry;
-import com.leon1236.reforestry.api.genetics.AllelePair;
-import com.leon1236.reforestry.api.genetics.IGenome;
-import com.leon1236.reforestry.api.genetics.capability.IndividualItems;
-import com.leon1236.reforestry.api.genetics.chromosomes.IChromosome;
 import com.leon1236.reforestry.core.gui.ContainerNaturalistChest;
 import com.leon1236.reforestry.core.gui.NaturalistInventoryLayout;
 
@@ -30,6 +26,8 @@ public class ScreenNaturalistChest extends ScreenForestry<ContainerNaturalistChe
 	private static final int RIGHT_BUTTON_X = 180;
 	private static final int BUTTON_Y = 7;
 	private static final int BUTTON_SIZE = 12;
+
+	private final NaturalistSpeciesHover speciesHover = new NaturalistSpeciesHover();
 
 	public ScreenNaturalistChest(ContainerNaturalistChest menu, Inventory inventory, Component title) {
 		super(menu, inventory, title, IMAGE_WIDTH, IMAGE_HEIGHT);
@@ -45,32 +43,12 @@ public class ScreenNaturalistChest extends ScreenForestry<ContainerNaturalistChe
 
 	@Override
 	protected void extractLabels(GuiGraphicsExtractor graphics, int mouseX, int mouseY) {
-		super.extractLabels(graphics, mouseX, mouseY);
 		int page = this.menu.getCurrentPage() + 1;
 		Component header = Component.translatable("for.gui.page").append(" " + page + "/" + NaturalistInventoryLayout.MAX_PAGE);
 		int headerX = 95 + (98 - this.font.width(header)) / 2;
 		graphics.text(this.font, header, headerX, 10, TEXT_COLOR, false);
 
-		ItemStack hovered = getHoveredStack();
-		if (hovered.isEmpty() || !IndividualItems.isIndividual(hovered)) {
-			return;
-		}
-		if (!IndividualItems.isAnalyzed(hovered)) {
-			graphics.text(this.font, Component.translatable("for.gui.unknown"), 10, 32, TEXT_COLOR, false);
-			return;
-		}
-		IGenome genome = IndividualItems.getGenome(hovered);
-		if (genome == null) {
-			return;
-		}
-		IChromosome<?> speciesChromosome = genome.karyotype().speciesChromosome();
-		AllelePair<?> pair = genome.chromosomes().get(speciesChromosome);
-		if (pair == null) {
-			return;
-		}
-		@SuppressWarnings({"unchecked", "rawtypes"})
-		Component speciesName = ((IChromosome) speciesChromosome).getDisplayName(pair.active());
-		graphics.text(this.font, speciesName, 10, 32, TEXT_COLOR, false);
+		this.speciesHover.display(graphics, this.font, this.menu.getSpeciesTypeId(), getHoveredStack());
 	}
 
 	@Override

@@ -1,11 +1,11 @@
 {
   "name": "for.gui.book.patchouli.entry.beekeeping.alveary",
   "category": "reforestry:alveary",
-  "icon": "reforestry:alveary_plain",
+  "icon": "reforestry:alveary_block",
   "pages": [
     {
       "type": "patchouli:spotlight",
-      "item": "reforestry:alveary_plain",
+      "item": "reforestry:alveary_block",
       "link_recipe": true,
       "text": "for.gui.book.patchouli.entry.beekeeping.alveary1"
     },
@@ -30,9 +30,9 @@
           [ "aaa", "a0a", "aaa" ]
         ],
         "mapping": {
-          "a": "reforestry:alveary_plain",
+          "a": "reforestry:alveary_block",
           "s": "#minecraft:wooden_slabs",
-          "0": "reforestry:alveary_plain"
+          "0": "reforestry:alveary_block"
         },
         "symmetrical": true
       }

@@ -5,7 +5,6 @@ import java.util.function.Consumer;
 
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 
-import net.minecraft.commands.Commands;
 import net.minecraft.resources.Identifier;
 
 import com.leon1236.reforestry.ReForestry;
@@ -25,11 +24,16 @@ import com.leon1236.reforestry.arboriculture.features.CharcoalBlocks;
 import com.leon1236.reforestry.arboriculture.genetics.ArboricultureGenetics;
 import com.leon1236.reforestry.arboriculture.genetics.TreePollenType;
 import com.leon1236.reforestry.arboriculture.loot.GrafterLootHandler;
+import com.leon1236.reforestry.arboriculture.loot.SnifferAmberSaplingLoot;
+import com.leon1236.reforestry.arboriculture.villagers.ArboricultureVillagers;
+import com.leon1236.reforestry.core.commands.ReforestryCommands;
 import com.leon1236.reforestry.core.genetics.pollen.PollenTypes;
 import com.leon1236.reforestry.core.plugin.PluginManager;
 
 @ForestryModule(name = "Arboriculture", description = "Tree growing, genetics, sawmill, and related content.")
 public class ModuleArboriculture implements IForestryModule {
+    public static boolean doSelfPollination = false;
+
     @Override
     public Identifier getId() {
         return ReForestry.id("arboriculture");
@@ -52,10 +56,12 @@ public class ModuleArboriculture implements IForestryModule {
         ArboricultureGenetics.finalizeRegistration();
         ArboricultureCreativeTabs.init();
         ArboricultureFeatures.init();
+        ArboricultureVillagers.init();
         GrafterLootHandler.init();
+        SnifferAmberSaplingLoot.init();
         PollenTypes.register(TreePollenType.INSTANCE);
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) ->
-                dispatcher.register(Commands.literal(ReForestry.MOD_ID).then(CommandTree.register())));
+                ReforestryCommands.registerSubcommand(dispatcher, CommandTree.register()));
     }
 
     @Override

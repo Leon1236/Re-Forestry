@@ -77,6 +77,10 @@ public enum ForestryWoodType implements IWoodType {
     public static final float DEFAULT_HARDNESS = 2.0f;
     public static final ForestryWoodType[] VALUES = values();
 
+    public static ForestryWoodType getRandom(RandomSource random) {
+        return VALUES[random.nextInt(VALUES.length)];
+    }
+
     public final String serializedName;
     private final float hardness;
     private final ForestryLeafType leafType;

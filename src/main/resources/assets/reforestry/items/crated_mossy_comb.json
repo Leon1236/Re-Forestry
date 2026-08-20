@@ -1,6 +1,20 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "reforestry:item/crated_mossy_comb"
+    "model": "reforestry:item/crated_mossy_comb",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -1
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -14011629
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -8480455
+      }
+    ]
   }
 }

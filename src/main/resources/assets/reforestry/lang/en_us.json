@@ -2183,6 +2183,7 @@
   "advancements.reforestry.root.description": "Trees, bees and more.",
   "entity.minecraft.villager.reforestry.beekeeper": "Beekeeper",
   "entity.minecraft.villager.reforestry.arborist": "Arborist",
+  "entity.reforestry.villager.arborist": "Arborist",
   "entity.reforestry.chest_boat": "Boat with Chest",
   "entity.reforestry.boat": "Boat",
   "reforestry.date.month.1": "Jan. %s",

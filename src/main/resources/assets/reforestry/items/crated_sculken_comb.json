@@ -1,6 +1,20 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "reforestry:item/crated_sculken_comb"
+    "model": "reforestry:item/crated_sculken_comb",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -1
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -15656159
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -16424355
+      }
+    ]
   }
 }

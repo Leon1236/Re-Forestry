@@ -14,4 +14,8 @@ public interface IPollenType {
     Optional<IGenome> tryCollectPollen(Level level, BlockPos pos, RandomSource random);
 
     boolean tryPollinate(Level level, BlockPos pos, IGenome pollen, RandomSource random);
+
+    default boolean tryPollinate(Level level, BlockPos pos, IGenome pollen, RandomSource random, boolean convertVanilla) {
+        return tryPollinate(level, pos, pollen, random);
+    }
 }

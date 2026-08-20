@@ -1,6 +1,20 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "reforestry:item/crated_mellow_comb"
+    "model": "reforestry:item/crated_mellow_comb",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -1
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -7839744
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -1696
+      }
+    ]
   }
 }

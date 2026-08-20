@@ -2002,6 +2002,7 @@
   "advancements.reforestry.root.description": "Дерева, бджоли і більше.",
   "entity.minecraft.villager.reforestry.beekeeper": "Пасічник",
   "entity.minecraft.villager.reforestry.arborist": "Лісовод",
+  "entity.reforestry.villager.arborist": "Лісовод",
   "entity.reforestry.chest_boat": "Човен зі скринею",
   "entity.reforestry.boat": "Човен",
   "reforestry.date.month.1": "Січ. %s",

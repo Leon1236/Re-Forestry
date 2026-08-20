@@ -5,12 +5,12 @@ import java.util.Locale;
 import com.leon1236.reforestry.api.core.IBlockSubtype;
 
 public enum BlockAlvearyType implements IBlockSubtype {
-    PLAIN(false),
+    PLAIN(false, "block"),
     SWARMER(true),
     FAN(true),
     HEATER(true),
-    HYGRO(false),
-    STABILISER(false),
+    HYGRO(false, "hygroregulator"),
+    STABILISER(false, "stabilizer"),
     SIEVE(false);
 
     public static final BlockAlvearyType[] VALUES = values();
@@ -22,6 +22,11 @@ public enum BlockAlvearyType implements IBlockSubtype {
     BlockAlvearyType(boolean activatable) {
         this.activatable = activatable;
         this.serializedName = name().toLowerCase(Locale.ENGLISH);
+    }
+
+    BlockAlvearyType(boolean activatable, String serializedName) {
+        this.activatable = activatable;
+        this.serializedName = serializedName;
     }
 
     @Override

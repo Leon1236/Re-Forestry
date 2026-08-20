@@ -1,0 +1,14 @@
+{
+  "wants": {
+    "id": "minecraft:emerald",
+    "count": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 4
+    }
+  },
+  "gives": "reforestry:grafter_proven",
+  "max_uses": 8,
+  "xp": 6,
+  "reputation_discount": 0.05
+}

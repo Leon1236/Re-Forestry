@@ -16,6 +16,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
 import com.leon1236.reforestry.api.genetics.IGenome;
+import com.leon1236.reforestry.arboriculture.TreeUtil;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureBlocks;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureDataComponents;
 import com.leon1236.reforestry.arboriculture.genetics.ITreeSpecies;
@@ -105,7 +106,10 @@ public class ItemGermlingGE extends Item {
 
         Level level = context.getLevel();
         BlockPos pos = context.getClickedPos();
-        if (!TreePollenType.INSTANCE.tryPollinate(level, pos, pollen, level.getRandom())) {
+        if (!TreeUtil.canMate(TreeUtil.getTreeSafe(level, pos), pollen)) {
+            return InteractionResult.PASS;
+        }
+        if (!TreePollenType.INSTANCE.tryPollinate(level, pos, pollen, level.getRandom(), true)) {
             return InteractionResult.PASS;
         }
 

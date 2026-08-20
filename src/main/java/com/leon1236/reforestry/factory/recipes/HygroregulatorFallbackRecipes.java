@@ -1,6 +1,8 @@
 package com.leon1236.reforestry.factory.recipes;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -13,12 +15,14 @@ import net.minecraft.world.level.material.Fluids;
 
 import com.leon1236.reforestry.api.recipes.IHygroregulatorRecipe;
 import com.leon1236.reforestry.core.fluids.FluidUnits;
+import com.leon1236.reforestry.core.fluids.ForestryFluids;
 import com.leon1236.reforestry.factory.features.FactoryRecipeTypes;
 
 public final class HygroregulatorFallbackRecipes {
     private static final List<FallbackRecipe> RECIPES = List.of(
             new FallbackRecipe(Fluids.WATER, 1, (byte) 1, (byte) -1, 0),
-            new FallbackRecipe(Fluids.LAVA, 1, (byte) -1, (byte) 1, 0));
+            new FallbackRecipe(Fluids.LAVA, 1, (byte) -1, (byte) 1, 0),
+            new FallbackRecipe(ForestryFluids.ICE.getFluid(), 1, (byte) 2, (byte) -2, 10));
 
     private HygroregulatorFallbackRecipes() {
     }
@@ -36,6 +40,14 @@ public final class HygroregulatorFallbackRecipes {
         return null;
     }
 
+    public static Set<Fluid> fluids() {
+        Set<Fluid> fluids = new HashSet<>();
+        for (FallbackRecipe recipe : RECIPES) {
+            fluids.add(recipe.fluid);
+        }
+        return Set.copyOf(fluids);
+    }
+
     private static final class FallbackRecipe implements IHygroregulatorRecipe {
         private final Fluid fluid;
         private final int amountMb;
@@ -49,12 +61,6 @@ public final class HygroregulatorFallbackRecipes {
             this.humiditySteps = humiditySteps;
             this.temperatureSteps = temperatureSteps;
             this.retainTime = retainTime;
-        }
-
-        private boolean matches(FluidVariant variant, long amount) {
-            return !variant.isBlank()
-                    && variant.getFluid() == this.fluid
-                    && amount >= getInputFluidAmount();
         }
 
         @Override

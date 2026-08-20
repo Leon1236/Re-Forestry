@@ -2,12 +2,11 @@ package com.leon1236.reforestry.apiculture.genetics;
 
 import java.util.List;
 
-import net.minecraft.world.item.Item;
-
 import com.leon1236.reforestry.api.apiculture.IBeeHousing;
 import com.leon1236.reforestry.api.apiculture.IBeeJubilance;
 import com.leon1236.reforestry.api.core.HumidityType;
 import com.leon1236.reforestry.api.core.IClimateSensitive;
+import com.leon1236.reforestry.api.core.IProduct;
 import com.leon1236.reforestry.api.core.TemperatureType;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.api.genetics.alleles.IRegistryAlleleValue;
@@ -31,9 +30,9 @@ public interface IBeeSpecies extends IRegistryAlleleValue, IClimateSensitive {
 
     String authority();
 
-    List<Product> products();
+    List<IProduct> products();
 
-    List<Product> specialties();
+    List<IProduct> specialties();
 
     IBeeJubilance jubilance();
 
@@ -46,10 +45,4 @@ public interface IBeeSpecies extends IRegistryAlleleValue, IClimateSensitive {
 
     @Override
     HumidityType getHumidity();
-
-    record Product(Item item, int count, float chance) {
-        public Product(Item item, float chance) {
-            this(item, 1, chance);
-        }
-    }
 }

@@ -9,6 +9,8 @@ import net.minecraft.world.item.Item;
 
 import com.leon1236.reforestry.api.apiculture.IBeeJubilance;
 import com.leon1236.reforestry.api.core.HumidityType;
+import com.leon1236.reforestry.api.core.IProduct;
+import com.leon1236.reforestry.api.core.Product;
 import com.leon1236.reforestry.api.core.TemperatureType;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.api.genetics.IGenomeBuilder;
@@ -30,8 +32,8 @@ public final class BeeSpeciesBuilder implements IBeeSpeciesBuilder {
     private String authority = "";
     private TemperatureType temperature = TemperatureType.NORMAL;
     private HumidityType humidity = HumidityType.NORMAL;
-    private final List<IBeeSpecies.Product> products = new ArrayList<>();
-    private final List<IBeeSpecies.Product> specialties = new ArrayList<>();
+    private final List<IProduct> products = new ArrayList<>();
+    private final List<IProduct> specialties = new ArrayList<>();
     private IBeeJubilance jubilance = DefaultBeeJubilance.INSTANCE;
     private Consumer<IGenomeBuilder> genome = builder -> {
     };
@@ -91,19 +93,28 @@ public final class BeeSpeciesBuilder implements IBeeSpeciesBuilder {
 
     @Override
     public BeeSpeciesBuilder addProduct(Item item, float chance) {
-        products.add(new IBeeSpecies.Product(item, chance));
-        return this;
+        return addProduct(Product.of(item, 1, chance));
     }
 
     @Override
     public BeeSpeciesBuilder addProduct(Item item, int count, float chance) {
-        products.add(new IBeeSpecies.Product(item, count, chance));
+        return addProduct(Product.of(item, count, chance));
+    }
+
+    @Override
+    public BeeSpeciesBuilder addProduct(IProduct product) {
+        products.add(product);
         return this;
     }
 
     @Override
     public BeeSpeciesBuilder addSpecialty(Item item, float chance) {
-        specialties.add(new IBeeSpecies.Product(item, chance));
+        return addSpecialty(Product.of(item, 1, chance));
+    }
+
+    @Override
+    public BeeSpeciesBuilder addSpecialty(IProduct product) {
+        specialties.add(product);
         return this;
     }
 

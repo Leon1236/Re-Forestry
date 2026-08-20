@@ -1,3 +1,6 @@
 {
-  "parent": "reforestry:block/analyzer"
+  "parent": "reforestry:item/factory_tesr",
+  "textures": {
+    "particle": "reforestry:block/analyzer.0"
+  }
 }

@@ -115,6 +115,7 @@ public class FactoryJeiPlugin implements IModPlugin {
 	@Override
 	public void registerRecipeTransferHandlers(IRecipeTransferRegistration registry) {
 		registry.addRecipeTransferHandler(new CarpenterRecipeTransferHandler(), ReforestryJeiRecipeTypes.CARPENTER);
+		registry.addRecipeTransferHandler(new FabricatorRecipeTransferHandler(), ReforestryJeiRecipeTypes.FABRICATOR);
 	}
 
 	@Override

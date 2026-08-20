@@ -2001,6 +2001,7 @@
   "advancements.reforestry.root.description": "木、蜂、その他いろいろ。",
   "entity.minecraft.villager.reforestry.beekeeper": "養蜂家",
   "entity.minecraft.villager.reforestry.arborist": "樹医",
+  "entity.reforestry.villager.arborist": "樹医",
   "entity.reforestry.chest_boat": "チェスト付きボート",
   "entity.reforestry.boat": "ボート",
   "reforestry.date.month.1": "1月 %s",

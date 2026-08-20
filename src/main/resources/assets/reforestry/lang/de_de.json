@@ -943,6 +943,8 @@
   "for.multiblock.farm.type": "Farm",
   "for.multiblock.greenhouse.type": "Gewächshaus",
   "entity.Villager.arborist": "Arborist",
+  "entity.minecraft.villager.reforestry.arborist": "Arborist",
+  "entity.reforestry.villager.arborist": "Arborist",
   "for.arboriculture.effect.none": "Nichts",
   "for.chat.command.reforestry.tree.desc": "- %s : Baumzuchtbefehle",
   "for.chat.command.reforestry.tree.help": "Befehle bezüglich Baumzucht.",

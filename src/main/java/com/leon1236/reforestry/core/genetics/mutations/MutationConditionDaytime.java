@@ -1,7 +1,5 @@
 package com.leon1236.reforestry.core.genetics.mutations;
 
-import java.util.Locale;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.Level;
@@ -25,6 +23,8 @@ public enum MutationConditionDaytime implements IMutationCondition {
 
     @Override
     public Component getDescription() {
-        return Component.translatable("mutation.condition.reforestry." + name().toLowerCase(Locale.ENGLISH));
+        return Component.translatable(this == DAY
+                ? "for.mutation.condition.daytime.day"
+                : "for.mutation.condition.daytime.night");
     }
 }

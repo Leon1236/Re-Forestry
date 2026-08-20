@@ -1,5 +1,14 @@
 {
   "values": [
-    "reforestry:worktable"
+    "reforestry:worktable",
+    "reforestry:apiary",
+    "reforestry:bee_house",
+    "reforestry:alveary_block",
+    "reforestry:alveary_swarmer",
+    "reforestry:alveary_fan",
+    "reforestry:alveary_heater",
+    "reforestry:alveary_hygroregulator",
+    "reforestry:alveary_stabilizer",
+    "reforestry:alveary_sieve"
   ]
 }

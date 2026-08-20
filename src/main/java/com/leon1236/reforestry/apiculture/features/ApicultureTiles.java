@@ -55,11 +55,11 @@ public class ApicultureTiles {
                     ApicultureBlocks.ALVEARY.get(BlockAlvearyType.HEATER).block());
 
     public static final FeatureBlockEntityType<TileAlvearyHygroregulator> ALVEARY_HYGRO =
-            REGISTRY.blockEntityType("alveary_hygro", TileAlvearyHygroregulator::new,
+            REGISTRY.blockEntityType("alveary_hygroregulator", TileAlvearyHygroregulator::new,
                     ApicultureBlocks.ALVEARY.get(BlockAlvearyType.HYGRO).block());
 
     public static final FeatureBlockEntityType<TileAlvearyStabiliser> ALVEARY_STABILISER =
-            REGISTRY.blockEntityType("alveary_stabiliser", TileAlvearyStabiliser::new,
+            REGISTRY.blockEntityType("alveary_stabilizer", TileAlvearyStabiliser::new,
                     ApicultureBlocks.ALVEARY.get(BlockAlvearyType.STABILISER).block());
 
     public static final FeatureBlockEntityType<TileAlvearySieve> ALVEARY_SIEVE =
