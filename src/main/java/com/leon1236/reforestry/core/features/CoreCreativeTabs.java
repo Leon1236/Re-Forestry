@@ -5,6 +5,9 @@ import com.leon1236.reforestry.core.blocks.BlockTypeCore;
 import com.leon1236.reforestry.core.blocks.NaturalistChestBlockType;
 import com.leon1236.reforestry.core.fluids.ForestryFluids;
 import com.leon1236.reforestry.core.items.definitions.EnumContainerType;
+import com.leon1236.reforestry.energy.blocks.EngineBlockType;
+import com.leon1236.reforestry.energy.features.EnergyBlocks;
+import com.leon1236.reforestry.modules.ModuleManager;
 import com.leon1236.reforestry.modules.features.FeatureCreativeTab;
 import com.leon1236.reforestry.modules.features.FeatureItem;
 import com.leon1236.reforestry.modules.features.IFeatureRegistry;
@@ -96,6 +99,11 @@ public class CoreCreativeTabs {
             output.accept(CoreBlocks.RAW_TIN_BLOCK.item());
             output.accept(CoreBlocks.CREATIVE_ENERGY.item());
             output.accept(CoreBlocks.DEBUG_POWERED.item());
+            if (ModuleManager.INSTANCE.isModuleLoaded(ReForestry.id("energy"))) {
+                output.accept(EnergyBlocks.ENGINES.get(EngineBlockType.PEAT).item());
+                output.accept(EnergyBlocks.ENGINES.get(EngineBlockType.BIOGAS).item());
+                output.accept(EnergyBlocks.ENGINES.get(EngineBlockType.CLOCKWORK).item());
+            }
             for (ForestryFluids fluid : ForestryFluids.values()) {
                 output.accept(fluid.getBucket());
             }

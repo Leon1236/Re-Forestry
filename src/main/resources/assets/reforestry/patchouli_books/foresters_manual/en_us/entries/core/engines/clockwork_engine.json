@@ -1,11 +1,11 @@
 {
-  "icon": "reforestry:engine_clockwork",
+  "icon": "reforestry:clockwork_engine",
   "name": "for.gui.book.patchouli.entry.core.engine.clockwork",
   "category": "reforestry:engines",
   "pages": [
     {
       "type": "crafting",
-      "recipe": "reforestry:engine_clockwork",
+      "recipe": "reforestry:clockwork_engine",
       "text": "for.gui.book.patchouli.entry.core.engine.clockwork1"
     },
     {

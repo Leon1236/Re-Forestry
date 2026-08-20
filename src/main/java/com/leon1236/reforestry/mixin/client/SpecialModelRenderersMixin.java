@@ -19,6 +19,7 @@ import com.leon1236.reforestry.core.client.EscritoireSpecialRenderer;
 import com.leon1236.reforestry.core.client.MachineSpecialRenderer;
 import com.leon1236.reforestry.core.client.MillSpecialRenderer;
 import com.leon1236.reforestry.core.client.NaturalistChestSpecialRenderer;
+import com.leon1236.reforestry.energy.client.EngineSpecialRenderer;
 
 @Mixin(SpecialModelRenderers.class)
 public class SpecialModelRenderersMixin {
@@ -33,5 +34,6 @@ public class SpecialModelRenderersMixin {
 		ID_MAPPER.put(ReForestry.id("naturalist_chest"), NaturalistChestSpecialRenderer.Unbaked.MAP_CODEC);
 		ID_MAPPER.put(ReForestry.id("analyzer"), AnalyzerSpecialRenderer.Unbaked.MAP_CODEC);
 		ID_MAPPER.put(ReForestry.id("escritoire"), EscritoireSpecialRenderer.Unbaked.MAP_CODEC);
+		ID_MAPPER.put(ReForestry.id("engine"), EngineSpecialRenderer.Unbaked.MAP_CODEC);
 	}
 }

@@ -64,8 +64,12 @@ public final class MultiFluidTank extends CombinedStorage<FluidVariant, Filtered
         }
 
         public Builder tank(String name, long capacity, Predicate<FluidVariant> filter) {
+            return tank(name, capacity, filter, true);
+        }
+
+        public Builder tank(String name, long capacity, Predicate<FluidVariant> filter, boolean canExtract) {
             this.names.add(name);
-            this.tanks.add(new FilteredFluidStorage(capacity, filter, this.onChange));
+            this.tanks.add(new FilteredFluidStorage(capacity, filter, canExtract, this.onChange));
             return this;
         }
 
