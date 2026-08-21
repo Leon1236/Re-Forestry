@@ -2771,5 +2771,14 @@
   "allele.reforestry.bee_species.bee_tungstate": "Invincible",
   "allele.reforestry.bee_species.bee_unstable": "Unstable",
   "allele.reforestry.bee_species.bee_yellorium": "Yellorium",
-  "allele.reforestry.bee_species.bee_zinc": "Galvanized"
+  "allele.reforestry.bee_species.bee_zinc": "Galvanized",
+  "allele.reforestry.bee_species.bee_acidic": "Acidic",
+  "allele.reforestry.bee_species.bee_caustic": "Caustic",
+  "allele.reforestry.bee_species.bee_corrosive": "Corrosive",
+  "allele.reforestry.bee_species.bee_glutinous": "Glutinous",
+  "allele.reforestry.bee_species.bee_infectious": "Infectious",
+  "allele.reforestry.bee_species.bee_malicious": "Malicious",
+  "allele.reforestry.bee_species.bee_sticky": "Sticky",
+  "allele.reforestry.bee_species.bee_virulent": "Virulent",
+  "allele.reforestry.bee_species.bee_viscous": "Viscous"
 }

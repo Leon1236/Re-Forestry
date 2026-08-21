@@ -59,4 +59,4 @@ PRECIOUS is included so RADIOACTIVE (NUCLEAR × GOLD / SILVER) parents exist in 
 - **Must:** none
 - **Should:** none remaining
 
-**Next stage:** `EB2d` (do not start in this review)
+**Next stage:** `EB2d` — **done** (see `queries/extra-bees-EB2d.md`)
