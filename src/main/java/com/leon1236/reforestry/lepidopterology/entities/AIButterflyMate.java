@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.jetbrains.annotations.Nullable;
 
+import net.minecraft.server.level.ServerLevel;
+
 import com.leon1236.reforestry.api.lepidopterology.IButterflyNursery;
 import com.leon1236.reforestry.lepidopterology.genetics.ButterflyChromosomes;
 
@@ -49,8 +51,10 @@ public class AIButterflyMate extends AIButterflyInteract {
 				if (nursery != null && nursery.canNurse(this.entity.getButterfly())) {
 					nursery.setCaterpillar(this.entity.getButterfly().spawnCaterpillar(nursery));
 					if (this.entity.getRandom().nextFloat() < 1.0f / this.entity.getButterfly().getGenome()
-							.getActiveAllele(ButterflyChromosomes.FERTILITY).value()) {
-						this.entity.setHealth(0);
+							.getActiveAllele(ButterflyChromosomes.FERTILITY).value()
+							&& this.entity.level() instanceof ServerLevel serverLevel) {
+						this.entity.hurtServer(serverLevel, this.entity.damageSources().generic(),
+								this.entity.getHealth());
 					}
 				}
 				setHasInteracted();

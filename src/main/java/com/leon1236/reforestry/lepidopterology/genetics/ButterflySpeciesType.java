@@ -169,6 +169,9 @@ public final class ButterflySpeciesType extends SpeciesType<IButterflySpecies, I
 	}
 
 	private static boolean isPositionValid(LevelAccessor world, BlockPos pos, boolean createNursery) {
+		if (world instanceof Level loadedLevel && !loadedLevel.isLoaded(pos)) {
+			return false;
+		}
 		BlockState blockState = world.getBlockState(pos);
 		if (blockState.canBeReplaced()) {
 			BlockPos nurseryPos = pos.above();

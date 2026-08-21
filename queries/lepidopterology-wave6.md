@@ -38,9 +38,13 @@ Playable CE lepidopterology on Fabric 26.2. Species are Java (same as bees/trees
 
 ## D4 leftovers (Should, not Must)
 
-- Cocoon item age: CE stores `NBT_AGE` on the GE stack. Re-Forestry plants age 0 (no `cocoon_age` data component)
+- Cocoon item age: CE stores `NBT_AGE` on the GE stack. Re-Forestry plants age 0 (no `cocoon_age` data component). Item model always uses the early sprite; world blockstates still use age 0/1/2
 - Silk early/middle block textures are also missing in CE; only `cocoon_silk_late` is real — not invented
 - Tag `forestry:genetic_samples` is not copied. Bees/trees have no equivalent here; CE uses it for `genetic_filter`, which this module does not ship
 - Naturalist chest statistics ledger is not ported. `BreedingTracker.syncToPlayer` is a no-op, so a client ledger would always show 0. Server discovery still works (analyze, scoop-catch, pickup)
+- Analyzer page 4 (`drawMutationsPage`) is the same stub bees/trees use; the silk moth mutation does not list there
+- Caterpillar metabolism does not damage leaves. CE `TileLeaves.matureCaterpillar` adds metabolism to a leaf-damage counter we do not have
 - No JEI mutation category (bees do not have one either)
 - Research notes loot does not sample butterfly mutations
+- Creative tab icon is a blank default butterfly stack; CE uses a monarch stack. Specimens in the tab still have genomes
+- `LepidopterologyRecipes` registers the mating serializer with `Registry.register` (serializer-only; `FeatureRecipeType` would also create a recipe type CE does not have)
