@@ -234,9 +234,9 @@ Play notes: `queries/storage-B1-b3-backpacks.md`, `queries/storage-B4-naturalist
 
 ## Next up (not implemented yet)
 
-**Next up: Wave 7 `GD0`.** Local Waves 1b–4, GitHub Wave 5 genetics API, and Wave 6 butterflies are on this tree. Extra Bees/Trees extracts are done. No solar/combustion.
+**Next up: Wave 7 `GD0`.** Local Waves 1b–4, Wave 5 genetics API, and Wave 6 butterflies are on this tree. Extra Bees/Trees extracts are done. Locked remaining order: see `queries/wave7-plan.md` (flowers+EB3 before EB2; GD7a/b). No solar/combustion.
 
-**Wave 7 addons:** extracts only so far (not playable content). Do not start EB1/ET1/GD0 until this wave’s locked order.
+**Wave 7 addons:** extracts only so far (not playable content). Start at **GD0**.
 
 | ID | Status | Notes |
 |---|---|---|

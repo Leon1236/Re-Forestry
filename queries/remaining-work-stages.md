@@ -412,57 +412,59 @@ CE: `src/butterflies/java/forestry/lepidopterology` (~61 Java). **Item ids (CE 1
 
 ## Wave 7 — Addons (after GP0c; moths after D)
 
-Config-toggle modules. Ids: `reforestry:gendustry`, `reforestry:extra_bees`, `reforestry:extra_trees`. Standalone — copy into our packages. See `files/addon-integration-mapping.md`.
+Config-toggle modules. Ids: `reforestry:gendustry`, `reforestry:extra_bees`, `reforestry:extra_trees`. Standalone — copy into our packages. See `files/addon-integration-mapping.md` and locked order in `queries/wave7-plan.md`.
 
 ### Gendustry (modern port from `thedarkcolour-gendustry`)
 
 
-| ID    | Size | Outcome                                             | Deps                     |
-| ----- | ---- | --------------------------------------------------- | ------------------------ |
-| `GD0` | S    | Module shell, tab, tags, config                     | GP0c recommended         |
-| `GD1` | S    | Fluids `mutagen`, `liquid_dna`, `protein` + buckets | GD0                      |
-| `GD2` | M    | Recipe types/caches                                 | GD1                      |
-| `GD3` | M    | Mutagen producer, DNA extractor, protein liquefier  | GD2, GP0a                |
-| `GD4` | M    | Sampler + gene sample/template items                | GP0c                     |
-| `GD5` | M    | Mutatron + advanced mutatron                        | GP0c, GD2                |
-| `GD6` | M    | Imprinter, transposer, replicator                   | GD4–5                    |
-| `GD7` | L    | Industrial apiary (`IBeeHousing` + upgrades)        | GP0c, apiculture housing |
-| `GD8` | S    | Errors plugin + JEI                                 | GD3–7                    |
+| ID     | Size | Outcome | Deps |
+| ------ | ---- | ------- | ---- |
+| `GD0`  | S    | Module shell, tab, tags, config, crafts for 10 parts + 23 upgrades + pollen kit | GP0c |
+| `GD1`  | S    | Fluids `mutagen`, `liquid_dna`, `protein` + buckets | GD0 |
+| `GD2`  | M    | Recipe types/caches + mutagen/protein/**DNA** datapack (bee/tree/butterfly) | GD1 |
+| `GD3`  | M    | Mutagen producer, protein liquefier, **DNA extractor** | GD2 |
+| `GD4`  | M    | Sampler + gene sample/template (components, wipe, gene_samples tab) | GP0c, GD0 |
+| `GD5`  | M    | Mutatron + advanced mutatron | GP0c, GD2 |
+| `GD6`  | M    | Imprinter, transposer, replicator | GD4–5 |
+| `GD7a` | M–L  | Industrial apiary (`IBeeHousing` + FE, no upgrade modifiers yet) | GP0c, housing |
+| `GD7b` | M    | Upgrade modifiers (fertility drones, youth mutation −20%) | GD7a, GD0 |
+| `GD8`  | S    | 12 errors + JEI (producers + gene-sample subtypes) | GD3–7 |
 
 
-**Prompt pattern:** `Implement stage {GDn} from queries/remaining-work-stages.md. Port from thedarkcolour-gendustry into com.leon1236.reforestry.gendustry. No gendustry mod dependency.`
+**Prompt pattern:** `Implement stage {GDn} from queries/wave7-plan.md. Port from thedarkcolour-gendustry into com.leon1236.reforestry.gendustry. No gendustry mod dependency.`
 
 Skip Binnie Genetics serums/isolator (Gendustry is the modern line).
 
 ### Extra Bees (extract Binnie data — do not translate 1.12 Java)
 
 
-| ID    | Size | Outcome                                                     | Deps                    |
-| ----- | ---- | ----------------------------------------------------------- | ----------------------- |
-| `EB0` | M    | Extract species/effects/hives/combs → `queries/` + `tools/` — **done** (2026-08-21) | none (now)              |
-| `EB1` | M    | Module + items (combs, drops, frames)                       | EB0                     |
-| `EB2` | L    | ~116 species + mutations via `IApicultureRegistration`      | GP0c, EB1               |
-| `EB3` | M    | ~25 `IBeeEffect`s                                           | EB2                     |
-| `EB4` | M    | Hives water/rock/nether/marble + worldgen                   | EB2                     |
-| `EB5` | L    | 7 alveary parts                                             | EB2, alveary multiblock |
-| `EB6` | M    | Centrifuge/squeezer recipes                                 | EB1–2, factory          |
+| ID    | Size | Outcome | Deps |
+| ----- | ---- | ------- | ---- |
+| `EB0` | M    | Extract — **done** (2026-08-21) | none |
+| `EB1` | M    | Module + items (combs, drops, frames, ectoplasm, hive blocks) + crafts | EB0 |
+| `EB5` | L    | 7 alveary parts + crafts + stimulator circuits | EB1, alveary |
+| `EB6` | M    | Centrifuge/squeezer datapack (soft-skip missing fluids) | EB1, factory |
+| `EB-FLOWERS` + `EB3` | M | 11 flower types + 25 effects (**before** species) | EB1, GP0b |
+| `EB2a–e` | L | 116 species + 168 mutations (`modifySpecies` for 34 CE results with EB2a) | EB-FLOWERS+EB3 |
+| `EB4` | M | Hives water/rock/nether/marble + worldgen + loot | EB2a |
 
-
-Split `EB2` into branch batches if the species extract is huge.
 
 ### Extra Trees (extract + reimplement; designer deferred)
 
 
-| ID     | Size | Outcome                                                         | Deps                   |
-| ------ | ---- | --------------------------------------------------------------- | ---------------------- |
-| `ET0`  | M    | Extract trees/fruits/woods/mutations — **done** (2026-08-21)     | none (now)             |
-| `ET1`  | L    | 30 new woods + shrub log (`ExtraTreeWoodType`; ET1a/ET1b in `queries/wave7-plan.md`) | ET0                    |
-| `ET2`  | L    | Fruit alleles + species + mutations                             | GP0c, ET1              |
-| `ET3`  | L    | Growth features / worldgen                                      | ET2                    |
-| `ET4`  | L    | Machines: lumbermill, press, brewery, distillery (not designer) | factory patterns       |
-| `ET5`  | M    | Foods / juices / alcohol                                        | ET4                    |
-| `ET6`  | M    | 22 moths                                                        | `GP0d` + Track D       |
-| `ET-D` | L    | Designer / stained glass / patterns                             | **deferred** own track |
+| ID     | Size | Outcome | Deps |
+| ------ | ---- | ------- | ---- |
+| `ET0`  | M    | Extract — **done** (2026-08-21) | none |
+| `ET1a` | L    | 30 new woods + shrub log (`ExtraTreeWoodType`) | ET0 |
+| `ET1b` | L    | Stripped/boats/signs/trapdoor/button/plate (no charcoal walls) | ET1a |
+| `ET2`  | L    | Fruit alleles + ~88 species + mutations | GP0c, ET1a |
+| `ET3`  | L    | Growth features / worldgen | ET2 |
+| `ET4`  | L    | Lumbermill, press, brewery, distillery (not designer) | factory patterns |
+| `ET5`  | L    | Foods / juices / alcohol / hops | ET4 |
+| `ET6`  | M    | 22 moths (`moth_*`) | Wave 6 |
+| `S2`   | S    | Genetic filter butterfly/moth rules | S1, ET6 |
+| `ET-D` | L    | Designer / stained glass / patterns | **deferred** |
+| `ET-K` | S    | Bottle rack | **deferred** (never shipped in Binnie) |
 
 
 ---
@@ -489,10 +491,10 @@ Split `EB2` into branch batches if the species extract is huge.
 
 ## Suggested next sessions (human order)
 
-1. Wave 7: **GD0** (Gendustry module shell). `W7-INT` merge, `EB0`, and `ET0` are done.  
-2. Then Gendustry machines and Extra Bees content per `queries/wave7-plan.md`. Sorting `S2` can follow Wave 6 butterflies.
+1. Wave 7 remaining order is locked in `queries/wave7-plan.md`: **GD0 → EB1 → GD1…GD8 → EB5 → EB6 → EB-FLOWERS+EB3 → EB2a–e → EB4 → ET1a…ET6 → S2**.  
+2. Do not start ET1 until GD/EB playable stages in that order. Flowers + EB3 before any EB2 species batch.
 
-**Can start in parallel with nothing else:** `TR1`. Do not start ET1 until GD/EB playable stages in the locked order.
+**Can start in parallel with nothing else:** `TR1`.
 
 ---
 
