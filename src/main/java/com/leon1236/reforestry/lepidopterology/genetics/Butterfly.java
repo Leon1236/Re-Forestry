@@ -20,6 +20,7 @@ import com.leon1236.reforestry.api.lepidopterology.IEntityButterfly;
 import com.leon1236.reforestry.api.lepidopterology.genetics.IButterfly;
 import com.leon1236.reforestry.api.lepidopterology.genetics.IButterflySpecies;
 import com.leon1236.reforestry.core.genetics.IndividualLiving;
+import com.leon1236.reforestry.lepidopterology.features.LepidopterologyDataComponents;
 
 public class Butterfly extends IndividualLiving<IButterflySpecies, IButterfly, ButterflySpeciesType> implements IButterfly {
 	public static final Codec<Butterfly> CODEC = RecordCodecBuilder.create(instance -> {
@@ -105,5 +106,33 @@ public class Butterfly extends IndividualLiving<IButterflySpecies, IButterfly, B
 	@Override
 	public Component getDisplayName() {
 		return getSpecies().getDisplayName();
+	}
+
+	@Override
+	protected void savePropertiesToStack(ItemStack stack) {
+		super.savePropertiesToStack(stack);
+		stack.set(LepidopterologyDataComponents.BUTTERFLY_GENOME.type(), genome);
+		if (mate != null) {
+			stack.set(LepidopterologyDataComponents.BUTTERFLY_MATE_GENOME.type(), mate);
+		} else {
+			stack.remove(LepidopterologyDataComponents.BUTTERFLY_MATE_GENOME.type());
+		}
+	}
+
+	@Override
+	public void loadPropertiesFromStack(ItemStack stack) {
+		super.loadPropertiesFromStack(stack);
+		setMate(stack.get(LepidopterologyDataComponents.BUTTERFLY_MATE_GENOME.type()));
+	}
+
+	@Nullable
+	public static Butterfly fromStack(ItemStack stack) {
+		IGenome genome = stack.get(LepidopterologyDataComponents.BUTTERFLY_GENOME.type());
+		if (genome == null) {
+			return null;
+		}
+		Butterfly butterfly = new Butterfly(genome);
+		butterfly.loadPropertiesFromStack(stack);
+		return butterfly;
 	}
 }
