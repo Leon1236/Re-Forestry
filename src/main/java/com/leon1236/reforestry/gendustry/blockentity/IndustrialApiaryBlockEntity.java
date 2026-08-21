@@ -50,8 +50,7 @@ import com.leon1236.reforestry.api.genetics.capability.IIndividualHandlerItem;
 import com.leon1236.reforestry.apiculture.InventoryBeeHousing;
 import com.leon1236.reforestry.apiculture.genetics.BeekeepingLogic;
 import com.leon1236.reforestry.apiculture.items.ItemBeeGE;
-import com.leon1236.reforestry.arboriculture.features.ArboricultureDataComponents;
-import com.leon1236.reforestry.arboriculture.features.ArboricultureItems;
+import com.leon1236.reforestry.arboriculture.genetics.TreePollenType;
 import com.leon1236.reforestry.core.access.WorldlyAccessHelper;
 import com.leon1236.reforestry.core.energy.EnergyHelper;
 import com.leon1236.reforestry.core.inventory.InventoryUtil;
@@ -333,9 +332,7 @@ public class IndustrialApiaryBlockEntity extends TilePowered
 		if (!this.modifier.sieve) {
 			return false;
 		}
-		ItemStack pollenStack = new ItemStack(ArboricultureItems.POLLEN_FERTILE.item());
-		pollenStack.set(ArboricultureDataComponents.TREE_GENOME.type(), pollen);
-		return addProduct(pollenStack);
+		return addProduct(TreePollenType.INSTANCE.createStack(pollen));
 	}
 
 	@Override

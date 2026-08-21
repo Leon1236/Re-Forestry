@@ -22,8 +22,7 @@ import com.leon1236.reforestry.api.multiblock.IMultiblockComponent;
 import com.leon1236.reforestry.apiculture.blocks.BlockAlvearyType;
 import com.leon1236.reforestry.apiculture.gui.ContainerAlvearySieve;
 import com.leon1236.reforestry.apiculture.inventory.InventoryAlvearyPart;
-import com.leon1236.reforestry.arboriculture.features.ArboricultureDataComponents;
-import com.leon1236.reforestry.arboriculture.features.ArboricultureItems;
+import com.leon1236.reforestry.arboriculture.genetics.TreePollenType;
 import com.leon1236.reforestry.core.features.CoreItems;
 import com.leon1236.reforestry.core.inventory.InventoryUtil;
 import com.leon1236.reforestry.core.items.EnumCraftingMaterial;
@@ -101,9 +100,8 @@ public class TileAlvearySieve extends TileAlveary
 				return false;
 			}
 
-			ItemStack pollenStack = new ItemStack(ArboricultureItems.POLLEN_FERTILE.item());
-			pollenStack.set(ArboricultureDataComponents.TREE_GENOME.type(), pollen);
-			return inventory.storeInFirstEmptySlot(SLOT_POLLEN_1, SLOT_POLLEN_COUNT, pollenStack);
+			return inventory.storeInFirstEmptySlot(
+					SLOT_POLLEN_1, SLOT_POLLEN_COUNT, TreePollenType.INSTANCE.createStack(pollen));
 		}
 	}
 }
