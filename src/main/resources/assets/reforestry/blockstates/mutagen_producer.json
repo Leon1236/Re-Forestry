@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "reforestry:block/mutagen_producer" },
+    "facing=south": { "model": "reforestry:block/mutagen_producer", "y": 180 },
+    "facing=west": { "model": "reforestry:block/mutagen_producer", "y": 270 },
+    "facing=east": { "model": "reforestry:block/mutagen_producer", "y": 90 }
+  }
+}

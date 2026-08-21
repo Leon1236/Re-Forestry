@@ -10,8 +10,11 @@ import com.leon1236.reforestry.api.client.IClientModuleHandler;
 import com.leon1236.reforestry.api.modules.ForestryModule;
 import com.leon1236.reforestry.api.modules.IForestryModule;
 import com.leon1236.reforestry.gendustry.client.GendustryClientHandler;
+import com.leon1236.reforestry.gendustry.features.GBlockEntities;
+import com.leon1236.reforestry.gendustry.features.GBlocks;
 import com.leon1236.reforestry.gendustry.features.GCreativeTabs;
 import com.leon1236.reforestry.gendustry.features.GItems;
+import com.leon1236.reforestry.gendustry.features.GMenus;
 import com.leon1236.reforestry.gendustry.features.GRecipeTypes;
 import com.leon1236.reforestry.gendustry.fluids.GFluids;
 import com.leon1236.reforestry.gendustry.recipe.cache.DnaRecipeCache;
@@ -39,6 +42,9 @@ public class ModuleGendustry implements IForestryModule {
 	public void init() {
 		GFluids.init();
 		GItems.init();
+		GBlocks.init();
+		GBlockEntities.init();
+		GMenus.init();
 		GRecipeTypes.init();
 		GCreativeTabs.init();
 		new RecipeCacheRegistry(registrar -> {

@@ -45,7 +45,7 @@ Loaded today (`ReForestry.java`): `core`, `apiculture`, `arboriculture`, `lepido
 | **cultivation**                      | CU2 done                         | —                       |
 | **sorting**                          | S1 done                          | `S2` butterfly rules    |
 | **lepidopterology**                  | Wave 6 D0–D4 merged              | —                       |
-| gendustry / extra bees / extra trees | GD0 + EB1 + GD1 + GD2 done | `GD3` |
+| gendustry / extra bees / extra trees | GD0 + EB1 + GD1 + GD2 + GD3 done | `GD4` |
 | curios / Patchouli / 1.12 restore    | Optional                         | last                    |
 
 

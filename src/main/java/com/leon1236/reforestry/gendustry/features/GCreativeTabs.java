@@ -2,6 +2,7 @@ package com.leon1236.reforestry.gendustry.features;
 
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.gendustry.fluids.GFluids;
+import com.leon1236.reforestry.modules.features.FeatureBlock;
 import com.leon1236.reforestry.modules.features.FeatureCreativeTab;
 import com.leon1236.reforestry.modules.features.FeatureItem;
 import com.leon1236.reforestry.modules.features.IFeatureRegistry;
@@ -17,6 +18,9 @@ public class GCreativeTabs {
 			output.accept(GFluids.MUTAGEN.getBucket());
 			output.accept(GFluids.LIQUID_DNA.getBucket());
 			output.accept(GFluids.PROTEIN.getBucket());
+			for (FeatureBlock<?> feature : GBlocks.MACHINE.getAll().values()) {
+				output.accept(feature.item());
+			}
 			for (FeatureItem<?> feature : GItems.RESOURCE.getAll().values()) {
 				output.accept(feature.item());
 			}

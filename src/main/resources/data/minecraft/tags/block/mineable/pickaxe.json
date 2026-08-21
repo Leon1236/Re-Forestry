@@ -85,6 +85,9 @@
     "reforestry:farm_ender_managed",
     "reforestry:farm_ender_manual",
     "reforestry:peat_bog_managed",
-    "reforestry:peat_bog_manual"
+    "reforestry:peat_bog_manual",
+    "reforestry:mutagen_producer",
+    "reforestry:dna_extractor",
+    "reforestry:protein_liquefier"
   ]
 }
