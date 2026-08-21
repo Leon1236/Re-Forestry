@@ -106,7 +106,7 @@ public class TileSqueezer extends SocketedPoweredTile implements WorldlyContaine
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, TileSqueezer tile) {
-        tile.doWork();
+        tile.doWork(true);
         if (tile.updateOnInterval(20)) {
             FilteredFluidStorage productTank = tile.getProductTank();
             if (productTank.getAmount() > 0) {

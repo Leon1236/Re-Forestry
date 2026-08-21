@@ -141,7 +141,7 @@ public class TileFermenter extends TilePowered implements WorldlyContainer, IRen
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, TileFermenter tile) {
-        tile.doWork();
+        tile.doWork(true);
         if (tile.updateOnInterval(20)) {
             FluidContainerHelper.drainIntoTank(tile, SLOT_INPUT, tile.getResourceTank());
             FilteredFluidStorage productTank = tile.getProductTank();

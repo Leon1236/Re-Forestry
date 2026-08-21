@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "reforestry:peat_bog_managed"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:peat_bog_manual"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "reforestry:block/farm_nether"
+    },
+    "facing=south": {
+      "model": "reforestry:block/farm_nether",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "reforestry:block/farm_nether",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "reforestry:block/farm_nether",
+      "y": 90
+    }
+  }
+}

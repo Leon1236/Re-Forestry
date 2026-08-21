@@ -15,6 +15,7 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
 import com.leon1236.reforestry.api.core.ISpectacleBlock;
+import com.leon1236.reforestry.api.core.genetics.IFruitBearer;
 import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
 import com.leon1236.reforestry.api.genetics.IBreedingTracker;
 import com.leon1236.reforestry.api.genetics.IGenome;
@@ -26,7 +27,7 @@ import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
 import com.leon1236.reforestry.arboriculture.genetics.TreeMating;
 import com.leon1236.reforestry.core.genetics.mutations.Mutation;
 
-public class TileLeaves extends TileTreeContainer implements ISpectacleBlock {
+public class TileLeaves extends TileTreeContainer implements ISpectacleBlock, IFruitBearer {
     private static final String NBT_MATE_GENOME = "MateGenome";
     private static final String NBT_RIPENING_TIME = "RipeningTime";
     private static final String NBT_IS_FRUIT_LEAF = "IsFruitLeaf";
@@ -141,6 +142,11 @@ public class TileLeaves extends TileTreeContainer implements ISpectacleBlock {
     }
 
     public List<ItemStack> pickFruit() {
+        return pickFruit(ItemStack.EMPTY);
+    }
+
+    @Override
+    public List<ItemStack> pickFruit(ItemStack tool) {
         IGenome genome = getGenome();
         if (genome == null || !hasFruit() || level == null) {
             return List.of();
@@ -149,6 +155,18 @@ public class TileLeaves extends TileTreeContainer implements ISpectacleBlock {
         ripeningTime = 0;
         markUpdated();
         return stacks;
+    }
+
+    @Override
+    public void addRipeness(float add) {
+        int period = getRipeningPeriod();
+        if (period <= 0) {
+            ripeningTime = 0;
+            markUpdated();
+            return;
+        }
+        ripeningTime = Math.min(period, ripeningTime + Math.round(add * period));
+        markUpdated();
     }
 
     public IGenome resolveSaplingGenome(RandomSource random) {

@@ -89,7 +89,7 @@ public class TileSmelter extends SocketedPoweredTile implements WorldlyContainer
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, TileSmelter tile) {
-        tile.doWork();
+        tile.doWork(true);
         tile.syncErrors();
     }
 

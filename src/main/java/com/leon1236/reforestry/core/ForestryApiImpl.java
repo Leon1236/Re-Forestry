@@ -1,6 +1,7 @@
 package com.leon1236.reforestry.core;
 
 import com.leon1236.reforestry.api.IForestryApi;
+import com.leon1236.reforestry.api.agriculture.IFarmingManager;
 import com.leon1236.reforestry.api.apiculture.hives.IHiveManager;
 import com.leon1236.reforestry.api.climate.IClimateManager;
 import com.leon1236.reforestry.api.core.IErrorManager;
@@ -27,6 +28,7 @@ public final class ForestryApiImpl implements IForestryApi {
     private IHiveManager hiveManager = new HiveManager(ImmutableMap.of(), ImmutableList.of(), ImmutableList.of());
     private ICircuitManager circuitManager = new CircuitManager(ImmutableMultimap.of(), ImmutableMap.of(), ImmutableMap.of());
     private IFilterManager filterManager;
+    private IFarmingManager farmingManager = FakeFarmingManager.INSTANCE;
 
     private ForestryApiImpl() {
     }
@@ -49,6 +51,10 @@ public final class ForestryApiImpl implements IForestryApi {
 
     public void setFilterManager(IFilterManager filterManager) {
         this.filterManager = filterManager;
+    }
+
+    public void setFarmingManager(IFarmingManager farmingManager) {
+        this.farmingManager = farmingManager;
     }
 
     @Override
@@ -88,5 +94,10 @@ public final class ForestryApiImpl implements IForestryApi {
             throw new IllegalStateException("IFilterManager not initialized yet. Wait until the sorting module has loaded");
         }
         return manager;
+    }
+
+    @Override
+    public IFarmingManager getFarmingManager() {
+        return this.farmingManager;
     }
 }

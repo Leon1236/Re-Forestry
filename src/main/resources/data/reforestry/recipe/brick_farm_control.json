@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:bricks"
+    },
+    "T": {
+      "item": "reforestry:electron_tube_gold"
+    },
+    "X": {
+      "tag": "c:dusts/redstone"
+    }
+  },
+  "pattern": [
+    " # ",
+    "XTX"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:brick_farm_control"
+  }
+}

@@ -8,7 +8,6 @@ import net.minecraft.world.item.ItemStack;
 import com.leon1236.reforestry.api.IForestryApi;
 import com.leon1236.reforestry.core.circuits.ISocketable;
 import com.leon1236.reforestry.core.circuits.ItemSolderingIron;
-import com.leon1236.reforestry.core.circuits.SocketHelper;
 import com.leon1236.reforestry.core.inventory.InventoryUtil;
 
 public class SlotCircuitSocket extends Slot {
@@ -32,7 +31,7 @@ public class SlotCircuitSocket extends Slot {
 
     @Override
     public void set(ItemStack stack) {
-        SocketHelper.setSocket(this.socketable, this.socketIndex, stack);
+        this.socketable.setSocket(this.socketIndex, stack);
     }
 
     @Override
@@ -45,11 +44,21 @@ public class SlotCircuitSocket extends Slot {
         return false;
     }
 
+    @Override
+    public int getMaxStackSize() {
+        return 1;
+    }
+
+    @Override
+    public int getMaxStackSize(ItemStack stack) {
+        return 1;
+    }
+
     public boolean tryRemoveWithSolderingIron(Player player, ItemStack carried) {
         if (carried.getItem() instanceof ItemSolderingIron && !getItem().isEmpty()) {
             ItemStack socketStack = getItem().copy();
             if (InventoryUtil.stowInInventory(socketStack, player.getInventory(), true)) {
-                SocketHelper.setSocket(this.socketable, this.socketIndex, ItemStack.EMPTY);
+                this.socketable.setSocket(this.socketIndex, ItemStack.EMPTY);
                 carried.hurtAndBreak(1, player, player.getUsedItemHand());
                 return true;
             }
@@ -93,7 +102,7 @@ public class SlotCircuitSocket extends Slot {
 
         @Override
         public void setItem(int slot, ItemStack stack) {
-            SocketHelper.setSocket(this.socketable, this.socketIndex, stack);
+            this.socketable.setSocket(this.socketIndex, stack);
         }
 
         @Override
@@ -107,7 +116,7 @@ public class SlotCircuitSocket extends Slot {
 
         @Override
         public void clearContent() {
-            SocketHelper.setSocket(this.socketable, this.socketIndex, ItemStack.EMPTY);
+            this.socketable.setSocket(this.socketIndex, ItemStack.EMPTY);
         }
     }
 }

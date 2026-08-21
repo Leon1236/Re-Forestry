@@ -2,22 +2,27 @@ package com.leon1236.reforestry.core.plugin;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.entrypoint.EntrypointContainer;
+
+import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.api.plugin.IForestryPlugin;
 import com.leon1236.reforestry.arboriculture.charcoal.CharcoalManager;
 import com.leon1236.reforestry.core.ForestryApiImpl;
 import com.leon1236.reforestry.core.circuits.CircuitManager;
+import com.leon1236.reforestry.farming.farmlogic.FarmingManager;
 import com.leon1236.reforestry.sorting.FilterManager;
 
 public final class PluginManager {
     private static final String PLUGIN_ENTRYPOINT_KEY = "reforestry:plugin";
 
-    private static List<IForestryPlugin> cachedPlugins;
+    private static List<IForestryPlugin> discoveredPlugins;
     private static boolean filtersRegistered;
+    private static boolean farmingRegistered;
 
     private PluginManager() {
     }
@@ -63,19 +68,42 @@ public final class PluginManager {
         ((ForestryApiImpl) ForestryApiImpl.get()).setFilterManager(new FilterManager(registration.getFilterRuleTypes()));
     }
 
+    public static void runFarmingRegistration(Consumer<FarmingRegistrationImpl> afterPlugins) {
+        if (farmingRegistered) {
+            return;
+        }
+        farmingRegistered = true;
+        FarmingRegistrationImpl registration = new FarmingRegistrationImpl();
+        for (IForestryPlugin plugin : plugins()) {
+            try {
+                plugin.registerFarming(registration);
+            } catch (Throwable t) {
+                throw new RuntimeException("An error was thrown by plugin " + plugin.id() + " during IForestryPlugin.registerFarming", t);
+            }
+        }
+        afterPlugins.accept(registration);
+        ((ForestryApiImpl) ForestryApiImpl.get()).setFarmingManager(new FarmingManager(
+                new Object2IntOpenHashMap<>(registration.getFertilizers()),
+                registration.buildFarmTypes()));
+    }
+
     private static List<IForestryPlugin> plugins() {
-        if (cachedPlugins == null) {
-            List<IForestryPlugin> plugins = new ArrayList<>();
+        if (discoveredPlugins == null) {
+            List<IForestryPlugin> discovered = new ArrayList<>();
             for (EntrypointContainer<IForestryPlugin> container : FabricLoader.getInstance()
                     .getEntrypointContainers(PLUGIN_ENTRYPOINT_KEY, IForestryPlugin.class)) {
                 IForestryPlugin plugin = container.getEntrypoint();
-                if (plugin.shouldLoad()) {
-                    plugins.add(plugin);
-                    ReForestry.LOGGER.info("Loaded Forestry plugin: {}", plugin.id());
-                }
+                discovered.add(plugin);
+                ReForestry.LOGGER.info("Discovered Forestry plugin: {}", plugin.id());
             }
-            cachedPlugins = List.copyOf(plugins);
+            discoveredPlugins = List.copyOf(discovered);
         }
-        return cachedPlugins;
+        List<IForestryPlugin> loaded = new ArrayList<>();
+        for (IForestryPlugin plugin : discoveredPlugins) {
+            if (plugin.shouldLoad()) {
+                loaded.add(plugin);
+            }
+        }
+        return loaded;
     }
 }

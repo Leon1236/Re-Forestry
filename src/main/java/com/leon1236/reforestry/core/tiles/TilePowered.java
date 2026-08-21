@@ -165,10 +165,6 @@ public abstract class TilePowered extends TileBase implements IPowerHandler, IMa
 
     protected abstract boolean workCycle();
 
-    public void doWork() {
-        doWork(true);
-    }
-
     public void doWork(boolean advanceTick) {
         if (advanceTick) {
             advanceTicks();

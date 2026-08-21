@@ -190,7 +190,7 @@ public class TileFabricator extends TilePowered implements WorldlyContainer {
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, TileFabricator tile) {
         tile.tickSmelting();
-        tile.doWork();
+        tile.doWork(true);
         tile.syncErrors();
     }
 

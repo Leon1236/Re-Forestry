@@ -99,7 +99,7 @@ public class TileStill extends TilePowered implements WorldlyContainer, IRendera
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, TileStill tile) {
-        tile.doWork();
+        tile.doWork(true);
         if (tile.updateOnInterval(20)) {
             FluidContainerHelper.drainIntoTank(tile, SLOT_CAN, tile.tanks.tank("Resource"));
             FilteredFluidStorage productTank = tile.tanks.tank("Product");

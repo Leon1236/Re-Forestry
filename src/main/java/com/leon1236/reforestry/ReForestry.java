@@ -12,8 +12,10 @@ import org.slf4j.LoggerFactory;
 import com.leon1236.reforestry.apiculture.ModuleApiculture;
 import com.leon1236.reforestry.arboriculture.ModuleArboriculture;
 import com.leon1236.reforestry.core.ModuleCore;
+import com.leon1236.reforestry.cultivation.ModuleCultivation;
 import com.leon1236.reforestry.energy.ModuleEnergy;
 import com.leon1236.reforestry.factory.ModuleFactory;
+import com.leon1236.reforestry.farming.ModuleFarming;
 import com.leon1236.reforestry.modules.ModuleManager;
 import com.leon1236.reforestry.sorting.ModuleSorting;
 import com.leon1236.reforestry.storage.ModuleStorage;
@@ -35,7 +37,9 @@ public class ReForestry implements ModInitializer {
 				new ModuleEnergy(),
 				new ModuleStorage(),
 				new ModuleWorktable(),
-				new ModuleSorting()));
+				new ModuleSorting(),
+				new ModuleFarming(),
+				new ModuleCultivation()));
 		ModuleStorage.registerOptionalCrates();
 	}
 

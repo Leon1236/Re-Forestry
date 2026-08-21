@@ -44,6 +44,6 @@ public class TileDebugPowered extends TilePowered {
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, TileDebugPowered tile) {
-        tile.doWork();
+        tile.doWork(true);
     }
 }

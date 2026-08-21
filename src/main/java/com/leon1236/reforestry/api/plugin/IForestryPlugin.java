@@ -20,4 +20,7 @@ public interface IForestryPlugin {
 
     default void registerFilter(IFilterRegistration registration) {
     }
+
+    default void registerFarming(IFarmingRegistration registration) {
+    }
 }

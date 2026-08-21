@@ -85,8 +85,8 @@ public final class ModuleManager implements IModuleManager {
 
         for (IForestryModule module : loadOrder) {
             ReForestry.LOGGER.info("Loading reforestry module: {}", module.getId());
-            module.init();
             loadedModules.put(module.getId(), module);
+            module.init();
         }
     }
 

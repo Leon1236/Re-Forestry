@@ -86,7 +86,7 @@ public class TileCentrifuge extends SocketedPoweredTile implements WorldlyContai
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, TileCentrifuge tile) {
-        tile.doWork();
+        tile.doWork(true);
         tile.syncErrors();
     }
 
