@@ -23,3 +23,4 @@ Extra Bees can `modifySpecies`. Extra Trees can `registerFruit`. An industrial a
 - `api.genetics.alleles.ForestryAlleles` re-exports the constant alleles Extra Bees uses in `setGenome`. Effect fields stay on the impl class because they are filled after plugin registration.
 - `IBeeSpeciesType` / `ITreeSpeciesType` stay thin (no `ISpeciesType` bound) but now expose CE lookups: bee effect / activity / jubilance, fruit / tree effect / `getTree(IGenome)`.
 - `IBeeSpeciesBuilder.addSpecialty(ItemStack)` keeps stack count.
+- `IBee.getSuitableBiomes` returns an empty list (climate biome scan is not wired). Production, pollen, flowers, and `getCanWork` delegate to existing `BeeCanWork` / effect alleles / `PollenManager` / `IFlowerType`.

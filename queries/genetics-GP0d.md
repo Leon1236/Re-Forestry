@@ -16,3 +16,4 @@
 - Cocoon/effect defaults are populated in `ButterflyChromosomes` static init so the karyotype can reference them. Plugin `registerCocoon`/`registerEffect` skip ids that are already present; `cocoon_silk` is appended from `registerLepidopterology`.
 - `IButterflySpeciesType.spawnButterflyInWorld` returns `PathfinderMob` (26.2 entity API; Wave 6 entities will match `IEntityButterfly.getEntity()`).
 - Copied taxon JSON still contains unused `alleles` maps. Those maps are **not** applied to genomes yet (CE resolves them against a karyotype). Namespace keys are rewritten to `reforestry:`.
+- Taxa: `python3 tools/copy_ce_taxa.py --butterflies` copies 34 JSON files. Parent `insecta` already exists in the bee/tree set (160 files total).
