@@ -478,10 +478,10 @@ public final class ExtraBeesBeeSpecies {
 					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_DOWN_2);
 					genome.set(BeeChromosomes.POLLINATION, ForestryAlleles.POLLINATION_AVERAGE);
 					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(FlowerType.NETHER, false));
-					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.DIURNAL, false));
 					genome.set(BeeChromosomes.SPEED, ForestryAlleles.SPEED_SLOWER);
 					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_NORMAL);
 					genome.set(BeeChromosomes.EFFECT, AlleleManager.INSTANCE.registryAllele(BeeChromosomes.EFFECT.getSafe(ExtraBeesBeeEffects.BLINDNESS).orElseThrow(), false));
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.NOCTURNAL, false));
 				})
 				.addMutations(mutations -> {
 					mutations.add(ReForestry.id("bee_sinister"), ReForestry.id("bee_rock"), 10.0f);
@@ -498,10 +498,10 @@ public final class ExtraBeesBeeSpecies {
 					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_DOWN_2);
 					genome.set(BeeChromosomes.POLLINATION, ForestryAlleles.POLLINATION_AVERAGE);
 					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(FlowerType.NETHER, false));
-					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.DIURNAL, false));
 					genome.set(BeeChromosomes.SPEED, ForestryAlleles.SPEED_SLOWER);
 					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_NORMAL);
 					genome.set(BeeChromosomes.EFFECT, AlleleManager.INSTANCE.registryAllele(BeeChromosomes.EFFECT.getSafe(ExtraBeesBeeEffects.BLINDNESS).orElseThrow(), false));
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.NOCTURNAL, false));
 				})
 				.addMutations(mutations -> {
 					mutations.add(ReForestry.id("bee_shadow"), ReForestry.id("bee_rock"), 8.0f);
@@ -519,10 +519,10 @@ public final class ExtraBeesBeeSpecies {
 					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_DOWN_2);
 					genome.set(BeeChromosomes.POLLINATION, ForestryAlleles.POLLINATION_AVERAGE);
 					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(FlowerType.NETHER, false));
-					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.DIURNAL, false));
 					genome.set(BeeChromosomes.SPEED, ForestryAlleles.SPEED_SLOWER);
 					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_NORMAL);
 					genome.set(BeeChromosomes.EFFECT, AlleleManager.INSTANCE.registryAllele(BeeChromosomes.EFFECT.getSafe(ExtraBeesBeeEffects.WITHER).orElseThrow(), false));
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.NOCTURNAL, false));
 				})
 				.addMutations(mutations -> {
 					mutations.add(ReForestry.id("bee_shadow"), ReForestry.id("bee_darkened"), 8.0f);

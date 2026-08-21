@@ -195,6 +195,15 @@ def resolve_product(entry: dict) -> tuple[str | None, str | None]:
 	return None, f"unresolved product {entry}"
 
 
+def never_sleeps_true(g: dict) -> bool:
+	return g.get("value") is True or str(g.get("value")).lower() == "true"
+
+
+ACTIVITY_METATURNAL = "AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false)"
+ACTIVITY_DIURNAL = "AlleleManager.INSTANCE.registryAllele(ActivityType.DIURNAL, false)"
+ACTIVITY_NOCTURNAL = "AlleleManager.INSTANCE.registryAllele(ActivityType.NOCTURNAL, false)"
+
+
 def allele_line(g: dict) -> tuple[str, str] | None:
 	chrom = g["chromosome"]
 	kind = g["kind"]
@@ -203,9 +212,9 @@ def allele_line(g: dict) -> tuple[str, str] | None:
 	if chrom == "FLOWER_PROVIDER":
 		chrom = "FLOWER_TYPE"
 	if chrom == "NEVER_SLEEPS":
-		if g.get("value") is True or str(g.get("value")).lower() == "true":
-			return "ACTIVITY", "AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false)"
-		return "ACTIVITY", "AlleleManager.INSTANCE.registryAllele(ActivityType.DIURNAL, false)"
+		if never_sleeps_true(g):
+			return "ACTIVITY", ACTIVITY_METATURNAL
+		return None
 	if kind == "boolean":
 		val = "true" if g.get("value") is True or str(g.get("value")).lower() == "true" else "false"
 		return chrom, f"AlleleManager.INSTANCE.booleanAllele({val}, false)"
@@ -246,6 +255,10 @@ def merged_genome(branch_genome: list, overrides: list, nocturnal: bool) -> list
 	ordered: list[tuple[str, str]] = []
 	seen: dict[str, int] = {}
 	for g in list(branch_genome) + list(overrides):
+		if g.get("chromosome") == "NEVER_SLEEPS" and not never_sleeps_true(g):
+			if "ACTIVITY" in seen:
+				ordered[seen["ACTIVITY"]] = ("ACTIVITY", ACTIVITY_DIURNAL)
+			continue
 		resolved = allele_line(g)
 		if resolved is None:
 			continue
@@ -256,7 +269,7 @@ def merged_genome(branch_genome: list, overrides: list, nocturnal: bool) -> list
 			seen[chrom] = len(ordered)
 			ordered.append((chrom, expr))
 	if nocturnal and "ACTIVITY" not in seen:
-		ordered.append(("ACTIVITY", "AlleleManager.INSTANCE.registryAllele(ActivityType.NOCTURNAL, false)"))
+		ordered.append(("ACTIVITY", ACTIVITY_NOCTURNAL))
 		seen["ACTIVITY"] = len(ordered) - 1
 	return ordered
 

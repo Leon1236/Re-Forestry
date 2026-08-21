@@ -65,4 +65,11 @@
 
 `./gradlew compileJava` — clean after EB2e apply.
 
+## Review (full)
+
+- Counts: **116** `registerSpecies` / **168** `mutations.add` (134 EB + 34 FR `modifySpecies`) — exact match to extracts; INK + remaps (`bee_eb_primeval` / `bee_eb_relic` / `bee_eb_boggy`) present; JADED mut uses `bee_eb_relic`.
+- **Must fixed:** `NEVER_SLEEPS false` briefly mapped to unconditional `DIURNAL`, which overrode SHADOW `nocturnal` → `NOCTURNAL`. Generator now only applies `DIURNAL` when overriding an existing ACTIVITY (QUANTUM vs branch METATURNAL); otherwise nocturnal still sets NOCTURNAL.
+- **Should:** none remaining.
+- Documented gaps unchanged: JADED `setIsNotCounted`; quartz comb → `Items.QUARTZ`; hive worldgen = EB4.
+
 **Next stage:** `EB4` (do not start in this pass)
