@@ -4,6 +4,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 
 import com.leon1236.reforestry.ReForestry;
+import com.leon1236.reforestry.apiculture.features.ApicultureItems;
 import com.leon1236.reforestry.core.blocks.NaturalistChestBlockType;
 import com.leon1236.reforestry.core.features.CoreBlocks;
 import com.leon1236.reforestry.lepidopterology.genetics.LepidopterologyGenetics;
@@ -23,6 +24,10 @@ public class LepidopterologyCreativeTabs {
 			output.accept(CoreBlocks.NATURALIST_CHESTS.get(NaturalistChestBlockType.BUTTERFLY_CHEST).item());
 			if (ModuleManager.INSTANCE.isModuleLoaded(ReForestry.id("storage"))) {
 				output.accept(BackpackItems.LEPIDOPTERIST_BACKPACK.item());
+			}
+			if (ModuleManager.INSTANCE.isModuleLoaded(ReForestry.id("apiculture"))) {
+				output.accept(ApicultureItems.SCOOP.item());
+				output.accept(ApicultureItems.SCOOP_PROVEN.item());
 			}
 			for (Identifier speciesId : LepidopterologyGenetics.getAllSpeciesIds()) {
 				for (FeatureItem<?> item : new FeatureItem<?>[]{
