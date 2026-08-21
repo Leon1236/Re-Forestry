@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/sweetgum_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/sweetgum_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/sweetgum_slab_top"
+    }
+  }
+}

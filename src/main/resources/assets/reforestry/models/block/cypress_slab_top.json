@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "reforestry:block/cypress_planks",
+    "side": "reforestry:block/cypress_planks",
+    "top": "reforestry:block/cypress_planks"
+  }
+}

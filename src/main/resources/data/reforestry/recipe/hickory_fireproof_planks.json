@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "#reforestry:fireproof_hickory_logs"
+  ],
+  "result": {
+    "count": 4,
+    "id": "reforestry:hickory_fireproof_planks"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/iroko_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/iroko_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/iroko_slab_top"
+    }
+  }
+}

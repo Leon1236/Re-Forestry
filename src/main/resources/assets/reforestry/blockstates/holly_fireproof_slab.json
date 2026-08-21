@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/holly_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/holly_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/holly_slab_top"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/brazilwood_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/brazilwood_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/brazilwood_slab_top"
+    }
+  }
+}

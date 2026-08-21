@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/cypress_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/cypress_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/cypress_slab_top"
+    }
+  }
+}

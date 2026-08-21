@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/hazel_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/hazel_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/hazel_slab_top"
+    }
+  }
+}

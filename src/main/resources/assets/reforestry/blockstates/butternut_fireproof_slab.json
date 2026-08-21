@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/butternut_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/butternut_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/butternut_slab_top"
+    }
+  }
+}

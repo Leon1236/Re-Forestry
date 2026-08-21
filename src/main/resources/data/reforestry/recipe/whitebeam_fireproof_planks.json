@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "#reforestry:fireproof_whitebeam_logs"
+  ],
+  "result": {
+    "count": 4,
+    "id": "reforestry:whitebeam_fireproof_planks"
+  }
+}
