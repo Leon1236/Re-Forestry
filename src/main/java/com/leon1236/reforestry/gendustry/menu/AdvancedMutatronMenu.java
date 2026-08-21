@@ -24,7 +24,7 @@ public class AdvancedMutatronMenu extends AbstractMutatronMenu<AdvancedMutatronB
 	public static final int BUTTON_CYCLE_RIGHT = 11;
 	public static final int CHOICE_CLICKED = 12;
 
-	public final Slot[] choices;
+	public Slot[] choices;
 	private final SimpleContainerData data;
 
 	private List<IMutation> possibilities = List.of();
@@ -39,17 +39,19 @@ public class AdvancedMutatronMenu extends AbstractMutatronMenu<AdvancedMutatronB
 
 	public AdvancedMutatronMenu(int containerId, Inventory playerInventory, AdvancedMutatronBlockEntity tile) {
 		super(GMenus.ADVANCED_MUTATRON.type(), containerId, playerInventory, tile);
-
-		this.choices = new ChoiceSlot[4];
 		this.data = new SimpleContainerData(3);
+		addDataSlots(this.data);
+	}
 
+	@Override
+	protected void addMachineSlots(AdvancedMutatronBlockEntity tile) {
+		super.addMachineSlots(tile);
+		this.choices = new ChoiceSlot[4];
 		for (int i = 0; i < 4; i++) {
 			ChoiceSlot choice = new ChoiceSlot(i, 63 + i * 16, 71);
 			addSlot(choice);
 			this.choices[i] = choice;
 		}
-
-		addDataSlots(this.data);
 	}
 
 	@Override

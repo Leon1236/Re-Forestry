@@ -20,6 +20,12 @@
 - Fixed donor double-offset on selection apply; choice icons refresh when offset changes
 - No donor `fabric.mod.json` depends
 
+## Review (full GD5)
+
+- `workCycle` validates the primary individual and drains mutagen before consuming mates/labware (GD3/GD4 pattern; avoids wiping inputs on failed extract)
+- Advanced choice slots registered in `addMachineSlots` (inside `machineSlotCount`) with `isFake()` so shift-click cannot duplicate icon stacks into the machine
+- Advanced clears stale `currentMutation` when `lastChoice` is not in the new possibility list
+
 ## Gaps / next
 
 - Imprinter / transposer / replicator: **GD6**

@@ -209,7 +209,16 @@ public abstract class AbstractMutatronBlockEntity extends PoweredTankBlockEntity
 		if (!getItem(SLOT_RESULT).isEmpty() || this.currentMutation == null) {
 			return false;
 		}
-		if (getItem(SLOT_PRIMARY).isEmpty() || getItem(SLOT_SECONDARY).isEmpty() || getItem(SLOT_LABWARE).isEmpty()) {
+
+		ItemStack primaryStack = getItem(SLOT_PRIMARY);
+		ItemStack secondaryStack = getItem(SLOT_SECONDARY);
+		ItemStack labwareStack = getItem(SLOT_LABWARE);
+		if (primaryStack.isEmpty() || secondaryStack.isEmpty() || labwareStack.isEmpty()) {
+			return false;
+		}
+
+		IIndividual primaryIndividual = IIndividualHandlerItem.getIndividual(primaryStack);
+		if (primaryIndividual == null) {
 			return false;
 		}
 
@@ -217,10 +226,6 @@ public abstract class AbstractMutatronBlockEntity extends PoweredTankBlockEntity
 		if (mutagenTank.getAmount() < MUTAGEN_PER_CYCLE) {
 			return false;
 		}
-
-		ItemStack primary = removeItem(SLOT_PRIMARY, 1);
-		removeItem(SLOT_SECONDARY, 1);
-		removeItem(SLOT_LABWARE, 1);
 
 		try (Transaction transaction = Transaction.openOuter()) {
 			long drained = mutagenTank.extract(mutagenTank.getResource(), MUTAGEN_PER_CYCLE, transaction);
@@ -230,24 +235,25 @@ public abstract class AbstractMutatronBlockEntity extends PoweredTankBlockEntity
 			transaction.commit();
 		}
 
-		IIndividualHandlerItem.ifPresent(primary, individual -> {
-			ISpeciesType<?, ?> speciesType = individual.getType();
-			IGenome genome = createMutatedGenome(this.currentMutation, speciesType);
-			IIndividual newIndividual = individual.copyWithGenome(genome);
-			newIndividual.setMate(genome);
-			ItemStack result = newIndividual.createStack(speciesType.getTypeForMutation(2));
-			setItem(SLOT_RESULT, result);
+		removeItem(SLOT_PRIMARY, 1);
+		removeItem(SLOT_SECONDARY, 1);
+		removeItem(SLOT_LABWARE, 1);
 
-			if (this.lastPlayer != null && this.level != null) {
-				Player player = this.level.getPlayerByUUID(this.lastPlayer);
-				if (player == null) {
-					this.lastPlayer = null;
-				} else {
-					IBreedingTracker tracker = speciesType.getBreedingTracker(this.level, player.getGameProfile());
-					tracker.registerMutation(this.currentMutation);
-				}
+		ISpeciesType<?, ?> speciesType = primaryIndividual.getType();
+		IGenome genome = createMutatedGenome(this.currentMutation, speciesType);
+		IIndividual newIndividual = primaryIndividual.copyWithGenome(genome);
+		newIndividual.setMate(genome);
+		setItem(SLOT_RESULT, newIndividual.createStack(speciesType.getTypeForMutation(2)));
+
+		if (this.lastPlayer != null && this.level != null) {
+			Player player = this.level.getPlayerByUUID(this.lastPlayer);
+			if (player == null) {
+				this.lastPlayer = null;
+			} else {
+				IBreedingTracker tracker = speciesType.getBreedingTracker(this.level, player.getGameProfile());
+				tracker.registerMutation(this.currentMutation);
 			}
-		});
+		}
 
 		setCurrentMutation(null, ItemStack.EMPTY, ItemStack.EMPTY);
 		return true;
