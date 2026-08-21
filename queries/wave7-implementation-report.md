@@ -110,7 +110,7 @@ Per-stage writeups live under:
 | Review | Focus | Verdict |
 |---|---|---|
 | 1 | Gendustry GD0–GD8 | **PASS** — see `queries/gendustry-wave7-review.md` |
-| 2 | Extra Bees EB1–EB4 | pending |
+| 2 | Extra Bees EB1–EB4 | **PASS** — see `queries/extra-bees-wave7-full-review.md` |
 | 3 | Extra Trees ET1–ET6 | pending |
 | 4 | API / namespace / module wiring | **PASS** — see `queries/wave7-api-wiring-review.md` |
 | 5 | Assets / lang / recipes / DoD | pending |
