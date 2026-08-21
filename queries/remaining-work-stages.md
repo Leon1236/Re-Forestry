@@ -496,7 +496,7 @@ Skip Binnie Genetics serums/isolator (Gendustry is the modern line).
 ## Suggested next sessions (human order)
 
 1. Wave 7 remaining order is locked in `queries/wave7-plan.md`: **GD0 → EB1 → GD1…GD8 → EB5 → EB6 → EB-FLOWERS+EB3 → EB2a–e → EB4 → ET1a…ET6 → S2**.  
-2. Next playable stage: **ET5** (Extra Trees foods / juices / alcohol / machine recipes). Do not start ET6 until ET5 lands.
+2. Next playable stage: **S2** (genetic filter butterfly/moth rules). ET6 Extra Trees 22 moths (`moth_*`) landed.
 
 **Can start in parallel with nothing else:** `TR1`.
 

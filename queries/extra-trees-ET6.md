@@ -36,6 +36,14 @@
 | Separate moth life-stage grammar | CE/Binnie share butterfly grammar; `isMoth` flag only |
 | Binnie branch uid `trees.*` classification | Local taxa use nymphalidae/papilionidae parents |
 
+## Review (2026-08-21, full)
+
+- **22/22** `moth_*` ids match `moths.json` / Binnie `ButterflySpecies` (display, scientific, color, texture hashes)
+- **0** mutations (empty `registerMutations()`; none in Java)
+- Assets: 22 entity + 22 item textures, 22 models, 57 `items/butterfly.json` cases (35 CE + 22), 22 lang keys
+- `setMoth(true)`, authority Binnie, rarity `0.5f`; no donor `fabric.mod.json` depends
+- Compile: `./gradlew classes` OK
+
 ## Next
 
 **S2** — genetic filter butterfly/moth rules. Do not start until ET6 is accepted.

@@ -57,4 +57,4 @@
 
 ## Next
 
-**S2** — genetic filter butterfly/moth rules (after ET6).
+**S2** — genetic filter butterfly/moth rules (ET6 landed).
