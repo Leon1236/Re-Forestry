@@ -113,7 +113,7 @@ Per-stage writeups live under:
 | 2 | Extra Bees EB1–EB4 | **PASS** — see `queries/extra-bees-wave7-full-review.md` |
 | 3 | Extra Trees ET1–ET6 | pending |
 | 4 | API / namespace / module wiring | **PASS** — see `queries/wave7-api-wiring-review.md` |
-| 5 | Assets / lang / recipes / DoD | pending |
+| 5 | Assets / lang / recipes / DoD | **PASS** — see `queries/wave7-dod-asset-review.md` |
 
 ## How to verify locally
 
