@@ -41,8 +41,8 @@ PRECIOUS is included so RADIOACTIVE (NUCLEAR × GOLD / SILVER) parents exist in 
 
 ## Gaps / next
 
-- **INK** still waits on PRIMARY dye parent (`bee_black`) — EB2d+
-- Remaining dye / virulent / viscous / caustic / quantum / festive / etc. → EB2d–e (~33 species)
+- **INK** still waits on PRIMARY dye parent (`bee_black`) — EB2e
+- Remaining dye / quantum / festive / austere / FTB / Botania → EB2e (~24 species)
 - Hive worldgen/loot still EB4
 - Ore comb centrifuge outputs may soft-skip when OreDict items absent (EB6 behavior; intentional)
 

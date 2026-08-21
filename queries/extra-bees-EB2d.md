@@ -45,4 +45,14 @@
 
 `./gradlew compileJava` — clean after EB2d apply.
 
+## Review (2026-08-21)
+
+- Extract parity: **9** species / **9** EB mutations field-checked vs JSON + Binnie `ExtraBeeDefinition` / `ExtraBeeBranchDefinition` (colors, binomials, dominant, climates, products, specialties, chances, genomes/overrides, parents, glint)
+- Branches: VIRULENT → `virapis` + `EFFECT_MIASMIC`; VISCOUS → `viscapis` + `ExtraBeesBeeEffects.ECTOPLASM`; CAUSTIC → `morbapis` + `ExtraBeesBeeEffects.ACID`; flower `FlowerType.JUNGLE`
+- Overrides: INFECTIOUS `POLLINATION_SLOW`; VIRULENT `POLLINATION_AVERAGE`; GLUTINOUS `SPEED_NORMAL`; STICKY `SPEED_FAST`; STICKY/INFECTIOUS omit climate (Binnie match)
+- Specialties: VENOMOUS / SLIME / ACIDIC combs (EB1 items + EB6 centrifuge); lang names from Binnie only (no invented `.desc`)
+- Generator dry-run identical to committed `ExtraBeesBeeSpecies.java`; cumulative 92 species / 110 EB muts + 34 FR; `compileJava` clean; no EB2e in generator
+- **Must:** none
+- **Should:** none
+
 **Next stage:** `EB2e` (do not start in this pass)
