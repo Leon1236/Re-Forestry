@@ -26,7 +26,7 @@ public class ExtraBeesForestryPlugin implements IForestryPlugin {
 
 	@Override
 	public boolean shouldLoad() {
-		return IForestryApi.get().getModuleManager().isModuleLoaded(ReForestry.id("extra_bees"));
+		return IForestryApi.get().getModuleManager().isModuleEnabled(ReForestry.id("extra_bees"));
 	}
 
 	@Override

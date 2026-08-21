@@ -65,4 +65,10 @@ Hive-found: `bee_water`, `bee_rock`, `bee_basalt`, `bee_marble`.
 - Hive worldgen/loot still EB4
 - Rocky bees share `monapis` taxon with CE monastic (Binnie scientific name collision; documented)
 
+## Review (2026-08-21)
+
+- Extract parity: **25** species / **22** EB mutations / **34** FR `modifySpecies` field-checked vs JSON + Binnie `doInit` / lang names
+- **Must:** `ExtraBeesForestryPlugin.shouldLoad` used `isModuleLoaded`, so genetics/apiculture registration ran before `ModuleExtraBees` was marked loaded and skipped the plugin. Fixed via `IModuleManager.isModuleEnabled` (enabled set filled before any `init`)
+- **Should:** removed leftover Alchemy/Magic-Bees `bee_darkened.desc` (Binnie Extra Bees has name only)
+
 **Next stage:** `EB2b`

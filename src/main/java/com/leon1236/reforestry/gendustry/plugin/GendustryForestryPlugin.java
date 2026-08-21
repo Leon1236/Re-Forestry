@@ -16,7 +16,7 @@ public class GendustryForestryPlugin implements IForestryPlugin {
 
 	@Override
 	public boolean shouldLoad() {
-		return IForestryApi.get().getModuleManager().isModuleLoaded(ReForestry.id("gendustry"));
+		return IForestryApi.get().getModuleManager().isModuleEnabled(ReForestry.id("gendustry"));
 	}
 
 	@Override
