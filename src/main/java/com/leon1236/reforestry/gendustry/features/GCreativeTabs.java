@@ -14,6 +14,9 @@ public class GCreativeTabs {
 		tab.icon(() -> GItems.POLLEN_KIT.item().getDefaultInstance());
 		tab.displayItems((parameters, output) -> {
 			output.accept(GItems.POLLEN_KIT.item());
+			output.accept(GFluids.MUTAGEN.getBucket());
+			output.accept(GFluids.LIQUID_DNA.getBucket());
+			output.accept(GFluids.PROTEIN.getBucket());
 			for (FeatureItem<?> feature : GItems.RESOURCE.getAll().values()) {
 				output.accept(feature.item());
 			}
@@ -22,9 +25,6 @@ public class GCreativeTabs {
 			}
 			for (FeatureItem<?> feature : GItems.ELITE_UPGRADE.getAll().values()) {
 				output.accept(feature.item());
-			}
-			for (GFluids fluid : GFluids.values()) {
-				output.accept(fluid.getBucket());
 			}
 		});
 	});

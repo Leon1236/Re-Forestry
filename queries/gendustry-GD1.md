@@ -28,6 +28,8 @@
 - Module id `reforestry:gendustry` → `FeatureFluid` namespace stays `reforestry:` (matches donor `gendustry:` → our namespace rewrite).
 - No donor `fabric.mod.json` depends; code under `com.leon1236.reforestry.gendustry`.
 - Default fluid properties (no particle tint) — donor used pre-colored sprites.
+- Creative tab order matches donor: pollen kit → three buckets → resources → upgrades → elite.
+- Bucket/block en_us follow Forestry fluid style (`Mutagen Bucket`, block `Mutagen`), not Forge datagen defaults (`Bucket Mutagen` / `Fluid Mutagen`). `fluid_type` strings match donor intentional names.
 
 ## Player checks
 
