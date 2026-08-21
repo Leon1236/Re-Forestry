@@ -6,6 +6,7 @@ import com.leon1236.reforestry.core.blocks.MachineProperties;
 import com.leon1236.reforestry.gendustry.blockentity.DnaExtractorBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.MutagenProducerBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.ProteinLiquefierBlockEntity;
+import com.leon1236.reforestry.gendustry.blockentity.SamplerBlockEntity;
 import com.leon1236.reforestry.gendustry.features.GBlockEntities;
 
 public enum GendustryMachineType implements IBlockType {
@@ -17,6 +18,9 @@ public enum GendustryMachineType implements IBlockType {
 			.create()),
 	PROTEIN_LIQUEFIER("protein_liquefier", new MachineProperties.Builder<>(GBlockEntities.PROTEIN_LIQUEFIER, "protein_liquefier")
 			.setServerTicker(ProteinLiquefierBlockEntity::serverTick)
+			.create()),
+	SAMPLER("sampler", new MachineProperties.Builder<>(GBlockEntities.SAMPLER, "sampler")
+			.setServerTicker(SamplerBlockEntity::serverTick)
 			.create());
 
 	private final String serializedName;

@@ -4,6 +4,7 @@ import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.gendustry.blockentity.DnaExtractorBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.MutagenProducerBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.ProteinLiquefierBlockEntity;
+import com.leon1236.reforestry.gendustry.blockentity.SamplerBlockEntity;
 import com.leon1236.reforestry.core.energy.EnergyHelper;
 import com.leon1236.reforestry.core.fluids.FluidHelper;
 import com.leon1236.reforestry.core.inventory.InventoryHelper;
@@ -23,6 +24,9 @@ public class GBlockEntities {
 	public static final FeatureBlockEntityType<ProteinLiquefierBlockEntity> PROTEIN_LIQUEFIER =
 			REGISTRY.blockEntityType("protein_liquefier", ProteinLiquefierBlockEntity::new);
 
+	public static final FeatureBlockEntityType<SamplerBlockEntity> SAMPLER =
+			REGISTRY.blockEntityType("sampler", SamplerBlockEntity::new);
+
 	public static void init() {
 		EnergyHelper.registerSided(MUTAGEN_PRODUCER.type());
 		InventoryHelper.registerSided(MUTAGEN_PRODUCER.type());
@@ -35,5 +39,8 @@ public class GBlockEntities {
 		EnergyHelper.registerSided(PROTEIN_LIQUEFIER.type());
 		InventoryHelper.registerSided(PROTEIN_LIQUEFIER.type());
 		FluidHelper.registerSided(PROTEIN_LIQUEFIER.type(), ProteinLiquefierBlockEntity::getTankManager);
+
+		EnergyHelper.registerSided(SAMPLER.type());
+		InventoryHelper.registerSided(SAMPLER.type());
 	}
 }

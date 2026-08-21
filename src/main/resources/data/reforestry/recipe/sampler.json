@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "tag": "c:gems/diamond"
+    },
+    "G": {
+      "tag": "c:gears/bronze"
+    },
+    "H": {
+      "item": "reforestry:genetics_processor"
+    },
+    "M": {
+      "item": "reforestry:power_module"
+    },
+    "P": {
+      "item": "reforestry:receptacle"
+    },
+    "S": {
+      "item": "reforestry:sturdy_machine"
+    }
+  },
+  "pattern": [
+    "GHG",
+    "PSD",
+    "GMG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:sampler"
+  }
+}

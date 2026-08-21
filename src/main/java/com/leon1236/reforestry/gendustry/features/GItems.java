@@ -4,9 +4,11 @@ import net.minecraft.world.item.Item;
 
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.gendustry.item.EliteGendustryUpgradeType;
+import com.leon1236.reforestry.gendustry.item.GeneSampleItem;
 import com.leon1236.reforestry.gendustry.item.GendustryResourceType;
 import com.leon1236.reforestry.gendustry.item.GendustryUpgradeItem;
 import com.leon1236.reforestry.gendustry.item.GendustryUpgradeType;
+import com.leon1236.reforestry.gendustry.item.GeneticTemplateItem;
 import com.leon1236.reforestry.gendustry.item.ItemGendustryTooltip;
 import com.leon1236.reforestry.gendustry.item.PollenKitItem;
 import com.leon1236.reforestry.modules.features.FeatureGroup;
@@ -36,6 +38,12 @@ public class GItems {
 
 	public static final FeatureItem<PollenKitItem> POLLEN_KIT =
 			REGISTRY.item("pollen_kit", PollenKitItem::new);
+
+	public static final FeatureItem<GeneSampleItem> GENE_SAMPLE =
+			REGISTRY.item("gene_sample", GeneSampleItem::new);
+
+	public static final FeatureItem<GeneticTemplateItem> GENETIC_TEMPLATE =
+			REGISTRY.item("genetic_template", GeneticTemplateItem::new);
 
 	public static void init() {
 	}

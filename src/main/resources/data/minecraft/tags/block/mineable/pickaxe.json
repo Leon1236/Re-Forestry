@@ -88,6 +88,7 @@
     "reforestry:peat_bog_manual",
     "reforestry:mutagen_producer",
     "reforestry:dna_extractor",
-    "reforestry:protein_liquefier"
+    "reforestry:protein_liquefier",
+    "reforestry:sampler"
   ]
 }

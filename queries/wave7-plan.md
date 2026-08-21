@@ -62,7 +62,7 @@ Order: **GD0 → EB1 → GD1 → GD2 (incl. DNA) → GD3 (incl. DNA extractor) �
 | 3 | GD1 | S | Three fluid buckets | Fluid blocks + textures + lang |
 | 4 | GD2 | M | Mutagen + protein + DNA recipes load | **done** — All 4+7+10 DNA (bee/tree/butterfly) |
 | 5 | GD3 | M | Mutagen producer, protein liquefier, DNA extractor | **done** — Menus/screens; labware chance; energy ctor swap |
-| 6 | GD4 | M | Sampler + gene sample/template | 26.2 components; wipe + combine; gene_samples tab |
+| 6 | GD4 | M | Sampler + gene sample/template | **done** — 26.2 components; wipe + combine; gene_samples tab |
 | 7 | GD5 | M | Mutatron + advanced mutatron | GUIs, tanks, errors |
 | 8 | GD6 | M | Imprinter, transposer, replicator | Dual tanks; blank/source/dna/protein errors |
 | 9 | GD7a | M–L | Industrial apiary bees work with FE | `BeekeepingLogic(this)`; menu/GUI |

@@ -16,6 +16,7 @@ import com.leon1236.reforestry.gendustry.features.GCreativeTabs;
 import com.leon1236.reforestry.gendustry.features.GItems;
 import com.leon1236.reforestry.gendustry.features.GMenus;
 import com.leon1236.reforestry.gendustry.features.GRecipeTypes;
+import com.leon1236.reforestry.gendustry.features.GendustryDataComponents;
 import com.leon1236.reforestry.gendustry.fluids.GFluids;
 import com.leon1236.reforestry.gendustry.recipe.cache.DnaRecipeCache;
 import com.leon1236.reforestry.gendustry.recipe.cache.MutagenRecipeCache;
@@ -41,6 +42,7 @@ public class ModuleGendustry implements IForestryModule {
 	@Override
 	public void init() {
 		GFluids.init();
+		GendustryDataComponents.init();
 		GItems.init();
 		GBlocks.init();
 		GBlockEntities.init();
