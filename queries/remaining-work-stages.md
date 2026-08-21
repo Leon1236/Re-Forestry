@@ -427,8 +427,8 @@ Config-toggle modules. Ids: `reforestry:gendustry`, `reforestry:extra_bees`, `re
 | `GD5`  | M    | Mutatron + advanced mutatron | **done** |
 | `GD6`  | M    | Imprinter, transposer, replicator | **done** |
 | `GD7a` | M–L  | Industrial apiary (`IBeeHousing` + FE, no upgrade modifiers yet) | **done** |
-| `GD7b` | M    | Upgrade modifiers (fertility drones, youth mutation −20%) | GD7a, GD0 |
-| `GD8`  | S    | 12 errors + JEI (producers + gene-sample subtypes) | GD3–7 |
+| `GD7b` | M    | Upgrade modifiers (fertility drones, youth mutation −20%) | **done** |
+| `GD8`  | S    | 12 errors + JEI (producers + gene-sample subtypes) | **done** |
 
 
 **Prompt pattern:** `Implement stage {GDn} from queries/wave7-plan.md. Port from thedarkcolour-gendustry into com.leon1236.reforestry.gendustry. No gendustry mod dependency.`

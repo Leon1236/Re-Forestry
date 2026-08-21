@@ -67,7 +67,7 @@ Order: **GD0 → EB1 → GD1 → GD2 (incl. DNA) → GD3 (incl. DNA extractor) �
 | 8 | GD6 | M | Imprinter, transposer, replicator | **done** — Dual tanks; blank/source/dna/protein errors |
 | 9 | GD7a | M–L | Industrial apiary bees work with FE | **done** — `BeekeepingLogic(this)`; menu/GUI |
 | 10 | GD7b | M | Upgrades including fertility extra drones | **done** — Modifier + energy; youth mutation −20%/stack |
-| 11 | GD8 | S | 12 errors + JEI | Error sprites; soft jei_mod_plugin |
+| 11 | GD8 | S | 12 errors + JEI | **done** — Error sprites; soft jei_mod_plugin; producer categories |
 | 12 | EB5 | L | 7 alveary parts | 7 crafts; stimulator circuits; FE |
 | 13 | EB6 | M | Centrifuge/squeezer datapack | Soft-skip missing fluids/oredict |
 | 14 | EB-FLOWERS+EB3 | M | 11 flower types + 25 effects | Before any EB2 genomes |

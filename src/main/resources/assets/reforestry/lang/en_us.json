@@ -2595,5 +2595,8 @@
   "for.hints.industrial_apiary.tag": "How to use the Industrial Apiary?",
   "for.hints.industrial_apiary.desc": "The left slots are for a Princess and Drone. The four middle slots are for upgrades. The nine right slots are outputs.",
   "for.hints.industrial_apiary_upgrades.tag": "Why no frames?",
-  "for.hints.industrial_apiary_upgrades.desc": "The Industrial Apiary does not need frames. Instead, it uses upgrades that affect climate, productivity, lifespan, and more!"
+  "for.hints.industrial_apiary_upgrades.desc": "The Industrial Apiary does not need frames. Instead, it uses upgrades that affect climate, productivity, lifespan, and more!",
+  "info.reforestry.mutagen": "Mutagen is used in the Mutatron and Advanced Mutatron to trigger mutations between two organisms.",
+  "info.reforestry.dna": "Liquid DNA is used in the Replicator to produce new organisms from complete Genetic Templates.",
+  "info.reforestry.protein": "Protein is used in the Replicator to produce new organisms from complete Genetic Templates."
 }
