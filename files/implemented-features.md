@@ -3,7 +3,7 @@
 What is **done and working** in the mod today.  
 Update this file when a roadmap step lands. For how-to-build guidance, see `CLAUDE.md`. For the next work items, see **Next up** at the bottom.
 
-Last updated: 2026-08-21 (GD5: mutatron + advanced mutatron. Next: GD6)
+Last updated: 2026-08-21 (GD6: imprinter + genetic_transposer + replicator. Next: GD7a)
 
 ---
 
@@ -234,9 +234,9 @@ Play notes: `queries/storage-B1-b3-backpacks.md`, `queries/storage-B4-naturalist
 
 ## Next up (not implemented yet)
 
-**Next up: Wave 7 `GD6`.** Gendustry GD5 mutatron + advanced mutatron landed. Locked remaining order: see `queries/wave7-plan.md` (GD5 → GD6…). No solar/combustion.
+**Next up: Wave 7 `GD7a`.** Gendustry GD6 imprinter + genetic_transposer + replicator landed. Locked remaining order: see `queries/wave7-plan.md` (GD6 → GD7a…). No solar/combustion.
 
-**Wave 7 addons:** GD0 + EB1 + GD1 + GD2 + GD3 + GD4 + GD5 done; Extra Trees still extract-only until ET1a.
+**Wave 7 addons:** GD0 + EB1 + GD1 + GD2 + GD3 + GD4 + GD5 + GD6 done; Extra Trees still extract-only until ET1a.
 
 | ID | Status | Notes |
 |---|---|---|
@@ -246,6 +246,7 @@ Play notes: `queries/storage-B1-b3-backpacks.md`, `queries/storage-B4-naturalist
 | `GD3` | Done | `mutagen_producer` / `protein_liquefier` / `dna_extractor`; shared `processor` menu/screen; FE ctor swap (1M/10k); labware 10% consume; crafts/loot/tags/hints; tab machines-first; fluid tank colors; inventory drops. See `queries/gendustry-GD3.md` |
 | `GD4` | Done | `sampler` BE+GUI; `gene_sample` / `genetic_template` DataComponents; wipe smelts; combine recipe; `gene_samples` tab (best-effort allele dump). See `queries/gendustry-GD4.md` |
 | `GD5` | Done | `mutatron` / `advanced_mutatron`; mutagen tank; mutation errors + selection GUI; FE ctor swap. See `queries/gendustry-GD5.md` |
+| `GD6` | Done | `imprinter` / `genetic_transposer` / `replicator`; dual DNA+protein tanks; blank/source/dna/protein/template errors; FE ctor swap. See `queries/gendustry-GD6.md` |
 | `EB1` | Done | `ModuleExtraBees` + plugin; depends apiculture; 74 combs, 24 drops, 4 propolis, 5 frames, 30 misc, ectoplasm, 4 hives (`beehive_eb_nether`); frame crafts + carpenter `scented_gear` + dust/shard recipes. Worldgen/loot EB4. See `queries/extra-bees-EB1.md` |
 | `EB0` | Extract done | `tools/extract_extra_bees.py` + `queries/extra-bees-*.json` — 116 species, 168 mutations, 25 effects. |
 | `ET0` | Extract done | `tools/extract_extra_trees.py` + `queries/extra-trees-extract/` — 97 species (skip 9 binomials), 59 fruits, 36 planks (skip 6 → 30 new + shrub log), 97 mutations, 22 moths. No Java woods/module. |
@@ -280,7 +281,7 @@ Older (partially stale): [`queries/item-gap-implementation-plan.md`](../queries/
 |---|---|---|---|
 | 1 | `GP0a1–d` | Species-type / plugin genetics façade | **done** (merged from GitHub) |
 | 2 | `D0→D4` | **Lepidopterology** | **done** (merged from GitHub). Unlocks `butterfly_chest` recipe and sorting `S2` |
-| 3 | Addons | Gendustry → Extra Bees → Extra Trees | Config modules; **GD0 + EB1 + GD1 + GD2 + GD3 + GD4 + GD5 done**. Next: **GD6** |
+| 3 | Addons | Gendustry → Extra Bees → Extra Trees | Config modules; **GD0 + EB1 + GD1 + GD2 + GD3 + GD4 + GD5 + GD6 done**. Next: **GD7a** |
 | 4 | Restore | Greenhouse, climatology, database, guide book (CE-dropped 1.12) | Optional |
 | — | `TR1` | Optional Trinkets spectacles slot | Helmet already works (A5) |
 

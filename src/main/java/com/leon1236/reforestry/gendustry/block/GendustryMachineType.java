@@ -5,9 +5,12 @@ import com.leon1236.reforestry.core.blocks.IMachineProperties;
 import com.leon1236.reforestry.core.blocks.MachineProperties;
 import com.leon1236.reforestry.gendustry.blockentity.AdvancedMutatronBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.DnaExtractorBlockEntity;
+import com.leon1236.reforestry.gendustry.blockentity.GeneticTransposerBlockEntity;
+import com.leon1236.reforestry.gendustry.blockentity.ImprinterBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.MutagenProducerBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.MutatronBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.ProteinLiquefierBlockEntity;
+import com.leon1236.reforestry.gendustry.blockentity.ReplicatorBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.SamplerBlockEntity;
 import com.leon1236.reforestry.gendustry.features.GBlockEntities;
 
@@ -29,6 +32,15 @@ public enum GendustryMachineType implements IBlockType {
 			.create()),
 	ADVANCED_MUTATRON("advanced_mutatron", new MachineProperties.Builder<>(GBlockEntities.ADVANCED_MUTATRON, "advanced_mutatron")
 			.setServerTicker(AdvancedMutatronBlockEntity::serverTick)
+			.create()),
+	IMPRINTER("imprinter", new MachineProperties.Builder<>(GBlockEntities.IMPRINTER, "imprinter")
+			.setServerTicker(ImprinterBlockEntity::serverTick)
+			.create()),
+	GENETIC_TRANSPOSER("genetic_transposer", new MachineProperties.Builder<>(GBlockEntities.GENETIC_TRANSPOSER, "genetic_transposer")
+			.setServerTicker(GeneticTransposerBlockEntity::serverTick)
+			.create()),
+	REPLICATOR("replicator", new MachineProperties.Builder<>(GBlockEntities.REPLICATOR, "replicator")
+			.setServerTicker(ReplicatorBlockEntity::serverTick)
 			.create());
 
 	private final String serializedName;

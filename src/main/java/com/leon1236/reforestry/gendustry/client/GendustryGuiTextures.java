@@ -14,6 +14,7 @@ public final class GendustryGuiTextures {
 	public static final Identifier SAMPLER = ReForestry.id("textures/gui/sampler.png");
 	public static final Identifier MUTATRON = ReForestry.id("textures/gui/mutatron.png");
 	public static final Identifier ADVANCED_MUTATRON = ReForestry.id("textures/gui/advanced_mutatron.png");
+	public static final Identifier REPLICATOR = ReForestry.id("textures/gui/replicator.png");
 
 	static void blitBackground(GuiGraphicsExtractor guiGraphics, Identifier texture, int left, int top, int width, int height) {
 		guiGraphics.blit(RenderPipelines.GUI_TEXTURED, texture, left, top, 0.0f, 0.0f, width, height, 256, 256);

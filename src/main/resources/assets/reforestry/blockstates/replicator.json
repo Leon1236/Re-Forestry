@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "reforestry:block/replicator" },
+    "facing=south": { "model": "reforestry:block/replicator", "y": 180 },
+    "facing=west": { "model": "reforestry:block/replicator", "y": 270 },
+    "facing=east": { "model": "reforestry:block/replicator", "y": 90 }
+  }
+}

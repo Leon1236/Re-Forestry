@@ -1,15 +1,14 @@
 package com.leon1236.reforestry.gendustry.blockentity;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import org.jetbrains.annotations.Nullable;
 
+import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.WorldlyContainer;
@@ -20,38 +19,48 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
 import com.leon1236.reforestry.api.IForestryApi;
-import com.leon1236.reforestry.api.core.ForestryError;
+import com.leon1236.reforestry.api.apiculture.genetics.IBee;
 import com.leon1236.reforestry.api.core.IErrorLogic;
-import com.leon1236.reforestry.api.genetics.AllelePair;
+import com.leon1236.reforestry.api.genetics.IIndividual;
+import com.leon1236.reforestry.api.genetics.ISpecies;
+import com.leon1236.reforestry.api.genetics.ISpeciesType;
 import com.leon1236.reforestry.api.genetics.alleles.IAllele;
-import com.leon1236.reforestry.api.genetics.capability.IIndividualHandlerItem;
+import com.leon1236.reforestry.api.genetics.alleles.IValueAllele;
 import com.leon1236.reforestry.api.genetics.chromosomes.IChromosome;
 import com.leon1236.reforestry.core.access.WorldlyAccessHelper;
-import com.leon1236.reforestry.core.tiles.TilePowered;
+import com.leon1236.reforestry.core.fluids.FilteredFluidStorage;
+import com.leon1236.reforestry.core.fluids.FluidContainerHelper;
+import com.leon1236.reforestry.core.fluids.FluidUnits;
+import com.leon1236.reforestry.core.fluids.MultiFluidTank;
 import com.leon1236.reforestry.gendustry.errors.GendustryError;
 import com.leon1236.reforestry.gendustry.features.GBlockEntities;
 import com.leon1236.reforestry.gendustry.features.GItems;
-import com.leon1236.reforestry.gendustry.item.GeneSampleItem;
-import com.leon1236.reforestry.gendustry.item.GendustryResourceType;
-import com.leon1236.reforestry.gendustry.menu.ThreeInputMenu;
+import com.leon1236.reforestry.gendustry.fluids.GFluids;
+import com.leon1236.reforestry.gendustry.item.GeneticTemplateItem;
+import com.leon1236.reforestry.gendustry.item.SpeciesTypeItem;
+import com.leon1236.reforestry.gendustry.menu.ReplicatorMenu;
 
-public class SamplerBlockEntity extends TilePowered implements WorldlyContainer, IGendustryHintTile {
-	private static final int ENERGY_PER_WORK_CYCLE = 20000;
-	private static final int TICKS_PER_WORK_CYCLE = 20;
-	private static final long ENERGY_CAPACITY = 100000L;
-	private static final long ENERGY_MAX_RECEIVE = 10000L;
+public class ReplicatorBlockEntity extends PoweredTankBlockEntity implements WorldlyContainer, IGendustryHintTile {
+	private static final int ENERGY_PER_WORK_CYCLE = 200000;
+	private static final int TICKS_PER_WORK_CYCLE = 50;
+	private static final long TANK_CAPACITY_MB = 10000;
+	private static final long FLUID_PER_CYCLE_MB = 1000;
 
-	public static final String HINTS_KEY = "gendustry.sampler";
-	public static final int ERROR_SLOT_COUNT = ThreeInputMenu.ERROR_SLOT_COUNT;
+	public static final long TANK_CAPACITY = FluidUnits.mbToDroplets(TANK_CAPACITY_MB);
+	public static final long FLUID_PER_CYCLE = FluidUnits.mbToDroplets(FLUID_PER_CYCLE_MB);
 
-	public static final int SLOT_INPUT = ThreeInputMenu.SLOT_INPUT;
-	public static final int SLOT_BLANK_SAMPLE = ThreeInputMenu.SLOT_TEMPLATE_OR_BLANK;
-	public static final int SLOT_LABWARE = ThreeInputMenu.SLOT_LABWARE;
-	public static final int SLOT_OUTPUT = ThreeInputMenu.SLOT_OUTPUT;
+	public static final String HINTS_KEY = "gendustry.replicator";
+	public static final int ERROR_SLOT_COUNT = 4;
+
+	public static final int SLOT_TEMPLATE = 0;
+	public static final int SLOT_DNA_CAN_INPUT = 1;
+	public static final int SLOT_PROTEIN_CAN_INPUT = 2;
+	public static final int SLOT_OUTPUT = 3;
 	public static final int SLOT_COUNT = 4;
 
 	private final NonNullList<ItemStack> items = NonNullList.withSize(SLOT_COUNT, ItemStack.EMPTY);
@@ -86,21 +95,39 @@ public class SamplerBlockEntity extends TilePowered implements WorldlyContainer,
 		}
 	};
 
-	public SamplerBlockEntity(BlockPos pos, BlockState state) {
-		super(GBlockEntities.SAMPLER.type(), pos, state, ENERGY_CAPACITY, ENERGY_MAX_RECEIVE);
+	public ReplicatorBlockEntity(BlockPos pos, BlockState state) {
+		super(GBlockEntities.REPLICATOR.type(), pos, state);
+		this.tankManager = MultiFluidTank.builder(this::setChanged)
+				.tank("Dna", TANK_CAPACITY, FilteredFluidStorage.only(GFluids.LIQUID_DNA.getFluid()), true)
+				.tank("Protein", TANK_CAPACITY, FilteredFluidStorage.only(GFluids.PROTEIN.getFluid()), true)
+				.build();
 		setTicksPerWorkCycle(TICKS_PER_WORK_CYCLE);
 		setEnergyPerWorkCycle(ENERGY_PER_WORK_CYCLE);
 	}
 
-	public static void serverTick(Level level, BlockPos pos, BlockState state, SamplerBlockEntity tile) {
+	public static void serverTick(Level level, BlockPos pos, BlockState state, ReplicatorBlockEntity tile) {
 		tile.doWork(true);
+		if (tile.updateOnInterval(20)) {
+			FluidContainerHelper.drainIntoTank(tile, SLOT_DNA_CAN_INPUT, tile.getDnaTank());
+			FluidContainerHelper.drainIntoTank(tile, SLOT_PROTEIN_CAN_INPUT, tile.getProteinTank());
+		}
 		tile.syncErrors();
 	}
 
+	public FilteredFluidStorage getDnaTank() {
+		return this.tankManager.tank("Dna");
+	}
+
+	public FilteredFluidStorage getProteinTank() {
+		return this.tankManager.tank("Protein");
+	}
+
+	@Override
 	public ContainerData getErrorData() {
 		return this.errorData;
 	}
 
+	@Override
 	public String getHintsKey() {
 		return HINTS_KEY;
 	}
@@ -122,10 +149,10 @@ public class SamplerBlockEntity extends TilePowered implements WorldlyContainer,
 	@Override
 	public boolean hasWork() {
 		IErrorLogic errors = getErrorLogic();
-		boolean noSamples = errors.setCondition(getItem(SLOT_BLANK_SAMPLE).isEmpty(), GendustryError.NO_SAMPLES);
-		boolean noLabware = errors.setCondition(getItem(SLOT_LABWARE).isEmpty(), GendustryError.NO_LABWARE);
-		boolean noSpecimen = errors.setCondition(getItem(SLOT_INPUT).isEmpty(), ForestryError.NO_SPECIMEN);
-		return !noSamples && !noLabware && !noSpecimen;
+		boolean noDna = errors.setCondition(getDnaTank().getAmount() < FLUID_PER_CYCLE, GendustryError.NO_DNA);
+		boolean noProtein = errors.setCondition(getProteinTank().getAmount() < FLUID_PER_CYCLE, GendustryError.NO_PROTEIN);
+		boolean noTemplate = errors.setCondition(getItem(SLOT_TEMPLATE).isEmpty(), GendustryError.NO_TEMPLATE);
+		return !noDna && !noProtein && !noTemplate;
 	}
 
 	@Override
@@ -133,27 +160,43 @@ public class SamplerBlockEntity extends TilePowered implements WorldlyContainer,
 		if (!getItem(SLOT_OUTPUT).isEmpty()) {
 			return false;
 		}
-		ItemStack organismStack = getItem(SLOT_INPUT);
-		var individual = IIndividualHandlerItem.getIndividual(organismStack);
-		if (individual == null) {
+
+		ItemStack template = getItem(SLOT_TEMPLATE);
+		ISpeciesType<?, ?> speciesType = SpeciesTypeItem.getSpeciesType(template);
+		Map<IChromosome<?>, IAllele> alleles = GeneticTemplateItem.getAlleles(template);
+		if (speciesType == null || !GeneticTemplateItem.isComplete(template)) {
 			return false;
 		}
 
-		List<Map.Entry<IChromosome<?>, AllelePair<?>>> entries =
-				new ArrayList<>(individual.getGenome().chromosomes().entrySet());
-		if (entries.isEmpty()) {
+		IAllele speciesAlleleRaw = alleles.get(speciesType.getKaryotype().speciesChromosome());
+		if (!(speciesAlleleRaw instanceof IValueAllele<?> speciesAllele)) {
+			return false;
+		}
+		Object speciesValue = speciesAllele.value();
+		if (!(speciesValue instanceof ISpecies<?> species)) {
 			return false;
 		}
 
-		removeItem(SLOT_INPUT, 1);
-		removeItem(SLOT_LABWARE, 1);
-		removeItem(SLOT_BLANK_SAMPLE, 1);
+		FilteredFluidStorage dnaTank = getDnaTank();
+		FilteredFluidStorage proteinTank = getProteinTank();
+		if (dnaTank.getAmount() < FLUID_PER_CYCLE || proteinTank.getAmount() < FLUID_PER_CYCLE) {
+			return false;
+		}
 
-		RandomSource random = this.level.getRandom();
-		Map.Entry<IChromosome<?>, AllelePair<?>> randomEntry = entries.get(random.nextInt(entries.size()));
-		AllelePair<?> randomPair = randomEntry.getValue();
-		IAllele chosenAllele = random.nextBoolean() ? randomPair.active() : randomPair.inactive();
-		setItem(SLOT_OUTPUT, GeneSampleItem.createStack(individual.getType(), randomEntry.getKey(), chosenAllele));
+		try (Transaction transaction = Transaction.openOuter()) {
+			long drainedDna = dnaTank.extract(dnaTank.getResource(), FLUID_PER_CYCLE, transaction);
+			long drainedProtein = proteinTank.extract(proteinTank.getResource(), FLUID_PER_CYCLE, transaction);
+			if (drainedDna != FLUID_PER_CYCLE || drainedProtein != FLUID_PER_CYCLE) {
+				return false;
+			}
+			transaction.commit();
+		}
+
+		IIndividual individual = species.createIndividual(alleles);
+		if (individual instanceof IBee bee) {
+			bee.setPristine(false);
+		}
+		setItem(SLOT_OUTPUT, individual.createStack(speciesType.getTypeForMutation(2)));
 		return true;
 	}
 
@@ -203,9 +246,15 @@ public class SamplerBlockEntity extends TilePowered implements WorldlyContainer,
 	@Override
 	public boolean canPlaceItem(int slot, ItemStack stack) {
 		return switch (slot) {
-			case SLOT_INPUT -> IIndividualHandlerItem.isIndividual(stack);
-			case SLOT_BLANK_SAMPLE -> stack.is(GItems.RESOURCE.item(GendustryResourceType.BLANK_GENE_SAMPLE));
-			case SLOT_LABWARE -> stack.is(GItems.RESOURCE.item(GendustryResourceType.LABWARE));
+			case SLOT_TEMPLATE -> stack.is(GItems.GENETIC_TEMPLATE.item()) && GeneticTemplateItem.isComplete(stack);
+			case SLOT_DNA_CAN_INPUT -> {
+				Fluid fluid = FluidContainerHelper.fluidIn(stack).getFluid();
+				yield GFluids.LIQUID_DNA.is(fluid);
+			}
+			case SLOT_PROTEIN_CAN_INPUT -> {
+				Fluid fluid = FluidContainerHelper.fluidIn(stack).getFluid();
+				yield GFluids.PROTEIN.is(fluid);
+			}
 			default -> false;
 		};
 	}
@@ -251,6 +300,6 @@ public class SamplerBlockEntity extends TilePowered implements WorldlyContainer,
 	@Nullable
 	@Override
 	public AbstractContainerMenu createMenu(int containerId, Inventory playerInventory, Player player) {
-		return ThreeInputMenu.sampler(containerId, playerInventory, this);
+		return new ReplicatorMenu(containerId, playerInventory, this);
 	}
 }

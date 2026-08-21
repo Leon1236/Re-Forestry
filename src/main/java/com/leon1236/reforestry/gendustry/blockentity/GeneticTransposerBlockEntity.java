@@ -1,15 +1,10 @@
 package com.leon1236.reforestry.gendustry.blockentity;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.WorldlyContainer;
@@ -17,6 +12,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -24,32 +20,27 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
 import com.leon1236.reforestry.api.IForestryApi;
-import com.leon1236.reforestry.api.core.ForestryError;
 import com.leon1236.reforestry.api.core.IErrorLogic;
-import com.leon1236.reforestry.api.genetics.AllelePair;
-import com.leon1236.reforestry.api.genetics.alleles.IAllele;
-import com.leon1236.reforestry.api.genetics.capability.IIndividualHandlerItem;
-import com.leon1236.reforestry.api.genetics.chromosomes.IChromosome;
 import com.leon1236.reforestry.core.access.WorldlyAccessHelper;
 import com.leon1236.reforestry.core.tiles.TilePowered;
 import com.leon1236.reforestry.gendustry.errors.GendustryError;
 import com.leon1236.reforestry.gendustry.features.GBlockEntities;
 import com.leon1236.reforestry.gendustry.features.GItems;
-import com.leon1236.reforestry.gendustry.item.GeneSampleItem;
 import com.leon1236.reforestry.gendustry.item.GendustryResourceType;
 import com.leon1236.reforestry.gendustry.menu.ThreeInputMenu;
 
-public class SamplerBlockEntity extends TilePowered implements WorldlyContainer, IGendustryHintTile {
-	private static final int ENERGY_PER_WORK_CYCLE = 20000;
+public class GeneticTransposerBlockEntity extends TilePowered implements WorldlyContainer, IGendustryHintTile {
+	private static final float CONSUME_LABWARE_CHANCE = 0.2f;
+	private static final int ENERGY_PER_WORK_CYCLE = 50000;
 	private static final int TICKS_PER_WORK_CYCLE = 20;
-	private static final long ENERGY_CAPACITY = 100000L;
+	private static final long ENERGY_CAPACITY = 1000000L;
 	private static final long ENERGY_MAX_RECEIVE = 10000L;
 
-	public static final String HINTS_KEY = "gendustry.sampler";
+	public static final String HINTS_KEY = "gendustry.genetic_transposer";
 	public static final int ERROR_SLOT_COUNT = ThreeInputMenu.ERROR_SLOT_COUNT;
 
 	public static final int SLOT_INPUT = ThreeInputMenu.SLOT_INPUT;
-	public static final int SLOT_BLANK_SAMPLE = ThreeInputMenu.SLOT_TEMPLATE_OR_BLANK;
+	public static final int SLOT_SOURCE = ThreeInputMenu.SLOT_TEMPLATE_OR_BLANK;
 	public static final int SLOT_LABWARE = ThreeInputMenu.SLOT_LABWARE;
 	public static final int SLOT_OUTPUT = ThreeInputMenu.SLOT_OUTPUT;
 	public static final int SLOT_COUNT = 4;
@@ -86,21 +77,23 @@ public class SamplerBlockEntity extends TilePowered implements WorldlyContainer,
 		}
 	};
 
-	public SamplerBlockEntity(BlockPos pos, BlockState state) {
-		super(GBlockEntities.SAMPLER.type(), pos, state, ENERGY_CAPACITY, ENERGY_MAX_RECEIVE);
+	public GeneticTransposerBlockEntity(BlockPos pos, BlockState state) {
+		super(GBlockEntities.GENETIC_TRANSPOSER.type(), pos, state, ENERGY_CAPACITY, ENERGY_MAX_RECEIVE);
 		setTicksPerWorkCycle(TICKS_PER_WORK_CYCLE);
 		setEnergyPerWorkCycle(ENERGY_PER_WORK_CYCLE);
 	}
 
-	public static void serverTick(Level level, BlockPos pos, BlockState state, SamplerBlockEntity tile) {
+	public static void serverTick(Level level, BlockPos pos, BlockState state, GeneticTransposerBlockEntity tile) {
 		tile.doWork(true);
 		tile.syncErrors();
 	}
 
+	@Override
 	public ContainerData getErrorData() {
 		return this.errorData;
 	}
 
+	@Override
 	public String getHintsKey() {
 		return HINTS_KEY;
 	}
@@ -122,38 +115,35 @@ public class SamplerBlockEntity extends TilePowered implements WorldlyContainer,
 	@Override
 	public boolean hasWork() {
 		IErrorLogic errors = getErrorLogic();
-		boolean noSamples = errors.setCondition(getItem(SLOT_BLANK_SAMPLE).isEmpty(), GendustryError.NO_SAMPLES);
+		boolean noBlanks = errors.setCondition(getItem(SLOT_INPUT).isEmpty(), GendustryError.NO_BLANK);
+		boolean noSource = errors.setCondition(getItem(SLOT_SOURCE).isEmpty(), GendustryError.NO_SOURCE);
 		boolean noLabware = errors.setCondition(getItem(SLOT_LABWARE).isEmpty(), GendustryError.NO_LABWARE);
-		boolean noSpecimen = errors.setCondition(getItem(SLOT_INPUT).isEmpty(), ForestryError.NO_SPECIMEN);
-		return !noSamples && !noLabware && !noSpecimen;
+		return !noBlanks && !noSource && !noLabware;
 	}
 
 	@Override
 	protected boolean workCycle() {
-		if (!getItem(SLOT_OUTPUT).isEmpty()) {
+		ItemStack copy = getItem(SLOT_SOURCE).copyWithCount(1);
+		ItemStack output = getItem(SLOT_OUTPUT);
+		if (!output.isEmpty() && !ItemStack.isSameItemSameComponents(output, copy)) {
 			return false;
 		}
-		ItemStack organismStack = getItem(SLOT_INPUT);
-		var individual = IIndividualHandlerItem.getIndividual(organismStack);
-		if (individual == null) {
-			return false;
-		}
-
-		List<Map.Entry<IChromosome<?>, AllelePair<?>>> entries =
-				new ArrayList<>(individual.getGenome().chromosomes().entrySet());
-		if (entries.isEmpty()) {
+		if (!output.isEmpty() && output.getCount() >= output.getMaxStackSize()) {
 			return false;
 		}
 
 		removeItem(SLOT_INPUT, 1);
-		removeItem(SLOT_LABWARE, 1);
-		removeItem(SLOT_BLANK_SAMPLE, 1);
+		if (this.level != null && this.level.getRandom().nextFloat() < CONSUME_LABWARE_CHANCE) {
+			removeItem(SLOT_LABWARE, 1);
+		}
 
-		RandomSource random = this.level.getRandom();
-		Map.Entry<IChromosome<?>, AllelePair<?>> randomEntry = entries.get(random.nextInt(entries.size()));
-		AllelePair<?> randomPair = randomEntry.getValue();
-		IAllele chosenAllele = random.nextBoolean() ? randomPair.active() : randomPair.inactive();
-		setItem(SLOT_OUTPUT, GeneSampleItem.createStack(individual.getType(), randomEntry.getKey(), chosenAllele));
+		if (output.isEmpty()) {
+			setItem(SLOT_OUTPUT, copy);
+		} else {
+			ItemStack result = output.copy();
+			result.grow(1);
+			setItem(SLOT_OUTPUT, result);
+		}
 		return true;
 	}
 
@@ -202,9 +192,29 @@ public class SamplerBlockEntity extends TilePowered implements WorldlyContainer,
 
 	@Override
 	public boolean canPlaceItem(int slot, ItemStack stack) {
+		Item blankTemplate = GItems.RESOURCE.item(GendustryResourceType.BLANK_GENETIC_TEMPLATE);
+		Item blankSample = GItems.RESOURCE.item(GendustryResourceType.BLANK_GENE_SAMPLE);
 		return switch (slot) {
-			case SLOT_INPUT -> IIndividualHandlerItem.isIndividual(stack);
-			case SLOT_BLANK_SAMPLE -> stack.is(GItems.RESOURCE.item(GendustryResourceType.BLANK_GENE_SAMPLE));
+			case SLOT_INPUT -> {
+				ItemStack source = getItem(SLOT_SOURCE);
+				if (source.is(GItems.GENETIC_TEMPLATE.item())) {
+					yield stack.is(blankTemplate);
+				} else if (source.is(GItems.GENE_SAMPLE.item())) {
+					yield stack.is(blankSample);
+				} else {
+					yield stack.is(blankTemplate) || stack.is(blankSample);
+				}
+			}
+			case SLOT_SOURCE -> {
+				ItemStack blank = getItem(SLOT_INPUT);
+				if (blank.is(blankTemplate)) {
+					yield stack.is(GItems.GENETIC_TEMPLATE.item());
+				} else if (blank.is(blankSample)) {
+					yield stack.is(GItems.GENE_SAMPLE.item());
+				} else {
+					yield stack.is(GItems.GENETIC_TEMPLATE.item()) || stack.is(GItems.GENE_SAMPLE.item());
+				}
+			}
 			case SLOT_LABWARE -> stack.is(GItems.RESOURCE.item(GendustryResourceType.LABWARE));
 			default -> false;
 		};
@@ -251,6 +261,6 @@ public class SamplerBlockEntity extends TilePowered implements WorldlyContainer,
 	@Nullable
 	@Override
 	public AbstractContainerMenu createMenu(int containerId, Inventory playerInventory, Player player) {
-		return ThreeInputMenu.sampler(containerId, playerInventory, this);
+		return ThreeInputMenu.geneticTransposer(containerId, playerInventory, this);
 	}
 }

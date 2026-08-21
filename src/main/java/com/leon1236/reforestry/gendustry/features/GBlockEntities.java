@@ -4,9 +4,12 @@ import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.gendustry.blockentity.AbstractMutatronBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.AdvancedMutatronBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.DnaExtractorBlockEntity;
+import com.leon1236.reforestry.gendustry.blockentity.GeneticTransposerBlockEntity;
+import com.leon1236.reforestry.gendustry.blockentity.ImprinterBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.MutagenProducerBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.MutatronBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.ProteinLiquefierBlockEntity;
+import com.leon1236.reforestry.gendustry.blockentity.ReplicatorBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.SamplerBlockEntity;
 import com.leon1236.reforestry.core.energy.EnergyHelper;
 import com.leon1236.reforestry.core.fluids.FluidHelper;
@@ -36,6 +39,15 @@ public class GBlockEntities {
 	public static final FeatureBlockEntityType<AdvancedMutatronBlockEntity> ADVANCED_MUTATRON =
 			REGISTRY.blockEntityType("advanced_mutatron", AdvancedMutatronBlockEntity::new);
 
+	public static final FeatureBlockEntityType<ImprinterBlockEntity> IMPRINTER =
+			REGISTRY.blockEntityType("imprinter", ImprinterBlockEntity::new);
+
+	public static final FeatureBlockEntityType<GeneticTransposerBlockEntity> GENETIC_TRANSPOSER =
+			REGISTRY.blockEntityType("genetic_transposer", GeneticTransposerBlockEntity::new);
+
+	public static final FeatureBlockEntityType<ReplicatorBlockEntity> REPLICATOR =
+			REGISTRY.blockEntityType("replicator", ReplicatorBlockEntity::new);
+
 	public static void init() {
 		EnergyHelper.registerSided(MUTAGEN_PRODUCER.type());
 		InventoryHelper.registerSided(MUTAGEN_PRODUCER.type());
@@ -59,5 +71,15 @@ public class GBlockEntities {
 		EnergyHelper.registerSided(ADVANCED_MUTATRON.type());
 		InventoryHelper.registerSided(ADVANCED_MUTATRON.type());
 		FluidHelper.registerSided(ADVANCED_MUTATRON.type(), AbstractMutatronBlockEntity::getTankManager);
+
+		EnergyHelper.registerSided(IMPRINTER.type());
+		InventoryHelper.registerSided(IMPRINTER.type());
+
+		EnergyHelper.registerSided(GENETIC_TRANSPOSER.type());
+		InventoryHelper.registerSided(GENETIC_TRANSPOSER.type());
+
+		EnergyHelper.registerSided(REPLICATOR.type());
+		InventoryHelper.registerSided(REPLICATOR.type());
+		FluidHelper.registerSided(REPLICATOR.type(), ReplicatorBlockEntity::getTankManager);
 	}
 }

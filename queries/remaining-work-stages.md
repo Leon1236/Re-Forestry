@@ -45,7 +45,7 @@ Loaded today (`ReForestry.java`): `core`, `apiculture`, `arboriculture`, `lepido
 | **cultivation**                      | CU2 done                         | —                       |
 | **sorting**                          | S1 done                          | `S2` butterfly rules    |
 | **lepidopterology**                  | Wave 6 D0–D4 merged              | —                       |
-| gendustry / extra bees / extra trees | GD0 + EB1 + GD1 + GD2 + GD3 + GD4 + GD5 done | `GD6` |
+| gendustry / extra bees / extra trees | GD0 + EB1 + GD1 + GD2 + GD3 + GD4 + GD5 + GD6 done | `GD7a` |
 | curios / Patchouli / 1.12 restore    | Optional                         | last                    |
 
 
@@ -425,7 +425,7 @@ Config-toggle modules. Ids: `reforestry:gendustry`, `reforestry:extra_bees`, `re
 | `GD3`  | M    | Mutagen producer, protein liquefier, **DNA extractor** | **done** |
 | `GD4`  | M    | Sampler + gene sample/template (components, wipe, gene_samples tab) | **done** |
 | `GD5`  | M    | Mutatron + advanced mutatron | **done** |
-| `GD6`  | M    | Imprinter, transposer, replicator | GD4–5 |
+| `GD6`  | M    | Imprinter, transposer, replicator | **done** |
 | `GD7a` | M–L  | Industrial apiary (`IBeeHousing` + FE, no upgrade modifiers yet) | GP0c, housing |
 | `GD7b` | M    | Upgrade modifiers (fertility drones, youth mutation −20%) | GD7a, GD0 |
 | `GD8`  | S    | 12 errors + JEI (producers + gene-sample subtypes) | GD3–7 |

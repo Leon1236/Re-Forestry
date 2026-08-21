@@ -64,7 +64,7 @@ Order: **GD0 → EB1 → GD1 → GD2 (incl. DNA) → GD3 (incl. DNA extractor) �
 | 5 | GD3 | M | Mutagen producer, protein liquefier, DNA extractor | **done** — Menus/screens; labware chance; energy ctor swap |
 | 6 | GD4 | M | Sampler + gene sample/template | **done** — 26.2 components; wipe + combine; gene_samples tab |
 | 7 | GD5 | M | Mutatron + advanced mutatron | **done** — GUIs, tanks, errors; FE ctor swap |
-| 8 | GD6 | M | Imprinter, transposer, replicator | Dual tanks; blank/source/dna/protein errors |
+| 8 | GD6 | M | Imprinter, transposer, replicator | **done** — Dual tanks; blank/source/dna/protein errors |
 | 9 | GD7a | M–L | Industrial apiary bees work with FE | `BeekeepingLogic(this)`; menu/GUI |
 | 10 | GD7b | M | Upgrades including fertility extra drones | Modifier + energy costs; youth mutation penalty |
 | 11 | GD8 | S | 12 errors + JEI | Error sprites; soft jei_mod_plugin |

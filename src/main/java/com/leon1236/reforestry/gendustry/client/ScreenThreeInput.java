@@ -6,14 +6,13 @@ import net.minecraft.world.entity.player.Inventory;
 
 import com.leon1236.reforestry.core.client.GuiErrorTabs;
 import com.leon1236.reforestry.core.client.ScreenForestry;
-import com.leon1236.reforestry.gendustry.blockentity.SamplerBlockEntity;
 import com.leon1236.reforestry.gendustry.menu.ThreeInputMenu;
 
-public class ScreenThreeInput extends ScreenForestry<ThreeInputMenu> {
+public class ScreenThreeInput extends ScreenForestry<ThreeInputMenu<?>> {
 	private static final int IMAGE_WIDTH = 176;
 	private static final int IMAGE_HEIGHT = 166;
 
-	public ScreenThreeInput(ThreeInputMenu menu, Inventory inventory, Component title) {
+	public ScreenThreeInput(ThreeInputMenu<?> menu, Inventory inventory, Component title) {
 		super(menu, inventory, title, IMAGE_WIDTH, IMAGE_HEIGHT);
 		setHintKey(menu.getHintsKey());
 	}
@@ -28,6 +27,6 @@ public class ScreenThreeInput extends ScreenForestry<ThreeInputMenu> {
 				leftPos + 53, topPos + 48, 176, 0, progress, 18);
 
 		GuiErrorTabs.draw(guiGraphics, font, leftPos, topPos, menu::getErrorCount, menu::getErrorId,
-				SamplerBlockEntity.ERROR_SLOT_COUNT, mouseX, mouseY);
+				ThreeInputMenu.ERROR_SLOT_COUNT, mouseX, mouseY);
 	}
 }

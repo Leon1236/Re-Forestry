@@ -91,6 +91,9 @@
     "reforestry:protein_liquefier",
     "reforestry:sampler",
     "reforestry:mutatron",
-    "reforestry:advanced_mutatron"
+    "reforestry:advanced_mutatron",
+    "reforestry:imprinter",
+    "reforestry:genetic_transposer",
+    "reforestry:replicator"
   ]
 }
