@@ -1,0 +1,25 @@
+{
+  "type": "reforestry:bee_species",
+  "parent": "apidae",
+  "alleles": {
+    "reforestry:bee_effect": {
+      "value": "reforestry:bee_effect_miasmic"
+    },
+    "reforestry:flower_type": {
+      "value": "reforestry:flower_type_vanilla"
+    },
+    "reforestry:humidity_tolerance": {
+      "dominant": true,
+      "value": "UP_1"
+    },
+    "reforestry:territory": {
+      "value": [
+        11,
+        8,
+        11
+      ]
+    }
+  },
+  "name": "bombus",
+  "rank": "genus"
+}

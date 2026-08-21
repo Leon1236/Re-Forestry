@@ -1,0 +1,22 @@
+{
+  "type": "reforestry:bee_species",
+  "parent": "apidae",
+  "alleles": {
+    "reforestry:humidity_tolerance": {
+      "dominant": true,
+      "value": "BOTH_1"
+    },
+    "reforestry:lifespan": {
+      "value": 40
+    },
+    "reforestry:speed": {
+      "dominant": true,
+      "value": 0.6
+    },
+    "reforestry:temperature_tolerance": {
+      "value": "BOTH_2"
+    }
+  },
+  "name": "festapis",
+  "rank": "genus"
+}

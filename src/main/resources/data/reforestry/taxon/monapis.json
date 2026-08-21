@@ -1,0 +1,37 @@
+{
+  "type": "reforestry:bee_species",
+  "parent": "apidae",
+  "alleles": {
+    "reforestry:cave_dwelling": {
+      "dominant": true,
+      "value": true
+    },
+    "reforestry:fertility": {
+      "dominant": true,
+      "value": 1
+    },
+    "reforestry:flower_type": {
+      "value": "reforestry:flower_type_wheat"
+    },
+    "reforestry:humidity_tolerance": {
+      "dominant": true,
+      "value": "BOTH_1"
+    },
+    "reforestry:lifespan": {
+      "value": 50
+    },
+    "reforestry:pollination": {
+      "value": 30
+    },
+    "reforestry:speed": {
+      "dominant": true,
+      "value": 0.6
+    },
+    "reforestry:temperature_tolerance": {
+      "dominant": true,
+      "value": "BOTH_1"
+    }
+  },
+  "name": "monapis",
+  "rank": "genus"
+}

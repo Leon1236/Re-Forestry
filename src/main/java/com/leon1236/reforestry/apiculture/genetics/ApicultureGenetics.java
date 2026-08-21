@@ -14,6 +14,8 @@ import org.jetbrains.annotations.Nullable;
 import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.api.genetics.alleles.IRegistryAllele;
+import com.leon1236.reforestry.core.ForestryApiImpl;
+import com.leon1236.reforestry.core.genetics.IdentifierMutationManager;
 import com.leon1236.reforestry.core.genetics.alleles.AlleleManager;
 import com.leon1236.reforestry.core.genetics.mutations.Mutation;
 import com.leon1236.reforestry.core.genetics.mutations.MutationBuilder;
@@ -38,6 +40,17 @@ public final class ApicultureGenetics {
         return builder;
     }
 
+    public static void modifySpecies(Identifier id, java.util.function.Consumer<com.leon1236.reforestry.api.plugin.IBeeSpeciesBuilder> action) {
+        if (finalized) {
+            throw new IllegalStateException("Bee species registration is already finalized");
+        }
+        BeeSpeciesBuilder builder = builders.get(id);
+        if (builder == null) {
+            throw new IllegalArgumentException("Unknown bee species: " + id);
+        }
+        action.accept(builder);
+    }
+
     public static void finalizeRegistration() {
         if (finalized) {
             throw new IllegalStateException("Bee species registration is already finalized");
@@ -51,6 +64,7 @@ public final class ApicultureGenetics {
             defaultGenomes.put(entry.getKey(), genome);
         }
         BeeChromosomes.SPECIES.populate(ImmutableMap.copyOf(speciesById));
+        BeeSpeciesType.INSTANCE.onSpeciesRegistered(ImmutableMap.copyOf(speciesById));
         for (BeeSpeciesBuilder builder : builders.values()) {
             for (MutationBuilder mutationBuilder : builder.mutations().builders()) {
                 Mutation mutation = mutationBuilder.build(ForestrySpeciesTypes.BEE, builder.id());
@@ -58,6 +72,8 @@ public final class ApicultureGenetics {
                         pair -> new ArrayList<>()).add(mutation);
             }
         }
+        BeeSpeciesType.INSTANCE.setMutations(new IdentifierMutationManager(getAllMutations()));
+        ((ForestryApiImpl) ForestryApiImpl.get()).getMutableGeneticManager().registerSpeciesType(BeeSpeciesType.INSTANCE);
         finalized = true;
     }
 
@@ -118,5 +134,13 @@ public final class ApicultureGenetics {
 
     public static java.util.Collection<Identifier> getAllSpeciesIds() {
         return speciesById.keySet();
+    }
+
+    public static java.util.Collection<IBeeSpecies> getAllSpecies() {
+        return speciesById.values();
+    }
+
+    public static java.util.Map<Identifier, IBeeSpecies> getSpeciesById() {
+        return speciesById;
     }
 }

@@ -8,6 +8,7 @@ import java.util.function.Supplier;
 
 import org.jetbrains.annotations.Nullable;
 
+import net.minecraft.network.chat.TextColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
@@ -16,48 +17,62 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 
 import com.leon1236.reforestry.api.arboriculture.ITreeGenData;
 import com.leon1236.reforestry.api.arboriculture.ITreeGenerator;
+import com.leon1236.reforestry.api.arboriculture.ITreeSpecies;
 import com.leon1236.reforestry.api.arboriculture.IWoodType;
+import com.leon1236.reforestry.api.arboriculture.genetics.ITreeSpeciesType;
 import com.leon1236.reforestry.api.core.HumidityType;
 import com.leon1236.reforestry.api.core.TemperatureType;
 import com.leon1236.reforestry.api.genetics.IGenomeBuilder;
 
-public interface ITreeSpeciesBuilder {
-    ITreeSpeciesBuilder setAuthority(String authority);
+public interface ITreeSpeciesBuilder extends ISpeciesBuilder<ITreeSpeciesType, ITreeSpecies, ITreeSpeciesBuilder> {
+	ITreeSpeciesBuilder setAuthority(String authority);
 
-    ITreeSpeciesBuilder setGenome(Consumer<IGenomeBuilder> genome);
+	ITreeSpeciesBuilder setGenome(Consumer<IGenomeBuilder> genome);
 
-    ITreeSpeciesBuilder addMutations(Consumer<IMutationsRegistration> mutations);
+	ITreeSpeciesBuilder addMutations(Consumer<IMutationsRegistration> mutations);
 
-    ITreeSpeciesBuilder setTreeFeature(Function<ITreeGenData, Feature<NoneFeatureConfiguration>> factory);
+	ITreeSpeciesBuilder setTreeFeature(Function<ITreeGenData, Feature<NoneFeatureConfiguration>> factory);
 
-    ITreeSpeciesBuilder setGenerator(ITreeGenerator generator);
+	ITreeSpeciesBuilder setGenerator(ITreeGenerator generator);
 
-    ITreeSpeciesBuilder addVanillaStates(Collection<BlockState> states);
+	ITreeSpeciesBuilder addVanillaStates(Collection<BlockState> states);
 
-    ITreeSpeciesBuilder addVanillaSapling(Item sapling);
+	ITreeSpeciesBuilder addVanillaSapling(Item sapling);
 
-    ITreeSpeciesBuilder setDecorativeLeaves(Supplier<ItemStack> stack);
+	ITreeSpeciesBuilder setDecorativeLeaves(Supplier<ItemStack> stack);
 
-    ITreeSpeciesBuilder setWoodType(IWoodType woodType);
+	default ITreeSpeciesBuilder setDecorativeLeaves(ItemStack stack) {
+		return setDecorativeLeaves(() -> stack);
+	}
 
-    ITreeSpeciesBuilder setRarity(float rarity);
+	ITreeSpeciesBuilder setWoodType(IWoodType woodType);
 
-    ITreeSpeciesBuilder setTemperature(TemperatureType temperature);
+	ITreeSpeciesBuilder setRarity(float rarity);
 
-    ITreeSpeciesBuilder setHumidity(HumidityType humidity);
+	ITreeSpeciesBuilder setTemperature(TemperatureType temperature);
 
-    @Nullable
-    ITreeGenerator getGenerator();
+	ITreeSpeciesBuilder setHumidity(HumidityType humidity);
 
-    List<BlockState> getVanillaLeafStates();
+	@Override
+	ITreeSpeciesBuilder setEscritoireColor(int color);
 
-    List<Item> getVanillaSaplingItems();
+	@Override
+	default ITreeSpeciesBuilder setEscritoireColor(TextColor color) {
+		return setEscritoireColor(color.getValue());
+	}
 
-    ItemStack getDecorativeLeaves();
+	@Nullable
+	ITreeGenerator getGenerator();
 
-    float getRarity();
+	List<BlockState> getVanillaLeafStates();
 
-    TemperatureType getTemperature();
+	List<Item> getVanillaSaplingItems();
 
-    HumidityType getHumidity();
+	ItemStack getDecorativeLeaves();
+
+	float getRarity();
+
+	TemperatureType getTemperature();
+
+	HumidityType getHumidity();
 }

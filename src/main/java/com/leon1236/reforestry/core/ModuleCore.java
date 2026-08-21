@@ -7,6 +7,9 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
+import net.minecraft.server.packs.PackType;
+
+import net.fabricmc.fabric.api.resource.v1.ResourceLoader;
 
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.api.IForestryApi;
@@ -30,6 +33,7 @@ import com.leon1236.reforestry.core.features.CoreTiles;
 import com.leon1236.reforestry.core.features.FluidsItems;
 import com.leon1236.reforestry.core.fluids.ForestryFluids;
 import com.leon1236.reforestry.core.genetics.GeneticItemHelper;
+import com.leon1236.reforestry.core.genetics.TaxonManager;
 import com.leon1236.reforestry.core.genetics.loot.ResearchNoteLoot;
 import com.leon1236.reforestry.core.multiblock.MultiblockEventHandler;
 import com.leon1236.reforestry.core.network.PacketRegistry;
@@ -52,6 +56,7 @@ public class ModuleCore implements IForestryModule {
     @Override
     public void init() {
         registerErrors();
+        PluginManager.runErrorRegistration();
         ForestryConfig.init();
         CoreDataComponents.init();
         GeneticItemHelper.bootstrap();
@@ -67,6 +72,9 @@ public class ModuleCore implements IForestryModule {
         MultiblockEventHandler.register();
         PacketRegistry.init();
         registerClimateReloadHooks();
+        ResourceLoader.get(PackType.SERVER_DATA).registerReloadListener(ReForestry.id("taxa"), new TaxonManager());
+        PluginManager.runGeneticsRegistration();
+        PluginManager.runLepidopterologyRegistration();
     }
 
     @Override

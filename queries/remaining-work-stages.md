@@ -23,7 +23,7 @@ When done: update files/implemented-features.md and tick this stage.
 **Size:** S = one short session · M = one focused session · L = split if it grows.  
 **Order:** finish a wave’s “now” column before starting the next wave, except where the table says parallel.
 
-Loaded today (`ReForestry.java`): `core`, `apiculture`, `arboriculture`, `factory`, `energy`, `storage`, `worktable`, `sorting`, `farming`, `cultivation`.
+Loaded today (`ReForestry.java`): `core`, `apiculture`, `arboriculture`, `lepidopterology`, `factory`, `energy`, `storage`, `worktable`, `sorting`, `farming`, `cultivation`.
 
 ---
 
@@ -43,9 +43,9 @@ Loaded today (`ReForestry.java`): `core`, `apiculture`, `arboriculture`, `factor
 | **energy**                           | FE2 biogas + clockwork playable  | —                       |
 | **farming**                          | G4b done                         | —                       |
 | **cultivation**                      | CU2 done                         | —                       |
-| **sorting**                          | S1 done                          | `S2` after butterflies  |
-| **lepidopterology**                  | Not started                      | after `GP0d` + `D0`     |
-| gendustry / extra bees / extra trees | Extra Bees EB0 + Extra Trees ET0 extracts done | `W7-INT` then GD0 |
+| **sorting**                          | S1 done                          | `S2` butterfly rules    |
+| **lepidopterology**                  | Wave 6 D0–D4 merged              | —                       |
+| gendustry / extra bees / extra trees | Extra Bees EB0 + Extra Trees ET0 extracts done | `GD0` |
 | curios / Patchouli / 1.12 restore    | Optional                         | last                    |
 
 
@@ -489,10 +489,10 @@ Split `EB2` into branch batches if the species extract is huge.
 
 ## Suggested next sessions (human order)
 
-1. Wave 7: **W7-INT** (merge cloud Wave 5 + Wave 6 onto local 1b–4). `EB0`/`ET0` extracts are done.  
-2. Then Gendustry / Extra Bees content per `queries/wave7-plan.md`. `S2` after Wave 6 butterflies are in the tree.
+1. Wave 7: **GD0** (Gendustry module shell). `W7-INT` merge, `EB0`, and `ET0` are done.  
+2. Then Gendustry machines and Extra Bees content per `queries/wave7-plan.md`. Sorting `S2` can follow Wave 6 butterflies.
 
-**Can start in parallel with nothing else:** `TR1`. `EB0` and `ET0` extracts are done. Do not start ET1 or W7-INT from this extract stage.
+**Can start in parallel with nothing else:** `TR1`. Do not start ET1 until GD/EB playable stages in the locked order.
 
 ---
 

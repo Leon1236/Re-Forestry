@@ -24,6 +24,7 @@ public final class ForestryConfig {
     private static int legacyFarmsPlanterRings = 4;
     private static boolean legacyFarmsUseRings = true;
     private static int legacyFarmsRingSize = 4;
+    private static boolean disableButterflySpawning = false;
 
     private ForestryConfig() {
     }
@@ -72,6 +73,10 @@ public final class ForestryConfig {
         return legacyFarmsRingSize;
     }
 
+    public static boolean disableButterflySpawning() {
+        return disableButterflySpawning;
+    }
+
     public static void init() {
         Map<String, String> existing = read();
         write(existing);
@@ -117,6 +122,7 @@ public final class ForestryConfig {
         if (legacyFarmsRingSize > 10) {
             legacyFarmsRingSize = 10;
         }
+        disableButterflySpawning = parseBoolean(loaded.get("lepidopterology.disable_butterfly_spawning"), false);
     }
 
     private static void write(Map<String, String> existing) {
@@ -192,6 +198,12 @@ public final class ForestryConfig {
                 writer.newLine();
                 String ringSizeValue = existing.getOrDefault("farms.legacy_farms_ring_size", "4");
                 writer.write("farms.legacy_farms_ring_size=" + ringSizeValue);
+                writer.newLine();
+                writer.newLine();
+                writer.write("# When true, butterflies never spawn from Forestry leaves.");
+                writer.newLine();
+                String butterflySpawn = existing.getOrDefault("lepidopterology.disable_butterfly_spawning", "false");
+                writer.write("lepidopterology.disable_butterfly_spawning=" + butterflySpawn);
                 writer.newLine();
             }
         } catch (IOException e) {

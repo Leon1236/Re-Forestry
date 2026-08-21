@@ -29,7 +29,7 @@ import com.leon1236.reforestry.arboriculture.blocks.BlockDefaultLeavesFruit;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureDataComponents;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureItems;
 import com.leon1236.reforestry.arboriculture.genetics.ArboricultureGenetics;
-import com.leon1236.reforestry.arboriculture.genetics.IFruit;
+import com.leon1236.reforestry.api.arboriculture.genetics.IFruit;
 import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
 import com.leon1236.reforestry.arboriculture.tiles.TileLeaves;
 

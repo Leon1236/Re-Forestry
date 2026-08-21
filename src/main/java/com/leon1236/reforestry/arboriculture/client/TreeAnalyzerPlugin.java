@@ -10,12 +10,11 @@ import net.minecraft.world.item.ItemStack;
 import com.leon1236.reforestry.api.client.genetics.IAnalyzerGraphics;
 import com.leon1236.reforestry.api.client.genetics.IAnalyzerPlugin;
 import com.leon1236.reforestry.api.core.IProduct;
-import com.leon1236.reforestry.api.core.Product;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureDataComponents;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureItems;
 import com.leon1236.reforestry.arboriculture.genetics.ArboricultureGenetics;
-import com.leon1236.reforestry.arboriculture.genetics.IFruit;
+import com.leon1236.reforestry.api.arboriculture.genetics.IFruit;
 import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
 
 public class TreeAnalyzerPlugin implements IAnalyzerPlugin {
@@ -69,11 +68,9 @@ public class TreeAnalyzerPlugin implements IAnalyzerPlugin {
 		return stack;
 	}
 
-	private static List<IProduct> asProducts(List<IFruit.Product> fruitProducts) {
+	private static List<IProduct> asProducts(List<? extends IProduct> fruitProducts) {
 		List<IProduct> products = new ArrayList<>(fruitProducts.size());
-		for (IFruit.Product product : fruitProducts) {
-			products.add(Product.of(product.item(), 1, product.chance()));
-		}
+		products.addAll(fruitProducts);
 		return products;
 	}
 }

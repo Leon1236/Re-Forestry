@@ -3,6 +3,7 @@ package com.leon1236.reforestry.arboriculture.genetics;
 import java.util.Optional;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -10,6 +11,7 @@ import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
 import com.leon1236.reforestry.api.genetics.IGenome;
+import com.leon1236.reforestry.api.genetics.pollen.ForestryPollenTypes;
 import com.leon1236.reforestry.api.genetics.pollen.IPollenType;
 import com.leon1236.reforestry.arboriculture.TreeUtil;
 import com.leon1236.reforestry.arboriculture.tiles.TileLeaves;
@@ -19,6 +21,11 @@ public final class TreePollenType implements IPollenType {
     public static final TreePollenType INSTANCE = new TreePollenType();
 
     private TreePollenType() {
+    }
+
+    @Override
+    public Identifier id() {
+        return ForestryPollenTypes.TREE;
     }
 
     @Override

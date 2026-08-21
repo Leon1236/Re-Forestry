@@ -21,7 +21,7 @@ public interface IAnalyzerGraphics {
 
 	void drawSpeciesIconsRow(@Nullable Function<Identifier, ItemStack> iconGetter);
 
-	<S> void drawProductList(Function<S, List<IProduct>> getProducts);
+	<S> void drawProductList(Function<S, List<? extends IProduct>> getProducts);
 
 	void drawText(Component text);
 
@@ -36,6 +36,10 @@ public interface IAnalyzerGraphics {
 	void drawTaxonomyPage(IGenome genome);
 
 	void drawMutationsPage(IGenome genome, Function<Identifier, ItemStack> iconGetter);
+
+	default void drawMutationsPage(IGenome genome) {
+		drawMutationsPage(genome, id -> ItemStack.EMPTY);
+	}
 
 	int colorForDominance(boolean dominant);
 }

@@ -1,0 +1,29 @@
+{
+  "type": "reforestry:bee_species",
+  "parent": "apidae",
+  "alleles": {
+    "reforestry:activity": {
+      "value": "reforestry:activity_cathemeral"
+    },
+    "reforestry:cave_dwelling": {
+      "dominant": true,
+      "value": true
+    },
+    "reforestry:fertility": {
+      "value": 4
+    },
+    "reforestry:flower_type": {
+      "value": "reforestry:flower_type_nether"
+    },
+    "reforestry:lifespan": {
+      "dominant": true,
+      "value": 35
+    },
+    "reforestry:pollination": {
+      "dominant": true,
+      "value": 5
+    }
+  },
+  "name": "irata",
+  "rank": "genus"
+}

@@ -19,12 +19,14 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 import com.leon1236.reforestry.api.arboriculture.ITreeGenData;
 import com.leon1236.reforestry.api.arboriculture.ITreeGenerator;
 import com.leon1236.reforestry.api.arboriculture.IWoodType;
+import com.leon1236.reforestry.api.arboriculture.genetics.ITreeSpeciesType;
 import com.leon1236.reforestry.api.core.HumidityType;
 import com.leon1236.reforestry.api.core.TemperatureType;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.api.genetics.IGenomeBuilder;
 import com.leon1236.reforestry.api.genetics.alleles.IRegistryAllele;
 import com.leon1236.reforestry.api.plugin.IMutationsRegistration;
+import com.leon1236.reforestry.api.plugin.ISpeciesBuilder;
 import com.leon1236.reforestry.api.plugin.ITreeSpeciesBuilder;
 import com.leon1236.reforestry.arboriculture.worldgen.DefaultTreeGenerator;
 import com.leon1236.reforestry.arboriculture.worldgen.FeatureTreeVanilla;
@@ -34,10 +36,13 @@ public final class TreeSpeciesBuilder implements ITreeSpeciesBuilder {
     private final Identifier id;
     private final String genus;
     private final String species;
-    private final boolean dominant;
-    private final int escritoireColor;
+    private boolean dominant;
+    private int escritoireColor;
     private IWoodType woodType;
     private String authority = "";
+    private boolean glint = false;
+    private boolean secret = false;
+    private int complexity = 1;
     private Consumer<IGenomeBuilder> genome = builder -> {
     };
     private final MutationsRegistration mutations = new MutationsRegistration();
@@ -49,6 +54,7 @@ public final class TreeSpeciesBuilder implements ITreeSpeciesBuilder {
     private final HashSet<BlockState> vanillaStates = new HashSet<>();
     private final HashSet<Item> vanillaItems = new HashSet<>();
     private Supplier<ItemStack> decorativeLeaves = () -> ItemStack.EMPTY;
+    private ISpeciesBuilder.ISpeciesFactory<ITreeSpeciesType, com.leon1236.reforestry.api.arboriculture.ITreeSpecies, ITreeSpeciesBuilder> factory;
 
     TreeSpeciesBuilder(Identifier id, String genus, String species, boolean dominant, int escritoireColor, IWoodType woodType) {
         this.id = id;
@@ -136,6 +142,96 @@ public final class TreeSpeciesBuilder implements ITreeSpeciesBuilder {
         return this;
     }
 
+    @Override
+    public TreeSpeciesBuilder setDominant(boolean dominant) {
+        this.dominant = dominant;
+        return this;
+    }
+
+    @Override
+    public TreeSpeciesBuilder setGlint(boolean glint) {
+        this.glint = glint;
+        return this;
+    }
+
+    @Override
+    public TreeSpeciesBuilder setSecret(boolean secret) {
+        this.secret = secret;
+        return this;
+    }
+
+    @Override
+    public TreeSpeciesBuilder setComplexity(int complexity) {
+        this.complexity = complexity;
+        return this;
+    }
+
+    @Override
+    public TreeSpeciesBuilder setEscritoireColor(int color) {
+        this.escritoireColor = color;
+        return this;
+    }
+
+    @Override
+    public TreeSpeciesBuilder setFactory(ISpeciesBuilder.ISpeciesFactory<ITreeSpeciesType, com.leon1236.reforestry.api.arboriculture.ITreeSpecies, ITreeSpeciesBuilder> factory) {
+        this.factory = factory;
+        return this;
+    }
+
+    @Override
+    public String getGenus() {
+        return genus;
+    }
+
+    @Override
+    public String getSpecies() {
+        return species;
+    }
+
+    @Override
+    public boolean isDominant() {
+        return dominant;
+    }
+
+    @Override
+    public IGenome buildGenome(IGenomeBuilder builder) {
+        genome.accept(builder);
+        return builder.build();
+    }
+
+    @Override
+    public boolean hasGlint() {
+        return glint;
+    }
+
+    @Override
+    public int getComplexity() {
+        return complexity;
+    }
+
+    @Override
+    public int getEscritoireColor() {
+        return escritoireColor;
+    }
+
+    @Override
+    public boolean isSecret() {
+        return secret;
+    }
+
+    @Override
+    public String getAuthority() {
+        return authority;
+    }
+
+    @Override
+    public ISpeciesBuilder.ISpeciesFactory<ITreeSpeciesType, com.leon1236.reforestry.api.arboriculture.ITreeSpecies, ITreeSpeciesBuilder> createSpeciesFactory() {
+        if (factory != null) {
+            return factory;
+        }
+        return (id, type, defaultGenome, builder) -> ((TreeSpeciesBuilder) builder).buildSpecies();
+    }
+
     @Nullable
     @Override
     public ITreeGenerator getGenerator() {
@@ -203,7 +299,10 @@ public final class TreeSpeciesBuilder implements ITreeSpeciesBuilder {
                 getVanillaLeafStates(),
                 getVanillaSaplingItems(),
                 decorativeLeaves,
-                rarity);
+                rarity,
+                secret,
+                glint,
+                complexity);
     }
 
     IGenome buildGenome(IRegistryAllele<ITreeSpecies> speciesAllele) {

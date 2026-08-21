@@ -28,7 +28,7 @@ import com.leon1236.reforestry.apiculture.items.EnumHoneyComb;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureDataComponents;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureItems;
 import com.leon1236.reforestry.arboriculture.genetics.ArboricultureGenetics;
-import com.leon1236.reforestry.arboriculture.genetics.IFruit;
+import com.leon1236.reforestry.api.arboriculture.genetics.IFruit;
 import com.leon1236.reforestry.arboriculture.genetics.ITreeSpecies;
 import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
 import com.leon1236.reforestry.core.config.ForestryConfig;
@@ -143,12 +143,12 @@ public final class EscritoireResearch {
 		}
 		if (ForestrySpeciesTypes.TREE.equals(typeId)) {
 			IFruit fruit = genome.getActiveAllele(TreeChromosomes.FRUIT).value();
-			for (IFruit.Product product : fruit.getProducts()) {
+			for (IProduct product : fruit.getProducts()) {
 				if (sample.is(product.item())) {
 					return 1.0f;
 				}
 			}
-			for (IFruit.Product product : fruit.getSpecialties()) {
+			for (IProduct product : fruit.getSpecialties()) {
 				if (sample.is(product.item())) {
 					return 1.0f;
 				}

@@ -19,7 +19,7 @@ import com.leon1236.reforestry.arboriculture.features.ArboricultureDataComponent
 import com.leon1236.reforestry.arboriculture.features.ArboricultureItems;
 import com.leon1236.reforestry.arboriculture.genetics.ArboricultureGenetics;
 import com.leon1236.reforestry.arboriculture.genetics.DefaultFruits;
-import com.leon1236.reforestry.arboriculture.genetics.IFruit;
+import com.leon1236.reforestry.api.arboriculture.genetics.IFruit;
 import com.leon1236.reforestry.arboriculture.genetics.ITreeSpecies;
 import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
 import com.leon1236.reforestry.core.features.CoreBlocks;

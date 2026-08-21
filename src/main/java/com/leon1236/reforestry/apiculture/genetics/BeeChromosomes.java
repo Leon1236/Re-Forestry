@@ -6,6 +6,7 @@ import net.minecraft.core.Vec3i;
 import net.minecraft.resources.Identifier;
 
 import com.leon1236.reforestry.ReForestry;
+import com.leon1236.reforestry.api.apiculture.IActivityType;
 import com.leon1236.reforestry.api.apiculture.genetics.IBeeEffect;
 import com.leon1236.reforestry.api.core.ToleranceType;
 import com.leon1236.reforestry.api.genetics.IKaryotype;

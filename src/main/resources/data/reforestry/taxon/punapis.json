@@ -1,0 +1,26 @@
+{
+  "type": "reforestry:bee_species",
+  "parent": "apidae",
+  "alleles": {
+    "reforestry:bee_effect": {
+      "value": "reforestry:bee_effect_aggressive"
+    },
+    "reforestry:humidity_tolerance": {
+      "dominant": true,
+      "value": "BOTH_1"
+    },
+    "reforestry:temperature_tolerance": {
+      "dominant": true,
+      "value": "BOTH_1"
+    },
+    "reforestry:territory": {
+      "value": [
+        15,
+        13,
+        15
+      ]
+    }
+  },
+  "name": "punapis",
+  "rank": "genus"
+}

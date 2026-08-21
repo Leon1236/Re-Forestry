@@ -13,8 +13,8 @@ public final class ProductRecipe {
 	final Identifier speciesId;
 	final ItemStack displayInput;
 	final List<ItemStack> inputs;
-	final List<IProduct> products;
-	final List<IProduct> specialties;
+	final List<? extends IProduct> products;
+	final List<? extends IProduct> specialties;
 
 	ProductRecipe(Identifier speciesId, IBeeSpecies species) {
 		this.speciesId = speciesId;

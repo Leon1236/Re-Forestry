@@ -11,6 +11,7 @@ import com.leon1236.reforestry.api.client.genetics.IAnalyzerPlugin;
 import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
 import com.leon1236.reforestry.apiculture.client.BeeAnalyzerPlugin;
 import com.leon1236.reforestry.arboriculture.client.TreeAnalyzerPlugin;
+import com.leon1236.reforestry.lepidopterology.client.ButterflyAnalyzerPlugin;
 
 public final class GeneticClientManager {
 	public static final GeneticClientManager INSTANCE = new GeneticClientManager();
@@ -23,6 +24,7 @@ public final class GeneticClientManager {
 	public void bootstrap() {
 		plugins.put(ForestrySpeciesTypes.BEE, new BeeAnalyzerPlugin());
 		plugins.put(ForestrySpeciesTypes.TREE, new TreeAnalyzerPlugin());
+		plugins.put(ForestrySpeciesTypes.BUTTERFLY, new ButterflyAnalyzerPlugin());
 	}
 
 	public void setAnalyzerPlugin(Identifier speciesTypeId, IAnalyzerPlugin plugin) {

@@ -1,0 +1,43 @@
+{
+  "type": "reforestry:bee_species",
+  "parent": "apidae",
+  "alleles": {
+    "reforestry:activity": {
+      "value": "reforestry:activity_nocturnal"
+    },
+    "reforestry:bee_effect": {
+      "value": "reforestry:bee_effect_misanthrope"
+    },
+    "reforestry:fertility": {
+      "dominant": true,
+      "value": 1
+    },
+    "reforestry:flower_type": {
+      "value": "reforestry:flower_type_end"
+    },
+    "reforestry:humidity_tolerance": {
+      "dominant": true,
+      "value": "BOTH_1"
+    },
+    "reforestry:lifespan": {
+      "value": 60
+    },
+    "reforestry:speed": {
+      "dominant": true,
+      "value": 0.6
+    },
+    "reforestry:temperature_tolerance": {
+      "dominant": true,
+      "value": "UP_1"
+    },
+    "reforestry:territory": {
+      "value": [
+        11,
+        8,
+        11
+      ]
+    }
+  },
+  "name": "finapis",
+  "rank": "genus"
+}

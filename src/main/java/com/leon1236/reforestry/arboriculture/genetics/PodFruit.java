@@ -1,5 +1,6 @@
 package com.leon1236.reforestry.arboriculture.genetics;
 
+import com.leon1236.reforestry.api.arboriculture.genetics.IFruit;
 import java.util.List;
 
 import net.minecraft.core.BlockPos;
@@ -26,7 +27,7 @@ import com.leon1236.reforestry.core.utils.BlockUtil;
 public class PodFruit extends Fruit {
     private final ForestryPodType type;
 
-    public PodFruit(Identifier id, boolean dominant, ForestryPodType type, List<Product> products) {
+    public PodFruit(Identifier id, boolean dominant, ForestryPodType type, List<IFruit.Product> products) {
         super(id, dominant, 2, products);
         this.type = type;
     }

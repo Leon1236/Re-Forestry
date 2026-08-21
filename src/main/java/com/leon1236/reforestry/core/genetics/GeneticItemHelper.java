@@ -9,7 +9,11 @@ import net.minecraft.world.item.ItemStack;
 import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
 import com.leon1236.reforestry.api.genetics.IBreedingTracker;
 import com.leon1236.reforestry.api.genetics.IGenome;
+import com.leon1236.reforestry.api.genetics.IIndividual;
+import com.leon1236.reforestry.api.genetics.ILifeStage;
+import com.leon1236.reforestry.api.genetics.ISpeciesType;
 import com.leon1236.reforestry.api.genetics.alleles.IRegistryAlleleValue;
+import com.leon1236.reforestry.api.genetics.capability.IIndividualHandlerItem;
 import com.leon1236.reforestry.api.genetics.capability.IndividualItems;
 import com.leon1236.reforestry.api.genetics.chromosomes.IRegistryChromosome;
 import com.leon1236.reforestry.apiculture.features.ApicultureDataComponents;
@@ -20,6 +24,9 @@ import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
 import com.leon1236.reforestry.arboriculture.items.ItemGermlingGE;
 import com.leon1236.reforestry.core.features.CoreDataComponents;
 import com.leon1236.reforestry.core.genetics.root.BreedingTrackerManager;
+import com.leon1236.reforestry.lepidopterology.features.LepidopterologyDataComponents;
+import com.leon1236.reforestry.lepidopterology.genetics.ButterflyChromosomes;
+import com.leon1236.reforestry.lepidopterology.items.ItemButterflyGE;
 
 public final class GeneticItemHelper implements IndividualItems.Access {
 	public static final GeneticItemHelper INSTANCE = new GeneticItemHelper();
@@ -33,7 +40,7 @@ public final class GeneticItemHelper implements IndividualItems.Access {
 
 	@Override
 	public boolean isIndividual(ItemStack stack) {
-		return getGenome(stack) != null;
+		return IIndividualHandlerItem.isIndividual(stack);
 	}
 
 	@Override
@@ -43,21 +50,44 @@ public final class GeneticItemHelper implements IndividualItems.Access {
 			return null;
 		}
 		if (stack.getItem() instanceof ItemBeeGE) {
-			return stack.get(ApicultureDataComponents.BEE_GENOME.type());
+			IGenome genome = stack.get(ApicultureDataComponents.BEE_GENOME.type());
+			if (genome != null) {
+				return genome;
+			}
 		}
 		if (stack.getItem() instanceof ItemGermlingGE) {
-			return stack.get(ArboricultureDataComponents.TREE_GENOME.type());
+			IGenome genome = stack.get(ArboricultureDataComponents.TREE_GENOME.type());
+			if (genome != null) {
+				return genome;
+			}
 		}
-		return null;
+		if (stack.getItem() instanceof ItemButterflyGE) {
+			IGenome genome = stack.get(LepidopterologyDataComponents.BUTTERFLY_GENOME.type());
+			if (genome != null) {
+				return genome;
+			}
+		}
+		IIndividual individual = IIndividualHandlerItem.getIndividual(stack);
+		return individual == null ? null : individual.getGenome();
 	}
 
 	@Override
 	@Nullable
 	public Identifier getSpeciesTypeId(ItemStack stack) {
+		ISpeciesType<?, ?> type = IIndividualHandlerItem.getSpeciesType(stack);
+		if (type != null) {
+			return type.id();
+		}
 		if (stack.getItem() instanceof ItemBeeGE) {
 			return ForestrySpeciesTypes.BEE;
 		}
 		if (stack.getItem() instanceof ItemGermlingGE) {
+			return ForestrySpeciesTypes.TREE;
+		}
+		if (stack.getItem() instanceof ItemButterflyGE) {
+			return ForestrySpeciesTypes.BUTTERFLY;
+		}
+		if (IIndividualHandlerItem.isIndividual(stack)) {
 			return ForestrySpeciesTypes.TREE;
 		}
 		return null;
@@ -66,11 +96,18 @@ public final class GeneticItemHelper implements IndividualItems.Access {
 	@Override
 	@Nullable
 	public String getLifeStage(ItemStack stack) {
+		ILifeStage stage = IIndividualHandlerItem.getLifeStage(stack);
+		if (stage != null) {
+			return stage.getSerializedName();
+		}
 		if (stack.getItem() instanceof ItemBeeGE bee) {
 			return bee.lifeStage();
 		}
 		if (stack.getItem() instanceof ItemGermlingGE germling) {
 			return germling.lifeStage();
+		}
+		if (stack.getItem() instanceof ItemButterflyGE butterfly) {
+			return butterfly.lifeStage().getSerializedName();
 		}
 		return null;
 	}
@@ -92,26 +129,19 @@ public final class GeneticItemHelper implements IndividualItems.Access {
 		}
 		stack.set(CoreDataComponents.ANALYZED.type(), true);
 		IBreedingTracker tracker = BreedingTrackerManager.INSTANCE.getTracker(typeId, player.level(), player.getGameProfile());
-		Identifier active = speciesId(genome, typeId, true);
-		Identifier inactive = speciesId(genome, typeId, false);
-		if (active != null) {
-			tracker.registerSpecies(active);
-		}
-		if (inactive != null) {
-			tracker.registerSpecies(inactive);
-		}
+		tracker.registerSpecies(speciesId(genome, typeId, true));
+		tracker.registerSpecies(speciesId(genome, typeId, false));
 		return true;
 	}
 
-	@Nullable
 	public static Identifier speciesId(IGenome genome, Identifier typeId, boolean active) {
 		if (typeId.equals(ForestrySpeciesTypes.TREE)) {
 			return alleleSpeciesId(genome, TreeChromosomes.SPECIES, active);
 		}
-		if (typeId.equals(ForestrySpeciesTypes.BEE)) {
-			return alleleSpeciesId(genome, BeeChromosomes.SPECIES, active);
+		if (typeId.equals(ForestrySpeciesTypes.BUTTERFLY)) {
+			return alleleSpeciesId(genome, ButterflyChromosomes.SPECIES, active);
 		}
-		return null;
+		return alleleSpeciesId(genome, BeeChromosomes.SPECIES, active);
 	}
 
 	private static <V extends IRegistryAlleleValue> Identifier alleleSpeciesId(

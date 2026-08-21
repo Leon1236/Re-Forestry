@@ -1,0 +1,15 @@
+{
+  "type": "reforestry:bee_species",
+  "parent": "apidae",
+  "alleles": {
+    "reforestry:activity": {
+      "value": "reforestry:activity_cathemeral"
+    },
+    "reforestry:cave_dwelling": {
+      "dominant": true,
+      "value": true
+    }
+  },
+  "name": "herapis",
+  "rank": "genus"
+}

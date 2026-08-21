@@ -27,6 +27,7 @@ import com.leon1236.reforestry.apiculture.blocks.BlockAlvearyType;
 import com.leon1236.reforestry.apiculture.BeeStackHelper;
 import com.leon1236.reforestry.apiculture.features.ApicultureDataComponents;
 import com.leon1236.reforestry.apiculture.features.ApicultureItems;
+import com.leon1236.reforestry.apiculture.SwarmerMaterials;
 import com.leon1236.reforestry.apiculture.gui.ContainerAlvearySwarmer;
 import com.leon1236.reforestry.apiculture.hives.Hive;
 import com.leon1236.reforestry.apiculture.hives.HiveDecorator;
@@ -39,7 +40,6 @@ public class TileAlvearySwarmer extends TileAlveary implements IActivatable,
 		IAlvearyComponent.Active<MultiblockLogicAlveary>, IMultiblockComponent.HasInventory {
 	public static final int SLOT_COUNT = 4;
 
-	private static final float ROYAL_JELLY_CHANCE = 0.01f;
 	private static final int SPAWN_RANGE = 40;
 
 	private final InventoryAlvearyPart inventory = new InventoryAlvearyPart(SLOT_COUNT, this::setChanged,
@@ -95,7 +95,7 @@ public class TileAlvearySwarmer extends TileAlveary implements IActivatable,
 	@Nullable
 	private IGenome getMatedQueenGenome() {
 		ItemStack queenStack = getMultiblockLogic().getController().beeInventory().getQueen();
-		if (!(queenStack.getItem() instanceof ItemBeeGE beeItem) || !"queen".equals(beeItem.lifeStage())) {
+		if (!(queenStack.getItem() instanceof ItemBeeGE beeItem) || beeItem.getLifeStage() != com.leon1236.reforestry.api.apiculture.genetics.BeeLifeStage.QUEEN) {
 			return null;
 		}
 		if (queenStack.get(ApicultureDataComponents.BEE_MATE_GENOME.type()) == null) {
@@ -106,16 +106,18 @@ public class TileAlvearySwarmer extends TileAlveary implements IActivatable,
 
 	private float consumeInducerAndGetChance() {
 		for (int slot = 0; slot < this.inventory.getContainerSize(); slot++) {
-			if (isInducer(this.inventory.getItem(slot))) {
+			ItemStack stack = this.inventory.getItem(slot);
+			if (isInducer(stack)) {
+				float chance = SwarmerMaterials.getChance(stack);
 				this.inventory.removeItem(slot, 1);
-				return ROYAL_JELLY_CHANCE;
+				return chance;
 			}
 		}
 		return 0f;
 	}
 
 	private static boolean isInducer(ItemStack stack) {
-		return stack.is(ApicultureItems.ROYAL_JELLY.item());
+		return SwarmerMaterials.isInducer(stack);
 	}
 
 	private void trySpawnSwarm() {

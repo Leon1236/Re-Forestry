@@ -4,7 +4,7 @@ import java.util.Locale;
 
 import com.leon1236.reforestry.api.core.IBlockSubtype;
 import com.leon1236.reforestry.arboriculture.genetics.DefaultFruits;
-import com.leon1236.reforestry.arboriculture.genetics.IFruit;
+import com.leon1236.reforestry.api.arboriculture.genetics.IFruit;
 
 public enum ForestryPodType implements IBlockSubtype {
     COCOA,

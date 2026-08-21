@@ -1,0 +1,22 @@
+{
+  "type": "reforestry:bee_species",
+  "parent": "apidae",
+  "alleles": {
+    "reforestry:activity": {
+      "value": "reforestry:activity_nocturnal"
+    },
+    "reforestry:flower_type": {
+      "value": "reforestry:flower_type_cacti"
+    },
+    "reforestry:humidity_tolerance": {
+      "dominant": true,
+      "value": "DOWN_1"
+    },
+    "reforestry:temperature_tolerance": {
+      "dominant": true,
+      "value": "BOTH_1"
+    }
+  },
+  "name": "modapis",
+  "rank": "genus"
+}

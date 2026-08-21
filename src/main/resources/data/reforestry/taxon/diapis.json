@@ -1,0 +1,20 @@
+{
+  "type": "reforestry:bee_species",
+  "parent": "apidae",
+  "alleles": {
+    "reforestry:activity": {
+      "value": "reforestry:activity_metaturnal"
+    },
+    "reforestry:flower_type": {
+      "value": "reforestry:flower_type_nether"
+    },
+    "reforestry:pollination": {
+      "value": 20
+    },
+    "reforestry:temperature_tolerance": {
+      "value": "DOWN_2"
+    }
+  },
+  "name": "diapis",
+  "rank": "genus"
+}

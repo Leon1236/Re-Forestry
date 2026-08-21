@@ -2,6 +2,8 @@ package com.leon1236.reforestry.arboriculture.items;
 
 import java.util.function.Consumer;
 
+import org.jetbrains.annotations.Nullable;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
@@ -15,18 +17,24 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
+import com.leon1236.reforestry.api.arboriculture.genetics.TreeLifeStage;
 import com.leon1236.reforestry.api.genetics.IGenome;
-import com.leon1236.reforestry.arboriculture.TreeUtil;
+import com.leon1236.reforestry.api.genetics.IIndividual;
+import com.leon1236.reforestry.api.genetics.IIndividualItem;
+import com.leon1236.reforestry.api.genetics.ILifeStage;
+import com.leon1236.reforestry.api.genetics.ISpeciesType;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureBlocks;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureDataComponents;
 import com.leon1236.reforestry.arboriculture.genetics.ITreeSpecies;
+import com.leon1236.reforestry.arboriculture.genetics.Tree;
 import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
 import com.leon1236.reforestry.arboriculture.genetics.TreeGeneticsTooltips;
 import com.leon1236.reforestry.arboriculture.genetics.TreePollenType;
+import com.leon1236.reforestry.arboriculture.genetics.TreeSpeciesType;
 import com.leon1236.reforestry.arboriculture.tiles.TileSapling;
 import com.leon1236.reforestry.core.genetics.GeneticsTooltips;
 
-public class ItemGermlingGE extends Item {
+public class ItemGermlingGE extends Item implements IIndividualItem {
     private final String lifeStage;
 
     public ItemGermlingGE(Properties properties, String lifeStage) {
@@ -36,6 +44,22 @@ public class ItemGermlingGE extends Item {
 
     public String lifeStage() {
         return lifeStage;
+    }
+
+    @Override
+    @Nullable
+    public IIndividual getIndividualFromComponent(ItemStack stack) {
+        return Tree.fromStack(stack);
+    }
+
+    @Override
+    public ILifeStage getLifeStage() {
+        return TreeLifeStage.bySerializedName(lifeStage);
+    }
+
+    @Override
+    public ISpeciesType<?, ?> getSpeciesType() {
+        return TreeSpeciesType.INSTANCE;
     }
 
     @Override
@@ -106,10 +130,7 @@ public class ItemGermlingGE extends Item {
 
         Level level = context.getLevel();
         BlockPos pos = context.getClickedPos();
-        if (!TreeUtil.canMate(TreeUtil.getTreeSafe(level, pos), pollen)) {
-            return InteractionResult.PASS;
-        }
-        if (!TreePollenType.INSTANCE.tryPollinate(level, pos, pollen, level.getRandom(), true)) {
+        if (!TreePollenType.INSTANCE.tryPollinate(level, pos, pollen, level.getRandom())) {
             return InteractionResult.PASS;
         }
 

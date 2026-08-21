@@ -46,6 +46,18 @@ final class RegistryChromosome<V extends IRegistryAlleleValue> implements IRegis
     }
 
     @Override
+    public void registerValue(Identifier id, V value) {
+        if (valuesById == null) {
+            valuesById = ImmutableMap.of(id, value);
+            return;
+        }
+        if (valuesById.containsKey(id)) {
+            throw new IllegalStateException("Registry chromosome " + this.id + " already has value " + id);
+        }
+        valuesById = ImmutableMap.<Identifier, V>builder().putAll(valuesById).put(id, value).build();
+    }
+
+    @Override
     public boolean isPopulated() {
         return valuesById != null;
     }

@@ -6,12 +6,12 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 
 import com.leon1236.reforestry.api.apiculture.IBeekeepingLogic;
+import com.leon1236.reforestry.api.apiculture.IActivityType;
 import com.leon1236.reforestry.api.apiculture.genetics.IBeeEffect;
 import com.leon1236.reforestry.api.genetics.IEffectData;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.api.util.TickHelper;
 import com.leon1236.reforestry.apiculture.genetics.BeeChromosomes;
-import com.leon1236.reforestry.apiculture.genetics.IActivityType;
 import com.leon1236.reforestry.apiculture.tiles.TileHive;
 
 public class WorldgenBeekeepingLogic implements IBeekeepingLogic {

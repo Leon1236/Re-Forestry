@@ -3,7 +3,7 @@
 What is **done and working** in the mod today.  
 Update this file when a roadmap step lands. For how-to-build guidance, see `CLAUDE.md`. For the next work items, see **Next up** at the bottom.
 
-Last updated: 2026-08-21 (ET0 Extra Trees extract done. Next Wave 7 stage: W7-INT)
+Last updated: 2026-08-21 (W7-INT: Waves 1b–4 + GitHub Wave 5 + Wave 6. Next: GD0)
 
 ---
 
@@ -234,7 +234,7 @@ Play notes: `queries/storage-B1-b3-backpacks.md`, `queries/storage-B4-naturalist
 
 ## Next up (not implemented yet)
 
-**Next up: Wave 7 `W7-INT`.** Extra Bees (EB0) and Extra Trees (ET0) extracts are done. Genetics-dependent addon stages wait on merging local Waves 1b–4 with GitHub Wave 5 + Wave 6 PR. Wave 3 `S2` waits on butterfly items (Wave 6 PR). No solar/combustion. Do not start ET1.
+**Next up: Wave 7 `GD0`.** Local Waves 1b–4, GitHub Wave 5 genetics API, and Wave 6 butterflies are on this tree. Extra Bees/Trees extracts are done. No solar/combustion.
 
 **Wave 7 addons:** extracts only so far (not playable content). Do not start EB1/ET1/GD0 until this wave’s locked order.
 
@@ -242,6 +242,28 @@ Play notes: `queries/storage-B1-b3-backpacks.md`, `queries/storage-B4-naturalist
 |---|---|---|
 | `EB0` | Extract done | `tools/extract_extra_bees.py` + `queries/extra-bees-*.json` — 116 species, 168 mutations, 25 effects. No Java module. |
 | `ET0` | Extract done | `tools/extract_extra_trees.py` + `queries/extra-trees-extract/` — 97 species (skip 9 binomials), 59 fruits, 36 planks (skip 6 → 30 new + shrub log), 97 mutations, 22 moths. No Java woods/module. |
+| `W7-INT` | Merged | Local 1b–4 + origin/main Wave 5 + Wave 6 lepidopterology. Farming/energy/filter kept. |
+
+## Wave 5 — Genetics public API
+
+| Stage | Status | Notes |
+|---|---|---|
+| GP0a1 Public species / individual | done | `ISpecies` / `IIndividual` / `ILifeStage`; Bee/Tree wrappers |
+| GP0a2 Genetic manager + taxonomy | done | `IGeneticManager`; 126 taxon JSON; Fabric reload |
+| GP0a3 Individual item handler | done | `IIndividualHandlerItem` + `IIndividualItem` on GE items |
+| GP0b Plugin registerGenetics | done | genetics-first plugin order; flower/pollen/error/client hooks |
+| GP0c Promote bee/tree API | done | `IBee`/`ITree`/`IFruit`; `modifySpecies`; `ITreeManager` |
+| GP0d Lepidopterology API shell | done | empty `BUTTERFLY` type; 34 taxa; items landed in Wave 6 D0 |
+
+## Wave 6 — Lepidopterology
+
+| Stage | Status | Notes |
+|---|---|---|
+| D0 Module + GE items | done | `butterfly` / `butterfly_serum` / `caterpillar` / `cocoon`; chest recipe; tab |
+| D1 35 species + mutation + analyzer | done | 35 Java species; silk moth mutation; analyzer pages |
+| D2 Entity + renderer + item model | done | Entity `reforestry:butterfly`; AI; scoop; serum on kill |
+| D3 Cocoons + leaf nursery/spawn + mating | done | `cocoon` / `cocoon_solid`; `TileLeaves` nursery; mating recipe |
+| D4 Remaining CE surface + docs | done | `foresters_manual_butterfly`; scoop on lepidopterology tab |
 
 **Agent-ready stages:** [`queries/remaining-work-stages.md`](../queries/remaining-work-stages.md). Mail stays out of scope.
 
@@ -249,9 +271,9 @@ Older (partially stale): [`queries/item-gap-implementation-plan.md`](../queries/
 
 | Order | ID | Feature | Exit / notes |
 |---|---|---|---|
-| 1 | `GP0a1–d` | Species-type / plugin genetics façade | Blocks butterflies + addons |
-| 2 | `D0→D4` | **Lepidopterology** | Also unlocks `butterfly_chest` recipe and sorting `S2` |
-| 3 | Addons | Gendustry → Extra Bees → Extra Trees | Config modules; **EB0 + ET0 extracts done** (not playable). Next: W7-INT |
+| 1 | `GP0a1–d` | Species-type / plugin genetics façade | **done** (merged from GitHub) |
+| 2 | `D0→D4` | **Lepidopterology** | **done** (merged from GitHub). Unlocks `butterfly_chest` recipe and sorting `S2` |
+| 3 | Addons | Gendustry → Extra Bees → Extra Trees | Config modules; **EB0 + ET0 extracts done**. Next: **GD0** |
 | 4 | Restore | Greenhouse, climatology, database, guide book (CE-dropped 1.12) | Optional |
 | — | `TR1` | Optional Trinkets spectacles slot | Helmet already works (A5) |
 

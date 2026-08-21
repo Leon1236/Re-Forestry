@@ -25,7 +25,8 @@ import com.leon1236.reforestry.api.genetics.alleles.IValueAllele;
 import com.leon1236.reforestry.arboriculture.blocks.BlockFruitPod;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureTiles;
 import com.leon1236.reforestry.arboriculture.genetics.DefaultFruits;
-import com.leon1236.reforestry.arboriculture.genetics.IFruit;
+import com.leon1236.reforestry.api.arboriculture.genetics.IFruit;
+import com.leon1236.reforestry.api.core.IProduct;
 import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
 import com.leon1236.reforestry.core.genetics.alleles.AlleleManager;
 import com.leon1236.reforestry.core.utils.BlockUtil;
@@ -118,7 +119,7 @@ public class TileFruitPod extends BlockEntity implements IFruitBearer {
         }
         ItemStack pickBlock = ItemStack.EMPTY;
         float maxChance = 0.0f;
-        for (IFruit.Product product : this.fruit.getProducts()) {
+        for (IProduct product : this.fruit.getProducts()) {
             if (maxChance < product.chance()) {
                 maxChance = product.chance();
                 pickBlock = new ItemStack(product.item());

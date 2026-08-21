@@ -1,0 +1,18 @@
+{
+  "type": "reforestry:bee_species",
+  "parent": "apidae",
+  "alleles": {
+    "reforestry:flower_type": {
+      "value": "reforestry:flower_type_mushrooms"
+    },
+    "reforestry:pollination": {
+      "value": 10
+    },
+    "reforestry:temperature_tolerance": {
+      "dominant": true,
+      "value": "BOTH_1"
+    }
+  },
+  "name": "paludapis",
+  "rank": "genus"
+}

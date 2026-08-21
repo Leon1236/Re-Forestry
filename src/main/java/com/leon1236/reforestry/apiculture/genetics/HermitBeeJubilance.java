@@ -6,6 +6,7 @@ import net.minecraft.world.entity.Mob;
 
 import com.leon1236.reforestry.api.apiculture.IBeeHousing;
 import com.leon1236.reforestry.api.apiculture.IBeeJubilance;
+import com.leon1236.reforestry.api.apiculture.genetics.IBeeSpecies;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.apiculture.genetics.effects.ThrottledBeeEffect;
 

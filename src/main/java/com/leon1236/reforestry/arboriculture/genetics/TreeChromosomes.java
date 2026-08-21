@@ -5,6 +5,8 @@ import com.google.common.collect.ImmutableMap;
 import net.minecraft.resources.Identifier;
 
 import com.leon1236.reforestry.ReForestry;
+import com.leon1236.reforestry.api.arboriculture.genetics.IFruit;
+import com.leon1236.reforestry.api.arboriculture.genetics.ITreeEffect;
 import com.leon1236.reforestry.api.genetics.IKaryotype;
 import com.leon1236.reforestry.api.genetics.alleles.IBooleanAllele;
 import com.leon1236.reforestry.api.genetics.alleles.IFloatAllele;

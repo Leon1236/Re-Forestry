@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import com.leon1236.reforestry.api.apiculture.IBeeHousing;
 import com.leon1236.reforestry.api.apiculture.IBeeJubilance;
+import com.leon1236.reforestry.api.apiculture.genetics.IBeeSpecies;
 import com.leon1236.reforestry.api.genetics.IGenome;
 
 public class RequiresResourceBeeJubilance implements IBeeJubilance {

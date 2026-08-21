@@ -1,0 +1,15 @@
+{
+  "type": "reforestry:bee_species",
+  "parent": "apidae",
+  "alleles": {
+    "reforestry:flower_type": {
+      "value": "reforestry:flower_type_ancient"
+    },
+    "reforestry:temperature_tolerance": {
+      "dominant": true,
+      "value": "DOWN_1"
+    }
+  },
+  "name": "reliquia",
+  "rank": "genus"
+}

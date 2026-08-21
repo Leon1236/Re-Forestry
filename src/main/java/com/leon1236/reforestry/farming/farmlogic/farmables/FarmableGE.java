@@ -15,13 +15,14 @@ import net.minecraft.world.level.block.state.BlockState;
 import com.leon1236.reforestry.api.ForestryTags;
 import com.leon1236.reforestry.api.agriculture.ICrop;
 import com.leon1236.reforestry.api.agriculture.IFarmable;
+import com.leon1236.reforestry.api.arboriculture.genetics.IFruit;
+import com.leon1236.reforestry.api.core.IProduct;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureBlocks;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureDataComponents;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureItems;
 import com.leon1236.reforestry.arboriculture.genetics.ArboricultureGenetics;
 import com.leon1236.reforestry.arboriculture.genetics.DefaultFruits;
-import com.leon1236.reforestry.arboriculture.genetics.IFruit;
 import com.leon1236.reforestry.arboriculture.genetics.ITreeSpecies;
 import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
 import com.leon1236.reforestry.arboriculture.tiles.TileSapling;
@@ -39,7 +40,7 @@ public class FarmableGE implements IFarmable {
 				IGenome genome = ArboricultureGenetics.getDefaultGenome(species.id());
 				IFruit fruit = genome.getActiveAllele(TreeChromosomes.FRUIT).value();
 				if (fruit != DefaultFruits.NONE) {
-					for (IFruit.Product product : fruit.getProducts()) {
+					for (IProduct product : fruit.getProducts()) {
 						builder.add(product.item());
 					}
 				}

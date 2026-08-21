@@ -1,0 +1,30 @@
+{
+  "type": "reforestry:bee_species",
+  "parent": "apidae",
+  "alleles": {
+    "reforestry:bee_effect": {
+      "value": "reforestry:bee_effect_ignition"
+    },
+    "reforestry:fertility": {
+      "dominant": true,
+      "value": 2
+    },
+    "reforestry:flower_type": {
+      "value": "reforestry:flower_type_photosynthesis"
+    },
+    "reforestry:humidity_tolerance": {
+      "dominant": true,
+      "value": "BOTH_1"
+    },
+    "reforestry:pollination": {
+      "dominant": true,
+      "value": 5
+    },
+    "reforestry:temperature_tolerance": {
+      "dominant": true,
+      "value": "BOTH_1"
+    }
+  },
+  "name": "phytapis",
+  "rank": "genus"
+}

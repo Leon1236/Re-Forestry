@@ -99,7 +99,7 @@ public class AnalyzerScreenGraphics implements IAnalyzerGraphics {
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public <S> void drawProductList(Function<S, List<IProduct>> getProducts) {
+	public <S> void drawProductList(Function<S, List<? extends IProduct>> getProducts) {
 		S active = (S) activeSpeciesValue();
 		S inactive = (S) inactiveSpeciesValue();
 		if (active == null) {
@@ -108,14 +108,14 @@ public class AnalyzerScreenGraphics implements IAnalyzerGraphics {
 
 		ArrayList<ItemStack> stacks;
 		if (active == inactive || this.haploid) {
-			List<IProduct> products = getProducts.apply(active);
+			List<? extends IProduct> products = getProducts.apply(active);
 			stacks = new ArrayList<>(products.size());
 			for (IProduct product : products) {
 				stacks.add(product.createStack());
 			}
 		} else {
-			List<IProduct> activeProducts = getProducts.apply(active);
-			List<IProduct> inactiveProducts = getProducts.apply(inactive);
+			List<? extends IProduct> activeProducts = getProducts.apply(active);
+			List<? extends IProduct> inactiveProducts = getProducts.apply(inactive);
 			ObjectOpenCustomHashSet<IProduct> seen = new ObjectOpenCustomHashSet<>(activeProducts.size(), IProduct.ITEM_ONLY_STRATEGY);
 			stacks = new ArrayList<>(activeProducts.size() + inactiveProducts.size());
 			for (IProduct product : activeProducts) {

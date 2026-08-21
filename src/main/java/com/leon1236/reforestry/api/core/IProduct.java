@@ -1,32 +1,37 @@
 package com.leon1236.reforestry.api.core;
 
-import it.unimi.dsi.fastutil.Hash;
-import org.jetbrains.annotations.Nullable;
-
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
+import it.unimi.dsi.fastutil.Hash;
+
 public interface IProduct {
-    Hash.Strategy<IProduct> ITEM_ONLY_STRATEGY = new Hash.Strategy<>() {
-        @Override
-        public int hashCode(@Nullable IProduct o) {
-            return o == null ? 0 : o.item().hashCode();
-        }
+	Hash.Strategy<IProduct> ITEM_ONLY_STRATEGY = new Hash.Strategy<>() {
+		@Override
+		public int hashCode(IProduct o) {
+			return o == null ? 0 : System.identityHashCode(o.item());
+		}
 
-        @Override
-        public boolean equals(@Nullable IProduct a, @Nullable IProduct b) {
-            return (a == null || b == null) ? a == b : a.item() == b.item();
-        }
-    };
+		@Override
+		public boolean equals(IProduct a, IProduct b) {
+			return a == b || (a != null && b != null && a.item() == b.item());
+		}
+	};
 
-    Item item();
+	Item item();
 
-    float chance();
+	default int count() {
+		return 1;
+	}
 
-    ItemStack createStack();
+	float chance();
 
-    default ItemStack createRandomStack(RandomSource random) {
-        return createStack();
-    }
+	default ItemStack createStack() {
+		return new ItemStack(item(), count());
+	}
+
+	default ItemStack createRandomStack(RandomSource random) {
+		return createStack();
+	}
 }

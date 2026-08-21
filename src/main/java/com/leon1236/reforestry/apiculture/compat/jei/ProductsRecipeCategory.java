@@ -61,8 +61,8 @@ public class ProductsRecipeCategory extends ForestryRecipeCategory<ProductRecipe
 		}
 	}
 
-	private static void setProductsList(IRecipeLayoutBuilder builder, List<IProduct> products, int slotsY) {
-		List<IProduct> sorted = products.stream()
+	private static void setProductsList(IRecipeLayoutBuilder builder, List<? extends IProduct> products, int slotsY) {
+		List<? extends IProduct> sorted = products.stream()
 				.sorted(Comparator.comparing(IProduct::chance).reversed())
 				.toList();
 		if (sorted.size() <= 3) {
@@ -94,7 +94,7 @@ public class ProductsRecipeCategory extends ForestryRecipeCategory<ProductRecipe
 		BeeJeiHelper.drawCentered(graphics, BeeJeiHelper.speciesName(recipe.speciesId), SPECIES_SLOT_X + 9, SPECIES_SLOT_Y + 22, 0xffffff);
 	}
 
-	private record ProductChanceTooltip(List<IProduct> products) implements IRecipeSlotRichTooltipCallback {
+	private record ProductChanceTooltip(List<? extends IProduct> products) implements IRecipeSlotRichTooltipCallback {
 		@Override
 		public void onRichTooltip(IRecipeSlotView recipeSlotView, ITooltipBuilder tooltip) {
 			recipeSlotView.getDisplayedItemStack().ifPresent(stack -> {

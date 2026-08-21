@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 
+import com.leon1236.reforestry.api.apiculture.IActivityType;
 import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
 import com.leon1236.reforestry.api.genetics.filter.FilterData;
 import com.leon1236.reforestry.api.genetics.filter.IFilterRule;

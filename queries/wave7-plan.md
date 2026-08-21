@@ -59,7 +59,7 @@ Wave 5 leftover (not a Wave 7 skip): taxon JSON allele maps are not applied to g
 
 ## Prerequisite before genetics-dependent addon stages
 
-**W7-INT** — merge local Waves 1b–4 with `origin/main` (Wave 5), then merge `origin/cursor/wave-6-lepidopterology-9408` (Wave 6). Compile. Do not drop farming/energy/filter.
+**W7-INT** — **done** (2026-08-21). Local tree has Wave 5 API + Wave 6 butterflies + Waves 1b–4.
 
 Extracts **EB0 / ET0** do not need that merge.
 
