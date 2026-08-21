@@ -82,7 +82,8 @@ public class ItemExtraBeeHiveFrame extends Item implements IHiveFrame {
 
 		@Override
 		public Vec3i modifyTerritory(IGenome genome, Vec3i currentModifier) {
-			float factor = apply(type.territory, type.territoryMax, 1.0f);
+			float current = Math.max(currentModifier.getX(), Math.max(currentModifier.getY(), currentModifier.getZ()));
+			float factor = apply(type.territory, type.territoryMax, current <= 0f ? 1.0f : current);
 			if (factor == 1.0f) {
 				return currentModifier;
 			}
@@ -94,12 +95,13 @@ public class ItemExtraBeeHiveFrame extends Item implements IHiveFrame {
 
 		@Override
 		public float modifyMutationChance(IGenome genome, IGenome mate, IMutation mutation, float currentChance) {
-			return currentChance * apply(type.mutation, type.mutationMax, 1.0f);
+			return currentChance * apply(type.mutation, type.mutationMax, currentChance);
 		}
 
 		@Override
 		public float modifyAging(IGenome genome, @Nullable IGenome mate, float currentAging) {
-			float lifespanFactor = apply(type.lifespan, type.lifespanMax, 1.0f);
+			float currentLifespan = currentAging == 0f ? Float.MAX_VALUE : 1.0f / currentAging;
+			float lifespanFactor = apply(type.lifespan, type.lifespanMax, currentLifespan);
 			if (lifespanFactor == 0f) {
 				return currentAging * 10000f;
 			}
@@ -108,7 +110,7 @@ public class ItemExtraBeeHiveFrame extends Item implements IHiveFrame {
 
 		@Override
 		public float modifyProductionSpeed(IGenome genome, float currentSpeed) {
-			return currentSpeed * apply(type.production, type.productionMax, 1.0f);
+			return currentSpeed * apply(type.production, type.productionMax, currentSpeed);
 		}
 
 		private void addInformation(Consumer<Component> tooltip) {

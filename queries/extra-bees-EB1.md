@@ -53,6 +53,13 @@
 - Nether hive: `beehive_eb_nether` (avoids CE `beehive_nether`)
 - Comb tinting: data-driven `minecraft:constant` tints in `items/*.json` (same pattern as CE combs)
 
+## Review fixes (EB1 full review)
+
+- Model parents for misc/frames/propolis: `minecraft:item/generated` (same as GD0)
+- Frame modifiers pass running current into Binnie `apply` (stacking parity)
+- `c:dyes` + `c:dyes/{color}` for Extra Bees dyes (Binnie `OreDictionary.registerOre("dyeRed", …)`)
+- `c:dusts/{metal}` for remaining dusts without craft targets yet
+
 ## Player checks
 
 1. Config: `reforestry:extra_bees=true` in `config/reforestry/modules.properties`
