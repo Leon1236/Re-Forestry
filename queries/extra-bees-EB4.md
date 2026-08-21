@@ -38,8 +38,24 @@ Find four Extra Bees wild hives in worldgen: water, rock, `beehive_eb_nether`, m
 
 - Marble never spawns in vanilla-only worlds (by design; soft-tag empty until a marble mod/datapack fills it)
 - Rock uses `STONE_ORE_REPLACEABLES` (modern stand-in for 1.12 `isReplaceableOreGen(STONE)`)
-- Water below materials mapped to tags (Material.SAND/CLAY/GROUND/ROCK → sand/gravel/clay/dirt/stone tags)
+- Water below materials mapped to tags (Material.SAND/CLAY/GROUND/ROCK → sand/gravel/clay/dirt/stone tags + sandstone/end stone/terracotta for ROCK)
 - No config knobs for hive rates (Binnie `ConfigurationMain` defaults baked as extract `gen_chance`)
+
+## Review (full)
+
+- Extract/Binnie parity: genChance 2/6/6/20; loot 0.8 species + 0.03 valiant; ignoble 0.5; empty extras; placement gens match `WorldGenHive*`; biome gate matches `BinnieHiveDescription`
+- Scoop: all four on `reforestry:mineable/scoop`; drops via `BlockBeeHive` + `registerHive` species ids
+- Assets: Binnie hive PNG hashes match `eb_{water,rock,nether,marble}.*`; items/models/blockstates/lang present
+- **Must:** none
+- **Should fixed:** `hive_grounds/water_below` incomplete vs Material.ROCK (added sandstone family, end stone, terracotta)
+- **Nice:** none remaining
+
+## Smoke
+
+1. `/give @s reforestry:beehive_water` (and rock / eb_nether / marble); scoop without silk → species princess/drone at extract rates; silk → block
+2. New overworld chunks: water hive in water above sand/stone; rock hive in stone with side air
+3. Nether: `beehive_eb_nether` in netherrack wall embed
+4. Marble only after a datapack fills `c:stones/marble`
 
 ## Next
 
