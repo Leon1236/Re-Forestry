@@ -8,13 +8,12 @@ import net.minecraft.world.level.material.PushReaction;
 
 import com.leon1236.reforestry.api.arboriculture.IWoodType;
 import com.leon1236.reforestry.api.arboriculture.WoodBlockKind;
-import com.leon1236.reforestry.arboriculture.ForestryWoodType;
 import com.leon1236.reforestry.arboriculture.IWoodTyped;
 
 public class BlockForestryPressurePlate extends PressurePlateBlock implements IWoodTyped {
-    private final ForestryWoodType woodType;
+    private final IWoodType woodType;
 
-    public BlockForestryPressurePlate(ForestryWoodType woodType, BlockBehaviour.Properties properties) {
+    public BlockForestryPressurePlate(IWoodType woodType, BlockBehaviour.Properties properties) {
         super(woodType.getBlockSetType(), properties.mapColor(MapColor.WOOD).forceSolidOn()
                 .instrument(NoteBlockInstrument.BASS).noCollision().strength(0.5f).ignitedByLava().pushReaction(PushReaction.DESTROY));
         this.woodType = woodType;

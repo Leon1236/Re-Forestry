@@ -1,5 +1,8 @@
 {
   "values": [
-    "reforestry:hazel_log"
+    "reforestry:hazel_log",
+    "reforestry:hazel_wood",
+    "reforestry:hazel_stripped_log",
+    "reforestry:hazel_stripped_wood"
   ]
 }

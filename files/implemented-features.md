@@ -3,7 +3,7 @@
 What is **done and working** in the mod today.  
 Update this file when a roadmap step lands. For how-to-build guidance, see `CLAUDE.md`. For the next work items, see **Next up** at the bottom.
 
-Last updated: 2026-08-21 (ET1a: Extra Trees 30 woods + shrub + 4 log-only bark; module/plugin. Next: ET1b)
+Last updated: 2026-08-21 (ET1b: Extra Trees stripped/wood/trapdoor/button/plate/signs/boats. Next: ET2)
 
 ---
 
@@ -234,9 +234,9 @@ Play notes: `queries/storage-B1-b3-backpacks.md`, `queries/storage-B4-naturalist
 
 ## Next up (not implemented yet)
 
-**Next up: Wave 7 `ET1b`.** ET1a Extra Trees woods landed. Locked remaining order: see `queries/wave7-plan.md` (ET1b…). No solar/combustion.
+**Next up: Wave 7 `ET2`.** ET1b Extra Trees modern wood kinds landed. Locked remaining order: see `queries/wave7-plan.md` (ET2…). No solar/combustion.
 
-**Wave 7 addons:** GD0 + EB1 + GD1–GD8 + EB5 + EB6 + EB-FLOWERS+EB3 + EB2a–EB2e + EB4 + ET1a done; next ET1b (stripped/boats/signs/…).
+**Wave 7 addons:** GD0 + EB1 + GD1–GD8 + EB5 + EB6 + EB-FLOWERS+EB3 + EB2a–EB2e + EB4 + ET1a + ET1b done; next ET2 (fruits + species + mutations).
 
 | ID | Status | Notes |
 |---|---|---|
@@ -263,6 +263,7 @@ Play notes: `queries/storage-B1-b3-backpacks.md`, `queries/storage-B4-naturalist
 | `EB0` | Extract done | `tools/extract_extra_bees.py` + `queries/extra-bees-*.json` — 116 species, 168 mutations, 25 effects. |
 | `ET0` | Extract done | `tools/extract_extra_trees.py` + `queries/extra-trees-extract/` — 97 species (skip 9 binomials), 59 fruits, 36 planks (skip 6 → 30 new + shrub log), 97 mutations, 22 moths. |
 | `ET1a` | Done | `ModuleExtraTrees` + `ExtraTreesForestryPlugin`; `ExtraTreeWoodType` (30 products + 4 log-only + shrub); WoodAccess; log→plank→slab/stairs/fence/gate/door (+ fireproof); Binnie textures; skip 6 CE overlaps. See `queries/extra-trees-ET1a.md` |
+| `ET1b` | Done | Full `WoodBlockKind` for 30 product woods: stripped log/wood, wood, trapdoor, button, pressure plate, signs×4, boats/chest boats (+ fireproof where arboriculture does); strip registry; no charcoal walls. See `queries/extra-trees-ET1b.md` |
 | `W7-INT` | Merged | Local 1b–4 + origin/main Wave 5 + Wave 6 lepidopterology. Farming/energy/filter kept. |
 
 ## Wave 5 — Genetics public API
@@ -294,7 +295,7 @@ Older (partially stale): [`queries/item-gap-implementation-plan.md`](../queries/
 |---|---|---|---|
 | 1 | `GP0a1–d` | Species-type / plugin genetics façade | **done** (merged from GitHub) |
 | 2 | `D0→D4` | **Lepidopterology** | **done** (merged from GitHub). Unlocks `butterfly_chest` recipe and sorting `S2` |
-| 3 | Addons | Gendustry → Extra Bees → Extra Trees | Config modules; **GD0…GD8 + EB1 + EB5 + EB6 + EB-FLOWERS+EB3 + EB2a–EB2e + EB4 + ET1a done**. Next: **ET1b** |
+| 3 | Addons | Gendustry → Extra Bees → Extra Trees | Config modules; **GD0…GD8 + EB1 + EB5 + EB6 + EB-FLOWERS+EB3 + EB2a–EB2e + EB4 + ET1a + ET1b done**. Next: **ET2** |
 | 4 | Restore | Greenhouse, climatology, database, guide book (CE-dropped 1.12) | Optional |
 | — | `TR1` | Optional Trinkets spectacles slot | Helmet already works (A5) |
 

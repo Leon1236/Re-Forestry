@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "reforestry:item/et_ash_chest_boat"
+  }
+}

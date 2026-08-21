@@ -16,6 +16,12 @@ public class ExtraTreesCreativeTabs {
 	private static final List<FeatureBlockGroup<?, ExtraTreeWoodType>> WOOD_GROUPS = List.of(
 			ExtraTreesBlocks.LOGS,
 			ExtraTreesBlocks.LOGS_FIREPROOF,
+			ExtraTreesBlocks.STRIPPED_LOGS,
+			ExtraTreesBlocks.STRIPPED_LOGS_FIREPROOF,
+			ExtraTreesBlocks.WOOD,
+			ExtraTreesBlocks.WOOD_FIREPROOF,
+			ExtraTreesBlocks.STRIPPED_WOOD,
+			ExtraTreesBlocks.STRIPPED_WOOD_FIREPROOF,
 			ExtraTreesBlocks.PLANKS,
 			ExtraTreesBlocks.PLANKS_FIREPROOF,
 			ExtraTreesBlocks.SLABS,
@@ -26,7 +32,12 @@ public class ExtraTreesCreativeTabs {
 			ExtraTreesBlocks.FENCE_GATES_FIREPROOF,
 			ExtraTreesBlocks.STAIRS,
 			ExtraTreesBlocks.STAIRS_FIREPROOF,
-			ExtraTreesBlocks.DOORS
+			ExtraTreesBlocks.DOORS,
+			ExtraTreesBlocks.TRAPDOORS,
+			ExtraTreesBlocks.BUTTON,
+			ExtraTreesBlocks.PRESSURE_PLATE,
+			ExtraTreesBlocks.SIGN,
+			ExtraTreesBlocks.HANGING_SIGN
 	);
 
 	public static final FeatureCreativeTab EXTRA_TREES = REGISTRY.creativeTab("extra_trees", tab -> {
@@ -38,6 +49,10 @@ public class ExtraTreesCreativeTabs {
 						output.accept(feature.item());
 					}
 				}
+			}
+			for (ExtraTreeWoodType type : ExtraTreeWoodType.WITH_PRODUCTS) {
+				output.accept(ExtraTreesItems.BOAT.item(type));
+				output.accept(ExtraTreesItems.CHEST_BOAT.item(type));
 			}
 		});
 	});

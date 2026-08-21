@@ -1,5 +1,8 @@
 {
   "values": [
-    "reforestry:syzgium_fireproof_log"
+    "reforestry:syzgium_fireproof_log",
+    "reforestry:syzgium_fireproof_wood",
+    "reforestry:syzgium_fireproof_stripped_log",
+    "reforestry:syzgium_fireproof_stripped_wood"
   ]
 }

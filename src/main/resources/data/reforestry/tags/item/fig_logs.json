@@ -1,5 +1,8 @@
 {
   "values": [
-    "reforestry:fig_log"
+    "reforestry:fig_log",
+    "reforestry:fig_wood",
+    "reforestry:fig_stripped_log",
+    "reforestry:fig_stripped_wood"
   ]
 }

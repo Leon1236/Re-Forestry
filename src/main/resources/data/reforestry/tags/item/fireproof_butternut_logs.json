@@ -1,5 +1,8 @@
 {
   "values": [
-    "reforestry:butternut_fireproof_log"
+    "reforestry:butternut_fireproof_log",
+    "reforestry:butternut_fireproof_wood",
+    "reforestry:butternut_fireproof_stripped_log",
+    "reforestry:butternut_fireproof_stripped_wood"
   ]
 }

@@ -1,5 +1,8 @@
 {
   "values": [
-    "reforestry:hemlock_fireproof_log"
+    "reforestry:hemlock_fireproof_log",
+    "reforestry:hemlock_fireproof_wood",
+    "reforestry:hemlock_fireproof_stripped_log",
+    "reforestry:hemlock_fireproof_stripped_wood"
   ]
 }

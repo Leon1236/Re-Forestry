@@ -1,5 +1,8 @@
 {
   "values": [
-    "reforestry:hawthorn_fireproof_log"
+    "reforestry:hawthorn_fireproof_log",
+    "reforestry:hawthorn_fireproof_wood",
+    "reforestry:hawthorn_fireproof_stripped_log",
+    "reforestry:hawthorn_fireproof_stripped_wood"
   ]
 }

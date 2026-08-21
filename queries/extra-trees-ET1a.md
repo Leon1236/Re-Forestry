@@ -55,4 +55,8 @@ Creative tab **Extra Trees** lists 30 plank woods + shrub log (+ fireproof varia
 
 ## Next
 
-**ET1b** — stripped / boats / signs / trapdoor / button / plate (full modern `WoodBlockKind`; no charcoal walls).
+**ET1b** — stripped / boats / signs / trapdoor / button / plate (full modern `WoodBlockKind`; no charcoal walls) — **done** (`queries/extra-trees-ET1b.md`).
+
+## Next
+
+**ET2** — fruits + ~88 species + mutations.

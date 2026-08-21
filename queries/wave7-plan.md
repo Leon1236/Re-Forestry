@@ -78,7 +78,7 @@ Order: **GD0 → EB1 → GD1 → GD2 (incl. DNA) → GD3 (incl. DNA extractor) �
 | 19 | EB2e | L | Dyes + quantum/FTB/botania (+ INK); 116 species / 168 muts | **done** — After EB2d |
 | 20 | EB4 | M | Four hives + worldgen | **done** — Loot + marble soft-tag |
 | 21 | ET1a | L | 30 woods + shrub log | **done** — ExtraTreeWoodType + WoodAccess |
-| 22 | ET1b | L | Stripped/boats/signs/trapdoor/button/plate | Full WoodBlockKind; no charcoal walls |
+| 22 | ET1b | L | Stripped/boats/signs/trapdoor/button/plate | **done** — Full WoodBlockKind; no charcoal walls |
 | 23 | ET2 | L | Fruits + ~88 species + mutations | registerFruit; overlap woods → ForestryWoodType |
 | 24 | ET3 | L | Growth / worldgen | FeatureTree ports |
 | 25 | ET4 | L | Lumbermill, press, brewery, distillery | Lumbermill playable; misc early items |

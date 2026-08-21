@@ -1,5 +1,8 @@
 {
   "values": [
-    "reforestry:et_ash_log"
+    "reforestry:et_ash_log",
+    "reforestry:et_ash_wood",
+    "reforestry:et_ash_stripped_log",
+    "reforestry:et_ash_stripped_wood"
   ]
 }

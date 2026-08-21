@@ -1,5 +1,8 @@
 {
   "values": [
-    "reforestry:rowan_log"
+    "reforestry:rowan_log",
+    "reforestry:rowan_wood",
+    "reforestry:rowan_stripped_log",
+    "reforestry:rowan_stripped_wood"
   ]
 }

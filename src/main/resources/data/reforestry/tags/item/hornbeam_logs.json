@@ -1,5 +1,8 @@
 {
   "values": [
-    "reforestry:hornbeam_log"
+    "reforestry:hornbeam_log",
+    "reforestry:hornbeam_wood",
+    "reforestry:hornbeam_stripped_log",
+    "reforestry:hornbeam_stripped_wood"
   ]
 }

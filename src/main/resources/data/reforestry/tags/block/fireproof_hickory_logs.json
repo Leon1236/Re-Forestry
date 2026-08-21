@@ -1,5 +1,8 @@
 {
   "values": [
-    "reforestry:hickory_fireproof_log"
+    "reforestry:hickory_fireproof_log",
+    "reforestry:hickory_fireproof_wood",
+    "reforestry:hickory_fireproof_stripped_log",
+    "reforestry:hickory_fireproof_stripped_wood"
   ]
 }

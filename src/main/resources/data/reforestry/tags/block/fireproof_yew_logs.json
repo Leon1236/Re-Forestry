@@ -1,5 +1,8 @@
 {
   "values": [
-    "reforestry:yew_fireproof_log"
+    "reforestry:yew_fireproof_log",
+    "reforestry:yew_fireproof_wood",
+    "reforestry:yew_fireproof_stripped_log",
+    "reforestry:yew_fireproof_stripped_wood"
   ]
 }

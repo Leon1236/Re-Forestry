@@ -1,5 +1,8 @@
 {
   "values": [
-    "reforestry:locust_fireproof_log"
+    "reforestry:locust_fireproof_log",
+    "reforestry:locust_fireproof_wood",
+    "reforestry:locust_fireproof_stripped_log",
+    "reforestry:locust_fireproof_stripped_wood"
   ]
 }

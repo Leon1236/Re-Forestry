@@ -1,5 +1,8 @@
 {
   "values": [
-    "reforestry:eucalyptus_log"
+    "reforestry:eucalyptus_log",
+    "reforestry:eucalyptus_wood",
+    "reforestry:eucalyptus_stripped_log",
+    "reforestry:eucalyptus_stripped_wood"
   ]
 }

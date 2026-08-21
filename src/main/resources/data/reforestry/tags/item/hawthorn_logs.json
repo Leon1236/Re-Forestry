@@ -1,5 +1,8 @@
 {
   "values": [
-    "reforestry:hawthorn_log"
+    "reforestry:hawthorn_log",
+    "reforestry:hawthorn_wood",
+    "reforestry:hawthorn_stripped_log",
+    "reforestry:hawthorn_stripped_wood"
   ]
 }

@@ -1,5 +1,8 @@
 {
   "values": [
-    "reforestry:maclura_fireproof_log"
+    "reforestry:maclura_fireproof_log",
+    "reforestry:maclura_fireproof_wood",
+    "reforestry:maclura_fireproof_stripped_log",
+    "reforestry:maclura_fireproof_stripped_wood"
   ]
 }

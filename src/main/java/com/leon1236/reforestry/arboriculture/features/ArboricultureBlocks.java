@@ -3,6 +3,8 @@ package com.leon1236.reforestry.arboriculture.features;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
+import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
+
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
@@ -273,6 +275,12 @@ public class ArboricultureBlocks {
         for (VanillaWoodType type : VanillaWoodType.VALUES) {
             WoodAccess.INSTANCE.register(type, WoodBlockKind.LOG, true, FIREPROOF_LOG.get(type).block().defaultBlockState());
             WoodAccess.INSTANCE.register(type, WoodBlockKind.LOG, false, vanillaLogBlock(type).defaultBlockState());
+        }
+        for (ForestryWoodType type : ForestryWoodType.VALUES) {
+            StrippableBlockRegistry.register(LOGS.get(type).block(), STRIPPED_LOGS.get(type).block());
+            StrippableBlockRegistry.register(LOGS_FIREPROOF.get(type).block(), STRIPPED_LOGS_FIREPROOF.get(type).block());
+            StrippableBlockRegistry.register(WOOD.get(type).block(), STRIPPED_WOOD.get(type).block());
+            StrippableBlockRegistry.register(WOOD_FIREPROOF.get(type).block(), STRIPPED_WOOD_FIREPROOF.get(type).block());
         }
         for (FeatureBlock<?> feature : LEAVES_DEFAULT.getAll().values()) {
             net.fabricmc.fabric.api.registry.FlammableBlockRegistry.getDefaultInstance().add(feature.block(), 30, 60);

@@ -1,5 +1,8 @@
 {
   "values": [
-    "reforestry:sweetgum_log"
+    "reforestry:sweetgum_log",
+    "reforestry:sweetgum_wood",
+    "reforestry:sweetgum_stripped_log",
+    "reforestry:sweetgum_stripped_wood"
   ]
 }
