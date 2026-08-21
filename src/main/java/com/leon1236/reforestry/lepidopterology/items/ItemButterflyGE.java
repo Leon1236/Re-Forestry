@@ -5,12 +5,16 @@ import java.util.function.Consumer;
 import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 
 import com.leon1236.reforestry.api.genetics.IGenome;
@@ -18,9 +22,11 @@ import com.leon1236.reforestry.api.genetics.IIndividual;
 import com.leon1236.reforestry.api.genetics.IIndividualItem;
 import com.leon1236.reforestry.api.genetics.ILifeStage;
 import com.leon1236.reforestry.api.genetics.ISpeciesType;
+import com.leon1236.reforestry.api.lepidopterology.IButterflyNursery;
 import com.leon1236.reforestry.api.lepidopterology.genetics.ButterflyLifeStage;
 import com.leon1236.reforestry.api.lepidopterology.genetics.IButterfly;
 import com.leon1236.reforestry.api.lepidopterology.genetics.IButterflySpecies;
+import com.leon1236.reforestry.lepidopterology.entities.ButterflyNurseryHelper;
 import com.leon1236.reforestry.lepidopterology.entities.EntityButterfly;
 import com.leon1236.reforestry.lepidopterology.features.LepidopterologyEntities;
 import com.leon1236.reforestry.core.genetics.GeneticsTooltips;
@@ -116,5 +122,45 @@ public class ItemButterflyGE extends Item implements IIndividualItem {
 		if (stack.isEmpty()) {
 			entityItem.remove(Entity.RemovalReason.DISCARDED);
 		}
+	}
+
+	@Override
+	public InteractionResult useOn(UseOnContext context) {
+		Level level = context.getLevel();
+		if (level.isClientSide()) {
+			return InteractionResult.PASS;
+		}
+		Player player = context.getPlayer();
+		if (player == null) {
+			return InteractionResult.PASS;
+		}
+		ItemStack stack = player.getItemInHand(context.getHand());
+		IButterfly flutter = Butterfly.fromStack(stack);
+		if (flutter == null) {
+			return InteractionResult.PASS;
+		}
+		BlockPos pos = context.getClickedPos();
+		if (this.lifeStage == ButterflyLifeStage.COCOON) {
+			BlockPos planted = ButterflySpeciesType.INSTANCE.plantCocoon(level, pos, flutter, 0, true);
+			if (planted != null) {
+				if (!player.isCreative()) {
+					stack.shrink(1);
+				}
+				return InteractionResult.SUCCESS;
+			}
+			return InteractionResult.PASS;
+		}
+		if (this.lifeStage == ButterflyLifeStage.CATERPILLAR) {
+			IButterflyNursery nursery = ButterflyNurseryHelper.getOrCreateNursery(level, pos, true);
+			if (nursery != null && nursery.canNurse(flutter)) {
+				nursery.setCaterpillar(flutter);
+				if (!player.isCreative()) {
+					stack.shrink(1);
+				}
+				return InteractionResult.SUCCESS;
+			}
+			return InteractionResult.PASS;
+		}
+		return InteractionResult.PASS;
 	}
 }

@@ -15,6 +15,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
+import com.leon1236.reforestry.core.genetics.PickupHandlerGenetics;
 import com.leon1236.reforestry.lepidopterology.items.ItemButterflyGE;
 import com.leon1236.reforestry.storage.PickupHandlerStorage;
 
@@ -37,6 +38,7 @@ public abstract class ItemEntityMixin {
 		if (stack.isEmpty()) {
 			return;
 		}
+		PickupHandlerGenetics.onItemPickup(player, entity);
 		Item item = stack.getItem();
 		int count = stack.getCount();
 		if (PickupHandlerStorage.onItemPickup(player, entity)) {

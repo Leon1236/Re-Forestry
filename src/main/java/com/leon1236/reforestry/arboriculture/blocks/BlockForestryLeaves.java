@@ -15,6 +15,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.ParticleUtils;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemInstance;
@@ -25,6 +26,7 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.LeavesBlock;
@@ -35,12 +37,16 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
 
 import com.leon1236.reforestry.api.arboriculture.IToolGrafter;
+import com.leon1236.reforestry.api.core.ReforestryBiomeTags;
 import com.leon1236.reforestry.api.genetics.IGenome;
+import com.leon1236.reforestry.api.lepidopterology.genetics.ButterflyLifeStage;
+import com.leon1236.reforestry.api.lepidopterology.genetics.IButterfly;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureDataComponents;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureItems;
 import com.leon1236.reforestry.arboriculture.genetics.ITreeSpecies;
 import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
 import com.leon1236.reforestry.arboriculture.tiles.TileLeaves;
+import com.leon1236.reforestry.lepidopterology.entities.ButterflySpawner;
 
 public class BlockForestryLeaves extends LeavesBlock implements EntityBlock, BonemealableBlock {
     private static final MapCodec<BlockForestryLeaves> CODEC = simpleCodec(BlockForestryLeaves::new);
@@ -68,9 +74,30 @@ public class BlockForestryLeaves extends LeavesBlock implements EntityBlock, Bon
     @Override
     protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         super.randomTick(state, level, pos, random);
-        if (level.getBlockEntity(pos) instanceof TileLeaves leaves && !leaves.isRemoved() && random.nextFloat() <= 0.1f) {
-            leaves.onBlockTick(level, pos, state, random);
+        if (level.getBlockEntity(pos) instanceof TileLeaves leaves && !leaves.isRemoved()) {
+            if (random.nextFloat() <= 0.1f) {
+                leaves.onBlockTick(level, pos, state, random);
+            }
+            if (leaves.getGenome() != null) {
+                ButterflySpawner.onRandomLeafTick(leaves.getGenome(), level, random, pos);
+            }
         }
+    }
+
+    @Override
+    protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player,
+            InteractionHand hand, BlockHitResult hit) {
+        if (stack.is(ReforestryBiomeTags.Items.SCOOPS)
+                && level.getBlockEntity(pos) instanceof TileLeaves leaves
+                && leaves.getCaterpillar() != null) {
+            IButterfly caterpillar = leaves.getCaterpillar();
+            if (!level.isClientSide()) {
+                Block.popResource(level, pos.below(), caterpillar.createStack(ButterflyLifeStage.CATERPILLAR));
+                leaves.setCaterpillar(null);
+            }
+            return InteractionResult.SUCCESS;
+        }
+        return super.useItemOn(stack, state, level, pos, player, hand, hit);
     }
 
     @Override
@@ -132,6 +159,11 @@ public class BlockForestryLeaves extends LeavesBlock implements EntityBlock, Bon
             ItemStack sapling = new ItemStack(ArboricultureItems.SAPLING.item());
             sapling.set(ArboricultureDataComponents.TREE_GENOME.type(), leaves.resolveSaplingGenome(random));
             drops.add(sapling);
+        }
+
+        IButterfly caterpillar = leaves.getCaterpillar();
+        if (caterpillar != null) {
+            drops.add(caterpillar.createStack(ButterflyLifeStage.CATERPILLAR));
         }
 
         return drops;

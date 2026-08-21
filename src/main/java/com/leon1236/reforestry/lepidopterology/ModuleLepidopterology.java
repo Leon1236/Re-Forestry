@@ -16,10 +16,13 @@ import com.leon1236.reforestry.api.modules.ForestryModule;
 import com.leon1236.reforestry.api.modules.IForestryModule;
 import com.leon1236.reforestry.lepidopterology.client.LepidopterologyClientHandler;
 import com.leon1236.reforestry.lepidopterology.commands.CommandButterfly;
+import com.leon1236.reforestry.lepidopterology.features.LepidopterologyBlocks;
 import com.leon1236.reforestry.lepidopterology.features.LepidopterologyCreativeTabs;
 import com.leon1236.reforestry.lepidopterology.features.LepidopterologyDataComponents;
 import com.leon1236.reforestry.lepidopterology.features.LepidopterologyEntities;
 import com.leon1236.reforestry.lepidopterology.features.LepidopterologyItems;
+import com.leon1236.reforestry.lepidopterology.features.LepidopterologyRecipes;
+import com.leon1236.reforestry.lepidopterology.features.LepidopterologyTiles;
 import com.leon1236.reforestry.lepidopterology.genetics.LepidopterologyGenetics;
 
 @ForestryModule(name = "Lepidopterology", description = "Butterflies. Pretty.")
@@ -42,6 +45,9 @@ public class ModuleLepidopterology implements IForestryModule {
 	public void init() {
 		LepidopterologyItems.init();
 		LepidopterologyDataComponents.init();
+		LepidopterologyBlocks.init();
+		LepidopterologyTiles.init();
+		LepidopterologyRecipes.init();
 		LepidopterologyEntities.init();
 		FabricDefaultAttributeRegistry.register(LepidopterologyEntities.BUTTERFLY.entityType(), Mob.createMobAttributes());
 		LepidopterologyGenetics.finalizeRegistration();

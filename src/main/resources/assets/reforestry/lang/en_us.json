@@ -1885,6 +1885,8 @@
   "item.reforestry.cocoon": "Cocoon",
   "item.reforestry.lepidopterist_bag": "Lepidopterist's Backpack",
   "item.reforestry.moth": "Moth",
+  "block.reforestry.cocoon": "Cocoon",
+  "block.reforestry.cocoon_solid": "Cocoon Solid",
   "block.reforestry.butterfly_chest": "Lepidopterist's Chest",
   "item.PipeitemPropolis": "Apiarist's Pipe",
   "block.reforestry.genetic_filter": "Genetic Filter",

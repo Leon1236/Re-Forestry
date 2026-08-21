@@ -17,6 +17,7 @@ public final class ForestryConfig {
     private static int charcoalAmountBase = 8;
     private static int charcoalWallCheckRange = 16;
     private static boolean enableBackpackResupply = true;
+    private static boolean disableButterflySpawning = false;
 
     private ForestryConfig() {
     }
@@ -37,6 +38,10 @@ public final class ForestryConfig {
         return enableBackpackResupply;
     }
 
+    public static boolean disableButterflySpawning() {
+        return disableButterflySpawning;
+    }
+
     public static void init() {
         Map<String, String> existing = read();
         write(existing);
@@ -54,6 +59,7 @@ public final class ForestryConfig {
             charcoalWallCheckRange = 1;
         }
         enableBackpackResupply = parseBoolean(loaded.get("storage.enable_backpack_resupply"), true);
+        disableButterflySpawning = parseBoolean(loaded.get("lepidopterology.disable_butterfly_spawning"), false);
     }
 
     private static void write(Map<String, String> existing) {
@@ -87,6 +93,12 @@ public final class ForestryConfig {
                 writer.newLine();
                 String resupplyValue = existing.getOrDefault("storage.enable_backpack_resupply", "true");
                 writer.write("storage.enable_backpack_resupply=" + resupplyValue);
+                writer.newLine();
+                writer.newLine();
+                writer.write("# When true, butterflies never spawn from Forestry leaves.");
+                writer.newLine();
+                String butterflySpawn = existing.getOrDefault("lepidopterology.disable_butterfly_spawning", "false");
+                writer.write("lepidopterology.disable_butterfly_spawning=" + butterflySpawn);
                 writer.newLine();
             }
         } catch (IOException e) {

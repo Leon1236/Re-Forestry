@@ -47,6 +47,7 @@ import net.minecraft.world.phys.Vec3;
 import com.leon1236.reforestry.api.IForestryApi;
 import com.leon1236.reforestry.api.core.ReforestryBiomeTags;
 import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
+import com.leon1236.reforestry.api.genetics.IBreedingTracker;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.api.genetics.pollen.IPollen;
 import com.leon1236.reforestry.api.genetics.pollen.IPollenType;
@@ -426,10 +427,14 @@ public class EntityButterfly extends PathfinderMob implements IEntityButterfly {
 		if (stack.is(ReforestryBiomeTags.Items.SCOOPS)) {
 			Level level = level();
 			if (level instanceof ServerLevel) {
-				ILepidopteristTracker tracker = (ILepidopteristTracker) ButterflySpeciesType.INSTANCE
+				IBreedingTracker tracker = ButterflySpeciesType.INSTANCE
 						.getBreedingTracker(level, player.getGameProfile());
 				ItemStack itemStack = this.contained.createStack(ButterflyLifeStage.BUTTERFLY);
-				tracker.registerCatch(this.contained);
+				if (tracker instanceof ILepidopteristTracker lepidopteristTracker) {
+					lepidopteristTracker.registerCatch(this.contained);
+				} else {
+					tracker.registerSpecies(this.contained.getSpecies().id());
+				}
 				spawnAtLocation((ServerLevel) level, itemStack);
 				remove(RemovalReason.KILLED);
 			}
