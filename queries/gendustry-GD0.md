@@ -6,12 +6,14 @@
 ## Shipped
 
 - Module `reforestry:gendustry` (`ModuleGendustry`), config toggle via `modules.properties`
+- Depends on `reforestry:arboriculture` (pollen kit → `pollen_fertile`)
 - Plugin stub `GendustryForestryPlugin` on `reforestry:plugin`
 - Creative tab `gendustry` (icon: pollen kit until machines exist)
 - 10 resource parts + 17 upgrades + 6 elite upgrades + `pollen_kit`
 - Tag `reforestry:upgrades` (all 23)
 - Models/textures/lang; crafting recipes for all craftable GD0 items
 - Pollen kit uses `IPollenManager.getPollen` / `IPollen.createStack`
+- `IPollenType.createStack(IGenome)` + `TreePollenType` → `TreeLifeStage.POLLEN` (fixes Wave 5 stub that returned `ItemStack.EMPTY`)
 
 ## Skips (documented)
 

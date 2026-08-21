@@ -10,6 +10,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
+import com.leon1236.reforestry.api.arboriculture.genetics.TreeLifeStage;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.api.genetics.pollen.ForestryPollenTypes;
 import com.leon1236.reforestry.api.genetics.pollen.IPollenType;
@@ -55,6 +56,11 @@ public final class TreePollenType implements IPollenType {
         }
         IGenome vanilla = ArboricultureGenetics.getVanillaIndividual(level.getBlockState(pos));
         return vanilla == null ? Optional.empty() : Optional.of(vanilla);
+    }
+
+    @Override
+    public ItemStack createStack(IGenome genome) {
+        return new Tree(genome).createStack(TreeLifeStage.POLLEN);
     }
 
     @Override

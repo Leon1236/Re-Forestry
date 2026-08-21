@@ -92,7 +92,7 @@ public final class PollenManager implements IPollenManager {
 
 		@Override
 		public ItemStack createStack() {
-			return ItemStack.EMPTY;
+			return type.createStack(pollen);
 		}
 	}
 }

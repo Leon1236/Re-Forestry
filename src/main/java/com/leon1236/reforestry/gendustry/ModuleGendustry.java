@@ -19,7 +19,7 @@ public class ModuleGendustry implements IForestryModule {
 
 	@Override
 	public List<Identifier> getModuleDependencies() {
-		return List.of(ReForestry.id("core"));
+		return List.of(ReForestry.id("core"), ReForestry.id("arboriculture"));
 	}
 
 	@Override

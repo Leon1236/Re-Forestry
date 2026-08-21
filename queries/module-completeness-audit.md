@@ -32,7 +32,7 @@
 | **sorting** | `sorting` | **Not started** | 0% |
 | **worktable** | `worktable` | **Not started** | 0% |
 | **curios** | `curios` | **Not started** (optional; spectacles already helmet) | 0% |
-| **gendustry / extra_bees / extra_trees** | (addons) | **Not started** — [`files/addon-integration-mapping.md`](../files/addon-integration-mapping.md) | 0% |
+| **gendustry / extra_bees / extra_trees** | (addons) | **GD0 done** (parts/upgrades/pollen kit); EB/ET not started — [`queries/wave7-plan.md`](wave7-plan.md) | GD0 |
 
 ---
 

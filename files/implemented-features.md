@@ -240,7 +240,7 @@ Play notes: `queries/storage-B1-b3-backpacks.md`, `queries/storage-B4-naturalist
 
 | ID | Status | Notes |
 |---|---|---|
-| `GD0` | Done | `ModuleGendustry` + plugin; 10 resource parts + 17 upgrades + 6 elite + `pollen_kit`; tag `reforestry:upgrades`; crafts (2 elite crafts wait on GD1 fluids). Upgrades inert until GD7b. See `queries/gendustry-GD0.md` |
+| `GD0` | Done | `ModuleGendustry` + plugin; depends arboriculture; 10 resource parts + 17 upgrades + 6 elite + `pollen_kit`; tag `reforestry:upgrades`; crafts (2 elite crafts wait on GD1 fluids); `IPollen.createStack` via `TreePollenType`. Upgrades inert until GD7b. See `queries/gendustry-GD0.md` |
 | `EB0` | Extract done | `tools/extract_extra_bees.py` + `queries/extra-bees-*.json` — 116 species, 168 mutations, 25 effects. No Java module. |
 | `ET0` | Extract done | `tools/extract_extra_trees.py` + `queries/extra-trees-extract/` — 97 species (skip 9 binomials), 59 fruits, 36 planks (skip 6 → 30 new + shrub log), 97 mutations, 22 moths. No Java woods/module. |
 | `W7-INT` | Merged | Local 1b–4 + origin/main Wave 5 + Wave 6 lepidopterology. Farming/energy/filter kept. |
