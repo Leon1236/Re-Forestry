@@ -35,6 +35,12 @@ Creative tab **Extra Trees** lists 30 plank woods + shrub log (+ fireproof varia
 
 `BlockForestryDoor` now takes `IWoodType` so Extra Trees can reuse it.
 
+## Review fixes (2026-08-21)
+
+- Wired `WoodAccess.registerLogTag` for all Extra Trees log types.
+- Added `minecraft` item `logs` / `logs_that_burn` and block+item `planks` / `wooden_*` / `fence_gates` / `wooden_doors` tags for ET woods (Binnie ore-dict parity / DoD D9).
+- Corrected `et_cherry` / `cinnamon` plank colours to Binnie `ForestryPlanks.CHERRY` / `VanillaPlanks.JUNGLE`.
+
 ## Remaps / gaps
 
 | Item | Choice |

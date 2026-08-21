@@ -54,8 +54,8 @@ public enum ExtraTreeWoodType implements IWoodType {
 
 	EUCALYPTUS2(0xf6ab8b, false, 2.0f, "eucalyptus2"),
 	EUCALYPTUS3(0xf6ab8b, false, 2.0f, "eucalyptus3"),
-	ET_CHERRY(0xe0a57a, false, 2.0f, "et_cherry"),
-	CINNAMON(0xc39160, false, 2.0f, "cinnamon"),
+	ET_CHERRY(0xb58234, false, 2.0f, "et_cherry"),
+	CINNAMON(0xb1825c, false, 2.0f, "cinnamon"),
 	SHRUB(0xc9c2b9, false, 5.0f, "shrub");
 
 	public static final ExtraTreeWoodType[] VALUES = values();

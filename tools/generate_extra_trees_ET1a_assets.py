@@ -459,17 +459,43 @@ def write_tags(all_logs: list[str], products: list[str]) -> None:
     # arboriculture puts fireproof tags in logs.json and burning woods in logs_that_burn.
     append_tag(DATA / "minecraft/tags/block/overworld_natural_logs.json", natural)
 
-    # item mirrors if present
-    for rel in (
-        "minecraft/tags/item/logs_that_burn.json",
-        "minecraft/tags/item/logs.json",
-    ):
+    def ensure_append(rel: str, entries: list[str]) -> None:
         path = DATA / rel
         if path.is_file():
-            if "logs_that_burn" in rel:
-                append_tag(path, burn)
-            else:
-                append_tag(path, fireproof)
+            append_tag(path, entries)
+        else:
+            write_json(path, {"values": entries})
+
+    ensure_append("minecraft/tags/item/logs_that_burn.json", burn)
+    ensure_append("minecraft/tags/item/logs.json", fireproof)
+
+    planks = []
+    slabs = []
+    stairs = []
+    fences = []
+    fence_gates = []
+    doors = []
+    for wood in products:
+        planks.append(f"reforestry:{wood}_planks")
+        planks.append(f"reforestry:{wood}_fireproof_planks")
+        slabs.append(f"reforestry:{wood}_slab")
+        slabs.append(f"reforestry:{wood}_fireproof_slab")
+        stairs.append(f"reforestry:{wood}_stairs")
+        stairs.append(f"reforestry:{wood}_fireproof_stairs")
+        fences.append(f"reforestry:{wood}_fence")
+        fences.append(f"reforestry:{wood}_fireproof_fence")
+        fence_gates.append(f"reforestry:{wood}_fence_gate")
+        fence_gates.append(f"reforestry:{wood}_fireproof_fence_gate")
+        doors.append(f"reforestry:{wood}_door")
+
+    for kind in ("block", "item"):
+        ensure_append(f"minecraft/tags/{kind}/planks.json", planks)
+        ensure_append(f"minecraft/tags/{kind}/wooden_slabs.json", slabs)
+        ensure_append(f"minecraft/tags/{kind}/wooden_stairs.json", stairs)
+        ensure_append(f"minecraft/tags/{kind}/wooden_fences.json", fences)
+        ensure_append(f"minecraft/tags/{kind}/fence_gates.json", fence_gates)
+        ensure_append(f"minecraft/tags/{kind}/wooden_doors.json", doors)
+    ensure_append("minecraft/tags/item/wooden_fence_gates.json", fence_gates)
 
 
 def write_recipes(products: list[str], log_only: list[str]) -> None:

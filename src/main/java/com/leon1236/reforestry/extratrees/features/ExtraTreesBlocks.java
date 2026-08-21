@@ -4,6 +4,9 @@ import java.util.function.BiFunction;
 
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
@@ -105,5 +108,18 @@ public class ExtraTreesBlocks {
 	}
 
 	public static void init() {
+		for (ExtraTreeWoodType type : ExtraTreeWoodType.ALL_LOG_TYPES) {
+			String name = type.getSerializedName();
+			WoodAccess.INSTANCE.registerLogTag(
+					type,
+					false,
+					TagKey.create(Registries.BLOCK, ReForestry.id(name + "_logs")),
+					TagKey.create(Registries.ITEM, ReForestry.id(name + "_logs")));
+			WoodAccess.INSTANCE.registerLogTag(
+					type,
+					true,
+					TagKey.create(Registries.BLOCK, ReForestry.id("fireproof_" + name + "_logs")),
+					TagKey.create(Registries.ITEM, ReForestry.id("fireproof_" + name + "_logs")));
+		}
 	}
 }
