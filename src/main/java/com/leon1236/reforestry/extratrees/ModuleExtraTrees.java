@@ -26,7 +26,7 @@ public class ModuleExtraTrees implements IForestryModule {
 
 	@Override
 	public List<Identifier> getModuleDependencies() {
-		return List.of(ReForestry.id("core"), ReForestry.id("arboriculture"));
+		return List.of(ReForestry.id("core"), ReForestry.id("arboriculture"), ReForestry.id("lepidopterology"));
 	}
 
 	@Override

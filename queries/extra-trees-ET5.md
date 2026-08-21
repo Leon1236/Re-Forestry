@@ -57,4 +57,4 @@
 
 ## Next
 
-**ET6** — 22 moths on butterfly type (`moth_*`). Do not start until ET5 is accepted.
+**S2** — genetic filter butterfly/moth rules (after ET6).

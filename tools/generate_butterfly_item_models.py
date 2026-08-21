@@ -4,21 +4,29 @@ import json
 import re
 
 SPECIES_SRC = Path("src/main/java/com/leon1236/reforestry/api/lepidopterology/ForestryButterflySpecies.java")
+MOTH_IDS_SRC = Path("src/main/java/com/leon1236/reforestry/extratrees/genetics/ExtraTreesMothIds.java")
 ITEMS_DIR = Path("src/main/resources/assets/reforestry/items")
 MODELS_DIR = Path("src/main/resources/assets/reforestry/models/item/butterfly")
 
 
-def species_ids():
-    text = SPECIES_SRC.read_text()
+def list_all_ids(src: Path) -> list[str]:
+    text = src.read_text()
     match = re.search(r"public static final List<Identifier> ALL = List.of\((.*?)\);", text, re.S)
     if not match:
-        raise SystemExit("Could not find ForestryButterflySpecies.ALL")
+        raise SystemExit(f"Could not find ALL in {src}")
     names = re.findall(r"\b([A-Z0-9_]+)\b", match.group(1))
     constants = dict(re.findall(r"public static final Identifier (\w+) = ReForestry\.id\(\"([^\"]+)\"\)", text))
     missing = [name for name in names if name not in constants]
     if missing:
-        raise SystemExit(f"Unknown ALL entries: {missing}")
+        raise SystemExit(f"Unknown ALL entries in {src.name}: {missing}")
     return [constants[name] for name in names]
+
+
+def species_ids():
+    ids = list_all_ids(SPECIES_SRC)
+    if MOTH_IDS_SRC.is_file():
+        ids.extend(list_all_ids(MOTH_IDS_SRC))
+    return ids
 
 
 def main():

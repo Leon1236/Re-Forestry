@@ -464,8 +464,8 @@ Skip Binnie Genetics serums/isolator (Gendustry is the modern line).
 | `ET2`  | L    | Fruit alleles + ~88 species + mutations — **done** | GP0c, ET1a |
 | `ET3`  | L    | Growth features / worldgen — **done** | ET2 |
 | `ET4`  | L    | **done** — Lumbermill / press / brewery / distillery (not designer) | factory patterns |
-| `ET5`  | L    | Foods / juices / alcohol / hops | ET4 done |
-| `ET6`  | M    | 22 moths (`moth_*`) | Wave 6 |
+| `ET5`  | L    | Foods / juices / alcohol / hops — **done** | ET4 |
+| `ET6`  | M    | 22 moths (`moth_*`) — **done** | Wave 6 |
 | `S2`   | S    | Genetic filter butterfly/moth rules | S1, ET6 |
 | `ET-D` | L    | Designer / stained glass / patterns | **deferred** |
 | `ET-K` | S    | Bottle rack | **deferred** (never shipped in Binnie) |

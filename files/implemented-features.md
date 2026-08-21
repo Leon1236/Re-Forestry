@@ -3,7 +3,7 @@
 What is **done and working** in the mod today.  
 Update this file when a roadmap step lands. For how-to-build guidance, see `CLAUDE.md`. For the next work items, see **Next up** at the bottom.
 
-Last updated: 2026-08-21 (ET5: Extra Trees foods / juices / alcohol / hops. Next: ET6)
+Last updated: 2026-08-21 (ET6: Extra Trees 22 moths on butterfly type. Next: S2)
 
 ---
 
@@ -234,9 +234,9 @@ Play notes: `queries/storage-B1-b3-backpacks.md`, `queries/storage-B4-naturalist
 
 ## Next up (not implemented yet)
 
-**Next up: Wave 7 `ET6`.** ET5 Extra Trees foods/juices/alcohol/hops landed. Locked remaining order: see `queries/wave7-plan.md` (ET6…). No solar/combustion.
+**Next up: Wave 7 `S2`.** ET6 Extra Trees 22 moths (`moth_*`) landed. Locked remaining order: see `queries/wave7-plan.md` (S2…). No solar/combustion.
 
-**Wave 7 addons:** GD0 + EB1 + GD1–GD8 + EB5 + EB6 + EB-FLOWERS+EB3 + EB2a–EB2e + EB4 + ET1a + ET1b + ET2 + ET3 + ET4 + ET5 done; next ET6 (22 moths).
+**Wave 7 addons:** GD0 + EB1 + GD1–GD8 + EB5 + EB6 + EB-FLOWERS+EB3 + EB2a–EB2e + EB4 + ET1a + ET1b + ET2 + ET3 + ET4 + ET5 + ET6 done; next S2 (genetic filter butterfly/moth rules).
 
 | ID | Status | Notes |
 |---|---|---|
@@ -299,7 +299,7 @@ Older (partially stale): [`queries/item-gap-implementation-plan.md`](../queries/
 |---|---|---|---|
 | 1 | `GP0a1–d` | Species-type / plugin genetics façade | **done** (merged from GitHub) |
 | 2 | `D0→D4` | **Lepidopterology** | **done** (merged from GitHub). Unlocks `butterfly_chest` recipe and sorting `S2` |
-| 3 | Addons | Gendustry → Extra Bees → Extra Trees | Config modules; **GD0…GD8 + EB1 + EB5 + EB6 + EB-FLOWERS+EB3 + EB2a–EB2e + EB4 + ET1a + ET1b + ET2 + ET3 + ET4 + ET5 done**. Next: **ET6** |
+| 3 | Addons | Gendustry → Extra Bees → Extra Trees | Config modules; **GD0…GD8 + EB1 + EB5 + EB6 + EB-FLOWERS+EB3 + EB2a–EB2e + EB4 + ET1a + ET1b + ET2 + ET3 + ET4 + ET5 + ET6 done**. Next: **S2** |
 | 4 | Restore | Greenhouse, climatology, database, guide book (CE-dropped 1.12) | Optional |
 | — | `TR1` | Optional Trinkets spectacles slot | Helmet already works (A5) |
 
