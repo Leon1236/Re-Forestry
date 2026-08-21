@@ -7,10 +7,14 @@ import net.minecraft.world.item.ItemStack;
 
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.api.IForestryApi;
+import com.leon1236.reforestry.api.genetics.IAlleleManager;
+import com.leon1236.reforestry.api.genetics.IKaryotype;
 import com.leon1236.reforestry.api.genetics.ISpecies;
 import com.leon1236.reforestry.api.genetics.ISpeciesType;
 import com.leon1236.reforestry.api.genetics.alleles.IAllele;
+import com.leon1236.reforestry.api.genetics.alleles.IRegistryAlleleValue;
 import com.leon1236.reforestry.api.genetics.chromosomes.IChromosome;
+import com.leon1236.reforestry.api.genetics.chromosomes.IRegistryChromosome;
 import com.leon1236.reforestry.gendustry.block.GendustryMachineType;
 import com.leon1236.reforestry.gendustry.fluids.GFluids;
 import com.leon1236.reforestry.gendustry.item.GeneSampleItem;
@@ -48,10 +52,23 @@ public class GCreativeTabs {
 	public static final FeatureCreativeTab GENE_SAMPLES = REGISTRY.creativeTab("gene_samples", tab -> {
 		tab.icon(() -> new ItemStack(GItems.GENE_SAMPLE.item()));
 		tab.displayItems((parameters, output) -> {
+			IAlleleManager alleleManager = IForestryApi.get().getAlleleManager();
 			for (ISpeciesType<?, ?> speciesType : IForestryApi.get().getGeneticManager().getSpeciesTypes()) {
+				IKaryotype karyotype = speciesType.getKaryotype();
 				Map<IChromosome<?>, IdentityHashMap<IAllele, Boolean>> allelesByChromosome = new IdentityHashMap<>();
-				for (IChromosome<?> chromosome : speciesType.getKaryotype().chromosomes()) {
-					allelesByChromosome.put(chromosome, new IdentityHashMap<>());
+				for (IChromosome<?> chromosome : karyotype.chromosomes()) {
+					IdentityHashMap<IAllele, Boolean> alleles = new IdentityHashMap<>();
+					allelesByChromosome.put(chromosome, alleles);
+					if (chromosome instanceof IRegistryChromosome<?> registryChromosome) {
+						for (IRegistryAlleleValue value : registryChromosome.values()) {
+							IAllele allele = alleleManager.getAllele(value.id());
+							if (allele != null) {
+								alleles.put(allele, Boolean.TRUE);
+							}
+						}
+					} else if (!chromosome.equals(karyotype.speciesChromosome())) {
+						alleles.put(karyotype.getDefault(chromosome), Boolean.TRUE);
+					}
 				}
 				for (ISpecies<?> species : speciesType.getAllSpecies()) {
 					for (var entry : species.getDefaultGenome().chromosomes().entrySet()) {

@@ -17,10 +17,16 @@
 ## Choices
 
 - Donor still used NBT on items; we store the same fields as MC 26.2 `DataComponentType`s (matches local butterfly/tree genome components)
-- No `IKaryotype.getAlleles` in our API — creative tab collects alleles from registered species default genomes
+- No `IKaryotype.getAlleles` in our API — creative tab uses registry-chromosome values + karyotype defaults + species default genomes
 - Color coding constants mirrored from `ScreenPortableAnalyzer` (item class must stay common, not client)
 - Energy argument order swapped vs donor Forge ctor (local capacity first)
 - No donor `fabric.mod.json` depends
+
+## Review (full GD4)
+
+- Sampler `workCycle` validates individual before consuming (GD3-style; avoids wiping blank/labware on bad input)
+- `GeneticTemplateInfo` allele encode map uses `LinkedHashMap` (not `IdentityHashMap` of `Identifier`)
+- `gene_samples` tab also dumps `IRegistryChromosome` alleles via `AlleleManager.getAllele`
 
 ## Gaps / next
 

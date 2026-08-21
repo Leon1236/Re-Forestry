@@ -133,21 +133,28 @@ public class SamplerBlockEntity extends TilePowered implements WorldlyContainer 
 		if (!getItem(SLOT_OUTPUT).isEmpty()) {
 			return false;
 		}
+		ItemStack organismStack = getItem(SLOT_INPUT);
+		var individual = IIndividualHandlerItem.getIndividual(organismStack);
+		if (individual == null) {
+			return false;
+		}
 
-		ItemStack organism = removeItem(SLOT_INPUT, 1);
+		List<Map.Entry<IChromosome<?>, AllelePair<?>>> entries =
+				new ArrayList<>(individual.getGenome().chromosomes().entrySet());
+		if (entries.isEmpty()) {
+			return false;
+		}
+
+		removeItem(SLOT_INPUT, 1);
 		removeItem(SLOT_LABWARE, 1);
 		removeItem(SLOT_BLANK_SAMPLE, 1);
 
-		return IIndividualHandlerItem.filter(organism, individual -> {
-			RandomSource random = this.level.getRandom();
-			List<Map.Entry<IChromosome<?>, AllelePair<?>>> entries =
-					new ArrayList<>(individual.getGenome().chromosomes().entrySet());
-			Map.Entry<IChromosome<?>, AllelePair<?>> randomEntry = entries.get(random.nextInt(entries.size()));
-			AllelePair<?> randomPair = randomEntry.getValue();
-			IAllele chosenAllele = random.nextBoolean() ? randomPair.active() : randomPair.inactive();
-			setItem(SLOT_OUTPUT, GeneSampleItem.createStack(individual.getType(), randomEntry.getKey(), chosenAllele));
-			return true;
-		});
+		RandomSource random = this.level.getRandom();
+		Map.Entry<IChromosome<?>, AllelePair<?>> randomEntry = entries.get(random.nextInt(entries.size()));
+		AllelePair<?> randomPair = randomEntry.getValue();
+		IAllele chosenAllele = random.nextBoolean() ? randomPair.active() : randomPair.inactive();
+		setItem(SLOT_OUTPUT, GeneSampleItem.createStack(individual.getType(), randomEntry.getKey(), chosenAllele));
+		return true;
 	}
 
 	@Override

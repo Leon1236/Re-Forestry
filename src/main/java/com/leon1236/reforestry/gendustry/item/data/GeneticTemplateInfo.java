@@ -1,6 +1,7 @@
 package com.leon1236.reforestry.gendustry.item.data;
 
 import java.util.IdentityHashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import com.mojang.serialization.Codec;
@@ -41,7 +42,7 @@ public record GeneticTemplateInfo(ISpeciesType<?, ?> type, Map<IChromosome<?>, I
 	}
 
 	private static Map<Identifier, IAllele> encodeAlleles(GeneticTemplateInfo info) {
-		IdentityHashMap<Identifier, IAllele> encoded = new IdentityHashMap<>(info.alleles.size());
+		LinkedHashMap<Identifier, IAllele> encoded = new LinkedHashMap<>(info.alleles.size());
 		info.alleles.forEach((chromosome, allele) -> encoded.put(chromosome.id(), allele));
 		return encoded;
 	}
