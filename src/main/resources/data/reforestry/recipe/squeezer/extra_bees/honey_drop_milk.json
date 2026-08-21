@@ -7,7 +7,7 @@
     }
   ],
   "output": {
-    "fluid": "minecraft:milk",
+    "fluid": "reforestry:milk",
     "amount": 200
   },
   "remnant": {

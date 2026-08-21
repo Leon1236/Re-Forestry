@@ -29,7 +29,7 @@ PROPOLIS_FLUID_AMOUNT = 500
 
 LIQUID_TO_FLUID = {
 	"juice": "reforestry:juice",
-	"milk": "minecraft:milk",
+	"milk": "reforestry:milk",
 	"seedoil": "reforestry:seed_oil",
 	"short.mead": "reforestry:short_mead",
 	"for.honey": "reforestry:honey",
