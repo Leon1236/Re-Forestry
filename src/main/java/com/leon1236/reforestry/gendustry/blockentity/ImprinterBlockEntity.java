@@ -166,9 +166,8 @@ public class ImprinterBlockEntity extends TilePowered implements WorldlyContaine
 
 		IGenome newGenome = individual.getGenome().copyWith(alleles);
 		IIndividual newIndividual = individual.copyWithGenome(newGenome);
-		IGenome mate = individual.getMate();
-		if (mate != null) {
-			newIndividual.setMate(mate);
+		if (individual.getMate() != null) {
+			newIndividual.setMate(newGenome);
 		}
 		setItem(SLOT_OUTPUT, newIndividual.createStack(stage));
 		return true;
