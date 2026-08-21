@@ -440,11 +440,12 @@ def parse_allele(expr: str) -> dict:
     effect = re.search(r"ExtraBeesEffect\.(\w+)\.getUID\(\)", text)
     if effect:
         name = effect.group(1)
+        path = EFFECT_COLLISIONS.get(name.lower(), f"bee_effect_{name.lower()}")
         out.update({
             "kind": "extra_bees_effect",
             "enum": name,
             "binnie_uid": f"{BINNIE_MOD}.effect.{name.lower()}",
-            "reforestry_id": rid(f"bee_effect_{name.lower()}"),
+            "reforestry_id": rid(path),
         })
         return out
     forestry_effect = re.search(r'AlleleHelper\.getAllele\(\s*"([^"]+)"\s*\)', text)

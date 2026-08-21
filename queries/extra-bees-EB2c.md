@@ -50,4 +50,13 @@ PRECIOUS is included so RADIOACTIVE (NUCLEAR × GOLD / SILVER) parents exist in 
 
 `./gradlew compileJava` — clean after EB2c apply.
 
-**Next stage:** `EB2d`
+## Review (2026-08-21)
+
+- Extract parity: **27** species / **45** EB mutations field-checked vs JSON + Binnie `ExtraBeeDefinition` / branch genomes (colors, binomials, dominant, products, specialties, chances, genomes, parents)
+- PRECIOUS included so RADIOACTIVE parents (GOLD / SILVER) exist; NUCLEAR line uses `ExtraBeesBeeEffects.RADIOACTIVE` (`bee_effect_eb_radioactive`)
+- Generator dry-run identical to committed `ExtraBeesBeeSpecies.java`; cumulative 83 species / 101 EB muts + 34 FR; `compileJava` clean
+- Should fixed: extract `parse_allele` now applies `EFFECT_COLLISIONS`; species JSON RADIOACTIVE genome ids → `bee_effect_eb_radioactive`
+- **Must:** none
+- **Should:** none remaining
+
+**Next stage:** `EB2d` (do not start in this review)

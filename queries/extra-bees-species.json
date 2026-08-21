@@ -583,7 +583,7 @@
           "kind": "extra_bees_effect",
           "enum": "RADIOACTIVE",
           "binnie_uid": "extrabees.effect.radioactive",
-          "reforestry_id": "reforestry:bee_effect_radioactive",
+          "reforestry_id": "reforestry:bee_effect_eb_radioactive",
           "chromosome": "EFFECT"
         }
       ],
@@ -2815,7 +2815,7 @@
           "kind": "extra_bees_effect",
           "enum": "RADIOACTIVE",
           "binnie_uid": "extrabees.effect.radioactive",
-          "reforestry_id": "reforestry:bee_effect_radioactive",
+          "reforestry_id": "reforestry:bee_effect_eb_radioactive",
           "chromosome": "EFFECT"
         }
       ],
@@ -2879,7 +2879,7 @@
           "kind": "extra_bees_effect",
           "enum": "RADIOACTIVE",
           "binnie_uid": "extrabees.effect.radioactive",
-          "reforestry_id": "reforestry:bee_effect_radioactive",
+          "reforestry_id": "reforestry:bee_effect_eb_radioactive",
           "chromosome": "EFFECT"
         }
       ],
@@ -2943,7 +2943,7 @@
           "kind": "extra_bees_effect",
           "enum": "RADIOACTIVE",
           "binnie_uid": "extrabees.effect.radioactive",
-          "reforestry_id": "reforestry:bee_effect_radioactive",
+          "reforestry_id": "reforestry:bee_effect_eb_radioactive",
           "chromosome": "EFFECT"
         }
       ],
