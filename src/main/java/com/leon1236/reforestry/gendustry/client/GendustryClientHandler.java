@@ -12,6 +12,7 @@ public class GendustryClientHandler implements IClientModuleHandler {
 	@Override
 	public void registerClient() {
 		GendustryFluidClientHandler.registerClient();
+		MenuScreens.register(GMenus.INDUSTRIAL_APIARY.type(), ScreenIndustrialApiary::new);
 		MenuScreens.register(GMenus.PROCESSOR.type(), ScreenProducer::new);
 		MenuScreens.register(GMenus.SAMPLER.type(), ScreenThreeInput::new);
 		MenuScreens.register(GMenus.IMPRINTER.type(), ScreenThreeInput::new);

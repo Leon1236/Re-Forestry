@@ -94,6 +94,7 @@
     "reforestry:advanced_mutatron",
     "reforestry:imprinter",
     "reforestry:genetic_transposer",
-    "reforestry:replicator"
+    "reforestry:replicator",
+    "reforestry:industrial_apiary"
   ]
 }

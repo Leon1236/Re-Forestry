@@ -6,6 +6,7 @@ import com.leon1236.reforestry.gendustry.blockentity.AdvancedMutatronBlockEntity
 import com.leon1236.reforestry.gendustry.blockentity.DnaExtractorBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.GeneticTransposerBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.ImprinterBlockEntity;
+import com.leon1236.reforestry.gendustry.blockentity.IndustrialApiaryBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.MutagenProducerBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.MutatronBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.ProteinLiquefierBlockEntity;
@@ -20,6 +21,9 @@ import com.leon1236.reforestry.modules.features.ModFeatureRegistry;
 
 public class GBlockEntities {
 	private static final IFeatureRegistry REGISTRY = ModFeatureRegistry.get(ReForestry.id("gendustry"));
+
+	public static final FeatureBlockEntityType<IndustrialApiaryBlockEntity> INDUSTRIAL_APIARY =
+			REGISTRY.blockEntityType("industrial_apiary", IndustrialApiaryBlockEntity::new);
 
 	public static final FeatureBlockEntityType<MutagenProducerBlockEntity> MUTAGEN_PRODUCER =
 			REGISTRY.blockEntityType("mutagen_producer", MutagenProducerBlockEntity::new);
@@ -49,6 +53,9 @@ public class GBlockEntities {
 			REGISTRY.blockEntityType("replicator", ReplicatorBlockEntity::new);
 
 	public static void init() {
+		EnergyHelper.registerSided(INDUSTRIAL_APIARY.type());
+		InventoryHelper.registerSided(INDUSTRIAL_APIARY.type());
+
 		EnergyHelper.registerSided(MUTAGEN_PRODUCER.type());
 		InventoryHelper.registerSided(MUTAGEN_PRODUCER.type());
 		FluidHelper.registerSided(MUTAGEN_PRODUCER.type(), MutagenProducerBlockEntity::getTankManager);

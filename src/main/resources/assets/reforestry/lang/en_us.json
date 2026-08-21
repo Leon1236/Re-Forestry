@@ -2590,5 +2590,10 @@
   "for.hints.transposer_usage.tag": "How to use the Genetic Transposer?",
   "for.hints.transposer_usage.desc": "The Genetic Transposer creates copies of Gene Samples and Genetic Templates.",
   "for.hints.replicator_usage.tag": "How to use the Replicator?",
-  "for.hints.replicator_usage.desc": "The Replicator produces a new organism from a Genetic Template using Liquid DNA and Protein."
+  "for.hints.replicator_usage.desc": "The Replicator produces a new organism from a Genetic Template using Liquid DNA and Protein.",
+  "block.reforestry.industrial_apiary": "Industrial Apiary",
+  "for.hints.industrial_apiary.tag": "How to use the Industrial Apiary?",
+  "for.hints.industrial_apiary.desc": "The left slots are for a Princess and Drone. The four middle slots are for upgrades. The nine right slots are outputs.",
+  "for.hints.industrial_apiary_upgrades.tag": "Why no frames?",
+  "for.hints.industrial_apiary_upgrades.desc": "The Industrial Apiary does not need frames. Instead, it uses upgrades that affect climate, productivity, lifespan, and more!"
 }

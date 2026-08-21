@@ -28,7 +28,7 @@ public class GCreativeTabs {
 	private static final IFeatureRegistry REGISTRY = ModFeatureRegistry.get(ReForestry.id("gendustry"));
 
 	public static final FeatureCreativeTab GENDUSTRY = REGISTRY.creativeTab("gendustry", tab -> {
-		tab.icon(() -> GBlocks.MACHINE.stack(GendustryMachineType.MUTAGEN_PRODUCER));
+		tab.icon(() -> GBlocks.MACHINE.stack(GendustryMachineType.INDUSTRIAL_APIARY));
 		tab.displayItems((parameters, output) -> {
 			for (FeatureBlock<?> feature : GBlocks.MACHINE.getAll().values()) {
 				output.accept(feature.item());

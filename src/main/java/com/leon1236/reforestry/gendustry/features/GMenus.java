@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.gendustry.menu.AdvancedMutatronMenu;
+import com.leon1236.reforestry.gendustry.menu.IndustrialApiaryMenu;
 import com.leon1236.reforestry.gendustry.menu.MutatronMenu;
 import com.leon1236.reforestry.gendustry.menu.ProducerMenu;
 import com.leon1236.reforestry.gendustry.menu.ReplicatorMenu;
@@ -14,6 +15,9 @@ import com.leon1236.reforestry.modules.features.ModFeatureRegistry;
 
 public class GMenus {
 	private static final IFeatureRegistry REGISTRY = ModFeatureRegistry.get(ReForestry.id("gendustry"));
+
+	public static final FeatureMenuType<IndustrialApiaryMenu, BlockPos> INDUSTRIAL_APIARY =
+			REGISTRY.menuType("industrial_apiary", IndustrialApiaryMenu::new, BlockPos.STREAM_CODEC);
 
 	public static final FeatureMenuType<ProducerMenu, BlockPos> PROCESSOR =
 			REGISTRY.menuType("processor", ProducerMenu::new, BlockPos.STREAM_CODEC);

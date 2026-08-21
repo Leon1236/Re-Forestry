@@ -7,6 +7,7 @@ import com.leon1236.reforestry.gendustry.blockentity.AdvancedMutatronBlockEntity
 import com.leon1236.reforestry.gendustry.blockentity.DnaExtractorBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.GeneticTransposerBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.ImprinterBlockEntity;
+import com.leon1236.reforestry.gendustry.blockentity.IndustrialApiaryBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.MutagenProducerBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.MutatronBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.ProteinLiquefierBlockEntity;
@@ -15,6 +16,10 @@ import com.leon1236.reforestry.gendustry.blockentity.SamplerBlockEntity;
 import com.leon1236.reforestry.gendustry.features.GBlockEntities;
 
 public enum GendustryMachineType implements IBlockType {
+	INDUSTRIAL_APIARY("industrial_apiary", new MachineProperties.Builder<>(GBlockEntities.INDUSTRIAL_APIARY, "industrial_apiary")
+			.setServerTicker(IndustrialApiaryBlockEntity::serverTick)
+			.setClientTicker(IndustrialApiaryBlockEntity::clientTick)
+			.create()),
 	MUTAGEN_PRODUCER("mutagen_producer", new MachineProperties.Builder<>(GBlockEntities.MUTAGEN_PRODUCER, "mutagen_producer")
 			.setServerTicker(MutagenProducerBlockEntity::serverTick)
 			.create()),
