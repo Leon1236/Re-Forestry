@@ -60,8 +60,9 @@ Hive-found: `bee_water`, `bee_rock`, `bee_basalt`, `bee_marble`.
 
 ## Gaps / next
 
-- INK + GLOWSTONE (+ their mutations) wait for dye/energetic parents
-- Remaining ~91 species + ~112 EB mutations in EB2b–e
+- INK waits for dye/primary parents (EB2c+)
+- GLOWSTONE shipped in EB2b with energetic parents
+- Remaining ~60 species + ~78 EB mutations in EB2c–e
 - Hive worldgen/loot still EB4
 - Rocky bees share `monapis` taxon with CE monastic (Binnie scientific name collision; documented)
 
@@ -71,4 +72,4 @@ Hive-found: `bee_water`, `bee_rock`, `bee_basalt`, `bee_marble`.
 - **Must:** `ExtraBeesForestryPlugin.shouldLoad` used `isModuleLoaded`, so genetics/apiculture registration ran before `ModuleExtraBees` was marked loaded and skipped the plugin. Fixed via `IModuleManager.isModuleEnabled` (enabled set filled before any `init`)
 - **Should:** removed leftover Alchemy/Magic-Bees `bee_darkened.desc` (Binnie Extra Bees has name only)
 
-**Next stage:** `EB2b`
+**Next stage:** `EB2b` (done — see `queries/extra-bees-EB2b.md`)
