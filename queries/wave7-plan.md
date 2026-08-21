@@ -69,7 +69,7 @@ Order: **GD0 → EB1 → GD1 → GD2 (incl. DNA) → GD3 (incl. DNA extractor) �
 | 10 | GD7b | M | Upgrades including fertility extra drones | **done** — Modifier + energy; youth mutation −20%/stack |
 | 11 | GD8 | S | 12 errors + JEI | **done** — Error sprites; soft jei_mod_plugin; producer categories |
 | 12 | EB5 | L | 7 alveary parts | **done** — 7 crafts; stimulator circuits; FE |
-| 13 | EB6 | M | Centrifuge/squeezer datapack | Soft-skip missing fluids/oredict |
+| 13 | EB6 | M | Centrifuge/squeezer datapack | **done** — Soft-skip missing fluids/oredict |
 | 14 | EB-FLOWERS+EB3 | M | 11 flower types + 25 effects | Before any EB2 genomes |
 | 15–19 | EB2a–e | L | 116 species + 168 mutations | 34 `modifySpecies` with EB2a |
 | 20 | EB4 | M | Four hives + worldgen | Loot + marble soft-tag |

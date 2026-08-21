@@ -1,0 +1,19 @@
+{
+  "type": "reforestry:centrifuge",
+  "input": "reforestry:bee_comb_slime",
+  "time": 20,
+  "products": [
+    {
+      "item": "reforestry:beeswax",
+      "chance": 1.0
+    },
+    {
+      "item": "reforestry:honey_drop",
+      "chance": 0.75
+    },
+    {
+      "item": "minecraft:slime_ball",
+      "chance": 0.75
+    }
+  ]
+}

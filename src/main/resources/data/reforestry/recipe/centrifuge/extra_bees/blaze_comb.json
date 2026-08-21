@@ -1,0 +1,15 @@
+{
+  "type": "reforestry:centrifuge",
+  "input": "reforestry:bee_comb_blaze",
+  "time": 20,
+  "products": [
+    {
+      "item": "reforestry:beeswax",
+      "chance": 0.75
+    },
+    {
+      "item": "minecraft:blaze_powder",
+      "chance": 1.0
+    }
+  ]
+}

@@ -43,7 +43,7 @@
 | Bee dictionary / honey crystal / 16 industrial frames | Wave 7 skip list |
 | Alveary parts | EB5 |
 | Hive worldgen + scoop loot species | EB4 (species not registered yet) |
-| Centrifuge/squeezer products | EB6 |
+| Centrifuge/squeezer products | EB6 — **done** (`queries/extra-bees-EB6.md`) |
 | Dust→ingot for silver/platinum/nickel/… | No matching `c:ingots/*` / vanilla item (Binnie OreDict-gated) |
 | Ruby/sapphire shard → gem | No gem in stack |
 | Debug frame craft | Binnie registers no recipe |
