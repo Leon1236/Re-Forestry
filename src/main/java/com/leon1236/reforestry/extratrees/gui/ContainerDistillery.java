@@ -17,7 +17,7 @@ import com.leon1236.reforestry.extratrees.features.ExtraTreesMenuTypes;
 import com.leon1236.reforestry.extratrees.tiles.TileDistillery;
 
 public class ContainerDistillery extends ContainerMachine<TileDistillery> implements IContainerEnergy, IContainerLiquidTanks {
-	private static final int INVENTORY_Y = 108;
+	private static final int INVENTORY_Y = 84;
 	private final SimpleContainerData tankData = new SimpleContainerData(4);
 
 	public ContainerDistillery(int containerId, Inventory playerInventory, BlockPos pos) {

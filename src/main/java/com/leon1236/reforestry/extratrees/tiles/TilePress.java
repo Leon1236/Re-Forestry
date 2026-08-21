@@ -39,7 +39,7 @@ public class TilePress extends TilePowered implements WorldlyContainer {
 	public TilePress(BlockPos pos, BlockState state) {
 		super(ExtraTreesTiles.PRESS.type(), pos, state, ENERGY_CAPACITY, ENERGY_MAX_RECEIVE);
 		this.tanks = MultiFluidTank.builder(this::setChanged)
-				.tank("Output", TANK_CAPACITY, FilteredFluidStorage.any(), false)
+				.tank("Output", TANK_CAPACITY, FilteredFluidStorage.any())
 				.build();
 		setTicksPerWorkCycle(0);
 		setEnergyPerWorkCycle(0);

@@ -45,7 +45,7 @@ public class TileBrewery extends TilePowered implements WorldlyContainer {
 		super(ExtraTreesTiles.BREWERY.type(), pos, state, ENERGY_CAPACITY, ENERGY_MAX_RECEIVE);
 		this.tanks = MultiFluidTank.builder(this::setChanged)
 				.tank("Input", TANK_CAPACITY, FilteredFluidStorage.any())
-				.tank("Output", TANK_CAPACITY, FilteredFluidStorage.any(), false)
+				.tank("Output", TANK_CAPACITY, FilteredFluidStorage.any())
 				.build();
 		setTicksPerWorkCycle(0);
 		setEnergyPerWorkCycle(0);
@@ -122,7 +122,7 @@ public class TileBrewery extends TilePowered implements WorldlyContainer {
 
 	@Override
 	public boolean canPlaceItem(int slot, ItemStack stack) {
-		return slot != SLOT_YEAST || true;
+		return true;
 	}
 
 	@Override

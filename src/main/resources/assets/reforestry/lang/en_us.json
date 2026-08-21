@@ -3194,11 +3194,19 @@
   "block.reforestry.pods_plantain": "Plantain Pod",
   "for.mutation.condition.minheight": "Minimum height from bedrock of %s",
   "block.reforestry.lumbermill": "Lumbermill",
-  "block.reforestry.press": "Press",
+  "block.reforestry.press": "Fruit Press",
   "block.reforestry.brewery": "Brewery",
   "block.reforestry.distillery": "Distillery",
   "item.reforestry.proven_gear": "Proven Gear",
   "item.reforestry.sawdust": "Sawdust",
   "item.reforestry.bark": "Bark",
-  "item.reforestry.wood_wax": "Wood Polish"
+  "item.reforestry.wood_wax": "Wood Polish",
+  "extratrees.machine.lumbermill.info": "The Lumbermill converts logs into planks at an increased rate, and produces byproducts such as sawdust and bark.",
+  "extratrees.machine.press.info": "The Fruit Press squeezes fruit to give various fruit juices. It can be run using power or manually by right clicking.",
+  "extratrees.machine.brewery.info": "The Brewery uses yeasts, juices and grains to make many kinds of Wines and Beers.",
+  "extratrees.machine.distillery.info": "The Distillery can single, double or triple distill certain alcohols to give brandies, liquors and other spirits.",
+  "for.hints.lumbermill.water.tag": "Keep it wet!",
+  "for.hints.lumbermill.water.desc": "The Lumbermill needs a water supply in its tank as well as energy to turn logs into planks, bark, and sawdust.",
+  "for.hints.lumbermill.logs.tag": "Any log works!",
+  "for.hints.lumbermill.logs.desc": "Any log with a crafting recipe into planks can be processed in the Lumbermill."
 }

@@ -34,8 +34,10 @@ Never ported: designer / infuser / nursery.
 
 - Pattern mirrors factory `TilePowered` + gendustry machine block group
 - Lumbermill resolves planks via `WorktableRecipeLookup` + `#minecraft:planks` (Binnie crafting fake-inv behavior)
-- Energy: 900 FE / 30 ticks; water: 300 mB / cycle; tank 10000 mB
+- Energy: 900 FE / 30 ticks; water: 300 mB / cycle (Binnie drains 10 mB/tick × 30); tank 10000 mB
+- Output tanks allow extract (match factory; Binnie `setReadOnly` is insert-only)
 - GUI: Binnie `Lumbermill.png` shipped; Press/Brewery/Distillery GUI PNGs **missing from ACGaming-Binnie clone** — reused factory `still.png` stand-in (documented gap)
+- Machine italic tooltips use Binnie `extratrees.machine.*.info` keys
 
 ## Gaps → ET5
 

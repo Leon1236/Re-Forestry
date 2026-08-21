@@ -47,7 +47,7 @@ public class ScreenLumbermill extends ScreenForestry<ContainerLumbermill> {
 		if (progress > 0) {
 			int width = progress * 72 / 100;
 			ExtraTreesGuiTextures.blitProgress(guiGraphics, ExtraTreesGuiTextures.LUMBERMILL,
-					leftPos + 71, topPos + 43, 0, 192, width, 18);
+					leftPos + 70, topPos + 43, 0, 192, width, 18);
 		}
 
 		int tankLeft = leftPos + TANK_X;
