@@ -22,7 +22,7 @@
 | CE reuse | **2** | `FeaturePlum`, `FeatureLemon` |
 | Shared generators | yes | e.g. 11 citrus → Lemon; 10 shrubs → `FeatureShrub`; 9 spices → `FeatureLazyTree`; 3 bananas → `FeatureBanana` |
 
-Base: `FeatureBinnieTree` ports Binnie cylinder/sphere + bushiness. `FeatureShrub` mirrors Binnie `WorldGenShrub.Shrub` (SOFT replace, short trunk).
+Base: `FeatureBinnieTree` ports Binnie cylinder/sphere + bushiness (`minHeight` 3). `FeatureShrub` mirrors Binnie `WorldGenShrub.Shrub` (SOFT replace, short trunk, max height 10).
 
 ## Worldgen coverage
 
@@ -37,7 +37,7 @@ Base: `FeatureBinnieTree` ports Binnie cylinder/sphere + bushiness. `FeatureShru
 | `tree_juniper` | 0.0025 | `FeatureShrub` |
 | `tree_golden_raspberry` | 0.0025 | `FeatureShrub` |
 
-Uses existing `TreeDecorator` (rarity × climate match). Default temperature/humidity `NORMAL` matches Binnie (no climate overrides on those enums).
+Uses existing `TreeDecorator` (rarity × climate match). Default temperature/humidity `NORMAL` matches Binnie (no climate overrides on those enums). Binnie `ClimateGrowthProvider` tolerances have no CE equivalent; worldgen uses exact NORMAL/NORMAL like other CE trees.
 
 ## Gaps (not ET3)
 
@@ -47,6 +47,15 @@ Uses existing `TreeDecorator` (rarity × climate match). Default temperature/hum
 | Blackberry / gooseberry / dwarf hazel natural spawn | Binnie gave them `WorldGenShrub` but **no** `setRarity` |
 | Unused Binnie gens (CommonBeech, BalsamFir, …) | Those species are CE duplicates skipped in ET2 |
 | Juices / alcohol / lumbermill | **ET4** / **ET5** |
+
+## Review fixes (2026-08-21)
+
+| Fix | Why |
+|---|---|
+| `FeatureBinnieTree` minHeight 3 | Match Binnie `BinnieWorldGenTree` (was CE FeatureTree default 4) |
+| `FeatureShrub` maxHeight 10 | Match Binnie `WorldGenShrub.Shrub` |
+| `FeatureCedar` / `FeatureSwampGum` brace indent | Generator left broken nesting readability |
+| Generator leaf indent | Stop double-tabbing `translate_leaves` output |
 
 ## Next
 

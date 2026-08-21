@@ -37,16 +37,16 @@ public class FeatureCedar extends FeatureBinnieTree {
 			if (radius < 2.0f) {
 				radius = 2.0f;
 			}
-		if (xOffset > radius / 2.0f) {
-			xOffset = radius / 2.0f;
+			if (xOffset > radius / 2.0f) {
+				xOffset = radius / 2.0f;
+			}
+			if (yOffset > radius / 2.0f) {
+				yOffset = radius / 2.0f;
+			}
+			generateCylinder(level, rand, leaf, contour, startPos, xOffset, leafSpawn--, yOffset, 0.7f * radius);
+			generateCylinder(level, rand, leaf, contour, startPos, xOffset, leafSpawn--, yOffset, radius);
+			generateCylinder(level, rand, leaf, contour, startPos, xOffset, leafSpawn--, yOffset, 0.5f * radius);
 		}
-		if (yOffset > radius / 2.0f) {
-			yOffset = radius / 2.0f;
-		}
-		generateCylinder(level, rand, leaf, contour, startPos, xOffset, leafSpawn--, yOffset, 0.7f * radius);
-		generateCylinder(level, rand, leaf, contour, startPos, xOffset, leafSpawn--, yOffset, radius);
-		generateCylinder(level, rand, leaf, contour, startPos, xOffset, leafSpawn--, yOffset, 0.5f * radius);
-	}
 
 		generateCylinder(level, rand, leaf, contour, startPos, 0.0f, leafSpawn, 0.0f, 0.7f * width);
 	}

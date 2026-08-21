@@ -229,14 +229,18 @@ def translate_leaves(body: str) -> str:
 		text,
 		flags=re.S,
 	)
-	lines = []
-	for line in text.splitlines():
-		stripped = line.lstrip("\t")
-		if stripped.strip() == "":
-			lines.append("")
+	lines = text.splitlines()
+	non_empty = [line for line in lines if line.strip()]
+	if not non_empty:
+		return ""
+	min_ws = min(len(line) - len(line.lstrip(" \t")) for line in non_empty)
+	out_lines: list[str] = []
+	for line in lines:
+		if not line.strip():
+			out_lines.append("")
 		else:
-			lines.append("\t\t" + stripped)
-	return "\n".join(lines).strip("\n")
+			out_lines.append(line[min_ws:])
+	return "\n".join(out_lines).strip("\n")
 
 
 def resolve_binnie_source(worldgen: str) -> tuple[Path, str, str | None]:
@@ -266,6 +270,9 @@ def feature_java(class_name: str, base: int, variation: int, leaves: str, min_he
 	ctor_args = f"tree, {base}, {variation}"
 	if min_height is not None:
 		ctor_args += f", {min_height}"
+	indented_leaves = "\n".join(
+		("\t\t" + line) if line.strip() else "" for line in leaves.splitlines()
+	)
 	return f"""package com.leon1236.reforestry.extratrees.worldgen;
 
 import com.leon1236.reforestry.api.arboriculture.ITreeGenData;
@@ -283,7 +290,7 @@ public class {class_name} extends FeatureBinnieTree {{
 
 	@Override
 	protected void generateLeaves(IGenome genome, LevelAccessor level, RandomSource rand, TreeBlockTypeLeaf leaf, TreeContour contour, BlockPos startPos) {{
-{leaves}
+{indented_leaves}
 	}}
 }}
 """
@@ -326,6 +333,16 @@ public class FeatureShrub extends FeatureTree {
 			i++;
 		}
 	}
+
+	@Override
+	protected int determineHeight(LevelAccessor world, RandomSource rand, IGenome genome, int baseHeight, int heightVariation) {
+		int height = baseHeight + rand.nextInt(heightVariation);
+		int adjustedHeight = Math.round(height * this.tree.getHeightModifier(genome));
+		if (adjustedHeight < 1) {
+			return 1;
+		}
+		return Math.min(adjustedHeight, 10);
+	}
 }
 """
 
@@ -365,7 +382,6 @@ def build_feature_sources(needed: set[str]) -> dict[str, str]:
 				raise RuntimeError(f"No generateLeaves for {worldgen}")
 		else:
 			leaves = translate_leaves(leaves_src)
-			leaves = "\n".join("\t\t" + line if line.strip() else "" for line in leaves.splitlines())
 		out[class_name] = feature_java(class_name, base, variation, leaves)
 	return out
 

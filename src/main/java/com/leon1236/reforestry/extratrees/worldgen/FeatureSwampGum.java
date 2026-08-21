@@ -31,7 +31,7 @@ public class FeatureSwampGum extends FeatureBinnieTree {
 				leafSpawn--;
 				continue;
 			}
-		generateSphere(level, leaf, contour, startPos, rand.nextInt(this.girth) * (rand.nextBoolean() ? -1 : 1), leafSpawn--, rand.nextInt(this.girth) * (rand.nextBoolean() ? -1 : 1), 1);
-	}
+			generateSphere(level, leaf, contour, startPos, rand.nextInt(this.girth) * (rand.nextBoolean() ? -1 : 1), leafSpawn--, rand.nextInt(this.girth) * (rand.nextBoolean() ? -1 : 1), 1);
+		}
 	}
 }

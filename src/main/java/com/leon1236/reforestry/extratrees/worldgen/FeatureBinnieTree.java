@@ -13,7 +13,7 @@ public abstract class FeatureBinnieTree extends FeatureTree {
 	protected float bushiness;
 
 	protected FeatureBinnieTree(ITreeGenData tree, int baseHeight, int heightVariation) {
-		super(tree, baseHeight, heightVariation);
+		super(tree, baseHeight, heightVariation, 3);
 		this.bushiness = 0.0f;
 	}
 

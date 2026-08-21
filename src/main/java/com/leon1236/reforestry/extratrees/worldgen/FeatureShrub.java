@@ -34,4 +34,14 @@ public class FeatureShrub extends FeatureTree {
 			i++;
 		}
 	}
+
+	@Override
+	protected int determineHeight(LevelAccessor world, RandomSource rand, IGenome genome, int baseHeight, int heightVariation) {
+		int height = baseHeight + rand.nextInt(heightVariation);
+		int adjustedHeight = Math.round(height * this.tree.getHeightModifier(genome));
+		if (adjustedHeight < 1) {
+			return 1;
+		}
+		return Math.min(adjustedHeight, 10);
+	}
 }
