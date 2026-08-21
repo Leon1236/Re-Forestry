@@ -53,7 +53,7 @@ Re-plan vs donor clones / extracts:
 
 ## Now (remaining order)
 
-Order: **GD0 → EB1 → GD1 → GD2 (incl. DNA) → GD3 (incl. DNA extractor) → GD4 → GD5 → GD6 → GD7a → GD7b → GD8 → EB5 → EB6 → EB-FLOWERS+EB3 → EB2a–e → EB4 → ET1a → ET1b → ET2 → ET3 → ET4 → ET5 → ET6 → S2**
+Order: **GD0 → EB1 → GD1 → GD2 (incl. DNA) → GD3 (incl. DNA extractor) → GD4 → GD5 → GD6 → GD7a → GD7b → GD8 → EB5 → EB6 → EB-FLOWERS+EB3 → EB2a → EB2b–e → EB4 → ET1a → ET1b → ET2 → ET3 → ET4 → ET5 → ET6 → S2**
 
 | # | ID | Size | Player exit | Connected must-ship |
 |---|---|---|---|---|
@@ -71,7 +71,8 @@ Order: **GD0 → EB1 → GD1 → GD2 (incl. DNA) → GD3 (incl. DNA extractor) �
 | 12 | EB5 | L | 7 alveary parts | **done** — 7 crafts; stimulator circuits; FE |
 | 13 | EB6 | M | Centrifuge/squeezer datapack | **done** — Soft-skip missing fluids/oredict |
 | 14 | EB-FLOWERS+EB3 | M | 11 flower types + 25 effects | **done** — Before any EB2 genomes |
-| 15–19 | EB2a–e | L | 116 species + 168 mutations | 34 `modifySpecies` with EB2a |
+| 15 | EB2a | L | Hive-line + barren/rocky/hostile/volcanic/shadow/aquatic/classical | **done** — 25 species, 22 EB + 34 FR `modifySpecies`; defer INK/GLOWSTONE |
+| 16–19 | EB2b–e | L | Remaining ~91 species + ~112 EB mutations | After EB2a |
 | 20 | EB4 | M | Four hives + worldgen | Loot + marble soft-tag |
 | 21 | ET1a | L | 30 woods + shrub log | ExtraTreeWoodType + WoodAccess |
 | 22 | ET1b | L | Stripped/boats/signs/trapdoor/button/plate | Full WoodBlockKind; no charcoal walls |

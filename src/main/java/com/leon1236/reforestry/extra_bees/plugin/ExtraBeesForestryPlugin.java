@@ -14,6 +14,7 @@ import com.leon1236.reforestry.api.plugin.IGeneticRegistration;
 import com.leon1236.reforestry.core.features.CoreItems;
 import com.leon1236.reforestry.extra_bees.circuit.AlvearySimulatorCircuitType;
 import com.leon1236.reforestry.extra_bees.circuit.StimulatorCircuit;
+import com.leon1236.reforestry.extra_bees.genetics.ExtraBeesBeeSpecies;
 import com.leon1236.reforestry.extra_bees.genetics.ExtraBeesFlowerType;
 import com.leon1236.reforestry.extra_bees.genetics.effects.ExtraBeesEffects;
 
@@ -33,11 +34,13 @@ public class ExtraBeesForestryPlugin implements IForestryPlugin {
 		for (ExtraBeesFlowerType type : ExtraBeesFlowerType.values()) {
 			registration.registerFlowerType(type.id(), type);
 		}
+		ExtraBeesBeeSpecies.registerTaxa(registration);
 	}
 
 	@Override
 	public void registerApiculture(IApicultureRegistration registration) {
 		ExtraBeesEffects.register(registration);
+		ExtraBeesBeeSpecies.register(registration);
 	}
 
 	@Override

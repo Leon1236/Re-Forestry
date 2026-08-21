@@ -88,4 +88,4 @@ Binnie stored `particles/*` texture paths but never spawned them from `doFX` (hi
 - EB potion effects (blindness/confusion/wither/slow) and hunger use player-only Binnie armor rolls; CE `PotionBeeEffect` path not used
 - FIREWORKS always trails (Binnie `setTrail`); FESTIVAL is plain white
 
-**Next stage:** `EB2a`
+**Next stage:** `EB2a` — **done** (see `queries/extra-bees-EB2a.md`)
