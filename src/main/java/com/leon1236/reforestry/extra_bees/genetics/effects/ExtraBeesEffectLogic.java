@@ -32,8 +32,9 @@ public final class ExtraBeesEffectLogic {
 		if (!level.isEmptyBlock(position)) {
 			return;
 		}
-		BlockState below = level.getBlockState(position.below());
-		if (!below.isSolidRender() && !below.is(ExtraBeesBlocks.ECTOPLASM.block())) {
+		BlockPos belowPos = position.below();
+		BlockState below = level.getBlockState(belowPos);
+		if (!below.isCollisionShapeFullBlock(level, belowPos) && !below.is(ExtraBeesBlocks.ECTOPLASM.block())) {
 			return;
 		}
 		level.setBlock(position, ExtraBeesBlocks.ECTOPLASM.block().defaultBlockState(), 3);

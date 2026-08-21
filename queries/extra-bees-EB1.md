@@ -60,6 +60,10 @@
 - `c:dyes` + `c:dyes/{color}` for Extra Bees dyes (Binnie `OreDictionary.registerOre("dyeRed", …)`)
 - `c:dusts/{metal}` for remaining dusts without craft targets yet
 
+## Wave 7 full review (2026-08-21)
+
+- Ectoplasm: cobweb `entityInside` stickiness (Binnie `BlockWeb`) + placement floor uses `isCollisionShapeFullBlock`
+- See `queries/extra-bees-wave7-full-review.md`
 ## Player checks
 
 1. Config: `reforestry:extra_bees=true` in `config/reforestry/modules.properties`
