@@ -3,7 +3,7 @@
 What is **done and working** in the mod today.  
 Update this file when a roadmap step lands. For how-to-build guidance, see `CLAUDE.md`. For the next work items, see **Next up** at the bottom.
 
-Last updated: 2026-08-21 (GD8: Gendustry errors + JEI. Next: EB5)
+Last updated: 2026-08-21 (EB5: Extra Bees alveary parts. Next: EB6)
 
 ---
 
@@ -234,9 +234,9 @@ Play notes: `queries/storage-B1-b3-backpacks.md`, `queries/storage-B4-naturalist
 
 ## Next up (not implemented yet)
 
-**Next up: Wave 7 `EB5`.** Gendustry GD8 errors + JEI landed. Locked remaining order: see `queries/wave7-plan.md` (GD8 → EB5…). No solar/combustion.
+**Next up: Wave 7 `EB6`.** Extra Bees alveary parts (EB5) landed. Locked remaining order: see `queries/wave7-plan.md` (EB5 → EB6…). No solar/combustion.
 
-**Wave 7 addons:** GD0 + EB1 + GD1 + GD2 + GD3 + GD4 + GD5 + GD6 + GD7a + GD7b + GD8 done; Extra Trees still extract-only until ET1a.
+**Wave 7 addons:** GD0 + EB1 + GD1–GD8 + EB5 done; Extra Trees still extract-only until ET1a.
 
 | ID | Status | Notes |
 |---|---|---|
@@ -251,6 +251,7 @@ Play notes: `queries/storage-B1-b3-backpacks.md`, `queries/storage-B4-naturalist
 | `GD7b` | Done | `IndustrialApiaryBeeModifier`; upgrade energy + climate/throttle; fertility drones; automation recycle; youth mutation −20%/stack (honest tooltip); sieve pollen; `IBeekeepingLogic.setWorkThrottle`. See `queries/gendustry-GD7b.md` |
 | `GD8` | Done | 12 `GendustryError` sprites + lang; `GendustryJeiPlugin` soft entry; mutagen/protein/DNA JEI categories + catalysts; gene-sample subtypes; fluid info; mutatron→mutation click. See `queries/gendustry-GD8.md` |
 | `EB1` | Done | `ModuleExtraBees` + plugin; depends apiculture; 74 combs, 24 drops, 4 propolis, 5 frames, 30 misc, ectoplasm, 4 hives (`beehive_eb_nether`); frame crafts + carpenter `scented_gear` + dust/shard recipes. Worldgen/loot EB4. See `queries/extra-bees-EB1.md` |
+| `EB5` | Done | 7 alveary parts (`alveary_mutator|frame|rain_shield|lighting|stimulator|hatchery|transmission`); multiblock `IAlvearyComponent`; 7 crafts; 9 stimulator circuits + FE; GUIs for mutator/frame/hatchery/stimulator. See `queries/extra-bees-EB5.md` |
 | `EB0` | Extract done | `tools/extract_extra_bees.py` + `queries/extra-bees-*.json` — 116 species, 168 mutations, 25 effects. |
 | `ET0` | Extract done | `tools/extract_extra_trees.py` + `queries/extra-trees-extract/` — 97 species (skip 9 binomials), 59 fruits, 36 planks (skip 6 → 30 new + shrub log), 97 mutations, 22 moths. No Java woods/module. |
 | `W7-INT` | Merged | Local 1b–4 + origin/main Wave 5 + Wave 6 lepidopterology. Farming/energy/filter kept. |
@@ -284,7 +285,7 @@ Older (partially stale): [`queries/item-gap-implementation-plan.md`](../queries/
 |---|---|---|---|
 | 1 | `GP0a1–d` | Species-type / plugin genetics façade | **done** (merged from GitHub) |
 | 2 | `D0→D4` | **Lepidopterology** | **done** (merged from GitHub). Unlocks `butterfly_chest` recipe and sorting `S2` |
-| 3 | Addons | Gendustry → Extra Bees → Extra Trees | Config modules; **GD0…GD8 + EB1 done**. Next: **EB5** |
+| 3 | Addons | Gendustry → Extra Bees → Extra Trees | Config modules; **GD0…GD8 + EB1 + EB5 done**. Next: **EB6** |
 | 4 | Restore | Greenhouse, climatology, database, guide book (CE-dropped 1.12) | Optional |
 | — | `TR1` | Optional Trinkets spectacles slot | Helmet already works (A5) |
 

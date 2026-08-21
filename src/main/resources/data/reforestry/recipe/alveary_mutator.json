@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "alveary",
+  "key": {
+    "g": "minecraft:gold_ingot",
+    "a": "reforestry:alveary_block",
+    "t": "reforestry:electron_tube_diamond"
+  },
+  "pattern": [
+    "g g",
+    " a ",
+    "t t"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:alveary_mutator"
+  }
+}

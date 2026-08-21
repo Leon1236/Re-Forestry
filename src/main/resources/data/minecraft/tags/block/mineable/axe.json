@@ -14,6 +14,13 @@
     "reforestry:alveary_heater",
     "reforestry:alveary_hygroregulator",
     "reforestry:alveary_stabilizer",
-    "reforestry:alveary_sieve"
+    "reforestry:alveary_sieve",
+    "reforestry:alveary_mutator",
+    "reforestry:alveary_frame",
+    "reforestry:alveary_rain_shield",
+    "reforestry:alveary_lighting",
+    "reforestry:alveary_stimulator",
+    "reforestry:alveary_hatchery",
+    "reforestry:alveary_transmission"
   ]
 }

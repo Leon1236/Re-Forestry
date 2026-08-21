@@ -34,6 +34,7 @@ import com.leon1236.reforestry.apiculture.multiblock.TileAlvearySwarmer;
 import com.leon1236.reforestry.core.blocks.BlockStructure;
 import com.leon1236.reforestry.core.tiles.IActivatable;
 import com.leon1236.reforestry.core.tiles.TileUtil;
+import com.leon1236.reforestry.extra_bees.blocks.BlockExtraBeeAlveary;
 
 public class BlockAlveary extends BlockStructure {
     public static final EnumProperty<State> STATE = EnumProperty.create("state", State.class);
@@ -132,7 +133,8 @@ public class BlockAlveary extends BlockStructure {
     private static List<Direction> getBlocksTouching(BlockGetter level, BlockPos pos) {
         List<Direction> touching = new ArrayList<>();
         for (Direction direction : Direction.Plane.HORIZONTAL) {
-            if (level.getBlockState(pos.relative(direction)).getBlock() instanceof BlockAlveary) {
+            Block neighbor = level.getBlockState(pos.relative(direction)).getBlock();
+            if (neighbor instanceof BlockAlveary || neighbor instanceof BlockExtraBeeAlveary) {
                 touching.add(direction);
             }
         }

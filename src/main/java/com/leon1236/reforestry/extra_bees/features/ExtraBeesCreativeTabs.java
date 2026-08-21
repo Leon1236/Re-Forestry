@@ -32,6 +32,9 @@ public class ExtraBeesCreativeTabs {
 			for (var feature : ExtraBeesBlocks.BEEHIVE.getAll().values()) {
 				output.accept(feature.item());
 			}
+			for (var feature : ExtraBeesBlocks.ALVEARY.getAll().values()) {
+				output.accept(feature.item());
+			}
 		});
 	});
 

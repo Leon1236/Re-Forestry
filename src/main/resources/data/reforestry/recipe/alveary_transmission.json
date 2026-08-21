@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "alveary",
+  "key": {
+    "a": "reforestry:alveary_block",
+    "t": "#c:gears/tin"
+  },
+  "pattern": [
+    " t ",
+    "tat",
+    " t "
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:alveary_transmission"
+  }
+}

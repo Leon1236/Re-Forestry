@@ -13,7 +13,10 @@ import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.apiculture.blocks.BlockBeeHive;
 import com.leon1236.reforestry.extra_bees.blocks.BlockEctoplasm;
+import com.leon1236.reforestry.extra_bees.blocks.BlockExtraBeeAlveary;
+import com.leon1236.reforestry.extra_bees.blocks.BlockExtraBeeAlvearyType;
 import com.leon1236.reforestry.extra_bees.blocks.EnumExtraBeeHive;
+import com.leon1236.reforestry.extra_bees.items.ItemBlockExtraBeeAlveary;
 import com.leon1236.reforestry.modules.features.FeatureBlock;
 import com.leon1236.reforestry.modules.features.FeatureBlockGroup;
 import com.leon1236.reforestry.modules.features.IFeatureRegistry;
@@ -29,12 +32,23 @@ public class ExtraBeesBlocks {
 					.identifier("beehive")
 					.create();
 
+	public static final FeatureBlockGroup<BlockExtraBeeAlveary, BlockExtraBeeAlvearyType> ALVEARY =
+			REGISTRY.blockGroup((type, properties) -> new BlockExtraBeeAlveary(type, alvearyProperties(properties)),
+							BlockExtraBeeAlvearyType.VALUES)
+					.item(ItemBlockExtraBeeAlveary::new)
+					.identifier("alveary")
+					.create();
+
 	public static final FeatureBlock<BlockEctoplasm> ECTOPLASM = REGISTRY.block("ectoplasm",
 			properties -> new BlockEctoplasm(ectoplasmProperties()),
 			BlockItem::new);
 
 	private static BlockBehaviour.Properties hiveProperties(BlockBehaviour.Properties properties) {
 		return properties.sound(SoundType.WOOD).lightLevel(state -> 7).strength(1.0F);
+	}
+
+	private static BlockBehaviour.Properties alvearyProperties(BlockBehaviour.Properties properties) {
+		return properties.strength(1.0F).sound(SoundType.WOOD);
 	}
 
 	private static BlockBehaviour.Properties ectoplasmProperties() {

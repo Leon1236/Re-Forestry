@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "alveary",
+  "key": {
+    "i": "minecraft:glowstone_dust",
+    "a": "reforestry:alveary_block",
+    "t": "reforestry:electron_tube_gold"
+  },
+  "pattern": [
+    "iii",
+    "iai",
+    " t "
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:alveary_lighting"
+  }
+}

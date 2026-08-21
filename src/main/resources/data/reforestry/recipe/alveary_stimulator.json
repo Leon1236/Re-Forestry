@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "alveary",
+  "key": {
+    "i": "minecraft:gold_nugget",
+    "a": "reforestry:alveary_block",
+    "t": "reforestry:electron_tube_gold",
+    "k": "reforestry:circuit_board_refined"
+  },
+  "pattern": [
+    "kik",
+    "iai",
+    " t "
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:alveary_stimulator"
+  }
+}
