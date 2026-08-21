@@ -2,6 +2,7 @@ package com.leon1236.reforestry.apiculture.blocks;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Supplier;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -42,16 +43,23 @@ import com.leon1236.reforestry.apiculture.tiles.TileHive;
 
 public class BlockBeeHive extends BaseEntityBlock {
     private final Identifier speciesId;
+    private final Supplier<BlockEntityType<TileHive>> hiveType;
     private final MapCodec<BlockBeeHive> codec;
 
     public BlockBeeHive(BlockHiveType type, BlockBehaviour.Properties properties) {
-        this(type.getSpeciesId(), properties);
+        this(type.getSpeciesId(), properties, () -> ApicultureTiles.HIVE.type());
     }
 
     public BlockBeeHive(Identifier speciesId, BlockBehaviour.Properties properties) {
+        this(speciesId, properties, () -> ApicultureTiles.HIVE.type());
+    }
+
+    public BlockBeeHive(Identifier speciesId, BlockBehaviour.Properties properties,
+            Supplier<BlockEntityType<TileHive>> hiveType) {
         super(properties);
         this.speciesId = speciesId;
-        this.codec = simpleCodec(props -> new BlockBeeHive(speciesId, props));
+        this.hiveType = hiveType;
+        this.codec = simpleCodec(props -> new BlockBeeHive(speciesId, props, hiveType));
     }
 
     @Override
@@ -66,14 +74,14 @@ public class BlockBeeHive extends BaseEntityBlock {
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new TileHive(pos, state);
+        return new TileHive(hiveType.get(), pos, state);
     }
 
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state,
             BlockEntityType<T> type) {
-        return createTickerHelper(type, ApicultureTiles.HIVE.type(), TileHive::tick);
+        return createTickerHelper(type, hiveType.get(), TileHive::tick);
     }
 
     @Override

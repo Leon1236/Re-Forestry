@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/bee_comb_ic2energy",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -14634039
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -1444593
+      }
+    ]
+  }
+}

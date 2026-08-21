@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "reforestry:lapis_shard",
+    "reforestry:lapis_shard",
+    "reforestry:lapis_shard",
+    "reforestry:lapis_shard"
+  ],
+  "result": {
+    "id": "minecraft:lapis_lazuli",
+    "count": 1
+  }
+}

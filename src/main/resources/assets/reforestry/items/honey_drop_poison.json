@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/honey_drop_poison",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -3078471
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -64542
+      }
+    ]
+  }
+}

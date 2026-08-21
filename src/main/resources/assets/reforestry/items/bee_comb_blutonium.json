@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/bee_comb_blutonium",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -15007514
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -14213043
+      }
+    ]
+  }
+}

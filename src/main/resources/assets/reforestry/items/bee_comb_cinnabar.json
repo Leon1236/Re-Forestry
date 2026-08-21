@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/bee_comb_cinnabar",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -12111349
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -13224652
+      }
+    ]
+  }
+}

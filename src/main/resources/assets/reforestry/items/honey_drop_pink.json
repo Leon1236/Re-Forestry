@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/honey_drop_pink",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -871732
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -32545
+      }
+    ]
+  }
+}

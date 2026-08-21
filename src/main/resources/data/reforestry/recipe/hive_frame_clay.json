@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": "reforestry:frame_impregnated",
+    "c": "minecraft:clay_ball"
+  },
+  "pattern": [
+    " c ",
+    "cFc",
+    " c "
+  ],
+  "result": {
+    "id": "reforestry:hive_frame_clay"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/propolis_fuel",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -6058734
+      }
+    ]
+  }
+}

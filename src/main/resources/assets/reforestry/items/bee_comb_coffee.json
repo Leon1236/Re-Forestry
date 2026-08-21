@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/bee_comb_coffee",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -5013685
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -11257827
+      }
+    ]
+  }
+}

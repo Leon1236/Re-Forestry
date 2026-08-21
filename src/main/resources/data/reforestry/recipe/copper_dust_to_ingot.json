@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "reforestry:copper_dust",
+    "reforestry:copper_dust",
+    "reforestry:copper_dust",
+    "reforestry:copper_dust",
+    "reforestry:copper_dust",
+    "reforestry:copper_dust",
+    "reforestry:copper_dust",
+    "reforestry:copper_dust",
+    "reforestry:copper_dust"
+  ],
+  "result": {
+    "id": "minecraft:copper_ingot",
+    "count": 1
+  }
+}

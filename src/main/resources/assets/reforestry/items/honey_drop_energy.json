@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/honey_drop_energy",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -6534798
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -1871503
+      }
+    ]
+  }
+}

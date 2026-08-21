@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/bee_comb_enderpearl",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -16570848
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -13330554
+      }
+    ]
+  }
+}

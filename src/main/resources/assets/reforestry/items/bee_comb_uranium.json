@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/bee_comb_uranium",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -12473549
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -14745856
+      }
+    ]
+  }
+}

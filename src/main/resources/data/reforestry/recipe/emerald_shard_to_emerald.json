@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "reforestry:emerald_shard",
+    "reforestry:emerald_shard",
+    "reforestry:emerald_shard",
+    "reforestry:emerald_shard",
+    "reforestry:emerald_shard",
+    "reforestry:emerald_shard",
+    "reforestry:emerald_shard",
+    "reforestry:emerald_shard",
+    "reforestry:emerald_shard"
+  ],
+  "result": {
+    "id": "minecraft:emerald",
+    "count": 1
+  }
+}

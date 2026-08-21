@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/bee_comb_coal",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -13094626
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -6384520
+      }
+    ]
+  }
+}

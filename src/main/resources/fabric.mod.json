@@ -27,7 +27,8 @@
 		"reforestry:plugin": [
 			"com.leon1236.reforestry.core.plugin.ReforestryPlugin",
 			"com.leon1236.reforestry.farming.plugin.AgricultureForestryPlugin",
-			"com.leon1236.reforestry.gendustry.plugin.GendustryForestryPlugin"
+			"com.leon1236.reforestry.gendustry.plugin.GendustryForestryPlugin",
+			"com.leon1236.reforestry.extra_bees.plugin.ExtraBeesForestryPlugin"
 		],
 		"jei_mod_plugin": [
 			"com.leon1236.reforestry.core.compat.jei.CoreJeiPlugin",
