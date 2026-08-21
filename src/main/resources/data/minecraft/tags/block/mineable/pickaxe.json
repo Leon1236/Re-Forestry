@@ -89,6 +89,8 @@
     "reforestry:mutagen_producer",
     "reforestry:dna_extractor",
     "reforestry:protein_liquefier",
-    "reforestry:sampler"
+    "reforestry:sampler",
+    "reforestry:mutatron",
+    "reforestry:advanced_mutatron"
   ]
 }

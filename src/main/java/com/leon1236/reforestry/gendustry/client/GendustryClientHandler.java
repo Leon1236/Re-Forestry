@@ -14,5 +14,7 @@ public class GendustryClientHandler implements IClientModuleHandler {
 		GendustryFluidClientHandler.registerClient();
 		MenuScreens.register(GMenus.PROCESSOR.type(), ScreenProducer::new);
 		MenuScreens.register(GMenus.SAMPLER.type(), ScreenThreeInput::new);
+		MenuScreens.register(GMenus.MUTATRON.type(), ScreenMutatron::new);
+		MenuScreens.register(GMenus.ADVANCED_MUTATRON.type(), ScreenAdvancedMutatron::new);
 	}
 }

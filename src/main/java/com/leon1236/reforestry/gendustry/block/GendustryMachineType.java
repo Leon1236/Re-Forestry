@@ -3,8 +3,10 @@ package com.leon1236.reforestry.gendustry.block;
 import com.leon1236.reforestry.core.blocks.IBlockType;
 import com.leon1236.reforestry.core.blocks.IMachineProperties;
 import com.leon1236.reforestry.core.blocks.MachineProperties;
+import com.leon1236.reforestry.gendustry.blockentity.AdvancedMutatronBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.DnaExtractorBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.MutagenProducerBlockEntity;
+import com.leon1236.reforestry.gendustry.blockentity.MutatronBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.ProteinLiquefierBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.SamplerBlockEntity;
 import com.leon1236.reforestry.gendustry.features.GBlockEntities;
@@ -21,6 +23,12 @@ public enum GendustryMachineType implements IBlockType {
 			.create()),
 	SAMPLER("sampler", new MachineProperties.Builder<>(GBlockEntities.SAMPLER, "sampler")
 			.setServerTicker(SamplerBlockEntity::serverTick)
+			.create()),
+	MUTATRON("mutatron", new MachineProperties.Builder<>(GBlockEntities.MUTATRON, "mutatron")
+			.setServerTicker(MutatronBlockEntity::serverTick)
+			.create()),
+	ADVANCED_MUTATRON("advanced_mutatron", new MachineProperties.Builder<>(GBlockEntities.ADVANCED_MUTATRON, "advanced_mutatron")
+			.setServerTicker(AdvancedMutatronBlockEntity::serverTick)
 			.create());
 
 	private final String serializedName;

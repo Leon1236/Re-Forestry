@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "reforestry:block/mutatron_bottom",
+    "side": "reforestry:block/mutatron_side",
+    "top": "reforestry:block/mutatron_top"
+  }
+}

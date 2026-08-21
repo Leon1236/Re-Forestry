@@ -1,8 +1,11 @@
 package com.leon1236.reforestry.gendustry.features;
 
 import com.leon1236.reforestry.ReForestry;
+import com.leon1236.reforestry.gendustry.blockentity.AbstractMutatronBlockEntity;
+import com.leon1236.reforestry.gendustry.blockentity.AdvancedMutatronBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.DnaExtractorBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.MutagenProducerBlockEntity;
+import com.leon1236.reforestry.gendustry.blockentity.MutatronBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.ProteinLiquefierBlockEntity;
 import com.leon1236.reforestry.gendustry.blockentity.SamplerBlockEntity;
 import com.leon1236.reforestry.core.energy.EnergyHelper;
@@ -27,6 +30,12 @@ public class GBlockEntities {
 	public static final FeatureBlockEntityType<SamplerBlockEntity> SAMPLER =
 			REGISTRY.blockEntityType("sampler", SamplerBlockEntity::new);
 
+	public static final FeatureBlockEntityType<MutatronBlockEntity> MUTATRON =
+			REGISTRY.blockEntityType("mutatron", MutatronBlockEntity::new);
+
+	public static final FeatureBlockEntityType<AdvancedMutatronBlockEntity> ADVANCED_MUTATRON =
+			REGISTRY.blockEntityType("advanced_mutatron", AdvancedMutatronBlockEntity::new);
+
 	public static void init() {
 		EnergyHelper.registerSided(MUTAGEN_PRODUCER.type());
 		InventoryHelper.registerSided(MUTAGEN_PRODUCER.type());
@@ -42,5 +51,13 @@ public class GBlockEntities {
 
 		EnergyHelper.registerSided(SAMPLER.type());
 		InventoryHelper.registerSided(SAMPLER.type());
+
+		EnergyHelper.registerSided(MUTATRON.type());
+		InventoryHelper.registerSided(MUTATRON.type());
+		FluidHelper.registerSided(MUTATRON.type(), AbstractMutatronBlockEntity::getTankManager);
+
+		EnergyHelper.registerSided(ADVANCED_MUTATRON.type());
+		InventoryHelper.registerSided(ADVANCED_MUTATRON.type());
+		FluidHelper.registerSided(ADVANCED_MUTATRON.type(), AbstractMutatronBlockEntity::getTankManager);
 	}
 }
