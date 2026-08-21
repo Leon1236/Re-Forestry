@@ -2,37 +2,49 @@
 
 ## Verdict
 
-PASS after Must/Should fixes below.
+**PASS** (after Must fix in this pass; prior DoD review had already closed sapling/leaf/glass_fitting gaps).
 
 ## Verified counts
 
 | Area | Expected | Actual |
 |---|---:|---:|
-| Product woods + shrub + log-only | 30+1+4 (=35 types) | 35 |
+| Product woods | 30 | 30 |
+| Log-only + shrub | 4 + 1 | 5 (`ExtraTreeWoodType` = 35) |
 | Overlap woods skipped | 6 | 6 |
-| New fruits | 54 | 54 |
-| Species registered | 88 | 88 |
-| Binomial skips | 9 | 9 |
-| Mutations | 97 | 97 |
-| Growth generators | 88 | 88 |
-| Machines | 4 | 4 (lumbermill, press, brewery, distillery) |
-| Foods | 59 | 59 (Papayimar skipped per ET2/ET5) |
+| ET1b kinds (30 woods) | full modern set | present (stripped/wood/trapdoor/button/plate/signs/boats) |
+| New fruits | 54 | 54 (+5 CE reuse) |
+| Species | 88 | 88 (97 − 9 skips) |
+| Remaps | 3 | `tree_et_lime` / `tree_et_elm` / `tree_et_fir` |
+| Acorn oak kept | 1 | `tree_acorn_oak` |
+| Mutations | 97 | 97 (3× `MutationConditionMinHeight`) |
+| Growth | 88/88 | 88 (9× `FeatureLazyTree`) |
+| Machines | 4 | lumbermill, press, brewery, distillery |
+| Foods | 59 | 59 (Papayimar skipped) |
 | Fluids | 104 | 104 |
-| Moths | 22 | 22 |
+| Hops | 1 | yes |
+| Moths | 22 `moth_*` | 22 / 0 mutations |
 | Donor depends | none | none |
 
 ## Skips (documented)
 
-- 9 binomial-duplicate species; 6 overlap woods
+- 9 binomial species; 6 overlap woods
 - No designer / infuser / nursery
-- Papayimar food (Binnie fruit allele commented; Food enum remains) — orphan `c:crops/papayimar` tag removed in this review
-- `alcohol_fruit` fluid id remap (avoid CE `juice`); `ginger_ale` snake_case
+- Papayimar food (Binnie fruit allele commented out)
+- Kitchen / cocktails / databases / ET-D
 
-## Fixes in this review
+## This pass
 
 ### Must
-- Removed orphan `data/c/tags/item/crops/papayimar.json` referencing unregistered `reforestry:papayimar`
-- Wired all 88 ET species into `LeafBlockStateResolver` and `SaplingBlockStateResolver` (+ `items/sapling.json`) so leaves/saplings no longer silently fall back to oak for every ET species
+- Deleted orphan `data/c/tags/item/crops/papayimar.json` (referenced unregistered `reforestry:papayimar` while food remains intentionally skipped)
 
-### Should
-- Added ModuleCore `glass_fitting` item, texture, lang, creative tab, and craft recipe (designer consumer still deferred)
+### Should / hygiene
+- Synced `tools/generate_leaf_variant_assets.py` `SPECIES_TO_GROUP` with the 88 ET leaf-resolver entries
+
+### Already on branch (prior Wave 7 DoD review)
+- 88 ET sapling textures/models + `items/sapling.json` / `SaplingBlockStateResolver`
+- 88 ET entries in `LeafBlockStateResolver`
+- `glass_fitting` item / texture / lang / tab / recipe
+
+## Compile
+
+`./gradlew compileJava --rerun-tasks` — BUILD SUCCESSFUL
