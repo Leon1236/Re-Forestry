@@ -59,4 +59,4 @@ FOSSILIZED is shipped with REFINED so distilled/fuel/creosote/latex parents exis
 - **Must:** none
 - **Should:** none
 
-**Next stage:** `EB2c`
+**Next stage:** `EB2c` (done — see `queries/extra-bees-EB2c.md`)

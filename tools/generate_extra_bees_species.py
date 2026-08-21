@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Generate Extra Bees species + mutation Java from queries/extra-bees-*.json.
 
-Batches are cumulative: EB2b regenerates EB2a + EB2b into ExtraBeesBeeSpecies.java.
+Batches are cumulative: EB2c regenerates EB2a + EB2b + EB2c into ExtraBeesBeeSpecies.java.
 Shared Forestry genera (monapis/rustapis/paludapis/coagapis) are not redefined.
 
 Usage:
-  python3 tools/generate_extra_bees_species.py --batch EB2b --apply
-  python3 tools/generate_extra_bees_species.py --batch EB2b --apply --lang
+  python3 tools/generate_extra_bees_species.py --batch EB2c --apply
+  python3 tools/generate_extra_bees_species.py --batch EB2c --apply --lang
 Without --apply: dry-run summary only.
 """
 from __future__ import annotations
@@ -36,6 +36,10 @@ EB2B_BRANCHES = frozenset({
 })
 EB2B_INCLUDE = frozenset({"GLOWSTONE"})
 
+EB2C_BRANCHES = frozenset({
+	"METALLIC", "METALLIC2", "PRECIOUS", "MINERAL", "GEMSTONE", "NUCLEAR",
+})
+
 FORESTRY_GENUS = {
 	"ROCKY": "monapis",
 	"AGRARIAN": "rustapis",
@@ -58,11 +62,18 @@ BATCHES = {
 		"include_enums": EB2B_INCLUDE,
 		"include_forestry_result": False,
 	},
+	"EB2c": {
+		"branches": EB2C_BRANCHES,
+		"defer": frozenset(),
+		"include_enums": frozenset(),
+		"include_forestry_result": False,
+	},
 }
 
 CUMULATIVE = {
 	"EB2a": ["EB2a"],
 	"EB2b": ["EB2a", "EB2b"],
+	"EB2c": ["EB2a", "EB2b", "EB2c"],
 }
 
 FERTILITY = {
@@ -497,7 +508,7 @@ def apply_lang(batch_ids: list[str], species_doc: dict) -> int:
 
 def main() -> None:
 	parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-	parser.add_argument("--batch", default="EB2b", choices=sorted(BATCHES))
+	parser.add_argument("--batch", default="EB2c", choices=sorted(BATCHES))
 	parser.add_argument("--apply", action="store_true")
 	parser.add_argument("--lang", action="store_true", help="Merge Binnie species names into en_us.json")
 	parser.add_argument("--output", type=Path, default=OUT_SPECIES)

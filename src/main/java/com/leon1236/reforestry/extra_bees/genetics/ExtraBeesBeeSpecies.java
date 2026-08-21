@@ -26,11 +26,17 @@ public final class ExtraBeesBeeSpecies {
 		registration.defineTaxon(ForestryTaxa.FAMILY_BEES, "agriapis");
 		registration.defineTaxon(ForestryTaxa.FAMILY_BEES, "aquapis");
 		registration.defineTaxon(ForestryTaxa.FAMILY_BEES, "fosiapis");
+		registration.defineTaxon(ForestryTaxa.FAMILY_BEES, "gemmapis");
 		registration.defineTaxon(ForestryTaxa.FAMILY_BEES, "grecapis");
 		registration.defineTaxon(ForestryTaxa.FAMILY_BEES, "incitapis");
 		registration.defineTaxon(ForestryTaxa.FAMILY_BEES, "infenapis");
 		registration.defineTaxon(ForestryTaxa.FAMILY_BEES, "irrapis");
+		registration.defineTaxon(ForestryTaxa.FAMILY_BEES, "lamminapis");
+		registration.defineTaxon(ForestryTaxa.FAMILY_BEES, "levapis");
+		registration.defineTaxon(ForestryTaxa.FAMILY_BEES, "metalapis");
+		registration.defineTaxon(ForestryTaxa.FAMILY_BEES, "niphapis");
 		registration.defineTaxon(ForestryTaxa.FAMILY_BEES, "petrapis");
+		registration.defineTaxon(ForestryTaxa.FAMILY_BEES, "pluriapis");
 		registration.defineTaxon(ForestryTaxa.FAMILY_BEES, "priscapis");
 		registration.defineTaxon(ForestryTaxa.FAMILY_BEES, "pullapis");
 		registration.defineTaxon(ForestryTaxa.FAMILY_BEES, "sacchapis");
@@ -954,6 +960,569 @@ public final class ExtraBeesBeeSpecies {
 				})
 				.addMutations(mutations -> {
 					mutations.add(ReForestry.id("bee_ocean"), ReForestry.id("bee_artic"), 10.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_copper"), "lamminapis", "cuprous", true, 0xd16308)
+				.setBodyColor(0xd16308)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.STONE), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.COPPER), 0.06f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORT);
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_wintry"), ReForestry.id("bee_mineral"), 5.0f);
+					mutations.add(ReForestry.id("bee_modest"), ReForestry.id("bee_mineral"), 5.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_tin"), "lamminapis", "stannus", true, 0xbdb1bd)
+				.setBodyColor(0xbdb1bd)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.STONE), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.TIN), 0.06f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORT);
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_marshy"), ReForestry.id("bee_mineral"), 5.0f);
+					mutations.add(ReForestry.id("bee_tropical"), ReForestry.id("bee_mineral"), 5.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_iron"), "lamminapis", "ferrous", false, 0xa87058)
+				.setBodyColor(0xa87058)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.STONE), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.IRON), 0.05f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORT);
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_meadows"), ReForestry.id("bee_mineral"), 5.0f);
+					mutations.add(ReForestry.id("bee_forest"), ReForestry.id("bee_mineral"), 5.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_lead"), "lamminapis", "plumbous", true, 0xad8bab)
+				.setBodyColor(0xad8bab)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.STONE), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.LEAD), 0.05f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORT);
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_meadows"), ReForestry.id("bee_mineral"), 5.0f);
+					mutations.add(ReForestry.id("bee_modest"), ReForestry.id("bee_mineral"), 5.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_zinc"), "metalapis", "spelta", true, 0xedebff)
+				.setBodyColor(0xedebff)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.STONE), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.ZINC), 0.05f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORT);
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_wintry"), ReForestry.id("bee_mineral"), 5.0f);
+					mutations.add(ReForestry.id("bee_tropical"), ReForestry.id("bee_mineral"), 5.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_titanium"), "metalapis", "titania", true, 0xb0aae3)
+				.setBodyColor(0xb0aae3)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.STONE), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.TITANIUM), 0.02f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORT);
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_cultivated"), ReForestry.id("bee_mineral"), 3.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_tungstate"), "metalapis", "wolfram", true, 0x131214)
+				.setBodyColor(0x131214)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.STONE), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.TUNGSTEN), 0.01f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORT);
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_common"), ReForestry.id("bee_mineral"), 3.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_nickel"), "metalapis", "claro", true, 0xffdefc)
+				.setBodyColor(0xffdefc)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.STONE), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.NICKEL), 0.05f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORT);
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_forest"), ReForestry.id("bee_mineral"), 5.0f);
+					mutations.add(ReForestry.id("bee_marshy"), ReForestry.id("bee_mineral"), 5.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_gold"), "pluriapis", "aureus", true, 0xe6cc0b)
+				.setBodyColor(0xe6cc0b)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.STONE), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.GOLD), 0.02f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORT);
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_majestic"), ReForestry.id("bee_iron"), 2.0f);
+					mutations.add(ReForestry.id("bee_majestic"), ReForestry.id("bee_copper"), 2.0f);
+					mutations.add(ReForestry.id("bee_majestic"), ReForestry.id("bee_nickel"), 2.0f);
+					mutations.add(ReForestry.id("bee_majestic"), ReForestry.id("bee_tungstate"), 2.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_silver"), "pluriapis", "argentus", false, 0x43455b)
+				.setBodyColor(0x43455b)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.STONE), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.SILVER), 0.02f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORT);
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_majestic"), ReForestry.id("bee_zinc"), 2.0f);
+					mutations.add(ReForestry.id("bee_majestic"), ReForestry.id("bee_tin"), 2.0f);
+					mutations.add(ReForestry.id("bee_majestic"), ReForestry.id("bee_lead"), 2.0f);
+					mutations.add(ReForestry.id("bee_majestic"), ReForestry.id("bee_titanium"), 2.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_platinum"), "pluriapis", "platina", false, 0xdbdbdb)
+				.setBodyColor(0xdbdbdb)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.STONE), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.PLATINUM), 0.01f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORT);
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_gold"), ReForestry.id("bee_silver"), 2.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_lapis"), "niphapis", "lazuli", true, 0x3d2cdb)
+				.setBodyColor(0x3d2cdb)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.STONE), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.LAPIS), 0.05f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORT);
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_water"), ReForestry.id("bee_mineral"), 5.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_sodalite"), "niphapis", "soda", false, 0x154fed)
+				.setBodyColor(0x154fed)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.STONE), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.SODALITE), 0.04f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORT);
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_lapis"), ReForestry.id("bee_diligent"), 5.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_pyrite"), "niphapis", "pyrus", false, 0xe3a739)
+				.setBodyColor(0xe3a739)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.STONE), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.PYRITE), 0.05f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORT);
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_iron"), ReForestry.id("bee_sinister"), 5.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_bauxite"), "niphapis", "bauxus", false, 0x9c6500)
+				.setBodyColor(0x9c6500)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.STONE), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.BAUXITE), 0.04f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORT);
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_mineral"), ReForestry.id("bee_diligent"), 5.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_cinnabar"), "niphapis", "cinna", false, 0x47320b)
+				.setBodyColor(0x47320b)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.STONE), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.CINNABAR), 0.04f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORT);
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_mineral"), ReForestry.id("bee_sinister"), 5.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_sphalerite"), "niphapis", "spahleri", false, 0xdbd51d)
+				.setBodyColor(0xdbd51d)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.STONE), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.SPHALERITE), 0.04f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORT);
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_tin"), ReForestry.id("bee_sinister"), 5.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_emerald"), "gemmapis", "emerala", true, 0x1cff03)
+				.setBodyColor(0x1cff03)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.STONE), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.EMERALD), 0.04f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORT);
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_forest"), ReForestry.id("bee_lapis"), 5.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_ruby"), "gemmapis", "ruba", true, 0xd60000)
+				.setBodyColor(0xd60000)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.STONE), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.RUBY), 0.03f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORT);
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_modest"), ReForestry.id("bee_lapis"), 5.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_sapphire"), "gemmapis", "saphhira", true, 0x0a47ff)
+				.setBodyColor(0x0a47ff)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.STONE), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.SAPPHIRE), 0.03f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORT);
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_water"), ReForestry.id("bee_lapis"), 5.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_diamond"), "gemmapis", "diama", true, 0x7fbdfa)
+				.setBodyColor(0x7fbdfa)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.STONE), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.DIAMOND), 0.01f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORT);
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_cultivated"), ReForestry.id("bee_lapis"), 5.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_unstable"), "levapis", "levis", false, 0x3e8c34)
+				.setBodyColor(0x3e8c34)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.BARREN), 0.2f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORTEST);
+					genome.set(BeeChromosomes.EFFECT, AlleleManager.INSTANCE.registryAllele(BeeChromosomes.EFFECT.getSafe(ExtraBeesBeeEffects.RADIOACTIVE).orElseThrow(), false));
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_prehistoric"), ReForestry.id("bee_mineral"), 5.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_nuclear"), "levapis", "nucleus", false, 0x41cc2f)
+				.setBodyColor(0x41cc2f)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.BARREN), 0.2f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORTEST);
+					genome.set(BeeChromosomes.EFFECT, AlleleManager.INSTANCE.registryAllele(BeeChromosomes.EFFECT.getSafe(ExtraBeesBeeEffects.RADIOACTIVE).orElseThrow(), false));
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_unstable"), ReForestry.id("bee_iron"), 5.0f);
+					mutations.add(ReForestry.id("bee_unstable"), ReForestry.id("bee_copper"), 5.0f);
+					mutations.add(ReForestry.id("bee_unstable"), ReForestry.id("bee_tin"), 5.0f);
+					mutations.add(ReForestry.id("bee_unstable"), ReForestry.id("bee_zinc"), 5.0f);
+					mutations.add(ReForestry.id("bee_unstable"), ReForestry.id("bee_nickel"), 5.0f);
+					mutations.add(ReForestry.id("bee_unstable"), ReForestry.id("bee_lead"), 5.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_radioactive"), "levapis", "fervens", false, 0x1eff00)
+				.setBodyColor(0x1eff00)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.setGlint(true)
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.BARREN), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.URANIUM), 0.02f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORTEST);
+					genome.set(BeeChromosomes.EFFECT, AlleleManager.INSTANCE.registryAllele(BeeChromosomes.EFFECT.getSafe(ExtraBeesBeeEffects.RADIOACTIVE).orElseThrow(), false));
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_nuclear"), ReForestry.id("bee_gold"), 5.0f);
+					mutations.add(ReForestry.id("bee_nuclear"), ReForestry.id("bee_silver"), 5.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_yellorium"), "levapis", "yellori", true, 0xd5ed00)
+				.setBodyColor(0xd5ed00)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.BARREN), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.YELLORIUM), 0.02f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORTEST);
+					genome.set(BeeChromosomes.EFFECT, AlleleManager.INSTANCE.registryAllele(BeeChromosomes.EFFECT.getSafe(ExtraBeesBeeEffects.RADIOACTIVE).orElseThrow(), false));
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_frugal"), ReForestry.id("bee_nuclear"), 5.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_cyanite"), "levapis", "cyanita", true, 0x0086ed)
+				.setBodyColor(0x0086ed)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.BARREN), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.CYANITE), 0.01f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORTEST);
+					genome.set(BeeChromosomes.EFFECT, AlleleManager.INSTANCE.registryAllele(BeeChromosomes.EFFECT.getSafe(ExtraBeesBeeEffects.RADIOACTIVE).orElseThrow(), false));
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_nuclear"), ReForestry.id("bee_yellorium"), 5.0f);
+				});
+
+		registration.registerSpecies(ReForestry.id("bee_blutonium"), "levapis", "caruthus", true, 0x1b00e6)
+				.setBodyColor(0x1b00e6)
+				.setStripesColor(0x999999)
+				.setAuthority("Binnie")
+				.addProduct(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.BARREN), 0.2f)
+				.addSpecialty(ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.BLUTONIUM), 0.01f)
+				.setGenome(genome -> {
+					genome.set(BeeChromosomes.ACTIVITY, AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false));
+					genome.set(BeeChromosomes.CAVE_DWELLING, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, false));
+					genome.set(BeeChromosomes.FLOWER_TYPE, AlleleManager.INSTANCE.registryAllele(ExtraBeesFlowerType.ROCK, false));
+					genome.set(BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_2);
+					genome.set(BeeChromosomes.FERTILITY, ForestryAlleles.FERTILITY_1);
+					genome.set(BeeChromosomes.LIFESPAN, ForestryAlleles.LIFESPAN_SHORTEST);
+					genome.set(BeeChromosomes.EFFECT, AlleleManager.INSTANCE.registryAllele(BeeChromosomes.EFFECT.getSafe(ExtraBeesBeeEffects.RADIOACTIVE).orElseThrow(), false));
+				})
+				.addMutations(mutations -> {
+					mutations.add(ReForestry.id("bee_cyanite"), ReForestry.id("bee_yellorium"), 5.0f);
 				});
 
 		registration.modifySpecies(ReForestry.id("bee_common"), species -> species.addMutations(mutations -> {
