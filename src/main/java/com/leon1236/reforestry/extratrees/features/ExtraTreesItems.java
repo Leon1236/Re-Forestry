@@ -55,6 +55,7 @@ public class ExtraTreesItems {
 	public static final FeatureItem<Item> GRAIN_RYE = REGISTRY.item("grain_rye", Item::new);
 	public static final FeatureItem<Item> GRAIN_CORN = REGISTRY.item("grain_corn", Item::new);
 	public static final FeatureItem<Item> GRAIN_ROASTED = REGISTRY.item("grain_roasted", Item::new);
+	public static final FeatureItem<Item> GLASS_FITTING = REGISTRY.item("glass_fitting", Item::new);
 
 	public static void init() {
 		for (ExtraTreeWoodType type : ExtraTreeWoodType.WITH_PRODUCTS) {

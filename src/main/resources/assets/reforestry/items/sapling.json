@@ -11,10 +11,73 @@
         }
       },
       {
+        "when": "reforestry:tree_acorn_oak",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/acorn_oak"
+        }
+      },
+      {
+        "when": "reforestry:tree_alder",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/alder"
+        }
+      },
+      {
+        "when": "reforestry:tree_allspice",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/allspice"
+        }
+      },
+      {
+        "when": "reforestry:tree_almond",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/almond"
+        }
+      },
+      {
+        "when": "reforestry:tree_apricot",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/apricot"
+        }
+      },
+      {
+        "when": "reforestry:tree_ash",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/ash"
+        }
+      },
+      {
+        "when": "reforestry:tree_aspen",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/aspen"
+        }
+      },
+      {
+        "when": "reforestry:tree_avocado",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/avocado"
+        }
+      },
+      {
         "when": "reforestry:tree_balsa",
         "model": {
           "type": "minecraft:model",
           "model": "reforestry:item/tree_saplings/balsa"
+        }
+      },
+      {
+        "when": "reforestry:tree_banana",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/banana"
         }
       },
       {
@@ -39,6 +102,97 @@
         }
       },
       {
+        "when": "reforestry:tree_black_cherry",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/black_cherry"
+        }
+      },
+      {
+        "when": "reforestry:tree_blackberry",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/blackberry"
+        }
+      },
+      {
+        "when": "reforestry:tree_blackcurrant",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/blackcurrant"
+        }
+      },
+      {
+        "when": "reforestry:tree_blackthorn",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/blackthorn"
+        }
+      },
+      {
+        "when": "reforestry:tree_blueberry",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/blueberry"
+        }
+      },
+      {
+        "when": "reforestry:tree_box",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/box"
+        }
+      },
+      {
+        "when": "reforestry:tree_brazilnut",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/brazilnut"
+        }
+      },
+      {
+        "when": "reforestry:tree_brazilwood",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/brazilwood"
+        }
+      },
+      {
+        "when": "reforestry:tree_buddha_hand",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/buddha_hand"
+        }
+      },
+      {
+        "when": "reforestry:tree_butternut",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/butternut"
+        }
+      },
+      {
+        "when": "reforestry:tree_candlenut",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/candlenut"
+        }
+      },
+      {
+        "when": "reforestry:tree_cashew",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/cashew"
+        }
+      },
+      {
+        "when": "reforestry:tree_cedar",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/cedar"
+        }
+      },
+      {
         "when": "reforestry:tree_cherry",
         "model": {
           "type": "minecraft:model",
@@ -46,10 +200,45 @@
         }
       },
       {
+        "when": "reforestry:tree_cherry_plum",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/cherry_plum"
+        }
+      },
+      {
         "when": "reforestry:tree_chestnut",
         "model": {
           "type": "minecraft:model",
           "model": "reforestry:item/tree_saplings/chestnut"
+        }
+      },
+      {
+        "when": "reforestry:tree_chilli",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/chilli"
+        }
+      },
+      {
+        "when": "reforestry:tree_cinnamon",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/cinnamon"
+        }
+      },
+      {
+        "when": "reforestry:tree_citron",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/citron"
+        }
+      },
+      {
+        "when": "reforestry:tree_clove",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/clove"
         }
       },
       {
@@ -64,6 +253,34 @@
         "model": {
           "type": "minecraft:model",
           "model": "reforestry:item/tree_saplings/coconut"
+        }
+      },
+      {
+        "when": "reforestry:tree_coffee",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/coffee"
+        }
+      },
+      {
+        "when": "reforestry:tree_copper_beech",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/copper_beech"
+        }
+      },
+      {
+        "when": "reforestry:tree_cranberry",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/cranberry"
+        }
+      },
+      {
+        "when": "reforestry:tree_cypress",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/cypress"
         }
       },
       {
@@ -95,10 +312,31 @@
         }
       },
       {
+        "when": "reforestry:tree_douglas_fir",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/douglas_fir"
+        }
+      },
+      {
+        "when": "reforestry:tree_dwarf_hazel",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/dwarf_hazel"
+        }
+      },
+      {
         "when": "reforestry:tree_ebony",
         "model": {
           "type": "minecraft:model",
           "model": "reforestry:item/tree_saplings/ebony"
+        }
+      },
+      {
+        "when": "reforestry:tree_elder",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/elder"
         }
       },
       {
@@ -109,6 +347,27 @@
         }
       },
       {
+        "when": "reforestry:tree_et_elm",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/et_elm"
+        }
+      },
+      {
+        "when": "reforestry:tree_et_fir",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/et_fir"
+        }
+      },
+      {
+        "when": "reforestry:tree_et_lime",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/et_lime"
+        }
+      },
+      {
         "when": "reforestry:tree_feijoa",
         "model": {
           "type": "minecraft:model",
@@ -116,10 +375,24 @@
         }
       },
       {
+        "when": "reforestry:tree_finger_lime",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/finger_lime"
+        }
+      },
+      {
         "when": "reforestry:tree_fir",
         "model": {
           "type": "minecraft:model",
           "model": "reforestry:item/tree_saplings/fir"
+        }
+      },
+      {
+        "when": "reforestry:tree_flowering_crabapple",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/flowering_crabapple"
         }
       },
       {
@@ -137,6 +410,48 @@
         }
       },
       {
+        "when": "reforestry:tree_golden_raspberry",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/golden_raspberry"
+        }
+      },
+      {
+        "when": "reforestry:tree_gooseberry",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/gooseberry"
+        }
+      },
+      {
+        "when": "reforestry:tree_grapefruit",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/grapefruit"
+        }
+      },
+      {
+        "when": "reforestry:tree_hawthorn",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/hawthorn"
+        }
+      },
+      {
+        "when": "reforestry:tree_hazel",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/hazel"
+        }
+      },
+      {
+        "when": "reforestry:tree_hemlock",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/hemlock"
+        }
+      },
+      {
         "when": "reforestry:tree_hill_cherry",
         "model": {
           "type": "minecraft:model",
@@ -144,10 +459,31 @@
         }
       },
       {
+        "when": "reforestry:tree_holly",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/holly"
+        }
+      },
+      {
+        "when": "reforestry:tree_hornbeam",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/hornbeam"
+        }
+      },
+      {
         "when": "reforestry:tree_ipe",
         "model": {
           "type": "minecraft:model",
           "model": "reforestry:item/tree_saplings/ipe"
+        }
+      },
+      {
+        "when": "reforestry:tree_iroko",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/iroko"
         }
       },
       {
@@ -165,6 +501,13 @@
         }
       },
       {
+        "when": "reforestry:tree_juniper",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/juniper"
+        }
+      },
+      {
         "when": "reforestry:tree_kapok",
         "model": {
           "type": "minecraft:model",
@@ -176,6 +519,20 @@
         "model": {
           "type": "minecraft:model",
           "model": "reforestry:item/tree_saplings/kauri"
+        }
+      },
+      {
+        "when": "reforestry:tree_key_lime",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/key_lime"
+        }
+      },
+      {
+        "when": "reforestry:tree_kumquat",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/kumquat"
         }
       },
       {
@@ -200,6 +557,27 @@
         }
       },
       {
+        "when": "reforestry:tree_loblolly_pine",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/loblolly_pine"
+        }
+      },
+      {
+        "when": "reforestry:tree_locust",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/locust"
+        }
+      },
+      {
+        "when": "reforestry:tree_logwood",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/logwood"
+        }
+      },
+      {
         "when": "reforestry:tree_macrocarpa",
         "model": {
           "type": "minecraft:model",
@@ -221,6 +599,20 @@
         }
       },
       {
+        "when": "reforestry:tree_manderin",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/manderin"
+        }
+      },
+      {
+        "when": "reforestry:tree_mango",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/mango"
+        }
+      },
+      {
         "when": "reforestry:tree_maple",
         "model": {
           "type": "minecraft:model",
@@ -228,10 +620,31 @@
         }
       },
       {
+        "when": "reforestry:tree_nectarine",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/nectarine"
+        }
+      },
+      {
+        "when": "reforestry:tree_nutmeg",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/nutmeg"
+        }
+      },
+      {
         "when": "reforestry:tree_oak",
         "model": {
           "type": "minecraft:model",
           "model": "minecraft:item/oak_sapling"
+        }
+      },
+      {
+        "when": "reforestry:tree_old_fustic",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/old_fustic"
         }
       },
       {
@@ -249,6 +662,20 @@
         }
       },
       {
+        "when": "reforestry:tree_orchard_apple",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/orchard_apple"
+        }
+      },
+      {
+        "when": "reforestry:tree_osange_orange",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/osange_orange"
+        }
+      },
+      {
         "when": "reforestry:tree_padauk",
         "model": {
           "type": "minecraft:model",
@@ -263,10 +690,24 @@
         }
       },
       {
+        "when": "reforestry:tree_peach",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/peach"
+        }
+      },
+      {
         "when": "reforestry:tree_pear",
         "model": {
           "type": "minecraft:model",
           "model": "reforestry:item/tree_saplings/pear"
+        }
+      },
+      {
+        "when": "reforestry:tree_pecan",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/pecan"
         }
       },
       {
@@ -284,6 +725,20 @@
         }
       },
       {
+        "when": "reforestry:tree_pink_ivory",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/pink_ivory"
+        }
+      },
+      {
+        "when": "reforestry:tree_plantain",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/plantain"
+        }
+      },
+      {
         "when": "reforestry:tree_plum",
         "model": {
           "type": "minecraft:model",
@@ -291,10 +746,101 @@
         }
       },
       {
+        "when": "reforestry:tree_pomelo",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/pomelo"
+        }
+      },
+      {
         "when": "reforestry:tree_poplar",
         "model": {
           "type": "minecraft:model",
           "model": "reforestry:item/tree_saplings/poplar"
+        }
+      },
+      {
+        "when": "reforestry:tree_prairie_crabapple",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/prairie_crabapple"
+        }
+      },
+      {
+        "when": "reforestry:tree_purpleheart",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/purpleheart"
+        }
+      },
+      {
+        "when": "reforestry:tree_rainbow_gum",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/rainbow_gum"
+        }
+      },
+      {
+        "when": "reforestry:tree_raspberry",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/raspberry"
+        }
+      },
+      {
+        "when": "reforestry:tree_red_banana",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/red_banana"
+        }
+      },
+      {
+        "when": "reforestry:tree_red_maple",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/red_maple"
+        }
+      },
+      {
+        "when": "reforestry:tree_redcurrant",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/redcurrant"
+        }
+      },
+      {
+        "when": "reforestry:tree_rose_gum",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/rose_gum"
+        }
+      },
+      {
+        "when": "reforestry:tree_rosewood",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/rosewood"
+        }
+      },
+      {
+        "when": "reforestry:tree_rowan",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/rowan"
+        }
+      },
+      {
+        "when": "reforestry:tree_sallow",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/sallow"
+        }
+      },
+      {
+        "when": "reforestry:tree_satsuma",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/satsuma"
         }
       },
       {
@@ -319,6 +865,55 @@
         }
       },
       {
+        "when": "reforestry:tree_star_anise",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/star_anise"
+        }
+      },
+      {
+        "when": "reforestry:tree_starfruit",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/starfruit"
+        }
+      },
+      {
+        "when": "reforestry:tree_swamp_gum",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/swamp_gum"
+        }
+      },
+      {
+        "when": "reforestry:tree_sweet_crabapple",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/sweet_crabapple"
+        }
+      },
+      {
+        "when": "reforestry:tree_sweetgum",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/sweetgum"
+        }
+      },
+      {
+        "when": "reforestry:tree_sycamore",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/sycamore"
+        }
+      },
+      {
+        "when": "reforestry:tree_tangerine",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/tangerine"
+        }
+      },
+      {
         "when": "reforestry:tree_teak",
         "model": {
           "type": "minecraft:model",
@@ -340,10 +935,31 @@
         }
       },
       {
+        "when": "reforestry:tree_whitebeam",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/whitebeam"
+        }
+      },
+      {
+        "when": "reforestry:tree_wild_cherry",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/wild_cherry"
+        }
+      },
+      {
         "when": "reforestry:tree_willow",
         "model": {
           "type": "minecraft:model",
           "model": "reforestry:item/tree_saplings/willow"
+        }
+      },
+      {
+        "when": "reforestry:tree_yew",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/tree_saplings/yew"
         }
       },
       {

@@ -74,6 +74,7 @@ public class ExtraTreesCreativeTabs {
 			output.accept(ExtraTreesItems.GRAIN_RYE.item());
 			output.accept(ExtraTreesItems.GRAIN_CORN.item());
 			output.accept(ExtraTreesItems.GRAIN_ROASTED.item());
+			output.accept(ExtraTreesItems.GLASS_FITTING.item());
 			if (ExtraTreesBlocks.HOPS.item() != null) {
 				output.accept(ExtraTreesBlocks.HOPS.item());
 			}
