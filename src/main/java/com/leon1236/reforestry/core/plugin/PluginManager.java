@@ -15,6 +15,7 @@ import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.api.client.plugin.IClientRegistration;
 import com.leon1236.reforestry.api.genetics.ISpeciesType;
 import com.leon1236.reforestry.api.plugin.IForestryPlugin;
+import com.leon1236.reforestry.apiculture.genetics.BeeChromosomes;
 import com.leon1236.reforestry.arboriculture.charcoal.CharcoalManager;
 import com.leon1236.reforestry.core.ForestryApiImpl;
 import com.leon1236.reforestry.core.circuits.CircuitManager;
@@ -43,6 +44,9 @@ public final class PluginManager {
         FlowerTypeManager.INSTANCE.bootstrapVanilla();
         for (var entry : registration.flowerTypes().entrySet()) {
             FlowerTypeManager.INSTANCE.register(entry.getKey(), entry.getValue());
+            if (entry.getValue() instanceof com.leon1236.reforestry.apiculture.genetics.IFlowerType geneticsType) {
+                BeeChromosomes.FLOWER_TYPE.registerValue(entry.getKey(), geneticsType);
+            }
         }
         GeneticManager geneticManager = ForestryApiImpl.get().getMutableGeneticManager();
         for (Map.Entry<Identifier, ISpeciesType<?, ?>> entry : registration.buildSpeciesTypes().entrySet()) {

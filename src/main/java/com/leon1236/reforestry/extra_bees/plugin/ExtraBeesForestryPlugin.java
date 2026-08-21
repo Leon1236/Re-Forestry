@@ -7,11 +7,15 @@ import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.api.IForestryApi;
 import com.leon1236.reforestry.api.circuits.ForestryCircuitLayouts;
 import com.leon1236.reforestry.api.circuits.ForestryCircuitSocketTypes;
+import com.leon1236.reforestry.api.plugin.IApicultureRegistration;
 import com.leon1236.reforestry.api.plugin.ICircuitRegistration;
 import com.leon1236.reforestry.api.plugin.IForestryPlugin;
+import com.leon1236.reforestry.api.plugin.IGeneticRegistration;
 import com.leon1236.reforestry.core.features.CoreItems;
 import com.leon1236.reforestry.extra_bees.circuit.AlvearySimulatorCircuitType;
 import com.leon1236.reforestry.extra_bees.circuit.StimulatorCircuit;
+import com.leon1236.reforestry.extra_bees.genetics.ExtraBeesFlowerType;
+import com.leon1236.reforestry.extra_bees.genetics.effects.ExtraBeesEffects;
 
 public class ExtraBeesForestryPlugin implements IForestryPlugin {
 	@Override
@@ -22,6 +26,18 @@ public class ExtraBeesForestryPlugin implements IForestryPlugin {
 	@Override
 	public boolean shouldLoad() {
 		return IForestryApi.get().getModuleManager().isModuleLoaded(ReForestry.id("extra_bees"));
+	}
+
+	@Override
+	public void registerGenetics(IGeneticRegistration registration) {
+		for (ExtraBeesFlowerType type : ExtraBeesFlowerType.values()) {
+			registration.registerFlowerType(type.id(), type);
+		}
+	}
+
+	@Override
+	public void registerApiculture(IApicultureRegistration registration) {
+		ExtraBeesEffects.register(registration);
 	}
 
 	@Override

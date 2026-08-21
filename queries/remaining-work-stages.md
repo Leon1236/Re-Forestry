@@ -444,7 +444,7 @@ Skip Binnie Genetics serums/isolator (Gendustry is the modern line).
 | `EB1` | M    | Module + items (combs, drops, frames, ectoplasm, hive blocks) + crafts — **done** | EB0 |
 | `EB5` | L    | 7 alveary parts + crafts + stimulator circuits — **done** | EB1, alveary |
 | `EB6` | M    | Centrifuge/squeezer datapack (soft-skip missing fluids) — **done** | EB1, factory |
-| `EB-FLOWERS` + `EB3` | M | 11 flower types + 25 effects (**before** species) | EB1, GP0b |
+| `EB-FLOWERS` + `EB3` | M | 11 flower types + 25 effects (**before** species) — **done** | EB1, GP0b |
 | `EB2a–e` | L | 116 species + 168 mutations (`modifySpecies` for 34 CE results with EB2a) | EB-FLOWERS+EB3 |
 | `EB4` | M | Hives water/rock/nether/marble + worldgen + loot | EB2a |
 
