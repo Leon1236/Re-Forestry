@@ -1,11 +1,11 @@
 {
-  "type": "forestry:bee_species",
+  "type": "reforestry:bee_species",
   "parent": "apidae",
   "alleles": {
-    "forestry:flower_type": {
-      "value": "forestry:flower_type_ancient"
+    "reforestry:flower_type": {
+      "value": "reforestry:flower_type_ancient"
     },
-    "forestry:temperature_tolerance": {
+    "reforestry:temperature_tolerance": {
       "dominant": true,
       "value": "DOWN_1"
     }

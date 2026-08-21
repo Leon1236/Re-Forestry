@@ -109,12 +109,12 @@ public class Tree extends Individual<ITreeSpecies, ITree, TreeSpeciesType> imple
 
 	@Override
 	public List<? extends IProduct> getProducts() {
-		return getSpecies().getProducts();
+		return genome.getActiveAllele(TreeChromosomes.FRUIT).value().getProducts();
 	}
 
 	@Override
 	public List<? extends IProduct> getSpecialties() {
-		return getSpecies().getSpecialties();
+		return genome.getActiveAllele(TreeChromosomes.FRUIT).value().getSpecialties();
 	}
 
 	@Override

@@ -221,7 +221,7 @@ public final class ForestryTaxa {
 	public static final String SPECIES_PRIMEVAL = "antiqua";
 	public static final String SPECIES_ANACHRONE = "tempuraptor";
 	public static final String SPECIES_CHRONOFUGE = "elizabethii";
-	public static final String SPECIES_AQUATIC = "squarepantsii";//a real species name
+	public static final String SPECIES_AQUATIC = "squarepantsii";
 	public static final String SPECIES_PIRATE = "pirata";
 	public static final String SPECIES_PRISMATIC = "orichalcus";
 	public static final String SPECIES_ABYSSAL = "stygii";

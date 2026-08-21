@@ -1,11 +1,11 @@
 {
-  "type": "forestry:bee_species",
+  "type": "reforestry:bee_species",
   "parent": "apidae",
   "alleles": {
-    "forestry:activity": {
-      "value": "forestry:activity_cathemeral"
+    "reforestry:activity": {
+      "value": "reforestry:activity_cathemeral"
     },
-    "forestry:cave_dwelling": {
+    "reforestry:cave_dwelling": {
       "dominant": true,
       "value": true
     }

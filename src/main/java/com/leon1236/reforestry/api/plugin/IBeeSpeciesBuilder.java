@@ -66,12 +66,14 @@ public interface IBeeSpeciesBuilder extends ISpeciesBuilder<IBeeSpeciesType, IBe
 
 	IBeeSpeciesBuilder addSpecialty(Item item, float chance);
 
+	IBeeSpeciesBuilder addSpecialty(Item item, int count, float chance);
+
 	default IBeeSpeciesBuilder addSpecialty(IProduct specialty) {
-		return addSpecialty(specialty.item(), specialty.chance());
+		return addSpecialty(specialty.item(), specialty.count(), specialty.chance());
 	}
 
 	default IBeeSpeciesBuilder addSpecialty(ItemStack stack, float chance) {
-		return addSpecialty(stack.getItem(), chance);
+		return addSpecialty(stack.getItem(), stack.getCount(), chance);
 	}
 
 	IBeeSpeciesBuilder setJubilance(IBeeJubilance jubilance);

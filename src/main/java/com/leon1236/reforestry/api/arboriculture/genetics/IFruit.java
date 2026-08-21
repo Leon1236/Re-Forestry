@@ -31,15 +31,21 @@ public interface IFruit extends IRegistryAlleleValue, IProductProducer, ISpecial
 
 	int getDecorativeColor();
 
-	float getFruitChance(IGenome genome);
+	float getFruitChance(IGenome genome, @Nullable LevelAccessor level);
+
+	default float getFruitChance(IGenome genome) {
+		return getFruitChance(genome, null);
+	}
 
 	int getRipeningPeriod();
 
-	@Override
-	List<Product> getProducts();
+	@Deprecated
+	List<? extends IProduct> getSpecialty();
 
 	@Override
-	List<Product> getSpecialties();
+	default List<? extends IProduct> getSpecialties() {
+		return getSpecialty();
+	}
 
 	List<ItemStack> getFruits(IGenome genome, Level level, int ripeningTime);
 

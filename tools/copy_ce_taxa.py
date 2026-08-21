@@ -1,7 +1,6 @@
-# Copy Forestry CE taxon JSON into data/reforestry/taxon (namespace rewrite by path).
+# Copy Forestry CE taxon JSON into data/reforestry/taxon (rewrite forestry: → reforestry:).
 # Usage: python3 tools/copy_ce_taxa.py [--butterflies]
 import argparse
-import shutil
 from pathlib import Path
 
 CE_ROOT = Path("/tmp/ForestryCE")
@@ -14,7 +13,8 @@ def copy_from(source: Path) -> int:
     DEST.mkdir(parents=True, exist_ok=True)
     count = 0
     for path in sorted(source.glob("*.json")):
-        shutil.copy(path, DEST / path.name)
+        text = path.read_text().replace("forestry:", "reforestry:")
+        (DEST / path.name).write_text(text)
         count += 1
     return count
 

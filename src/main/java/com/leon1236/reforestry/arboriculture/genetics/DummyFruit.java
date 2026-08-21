@@ -50,7 +50,7 @@ public class DummyFruit implements IFruit {
     }
 
     @Override
-    public float getFruitChance(IGenome genome) {
+    public float getFruitChance(IGenome genome, @Nullable LevelAccessor level) {
         return genome.getActiveAllele(TreeChromosomes.YIELD).value() * 2.5f;
     }
 
@@ -65,7 +65,8 @@ public class DummyFruit implements IFruit {
     }
 
     @Override
-    public List<IFruit.Product> getSpecialties() {
+    @Deprecated
+    public List<IFruit.Product> getSpecialty() {
         return List.of();
     }
 

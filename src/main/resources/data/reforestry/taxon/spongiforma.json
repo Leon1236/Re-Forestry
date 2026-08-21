@@ -1,22 +1,22 @@
 {
-  "type": "forestry:bee_species",
+  "type": "reforestry:bee_species",
   "parent": "apidae",
   "alleles": {
-    "forestry:activity": {
-      "value": "forestry:activity_crepuscular"
+    "reforestry:activity": {
+      "value": "reforestry:activity_crepuscular"
     },
-    "forestry:pollination": {
+    "reforestry:pollination": {
       "dominant": true,
       "value": 5
     },
-    "forestry:territory": {
+    "reforestry:territory": {
       "value": [
         15,
         13,
         15
       ]
     },
-    "forestry:tolerates_rain": {
+    "reforestry:tolerates_rain": {
       "dominant": true,
       "value": true
     }

@@ -1,25 +1,25 @@
 {
-  "type": "forestry:bee_species",
+  "type": "reforestry:bee_species",
   "parent": "apidae",
   "alleles": {
-    "forestry:activity": {
-      "value": "forestry:activity_cathemeral"
+    "reforestry:activity": {
+      "value": "reforestry:activity_cathemeral"
     },
-    "forestry:cave_dwelling": {
+    "reforestry:cave_dwelling": {
       "dominant": true,
       "value": true
     },
-    "forestry:fertility": {
+    "reforestry:fertility": {
       "value": 4
     },
-    "forestry:flower_type": {
-      "value": "forestry:flower_type_nether"
+    "reforestry:flower_type": {
+      "value": "reforestry:flower_type_nether"
     },
-    "forestry:lifespan": {
+    "reforestry:lifespan": {
       "dominant": true,
       "value": 35
     },
-    "forestry:pollination": {
+    "reforestry:pollination": {
       "dominant": true,
       "value": 5
     }

@@ -1,18 +1,18 @@
 {
-  "type": "forestry:bee_species",
+  "type": "reforestry:bee_species",
   "parent": "apidae",
   "alleles": {
-    "forestry:activity": {
-      "value": "forestry:activity_nocturnal"
+    "reforestry:activity": {
+      "value": "reforestry:activity_nocturnal"
     },
-    "forestry:flower_type": {
-      "value": "forestry:flower_type_cacti"
+    "reforestry:flower_type": {
+      "value": "reforestry:flower_type_cacti"
     },
-    "forestry:humidity_tolerance": {
+    "reforestry:humidity_tolerance": {
       "dominant": true,
       "value": "DOWN_1"
     },
-    "forestry:temperature_tolerance": {
+    "reforestry:temperature_tolerance": {
       "dominant": true,
       "value": "BOTH_1"
     }

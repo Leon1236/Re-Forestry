@@ -10,7 +10,7 @@ import com.mojang.serialization.Codec;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -97,7 +97,7 @@ public final class ButterflySpeciesType extends SpeciesType<IButterflySpecies, I
 
 	@Override
 	@Nullable
-	public Mob spawnButterflyInWorld(Level level, IButterfly butterfly, double x, double y, double z) {
+	public PathfinderMob spawnButterflyInWorld(Level level, IButterfly butterfly, double x, double y, double z) {
 		return null;
 	}
 

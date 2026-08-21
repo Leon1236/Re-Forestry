@@ -14,7 +14,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.state.BlockState;
 
 import com.leon1236.reforestry.ReForestry;
+import com.leon1236.reforestry.api.arboriculture.genetics.IFruit;
 import com.leon1236.reforestry.api.arboriculture.genetics.ITree;
+import com.leon1236.reforestry.api.arboriculture.genetics.ITreeEffect;
 import com.leon1236.reforestry.api.arboriculture.genetics.ITreeSpeciesType;
 import com.leon1236.reforestry.api.arboriculture.genetics.TreeLifeStage;
 import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
@@ -43,6 +45,35 @@ public final class TreeSpeciesType extends SpeciesType<ITreeSpecies, ITree> impl
 				vanillaItems.put(item, individual);
 			}
 		}
+	}
+
+	@Override
+	public IFruit getFruit(Identifier id) {
+		IFruit fruit = getFruitSafe(id);
+		if (fruit == null) {
+			throw new IllegalArgumentException("Unknown fruit: " + id);
+		}
+		return fruit;
+	}
+
+	@Override
+	@Nullable
+	public IFruit getFruitSafe(Identifier id) {
+		return TreeChromosomes.FRUIT.getSafe(id).orElse(null);
+	}
+
+	@Override
+	public ITreeEffect getTreeEffect(Identifier id) {
+		ITreeEffect effect = TreeChromosomes.EFFECT.getSafe(id).orElse(null);
+		if (effect == null) {
+			throw new IllegalArgumentException("Unknown tree effect: " + id);
+		}
+		return effect;
+	}
+
+	@Override
+	public ITree getTree(IGenome genome) {
+		return new Tree(genome);
 	}
 
 	@Override

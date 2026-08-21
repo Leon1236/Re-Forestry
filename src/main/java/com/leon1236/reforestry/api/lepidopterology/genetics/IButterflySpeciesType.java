@@ -4,7 +4,7 @@ import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -25,7 +25,7 @@ public interface IButterflySpeciesType extends ISpeciesType<IButterflySpecies, I
 	IButterflyEffect getButterflyEffectSafe(Identifier id);
 
 	@Nullable
-	Mob spawnButterflyInWorld(Level level, IButterfly butterfly, double x, double y, double z);
+	PathfinderMob spawnButterflyInWorld(Level level, IButterfly butterfly, double x, double y, double z);
 
 	@Nullable
 	BlockPos plantCocoon(LevelAccessor level, BlockPos pos, IButterfly caterpillar, int age, boolean createNursery);

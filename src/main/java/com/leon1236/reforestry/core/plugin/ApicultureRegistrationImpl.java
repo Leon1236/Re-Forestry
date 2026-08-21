@@ -21,6 +21,7 @@ import com.leon1236.reforestry.api.plugin.IHiveBuilder;
 import com.leon1236.reforestry.apiculture.SwarmerMaterials;
 import com.leon1236.reforestry.apiculture.genetics.ApicultureGenetics;
 import com.leon1236.reforestry.apiculture.genetics.BeeChromosomes;
+import com.leon1236.reforestry.apiculture.genetics.BeeSpeciesType;
 import com.leon1236.reforestry.apiculture.hives.HiveManager;
 import com.leon1236.reforestry.core.genetics.ForestryAlleles;
 import com.leon1236.reforestry.core.genetics.alleles.AlleleManager;
@@ -28,7 +29,6 @@ import com.leon1236.reforestry.core.genetics.alleles.AlleleManager;
 public final class ApicultureRegistrationImpl implements IApicultureRegistration {
 	private final Map<Identifier, HiveBuilder> hives = new LinkedHashMap<>();
 	private final Map<Identifier, IBeeEffect> beeEffects = new LinkedHashMap<>();
-	private final Map<Identifier, IBeeJubilance> jubilances = new LinkedHashMap<>();
 
 	@Override
 	public IBeeSpeciesBuilder registerSpecies(Identifier id, String genus, String species, boolean dominant, int outlineColor) {
@@ -72,10 +72,7 @@ public final class ApicultureRegistrationImpl implements IApicultureRegistration
 
 	@Override
 	public void registerBeeJubilance(Identifier id, IBeeJubilance jubilance) {
-		if (jubilances.containsKey(id)) {
-			throw new IllegalStateException("Bee jubilance already registered: " + id);
-		}
-		jubilances.put(id, jubilance);
+		BeeSpeciesType.INSTANCE.registerJubilance(id, jubilance);
 	}
 
 	@Override

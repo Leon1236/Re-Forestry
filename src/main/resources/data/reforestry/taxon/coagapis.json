@@ -1,18 +1,18 @@
 {
-  "type": "forestry:bee_species",
+  "type": "reforestry:bee_species",
   "parent": "apidae",
   "alleles": {
-    "forestry:bee_effect": {
-      "value": "forestry:bee_effect_glacial"
+    "reforestry:bee_effect": {
+      "value": "reforestry:bee_effect_glacial"
     },
-    "forestry:flower_type": {
-      "value": "forestry:flower_type_snow"
+    "reforestry:flower_type": {
+      "value": "reforestry:flower_type_snow"
     },
-    "forestry:humidity_tolerance": {
+    "reforestry:humidity_tolerance": {
       "dominant": true,
       "value": "BOTH_1"
     },
-    "forestry:temperature_tolerance": {
+    "reforestry:temperature_tolerance": {
       "dominant": true,
       "value": "UP_1"
     }

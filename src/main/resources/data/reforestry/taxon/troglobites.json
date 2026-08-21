@@ -1,19 +1,19 @@
 {
-  "type": "forestry:bee_species",
+  "type": "reforestry:bee_species",
   "parent": "apidae",
   "alleles": {
-    "forestry:activity": {
-      "value": "forestry:activity_cathemeral"
+    "reforestry:activity": {
+      "value": "reforestry:activity_cathemeral"
     },
-    "forestry:cave_dwelling": {
+    "reforestry:cave_dwelling": {
       "dominant": true,
       "value": true
     },
-    "forestry:fertility": {
+    "reforestry:fertility": {
       "value": 3
     },
-    "forestry:flower_type": {
-      "value": "forestry:flower_type_cave"
+    "reforestry:flower_type": {
+      "value": "reforestry:flower_type_cave"
     }
   },
   "name": "troglobites",

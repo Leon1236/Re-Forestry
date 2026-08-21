@@ -1,18 +1,18 @@
 {
-  "type": "forestry:bee_species",
+  "type": "reforestry:bee_species",
   "parent": "apidae",
   "alleles": {
-    "forestry:flower_type": {
-      "value": "forestry:flower_type_wheat"
+    "reforestry:flower_type": {
+      "value": "reforestry:flower_type_wheat"
     },
-    "forestry:lifespan": {
+    "reforestry:lifespan": {
       "dominant": true,
       "value": 20
     },
-    "forestry:pollination": {
+    "reforestry:pollination": {
       "value": 30
     },
-    "forestry:speed": {
+    "reforestry:speed": {
       "dominant": true,
       "value": 0.6
     }

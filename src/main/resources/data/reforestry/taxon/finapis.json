@@ -1,36 +1,36 @@
 {
-  "type": "forestry:bee_species",
+  "type": "reforestry:bee_species",
   "parent": "apidae",
   "alleles": {
-    "forestry:activity": {
-      "value": "forestry:activity_nocturnal"
+    "reforestry:activity": {
+      "value": "reforestry:activity_nocturnal"
     },
-    "forestry:bee_effect": {
-      "value": "forestry:bee_effect_misanthrope"
+    "reforestry:bee_effect": {
+      "value": "reforestry:bee_effect_misanthrope"
     },
-    "forestry:fertility": {
+    "reforestry:fertility": {
       "dominant": true,
       "value": 1
     },
-    "forestry:flower_type": {
-      "value": "forestry:flower_type_end"
+    "reforestry:flower_type": {
+      "value": "reforestry:flower_type_end"
     },
-    "forestry:humidity_tolerance": {
+    "reforestry:humidity_tolerance": {
       "dominant": true,
       "value": "BOTH_1"
     },
-    "forestry:lifespan": {
+    "reforestry:lifespan": {
       "value": 60
     },
-    "forestry:speed": {
+    "reforestry:speed": {
       "dominant": true,
       "value": 0.6
     },
-    "forestry:temperature_tolerance": {
+    "reforestry:temperature_tolerance": {
       "dominant": true,
       "value": "UP_1"
     },
-    "forestry:territory": {
+    "reforestry:territory": {
       "value": [
         11,
         8,

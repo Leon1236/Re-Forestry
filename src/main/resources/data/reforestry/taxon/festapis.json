@@ -1,19 +1,19 @@
 {
-  "type": "forestry:bee_species",
+  "type": "reforestry:bee_species",
   "parent": "apidae",
   "alleles": {
-    "forestry:humidity_tolerance": {
+    "reforestry:humidity_tolerance": {
       "dominant": true,
       "value": "BOTH_1"
     },
-    "forestry:lifespan": {
+    "reforestry:lifespan": {
       "value": 40
     },
-    "forestry:speed": {
+    "reforestry:speed": {
       "dominant": true,
       "value": 0.6
     },
-    "forestry:temperature_tolerance": {
+    "reforestry:temperature_tolerance": {
       "value": "BOTH_2"
     }
   },

@@ -138,7 +138,12 @@ public final class BeeSpeciesBuilder implements IBeeSpeciesBuilder {
 
 	@Override
 	public BeeSpeciesBuilder addSpecialty(Item item, float chance) {
-		specialties.add(new IBeeSpecies.Product(item, chance));
+		return addSpecialty(item, 1, chance);
+	}
+
+	@Override
+	public BeeSpeciesBuilder addSpecialty(Item item, int count, float chance) {
+		specialties.add(new IBeeSpecies.Product(item, count, chance));
 		return this;
 	}
 

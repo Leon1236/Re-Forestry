@@ -18,4 +18,11 @@ public interface IActivityType extends IRegistryAlleleValue {
 	static long getBeeDayTime(Level level) {
 		return level.dimensionType().hasSkyLight() ? level.getDefaultClockTime() : NIGHT_TIME;
 	}
+
+	static long getBeeDayTime(net.minecraft.world.level.LevelAccessor level) {
+		if (level instanceof Level world) {
+			return getBeeDayTime(world);
+		}
+		return NIGHT_TIME;
+	}
 }

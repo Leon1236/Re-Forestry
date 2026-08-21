@@ -1,19 +1,19 @@
 {
-  "type": "forestry:bee_species",
+  "type": "reforestry:bee_species",
   "parent": "apidae",
   "alleles": {
-    "forestry:bee_effect": {
-      "value": "forestry:bee_effect_aggressive"
+    "reforestry:bee_effect": {
+      "value": "reforestry:bee_effect_aggressive"
     },
-    "forestry:humidity_tolerance": {
+    "reforestry:humidity_tolerance": {
       "dominant": true,
       "value": "BOTH_1"
     },
-    "forestry:temperature_tolerance": {
+    "reforestry:temperature_tolerance": {
       "dominant": true,
       "value": "BOTH_1"
     },
-    "forestry:territory": {
+    "reforestry:territory": {
       "value": [
         15,
         13,

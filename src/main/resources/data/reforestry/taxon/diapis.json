@@ -1,17 +1,17 @@
 {
-  "type": "forestry:bee_species",
+  "type": "reforestry:bee_species",
   "parent": "apidae",
   "alleles": {
-    "forestry:activity": {
-      "value": "forestry:activity_metaturnal"
+    "reforestry:activity": {
+      "value": "reforestry:activity_metaturnal"
     },
-    "forestry:flower_type": {
-      "value": "forestry:flower_type_nether"
+    "reforestry:flower_type": {
+      "value": "reforestry:flower_type_nether"
     },
-    "forestry:pollination": {
+    "reforestry:pollination": {
       "value": 20
     },
-    "forestry:temperature_tolerance": {
+    "reforestry:temperature_tolerance": {
       "value": "DOWN_2"
     }
   },
