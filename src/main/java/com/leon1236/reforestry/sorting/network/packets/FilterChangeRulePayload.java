@@ -31,13 +31,13 @@ public record FilterChangeRulePayload(BlockPos pos, Direction facing, IFilterRul
 	private static void encode(RegistryFriendlyByteBuf buffer, FilterChangeRulePayload payload) {
 		buffer.writeBlockPos(payload.pos);
 		buffer.writeShort(payload.facing.get3DDataValue());
-		buffer.writeShort(IForestryApi.INSTANCE.getFilterManager().getId(payload.rule));
+		buffer.writeShort(IForestryApi.get().getFilterManager().getId(payload.rule));
 	}
 
 	private static FilterChangeRulePayload decode(RegistryFriendlyByteBuf buffer) {
 		BlockPos pos = buffer.readBlockPos();
 		Direction facing = Direction.from3DDataValue(buffer.readShort());
-		IFilterRuleType rule = IForestryApi.INSTANCE.getFilterManager().getRuleOrDefault(buffer.readShort());
+		IFilterRuleType rule = IForestryApi.get().getFilterManager().getRuleOrDefault(buffer.readShort());
 		return new FilterChangeRulePayload(pos, facing, rule);
 	}
 

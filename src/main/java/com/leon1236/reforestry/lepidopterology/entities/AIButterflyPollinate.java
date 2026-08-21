@@ -11,13 +11,13 @@ public class AIButterflyPollinate extends AIButterflyInteract {
 
 	@Override
 	protected boolean canInteract() {
-		return this.rest != null && IForestryApi.INSTANCE.getPollenManager().canPollinate(this.entity.level(), this.rest);
+		return this.rest != null && IForestryApi.get().getPollenManager().canPollinate(this.entity.level(), this.rest);
 	}
 
 	@Override
 	public void tick() {
 		if (canContinueToUse() && this.rest != null) {
-			IPollenManager pollens = IForestryApi.INSTANCE.getPollenManager();
+			IPollenManager pollens = IForestryApi.get().getPollenManager();
 			IPollen butterflyPollen = this.entity.getPollen();
 
 			if (butterflyPollen == null) {

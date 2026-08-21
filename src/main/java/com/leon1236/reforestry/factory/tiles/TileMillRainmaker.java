@@ -133,15 +133,7 @@ public class TileMillRainmaker extends TileMill {
 
     @Nullable
     private static RainSubstrate findRainSubstrate(ItemStack stack) {
-        if (FuelManager.rainSubstrate == null || stack.isEmpty()) {
-            return null;
-        }
-        for (var entry : FuelManager.rainSubstrate.entrySet()) {
-            if (ItemStack.isSameItem(entry.getKey(), stack)) {
-                return entry.getValue();
-            }
-        }
-        return null;
+        return FuelManager.getRainSubstrate(stack);
     }
 
     @Override

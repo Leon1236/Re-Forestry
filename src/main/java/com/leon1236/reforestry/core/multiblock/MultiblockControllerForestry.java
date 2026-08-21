@@ -23,7 +23,7 @@ public abstract class MultiblockControllerForestry extends MultiblockControllerB
 	protected MultiblockControllerForestry(Level world) {
 		super(world);
 		this.ownerHandler = new OwnerHandler();
-		this.errorLogic = IForestryApi.INSTANCE.getErrorManager().createErrorLogic();
+		this.errorLogic = IForestryApi.get().getErrorManager().createErrorLogic();
 	}
 
 	@Override

@@ -27,10 +27,9 @@ public class FeatureKauri extends FeatureTree {
 		int branchWidth = (int) (this.height / 2f);
 
 		while (branchCoords.size() <= count) {
-			// Make a nest of branches at the top of the tree. Account for very small trees.
+
 			int branchPos = rand.nextIntBetweenInclusive(Math.max(this.height - 8, 2), this.height);
 
-			// branches closer to the top tend to climb upward more
 			float spreadMod = 0.15f * (branchPos / (float) this.height);
 
 			branchCoords.addAll(FeatureHelper.generateBranches(level, rand, bark, startPos.offset(0, branchPos, 0), this.girth, 0.2f + spreadMod, 0.4f, branchWidth, 1, 0.5f));

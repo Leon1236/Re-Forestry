@@ -40,7 +40,6 @@ public class FeatureZebrano extends FeatureTree {
 		}
 		FeatureHelper.generateCylinderFromTreeStartPos(level, leaf, startPos.offset(0, leafSpawn, 0), this.girth, 1.9f + this.girth, 1, FeatureHelper.EnumReplaceMode.SOFT, contour);
 
-		// Add some smaller twigs below for flavour
 		for (int times = 0; times < this.height / 4; times++) {
 			int h = 10 + rand.nextInt(Math.max(1, this.height - 10));
 			if (rand.nextBoolean() && h < this.height / 2) {

@@ -31,7 +31,7 @@ public class ItemInventorySolderingIron implements Container, IErrorSource {
     }
 
     public ICircuitLayout getLayout() {
-        var layouts = IForestryApi.INSTANCE.getCircuitManager().getLayouts();
+        var layouts = IForestryApi.get().getCircuitManager().getLayouts();
         if (layouts.isEmpty()) {
             return null;
         }
@@ -55,7 +55,7 @@ public class ItemInventorySolderingIron implements Container, IErrorSource {
         if (inputBoard.isEmpty() || inputBoard.getCount() > 1 || !getItem(OUTPUT_BOARD).isEmpty()) {
             return;
         }
-        if (!IForestryApi.INSTANCE.getCircuitManager().isCircuitBoard(inputBoard)) {
+        if (!IForestryApi.get().getCircuitManager().isCircuitBoard(inputBoard)) {
             return;
         }
         if (!(inputBoard.getItem() instanceof ItemCircuitBoard circuitBoardItem)) {
@@ -88,7 +88,7 @@ public class ItemInventorySolderingIron implements Container, IErrorSource {
         for (int i = 0; i < INGREDIENT_COUNT; i++) {
             ItemStack ingredient = getItem(INGREDIENT_START + i);
             if (!ingredient.isEmpty()) {
-                ICircuit circuit = IForestryApi.INSTANCE.getCircuitManager().getCircuit(layout, ingredient);
+                ICircuit circuit = IForestryApi.get().getCircuitManager().getCircuit(layout, ingredient);
                 if (circuit != null) {
                     if (consume) {
                         removeItem(INGREDIENT_START + i, ingredient.getCount());
@@ -202,7 +202,7 @@ public class ItemInventorySolderingIron implements Container, IErrorSource {
             return stack.getItem() instanceof ItemCircuitBoard;
         }
         if (slot >= INGREDIENT_START && slot < INGREDIENT_START + INGREDIENT_COUNT && layout != null) {
-            return IForestryApi.INSTANCE.getCircuitManager().getCircuit(layout, stack) != null;
+            return IForestryApi.get().getCircuitManager().getCircuit(layout, stack) != null;
         }
         return false;
     }

@@ -78,7 +78,7 @@ public final class LepidopterologyGenetics {
 			}
 		}
 		ButterflySpeciesType.INSTANCE.setMutations(new IdentifierMutationManager(getAllMutations()));
-		((ForestryApiImpl) ForestryApiImpl.get()).getMutableGeneticManager().registerSpeciesType(ButterflySpeciesType.INSTANCE);
+		ForestryApiImpl.get().getMutableGeneticManager().registerSpeciesType(ButterflySpeciesType.INSTANCE);
 		finalized = true;
 	}
 

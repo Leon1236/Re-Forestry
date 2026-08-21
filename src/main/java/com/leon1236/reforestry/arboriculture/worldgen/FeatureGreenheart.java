@@ -36,7 +36,7 @@ public class FeatureGreenheart extends FeatureTree {
 		FeatureHelper.generateCylinderFromTreeStartPos(level, leaf, startPos.offset(0, leafSpawn, 0), this.girth, 0.5f + this.girth, 1, FeatureHelper.EnumReplaceMode.SOFT, contour);
 
 		if (this.height > 10) {
-			// Add some smaller twigs below for flavour
+
 			for (int times = 0; times < this.height / 4; times++) {
 				int h = 10 + rand.nextInt(this.height - 10);
 				if (rand.nextBoolean() && h < this.height / 2) {

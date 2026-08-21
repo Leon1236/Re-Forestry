@@ -27,7 +27,7 @@ public class CircuitFarmLogic extends Circuit implements IFarmCircuit {
 
 	@Nullable
 	private IFarmType lookupType() {
-		return IForestryApi.INSTANCE.getFarmingManager().getFarmType(this.farmTypeId);
+		return IForestryApi.get().getFarmingManager().getFarmType(this.farmTypeId);
 	}
 
 	@Override

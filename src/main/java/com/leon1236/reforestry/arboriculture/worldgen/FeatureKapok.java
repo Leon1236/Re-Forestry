@@ -40,7 +40,6 @@ public class FeatureKapok extends FeatureTree {
 			FeatureHelper.generateCylinderFromPos(level, leaf, branchEnd.above(), 2.0f + this.girth, 2, FeatureHelper.EnumReplaceMode.AIR, contour);
 		}
 
-		// Add some smaller twigs below for flavour
 		for (int times = 0; times < this.height / 4; times++) {
 			int h = 10 + rand.nextInt(Math.max(1, this.height - 10));
 			if (rand.nextBoolean() && h < this.height / 2) {

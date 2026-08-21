@@ -33,7 +33,13 @@ public final class EnergyHelper {
             return false;
         }
 
-        energyStorage.amount -= energyPerCycle;
+        try (Transaction transaction = Transaction.openOuter()) {
+            long extracted = energyStorage.extract(energyPerCycle, transaction);
+            if (extracted != energyPerCycle) {
+                return false;
+            }
+            transaction.commit();
+        }
         return true;
     }
 

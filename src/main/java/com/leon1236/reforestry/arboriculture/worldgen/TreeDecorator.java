@@ -72,7 +72,7 @@ public class TreeDecorator extends Feature<NoneFeatureConfiguration> {
         }
 
         List<ITreeSpecies> allSpecies = List.copyOf(ArboricultureGenetics.getAllSpecies());
-        IClimateManager manager = IForestryApi.INSTANCE.getClimateManager();
+        IClimateManager manager = IForestryApi.get().getClimateManager();
 
         level.registryAccess().lookupOrThrow(Registries.BIOME).listElements().forEach(biome -> {
             List<ITreeSpecies> trees = BIOME_CACHE.computeIfAbsent(biome.key(), k -> new ArrayList<>());
@@ -108,17 +108,18 @@ public class TreeDecorator extends Feature<NoneFeatureConfiguration> {
             int x = pos.getX() + rand.nextInt(16);
             int z = pos.getZ() + rand.nextInt(16);
 
-            Holder<Biome> biome = level.getBiome(pos);
+            BlockPos validPos = getValidPos(level, x, z);
+            if (validPos == null) {
+                continue;
+            }
+
+            Holder<Biome> biome = level.getBiome(validPos);
             List<ITreeSpecies> trees = BIOME_CACHE.computeIfAbsent(
                     biome.unwrapKey().orElseThrow(),
                     k -> List.of());
 
             for (ITreeSpecies species : trees) {
                 if (species.getRarity() * globalRarity >= rand.nextFloat()) {
-                    BlockPos validPos = getValidPos(level, x, z);
-                    if (validPos == null) {
-                        continue;
-                    }
                     if (TreeGenHelper.generateTree(species, null, level, context.random(), validPos)) {
                         return true;
                     }

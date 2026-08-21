@@ -119,10 +119,10 @@ public class ApiaristPoolElement extends SinglePoolElement {
     }
 
     private static ItemStack chooseRandomVillageQueen(LevelAccessor level, BlockPos markerPos, RandomSource random) {
-        IHiveManager manager = IForestryApi.INSTANCE.getHiveManager();
+        IHiveManager manager = IForestryApi.get().getHiveManager();
         boolean rarePool = random.nextInt(4) == 0;
         List<VillageHive> pool = rarePool ? manager.getRareVillageHives() : manager.getCommonVillageHives();
-        ClimateState biomeState = IForestryApi.INSTANCE.getClimateManager().getBiomeState(level, markerPos);
+        ClimateState biomeState = IForestryApi.get().getClimateManager().getBiomeState(level, markerPos);
         ArrayList<Pair<IBeeSpecies, Map<IChromosome<?>, IAllele>>> candidates = getCandidates(pool, biomeState);
         if (rarePool && candidates.isEmpty()) {
             candidates = getCandidates(manager.getCommonVillageHives(), biomeState);

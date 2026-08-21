@@ -14,7 +14,6 @@ public class FeatureLemon extends FeatureTree {
 		super(tree, 3, 2, 2);
 	}
 
-	// Generation code has been copy-pasted from Orange trees, which is fine because they're so closely related.
 	@Override
 	public void generateTrunk(LevelAccessor level, List<BlockPos> logOrigins, List<BlockPos> branchCoords, RandomSource rand, TreeBlockTypeLog wood, BlockPos startPos) {
 		FeatureHelper.generateTreeTrunk(level, logOrigins, rand, wood, startPos, this.height, this.girth, 0, 0, null, 0);
@@ -24,7 +23,7 @@ public class FeatureLemon extends FeatureTree {
 		float heightIncreasePercent = this.height / 3f;
 
 		do {
-			// try place more branches at the lower canopies
+
 			float branchChance = 0.75f;
 			if (branchSpawn >= 4 && branchSpawn <= 6) branchChance = 0.9f;
 

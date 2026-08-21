@@ -83,7 +83,7 @@ public final class ArboricultureGenetics {
             }
         }
         TreeSpeciesType.INSTANCE.setMutations(new IdentifierMutationManager(getAllMutations()));
-        ((ForestryApiImpl) ForestryApiImpl.get()).getMutableGeneticManager().registerSpeciesType(TreeSpeciesType.INSTANCE);
+        ForestryApiImpl.get().getMutableGeneticManager().registerSpeciesType(TreeSpeciesType.INSTANCE);
         finalized = true;
     }
 

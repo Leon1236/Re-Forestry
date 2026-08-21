@@ -59,7 +59,7 @@ public interface IIndividualHandlerItem {
 		if (stack.getItem() instanceof IIndividualItem item) {
 			return item.getIndividualFromComponent(stack);
 		}
-		ISpeciesType<?, ?> type = IForestryApi.INSTANCE.getGeneticManager().getSpeciesTypeSafe(ForestrySpeciesTypes.TREE);
+		ISpeciesType<?, ?> type = IForestryApi.get().getGeneticManager().getSpeciesTypeSafe(ForestrySpeciesTypes.TREE);
 		if (type instanceof ITreeSpeciesType treeType) {
 			return treeType.getVanillaIndividual(stack.getItem());
 		}

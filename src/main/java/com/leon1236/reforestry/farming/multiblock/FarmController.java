@@ -313,12 +313,33 @@ public class FarmController extends RectangularMultiblockControllerBase implemen
 	@Override
 	public boolean hasLiquid(FluidVariant variant, long amount) {
 		FilteredFluidStorage tank = getWaterTank();
-		return !variant.isBlank() && tank.getResource().equals(variant) && tank.getAmount() >= amount;
+		if (variant.isBlank() || tank.getAmount() < amount) {
+			return false;
+		}
+		return fluidMatches(tank.getResource(), variant);
 	}
 
 	@Override
 	public void removeLiquid(FluidVariant variant, long amount) {
-		getWaterTank().drainInternal(amount);
+		FilteredFluidStorage tank = getWaterTank();
+		if (!fluidMatches(tank.getResource(), variant)) {
+			return;
+		}
+		tank.drainInternal(amount);
+	}
+
+	private static boolean fluidMatches(FluidVariant stored, FluidVariant requested) {
+		if (stored.isBlank() || requested.isBlank()) {
+			return false;
+		}
+		if (stored.equals(requested)) {
+			return true;
+		}
+		return isWater(stored) && isWater(requested);
+	}
+
+	private static boolean isWater(FluidVariant variant) {
+		return variant.getFluid() == Fluids.WATER || variant.getFluid() == Fluids.FLOWING_WATER;
 	}
 
 	@Override
@@ -359,7 +380,7 @@ public class FarmController extends RectangularMultiblockControllerBase implemen
 
 	@Override
 	public void resetFarmLogic(Direction direction) {
-		IFarmType type = IForestryApi.INSTANCE.getFarmingManager().getFarmType(ForestryFarmTypes.ARBOREAL);
+		IFarmType type = IForestryApi.get().getFarmingManager().getFarmType(ForestryFarmTypes.ARBOREAL);
 		IFarmLogic logic = type != null ? type.getLogic(false) : FakeFarmLogic.INSTANCE;
 		if (logic == null) {
 			logic = FakeFarmLogic.INSTANCE;
@@ -409,7 +430,7 @@ public class FarmController extends RectangularMultiblockControllerBase implemen
 		if (coords == null) {
 			return TemperatureType.NORMAL;
 		}
-		return IForestryApi.INSTANCE.getClimateManager().getTemperature(this.level.getBiome(coords));
+		return IForestryApi.get().getClimateManager().getTemperature(this.level.getBiome(coords));
 	}
 
 	@Override
@@ -418,7 +439,7 @@ public class FarmController extends RectangularMultiblockControllerBase implemen
 		if (coords == null) {
 			return HumidityType.NORMAL;
 		}
-		return IForestryApi.INSTANCE.getClimateManager().getHumidity(this.level.getBiome(coords));
+		return IForestryApi.get().getClimateManager().getHumidity(this.level.getBiome(coords));
 	}
 
 	@Override
@@ -436,12 +457,12 @@ public class FarmController extends RectangularMultiblockControllerBase implemen
 		if (slot != 0) {
 			return;
 		}
-		if (!stack.isEmpty() && !IForestryApi.INSTANCE.getCircuitManager().isCircuitBoard(stack)) {
+		if (!stack.isEmpty() && !IForestryApi.get().getCircuitManager().isCircuitBoard(stack)) {
 			return;
 		}
 		ItemStack existing = this.sockets.get(0);
 		if (!existing.isEmpty()) {
-			ICircuitBoard oldBoard = IForestryApi.INSTANCE.getCircuitManager().getCircuitBoard(existing);
+			ICircuitBoard oldBoard = IForestryApi.get().getCircuitManager().getCircuitBoard(existing);
 			if (oldBoard != null) {
 				oldBoard.onRemoval(this);
 			}
@@ -450,7 +471,7 @@ public class FarmController extends RectangularMultiblockControllerBase implemen
 		this.sockets.set(0, placed);
 		refreshFarmLogics();
 		if (!placed.isEmpty()) {
-			ICircuitBoard newBoard = IForestryApi.INSTANCE.getCircuitManager().getCircuitBoard(placed);
+			ICircuitBoard newBoard = IForestryApi.get().getCircuitManager().getCircuitBoard(placed);
 			if (newBoard != null) {
 				newBoard.onInsertion(this);
 			}
@@ -471,7 +492,7 @@ public class FarmController extends RectangularMultiblockControllerBase implemen
 		if (chip.isEmpty()) {
 			return;
 		}
-		ICircuitBoard chipset = IForestryApi.INSTANCE.getCircuitManager().getCircuitBoard(chip);
+		ICircuitBoard chipset = IForestryApi.get().getCircuitManager().getCircuitBoard(chip);
 		if (chipset != null) {
 			chipset.onLoad(this);
 		}

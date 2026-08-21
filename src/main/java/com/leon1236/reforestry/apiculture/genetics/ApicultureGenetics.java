@@ -73,7 +73,7 @@ public final class ApicultureGenetics {
             }
         }
         BeeSpeciesType.INSTANCE.setMutations(new IdentifierMutationManager(getAllMutations()));
-        ((ForestryApiImpl) ForestryApiImpl.get()).getMutableGeneticManager().registerSpeciesType(BeeSpeciesType.INSTANCE);
+        ForestryApiImpl.get().getMutableGeneticManager().registerSpeciesType(BeeSpeciesType.INSTANCE);
         finalized = true;
     }
 

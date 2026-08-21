@@ -216,7 +216,7 @@ public abstract class TilePlanter extends TilePowered implements IFarmHousingInt
 	protected TilePlanter(BlockEntityType<?> type, BlockPos pos, BlockState state, Identifier farmTypeId) {
 		super(type, pos, state, 150, 1500);
 		this.properties = Objects.requireNonNull(
-				IForestryApi.INSTANCE.getFarmingManager().getFarmType(farmTypeId), farmTypeId.toString());
+				IForestryApi.get().getFarmingManager().getFarmType(farmTypeId), farmTypeId.toString());
 		this.inventory = new InventoryPlanter(this);
 		this.hydrationManager = new FarmHydrationManager(this);
 		this.fertilizerManager = new FarmFertilizerManager(this.inventory);
@@ -277,7 +277,7 @@ public abstract class TilePlanter extends TilePowered implements IFarmHousingInt
 	@Override
 	protected boolean workCycle() {
 		this.manager.doWork();
-		return false;
+		return true;
 	}
 
 	@Override
@@ -354,12 +354,33 @@ public abstract class TilePlanter extends TilePowered implements IFarmHousingInt
 	@Override
 	public boolean hasLiquid(FluidVariant variant, long amount) {
 		FilteredFluidStorage tank = getWaterTank();
-		return !variant.isBlank() && tank.getResource().equals(variant) && tank.getAmount() >= amount;
+		if (variant.isBlank() || tank.getAmount() < amount) {
+			return false;
+		}
+		return fluidMatches(tank.getResource(), variant);
 	}
 
 	@Override
 	public void removeLiquid(FluidVariant variant, long amount) {
-		getWaterTank().drainInternal(amount);
+		FilteredFluidStorage tank = getWaterTank();
+		if (!fluidMatches(tank.getResource(), variant)) {
+			return;
+		}
+		tank.drainInternal(amount);
+	}
+
+	private static boolean fluidMatches(FluidVariant stored, FluidVariant requested) {
+		if (stored.isBlank() || requested.isBlank()) {
+			return false;
+		}
+		if (stored.equals(requested)) {
+			return true;
+		}
+		return isWater(stored) && isWater(requested);
+	}
+
+	private static boolean isWater(FluidVariant variant) {
+		return variant.getFluid() == Fluids.WATER || variant.getFluid() == Fluids.FLOWING_WATER;
 	}
 
 	@Override
@@ -472,7 +493,7 @@ public abstract class TilePlanter extends TilePowered implements IFarmHousingInt
 		if (this.level == null) {
 			return TemperatureType.NORMAL;
 		}
-		return IForestryApi.INSTANCE.getClimateManager().getTemperature(this.level.getBiome(this.worldPosition));
+		return IForestryApi.get().getClimateManager().getTemperature(this.level.getBiome(this.worldPosition));
 	}
 
 	@Override
@@ -480,7 +501,7 @@ public abstract class TilePlanter extends TilePowered implements IFarmHousingInt
 		if (this.level == null) {
 			return HumidityType.NORMAL;
 		}
-		return IForestryApi.INSTANCE.getClimateManager().getHumidity(this.level.getBiome(this.worldPosition));
+		return IForestryApi.get().getClimateManager().getHumidity(this.level.getBiome(this.worldPosition));
 	}
 
 	@Override
@@ -556,7 +577,7 @@ public abstract class TilePlanter extends TilePowered implements IFarmHousingInt
 			if (this.syncedErrorCount >= ERROR_SLOT_COUNT) {
 				break;
 			}
-			this.syncedErrorIds[this.syncedErrorCount++] = IForestryApi.INSTANCE.getErrorManager().getNumericId(error);
+			this.syncedErrorIds[this.syncedErrorCount++] = IForestryApi.get().getErrorManager().getNumericId(error);
 		}
 		for (int i = this.syncedErrorCount; i < ERROR_SLOT_COUNT; i++) {
 			this.syncedErrorIds[i] = -1;

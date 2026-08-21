@@ -131,6 +131,9 @@ public class ItemBackpack extends Item {
 	}
 
 	private boolean transferWithBlock(Player player, ItemStack stack, Level level, BlockPos pos, Direction side) {
+		if (getMode(stack) == BackpackMode.LOCKED) {
+			return false;
+		}
 		Storage<ItemVariant> target = ItemStorage.SIDED.find(level, pos, side);
 		if (target == null) {
 			return false;

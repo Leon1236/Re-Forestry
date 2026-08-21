@@ -70,7 +70,7 @@ public class RuleWidget extends FilterWidget implements ISelectableProvider<IFil
 	@Override
 	public void handleMouseClick(double mouseX, double mouseY, int mouseButton) {
 		if (mouseButton == 1) {
-			onSelect(IForestryApi.INSTANCE.getFilterManager().getDefaultRule());
+			onSelect(IForestryApi.get().getFilterManager().getDefaultRule());
 		} else {
 			playClick();
 			this.gui.onModuleClick(this);
@@ -93,7 +93,7 @@ public class RuleWidget extends FilterWidget implements ISelectableProvider<IFil
 
 	private static ImmutableSet<IFilterRuleType> createEntries() {
 		ImmutableSet.Builder<IFilterRuleType> entries = ImmutableSet.builder();
-		for (IFilterRuleType rule : IForestryApi.INSTANCE.getFilterManager().getRules()) {
+		for (IFilterRuleType rule : IForestryApi.get().getFilterManager().getRules()) {
 			entries.add(rule);
 		}
 		return entries.build();

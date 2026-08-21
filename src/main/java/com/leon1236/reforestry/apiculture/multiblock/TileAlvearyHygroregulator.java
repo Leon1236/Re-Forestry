@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.transfer.v1.fluid.base.SingleFluidStorage;
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Container;
@@ -29,6 +30,7 @@ import com.leon1236.reforestry.apiculture.gui.ContainerAlvearyHygroregulator;
 import com.leon1236.reforestry.apiculture.inventory.InventoryAlvearyPart;
 import com.leon1236.reforestry.core.fluids.FilteredFluidStorage;
 import com.leon1236.reforestry.core.fluids.FluidContainerHelper;
+import com.leon1236.reforestry.core.inventory.InventoryUtil;
 import com.leon1236.reforestry.core.recipes.RecipeUtils;
 
 public class TileAlvearyHygroregulator extends TileAlveary
@@ -56,6 +58,21 @@ public class TileAlvearyHygroregulator extends TileAlveary
 	@Override
 	public Container getInternalInventory() {
 		return this.inventory;
+	}
+
+	@Override
+	public int[] getSlotsForFace(Direction direction) {
+		return InventoryUtil.contiguousSlots(this.inventory.getContainerSize());
+	}
+
+	@Override
+	public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction direction) {
+		return this.inventory.canPlaceItem(slot, stack);
+	}
+
+	@Override
+	public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction direction) {
+		return true;
 	}
 
 	@Override

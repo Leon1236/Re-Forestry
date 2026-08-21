@@ -34,7 +34,7 @@ public class FeatureCamelthorn extends FeatureTree {
 	@Override
 	protected void generateLeaves(IGenome genome, LevelAccessor level, RandomSource rand, TreeBlockTypeLeaf leaf, TreeContour contour, BlockPos startPos) {
 		for (int y = 1; y <= 3; y++) {
-			// These numbers may seem as if they're arbitrary. That's because they are.
+
 			float rad = (4f + (this.girth / 1.5f)) * (1.2f - (1f / (y)));
 			float radMult = 1.125f + (rand.nextFloat() / 2f);
 

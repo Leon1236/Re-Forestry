@@ -135,8 +135,8 @@ public class FactoryJeiPlugin implements IModPlugin {
 	}
 
 	private static List<RainSubstrate> rainmakerRecipes() {
-		Map<ItemStack, RainSubstrate> substrates = FuelManager.rainSubstrate;
-		if (substrates == null || substrates.isEmpty()) {
+		var substrates = FuelManager.getRainSubstrates();
+		if (substrates.isEmpty()) {
 			return List.of();
 		}
 		return substrates.values().stream()

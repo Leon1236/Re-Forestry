@@ -41,7 +41,7 @@ public class FeatureGinkgo extends FeatureTree {
 		float radMod = 2f;
 
 		while (leafSpawn > end) {
-			// Basically this makes a slightly conic cylinder, where the top is 2 blocks thinner than the base.
+
 			float radius = baseRad + (1.0f - (float) leafSpawn / this.height) * radMod + rAdd + ((this.girth - 1f) / 2);
 
 			FeatureHelper.generateCylinderFromTreeStartPos(level, leaf, startPos.offset(0, leafSpawn--, 0), this.girth, radius, 1.25f, 1, FeatureHelper.EnumReplaceMode.AIR, contour);

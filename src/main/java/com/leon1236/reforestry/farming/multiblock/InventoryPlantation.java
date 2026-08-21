@@ -191,7 +191,7 @@ public abstract class InventoryPlantation implements Container, IFarmInventoryIn
 	}
 
 	private boolean isReservedFarmItem(ItemStack stack) {
-		return IForestryApi.INSTANCE.getCircuitManager().isCircuitBoard(stack)
+		return IForestryApi.get().getCircuitManager().isCircuitBoard(stack)
 				|| acceptsAsFertilizer(stack)
 				|| acceptsAsCan(stack);
 	}
@@ -201,7 +201,7 @@ public abstract class InventoryPlantation implements Container, IFarmInventoryIn
 		if (stack.isEmpty()) {
 			return false;
 		}
-		return IForestryApi.INSTANCE.getFarmingManager().getFertilizeValue(stack) > 0;
+		return IForestryApi.get().getFarmingManager().getFertilizeValue(stack) > 0;
 	}
 
 	@Override
@@ -269,7 +269,7 @@ public abstract class InventoryPlantation implements Container, IFarmInventoryIn
 		if (fertilizerStack.isEmpty()) {
 			return 0;
 		}
-		return Math.max(0, IForestryApi.INSTANCE.getFarmingManager().getFertilizeValue(fertilizerStack));
+		return Math.max(0, IForestryApi.get().getFarmingManager().getFertilizeValue(fertilizerStack));
 	}
 
 	@Override

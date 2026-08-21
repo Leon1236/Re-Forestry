@@ -14,7 +14,7 @@ import com.leon1236.reforestry.apiculture.tiles.TileBeeHousing;
 
 public class ScreenBeeHousing extends ScreenForestry<ContainerBeeHousing> {
     private static final Identifier TEXTURE_APIARY = ReForestry.id("textures/gui/apiary.png");
-    private static final Identifier TEXTURE_BEE_HOUSE = ReForestry.id("textures/gui/alveary.png");
+    private static final Identifier TEXTURE_BEE_HOUSE = ReForestry.id("textures/gui/bee_house.png");
     private static final int IMAGE_WIDTH = 176;
     private static final int IMAGE_HEIGHT = 190;
 

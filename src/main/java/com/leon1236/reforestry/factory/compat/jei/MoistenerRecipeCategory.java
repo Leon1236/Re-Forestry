@@ -105,7 +105,6 @@ public class MoistenerRecipeCategory<F> extends ForestryRecipeCategory<IMoistene
 	}
 
 	private static Collection<MoistenerFuel> moistenerFuels() {
-		Map<ItemStack, MoistenerFuel> fuels = FuelManager.moistenerResource;
-		return fuels == null ? List.of() : fuels.values();
+		return FuelManager.getMoistenerResources().values();
 	}
 }

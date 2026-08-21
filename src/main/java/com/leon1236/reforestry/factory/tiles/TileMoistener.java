@@ -173,7 +173,7 @@ public class TileMoistener extends TileBase implements WorldlyContainer, IRender
             if (syncedErrorCount >= ERROR_SLOT_COUNT) {
                 break;
             }
-            short id = IForestryApi.INSTANCE.getErrorManager().getNumericId(error);
+            short id = IForestryApi.get().getErrorManager().getNumericId(error);
             syncedErrorIds[syncedErrorCount++] = id;
         }
         for (int i = syncedErrorCount; i < ERROR_SLOT_COUNT; i++) {
@@ -455,15 +455,7 @@ public class TileMoistener extends TileBase implements WorldlyContainer, IRender
 
     @Nullable
     private static MoistenerFuel findMoistenerFuel(ItemStack stack) {
-        if (FuelManager.moistenerResource == null || stack.isEmpty()) {
-            return null;
-        }
-        for (var entry : FuelManager.moistenerResource.entrySet()) {
-            if (ItemStack.isSameItem(entry.getKey(), stack)) {
-                return entry.getValue();
-            }
-        }
-        return null;
+        return FuelManager.getMoistenerFuel(stack);
     }
 
     @Override

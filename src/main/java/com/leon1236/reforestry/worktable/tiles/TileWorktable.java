@@ -268,6 +268,10 @@ public class TileWorktable extends TileBase implements WorldlyContainer, ICrafte
 		NonNullList<ItemStack> craftItems = InventoryUtil.getStacks(this.craftingDisplay);
 		ContainerHelper.saveAllItems(output.child("CraftItems"), craftItems);
 		this.memory.save(output);
+		output.putBoolean("HasCurrentRecipe", this.currentRecipe != null);
+		if (this.currentRecipe != null) {
+			this.currentRecipe.save(output.child("CurrentRecipe"));
+		}
 	}
 
 	@Override
@@ -282,6 +286,13 @@ public class TileWorktable extends TileBase implements WorldlyContainer, ICrafte
 		}
 		this.memory = new RecipeMemory();
 		this.memory.load(input);
+		if (input.getBooleanOr("HasCurrentRecipe", false)) {
+			MemorizedRecipe loaded = new MemorizedRecipe();
+			loaded.load(input.childOrEmpty("CurrentRecipe"));
+			setCurrentRecipe(loaded);
+		} else {
+			this.currentRecipe = null;
+		}
 	}
 
 	@Override

@@ -143,7 +143,7 @@ public class TileStill extends TilePowered implements WorldlyContainer, IRendera
             if (syncedErrorCount >= ERROR_SLOT_COUNT) {
                 break;
             }
-            short id = IForestryApi.INSTANCE.getErrorManager().getNumericId(error);
+            short id = IForestryApi.get().getErrorManager().getNumericId(error);
             syncedErrorIds[syncedErrorCount++] = id;
         }
         for (int i = syncedErrorCount; i < ERROR_SLOT_COUNT; i++) {
@@ -169,21 +169,14 @@ public class TileStill extends TilePowered implements WorldlyContainer, IRendera
             if (this.bufferedAmount <= 0) {
                 FilteredFluidStorage resourceTank = getResourceTank();
                 long drainAmount = this.currentRecipe.getInputAmount();
-                FluidVariant sourceVariant = this.bufferedAmount > 0 ? this.bufferedVariant : resourceTank.getResource();
-                long sourceAmount = this.bufferedAmount > 0 ? this.bufferedAmount : resourceTank.getAmount();
+                FluidVariant sourceVariant = resourceTank.getResource();
+                long sourceAmount = resourceTank.getAmount();
                 if (sourceVariant.isBlank() || sourceAmount < drainAmount) {
                     hasLiquidResource = false;
-                } else if (this.bufferedAmount <= 0) {
+                } else {
                     try (Transaction transaction = Transaction.openOuter()) {
                         long drained = resourceTank.extract(this.currentRecipe.getInputFluid(), drainAmount, transaction);
-                        if (drained == drainAmount) {
-                            transaction.commit();
-                            this.bufferedVariant = this.currentRecipe.getInputFluid();
-                            this.bufferedAmount = drained;
-                            hasLiquidResource = true;
-                        } else {
-                            hasLiquidResource = false;
-                        }
+                        hasLiquidResource = drained == drainAmount;
                     }
                 }
             }
@@ -201,6 +194,19 @@ public class TileStill extends TilePowered implements WorldlyContainer, IRendera
     protected boolean workCycle() {
         if (this.currentRecipe == null) {
             return false;
+        }
+        if (this.bufferedAmount <= 0) {
+            FilteredFluidStorage resourceTank = getResourceTank();
+            long drainAmount = this.currentRecipe.getInputAmount();
+            try (Transaction transaction = Transaction.openOuter()) {
+                long drained = resourceTank.extract(this.currentRecipe.getInputFluid(), drainAmount, transaction);
+                if (drained != drainAmount) {
+                    return false;
+                }
+                transaction.commit();
+                this.bufferedVariant = this.currentRecipe.getInputFluid();
+                this.bufferedAmount = drained;
+            }
         }
         long outputAmount = this.currentRecipe.getOutputAmount();
         FilteredFluidStorage productTank = getProductTank();

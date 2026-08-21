@@ -44,7 +44,7 @@ public final class PluginManager {
         for (var entry : registration.flowerTypes().entrySet()) {
             FlowerTypeManager.INSTANCE.register(entry.getKey(), entry.getValue());
         }
-        GeneticManager geneticManager = ((ForestryApiImpl) ForestryApiImpl.get()).getMutableGeneticManager();
+        GeneticManager geneticManager = ForestryApiImpl.get().getMutableGeneticManager();
         for (Map.Entry<Identifier, ISpeciesType<?, ?>> entry : registration.buildSpeciesTypes().entrySet()) {
             geneticManager.registerSpeciesType(entry.getValue());
         }
@@ -88,7 +88,7 @@ public final class PluginManager {
             plugin.registerApiculture(registration);
         }
         registration.finalizeEffects();
-        ((ForestryApiImpl) ForestryApiImpl.get()).setHiveManager(registration.buildHiveManager());
+        ForestryApiImpl.get().setHiveManager(registration.buildHiveManager());
     }
 
     public static void runArboricultureRegistration() {
@@ -97,7 +97,7 @@ public final class PluginManager {
             plugin.registerArboriculture(registration);
         }
         CharcoalManager.setInstance(registration.getCharcoalManager());
-        ((ForestryApiImpl) ForestryApiImpl.get()).setTreeManager(registration.buildTreeManager());
+        ForestryApiImpl.get().setTreeManager(registration.buildTreeManager());
     }
 
     public static void runCircuitRegistration() {
@@ -106,7 +106,7 @@ public final class PluginManager {
             plugin.registerCircuits(registration);
         }
         var layouts = registration.buildLayouts();
-        ((ForestryApiImpl) ForestryApiImpl.get()).setCircuitManager(new CircuitManager(
+        ForestryApiImpl.get().setCircuitManager(new CircuitManager(
                 registration.buildCircuitHolders(layouts),
                 layouts,
                 registration.buildCircuits()));
@@ -121,7 +121,7 @@ public final class PluginManager {
         for (IForestryPlugin plugin : plugins()) {
             plugin.registerFilter(registration);
         }
-        ((ForestryApiImpl) ForestryApiImpl.get()).setFilterManager(new FilterManager(registration.getFilterRuleTypes()));
+        ForestryApiImpl.get().setFilterManager(new FilterManager(registration.getFilterRuleTypes()));
     }
 
     public static void runFarmingRegistration(Consumer<FarmingRegistrationImpl> afterPlugins) {
@@ -138,7 +138,7 @@ public final class PluginManager {
             }
         }
         afterPlugins.accept(registration);
-        ((ForestryApiImpl) ForestryApiImpl.get()).setFarmingManager(new FarmingManager(
+        ForestryApiImpl.get().setFarmingManager(new FarmingManager(
                 new Object2IntOpenHashMap<>(registration.getFertilizers()),
                 registration.buildFarmTypes()));
     }

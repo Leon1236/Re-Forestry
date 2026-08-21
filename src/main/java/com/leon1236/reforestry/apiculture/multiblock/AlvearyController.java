@@ -68,7 +68,7 @@ public class AlvearyController extends RectangularMultiblockControllerBase imple
 	private final Set<IAlvearyComponent.Climatiser<?>> climatisers = new HashSet<>();
 	private final Set<IAlvearyComponent.Active<?>> activeComponents = new HashSet<>();
 
-	private IClimateProvider climate = IForestryApi.INSTANCE.getClimateManager().createDummyClimateProvider();
+	private IClimateProvider climate = IForestryApi.get().getClimateManager().createDummyClimateProvider();
 	private byte temperatureSteps;
 	private byte humiditySteps;
 	private final List<BlockPos> clientFlowerPositions = new ArrayList<>();
@@ -159,7 +159,7 @@ public class AlvearyController extends RectangularMultiblockControllerBase imple
 	@Override
 	protected void onMachineAssembled() {
 		super.onMachineAssembled();
-		this.climate = IForestryApi.INSTANCE.getClimateManager().createClimateProvider(this.level, getCenterCoord());
+		this.climate = IForestryApi.get().getClimateManager().createClimateProvider(this.level, getCenterCoord());
 	}
 
 	@Override
@@ -237,7 +237,7 @@ public class AlvearyController extends RectangularMultiblockControllerBase imple
 		}
 
 		if ((this.level.getGameTime() & 63L) == 0L) {
-			this.climate = IForestryApi.INSTANCE.getClimateManager().createClimateProvider(this.level, getCenterCoord());
+			this.climate = IForestryApi.get().getClimateManager().createClimateProvider(this.level, getCenterCoord());
 		}
 
 		return canWork;

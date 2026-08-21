@@ -60,7 +60,7 @@ record BeeSpecies(Identifier id, String genus, String species, boolean dominant,
 
     @Override
     public ITaxon getGenus() {
-        ITaxon taxon = com.leon1236.reforestry.api.IForestryApi.INSTANCE.getGeneticManager().getTaxonSafe(genus);
+        ITaxon taxon = com.leon1236.reforestry.api.IForestryApi.get().getGeneticManager().getTaxonSafe(genus);
         return taxon != null ? taxon : Taxon.nameOnly(genus);
     }
 

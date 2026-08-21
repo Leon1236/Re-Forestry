@@ -1,5 +1,7 @@
 package com.leon1236.reforestry.api;
 
+import java.util.Objects;
+
 import com.leon1236.reforestry.api.agriculture.IFarmingManager;
 import com.leon1236.reforestry.api.circuits.ICircuitManager;
 import com.leon1236.reforestry.api.apiculture.hives.IHiveManager;
@@ -11,32 +13,44 @@ import com.leon1236.reforestry.api.genetics.IGeneticManager;
 import com.leon1236.reforestry.api.genetics.filter.IFilterManager;
 import com.leon1236.reforestry.api.genetics.pollen.IPollenManager;
 import com.leon1236.reforestry.api.modules.IModuleManager;
-import com.leon1236.reforestry.core.ForestryApiImpl;
 
 public interface IForestryApi {
-    IForestryApi INSTANCE = ForestryApiImpl.get();
+	static IForestryApi get() {
+		return Holder.INSTANCE;
+	}
 
-    IAlleleManager getAlleleManager();
+	static void setInstance(IForestryApi instance) {
+		Holder.INSTANCE = Objects.requireNonNull(instance, "IForestryApi instance");
+	}
 
-    IModuleManager getModuleManager();
+	IAlleleManager getAlleleManager();
 
-    IClimateManager getClimateManager();
+	IModuleManager getModuleManager();
 
-    IErrorManager getErrorManager();
+	IClimateManager getClimateManager();
 
-    IHiveManager getHiveManager();
+	IErrorManager getErrorManager();
 
-    ICircuitManager getCircuitManager();
+	IHiveManager getHiveManager();
 
-    IFilterManager getFilterManager();
+	ICircuitManager getCircuitManager();
 
-    IFarmingManager getFarmingManager();
+	IFilterManager getFilterManager();
 
-    IGeneticManager getGeneticManager();
+	IFarmingManager getFarmingManager();
 
-    IFlowerTypeManager getFlowerTypeManager();
+	IGeneticManager getGeneticManager();
 
-    IPollenManager getPollenManager();
+	IFlowerTypeManager getFlowerTypeManager();
 
-    com.leon1236.reforestry.api.arboriculture.ITreeManager getTreeManager();
+	IPollenManager getPollenManager();
+
+	com.leon1236.reforestry.api.arboriculture.ITreeManager getTreeManager();
+
+	final class Holder {
+		static IForestryApi INSTANCE = DummyForestryApi.INSTANCE;
+
+		private Holder() {
+		}
+	}
 }

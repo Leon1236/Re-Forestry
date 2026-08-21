@@ -94,7 +94,7 @@ public class EntityButterfly extends PathfinderMob implements IEntityButterfly {
 	@Nullable
 	private Vec3 flightTarget;
 	private int exhaustion;
-	private IButterfly contained = IForestryApi.INSTANCE.getGeneticManager()
+	private IButterfly contained = IForestryApi.get().getGeneticManager()
 			.createDefaultIndividual(ForestrySpeciesTypes.BUTTERFLY);
 	@Nullable
 	private IPollen pollen;
@@ -122,8 +122,8 @@ public class EntityButterfly extends PathfinderMob implements IEntityButterfly {
 	}
 
 	public static boolean isMaxButterflyCluster(Vec3 center, Level level) {
-		return level.getEntities(null, AABB.ofSize(center, CLUSTER_WIDTH, CLUSTER_HEIGHT, CLUSTER_WIDTH)).size()
-				> CLUSTER_LIMIT;
+		return level.getEntitiesOfClass(EntityButterfly.class,
+				AABB.ofSize(center, CLUSTER_WIDTH, CLUSTER_HEIGHT, CLUSTER_WIDTH)).size() > CLUSTER_LIMIT;
 	}
 
 	@Override
@@ -174,7 +174,7 @@ public class EntityButterfly extends PathfinderMob implements IEntityButterfly {
 		String pollenTypeId = input.getStringOr(NBT_POLLEN_TYPE, "");
 		if (!pollenTypeId.isEmpty()) {
 			Identifier typeId = Identifier.tryParse(pollenTypeId);
-			IPollenType type = typeId == null ? null : IForestryApi.INSTANCE.getPollenManager().getPollenType(typeId);
+			IPollenType type = typeId == null ? null : IForestryApi.get().getPollenManager().getPollenType(typeId);
 			IGenome pollenGenome = input.read(NBT_POLLEN, TreeChromosomes.KARYOTYPE.genomeCodec()).orElse(null);
 			if (type != null && pollenGenome != null) {
 				this.pollen = PollenManager.INSTANCE.createPollen(type, pollenGenome);
@@ -338,7 +338,7 @@ public class EntityButterfly extends PathfinderMob implements IEntityButterfly {
 
 	public void setIndividual(@Nullable IButterfly butterfly) {
 		if (butterfly == null) {
-			butterfly = IForestryApi.INSTANCE.getGeneticManager().createDefaultIndividual(ForestrySpeciesTypes.BUTTERFLY);
+			butterfly = IForestryApi.get().getGeneticManager().createDefaultIndividual(ForestrySpeciesTypes.BUTTERFLY);
 		}
 		this.contained = butterfly;
 

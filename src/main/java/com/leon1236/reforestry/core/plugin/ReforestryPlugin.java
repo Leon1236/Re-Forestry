@@ -131,7 +131,7 @@ public final class ReforestryPlugin implements IForestryPlugin {
 
     @Override
     public void registerApiculture(IApicultureRegistration registration) {
-        BeeManager.jubilanceFactory = new JubilanceFactory();
+        BeeManager.setJubilanceFactory(new JubilanceFactory());
         registerBeeEffects(registration);
         DefaultBeeSpecies.register(registration);
         registration.registerSwarmerMaterial(ApicultureItems.ROYAL_JELLY.item(), 0.01f);

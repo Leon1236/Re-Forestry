@@ -34,13 +34,11 @@ public class FeatureFir extends FeatureTree {
 		int leafSpawn = this.height + this.girth + 1;
 
 		float maxRadius = 2.25f + rand.nextFloat();
-		maxRadius *= Math.min(1f, this.height / 6f); //Shrink the width of smaller trees
+		maxRadius *= Math.min(1f, this.height / 6f);
 
-		//determines the rate of radius change as Y decreases.
 		float step = maxRadius / this.height;
 		float r = 0;
 
-		//step *= (girth);
 		int canopyHeight = rand.nextIntBetweenInclusive(1, 2);
 
 		while (leafSpawn > canopyHeight) {

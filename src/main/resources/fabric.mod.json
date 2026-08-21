@@ -3,15 +3,15 @@
 	"id": "reforestry",
 	"version": "${version}",
 	"name": "Re-Forestry",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Fabric port of Forestry for Minecraft 26.2 — bees, trees, butterflies, farms, and factory machines.",
 	"authors": [
-		"Me!"
+		"leon1236"
 	],
 	"contact": {
 		"homepage": "https://github.com/Leon1236/Re-Forestry",
 		"sources": "https://github.com/Leon1236/Re-Forestry"
 	},
-	"license": "CC0-1.0",
+	"license": "All Rights Reserved",
 	"icon": "assets/reforestry/icon.png",
 	"environment": "*",
 	"entrypoints": {

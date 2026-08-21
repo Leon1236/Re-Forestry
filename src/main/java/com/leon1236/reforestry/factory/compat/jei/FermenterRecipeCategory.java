@@ -119,7 +119,6 @@ public class FermenterRecipeCategory<F> extends ForestryRecipeCategory<IFermente
 	}
 
 	private static Collection<FermenterFuel> fermenterFuels() {
-		Map<ItemStack, FermenterFuel> fuels = FuelManager.fermenterFuel;
-		return fuels == null ? List.of() : fuels.values();
+		return FuelManager.getFermenterFuels().values();
 	}
 }

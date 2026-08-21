@@ -32,6 +32,9 @@ public final class TreeUtil {
 
     @Nullable
     public static TileLeaves getOrCreateLeaves(Level level, BlockPos pos, boolean convertVanilla) {
+        if (!level.isLoaded(pos)) {
+            return null;
+        }
         if (level.getBlockEntity(pos) instanceof TileLeaves leaves) {
             return leaves;
         }

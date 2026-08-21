@@ -49,34 +49,22 @@ public class FeatureHelper {
 		return false;
 	}
 
-	/**
-	 * Uses centerPos and girth of a tree to calculate the center
-	 */
 	public static void generateCylinderFromTreeStartPos(LevelAccessor world, ITreeBlockType block, BlockPos startPos, int girth, float radius, int height, EnumReplaceMode replace, TreeContour contour) {
 		generateCylinderFromPos(world, block, startPos.offset(girth / 2, 0, girth / 2), radius, 1f, height, replace, contour);
 	}
 
-	/**
-	 * Center is the bottom middle of the cylinder
-	 */
 	public static void generateCylinderFromPos(LevelAccessor world, ITreeBlockType block, BlockPos center, float radius, int height, EnumReplaceMode replace, TreeContour contour) {
 		generateCylinderFromPos(world, block, center, radius, 1f, height, replace, contour);
 	}
 
-	/**
-	 * Uses centerPos and girth of a tree to calculate the center
-	 */
 	public static void generateCylinderFromTreeStartPos(LevelAccessor world, ITreeBlockType block, BlockPos startPos, int girth, float radius, float radiusMult, int height, EnumReplaceMode replace, TreeContour contour) {
 		generateCylinderFromPos(world, block, startPos.offset(girth / 2, 0, girth / 2), radius, radiusMult, height, replace, contour);
 	}
 
-	/**
-	 * Center is the bottom middle of the cylinder
-	 */
 	public static void generateCylinderFromPos(LevelAccessor world, ITreeBlockType block, BlockPos center, float radius, float radiusMult, int height, EnumReplaceMode replace, TreeContour contour) {
 		BlockPos start = BlockPos.containing(center.getX() - radius, center.getY(), center.getZ() - radius);
 		for (int x = 0; x < radius * 2 + 1; x++) {
-			for (int y = height - 1; y >= 0; y--) { // generating top-down is faster for lighting calculations
+			for (int y = height - 1; y >= 0; y--) {
 				for (int z = 0; z < radius * 2 + 1; z++) {
 					BlockPos position = start.offset(x, y, z);
 					Vec3i treeCenter = new Vec3i(center.getX(), position.getY(), center.getZ());
@@ -92,12 +80,6 @@ public class FeatureHelper {
 		}
 	}
 
-	/**
-	 * Generates a cylinder with blocks on the perimeter having a chance to not be placed, for a bit of variation.
-	 * Center is the bottom middle of the cylinder.
-	 *
-	 * @param failChance the chance that a block isn't placed. Values higher than 1 mean blocks closer to the centre begin to not be placed.
-	 */
 	public static void generateCylinderFromPosWithChance(LevelAccessor world, ITreeBlockType block, BlockPos center, float radius, float radiusMult, int height, EnumReplaceMode replace, TreeContour contour, RandomSource rand, float failChance) {
 		BlockPos start = BlockPos.containing(center.getX() - radius, center.getY(), center.getZ() - radius);
 
@@ -106,22 +88,20 @@ public class FeatureHelper {
 		float randDist = maxDistSqr - (float) (Math.ceil(failChance) * Math.ceil(failChance));
 
 		for (int x = 0; x < radius * 2 + 1; x++) {
-			for (int y = height - 1; y >= 0; y--) { // generating top-down is faster for lighting calculations
+			for (int y = height - 1; y >= 0; y--) {
 				for (int z = 0; z < radius * 2 + 1; z++) {
 					BlockPos position = start.offset(x, y, z);
 					Vec3i treeCenter = new Vec3i(center.getX(), position.getY(), center.getZ());
 
 					float curDistSqr = (float) position.distSqr(treeCenter);
 
-					//First, check if the block is within radius
 					if (curDistSqr <= maxDistSqr) {
 
-						//Now, check based on noise.
 						if (
-							failChance <= 0 || //Always place if chance is 0 or less
-								curDistSqr <= randDist || //block is below the noise threshold
+							failChance <= 0 ||
+								curDistSqr <= randDist ||
 								(
-									//block is in noise threshold
+
 									curDistSqr > randDist && chance <= rand.nextFloat()
 								)
 						) {
@@ -147,7 +127,7 @@ public class FeatureHelper {
 
 		BlockPos.MutableBlockPos mutablePos = new BlockPos.MutableBlockPos();
 		for (int x = start.getX(); x < start.getX() + area.getX(); x++) {
-			for (int y = start.getY() + area.getY() - 1; y >= start.getY(); y--) { // generating top-down is faster for lighting calculations
+			for (int y = start.getY() + area.getY() - 1; y >= start.getY(); y--) {
 				for (int z = start.getZ(); z < start.getZ() + area.getZ(); z++) {
 
 					if (rand.nextFloat() > chance) {
@@ -175,7 +155,7 @@ public class FeatureHelper {
 		BlockPos.MutableBlockPos mutablePos = new BlockPos.MutableBlockPos();
 
 		for (int x = start.getX(); x < start.getX() + area.getX(); x++) {
-			for (int y = start.getY() + area.getY() - 1; y >= start.getY(); y--) { // generating top-down is faster for lighting calculations
+			for (int y = start.getY() + area.getY() - 1; y >= start.getY(); y--) {
 				for (int z = start.getZ(); z < start.getZ() + area.getZ(); z++) {
 					if (center.closerThan(mutablePos.set(x, y, z), radius + 0.01)) {
 						if (addBlock(world, mutablePos, block, replace)) {
@@ -191,17 +171,6 @@ public class FeatureHelper {
 		generateEllipsoid(world, center, radiusX, radiusY, radiusZ, 1, block, replace, contour);
 	}
 
-	/**
-	 * @param world      The world to place the blocks in.
-	 * @param center     Where the ellipsoid should be placed
-	 * @param radiusX    The radius of the ellipsoid in the X direction
-	 * @param radiusY    The radius of the ellipsoid in the Y direction
-	 * @param radiusZ    The radius of the ellipsoid in the Z direction
-	 * @param radiusMult How much to increase the size of the ellipsoid while keeping it contained within the bounds.
-	 * @param block      The block being placed
-	 * @param replace    The replacement mode
-	 * @param contour    A container for branch ends and leaf positions
-	 */
 	public static void generateEllipsoid(LevelAccessor world, BlockPos center, float radiusX, float radiusY, float radiusZ, float radiusMult, ITreeBlockType block, EnumReplaceMode replace, TreeContour contour) {
 		Vec3i start = new Vec3i(center.getX() - Math.round(radiusX), center.getY() - Math.round(radiusY), center.getZ() - Math.round(radiusZ));
 		Vec3i area = new Vec3i((int) radiusX * 2 + 1, (int) radiusY * 2 + 1, (int) radiusZ * 2 + 1);
@@ -209,7 +178,7 @@ public class FeatureHelper {
 		BlockPos.MutableBlockPos mutablePos = new BlockPos.MutableBlockPos();
 
 		for (int x = start.getX() - 1; x <= start.getX() + area.getX(); x++) {
-			for (int y = start.getY() + area.getY() + 1; y > start.getY(); y--) { // generating top-down is faster for lighting calculations
+			for (int y = start.getY() + area.getY() + 1; y > start.getY(); y--) {
 				for (int z = start.getZ() - 1; z <= start.getZ() + area.getZ(); z++) {
 
 					if ((((x - center.getX()) * (x - center.getX())) / (radiusX * radiusX)
@@ -228,16 +197,13 @@ public class FeatureHelper {
 
 	public static void generateLine(LevelAccessor world, BlockPos start, BlockPos end, float thicknessStart, float thicknessEnd, ITreeBlockType leaf, EnumReplaceMode replace, TreeContour contour) {
 
-		//Differences between coordinate starts and finishes.
 		float dx = end.getX() - start.getX();
 		float dy = end.getY() - start.getY();
 		float dz = end.getZ() - start.getZ();
 
-		//Start by calculating the distance
 		float length = (float) Math.sqrt(start.distSqr(end));
 		if (length == 0) return;
 
-		//Each 'step' should be a fraction of the full length
 		Vec3 step = new Vec3(
 			dx / length,
 			dy / length,
@@ -245,7 +211,6 @@ public class FeatureHelper {
 		);
 		float stepDist = (float) step.length();
 
-		//Prog keeps track of where we are when 'building' the line
 		Vec3 prog = new Vec3(0, 0, 0);
 		BlockPos.MutableBlockPos mutablePos = start.mutable();
 
@@ -266,9 +231,6 @@ public class FeatureHelper {
 
 	}
 
-	/**
-	 * Updates logOrigins to contain the coordinates of the first block placed per y level in the tree.
-	 */
 	public static void generateTreeTrunk(
 		LevelAccessor level,
 		List<BlockPos> logOrigins,
@@ -297,7 +259,7 @@ public class FeatureHelper {
 
 		for (int x = 0; x < girth; x++) {
 			for (int z = 0; z < girth; z++) {
-				for (int y = height - 1; y >= yStart; y--) { // generating top-down is faster for lighting calculations
+				for (int y = height - 1; y >= yStart; y--) {
 					float lean;
 					if (y < leanStartY) {
 						lean = 0;
@@ -330,15 +292,6 @@ public class FeatureHelper {
 		}
 	}
 
-
-	/**
-	 * Updates logOrigins to contain the coordinates of the first block placed per y level in the tree.
-	 * Takes a taper instead of a direction as I can't forsee needing a tree to do both.
-	 * logOrigins, for sake of simplicity, will still pick the first x and z coordinate where a log SHOULD generate
-	 * even if it doesn't. Most things won't be affected by this, but keep it in mind.
-	 *
-	 * @param taper the percentage representing at which point the tree should reach maximum girth.
-	 */
 	public static void generateTreeTrunk(
 		LevelAccessor level,
 		List<BlockPos> logOrigins,
@@ -353,11 +306,10 @@ public class FeatureHelper {
 		float taper
 	) {
 
-		int taperStart = yStart + (int) (height * taper); // Work out the highest point that max girth occurs.
+		int taperStart = yStart + (int) (height * taper);
 
-		for (int y = height - 1; y >= yStart; y--) { // generating top-down is faster for lighting calculations
+		for (int y = height - 1; y >= yStart; y--) {
 
-			//The X and Z coordinates for the middle of the tree
 			int midX = startPos.getX() + (girth / 2);
 			int midZ = startPos.getZ() + (girth / 2);
 
@@ -370,7 +322,6 @@ public class FeatureHelper {
 					float dist = (float) Math.pow(pos.getX() - midX, 2) + (float) Math.pow(pos.getZ() - midZ, 2);
 					float max = (float) Math.pow(girth * (1f - taperAmount), 2);
 
-					//if the Y is below the start of the taper, or is within tapering distance
 					if (y <= taperStart || dist <= max) {
 
 						addBlock(level, pos, wood, EnumReplaceMode.ALL);
@@ -408,8 +359,8 @@ public class FeatureHelper {
 	}
 
 	public static void generatePods(IGenome genome, LevelAccessor world, RandomSource rand, BlockPos startPos, int height, int minHeight, int girth, TreeContour contour, EnumReplaceMode replaceMode) {
-		for (BlockPos logPos : contour.getTrunkOrigins()) { // generating top-down is faster for lighting calculations
-			// Only generate pods within valid height range
+		for (BlockPos logPos : contour.getTrunkOrigins()) {
+
 			int relativeY = logPos.getY() - startPos.getY();
 			if (relativeY < minHeight) {
 				continue;
@@ -417,7 +368,7 @@ public class FeatureHelper {
 
 			for (int x = 0; x < girth; x++) {
 				for (int z = 0; z < girth; z++) {
-					// logic to skip over trying to spawn pods in the middle of a tree.
+
 					if ((girth > 2) && (x > 0 && x < girth - 1) && (z > 0 && z < girth - 1)) {
 						continue;
 					}
@@ -445,7 +396,6 @@ public class FeatureHelper {
 		for (int x = min; x <= girth; x++) {
 			for (int z = min; z <= girth; z++) {
 
-				// skip the corners, support stems should touch the body of the trunk
 				if ((x == min && z == min) || (x == girth && z == girth) || (x == min && z == girth) || (x == girth && z == min)) {
 					continue;
 				}
@@ -460,21 +410,6 @@ public class FeatureHelper {
 		}
 	}
 
-	/**
-	 * A new method for generating branches that is designed to be a little bit more reliable, primarily in the way branches spread out.
-	 *
-	 * @param world
-	 * @param rand
-	 * @param wood
-	 * @param startPos
-	 * @param girth
-	 * @param spreadY
-	 * @param spreadXZ
-	 * @param radius
-	 * @param count
-	 * @param chance
-	 * @return
-	 */
 	public static Set<BlockPos> generateBranches(final LevelAccessor world, final RandomSource rand, final ITreeBlockType wood, final BlockPos startPos, final int girth, final float spreadY, final float spreadXZ, int radius, final int count, final float chance) {
 		Set<BlockPos> branchEnds = new HashSet<>();
 		if (radius < 1) {
@@ -497,7 +432,6 @@ public class FeatureHelper {
 
 			boolean firstStep = true;
 
-			//We generate 'count' branches in every direction, with a chance of failure
 			for (int i = 0; i < count; i++) {
 				if (rand.nextFloat() > chance) {
 					continue;
@@ -508,20 +442,16 @@ public class FeatureHelper {
 
 				BlockPos branchEnd = null;
 
-				//Determines if X and Z should lean left-right
-				//This stops branches doubling back on themselves.
 				boolean xDir = rand.nextBoolean();
 				boolean zDir = rand.nextBoolean();
 
-				//Used to force branches to spread in a certain direction after a certain distance.
-				//Hopefully prevents really long branches that extend out in one direction
 				float yForce = 0;
 				float xzForce = 0;
 
 				for (int r = 0; r < radius; r++) {
-					//Stop the very first step being upwards - it's not very branchlike
+
 					if ((rand.nextFloat() < spreadY || yForce >= 1) && !firstStep) {
-						// make branches only spread up, not down
+
 						y++;
 						wood.setDirection(Direction.UP);
 
@@ -585,14 +515,6 @@ public class FeatureHelper {
 		return branchEnds;
 	}
 
-	/**
-	 * Returns the respective wood block when provided with a log and wood type
-	 * Used for generation to ensure wood types respect a trees fireproof status
-	 *
-	 * @param log
-	 * @param woodType
-	 * @return
-	 */
 	public static TreeBlockType getWoodFromLog(TreeBlockTypeLog log, ForestryWoodType woodType) {
 		if (log.getGenome().getActiveAllele(TreeChromosomes.FIREPROOF).value()) {
 			return new TreeBlockType(ArboricultureBlocks.WOOD_FIREPROOF.get(woodType).block().defaultBlockState());

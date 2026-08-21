@@ -14,7 +14,7 @@ public interface IErrorLogic extends IErrorSource {
     void clearErrors();
 
     default short[] toArray() {
-        IErrorManager manager = IForestryApi.INSTANCE.getErrorManager();
+        IErrorManager manager = IForestryApi.get().getErrorManager();
         Set<IError> errors = getErrors();
         short[] statesArray = new short[errors.size()];
         int i = 0;
@@ -27,7 +27,7 @@ public interface IErrorLogic extends IErrorSource {
 
     default void fromArray(short[] errorArray) {
         clearErrors();
-        IErrorManager manager = IForestryApi.INSTANCE.getErrorManager();
+        IErrorManager manager = IForestryApi.get().getErrorManager();
         for (short errorId : errorArray) {
             IError error = manager.getError(errorId);
             if (error != null) {

@@ -68,7 +68,7 @@ public class ModuleCore implements IForestryModule {
         FluidsItems.init();
         CoreTiles.init();
         CoreCreativeTabs.init();
-        BeeManager.armorApiaristHelper = new ArmorApiaristHelper();
+        BeeManager.setArmorApiaristHelper(new ArmorApiaristHelper());
         MultiblockEventHandler.register();
         PacketRegistry.init();
         registerClimateReloadHooks();
@@ -83,7 +83,7 @@ public class ModuleCore implements IForestryModule {
     }
 
     private static void registerErrors() {
-        ErrorManager errorManager = (ErrorManager) IForestryApi.INSTANCE.getErrorManager();
+        ErrorManager errorManager = (ErrorManager) IForestryApi.get().getErrorManager();
         for (ForestryError error : ForestryError.values()) {
             errorManager.register(error);
         }
@@ -108,7 +108,7 @@ public class ModuleCore implements IForestryModule {
     }
 
     private static void reloadBiomes(net.minecraft.core.Registry<net.minecraft.world.level.biome.Biome> registry) {
-        ForestryClimateManager climateManager = ((ForestryApiImpl) IForestryApi.INSTANCE).getForestryClimateManager();
+        ForestryClimateManager climateManager = ForestryApiImpl.get().getForestryClimateManager();
         climateManager.onBiomesReloaded(registry);
         TreeDecorator.clearBiomeCache();
     }

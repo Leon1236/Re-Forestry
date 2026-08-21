@@ -25,11 +25,11 @@ public final class ClimateProvider implements IClimateProvider, IBiomeProvider {
 
     @Override
     public TemperatureType temperature() {
-        return IForestryApi.INSTANCE.getClimateManager().getTemperature(biome);
+        return IForestryApi.get().getClimateManager().getTemperature(biome);
     }
 
     @Override
     public HumidityType humidity() {
-        return IForestryApi.INSTANCE.getClimateManager().getHumidity(biome);
+        return IForestryApi.get().getClimateManager().getHumidity(biome);
     }
 }

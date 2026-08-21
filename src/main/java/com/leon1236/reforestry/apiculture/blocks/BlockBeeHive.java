@@ -120,7 +120,7 @@ public class BlockBeeHive extends BaseEntityBlock {
     private List<ItemStack> getHiveDrops(ServerLevel level, BlockPos pos, int fortune) {
         List<ItemStack> drops = new ArrayList<>();
         RandomSource random = level.getRandom();
-        List<IHiveDrop> hiveDrops = IForestryApi.INSTANCE.getHiveManager().getDrops(speciesId);
+        List<IHiveDrop> hiveDrops = IForestryApi.get().getHiveManager().getDrops(speciesId);
         if (hiveDrops.isEmpty()) {
             return drops;
         }

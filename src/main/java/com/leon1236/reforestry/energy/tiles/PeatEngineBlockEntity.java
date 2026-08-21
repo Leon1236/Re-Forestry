@@ -170,13 +170,14 @@ public class PeatEngineBlockEntity extends EngineBlockEntity implements WorldlyC
 			return;
 		}
 		int wasteSlot = getFreeWasteSlot();
-		if (wasteSlot >= 0) {
-			ItemStack wasteStack = getItem(wasteSlot);
-			if (wasteStack.isEmpty()) {
-				setItem(wasteSlot, new ItemStack(CoreItems.ASH.item()));
-			} else {
-				wasteStack.grow(1);
-			}
+		if (wasteSlot < 0) {
+			return;
+		}
+		ItemStack wasteStack = getItem(wasteSlot);
+		if (wasteStack.isEmpty()) {
+			setItem(wasteSlot, new ItemStack(CoreItems.ASH.item()));
+		} else {
+			wasteStack.grow(1);
 		}
 		this.ashProduction = 0;
 	}

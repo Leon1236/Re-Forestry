@@ -29,7 +29,6 @@ public abstract class RectangularMultiblockControllerBase extends MultiblockCont
 		BlockPos maximumCoord = getMaximumCoord();
 		BlockPos minimumCoord = getMinimumCoord();
 
-		// Quickly check for exceeded dimensions
 		int deltaX = maximumCoord.getX() - minimumCoord.getX() + 1;
 		int deltaY = maximumCoord.getY() - minimumCoord.getY() + 1;
 		int deltaZ = maximumCoord.getZ() - minimumCoord.getZ() + 1;
@@ -57,8 +56,6 @@ public abstract class RectangularMultiblockControllerBase extends MultiblockCont
 			throw new MultiblockValidationException(Component.translatable("for.multiblock.error.small.z", minZ).getString());
 		}
 
-		// Now we run a simple check on each block within that volume.
-		// Any block deviating = NO DEAL SIR
 		BlockEntity te;
 		IMultiblockComponent part;
 		Class<? extends RectangularMultiblockControllerBase> myClass = this.getClass();
@@ -66,22 +63,20 @@ public abstract class RectangularMultiblockControllerBase extends MultiblockCont
 		for (int x = minimumCoord.getX(); x <= maximumCoord.getX(); x++) {
 			for (int y = minimumCoord.getY(); y <= maximumCoord.getY(); y++) {
 				for (int z = minimumCoord.getZ(); z <= maximumCoord.getZ(); z++) {
-					// Okay, figure out what sort of block this should be.
+
 					BlockPos pos = new BlockPos(x, y, z);
 					te = TileUtil.getTile(this.level, pos);
 					if (te instanceof IMultiblockComponent) {
 						part = (IMultiblockComponent) te;
 
-						// Ensure this part should actually be allowed within a cube of this controller's type
 						if (!myClass.equals(part.getMultiblockLogic().getController().getClass())) {
 							throw new MultiblockValidationException(Component.translatable("for.multiblock.error.invalid.part", Component.translatable(getUnlocalizedType()).getString()).getString());
 						}
 					} else {
-						// This is permitted so that we can incorporate certain non-multiblock parts inside interiors
+
 						part = null;
 					}
 
-					// Validate block type against both part-level and material-level validators.
 					int extremes = 0;
 
 					if (x == minimumCoord.getX()) {
@@ -105,7 +100,7 @@ public abstract class RectangularMultiblockControllerBase extends MultiblockCont
 					}
 
 					if (extremes >= 1) {
-						// Side
+
 						int exteriorLevel = y - minimumCoord.getY();
 						if (part != null) {
 							isGoodForExteriorLevel(part, exteriorLevel);

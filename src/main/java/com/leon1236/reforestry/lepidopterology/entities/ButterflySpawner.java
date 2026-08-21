@@ -7,12 +7,14 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.phys.Vec3;
 
+import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.api.lepidopterology.genetics.IButterfly;
 import com.leon1236.reforestry.api.lepidopterology.genetics.IButterflySpecies;
 import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
 import com.leon1236.reforestry.core.config.ForestryConfig;
 import com.leon1236.reforestry.lepidopterology.genetics.ButterflySpeciesType;
+import com.leon1236.reforestry.modules.ModuleManager;
 
 public final class ButterflySpawner {
 	private ButterflySpawner() {
@@ -21,7 +23,9 @@ public final class ButterflySpawner {
 	public static boolean onRandomLeafTick(IGenome treeGenome, Level world, RandomSource rand, BlockPos pos) {
 		if (!(world instanceof ServerLevel serverLevel)
 				|| !Boolean.TRUE.equals(serverLevel.getGameRules().get(GameRules.SPAWN_MOBS))
-				|| ForestryConfig.disableButterflySpawning()) {
+				|| ForestryConfig.disableButterflySpawning()
+				|| !ModuleManager.INSTANCE.isModuleLoaded(ReForestry.id("lepidopterology"))
+				|| ButterflySpeciesType.INSTANCE.getAllSpecies().isEmpty()) {
 			return false;
 		}
 

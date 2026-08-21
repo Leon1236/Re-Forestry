@@ -47,7 +47,7 @@ public class FarmingJeiPlugin implements IModPlugin {
 
 	public static List<FarmingInfoRecipe> getRecipes() {
 		ArrayList<FarmingInfoRecipe> info = new ArrayList<>();
-		for (CircuitHolder holder : IForestryApi.INSTANCE.getCircuitManager().getCircuitHolders()) {
+		for (CircuitHolder holder : IForestryApi.get().getCircuitManager().getCircuitHolders()) {
 			if (holder.circuit() instanceof IFarmCircuit circuit && circuit.isManual()) {
 				info.add(new FarmingInfoRecipe(holder.stack(), circuit.getProperties(), circuit));
 			}
@@ -67,6 +67,6 @@ public class FarmingJeiPlugin implements IModPlugin {
 	}
 
 	private static boolean farmingLoaded() {
-		return IForestryApi.INSTANCE.getModuleManager().isModuleLoaded(ReForestry.id("farming"));
+		return IForestryApi.get().getModuleManager().isModuleLoaded(ReForestry.id("farming"));
 	}
 }

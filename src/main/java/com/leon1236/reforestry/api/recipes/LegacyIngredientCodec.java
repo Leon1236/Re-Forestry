@@ -1,4 +1,4 @@
-package com.leon1236.reforestry.core.recipes;
+package com.leon1236.reforestry.api.recipes;
 
 import java.util.List;
 import java.util.Optional;

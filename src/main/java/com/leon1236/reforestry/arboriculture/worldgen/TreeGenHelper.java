@@ -17,14 +17,13 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
-// todo move into forestry.arboriculture.worldgen
 public class TreeGenHelper {
 	public static boolean generateTree(ITreeSpecies tree, @Nullable IGenome genome, WorldGenLevel level, RandomSource random, BlockPos pos) {
 		Feature<NoneFeatureConfiguration> gen = tree.getGenerator().getTreeFeature(tree);
 
 		BlockState state = level.getBlockState(pos);
 		if (BlockUtil.canPlaceTree(state, level, pos)) {
-			// todo require FeatureBase so that the genome is always respected
+
 			if (gen instanceof FeatureBase base) {
 				if (genome == null) {
 					genome = tree.getDefaultGenome();

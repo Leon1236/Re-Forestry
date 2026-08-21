@@ -30,7 +30,12 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
 
 public final class ForestryApiImpl implements IForestryApi {
-    private static final ForestryApiImpl INSTANCE = new ForestryApiImpl();
+    private static final ForestryApiImpl INSTANCE;
+
+    static {
+        INSTANCE = new ForestryApiImpl();
+        IForestryApi.setInstance(INSTANCE);
+    }
 
     private final ForestryClimateManager climateManager = new ForestryClimateManager();
     private final ErrorManager errorManager = new ErrorManager();
@@ -44,7 +49,7 @@ public final class ForestryApiImpl implements IForestryApi {
     private ForestryApiImpl() {
     }
 
-    public static IForestryApi get() {
+    public static ForestryApiImpl get() {
         return INSTANCE;
     }
 

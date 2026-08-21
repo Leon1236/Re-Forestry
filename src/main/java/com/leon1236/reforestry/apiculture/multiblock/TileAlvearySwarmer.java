@@ -6,6 +6,7 @@ import java.util.List;
 import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -34,6 +35,7 @@ import com.leon1236.reforestry.apiculture.hives.HiveDecorator;
 import com.leon1236.reforestry.apiculture.hives.HiveDefinitionSwarmer;
 import com.leon1236.reforestry.apiculture.inventory.InventoryAlvearyPart;
 import com.leon1236.reforestry.apiculture.items.ItemBeeGE;
+import com.leon1236.reforestry.core.inventory.InventoryUtil;
 import com.leon1236.reforestry.core.tiles.IActivatable;
 
 public class TileAlvearySwarmer extends TileAlveary implements IActivatable,
@@ -53,6 +55,21 @@ public class TileAlvearySwarmer extends TileAlveary implements IActivatable,
 	@Override
 	public Container getInternalInventory() {
 		return this.inventory;
+	}
+
+	@Override
+	public int[] getSlotsForFace(Direction direction) {
+		return InventoryUtil.contiguousSlots(this.inventory.getContainerSize());
+	}
+
+	@Override
+	public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction direction) {
+		return this.inventory.canPlaceItem(slot, stack);
+	}
+
+	@Override
+	public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction direction) {
+		return false;
 	}
 
 	@Override

@@ -36,7 +36,7 @@ public class CircuitBoard implements ICircuitBoard {
 
         ICircuitLayout layout = null;
         if (compound.contains("LY")) {
-            layout = IForestryApi.INSTANCE.getCircuitManager().getLayout(compound.getString("LY").orElse(""));
+            layout = IForestryApi.get().getCircuitManager().getLayout(compound.getString("LY").orElse(""));
         }
         this.layout = layout;
 
@@ -44,7 +44,7 @@ public class CircuitBoard implements ICircuitBoard {
         for (int i = 0; i < 4; i++) {
             String key = "CA.I" + i;
             if (compound.contains(key)) {
-                ICircuit circuit = IForestryApi.INSTANCE.getCircuitManager().getCircuit(compound.getString(key).orElse(""));
+                ICircuit circuit = IForestryApi.get().getCircuitManager().getCircuit(compound.getString(key).orElse(""));
                 if (circuit != null) {
                     this.circuits[i] = circuit;
                 }

@@ -9,8 +9,10 @@ import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.leon1236.reforestry.api.IForestryApi;
 import com.leon1236.reforestry.apiculture.ModuleApiculture;
 import com.leon1236.reforestry.arboriculture.ModuleArboriculture;
+import com.leon1236.reforestry.core.ForestryApiImpl;
 import com.leon1236.reforestry.core.ModuleCore;
 import com.leon1236.reforestry.core.plugin.PluginManager;
 import com.leon1236.reforestry.cultivation.ModuleCultivation;
@@ -30,7 +32,7 @@ public class ReForestry implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		LOGGER.info("Hello Fabric world!");
+		IForestryApi.setInstance(ForestryApiImpl.get());
 		ModuleManager.INSTANCE.load(List.of(
 				new ModuleCore(),
 				new ModuleApiculture(),

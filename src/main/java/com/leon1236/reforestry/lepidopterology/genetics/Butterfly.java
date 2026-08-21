@@ -107,8 +107,8 @@ public class Butterfly extends IndividualLiving<IButterflySpecies, IButterfly, B
 	@Override
 	public boolean isAcceptedEnvironment(Level world, BlockPos pos) {
 		Holder<Biome> biome = world.getBiome(pos);
-		TemperatureType biomeTemperature = IForestryApi.INSTANCE.getClimateManager().getTemperature(biome);
-		HumidityType biomeHumidity = IForestryApi.INSTANCE.getClimateManager().getHumidity(biome);
+		TemperatureType biomeTemperature = IForestryApi.get().getClimateManager().getTemperature(biome);
+		HumidityType biomeHumidity = IForestryApi.get().getClimateManager().getHumidity(biome);
 		ToleranceType temperatureTolerance = getGenome().getActiveAllele(ButterflyChromosomes.TEMPERATURE_TOLERANCE).value();
 		ToleranceType humidityTolerance = getGenome().getActiveAllele(ButterflyChromosomes.HUMIDITY_TOLERANCE).value();
 		return ClimateHelper.isWithinLimits(biomeTemperature, biomeHumidity,

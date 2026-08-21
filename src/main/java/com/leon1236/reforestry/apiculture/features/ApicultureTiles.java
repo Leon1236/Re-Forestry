@@ -81,6 +81,9 @@ public class ApicultureTiles {
     public static void init() {
         InventoryHelper.registerSided(APIARY.type());
         InventoryHelper.registerSided(ALVEARY.type());
+        InventoryHelper.registerSided(ALVEARY_SWARMER.type());
+        InventoryHelper.registerSided(ALVEARY_HYGRO.type());
+        InventoryHelper.registerSided(ALVEARY_SIEVE.type());
         EnergyStorage.SIDED.registerForBlockEntity((tile, direction) -> tile.getEnergyStorage(), ALVEARY_FAN.type());
         EnergyStorage.SIDED.registerForBlockEntity((tile, direction) -> tile.getEnergyStorage(), ALVEARY_HEATER.type());
         FluidStorage.SIDED.registerForBlockEntity((tile, direction) -> tile.getTank(), ALVEARY_HYGRO.type());

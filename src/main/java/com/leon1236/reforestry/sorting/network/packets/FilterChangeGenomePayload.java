@@ -54,6 +54,9 @@ public record FilterChangeGenomePayload(BlockPos pos, Direction facing, short in
 
 	public static void handle(FilterChangeGenomePayload payload, ServerPlayNetworking.Context context) {
 		ServerPlayer player = context.player();
+		if (payload.index() < 0 || payload.index() > 2) {
+			return;
+		}
 		BlockEntity blockEntity = player.level().getBlockEntity(payload.pos());
 		if (!(blockEntity instanceof TileGeneticFilter tile) || !tile.isUsableByPlayer(player)) {
 			return;

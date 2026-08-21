@@ -83,6 +83,15 @@ public final class ModuleManager implements IModuleManager {
             }
         } while (changed);
 
+        if (!remaining.isEmpty()) {
+            for (IForestryModule module : remaining) {
+                ReForestry.LOGGER.warn(
+                        "Module {} dropped due to circular or unsatisfied dependencies: {}",
+                        module.getId(),
+                        module.getModuleDependencies());
+            }
+        }
+
         for (IForestryModule module : loadOrder) {
             ReForestry.LOGGER.info("Loading reforestry module: {}", module.getId());
             loadedModules.put(module.getId(), module);

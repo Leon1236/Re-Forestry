@@ -7,7 +7,7 @@ import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 
-import com.leon1236.reforestry.core.recipes.IngredientStack;
+import com.leon1236.reforestry.api.recipes.IngredientStack;
 
 public final class InventoryUtil {
     public static final int[] NO_SLOTS = new int[0];

@@ -15,7 +15,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -61,15 +60,17 @@ public class TileGeneticFilter extends TileForestry implements Container, ILocat
 				continue;
 			}
 			ItemStack transferredStack = tile.transferItem(stack, facing);
+			if (transferredStack.isEmpty()) {
+				continue;
+			}
 			int remaining = stack.getCount() - transferredStack.getCount();
 			if (remaining > 0) {
 				ItemStack leftover = stack.copy();
 				leftover.setCount(remaining);
-				ItemEntity entity = new ItemEntity(level, tile.worldPosition.getX(), tile.worldPosition.getY() + 0.5F,
-						tile.worldPosition.getZ(), leftover);
-				level.addFreshEntity(entity);
+				tile.setItem(facing.get3DDataValue(), leftover);
+			} else {
+				tile.setItem(facing.get3DDataValue(), ItemStack.EMPTY);
 			}
-			tile.setItem(facing.get3DDataValue(), ItemStack.EMPTY);
 		}
 	}
 
@@ -123,6 +124,17 @@ public class TileGeneticFilter extends TileForestry implements Container, ILocat
 
 	public List<Direction> getValidDirections(ItemStack stack, Direction from) {
 		List<Direction> validFacings = new ArrayList<>();
+		if (!IndividualItems.isIndividual(stack)) {
+			for (Direction facing : Direction.values()) {
+				if (facing == from) {
+					continue;
+				}
+				if (isConnected(facing) && this.logic.isValid(stack, facing)) {
+					validFacings.add(facing);
+				}
+			}
+			return validFacings;
+		}
 		IndividualItems.filter(stack, (genome, stage) -> {
 			var typeId = IndividualItems.getSpeciesTypeId(stack);
 			if (typeId == null) {

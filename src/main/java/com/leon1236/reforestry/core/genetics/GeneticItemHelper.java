@@ -87,9 +87,6 @@ public final class GeneticItemHelper implements IndividualItems.Access {
 		if (stack.getItem() instanceof ItemButterflyGE) {
 			return ForestrySpeciesTypes.BUTTERFLY;
 		}
-		if (IIndividualHandlerItem.isIndividual(stack)) {
-			return ForestrySpeciesTypes.TREE;
-		}
 		return null;
 	}
 
@@ -134,6 +131,7 @@ public final class GeneticItemHelper implements IndividualItems.Access {
 		return true;
 	}
 
+	@Nullable
 	public static Identifier speciesId(IGenome genome, Identifier typeId, boolean active) {
 		if (typeId.equals(ForestrySpeciesTypes.TREE)) {
 			return alleleSpeciesId(genome, TreeChromosomes.SPECIES, active);
@@ -141,7 +139,10 @@ public final class GeneticItemHelper implements IndividualItems.Access {
 		if (typeId.equals(ForestrySpeciesTypes.BUTTERFLY)) {
 			return alleleSpeciesId(genome, ButterflyChromosomes.SPECIES, active);
 		}
-		return alleleSpeciesId(genome, BeeChromosomes.SPECIES, active);
+		if (typeId.equals(ForestrySpeciesTypes.BEE)) {
+			return alleleSpeciesId(genome, BeeChromosomes.SPECIES, active);
+		}
+		return null;
 	}
 
 	private static <V extends IRegistryAlleleValue> Identifier alleleSpeciesId(

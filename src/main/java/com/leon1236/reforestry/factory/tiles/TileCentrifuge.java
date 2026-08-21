@@ -104,7 +104,7 @@ public class TileCentrifuge extends SocketedPoweredTile implements WorldlyContai
             if (syncedErrorCount >= ERROR_SLOT_COUNT) {
                 break;
             }
-            short id = IForestryApi.INSTANCE.getErrorManager().getNumericId(error);
+            short id = IForestryApi.get().getErrorManager().getNumericId(error);
             syncedErrorIds[syncedErrorCount++] = id;
         }
         for (int i = syncedErrorCount; i < ERROR_SLOT_COUNT; i++) {

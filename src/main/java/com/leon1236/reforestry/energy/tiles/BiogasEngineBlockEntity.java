@@ -74,7 +74,7 @@ public class BiogasEngineBlockEntity extends EngineBlockEntity implements Worldl
 	}
 
 	private boolean isBiogasFuel(FluidVariant variant) {
-		return FuelManager.biogasEngineFuel != null && FuelManager.biogasEngineFuel.containsKey(variant.getFluid());
+		return FuelManager.isBiogasEngineFuel(variant.getFluid());
 	}
 
 	@Override
@@ -173,7 +173,7 @@ public class BiogasEngineBlockEntity extends EngineBlockEntity implements Worldl
 
 		FilteredFluidStorage fuelTank = getFuelTank();
 		if (fuelTank.getAmount() > 0 && !fuelTank.variant.isBlank()) {
-			EngineBronzeFuel fuel = FuelManager.biogasEngineFuel.get(fuelTank.variant.getFluid());
+			EngineBronzeFuel fuel = FuelManager.getBiogasEngineFuel(fuelTank.variant.getFluid());
 			if (fuel != null) {
 				loss = loss * fuel.dissipationMultiplier();
 			}
@@ -184,6 +184,9 @@ public class BiogasEngineBlockEntity extends EngineBlockEntity implements Worldl
 
 	@Override
 	public void generateHeat() {
+		if (!mayBurn()) {
+			return;
+		}
 		int generate = 0;
 		if (isRedstoneActivated() && getBurnTank().getAmount() > 0) {
 			double heatStage = getHeatLevel();
@@ -195,21 +198,17 @@ public class BiogasEngineBlockEntity extends EngineBlockEntity implements Worldl
 				generate += EnergyConstants.ENGINE_BRONZE_HEAT_GENERATION_ENERGY;
 			}
 		}
-		this.heat += generate;
+		addHeat(generate);
 	}
 
 	private static int determineFuelValue(@Nullable Fluid fluid) {
-		if (fluid != null && FuelManager.biogasEngineFuel.containsKey(fluid)) {
-			return FuelManager.biogasEngineFuel.get(fluid).powerPerCycle();
-		}
-		return 0;
+		EngineBronzeFuel fuel = FuelManager.getBiogasEngineFuel(fluid);
+		return fuel == null ? 0 : fuel.powerPerCycle();
 	}
 
 	private static int determineBurnTime(@Nullable Fluid fluid) {
-		if (fluid != null && FuelManager.biogasEngineFuel.containsKey(fluid)) {
-			return FuelManager.biogasEngineFuel.get(fluid).burnDuration();
-		}
-		return 0;
+		EngineBronzeFuel fuel = FuelManager.getBiogasEngineFuel(fluid);
+		return fuel == null ? 0 : fuel.burnDuration();
 	}
 
 	@Override

@@ -24,7 +24,7 @@ public class GuardianBeeEffect extends ThrottledBeeEffect {
 		List<Player> list = getEntitiesInRange(genome, housing, Player.class);
 		for (Player player : list) {
 			if (!player.hasEffect(MobEffects.MINING_FATIGUE)) {
-				int count = BeeManager.armorApiaristHelper.wearsItems(player, this, true);
+				int count = BeeManager.getArmorApiaristHelper().wearsItems(player, this, true);
 				if (count >= 4) {
 					continue;
 				}

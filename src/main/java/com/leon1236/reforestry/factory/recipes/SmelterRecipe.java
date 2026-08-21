@@ -15,7 +15,7 @@ import net.minecraft.world.item.crafting.RecipeType;
 
 import com.leon1236.reforestry.api.recipes.ISmelterRecipe;
 import com.leon1236.reforestry.core.recipes.CraftingPatternHelper;
-import com.leon1236.reforestry.core.recipes.IngredientStack;
+import com.leon1236.reforestry.api.recipes.IngredientStack;
 import com.leon1236.reforestry.factory.features.FactoryRecipeTypes;
 
 public record SmelterRecipe(List<IngredientStack> inputs, IngredientStack output, int processingTime) implements ISmelterRecipe {

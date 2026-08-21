@@ -156,19 +156,19 @@ public final class BeekeepingLogic implements IBeekeepingLogic {
         RandomSource random = housing.level().getRandom();
         for (IProduct product : primary.products()) {
             if (random.nextFloat() < product.chance() * speed) {
-                housing.beeInventory().addProduct(product.createRandomStack(random));
+                tryAddProduct(product.createRandomStack(random));
             }
         }
         for (IProduct product : secondary.products()) {
             if (random.nextFloat() < (product.chance() / 2f) * speed) {
-                housing.beeInventory().addProduct(product.createRandomStack(random));
+                tryAddProduct(product.createRandomStack(random));
             }
         }
 
         if (primary.isJubilant(genome, housing) && secondary.isJubilant(genome, housing)) {
             for (IProduct product : primary.specialties()) {
                 if (random.nextFloat() < product.chance() * speed) {
-                    housing.beeInventory().addProduct(product.createRandomStack(random));
+                    tryAddProduct(product.createRandomStack(random));
                 }
             }
         }
@@ -482,11 +482,19 @@ public final class BeekeepingLogic implements IBeekeepingLogic {
     }
 
     private void insertOrDrop(ItemStack stack) {
-        if (!housing.beeInventory().addProduct(stack)) {
+        if (!tryAddProduct(stack)) {
             Level level = housing.level();
             BlockPos pos = housing.position();
             Block.popResource(level, pos, stack);
         }
+    }
+
+    private boolean tryAddProduct(ItemStack stack) {
+        if (housing.beeInventory().addProduct(stack)) {
+            return true;
+        }
+        housing.getErrorLogic().setCondition(true, ForestryError.NO_SPACE_INVENTORY);
+        return false;
     }
 
     private static final class QueenCanWorkCache {

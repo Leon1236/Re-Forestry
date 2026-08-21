@@ -205,7 +205,7 @@ public class TileFarm extends MultiblockTileEntityForestry<MultiblockLogicFarm>
 			if (this.syncedErrorCount >= ERROR_SLOT_COUNT) {
 				break;
 			}
-			this.syncedErrorIds[this.syncedErrorCount++] = IForestryApi.INSTANCE.getErrorManager().getNumericId(error);
+			this.syncedErrorIds[this.syncedErrorCount++] = IForestryApi.get().getErrorManager().getNumericId(error);
 		}
 		for (int i = this.syncedErrorCount; i < ERROR_SLOT_COUNT; i++) {
 			this.syncedErrorIds[i] = -1;

@@ -16,23 +16,15 @@ import net.minecraft.world.level.chunk.LevelChunk;
 import org.jetbrains.annotations.Nullable;
 import java.util.*;
 
-/**
- * This class contains the base logic for "multiblock controllers". Conceptually, they are
- * meta-TileEntities. They govern the logic for an associated group of TileEntities.
- * <p>
- * Subordinate TileEntities implement the IMultiblockComponent class and, generally, should not have an update() loop.
- */
 public abstract class MultiblockControllerBase implements IMultiblockControllerInternal {
-	// Multiblock stuff - do not mess with
+
 	protected final Level level;
 
-	// Ticks
 	private static final Random rand = new Random();
 	private int tickCount = rand.nextInt(256);
 	@Nullable
 	private BlockPos destroyedCoord = null;
 
-	// Disassembled -> Assembled; Assembled -> Disassembled OR Paused; Paused -> Assembled
 	protected enum AssemblyState {
 		DISASSEMBLED, ASSEMBLED, PAUSED
 	}
@@ -41,38 +33,17 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 
 	protected HashSet<IMultiblockComponent> connectedParts;
 
-	/**
-	 * This is a deterministically-picked coordinate that identifies this
-	 * multiblock uniquely in its dimension.
-	 * Currently, this is the coord with the lowest X, Y and Z coordinates, in that order of evaluation.
-	 * i.e. If something has a lower X but higher Y/Z coordinates, it will still be the reference.
-	 * If something has the same X but a lower Y coordinate, it will be the reference. Etc.
-	 */
 	@Nullable
 	private BlockPos referenceCoord;
 
-	/**
-	 * Minimum bounding box coordinate. Blocks do not necessarily exist at this coord if your machine
-	 * is not a cube/rectangular prism.
-	 */
 	@Nullable
 	private BlockPos minimumCoord;
 
-	/**
-	 * Maximum bounding box coordinate. Blocks do not necessarily exist at this coord if your machine
-	 * is not a cube/rectangular prism.
-	 */
 	@Nullable
 	private BlockPos maximumCoord;
 
-	/**
-	 * Set to true whenever a part is removed from this controller.
-	 */
 	private boolean shouldCheckForDisconnections;
 
-	/**
-	 * Set whenever we validate the multiblock
-	 */
 	@Nullable
 	private MultiblockValidationException lastValidationException;
 
@@ -96,12 +67,6 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 		return Collections.unmodifiableCollection(this.connectedParts);
 	}
 
-	/**
-	 * Call when a block with cached save-delegate data is added to the multiblock.
-	 * The part will be notified that the data has been used after this call completes.
-	 *
-	 * @param part The NBT tag containing this controller's data.
-	 */
 	protected abstract void onAttachedPartWithMultiblockData(IMultiblockComponent part, CompoundTag data);
 
 	@Override
@@ -167,58 +132,28 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 		MultiblockRegistry.addDirtyController(this.level, this);
 	}
 
-	/**
-	 * Called when a new part is added to the machine. Good time to register things into lists.
-	 *
-	 * @param newPart The part being added.
-	 */
 	protected abstract void onBlockAdded(IMultiblockComponent newPart);
 
-	/**
-	 * Called when a part is removed from the machine. Good time to clean up lists.
-	 *
-	 * @param oldPart The part being removed.
-	 */
 	protected abstract void onBlockRemoved(IMultiblockComponent oldPart);
 
-	/**
-	 * Called when a machine is assembled from a disassembled state.
-	 */
 	protected void onMachineAssembled() {
 
 	}
 
-	/**
-	 * Called when a machine is restored to the assembled state from a paused state.
-	 */
 	protected void onMachineRestored() {
 
 	}
 
-	/**
-	 * Called when a machine is paused from an assembled state
-	 * This generally only happens due to chunk-loads and other "system" events.
-	 */
 	protected void onMachinePaused() {
 
 	}
 
-	/**
-	 * Called when a machine is disassembled from an assembled state.
-	 * This happens due to user or in-game actions (e.g. explosions)
-	 */
 	protected void onMachineDisassembled() {
 
 	}
 
-	/**
-	 * Callback whenever a part is removed (or will very shortly be removed) from a controller.
-	 * Do housekeeping/callbacks, also nulls min/max coords.
-	 *
-	 * @param part The part being removed.
-	 */
 	private void onDetachBlock(IMultiblockComponent part) {
-		// Strip out this part
+
 		MultiblockLogic<?> logic = (MultiblockLogic<?>) part.getMultiblockLogic();
 		logic.setController(null);
 		this.onBlockRemoved(part);
@@ -241,7 +176,7 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 		}
 
 		BlockPos oldReference = this.referenceCoord;
-		// Strip out this part
+
 		onDetachBlock(part);
 		if (!this.connectedParts.remove(part)) {
 			BlockPos partCoords = part.getCoordinates();
@@ -251,16 +186,15 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 		}
 
 		if (this.connectedParts.isEmpty()) {
-			// Destroy/unregister
+
 			MultiblockRegistry.addDeadController(this.level, this);
-			// Save last known reference position so drops can be spawned
+
 			this.destroyedCoord = oldReference;
 			return;
 		}
 
 		MultiblockRegistry.addDirtyController(this.level, this);
 
-		// Find new save delegate if we need to.
 		if (this.referenceCoord == null) {
 			selectNewReferenceCoord();
 		}
@@ -279,9 +213,6 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 		MultiblockRegistry.addDirtyController(this.level, this);
 	}
 
-	/**
-	 * Checks if a machine is whole. If not, throws an exception with the reason why.
-	 */
 	protected abstract void isMachineWhole() throws MultiblockValidationException;
 
 	@Override
@@ -298,20 +229,15 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 		}
 
 		if (isWhole) {
-			// This will alter assembly state
+
 			assembleMachine(oldState);
 		} else if (oldState == AssemblyState.ASSEMBLED) {
-			// This will alter assembly state
+
 			disassembleMachine();
 		}
-		// Else Paused, do nothing
+
 	}
 
-	/**
-	 * Called when a machine becomes "whole" and should begin
-	 * functioning as a game-logically finished machine.
-	 * Calls onMachineAssembled on all attached parts.
-	 */
 	private void assembleMachine(AssemblyState oldState) {
 		this.assemblyState = AssemblyState.ASSEMBLED;
 
@@ -326,12 +252,6 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 		}
 	}
 
-	/**
-	 * Called when the machine needs to be disassembled.
-	 * It is not longer "whole" and should not be functional, usually
-	 * as a result of a block being removed.
-	 * Calls onMachineBroken on all attached parts.
-	 */
 	private void disassembleMachine() {
 		this.assemblyState = AssemblyState.DISASSEMBLED;
 
@@ -352,11 +272,10 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 
 		Set<IMultiblockComponent> partsToAcquire = new HashSet<>(other.getComponents());
 
-		// releases all blocks and references gently so they can be incorporated into another multiblock
 		other._onAssimilated(this);
 
 		for (IMultiblockComponent acquiredPart : partsToAcquire) {
-			// By definition, none of these can be the minimum block.
+
 			if (isInvalid(acquiredPart)) {
 				continue;
 			}
@@ -371,12 +290,6 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 		other.onAssimilated(this);
 	}
 
-	/**
-	 * Called when this machine is consumed by another controller.
-	 * Essentially, forcibly tear down this object.
-	 *
-	 * @param otherController The controller consuming this controller.
-	 */
 	@Override
 	public void _onAssimilated(IMultiblockControllerInternal otherController) {
 		if (this.referenceCoord != null) {
@@ -392,13 +305,6 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
         this.connectedParts.clear();
 	}
 
-	/**
-	 * Callback. Called after this controller assimilates all the blocks
-	 * from another controller.
-	 * Use this to absorb that controller's game data.
-	 *
-	 * @param assimilated The controller whose uniqueness was added to our own.
-	 */
 	protected abstract void onAssimilate(IMultiblockControllerInternal assimilated);
 
 	@Override
@@ -406,13 +312,13 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
         this.tickCount++;
 
 		if (this.connectedParts.isEmpty()) {
-			// This shouldn't happen, but just in case...
+
 			MultiblockRegistry.addDeadController(this.level, this);
 			return;
 		}
 
 		if (this.assemblyState != AssemblyState.ASSEMBLED) {
-			// Not assembled - don't run game logic
+
 			return;
 		}
 
@@ -437,53 +343,26 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 				}
 			}
 		}
-		// Else: Server, but no need to save data.
+
 	}
 
-	/**
-	 * The server-side update loop! Use this similarly to a TileEntity's update loop.
-	 * You do not need to call your superclass' update() if you're directly
-	 * derived from MultiblockControllerBase. This is a callback.
-	 * Note that this will only be called when the machine is assembled.
-	 *
-	 * @return True if the multiblock should save data, i.e. its internal game state has changed. False otherwise.
-	 */
 	protected abstract boolean serverTick(int tickCount);
 
 	protected int getTickCount() {
 		return this.tickCount;
 	}
 
-	/**
-	 * Client-side update loop. Generally, this shouldn't do anything, but if you want
-	 * to do some interpolation or something, do it here.
-	 */
 	protected abstract void clientTick(int tickCount);
 
 	protected final boolean updateOnInterval(int tickInterval) {
 		return this.tickCount % tickInterval == 0;
 	}
 
-	// Validation helpers
-
-	/**
-	 * @param level the level of the block on the multiblock, starting at 0 for the bottom.
-	 * @param world World object for the world in which this controller is located.
-	 * @param pos   coordinate of the block being tested
-	 * @throws MultiblockValidationException if the tested block is not allowed on the machine's side faces
-	 */
 	protected void isBlockGoodForExteriorLevel(int level, Level world, BlockPos pos) throws MultiblockValidationException {
 		Block block = world.getBlockState(pos).getBlock();
 		throw new MultiblockValidationException(Component.translatable("for.multiblock.error.invalid.interior", block).getString(), pos);
 	}
 
-	/**
-	 * The interior is any block that does not touch blocks outside the machine.
-	 *
-	 * @param world World object for the world in which this controller is located.
-	 * @param pos   coordinate of the block being tested
-	 * @throws MultiblockValidationException if the tested block is not allowed in the machine's interior
-	 */
 	protected void isBlockGoodForInterior(Level world, BlockPos pos) throws MultiblockValidationException {
 		Block block = world.getBlockState(pos).getBlock();
 		throw new MultiblockValidationException(Component.translatable("for.multiblock.error.invalid.interior", block).getString(), pos);
@@ -498,9 +377,6 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 		return this.referenceCoord;
 	}
 
-	/**
-	 * @return The number of blocks connected to this controller.
-	 */
 	public int getNumConnectedBlocks() {
 		return this.connectedParts.size();
 	}
@@ -541,9 +417,6 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 		}
 	}
 
-	/**
-	 * @return The minimum bounding-box coordinate containing this machine's blocks.
-	 */
 	protected BlockPos getMinimumCoord() {
 		if (this.minimumCoord == null) {
 			recalculateMinMaxCoords();
@@ -551,9 +424,6 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 		return new BlockPos(this.minimumCoord);
 	}
 
-	/**
-	 * @return The maximum bounding-box coordinate containing this machine's blocks.
-	 */
 	protected BlockPos getMaximumCoord() {
 		if (this.maximumCoord == null) {
 			recalculateMinMaxCoords();
@@ -603,7 +473,7 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 
 		if (otherController == this) {
 			return false;
-		} // Don't be silly, don't eat yourself.
+		}
 
 		int res = _shouldConsume(otherController);
 		if (res < 0) {
@@ -611,7 +481,7 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 		} else if (res > 0) {
 			return false;
 		} else {
-			// Strip dead parts from both and retry
+
 			ReForestry.LOGGER.warn("[{}] Encountered two controllers with the same reference coordinate. Auditing connected parts and retrying.", this.level.isClientSide() ? "CLIENT" : "SERVER");
 			auditParts();
 			otherController.auditParts();
@@ -635,7 +505,6 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 		BlockPos myCoord = getReferenceCoord();
 		BlockPos theirCoord = otherController.getReferenceCoord();
 
-		// Always consume other controllers if their reference coordinate is null - this means they're empty and can be assimilated on the cheap
 		if (theirCoord == null || myCoord == null) {
 			return -1;
 		} else {
@@ -688,16 +557,14 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 
 		ChunkSource chunkProvider = this.level.getChunkSource();
 
-		// Invalidate our reference coord, we'll recalculate it shortly
         this.referenceCoord = null;
 
-		// Reset visitations and find the minimum coordinate
 		Set<IMultiblockComponent> deadParts = new HashSet<>();
 		BlockPos c;
 		IMultiblockComponent referencePart = null;
 
 		for (IMultiblockComponent part : this.connectedParts) {
-			// This happens during chunk unload.
+
 			BlockPos partCoord = part.getCoordinates();
 			if (chunkProvider.getChunkNow(partCoord.getX() >> 4, partCoord.getZ() >> 4) == null || isInvalid(part)) {
 				deadParts.add(part);
@@ -730,7 +597,7 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 		deadParts.clear();
 
 		if (referencePart == null || hasNoParts()) {
-			// There are no valid parts remaining. The entire multiblock was unloaded during a chunk unload. Halt.
+
             this.shouldCheckForDisconnections = false;
 			MultiblockRegistry.addDeadController(this.level, this);
 			return Collections.emptySet();
@@ -739,7 +606,6 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 			logic.becomeMultiblockSaveDelegate();
 		}
 
-		// Now visit all connected parts, breadth-first, starting from reference coord's part
 		IMultiblockComponent part;
 		LinkedList<IMultiblockComponent> partsToCheck = new LinkedList<>();
 
@@ -750,9 +616,9 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 			MultiblockLogic<?> partLogic = (MultiblockLogic<?>) part.getMultiblockLogic();
 			partLogic.setVisited();
 
-			List<IMultiblockComponent> nearbyParts = MultiblockUtil.getNeighboringParts(this.level, part); // Chunk-safe on server, but not on client
+			List<IMultiblockComponent> nearbyParts = MultiblockUtil.getNeighboringParts(this.level, part);
 			for (IMultiblockComponent nearbyPart : nearbyParts) {
-				// Ignore different machines
+
 				MultiblockLogic<?> nearbyPartLogic = (MultiblockLogic<?>) nearbyPart.getMultiblockLogic();
 				if (nearbyPartLogic.getController() != this) {
 					continue;
@@ -765,7 +631,6 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 			}
 		}
 
-		// Finally, remove all parts that remain disconnected.
 		Set<IMultiblockComponent> removedParts = new HashSet<>();
 		for (IMultiblockComponent orphanCandidate : this.connectedParts) {
 			MultiblockLogic<?> logic = (MultiblockLogic<?>) orphanCandidate.getMultiblockLogic();
@@ -776,18 +641,14 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 			}
 		}
 
-		// Trim any blocks that were invalid, or were removed.
         this.connectedParts.removeAll(deadParts);
 
-		// Cleanup. Not necessary, really.
 		deadParts.clear();
 
-		// Juuuust in case.
 		if (this.referenceCoord == null) {
 			selectNewReferenceCoord();
 		}
 
-		// We've run the checks from here on out.
         this.shouldCheckForDisconnections = false;
 
 		return removedParts;
@@ -809,9 +670,6 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 		return detachedParts;
 	}
 
-	/**
-	 * @return True if this multiblock machine is considered assembled and ready to go.
-	 */
 	@Override
 	public boolean isAssembled() {
 		return this.assemblyState == AssemblyState.ASSEMBLED;
@@ -826,7 +684,7 @@ public abstract class MultiblockControllerBase implements IMultiblockControllerI
 		for (IMultiblockComponent part : this.connectedParts) {
 			BlockPos partCoord = part.getCoordinates();
 			if (isInvalid(part) || chunkProvider.getChunkNow(partCoord.getX() >> 4, partCoord.getZ() >> 4) == null) {
-				// Chunk is unloading, skip this coord to prevent chunk thrashing
+
 				continue;
 			}
 

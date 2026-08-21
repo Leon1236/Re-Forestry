@@ -50,7 +50,7 @@ public final class DefaultFarms {
 	}
 
 	public static void registerFarmTypes(IFarmingRegistration farming) {
-		boolean arboriculture = IForestryApi.INSTANCE.getModuleManager().isModuleLoaded(ReForestry.id("arboriculture"));
+		boolean arboriculture = IForestryApi.get().getModuleManager().isModuleLoaded(ReForestry.id("arboriculture"));
 
 		IFarmTypeBuilder arboreal = farming.createFarmType(ForestryFarmTypes.ARBOREAL, FarmLogicArboreal::new, new ItemStack(Blocks.OAK_SAPLING))
 				.setFertilizerConsumption(10)

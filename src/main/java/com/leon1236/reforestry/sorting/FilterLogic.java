@@ -32,7 +32,7 @@ public class FilterLogic implements IFilterLogic {
 		this.networkHandler = networkHandler;
 
 		for (int i = 0; i < this.filterRules.length; i++) {
-			this.filterRules[i] = IForestryApi.INSTANCE.getFilterManager().getDefaultRule();
+			this.filterRules[i] = IForestryApi.get().getFilterManager().getDefaultRule();
 		}
 	}
 
@@ -86,7 +86,7 @@ public class FilterLogic implements IFilterLogic {
 
 	public void read(ValueInput input) {
 		for (int i = 0; i < this.filterRules.length; i++) {
-			this.filterRules[i] = IForestryApi.INSTANCE.getFilterManager().getRuleOrDefault(input.getStringOr("TypeFilter" + i, ""));
+			this.filterRules[i] = IForestryApi.get().getFilterManager().getRuleOrDefault(input.getStringOr("TypeFilter" + i, ""));
 		}
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 3; j++) {
@@ -107,7 +107,7 @@ public class FilterLogic implements IFilterLogic {
 	@Override
 	public void read(CompoundTag data, HolderLookup.Provider registries) {
 		for (int i = 0; i < this.filterRules.length; i++) {
-			this.filterRules[i] = IForestryApi.INSTANCE.getFilterManager().getRuleOrDefault(data.getStringOr("TypeFilter" + i, ""));
+			this.filterRules[i] = IForestryApi.get().getFilterManager().getRuleOrDefault(data.getStringOr("TypeFilter" + i, ""));
 		}
 
 		for (int i = 0; i < 6; i++) {
@@ -138,7 +138,7 @@ public class FilterLogic implements IFilterLogic {
 
 	public static void writeFilterRules(FriendlyByteBuf buffer, IFilterRuleType[] filterRules) {
 		for (IFilterRuleType filterRule : filterRules) {
-			buffer.writeShort(IForestryApi.INSTANCE.getFilterManager().getId(filterRule));
+			buffer.writeShort(IForestryApi.get().getFilterManager().getId(filterRule));
 		}
 	}
 
@@ -170,7 +170,7 @@ public class FilterLogic implements IFilterLogic {
 	public static IFilterRuleType[] readFilterRules(FriendlyByteBuf buffer) {
 		IFilterRuleType[] filterRules = new IFilterRuleType[6];
 		for (int i = 0; i < 6; i++) {
-			filterRules[i] = IForestryApi.INSTANCE.getFilterManager().getRuleOrDefault(buffer.readShort());
+			filterRules[i] = IForestryApi.get().getFilterManager().getRuleOrDefault(buffer.readShort());
 		}
 		return filterRules;
 	}
@@ -194,6 +194,13 @@ public class FilterLogic implements IFilterLogic {
 
 	@Override
 	public boolean isValid(ItemStack stack, Direction facing) {
+		IFilterRuleType rule = getRule(facing);
+		if (rule == DefaultFilterRuleType.CLOSED) {
+			return false;
+		}
+		if (!IndividualItems.isIndividual(stack)) {
+			return rule == DefaultFilterRuleType.ITEM || rule == DefaultFilterRuleType.ANYTHING;
+		}
 		return IndividualItems.filter(stack, (genome, stage) -> {
 			Identifier typeId = IndividualItems.getSpeciesTypeId(stack);
 			return typeId != null && isValid(facing, stack, new FilterData(typeId, genome, stage));
@@ -277,6 +284,9 @@ public class FilterLogic implements IFilterLogic {
 
 	@Override
 	public boolean setGenomeFilter(Direction facing, int index, boolean active, @Nullable Identifier species) {
+		if (index < 0 || index > 2) {
+			return false;
+		}
 		AlleleFilter filter = this.genomeFilter[facing.ordinal()][index];
 		if (filter == null) {
 			filter = this.genomeFilter[facing.ordinal()][index] = new AlleleFilter();

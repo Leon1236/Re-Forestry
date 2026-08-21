@@ -3,6 +3,7 @@ package com.leon1236.reforestry.apiculture.multiblock;
 import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
@@ -24,6 +25,7 @@ import com.leon1236.reforestry.apiculture.inventory.InventoryAlvearyPart;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureDataComponents;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureItems;
 import com.leon1236.reforestry.core.features.CoreItems;
+import com.leon1236.reforestry.core.inventory.InventoryUtil;
 import com.leon1236.reforestry.core.items.EnumCraftingMaterial;
 
 public class TileAlvearySieve extends TileAlveary
@@ -43,6 +45,21 @@ public class TileAlvearySieve extends TileAlveary
 	@Override
 	public Container getInternalInventory() {
 		return this.inventory;
+	}
+
+	@Override
+	public int[] getSlotsForFace(Direction direction) {
+		return InventoryUtil.contiguousSlots(this.inventory.getContainerSize());
+	}
+
+	@Override
+	public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction direction) {
+		return this.inventory.canPlaceItem(slot, stack);
+	}
+
+	@Override
+	public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction direction) {
+		return slot >= SLOT_POLLEN_1 && slot < SLOT_POLLEN_1 + SLOT_POLLEN_COUNT;
 	}
 
 	@Override

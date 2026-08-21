@@ -111,7 +111,7 @@ public class ClockworkEngineBlockEntity extends EngineBlockEntity {
 		} else {
 			this.tension = 0;
 		}
-		generateEnergy(EnergyConstants.ENGINE_CLOCKWORK_ENERGY_PER_CYCLE * (int) this.tension);
+		generateEnergy(Math.max(0, (int) (EnergyConstants.ENGINE_CLOCKWORK_ENERGY_PER_CYCLE * this.tension)));
 		this.level.updateNeighbourForOutputSignal(this.worldPosition, getBlockState().getBlock());
 	}
 

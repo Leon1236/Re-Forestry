@@ -22,10 +22,10 @@ public class SlotCircuitSocket extends Slot {
 
     @Override
     public boolean mayPlace(ItemStack stack) {
-        if (stack.isEmpty() || !IForestryApi.INSTANCE.getCircuitManager().isCircuitBoard(stack)) {
+        if (stack.isEmpty() || !IForestryApi.get().getCircuitManager().isCircuitBoard(stack)) {
             return false;
         }
-        var board = IForestryApi.INSTANCE.getCircuitManager().getCircuitBoard(stack);
+        var board = IForestryApi.get().getCircuitManager().getCircuitBoard(stack);
         return board != null && socketable.getSocketType().equals(board.getSocketType());
     }
 

@@ -26,7 +26,7 @@ public class AggressiveBeeEffect extends ThrottledBeeEffect {
         List<LivingEntity> entities = ThrottledBeeEffect.getEntitiesInRange(genome, housing, LivingEntity.class);
         for (LivingEntity entity : entities) {
             int damage = 4;
-            int count = BeeManager.armorApiaristHelper.wearsItems(entity, this, true);
+            int count = BeeManager.getArmorApiaristHelper().wearsItems(entity, this, true);
             damage -= count;
             if (damage <= 0) {
                 continue;
