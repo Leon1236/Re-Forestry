@@ -14,6 +14,8 @@ import com.leon1236.reforestry.extratrees.features.ExtraTreesBlocks;
 import com.leon1236.reforestry.extratrees.features.ExtraTreesCreativeTabs;
 import com.leon1236.reforestry.extratrees.features.ExtraTreesEntities;
 import com.leon1236.reforestry.extratrees.features.ExtraTreesItems;
+import com.leon1236.reforestry.extratrees.features.ExtraTreesMenuTypes;
+import com.leon1236.reforestry.extratrees.features.ExtraTreesTiles;
 
 @ForestryModule(name = "Extra Trees", description = "Extra Trees woods, fruits, machines, and moths.")
 public class ModuleExtraTrees implements IForestryModule {
@@ -32,6 +34,8 @@ public class ModuleExtraTrees implements IForestryModule {
 		ExtraTreesBlocks.init();
 		ExtraTreesEntities.init();
 		ExtraTreesItems.init();
+		ExtraTreesTiles.init();
+		ExtraTreesMenuTypes.init();
 		ExtraTreesCreativeTabs.init();
 	}
 

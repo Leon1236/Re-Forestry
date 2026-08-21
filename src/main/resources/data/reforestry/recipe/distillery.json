@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "i": {
+      "tag": "c:ingots/iron"
+    },
+    "G": {
+      "tag": "c:glass_blocks/colorless"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    },
+    "S": {
+      "item": "reforestry:sturdy_machine"
+    },
+    "P": {
+      "tag": "c:gears/bronze"
+    }
+  },
+  "pattern": [
+    "rGr",
+    "iSi",
+    "rPr"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:distillery"
+  }
+}

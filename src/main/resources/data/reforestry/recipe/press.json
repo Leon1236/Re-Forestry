@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "i": {
+      "tag": "c:ingots/iron"
+    },
+    "G": {
+      "tag": "c:glass_blocks/colorless"
+    },
+    "t": {
+      "tag": "c:ingots/tin"
+    },
+    "S": {
+      "item": "reforestry:sturdy_machine"
+    },
+    "P": {
+      "tag": "c:gears/bronze"
+    }
+  },
+  "pattern": [
+    "iGi",
+    "tSt",
+    "tPt"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:press"
+  }
+}

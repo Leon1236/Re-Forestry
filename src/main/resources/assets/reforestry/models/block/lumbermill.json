@@ -1,0 +1,6 @@
+{
+  "parent": "reforestry:block/extra_trees_machine",
+  "textures": {
+    "texture": "reforestry:block/sawmill"
+  }
+}

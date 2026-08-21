@@ -95,6 +95,10 @@
     "reforestry:imprinter",
     "reforestry:genetic_transposer",
     "reforestry:replicator",
-    "reforestry:industrial_apiary"
+    "reforestry:industrial_apiary",
+    "reforestry:lumbermill",
+    "reforestry:press",
+    "reforestry:brewery",
+    "reforestry:distillery"
   ]
 }

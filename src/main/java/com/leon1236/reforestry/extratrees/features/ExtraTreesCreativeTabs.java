@@ -63,6 +63,15 @@ public class ExtraTreesCreativeTabs {
 				output.accept(ExtraTreesItems.BOAT.item(type));
 				output.accept(ExtraTreesItems.CHEST_BOAT.item(type));
 			}
+			output.accept(ExtraTreesItems.PROVEN_GEAR.item());
+			output.accept(ExtraTreesItems.SAWDUST.item());
+			output.accept(ExtraTreesItems.BARK.item());
+			output.accept(ExtraTreesItems.WOOD_WAX.item());
+			for (var feature : ExtraTreesBlocks.MACHINES.getAll().values()) {
+				if (feature.item() != null) {
+					output.accept(feature.item());
+				}
+			}
 		});
 	});
 

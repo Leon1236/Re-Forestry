@@ -463,8 +463,8 @@ Skip Binnie Genetics serums/isolator (Gendustry is the modern line).
 | `ET1b` | L    | Stripped/boats/signs/trapdoor/button/plate (no charcoal walls) — **done** | ET1a |
 | `ET2`  | L    | Fruit alleles + ~88 species + mutations — **done** | GP0c, ET1a |
 | `ET3`  | L    | Growth features / worldgen — **done** | ET2 |
-| `ET4`  | L    | Lumbermill, press, brewery, distillery (not designer) | factory patterns |
-| `ET5`  | L    | Foods / juices / alcohol / hops | ET4 |
+| `ET4`  | L    | **done** — Lumbermill / press / brewery / distillery (not designer) | factory patterns |
+| `ET5`  | L    | Foods / juices / alcohol / hops | ET4 done |
 | `ET6`  | M    | 22 moths (`moth_*`) | Wave 6 |
 | `S2`   | S    | Genetic filter butterfly/moth rules | S1, ET6 |
 | `ET-D` | L    | Designer / stained glass / patterns | **deferred** |
@@ -496,7 +496,7 @@ Skip Binnie Genetics serums/isolator (Gendustry is the modern line).
 ## Suggested next sessions (human order)
 
 1. Wave 7 remaining order is locked in `queries/wave7-plan.md`: **GD0 → EB1 → GD1…GD8 → EB5 → EB6 → EB-FLOWERS+EB3 → EB2a–e → EB4 → ET1a…ET6 → S2**.  
-2. Next playable stage: **ET4** (Extra Trees lumbermill / press / brewery / distillery). Do not start ET5 until ET4 lands.
+2. Next playable stage: **ET5** (Extra Trees foods / juices / alcohol / machine recipes). Do not start ET6 until ET5 lands.
 
 **Can start in parallel with nothing else:** `TR1`.
 

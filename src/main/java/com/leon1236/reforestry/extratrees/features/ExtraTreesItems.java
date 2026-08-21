@@ -13,6 +13,7 @@ import com.leon1236.reforestry.extratrees.items.EnumExtraTreesFood;
 import com.leon1236.reforestry.extratrees.items.ExtraTreesBoatDispenserBehavior;
 import com.leon1236.reforestry.extratrees.items.ItemExtraTreesBoat;
 import com.leon1236.reforestry.modules.features.FeatureGroup;
+import com.leon1236.reforestry.modules.features.FeatureItem;
 import com.leon1236.reforestry.modules.features.FeatureItemGroup;
 import com.leon1236.reforestry.modules.features.IFeatureRegistry;
 import com.leon1236.reforestry.modules.features.ModFeatureRegistry;
@@ -41,6 +42,12 @@ public class ExtraTreesItems {
 			.itemGroup((type, properties) -> new ItemExtraTreesBoat(type, true, properties), ExtraTreeWoodType.WITH_PRODUCTS)
 			.identifier("chest_boat", FeatureGroup.IdentifierType.SUFFIX)
 			.create();
+
+
+	public static final FeatureItem<Item> PROVEN_GEAR = REGISTRY.item("proven_gear", Item::new);
+	public static final FeatureItem<Item> SAWDUST = REGISTRY.item("sawdust", Item::new);
+	public static final FeatureItem<Item> BARK = REGISTRY.item("bark", Item::new);
+	public static final FeatureItem<Item> WOOD_WAX = REGISTRY.item("wood_wax", Item::new);
 
 	public static void init() {
 		for (ExtraTreeWoodType type : ExtraTreeWoodType.WITH_PRODUCTS) {

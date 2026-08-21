@@ -3192,5 +3192,13 @@
   "block.reforestry.pods_banana": "Banana Pod",
   "block.reforestry.pods_red_banana": "Red Banana Pod",
   "block.reforestry.pods_plantain": "Plantain Pod",
-  "for.mutation.condition.minheight": "Minimum height from bedrock of %s"
+  "for.mutation.condition.minheight": "Minimum height from bedrock of %s",
+  "block.reforestry.lumbermill": "Lumbermill",
+  "block.reforestry.press": "Press",
+  "block.reforestry.brewery": "Brewery",
+  "block.reforestry.distillery": "Distillery",
+  "item.reforestry.proven_gear": "Proven Gear",
+  "item.reforestry.sawdust": "Sawdust",
+  "item.reforestry.bark": "Bark",
+  "item.reforestry.wood_wax": "Wood Polish"
 }

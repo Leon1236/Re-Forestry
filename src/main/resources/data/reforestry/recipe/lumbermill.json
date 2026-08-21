@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "c:glass_blocks/colorless"
+    },
+    "g": {
+      "item": "reforestry:proven_gear"
+    },
+    "A": {
+      "item": "minecraft:iron_axe"
+    },
+    "s": {
+      "item": "reforestry:sturdy_machine"
+    },
+    "P": {
+      "tag": "c:gears/bronze"
+    }
+  },
+  "pattern": [
+    "gAg",
+    "GsG",
+    "gPg"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:lumbermill"
+  }
+}
