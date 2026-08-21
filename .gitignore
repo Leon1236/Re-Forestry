@@ -1,5 +1,6 @@
 /*
 !/.gitignore
+!/AGENTS.md
 !/build.gradle
 !/settings.gradle
 !/gradle.properties
