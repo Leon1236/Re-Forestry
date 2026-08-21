@@ -9,6 +9,58 @@ import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
 import com.leon1236.reforestry.core.genetics.ForestryAlleles;
 import com.leon1236.reforestry.core.genetics.alleles.AlleleManager;
 import com.leon1236.reforestry.extratrees.ExtraTreeWoodType;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureButternut;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureMango;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureSycamore;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureSallow;
+import com.leon1236.reforestry.extratrees.worldgen.FeaturePecan;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureHornbeam;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureHazel;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureHawthorn;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureEtElm;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureElder;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureAcornOak;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureSweetgum;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureLocust;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureIroko;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureClove;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureBox;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureWhitebeam;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureRowan;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureShrub;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureAspen;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureRedMaple;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureLazyTree;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureRosewood;
+import com.leon1236.reforestry.extratrees.worldgen.FeaturePurpleheart;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureOsangeOrange;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureOldFustic;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureLogwood;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureCoffee;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureBrazilwood;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureBrazilNut;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureHolly;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureSilverFir;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureDouglasFir;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureSwampGum;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureRoseGum;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureRainbowGum;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureYew;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureWesternHemlock;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureLoblollyPine;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureCypress;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureCedar;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureCopperBeech;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureBanana;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureCommonAsh;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureSweetCrabapple;
+import com.leon1236.reforestry.extratrees.worldgen.FeaturePrairieCrabapple;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureOrchardApple;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureFloweringCrabapple;
+import com.leon1236.reforestry.extratrees.worldgen.FeatureCommonAlder;
+import com.leon1236.reforestry.extratrees.worldgen.FeaturePinkIvory;
+import com.leon1236.reforestry.arboriculture.worldgen.FeaturePlum;
+import com.leon1236.reforestry.arboriculture.worldgen.FeatureLemon;
 
 public final class ExtraTreesTreeSpecies {
 	private ExtraTreesTreeSpecies() {
@@ -17,7 +69,7 @@ public final class ExtraTreesTreeSpecies {
 	public static void register(IArboricultureRegistration registration) {
 		registration.registerSpecies(ReForestry.id("tree_orchard_apple"), "malus", "domestica", true, 0x09e67e, ExtraTreeWoodType.APPLE)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.APPLE))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureOrchardApple::new, ExtraTreeWoodType.APPLE))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(DefaultFruits.APPLE, DefaultFruits.APPLE.isDominant()));
 					genome.set(TreeChromosomes.YIELD, ForestryAlleles.YIELD_HIGHER);
@@ -27,7 +79,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_sweet_crabapple"), "malus", "coronaria", true, 0x7a9953, ExtraTreeWoodType.APPLE)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.APPLE))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureSweetCrabapple::new, ExtraTreeWoodType.APPLE))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.CRABAPPLE, ExtraTreesFruits.CRABAPPLE.isDominant()));
 					genome.set(TreeChromosomes.YIELD, ForestryAlleles.YIELD_HIGH);
@@ -39,7 +91,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_flowering_crabapple"), "malus", "hopa", true, 0x7a9953, ExtraTreeWoodType.APPLE)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.APPLE))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureFloweringCrabapple::new, ExtraTreeWoodType.APPLE))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.CRABAPPLE, ExtraTreesFruits.CRABAPPLE.isDominant()));
 					genome.set(TreeChromosomes.SAPLINGS, ForestryAlleles.SAPLINGS_AVERAGE);
@@ -52,7 +104,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_prairie_crabapple"), "malus", "ioensis", true, 0x7a9953, ExtraTreeWoodType.APPLE)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.APPLE))
+				.setGenerator(new ExtraTreesTreeGenerator(FeaturePrairieCrabapple::new, ExtraTreeWoodType.APPLE))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.CRABAPPLE, ExtraTreesFruits.CRABAPPLE.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -65,7 +117,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_blackthorn"), "prunus", "spinosa", true, 0x6d8f1e, ForestryWoodType.PLUM)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.PLUM))
+				.setGenerator(new ExtraTreesTreeGenerator(FeaturePlum::new, ForestryWoodType.PLUM))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.BLACKTHORN, ExtraTreesFruits.BLACKTHORN.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -78,7 +130,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_cherry_plum"), "prunus", "cerasifera", true, 0x6d8f1e, ForestryWoodType.PLUM)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.PLUM))
+				.setGenerator(new ExtraTreesTreeGenerator(FeaturePlum::new, ForestryWoodType.PLUM))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.CHERRY_PLUM, ExtraTreesFruits.CHERRY_PLUM.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -91,7 +143,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_peach"), "prunus", "persica", true, 0x6d8f1e, ForestryWoodType.PLUM)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.PLUM))
+				.setGenerator(new ExtraTreesTreeGenerator(FeaturePlum::new, ForestryWoodType.PLUM))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.PEACH, ExtraTreesFruits.PEACH.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -104,7 +156,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_nectarine"), "prunus", "nectarina", true, 0x6d8f1e, ForestryWoodType.PLUM)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.PLUM))
+				.setGenerator(new ExtraTreesTreeGenerator(FeaturePlum::new, ForestryWoodType.PLUM))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.NECTARINE, ExtraTreesFruits.NECTARINE.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -116,7 +168,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_apricot"), "prunus", "armeniaca", true, 0x6d8f1e, ForestryWoodType.PLUM)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.PLUM))
+				.setGenerator(new ExtraTreesTreeGenerator(FeaturePlum::new, ForestryWoodType.PLUM))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.APRICOT, ExtraTreesFruits.APRICOT.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -128,7 +180,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_almond"), "prunus", "amygdalus", true, 0x6d8f1e, ForestryWoodType.PLUM)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.PLUM))
+				.setGenerator(new ExtraTreesTreeGenerator(FeaturePlum::new, ForestryWoodType.PLUM))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.ALMOND, ExtraTreesFruits.ALMOND.isDominant()));
 					genome.set(TreeChromosomes.YIELD, ForestryAlleles.YIELD_LOWER);
@@ -140,7 +192,8 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_wild_cherry"), "prunus", "avium", true, 0x6d8f1e, ExtraTreeWoodType.ET_CHERRY)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.ET_CHERRY))
+				.setRarity(0.0015f)
+				.setGenerator(new ExtraTreesTreeGenerator(FeaturePlum::new, ExtraTreeWoodType.ET_CHERRY))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.WILD_CHERRY, ExtraTreesFruits.WILD_CHERRY.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -154,7 +207,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_black_cherry"), "prunus", "serotina", true, 0x6d8f1e, ExtraTreeWoodType.ET_CHERRY)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.ET_CHERRY))
+				.setGenerator(new ExtraTreesTreeGenerator(FeaturePlum::new, ExtraTreeWoodType.ET_CHERRY))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.BLACK_CHERRY, ExtraTreesFruits.BLACK_CHERRY.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -168,7 +221,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_manderin"), "citrus", "reticulata", true, 0x88af54, ForestryWoodType.CITRUS)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.CITRUS))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureLemon::new, ForestryWoodType.CITRUS))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.MANDERIN, ExtraTreesFruits.MANDERIN.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -181,7 +234,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_satsuma"), "citrus", "unshiu", true, 0x88af54, ForestryWoodType.CITRUS)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.CITRUS))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureLemon::new, ForestryWoodType.CITRUS))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.SATSUMA, ExtraTreesFruits.SATSUMA.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -194,7 +247,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_tangerine"), "citrus", "tangerina", true, 0x88af54, ForestryWoodType.CITRUS)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.CITRUS))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureLemon::new, ForestryWoodType.CITRUS))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.TANGERINE, ExtraTreesFruits.TANGERINE.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -208,7 +261,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_et_lime"), "citrus", "latifolia", true, 0x88af54, ForestryWoodType.CITRUS)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.CITRUS))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureLemon::new, ForestryWoodType.CITRUS))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.LIME, ExtraTreesFruits.LIME.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -220,7 +273,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_key_lime"), "citrus", "aurantifolia", true, 0x88af54, ForestryWoodType.CITRUS)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.CITRUS))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureLemon::new, ForestryWoodType.CITRUS))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.KEY_LIME, ExtraTreesFruits.KEY_LIME.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -234,7 +287,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_finger_lime"), "citrus", "australasica", true, 0x88af54, ForestryWoodType.CITRUS)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.CITRUS))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureLemon::new, ForestryWoodType.CITRUS))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.FINGER_LIME, ExtraTreesFruits.FINGER_LIME.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -247,7 +300,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_pomelo"), "citrus", "maxima", true, 0x88af54, ForestryWoodType.CITRUS)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.CITRUS))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureLemon::new, ForestryWoodType.CITRUS))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.POMELO, ExtraTreesFruits.POMELO.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -260,7 +313,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_grapefruit"), "citrus", "paradisi", true, 0x88af54, ForestryWoodType.CITRUS)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.CITRUS))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureLemon::new, ForestryWoodType.CITRUS))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.GRAPEFRUIT, ExtraTreesFruits.GRAPEFRUIT.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -274,7 +327,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_kumquat"), "citrus", "margarita", true, 0x88af54, ForestryWoodType.CITRUS)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.CITRUS))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureLemon::new, ForestryWoodType.CITRUS))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.KUMQUAT, ExtraTreesFruits.KUMQUAT.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -286,7 +339,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_citron"), "citrus", "medica", true, 0x88af54, ForestryWoodType.CITRUS)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.CITRUS))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureLemon::new, ForestryWoodType.CITRUS))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.CITRON, ExtraTreesFruits.CITRON.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -298,7 +351,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_buddha_hand"), "citrus", "sarcodactylus", true, 0x88af54, ForestryWoodType.CITRUS)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.CITRUS))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureLemon::new, ForestryWoodType.CITRUS))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.BUDDHA_HAND, ExtraTreesFruits.BUDDHA_HAND.isDominant()));
 					genome.set(TreeChromosomes.YIELD, ForestryAlleles.YIELD_AVERAGE);
@@ -309,7 +362,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_banana"), "musa", "sinensis", true, 0xa1cd8e, ExtraTreeWoodType.BANANA)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.BANANA))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureBanana::new, ExtraTreeWoodType.BANANA))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.BANANA, ExtraTreesFruits.BANANA.isDominant()));
 					genome.set(TreeChromosomes.YIELD, ForestryAlleles.YIELD_LOW);
@@ -321,7 +374,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_red_banana"), "musa", "rubra", true, 0xa1cd8e, ExtraTreeWoodType.BANANA)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.BANANA))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureBanana::new, ExtraTreeWoodType.BANANA))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.RED_BANANA, ExtraTreesFruits.RED_BANANA.isDominant()));
 				})
@@ -330,7 +383,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_plantain"), "musa", "paradisiaca", true, 0xa1cd8e, ExtraTreeWoodType.BANANA)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.BANANA))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureBanana::new, ExtraTreeWoodType.BANANA))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.PLANTAIN, ExtraTreesFruits.PLANTAIN.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_AVERAGE);
@@ -341,7 +394,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_butternut"), "juglans", "cinerea", true, 0x82b58c, ExtraTreeWoodType.BUTTERNUT)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.BUTTERNUT))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureButternut::new, ExtraTreeWoodType.BUTTERNUT))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.BUTTERNUT, ExtraTreesFruits.BUTTERNUT.isDominant()));
 					genome.set(TreeChromosomes.GIRTH, ForestryAlleles.GIRTH_2);
@@ -353,7 +406,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_rowan"), "sorbus", "aucuparia", true, 0x9ec79b, ExtraTreeWoodType.ROWAN)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.ROWAN))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureRowan::new, ExtraTreeWoodType.ROWAN))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_LARGER);
 					genome.set(TreeChromosomes.SAPLINGS, ForestryAlleles.SAPLINGS_LOW);
@@ -364,7 +417,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_hemlock"), "tsuga", "heterophylla", true, 0x5cac72, ExtraTreeWoodType.HEMLOCK)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.HEMLOCK))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureWesternHemlock::new, ExtraTreeWoodType.HEMLOCK))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_AVERAGE);
 					genome.set(TreeChromosomes.SAPLINGS, ForestryAlleles.SAPLINGS_LOW);
@@ -377,7 +430,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_ash"), "fraxinus", "excelsior", true, 0x488e2b, ExtraTreeWoodType.ASH)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.ASH))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureCommonAsh::new, ExtraTreeWoodType.ASH))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.SAPLINGS, ForestryAlleles.SAPLINGS_LOW);
 					genome.set(TreeChromosomes.SAPPINESS, ForestryAlleles.SAPPINESS_LOWER);
@@ -387,7 +440,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_alder"), "alnus", "glutinosa", true, 0x698a33, ExtraTreeWoodType.ALDER)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.ALDER))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureCommonAlder::new, ExtraTreeWoodType.ALDER))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_AVERAGE);
 					genome.set(TreeChromosomes.SAPPINESS, ForestryAlleles.SAPPINESS_LOWER);
@@ -397,7 +450,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_copper_beech"), "fagus", "purpurea", true, 0x801318, ForestryWoodType.BEECH)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.BEECH))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureCopperBeech::new, ForestryWoodType.BEECH))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.BEECHNUT, ExtraTreesFruits.BEECHNUT.isDominant()));
 					genome.set(TreeChromosomes.MATURATION, ForestryAlleles.MATURATION_SLOW);
@@ -407,7 +460,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_aspen"), "populus", "tremula", true, 0x8acc37, ForestryWoodType.POPLAR)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.POPLAR))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureAspen::new, ForestryWoodType.POPLAR))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.SAPLINGS, ForestryAlleles.SAPLINGS_AVERAGE);
 					genome.set(TreeChromosomes.SAPPINESS, ForestryAlleles.SAPPINESS_LOWER);
@@ -417,7 +470,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_yew"), "taxus", "baccata", true, 0x948a4d, ExtraTreeWoodType.YEW)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.YEW))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureYew::new, ExtraTreeWoodType.YEW))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_LARGE);
 					genome.set(TreeChromosomes.SAPPINESS, ForestryAlleles.SAPPINESS_LOWER);
@@ -427,7 +480,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_cypress"), "chamaecyparis", "lawsoniana", true, 0x89c9a7, ExtraTreeWoodType.CYPRESS)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.CYPRESS))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureCypress::new, ExtraTreeWoodType.CYPRESS))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_LARGER);
 					genome.set(TreeChromosomes.SAPLINGS, ForestryAlleles.SAPLINGS_LOW);
@@ -439,7 +492,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_douglas_fir"), "pseudotsuga", "menziesii", true, 0x99b582, ForestryWoodType.FIR)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.FIR))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureDouglasFir::new, ForestryWoodType.FIR))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.GIRTH, ForestryAlleles.GIRTH_2);
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_LARGER);
@@ -452,7 +505,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_hazel"), "Corylus", "avellana", true, 0x9bb552, ExtraTreeWoodType.HAZEL)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.HAZEL))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureHazel::new, ExtraTreeWoodType.HAZEL))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.HAZELNUT, ExtraTreesFruits.HAZELNUT.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_AVERAGE);
@@ -465,7 +518,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_sycamore"), "ficus", "sycomorus", true, 0xa0a52f, ExtraTreeWoodType.FIG)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.FIG))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureSycamore::new, ExtraTreeWoodType.FIG))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.FIG, ExtraTreesFruits.FIG.isDominant()));
 					genome.set(TreeChromosomes.SAPLINGS, ForestryAlleles.SAPLINGS_LOWEST);
@@ -476,7 +529,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_whitebeam"), "sorbus", "aria", true, 0xbace99, ExtraTreeWoodType.WHITEBEAM)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.WHITEBEAM))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureWhitebeam::new, ExtraTreeWoodType.WHITEBEAM))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLER);
 				})
@@ -485,7 +538,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_hawthorn"), "crataegus", "monogyna", true, 0x6ba84a, ExtraTreeWoodType.HAWTHORN)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.HAWTHORN))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureHawthorn::new, ExtraTreeWoodType.HAWTHORN))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_AVERAGE);
 				})
@@ -494,7 +547,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_pecan"), "carya", "illinoinensis", true, 0x85b674, ExtraTreeWoodType.HICKORY)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.HICKORY))
+				.setGenerator(new ExtraTreesTreeGenerator(FeaturePecan::new, ExtraTreeWoodType.HICKORY))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.PECAN, ExtraTreesFruits.PECAN.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_LARGE);
@@ -506,7 +559,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_et_elm"), "ulmus", "procera", true, 0x7c9048, ForestryWoodType.ELM)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.ELM))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureEtElm::new, ForestryWoodType.ELM))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLER);
 					genome.set(TreeChromosomes.SAPLINGS, ForestryAlleles.SAPLINGS_LOW);
@@ -517,7 +570,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_elder"), "sambucus", "nigra", true, 0xaeb873, ExtraTreeWoodType.ELDER)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.ELDER))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureElder::new, ExtraTreeWoodType.ELDER))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.ELDERBERRY, ExtraTreesFruits.ELDERBERRY.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLER);
@@ -528,7 +581,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_holly"), "ilex", "aquifolium", true, 0x254b4c, ExtraTreeWoodType.HOLLY)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.HOLLY))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureHolly::new, ExtraTreeWoodType.HOLLY))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_AVERAGE);
 					genome.set(TreeChromosomes.SAPPINESS, ForestryAlleles.SAPPINESS_LOW);
@@ -538,7 +591,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_hornbeam"), "carpinus", "betulus", true, 0x96a71b, ExtraTreeWoodType.HORNBEAM)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.HORNBEAM))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureHornbeam::new, ExtraTreeWoodType.HORNBEAM))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLER);
 					genome.set(TreeChromosomes.SAPLINGS, ForestryAlleles.SAPLINGS_LOW);
@@ -550,7 +603,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_sallow"), "salix", "caprea", true, 0xaeb323, ForestryWoodType.WILLOW)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.WILLOW))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureSallow::new, ForestryWoodType.WILLOW))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_LARGE);
 					genome.set(TreeChromosomes.SAPLINGS, ForestryAlleles.SAPLINGS_LOW);
@@ -560,7 +613,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_acorn_oak"), "quercus", "robur", true, 0x66733e, VanillaWoodType.OAK)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(VanillaWoodType.OAK))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureAcornOak::new, VanillaWoodType.OAK))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.ACORN, ExtraTreesFruits.ACORN.isDominant()));
 					genome.set(TreeChromosomes.GIRTH, ForestryAlleles.GIRTH_2);
@@ -573,7 +626,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_et_fir"), "abies", "alba", true, 0x6f7c20, ForestryWoodType.FIR)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.FIR))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureSilverFir::new, ForestryWoodType.FIR))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_LARGE);
 					genome.set(TreeChromosomes.SAPPINESS, ForestryAlleles.SAPPINESS_LOWER);
@@ -584,7 +637,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_cedar"), "cedrus", "libani", true, 0x95a370, ExtraTreeWoodType.CEDAR)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.CEDAR))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureCedar::new, ExtraTreeWoodType.CEDAR))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.GIRTH, ForestryAlleles.GIRTH_2);
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLER);
@@ -597,7 +650,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_red_maple"), "acer", "ubrum", true, 0xe82e17, ForestryWoodType.MAPLE)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.MAPLE))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureRedMaple::new, ForestryWoodType.MAPLE))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.SAPLINGS, ForestryAlleles.SAPLINGS_AVERAGE);
 					genome.set(TreeChromosomes.SAPPINESS, ForestryAlleles.SAPPINESS_HIGH);
@@ -607,7 +660,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_loblolly_pine"), "pinus", "taeda", true, 0x6f8a47, ForestryWoodType.PINE)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ForestryWoodType.PINE))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureLoblollyPine::new, ForestryWoodType.PINE))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLER);
 					genome.set(TreeChromosomes.SAPPINESS, ForestryAlleles.SAPPINESS_LOWER);
@@ -618,7 +671,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_sweetgum"), "liquidambar", "styraciflua", true, 0x8b8762, ExtraTreeWoodType.SWEETGUM)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.SWEETGUM))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureSweetgum::new, ExtraTreeWoodType.SWEETGUM))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_AVERAGE);
 					genome.set(TreeChromosomes.SAPLINGS, ForestryAlleles.SAPLINGS_HIGH);
@@ -630,7 +683,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_locust"), "robinia", "pseudoacacia", true, 0x887300, ExtraTreeWoodType.LOCUST)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.LOCUST))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureLocust::new, ExtraTreeWoodType.LOCUST))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
 				})
@@ -639,7 +692,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_osange_orange"), "maclura", "pomifera", true, 0x687a50, ExtraTreeWoodType.MACLURA)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.MACLURA))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureOsangeOrange::new, ExtraTreeWoodType.MACLURA))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.OSANGE_ORANGE, ExtraTreesFruits.OSANGE_ORANGE.isDominant()));
 					genome.set(TreeChromosomes.YIELD, ForestryAlleles.YIELD_LOWER);
@@ -649,7 +702,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_old_fustic"), "maclura", "tinctoria", true, 0x687a50, ExtraTreeWoodType.MACLURA)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.MACLURA))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureOldFustic::new, ExtraTreeWoodType.MACLURA))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLER);
 					genome.set(TreeChromosomes.SAPPINESS, ForestryAlleles.SAPPINESS_LOWER);
@@ -659,7 +712,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_brazilwood"), "caesalpinia", "echinata", true, 0x607459, ExtraTreeWoodType.BRAZILWOOD)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.BRAZILWOOD))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureBrazilwood::new, ExtraTreeWoodType.BRAZILWOOD))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLER);
 					genome.set(TreeChromosomes.SAPLINGS, ForestryAlleles.SAPLINGS_LOW);
@@ -671,7 +724,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_logwood"), "haematoxylum", "campechianum", true, 0x889f6b, ExtraTreeWoodType.LOGWOOD)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.LOGWOOD))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureLogwood::new, ExtraTreeWoodType.LOGWOOD))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_AVERAGE);
 					genome.set(TreeChromosomes.SAPLINGS, ForestryAlleles.SAPLINGS_LOW);
@@ -682,7 +735,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_rosewood"), "dalbergia", "latifolia", true, 0x879b22, ExtraTreeWoodType.ROSEWOOD)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.ROSEWOOD))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureRosewood::new, ExtraTreeWoodType.ROSEWOOD))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_AVERAGE);
 					genome.set(TreeChromosomes.SAPPINESS, ForestryAlleles.SAPPINESS_LOWEST);
@@ -692,7 +745,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_purpleheart"), "peltogyne", "spp", true, 0x778f55, ExtraTreeWoodType.PURPLEHEART)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.PURPLEHEART))
+				.setGenerator(new ExtraTreesTreeGenerator(FeaturePurpleheart::new, ExtraTreeWoodType.PURPLEHEART))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_LARGE);
 					genome.set(TreeChromosomes.SAPPINESS, ForestryAlleles.SAPPINESS_LOWER);
@@ -702,7 +755,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_iroko"), "milicia", "excelsa", true, 0xafc86c, ExtraTreeWoodType.IROKO)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.IROKO))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureIroko::new, ExtraTreeWoodType.IROKO))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_AVERAGE);
 					genome.set(TreeChromosomes.SAPLINGS, ForestryAlleles.SAPLINGS_LOW);
@@ -712,7 +765,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_brazilnut"), "bertholletia", "excelsa", true, 0x7c8f7b, VanillaWoodType.JUNGLE)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(VanillaWoodType.JUNGLE))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureBrazilNut::new, VanillaWoodType.JUNGLE))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.BRAZIL_NUT, ExtraTreesFruits.BRAZIL_NUT.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_LARGER);
@@ -724,7 +777,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_rose_gum"), "eucalyptus", "grandis", true, 0x9ca258, ExtraTreeWoodType.EUCALYPTUS)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.EUCALYPTUS))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureRoseGum::new, ExtraTreeWoodType.EUCALYPTUS))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_LARGEST);
 					genome.set(TreeChromosomes.SAPLINGS, ForestryAlleles.SAPLINGS_LOW);
@@ -737,7 +790,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_swamp_gum"), "eucalyptus", "grandis", true, 0xa2c686, ExtraTreeWoodType.EUCALYPTUS2)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.EUCALYPTUS2))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureSwampGum::new, ExtraTreeWoodType.EUCALYPTUS2))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.GIRTH, ForestryAlleles.GIRTH_2);
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_LARGEST);
@@ -749,7 +802,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_box"), "boxus", "sempervirens", true, 0x72996d, ExtraTreeWoodType.BOX)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.BOX))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureBox::new, ExtraTreeWoodType.BOX))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLER);
 					genome.set(TreeChromosomes.MATURATION, ForestryAlleles.MATURATION_FASTER);
@@ -759,7 +812,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_clove"), "syzygium", "aromaticum", true, 0x7a821f, ExtraTreeWoodType.SYZGIUM)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.SYZGIUM))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureClove::new, ExtraTreeWoodType.SYZGIUM))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.CLOVE, ExtraTreesFruits.CLOVE.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLER);
@@ -773,7 +826,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_coffee"), "coffea", "arabica", true, 0x6f9065, VanillaWoodType.JUNGLE)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(VanillaWoodType.JUNGLE))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureCoffee::new, VanillaWoodType.JUNGLE))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.COFFEE, ExtraTreesFruits.COFFEE.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_LARGE);
@@ -785,7 +838,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_rainbow_gum"), "eucalyptus", "deglupta", true, 0xb7f025, ExtraTreeWoodType.EUCALYPTUS3)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.EUCALYPTUS3))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureRainbowGum::new, ExtraTreeWoodType.EUCALYPTUS3))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.SAPLINGS, ForestryAlleles.SAPLINGS_LOW);
 					genome.set(TreeChromosomes.YIELD, ForestryAlleles.YIELD_LOWER);
@@ -795,7 +848,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_pink_ivory"), "berchemia", "zeyheri", true, 0x7c9159, ExtraTreeWoodType.PINK_IVORY)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.PINK_IVORY))
+				.setGenerator(new ExtraTreesTreeGenerator(FeaturePinkIvory::new, ExtraTreeWoodType.PINK_IVORY))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
 				})
@@ -804,7 +857,8 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_blackcurrant"), "ribes", "nigrum", true, 0xa6da5c, ExtraTreeWoodType.SHRUB)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.SHRUB))
+				.setRarity(0.0025f)
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureShrub::new, ExtraTreeWoodType.SHRUB))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.BLACKCURRANT, ExtraTreesFruits.BLACKCURRANT.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -818,7 +872,8 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_redcurrant"), "ribes", "rubrum", true, 0x74ac00, ExtraTreeWoodType.SHRUB)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.SHRUB))
+				.setRarity(0.0025f)
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureShrub::new, ExtraTreeWoodType.SHRUB))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.REDCURRANT, ExtraTreesFruits.REDCURRANT.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -832,7 +887,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_blackberry"), "rubus", "fruticosus", true, 0x92c15b, ExtraTreeWoodType.SHRUB)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.SHRUB))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureShrub::new, ExtraTreeWoodType.SHRUB))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.BLACKBERRY, ExtraTreesFruits.BLACKBERRY.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -845,7 +900,8 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_raspberry"), "rubus", "idaeus", true, 0x83b96e, ExtraTreeWoodType.SHRUB)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.SHRUB))
+				.setRarity(0.0025f)
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureShrub::new, ExtraTreeWoodType.SHRUB))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.RASPBERRY, ExtraTreesFruits.RASPBERRY.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -859,7 +915,8 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_blueberry"), "vaccinium", "corymbosum", true, 0x72c750, ExtraTreeWoodType.SHRUB)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.SHRUB))
+				.setRarity(0.0025f)
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureShrub::new, ExtraTreeWoodType.SHRUB))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.BLUEBERRY, ExtraTreesFruits.BLUEBERRY.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -873,7 +930,8 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_cranberry"), "vaccinium", "oxycoccos", true, 0x96d179, ExtraTreeWoodType.SHRUB)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.SHRUB))
+				.setRarity(0.0025f)
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureShrub::new, ExtraTreeWoodType.SHRUB))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.CRANBERRY, ExtraTreesFruits.CRANBERRY.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -887,7 +945,8 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_juniper"), "juniperus", "communis", true, 0x90b149, ExtraTreeWoodType.SHRUB)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.SHRUB))
+				.setRarity(0.0025f)
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureShrub::new, ExtraTreeWoodType.SHRUB))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.JUNIPER, ExtraTreesFruits.JUNIPER.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -901,7 +960,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_gooseberry"), "ribes", "grossularia", true, 0x79bb00, ExtraTreeWoodType.SHRUB)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.SHRUB))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureShrub::new, ExtraTreeWoodType.SHRUB))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.GOOSEBERRY, ExtraTreesFruits.GOOSEBERRY.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -914,7 +973,8 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_golden_raspberry"), "rubus", "occidentalis", true, 0x83b96e, ExtraTreeWoodType.SHRUB)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.SHRUB))
+				.setRarity(0.0025f)
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureShrub::new, ExtraTreeWoodType.SHRUB))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.GOLDEN_RASPBERRY, ExtraTreesFruits.GOLDEN_RASPBERRY.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLER);
@@ -928,7 +988,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_cinnamon"), "cinnamomum", "cassia", true, 0x738e0b, ExtraTreeWoodType.CINNAMON)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.CINNAMON))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureLazyTree::new, ExtraTreeWoodType.CINNAMON))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_AVERAGE);
 					genome.set(TreeChromosomes.YIELD, ForestryAlleles.YIELD_LOWER);
@@ -939,7 +999,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_cashew"), "anacardium", "occidentale", true, 0xabb962, VanillaWoodType.JUNGLE)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(VanillaWoodType.JUNGLE))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureLazyTree::new, VanillaWoodType.JUNGLE))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.CASHEW, ExtraTreesFruits.CASHEW.isDominant()));
 					genome.set(TreeChromosomes.YIELD, ForestryAlleles.YIELD_LOW);
@@ -949,7 +1009,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_avocado"), "persea", "americana", true, 0x96a375, VanillaWoodType.JUNGLE)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(VanillaWoodType.JUNGLE))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureLazyTree::new, VanillaWoodType.JUNGLE))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.AVOCADO, ExtraTreesFruits.AVOCADO.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -960,7 +1020,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_nutmeg"), "myristica", "fragrans", true, 0x488d4c, VanillaWoodType.JUNGLE)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(VanillaWoodType.JUNGLE))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureLazyTree::new, VanillaWoodType.JUNGLE))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.NUTMEG, ExtraTreesFruits.NUTMEG.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLER);
@@ -972,7 +1032,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_allspice"), "pimenta", "dioica", true, 0x7c9724, VanillaWoodType.JUNGLE)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(VanillaWoodType.JUNGLE))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureLazyTree::new, VanillaWoodType.JUNGLE))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.ALLSPICE, ExtraTreesFruits.ALLSPICE.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -984,7 +1044,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_chilli"), "capsicum", "annuum", true, 0x2a9f01, VanillaWoodType.JUNGLE)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(VanillaWoodType.JUNGLE))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureLazyTree::new, VanillaWoodType.JUNGLE))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.CHILLI, ExtraTreesFruits.CHILLI.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLER);
@@ -997,7 +1057,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_star_anise"), "illicium", "verum", true, 0x7fc409, VanillaWoodType.JUNGLE)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(VanillaWoodType.JUNGLE))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureLazyTree::new, VanillaWoodType.JUNGLE))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.STAR_ANISE, ExtraTreesFruits.STAR_ANISE.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_AVERAGE);
@@ -1008,7 +1068,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_mango"), "mangifera", "indica", true, 0x87b574, VanillaWoodType.JUNGLE)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(VanillaWoodType.JUNGLE))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureMango::new, VanillaWoodType.JUNGLE))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.MANGO, ExtraTreesFruits.MANGO.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLER);
@@ -1022,7 +1082,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_starfruit"), "averrhoa", "carambola", true, 0x6da92d, VanillaWoodType.JUNGLE)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(VanillaWoodType.JUNGLE))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureLazyTree::new, VanillaWoodType.JUNGLE))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.STARFRUIT, ExtraTreesFruits.STARFRUIT.isDominant()));
 					genome.set(TreeChromosomes.YIELD, ForestryAlleles.YIELD_AVERAGE);
@@ -1033,7 +1093,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_candlenut"), "aleurites", "moluccana", true, 0x8aa36c, VanillaWoodType.JUNGLE)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(VanillaWoodType.JUNGLE))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureLazyTree::new, VanillaWoodType.JUNGLE))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.CANDLENUT, ExtraTreesFruits.CANDLENUT.isDominant()));
 					genome.set(TreeChromosomes.HEIGHT, ForestryAlleles.HEIGHT_SMALLEST);
@@ -1046,7 +1106,7 @@ public final class ExtraTreesTreeSpecies {
 				});
 		registration.registerSpecies(ReForestry.id("tree_dwarf_hazel"), "Corylus", "americana", true, 0x9bb552, ExtraTreeWoodType.HAZEL)
 				.setAuthority("Binnie")
-				.setGenerator(new ExtraTreesTreeGenerator(ExtraTreeWoodType.HAZEL))
+				.setGenerator(new ExtraTreesTreeGenerator(FeatureShrub::new, ExtraTreeWoodType.HAZEL))
 				.setGenome(genome -> {
 					genome.set(TreeChromosomes.FRUIT, AlleleManager.INSTANCE.registryAllele(ExtraTreesFruits.HAZELNUT, ExtraTreesFruits.HAZELNUT.isDominant()));
 					genome.set(TreeChromosomes.SAPLINGS, ForestryAlleles.SAPLINGS_AVERAGE);

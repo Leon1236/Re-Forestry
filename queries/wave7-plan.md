@@ -80,7 +80,7 @@ Order: **GD0 → EB1 → GD1 → GD2 (incl. DNA) → GD3 (incl. DNA extractor) �
 | 21 | ET1a | L | 30 woods + shrub log | **done** — ExtraTreeWoodType + WoodAccess |
 | 22 | ET1b | L | Stripped/boats/signs/trapdoor/button/plate | **done** — Full WoodBlockKind; no charcoal walls |
 | 23 | ET2 | L | Fruits + ~88 species + mutations | **done** — registerFruit; overlap woods → ForestryWoodType |
-| 24 | ET3 | L | Growth / worldgen | FeatureTree ports |
+| 24 | ET3 | L | Growth / worldgen | **done** — 88/88 growth; 52 gens; 8 rarity worldgen |
 | 25 | ET4 | L | Lumbermill, press, brewery, distillery | Lumbermill playable; misc early items |
 | 26 | ET5 | L | Foods, juices, alcohol, hops | Fluids + machine recipes |
 | 27 | ET6 | M | 22 moths on butterfly type | Ids `moth_*` |
