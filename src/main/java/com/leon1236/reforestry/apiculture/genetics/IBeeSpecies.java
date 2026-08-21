@@ -10,9 +10,10 @@ import com.leon1236.reforestry.api.core.HumidityType;
 import com.leon1236.reforestry.api.core.IClimateSensitive;
 import com.leon1236.reforestry.api.core.TemperatureType;
 import com.leon1236.reforestry.api.genetics.IGenome;
+import com.leon1236.reforestry.api.genetics.ISpecies;
 import com.leon1236.reforestry.api.genetics.alleles.IRegistryAlleleValue;
 
-public interface IBeeSpecies extends IRegistryAlleleValue, IClimateSensitive {
+public interface IBeeSpecies extends IRegistryAlleleValue, IClimateSensitive, ISpecies<Bee> {
     String genus();
 
     String species();

@@ -11,9 +11,10 @@ import com.leon1236.reforestry.api.arboriculture.ITreeGenerator;
 import com.leon1236.reforestry.api.arboriculture.IWoodType;
 import com.leon1236.reforestry.api.core.HumidityType;
 import com.leon1236.reforestry.api.core.TemperatureType;
+import com.leon1236.reforestry.api.genetics.ISpecies;
 import com.leon1236.reforestry.api.genetics.alleles.IRegistryAlleleValue;
 
-public interface ITreeSpecies extends IRegistryAlleleValue, ITreeGenData {
+public interface ITreeSpecies extends IRegistryAlleleValue, ITreeGenData, ISpecies<Tree> {
     String genus();
 
     String species();

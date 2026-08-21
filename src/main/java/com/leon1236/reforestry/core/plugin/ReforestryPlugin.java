@@ -10,14 +10,26 @@ import net.minecraft.world.level.block.Blocks;
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.api.apiculture.BeeManager;
 import com.leon1236.reforestry.api.apiculture.ForestryBeeEffects;
+import com.leon1236.reforestry.api.apiculture.genetics.BeeLifeStage;
+import com.leon1236.reforestry.api.arboriculture.genetics.TreeLifeStage;
 import com.leon1236.reforestry.api.circuits.ForestryCircuitLayouts;
 import com.leon1236.reforestry.api.circuits.ForestryCircuitSocketTypes;
-import com.leon1236.reforestry.api.plugin.ICircuitRegistration;
+import com.leon1236.reforestry.api.core.ForestryError;
+import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
 import com.leon1236.reforestry.api.plugin.IApicultureRegistration;
 import com.leon1236.reforestry.api.plugin.IArboricultureRegistration;
+import com.leon1236.reforestry.api.plugin.ICircuitRegistration;
+import com.leon1236.reforestry.api.plugin.IErrorRegistration;
 import com.leon1236.reforestry.api.plugin.IForestryPlugin;
+import com.leon1236.reforestry.api.plugin.IGeneticRegistration;
+import com.leon1236.reforestry.api.plugin.IPollenRegistration;
 import com.leon1236.reforestry.apiculture.features.ApicultureEffects;
 import com.leon1236.reforestry.apiculture.features.ApicultureItems;
+import com.leon1236.reforestry.apiculture.genetics.BeeChromosomes;
+import com.leon1236.reforestry.apiculture.genetics.BeeSpeciesType;
+import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
+import com.leon1236.reforestry.arboriculture.genetics.TreePollenType;
+import com.leon1236.reforestry.arboriculture.genetics.TreeSpeciesType;
 import com.leon1236.reforestry.core.circuits.EnumElectronTube;
 import com.leon1236.reforestry.core.features.CoreItems;
 import com.leon1236.reforestry.factory.circuits.CircuitMachineUpgrade;
@@ -56,6 +68,30 @@ public final class ReforestryPlugin implements IForestryPlugin {
     @Override
     public Identifier id() {
         return ReForestry.id("base");
+    }
+
+    @Override
+    public void registerGenetics(IGeneticRegistration registration) {
+        registration.registerSpeciesType(ForestrySpeciesTypes.BEE, (karyotype, builder) -> BeeSpeciesType.INSTANCE)
+                .setKaryotype(BeeChromosomes.KARYOTYPE)
+                .addStages(BeeLifeStage.values())
+                .setDefaultStage(BeeLifeStage.DRONE);
+        registration.registerSpeciesType(ForestrySpeciesTypes.TREE, (karyotype, builder) -> TreeSpeciesType.INSTANCE)
+                .setKaryotype(TreeChromosomes.KARYOTYPE)
+                .addStages(TreeLifeStage.values())
+                .setDefaultStage(TreeLifeStage.SAPLING);
+    }
+
+    @Override
+    public void registerErrors(IErrorRegistration registration) {
+        for (ForestryError error : ForestryError.values()) {
+            registration.registerError(error);
+        }
+    }
+
+    @Override
+    public void registerPollen(IPollenRegistration registration) {
+        registration.registerPollenType(TreePollenType.INSTANCE);
     }
 
     @Override

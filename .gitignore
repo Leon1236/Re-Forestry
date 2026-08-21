@@ -8,7 +8,11 @@
 !/gradle/
 !/src/
 !/.cursor/
+!/queries/
+!/files/
+!/tools/
 
 __pycache__/
 *.pyc
 **/graphify-out/
+

@@ -19,6 +19,8 @@ import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.api.genetics.alleles.IRegistryAllele;
 import com.leon1236.reforestry.arboriculture.blocks.ForestryLeafType;
+import com.leon1236.reforestry.core.ForestryApiImpl;
+import com.leon1236.reforestry.core.genetics.IdentifierMutationManager;
 import com.leon1236.reforestry.core.genetics.alleles.AlleleManager;
 import com.leon1236.reforestry.core.genetics.mutations.Mutation;
 import com.leon1236.reforestry.core.genetics.mutations.MutationBuilder;
@@ -57,6 +59,7 @@ public final class ArboricultureGenetics {
             defaultGenomes.put(entry.getKey(), genome);
         }
         TreeChromosomes.SPECIES.populate(ImmutableMap.copyOf(speciesById));
+        TreeSpeciesType.INSTANCE.onSpeciesRegistered(ImmutableMap.copyOf(speciesById));
         for (TreeSpeciesBuilder builder : builders.values()) {
             for (MutationBuilder mutationBuilder : builder.mutations().builders()) {
                 Mutation mutation = mutationBuilder.build(ForestrySpeciesTypes.TREE, builder.id());
@@ -79,6 +82,8 @@ public final class ArboricultureGenetics {
                 vanillaIndividuals.put(state, genome);
             }
         }
+        TreeSpeciesType.INSTANCE.setMutations(new IdentifierMutationManager(getAllMutations()));
+        ((ForestryApiImpl) ForestryApiImpl.get()).getMutableGeneticManager().registerSpeciesType(TreeSpeciesType.INSTANCE);
         finalized = true;
     }
 
@@ -148,5 +153,9 @@ public final class ArboricultureGenetics {
 
     public static Collection<ITreeSpecies> getAllSpecies() {
         return speciesById.values();
+    }
+
+    public static Map<Identifier, ITreeSpecies> getSpeciesById() {
+        return speciesById;
     }
 }

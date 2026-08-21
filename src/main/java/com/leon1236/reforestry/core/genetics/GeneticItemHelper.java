@@ -9,7 +9,11 @@ import net.minecraft.world.item.ItemStack;
 import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
 import com.leon1236.reforestry.api.genetics.IBreedingTracker;
 import com.leon1236.reforestry.api.genetics.IGenome;
+import com.leon1236.reforestry.api.genetics.IIndividual;
+import com.leon1236.reforestry.api.genetics.ILifeStage;
+import com.leon1236.reforestry.api.genetics.ISpeciesType;
 import com.leon1236.reforestry.api.genetics.alleles.IRegistryAlleleValue;
+import com.leon1236.reforestry.api.genetics.capability.IIndividualHandlerItem;
 import com.leon1236.reforestry.api.genetics.capability.IndividualItems;
 import com.leon1236.reforestry.api.genetics.chromosomes.IRegistryChromosome;
 import com.leon1236.reforestry.apiculture.features.ApicultureDataComponents;
@@ -33,7 +37,7 @@ public final class GeneticItemHelper implements IndividualItems.Access {
 
 	@Override
 	public boolean isIndividual(ItemStack stack) {
-		return getGenome(stack) != null;
+		return IIndividualHandlerItem.isIndividual(stack);
 	}
 
 	@Override
@@ -43,21 +47,35 @@ public final class GeneticItemHelper implements IndividualItems.Access {
 			return null;
 		}
 		if (stack.getItem() instanceof ItemBeeGE) {
-			return stack.get(ApicultureDataComponents.BEE_GENOME.type());
+			IGenome genome = stack.get(ApicultureDataComponents.BEE_GENOME.type());
+			if (genome != null) {
+				return genome;
+			}
 		}
 		if (stack.getItem() instanceof ItemGermlingGE) {
-			return stack.get(ArboricultureDataComponents.TREE_GENOME.type());
+			IGenome genome = stack.get(ArboricultureDataComponents.TREE_GENOME.type());
+			if (genome != null) {
+				return genome;
+			}
 		}
-		return null;
+		IIndividual individual = IIndividualHandlerItem.getIndividual(stack);
+		return individual == null ? null : individual.getGenome();
 	}
 
 	@Override
 	@Nullable
 	public Identifier getSpeciesTypeId(ItemStack stack) {
+		ISpeciesType<?, ?> type = IIndividualHandlerItem.getSpeciesType(stack);
+		if (type != null) {
+			return type.id();
+		}
 		if (stack.getItem() instanceof ItemBeeGE) {
 			return ForestrySpeciesTypes.BEE;
 		}
 		if (stack.getItem() instanceof ItemGermlingGE) {
+			return ForestrySpeciesTypes.TREE;
+		}
+		if (IIndividualHandlerItem.isIndividual(stack)) {
 			return ForestrySpeciesTypes.TREE;
 		}
 		return null;
@@ -66,6 +84,10 @@ public final class GeneticItemHelper implements IndividualItems.Access {
 	@Override
 	@Nullable
 	public String getLifeStage(ItemStack stack) {
+		ILifeStage stage = IIndividualHandlerItem.getLifeStage(stack);
+		if (stage != null) {
+			return stage.getSerializedName();
+		}
 		if (stack.getItem() instanceof ItemBeeGE bee) {
 			return bee.lifeStage();
 		}

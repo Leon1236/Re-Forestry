@@ -2,20 +2,29 @@ package com.leon1236.reforestry.apiculture.items;
 
 import java.util.function.Consumer;
 
+import org.jetbrains.annotations.Nullable;
+
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
 
+import com.leon1236.reforestry.api.apiculture.genetics.BeeLifeStage;
 import com.leon1236.reforestry.api.genetics.IGenome;
+import com.leon1236.reforestry.api.genetics.IIndividual;
+import com.leon1236.reforestry.api.genetics.IIndividualItem;
+import com.leon1236.reforestry.api.genetics.ILifeStage;
+import com.leon1236.reforestry.api.genetics.ISpeciesType;
 import com.leon1236.reforestry.apiculture.features.ApicultureDataComponents;
+import com.leon1236.reforestry.apiculture.genetics.Bee;
 import com.leon1236.reforestry.apiculture.genetics.BeeChromosomes;
 import com.leon1236.reforestry.apiculture.genetics.BeeGeneticsTooltips;
+import com.leon1236.reforestry.apiculture.genetics.BeeSpeciesType;
 import com.leon1236.reforestry.apiculture.genetics.IBeeSpecies;
 import com.leon1236.reforestry.core.genetics.GeneticsTooltips;
 
-public class ItemBeeGE extends Item {
+public class ItemBeeGE extends Item implements IIndividualItem {
     private final String lifeStage;
 
     public ItemBeeGE(Properties properties, String lifeStage) {
@@ -25,6 +34,23 @@ public class ItemBeeGE extends Item {
 
     public String lifeStage() {
         return lifeStage;
+    }
+
+    @Override
+    @Nullable
+    public IIndividual getIndividualFromComponent(ItemStack stack) {
+        return Bee.fromStack(stack);
+    }
+
+    @Override
+    public ILifeStage getLifeStage() {
+        BeeLifeStage stage = BeeLifeStage.bySerializedName(lifeStage);
+        return stage != null ? stage : BeeLifeStage.DRONE;
+    }
+
+    @Override
+    public ISpeciesType<?, ?> getSpeciesType() {
+        return BeeSpeciesType.INSTANCE;
     }
 
     @Override

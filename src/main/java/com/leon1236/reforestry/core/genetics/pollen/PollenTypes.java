@@ -12,6 +12,11 @@ public final class PollenTypes {
     }
 
     public static void register(IPollenType type) {
+        for (IPollenType existing : TYPES) {
+            if (existing.id().equals(type.id())) {
+                return;
+            }
+        }
         TYPES.add(type);
     }
 

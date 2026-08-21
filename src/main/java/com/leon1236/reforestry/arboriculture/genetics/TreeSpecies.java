@@ -1,12 +1,15 @@
 package com.leon1236.reforestry.arboriculture.genetics;
 
 import java.util.List;
+import java.util.Map;
 import java.util.function.Supplier;
 
 import org.jetbrains.annotations.Nullable;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
@@ -19,9 +22,16 @@ import com.leon1236.reforestry.api.arboriculture.ITreeGenerator;
 import com.leon1236.reforestry.api.arboriculture.IWoodType;
 import com.leon1236.reforestry.api.core.HumidityType;
 import com.leon1236.reforestry.api.core.TemperatureType;
+import com.leon1236.reforestry.api.genetics.AllelePair;
 import com.leon1236.reforestry.api.genetics.IGenome;
+import com.leon1236.reforestry.api.genetics.ISpeciesType;
+import com.leon1236.reforestry.api.genetics.ITaxon;
+import com.leon1236.reforestry.api.genetics.alleles.IAllele;
+import com.leon1236.reforestry.api.genetics.chromosomes.IChromosome;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureBlocks;
 import com.leon1236.reforestry.arboriculture.tiles.TileLeaves;
+import com.leon1236.reforestry.core.genetics.GeneticsTooltips;
+import com.leon1236.reforestry.core.genetics.Taxon;
 
 record TreeSpecies(
         Identifier id,
@@ -120,5 +130,91 @@ record TreeSpecies(
     @Override
     public IGenome getDefaultGenome() {
         return ArboricultureGenetics.getDefaultGenome(id);
+    }
+
+    @Override
+    public String getTranslationKey() {
+        return "allele.reforestry.tree_species." + id.getPath();
+    }
+
+    @Override
+    public String getBinomial() {
+        if (genus.isEmpty()) {
+            return species;
+        }
+        return Character.toUpperCase(genus.charAt(0)) + genus.substring(1) + " " + species;
+    }
+
+    @Override
+    public String getSpeciesName() {
+        return species;
+    }
+
+    @Override
+    public ITaxon getGenus() {
+        ITaxon taxon = com.leon1236.reforestry.api.IForestryApi.INSTANCE.getGeneticManager().getTaxonSafe(genus);
+        return taxon != null ? taxon : Taxon.nameOnly(genus);
+    }
+
+    @Override
+    public ISpeciesType<? extends ITreeSpecies, Tree> getType() {
+        return TreeSpeciesType.INSTANCE;
+    }
+
+    @Override
+    public boolean isSecret() {
+        return false;
+    }
+
+    @Override
+    public int getComplexity() {
+        return 1;
+    }
+
+    @Override
+    public Tree createIndividual(Map<IChromosome<?>, IAllele> alleles) {
+        return createIndividual(getDefaultGenome().copyWith(alleles));
+    }
+
+    @Override
+    public Tree createIndividualFromPairs(Map<IChromosome<?>, AllelePair<?>> allelePairs) {
+        return createIndividual(getDefaultGenome().copyWithPairs(allelePairs));
+    }
+
+    @Override
+    public Tree createIndividual(IGenome genome) {
+        if (genome.karyotype() != TreeChromosomes.KARYOTYPE) {
+            throw new IllegalArgumentException("Genome karyotype does not match tree species");
+        }
+        return new Tree(genome);
+    }
+
+    @Override
+    public boolean hasGlint() {
+        return false;
+    }
+
+    @Override
+    public boolean isDominant() {
+        return dominant;
+    }
+
+    @Override
+    public String getAuthority() {
+        return authority;
+    }
+
+    @Override
+    public int getEscritoireColor() {
+        return escritoireColor;
+    }
+
+    @Override
+    public void addTooltip(Tree individual, List<Component> tooltip) {
+        GeneticsTooltips.addHybridTooltip(tooltip::add, individual.getGenome(), TreeChromosomes.SPECIES, "for.trees.hybrid");
+        if (!individual.isAnalyzed()) {
+            tooltip.add(Component.literal("<").append(Component.translatable("for.gui.unknown")).append(">")
+                    .withStyle(ChatFormatting.GRAY));
+        }
     }
 }
