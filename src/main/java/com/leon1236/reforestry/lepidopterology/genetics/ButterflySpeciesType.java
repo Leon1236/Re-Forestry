@@ -15,6 +15,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 
+import com.leon1236.reforestry.lepidopterology.entities.EntityButterfly;
+import com.leon1236.reforestry.lepidopterology.features.LepidopterologyEntities;
+
 import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
 import com.leon1236.reforestry.api.genetics.IBreedingTracker;
 import com.leon1236.reforestry.api.genetics.IIndividual;
@@ -97,7 +100,16 @@ public final class ButterflySpeciesType extends SpeciesType<IButterflySpecies, I
 	@Override
 	@Nullable
 	public PathfinderMob spawnButterflyInWorld(Level level, IButterfly butterfly, double x, double y, double z) {
-		return null;
+		EntityButterfly entity = EntityButterfly.create(
+				LepidopterologyEntities.BUTTERFLY.entityType(),
+				level,
+				butterfly,
+				BlockPos.containing(x, y, z));
+		entity.setPos(x, y, z);
+		if (!level.addFreshEntity(entity)) {
+			return null;
+		}
+		return entity;
 	}
 
 	@Override

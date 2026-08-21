@@ -1,8 +1,6 @@
 package com.leon1236.reforestry.core.genetics.pollen;
 
 import java.util.Collection;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
@@ -40,7 +38,7 @@ public final class PollenManager implements IPollenManager {
 		for (IPollenType type : PollenTypes.all()) {
 			Optional<IGenome> pollen = type.tryCollectPollen(level, pos, level.getRandom());
 			if (pollen.isPresent()) {
-				return new GenomePollen(type, pollen.get());
+				return createPollen(type, pollen.get());
 			}
 		}
 		return null;
@@ -55,7 +53,7 @@ public final class PollenManager implements IPollenManager {
 			}
 			Optional<IGenome> pollen = type.tryCollectPollen(level, pos, level.getRandom());
 			if (pollen.isPresent()) {
-				return new GenomePollen(type, pollen.get());
+				return createPollen(type, pollen.get());
 			}
 		}
 		return null;
@@ -75,6 +73,10 @@ public final class PollenManager implements IPollenManager {
 	@Override
 	public Collection<IPollenType> getAllPollenTypes() {
 		return PollenTypes.all();
+	}
+
+	public IPollen createPollen(IPollenType type, IGenome genome) {
+		return new GenomePollen(type, genome);
 	}
 
 	private record GenomePollen(IPollenType type, IGenome pollen) implements IPollen {

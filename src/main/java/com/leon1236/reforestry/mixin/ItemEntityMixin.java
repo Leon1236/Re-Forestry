@@ -15,6 +15,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
+import com.leon1236.reforestry.lepidopterology.items.ItemButterflyGE;
 import com.leon1236.reforestry.storage.PickupHandlerStorage;
 
 @Mixin(ItemEntity.class)
@@ -46,5 +47,10 @@ public abstract class ItemEntityMixin {
 			player.onItemPickup(entity);
 			ci.cancel();
 		}
+	}
+
+	@Inject(method = "tick", at = @At("TAIL"))
+	private void reforestry$butterflyReFlutter(CallbackInfo ci) {
+		ItemButterflyGE.onEntityItemUpdate((ItemEntity) (Object) this);
 	}
 }

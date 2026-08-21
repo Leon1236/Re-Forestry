@@ -5,10 +5,13 @@ import java.util.function.Consumer;
 import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
+import net.minecraft.world.level.Level;
 
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.api.genetics.IIndividual;
@@ -16,7 +19,10 @@ import com.leon1236.reforestry.api.genetics.IIndividualItem;
 import com.leon1236.reforestry.api.genetics.ILifeStage;
 import com.leon1236.reforestry.api.genetics.ISpeciesType;
 import com.leon1236.reforestry.api.lepidopterology.genetics.ButterflyLifeStage;
+import com.leon1236.reforestry.api.lepidopterology.genetics.IButterfly;
 import com.leon1236.reforestry.api.lepidopterology.genetics.IButterflySpecies;
+import com.leon1236.reforestry.lepidopterology.entities.EntityButterfly;
+import com.leon1236.reforestry.lepidopterology.features.LepidopterologyEntities;
 import com.leon1236.reforestry.core.genetics.GeneticsTooltips;
 import com.leon1236.reforestry.lepidopterology.features.LepidopterologyDataComponents;
 import com.leon1236.reforestry.lepidopterology.genetics.Butterfly;
@@ -78,5 +84,37 @@ public class ItemButterflyGE extends Item implements IIndividualItem {
 			return false;
 		}
 		return genome.getActiveAllele(ButterflyChromosomes.SPECIES).value().hasGlint();
+	}
+
+	public static void onEntityItemUpdate(ItemEntity entityItem) {
+		ItemStack stack = entityItem.getItem();
+		if (!(stack.getItem() instanceof ItemButterflyGE item) || item.lifeStage != ButterflyLifeStage.BUTTERFLY) {
+			return;
+		}
+		Level level = entityItem.level();
+		if (level.isClientSide() || entityItem.tickCount < 80) {
+			return;
+		}
+		if (level.getRandom().nextInt(24) != 0) {
+			return;
+		}
+		IButterfly butterfly = Butterfly.fromStack(stack);
+		if (butterfly == null) {
+			return;
+		}
+		if (!butterfly.canTakeFlight(level, entityItem.getX(), entityItem.getY(), entityItem.getZ())) {
+			return;
+		}
+		EntityButterfly spawned = EntityButterfly.create(
+				LepidopterologyEntities.BUTTERFLY.entityType(),
+				level,
+				butterfly,
+				entityItem.blockPosition());
+		spawned.setPos(entityItem.getX(), entityItem.getY(), entityItem.getZ());
+		level.addFreshEntity(spawned);
+		stack.shrink(1);
+		if (stack.isEmpty()) {
+			entityItem.remove(Entity.RemovalReason.DISCARDED);
+		}
 	}
 }

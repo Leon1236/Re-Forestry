@@ -1,0 +1,6 @@
+{
+  "parent": "reforestry:item/butterfly",
+  "textures": {
+    "butterfly": "reforestry:item/butterfly/speckled_wood"
+  }
+}
