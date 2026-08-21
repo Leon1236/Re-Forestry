@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/cross",
+  "parent": "block/cocoa_stage0",
   "textures": {
-    "cross": "reforestry:block/pods/plantain.0"
+    "particle": "reforestry:block/pods/plantain.0",
+    "cocoa": "reforestry:block/pods/plantain.0"
   }
 }

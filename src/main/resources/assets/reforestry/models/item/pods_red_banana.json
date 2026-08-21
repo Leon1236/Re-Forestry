@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "reforestry:block/pods/red_banana.2"
-  }
+  "parent": "reforestry:block/pods/red_banana_2"
 }

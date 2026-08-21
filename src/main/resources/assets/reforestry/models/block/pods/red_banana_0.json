@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/cross",
+  "parent": "block/cocoa_stage0",
   "textures": {
-    "cross": "reforestry:block/pods/red_banana.0"
+    "particle": "reforestry:block/pods/red_banana.0",
+    "cocoa": "reforestry:block/pods/red_banana.0"
   }
 }

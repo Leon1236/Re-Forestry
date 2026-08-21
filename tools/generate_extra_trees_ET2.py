@@ -539,31 +539,29 @@ def copy_assets(foods: list[dict]) -> None:
 			src = BINNIE_POD_TEX / f"{binnie}.{age}.png"
 			if src.is_file():
 				shutil.copy2(src, pods_dir / f"{pod}.{age}.png")
-		# blockstates + models
 		bs_dir = ROOT / "src/main/resources/assets/reforestry/blockstates"
 		bs_dir.mkdir(parents=True, exist_ok=True)
-		# Mirror CE pod blockstate shape if present
-		bs = {
-			"variants": {}
-		}
-		for facing, rot in (("north", 0), ("east", 90), ("south", 180), ("west", 270)):
-			for age in (0, 1, 2):
-				key = f"facing={facing},age={age}"
-				bs["variants"][key] = {
-					"model": f"reforestry:block/pods/{pod}_{age}",
-					"y": rot,
-				}
+		bs = {"variants": {}}
+		for age in (0, 1, 2):
+			for facing, rot in (("south", None), ("west", 90), ("north", 180), ("east", 270)):
+				key = f"age={age},facing={facing}"
+				entry = {"model": f"reforestry:block/pods/{pod}_{age}"}
+				if rot is not None:
+					entry["y"] = rot
+				bs["variants"][key] = entry
 		(bs_dir / f"pods_{pod}.json").write_text(json.dumps(bs, indent=2) + "\n")
 		model_dir = ROOT / "src/main/resources/assets/reforestry/models/block/pods"
 		model_dir.mkdir(parents=True, exist_ok=True)
 		for age in (0, 1, 2):
 			(model_dir / f"{pod}_{age}.json").write_text(json.dumps({
-				"parent": "minecraft:block/cross",
-				"textures": {"cross": f"reforestry:block/pods/{pod}.{age}"}
+				"parent": f"block/cocoa_stage{age}",
+				"textures": {
+					"particle": f"reforestry:block/pods/{pod}.{age}",
+					"cocoa": f"reforestry:block/pods/{pod}.{age}",
+				},
 			}, indent=2) + "\n")
 		(models_item / f"pods_{pod}.json").write_text(json.dumps({
-			"parent": "minecraft:item/generated",
-			"textures": {"layer0": f"reforestry:block/pods/{pod}.2"}
+			"parent": f"reforestry:block/pods/{pod}_2",
 		}, indent=2) + "\n")
 		(items_def / f"pods_{pod}.json").write_text(json.dumps({
 			"model": {"type": "minecraft:model", "model": f"reforestry:item/pods_{pod}"}

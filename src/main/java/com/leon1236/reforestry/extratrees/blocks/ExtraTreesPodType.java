@@ -2,10 +2,11 @@ package com.leon1236.reforestry.extratrees.blocks;
 
 import java.util.Locale;
 
-import net.minecraft.tags.BlockTags;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 
+import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.api.arboriculture.IFruitPodType;
 
 public enum ExtraTreesPodType implements IFruitPodType {
@@ -15,6 +16,8 @@ public enum ExtraTreesPodType implements IFruitPodType {
 
 	public static final ExtraTreesPodType[] VALUES = values();
 
+	private static final TagKey<Block> BANANA_LOGS = TagKey.create(Registries.BLOCK, ReForestry.id("banana_logs"));
+
 	@Override
 	public String getSerializedName() {
 		return name().toLowerCase(Locale.ROOT);
@@ -22,6 +25,6 @@ public enum ExtraTreesPodType implements IFruitPodType {
 
 	@Override
 	public TagKey<Block> logTag() {
-		return BlockTags.LOGS;
+		return BANANA_LOGS;
 	}
 }

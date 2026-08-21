@@ -44,6 +44,16 @@
 | Binnie worldgen features | **ET3** |
 | Juices / alcohol / press recipes | **ET5** |
 | Papayimar fruit | Commented out of Binnie allele enum |
+| `sand_pear` food | In Binnie `Food` enum for juice; no fruit allele products it |
+
+## Review fixes (2026-08-21)
+
+| Fix | Why |
+|---|---|
+| Pod models use `block/cocoa_stage{0,1,2}` + CE blockstate order | Generator had wrongly used `minecraft:block/cross` |
+| Pod item models parent age-2 block model | Match CE dates/papaya pods |
+| `ExtraTreesPodType.logTag()` → `#reforestry:banana_logs` | Banana trees use ET banana wood; `BlockTags.LOGS` was too broad / Binnie `JUNGLE` would miss banana logs |
+| Strip `LeafFruitOverlay` comments | Project no-comments rule |
 
 ## Next
 

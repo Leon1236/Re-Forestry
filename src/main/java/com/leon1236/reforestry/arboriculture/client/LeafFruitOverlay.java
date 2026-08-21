@@ -16,14 +16,7 @@ import net.minecraft.client.resources.model.sprite.Material;
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.arboriculture.tiles.LeafRenderData;
 
-/**
- * The ripening-fruit overlay drawn on top of fruit-bearing leaves: 4 small inset
- * billboards (one per horizontal face) sampling the fruit's sprite and tinted with
- * the already ripeness-lerped color from {@link LeafRenderData#fruitColor()}.
- */
 public final class LeafFruitOverlay {
-    // The 5 real shared fruit sprite sheets staged under textures/block/leaves/,
-    // matching DefaultFruits.java's own (private) POMES/NUTS/BERRIES/CITRUS/PLUMS constants.
     private static final Identifier[] SPRITES = {
             ReForestry.id("block/leaves/fruits.pomes"),
             ReForestry.id("block/leaves/fruits.nuts"),
