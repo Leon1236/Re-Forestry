@@ -28,7 +28,7 @@ public class IndustrialApiaryMenu extends ContainerMachine<IndustrialApiaryBlock
 		addDataSlots(tile.getErrorData());
 		addDataSlots(tile.getEnergyData());
 		addDataSlots(tile.getClimateData());
-		tile.getBeekeepingLogic().onGuiOpened();
+		tile.onIndustrialGuiOpened();
 	}
 
 	@Override

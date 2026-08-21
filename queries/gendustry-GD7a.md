@@ -26,6 +26,17 @@
 - Upgrade modifier behavior + energy cost from upgrades: **GD7b**
 - `BeekeepingLogic.setWorkThrottle` does not exist yet — GD7b may need it for productivity elite
 - JEI + error sprites polish: **GD8**
+- Owner ledger (donor screen had it; Re-Forestry ScreenForestry has no owner ledger yet)
+
+## Review (full GD7a)
+
+- Confirmed `new BeekeepingLogic(this)` (not donor hive-manager factory)
+- Energy ctor swap verified against donor `ForestryEnergyStorage(maxTransfer, capacity)` → `TilePowered(capacity, maxReceive)` = `(1000000, 100000)`; `BASE_ENERGY = 200`
+- `IBeeHousing` environment checks match `TileBeeHousing` (sky/rain/light/climate/owner/FX coords)
+- Redstone disable clears other errors so only `DISABLED_BY_REDSTONE` shows; GUI open re-applies that after `onGuiOpened`
+- Client bee FX throttled every 10 ticks (TileBeeHousing cadence)
+- Recipe unlock advancement added (donor had one; other gendustry machines still lack them)
+- Upgrade modifiers remain identity until GD7b (intentional)
 
 ## Player checks
 

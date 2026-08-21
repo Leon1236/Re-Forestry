@@ -79,6 +79,7 @@ public class IndustrialApiaryBlockEntity extends TilePowered
 	private int energyConsumption = BASE_ENERGY;
 	private int workProgressPercent;
 	private int syncedEnergyUsage;
+	private int clientTicks;
 	private final int[] syncedErrorIds = new int[ERROR_SLOT_COUNT];
 	private int syncedErrorCount;
 	private int syncedTemperatureOrdinal;
@@ -177,19 +178,18 @@ public class IndustrialApiaryBlockEntity extends TilePowered
 		tile.advanceTicks();
 		IErrorLogic errors = tile.getErrorLogic();
 		boolean disabled = tile.isRedstoneActivated();
-		errors.setCondition(disabled, ForestryError.DISABLED_BY_REDSTONE);
 
-		if (!disabled) {
-			if (tile.beeLogic.canWork()) {
-				boolean hasEnergy = EnergyHelper.consumeEnergyToDoWork(
-						tile.getEnergyManager(), 1, tile.energyConsumption);
-				errors.setCondition(!hasEnergy, ForestryError.NO_POWER);
-				if (hasEnergy) {
-					tile.beeLogic.doWork();
-					tile.syncedEnergyUsage = tile.energyConsumption;
-				} else {
-					tile.syncedEnergyUsage = 0;
-				}
+		if (disabled) {
+			errors.clearErrors();
+			errors.setCondition(true, ForestryError.DISABLED_BY_REDSTONE);
+			tile.syncedEnergyUsage = 0;
+		} else if (tile.beeLogic.canWork()) {
+			boolean hasEnergy = EnergyHelper.consumeEnergyToDoWork(
+					tile.getEnergyManager(), 1, tile.energyConsumption);
+			errors.setCondition(!hasEnergy, ForestryError.NO_POWER);
+			if (hasEnergy) {
+				tile.beeLogic.doWork();
+				tile.syncedEnergyUsage = tile.energyConsumption;
 			} else {
 				tile.syncedEnergyUsage = 0;
 			}
@@ -205,7 +205,24 @@ public class IndustrialApiaryBlockEntity extends TilePowered
 	}
 
 	public static void clientTick(Level level, BlockPos pos, BlockState state, IndustrialApiaryBlockEntity tile) {
-		tile.beeLogic.doBeeFX();
+		tile.clientTicks++;
+		if (tile.clientTicks % 10 == 0) {
+			tile.beeLogic.doBeeFX();
+		}
+	}
+
+	public void onIndustrialGuiOpened() {
+		Level level = getLevel();
+		if (level == null || level.isClientSide()) {
+			return;
+		}
+		this.beeLogic.onGuiOpened();
+		if (isRedstoneActivated()) {
+			IErrorLogic errors = getErrorLogic();
+			errors.clearErrors();
+			errors.setCondition(true, ForestryError.DISABLED_BY_REDSTONE);
+		}
+		syncErrors();
 	}
 
 	private void syncErrors() {
