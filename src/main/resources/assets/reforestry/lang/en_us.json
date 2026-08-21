@@ -1831,7 +1831,7 @@
   "for.chat.command.reforestry.butterfly.kill.help": "Kills all Butterflies in loaded chunks",
   "for.chat.command.reforestry.butterfly.kill.format": "Format: /%s [<dimension#>]",
   "for.chat.command.reforestry.butterfly.kill.response": "Killed %d butterflies",
-  "for.butterflies.hybrid": "Hybrid: %PRIMARY-%SECONDARY",
+  "for.butterflies.hybrid": "%1$s-%2$s Hybrid",
   "for.butterflies.grammar.butterfly.type": "Butterfly",
   "for.butterflies.grammar.butterfly": "%1$s %2$s",
   "for.butterflies.grammar.serum.type": "Serum",

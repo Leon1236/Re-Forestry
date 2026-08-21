@@ -11,4 +11,14 @@ Last updated: 2026-08-21
 | GP0a3 Individual item handler | done | `IIndividualHandlerItem` + `IIndividualItem` on GE items |
 | GP0b Plugin registerGenetics | done | genetics-first plugin order; flower/pollen/error/client hooks |
 | GP0c Promote bee/tree API | done | `IBee`/`ITree`/`IFruit`; `modifySpecies`; `ITreeManager` |
-| GP0d Lepidopterology API shell | done | empty `BUTTERFLY` type; 34 taxa; no items |
+| GP0d Lepidopterology API shell | done | empty `BUTTERFLY` type; 34 taxa; items landed in Wave 6 D0 |
+
+## Wave 6 — Lepidopterology
+
+| Stage | Status | Notes |
+|---|---|---|
+| D0 Module + GE items | done | `butterfly` / `butterfly_serum` / `caterpillar` / `cocoon`; chest recipe; tab. Smoke: `/give @s reforestry:butterfly` (and the other three ids); open `reforestry:lepidopterology`; craft `butterfly_chest`. |
+| D1 35 species + mutation + analyzer | next | |
+| D2 Entity + renderer + item model | pending | |
+| D3 Cocoons + leaf nursery/spawn + mating | pending | |
+| D4 Remaining CE surface + docs | pending | |

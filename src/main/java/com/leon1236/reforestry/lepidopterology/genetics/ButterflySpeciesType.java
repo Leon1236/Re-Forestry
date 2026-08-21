@@ -18,6 +18,7 @@ import net.minecraft.world.level.LevelAccessor;
 import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
 import com.leon1236.reforestry.api.genetics.IBreedingTracker;
 import com.leon1236.reforestry.api.genetics.IIndividual;
+import com.leon1236.reforestry.api.genetics.capability.IIndividualHandlerItem;
 import com.leon1236.reforestry.api.lepidopterology.ForestryButterflySpecies;
 import com.leon1236.reforestry.api.lepidopterology.IButterflyCocoon;
 import com.leon1236.reforestry.api.lepidopterology.IButterflyEffect;
@@ -109,7 +110,7 @@ public final class ButterflySpeciesType extends SpeciesType<IButterflySpecies, I
 
 	@Override
 	public boolean isMated(ItemStack stack) {
-		return false;
+		return IIndividualHandlerItem.filter(stack, individual -> individual instanceof IButterfly butterfly && butterfly.getMate() != null);
 	}
 
 	private static final class LepidopteristTracker extends BreedingTracker implements ILepidopteristTracker {
