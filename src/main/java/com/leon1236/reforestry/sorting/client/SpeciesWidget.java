@@ -29,6 +29,9 @@ import com.leon1236.reforestry.arboriculture.features.ArboricultureItems;
 import com.leon1236.reforestry.arboriculture.genetics.ArboricultureGenetics;
 import com.leon1236.reforestry.core.genetics.GeneticItemHelper;
 import com.leon1236.reforestry.core.genetics.root.BreedingTrackerManager;
+import com.leon1236.reforestry.lepidopterology.features.LepidopterologyDataComponents;
+import com.leon1236.reforestry.lepidopterology.features.LepidopterologyItems;
+import com.leon1236.reforestry.lepidopterology.genetics.LepidopterologyGenetics;
 
 public class SpeciesWidget extends FilterWidget implements ISelectableProvider<Identifier> {
 	private static final Map<Identifier, ItemStack> ICONS = new HashMap<>();
@@ -50,6 +53,7 @@ public class SpeciesWidget extends FilterWidget implements ISelectableProvider<I
 		if (minecraft.level != null && minecraft.player != null) {
 			addDiscovered(discovered, ForestrySpeciesTypes.BEE, minecraft);
 			addDiscovered(discovered, ForestrySpeciesTypes.TREE, minecraft);
+			addDiscovered(discovered, ForestrySpeciesTypes.BUTTERFLY, minecraft);
 		}
 		this.entries = discovered.build();
 	}
@@ -113,6 +117,9 @@ public class SpeciesWidget extends FilterWidget implements ISelectableProvider<I
 		if (ArboricultureGenetics.getSpeciesSafe(selectable) != null) {
 			return Component.translatable("allele.reforestry.tree_species." + selectable.getPath());
 		}
+		if (LepidopterologyGenetics.getSpeciesSafe(selectable) != null) {
+			return Component.translatable("allele.reforestry.butterfly_species.butterfly_" + selectable.getPath());
+		}
 		return Component.literal(selectable.toString());
 	}
 
@@ -162,6 +169,10 @@ public class SpeciesWidget extends FilterWidget implements ISelectableProvider<I
 		} else if (ArboricultureGenetics.getSpeciesSafe(speciesId) != null) {
 			created = new ItemStack(ArboricultureItems.SAPLING.item());
 			created.set(ArboricultureDataComponents.TREE_GENOME.type(), ArboricultureGenetics.getDefaultGenome(speciesId));
+		} else if (LepidopterologyGenetics.getSpeciesSafe(speciesId) != null) {
+			created = new ItemStack(LepidopterologyItems.BUTTERFLY.item());
+			created.set(LepidopterologyDataComponents.BUTTERFLY_GENOME.type(),
+					LepidopterologyGenetics.getDefaultGenome(speciesId));
 		}
 		ICONS.put(speciesId, created);
 		return created;

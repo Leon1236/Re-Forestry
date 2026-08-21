@@ -84,7 +84,7 @@ Order: **GD0 → EB1 → GD1 → GD2 (incl. DNA) → GD3 (incl. DNA extractor) �
 | 25 | ET4 | L | Lumbermill, press, brewery, distillery | **done** — Lumbermill playable; misc early items |
 | 26 | ET5 | L | Foods, juices, alcohol, hops | **done** — fluids + press/brewery/distillery recipes |
 | 27 | ET6 | M | 22 moths on butterfly type | **done** — Ids `moth_*`; setMoth; no mutations |
-| 28 | S2 | S | Genetic filter butterfly/moth rules | After ET6 |
+| 28 | S2 | S | Genetic filter butterfly/moth rules | **done** — LepidopterologyFilterRuleType + moths in picker |
 
 ## Still deferred (not this pass)
 

@@ -3,7 +3,7 @@
 What is **done and working** in the mod today.  
 Update this file when a roadmap step lands. For how-to-build guidance, see `CLAUDE.md`. For the next work items, see **Next up** at the bottom.
 
-Last updated: 2026-08-21 (ET6: Extra Trees 22 moths on butterfly type. Next: S2)
+Last updated: 2026-08-21 (S2: lepidopterology genetic filter rules. Wave 7 remaining: none)
 
 ---
 
@@ -209,6 +209,7 @@ Play notes: `queries/storage-B1-b3-backpacks.md`, `queries/storage-B4-naturalist
 |---|---|---|
 | S0 | Filter API + sorting module | `reforestry:sorting` toggles in module config. `IForestryApi.getFilterManager()` holds `DefaultFilterRuleType` (CLOSED default). `FilterData` is `(Identifier, IGenome, String)` over `IndividualItems` — no `ISpecies`/`IIndividual`. `IFilterSlotDelegate` on `ItemInventory`. No genetic_filter block. See `queries/sorting-S0.md` |
 | S1 | Genetic filter block | Place `reforestry:genetic_filter`. GUI rules + discovered bee/tree species picker (Identifier, not `ISpecies`). Hopper in → matching faces out. Custom `ItemStorage.SIDED` insert routing (not worldly `InventoryHelper`). Bee/tree rules only. See `queries/sorting-S1.md` |
+| S2 | Butterfly / moth filter rules | `LepidopterologyFilterRuleType` (flutter/butterfly/serum/caterpillar/cocoon) + shared PURE_BREED/NOCTURNAL/FLYER logics. Species picker discovers CE butterflies + ET6 `moth_*`. Analyzer sprites already on disk. See `queries/sorting-S2.md` |
 
 ## Wave 4 — Farming
 
@@ -234,9 +235,9 @@ Play notes: `queries/storage-B1-b3-backpacks.md`, `queries/storage-B4-naturalist
 
 ## Next up (not implemented yet)
 
-**Next up: Wave 7 `S2`.** ET6 Extra Trees 22 moths (`moth_*`) landed. Locked remaining order: see `queries/wave7-plan.md` (S2…). No solar/combustion.
+**Next up: none for Wave 7.** S2 genetic filter butterfly/moth rules landed. Deferred only: ET-D, ET-K, never-shipped infuser/nursery. No solar/combustion.
 
-**Wave 7 addons:** GD0 + EB1 + GD1–GD8 + EB5 + EB6 + EB-FLOWERS+EB3 + EB2a–EB2e + EB4 + ET1a + ET1b + ET2 + ET3 + ET4 + ET5 + ET6 done; next S2 (genetic filter butterfly/moth rules).
+**Wave 7 addons:** GD0 + EB1 + GD1–GD8 + EB5 + EB6 + EB-FLOWERS+EB3 + EB2a–EB2e + EB4 + ET1a + ET1b + ET2 + ET3 + ET4 + ET5 + ET6 + S2 **done**.
 
 | ID | Status | Notes |
 |---|---|---|
@@ -299,7 +300,7 @@ Older (partially stale): [`queries/item-gap-implementation-plan.md`](../queries/
 |---|---|---|---|
 | 1 | `GP0a1–d` | Species-type / plugin genetics façade | **done** (merged from GitHub) |
 | 2 | `D0→D4` | **Lepidopterology** | **done** (merged from GitHub). Unlocks `butterfly_chest` recipe and sorting `S2` |
-| 3 | Addons | Gendustry → Extra Bees → Extra Trees | Config modules; **GD0…GD8 + EB1 + EB5 + EB6 + EB-FLOWERS+EB3 + EB2a–EB2e + EB4 + ET1a + ET1b + ET2 + ET3 + ET4 + ET5 + ET6 done**. Next: **S2** |
+| 3 | Addons | Gendustry → Extra Bees → Extra Trees | Config modules; **GD0…GD8 + EB1 + EB5 + EB6 + EB-FLOWERS+EB3 + EB2a–EB2e + EB4 + ET1a + ET1b + ET2 + ET3 + ET4 + ET5 + ET6 + S2 done**. Wave 7 remaining: none |
 | 4 | Restore | Greenhouse, climatology, database, guide book (CE-dropped 1.12) | Optional |
 | — | `TR1` | Optional Trinkets spectacles slot | Helmet already works (A5) |
 

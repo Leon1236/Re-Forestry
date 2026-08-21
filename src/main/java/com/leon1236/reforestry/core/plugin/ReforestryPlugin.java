@@ -82,6 +82,8 @@ import com.leon1236.reforestry.arboriculture.genetics.DefaultTreeSpecies;
 import com.leon1236.reforestry.apiculture.genetics.ApicultureFilterRule;
 import com.leon1236.reforestry.apiculture.genetics.ApicultureFilterRuleType;
 import com.leon1236.reforestry.arboriculture.genetics.ArboricultureFilterRuleType;
+import com.leon1236.reforestry.lepidopterology.genetics.LepidopterologyFilterRule;
+import com.leon1236.reforestry.lepidopterology.genetics.LepidopterologyFilterRuleType;
 import com.leon1236.reforestry.modules.ModuleManager;
 import com.leon1236.reforestry.sorting.DefaultFilterRuleType;
 
@@ -282,6 +284,10 @@ public final class ReforestryPlugin implements IForestryPlugin {
         }
         if (ModuleManager.INSTANCE.isModuleLoaded(ReForestry.id("arboriculture"))) {
             registration.registerFilterRuleTypes(ArboricultureFilterRuleType.values());
+        }
+        if (ModuleManager.INSTANCE.isModuleLoaded(ReForestry.id("lepidopterology"))) {
+            LepidopterologyFilterRule.init();
+            registration.registerFilterRuleTypes(LepidopterologyFilterRuleType.values());
         }
     }
 

@@ -43,7 +43,7 @@ Loaded today (`ReForestry.java`): `core`, `apiculture`, `arboriculture`, `lepido
 | **energy**                           | FE2 biogas + clockwork playable  | —                       |
 | **farming**                          | G4b done                         | —                       |
 | **cultivation**                      | CU2 done                         | —                       |
-| **sorting**                          | S1 done                          | `S2` butterfly rules    |
+| **sorting**                          | S1 + S2 done                     | —                       |
 | **lepidopterology**                  | Wave 6 D0–D4 merged              | —                       |
 | gendustry / extra bees / extra trees | GD0 + EB1 + GD1 + GD2 + GD3 + GD4 + GD5 + GD6 + GD7a done | `GD7b` |
 | curios / Patchouli / 1.12 restore    | Optional                         | last                    |
@@ -251,10 +251,10 @@ CE impl: `forestry.core.content.sorting` (~24 Java). API: `forestry.api.core.gen
 **Player:** Place `genetic_filter`; GUI rules accept bee/tree species A, reject dirt / species B.  
 **Done:** Block/tile/menu `reforestry:genetic_filter`. Custom `ItemStorage.SIDED` insert routing. Bee + tree filter rules. Recipe/tags/loot/tab. See `queries/sorting-S1.md`.
 
-### `S2` — Butterfly rules (S)
+### `S2` — Butterfly rules (S) — **done** (2026-08-21)
 
-**Deps:** `D1+`. Skip until lepidopterology items exist.  
-**Prompt:** Stage `S2` only after Track D items exist.
+**Player:** Genetic filter rules for flutter/butterfly/serum/caterpillar/cocoon; moths appear in picker too.  
+**Done:** `LepidopterologyFilterRuleType` + `LepidopterologyFilterRule`; register via `IFilterRegistration`; species picker discovers `ForestrySpeciesTypes.BUTTERFLY` (CE + ET6 `moth_*`). See `queries/sorting-S2.md`.
 
 ---
 
@@ -466,7 +466,7 @@ Skip Binnie Genetics serums/isolator (Gendustry is the modern line).
 | `ET4`  | L    | **done** — Lumbermill / press / brewery / distillery (not designer) | factory patterns |
 | `ET5`  | L    | Foods / juices / alcohol / hops — **done** | ET4 |
 | `ET6`  | M    | 22 moths (`moth_*`) — **done** | Wave 6 |
-| `S2`   | S    | Genetic filter butterfly/moth rules | S1, ET6 |
+| `S2`   | S    | Genetic filter butterfly/moth rules — **done** | S1, ET6 |
 | `ET-D` | L    | Designer / stained glass / patterns | **deferred** |
 | `ET-K` | S    | Bottle rack | **deferred** (never shipped in Binnie) |
 
@@ -495,8 +495,8 @@ Skip Binnie Genetics serums/isolator (Gendustry is the modern line).
 
 ## Suggested next sessions (human order)
 
-1. Wave 7 remaining order is locked in `queries/wave7-plan.md`: **GD0 → EB1 → GD1…GD8 → EB5 → EB6 → EB-FLOWERS+EB3 → EB2a–e → EB4 → ET1a…ET6 → S2**.  
-2. Next playable stage: **S2** (genetic filter butterfly/moth rules). ET6 Extra Trees 22 moths (`moth_*`) landed.
+1. Wave 7 locked order in `queries/wave7-plan.md` is complete through **S2**.  
+2. Next playable stage for Wave 7: **none**. Deferred only: ET-D / ET-K / never-shipped infuser-nursery.
 
 **Can start in parallel with nothing else:** `TR1`.
 

@@ -102,6 +102,11 @@ public final class LepidopterologyGenetics {
 		return species;
 	}
 
+	@Nullable
+	public static IButterflySpecies getSpeciesSafe(Identifier id) {
+		return speciesById.get(id);
+	}
+
 	public static IGenome getDefaultGenome(Identifier id) {
 		IGenome genome = defaultGenomes.get(id);
 		if (genome == null) {
