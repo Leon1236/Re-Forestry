@@ -49,4 +49,14 @@ FOSSILIZED is shipped with REFINED so distilled/fuel/creosote/latex parents exis
 - Remaining dye / metal / nuclear / quantum / etc. batches → EB2c–e
 - Hive worldgen/loot still EB4
 
+## Review (2026-08-21)
+
+- Extract parity: **31** species / **34** EB mutations field-checked vs JSON (colors, products, specialties, genomes, chances, parents) + Binnie `registerMutations` / lang names
+- Remaps verified: `bee_eb_primeval` / `bee_eb_relic` / `bee_eb_boggy`; `bee_artic` spelling; no `bee_arctic`
+- GLOWSTONE TEMPERED × EXCITED @ 5; sugar → `Items.SUGAR`; alcohol → `EFFECT_DRUNKARD`
+- Shared CE genera not redefined: `rustapis` / `paludapis` / `coagapis` (+ `monapis` from EB2a)
+- Generator dry-run matches committed `ExtraBeesBeeSpecies.java`; `compileJava` clean
+- **Must:** none
+- **Should:** none
+
 **Next stage:** `EB2c`
