@@ -449,7 +449,7 @@ Skip Binnie Genetics serums/isolator (Gendustry is the modern line).
 | `EB2b` | L | 31 species + 34 EB mutations (historic…energetic + GLOWSTONE) — **done** | EB2a |
 | `EB2c` | L | 27 species + 45 EB mutations (metallic…nuclear + precious) — **done** | EB2b |
 | `EB2d` | L | 9 species + 9 EB mutations (viscous/caustic/virulent) — **done** | EB2c |
-| `EB2e` | L | Remaining ~24 species + ~24 EB mutations (dye/quantum/festive/…) | EB2d |
+| `EB2e` | L | 24 species + 24 EB mutations (dye/quantum/festive/FTB/Botania + INK) — **done** (116 / 168) | EB2d |
 | `EB4` | M | Hives water/rock/nether/marble + worldgen + loot | EB2a |
 
 

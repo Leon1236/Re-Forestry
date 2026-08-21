@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Generate Extra Bees species + mutation Java from queries/extra-bees-*.json.
 
-Batches are cumulative: EB2d regenerates EB2a + EB2b + EB2c + EB2d into ExtraBeesBeeSpecies.java.
-Shared Forestry genera (monapis/rustapis/paludapis/coagapis) are not redefined.
+Batches are cumulative: EB2e regenerates EB2a–EB2e into ExtraBeesBeeSpecies.java.
+Shared Forestry genera (monapis/rustapis/paludapis/coagapis/festapis/modapis) are not redefined.
 
 Usage:
-  python3 tools/generate_extra_bees_species.py --batch EB2d --apply
-  python3 tools/generate_extra_bees_species.py --batch EB2d --apply --lang
+  python3 tools/generate_extra_bees_species.py --batch EB2e --apply
+  python3 tools/generate_extra_bees_species.py --batch EB2e --apply --lang
 Without --apply: dry-run summary only.
 """
 from __future__ import annotations
@@ -44,14 +44,33 @@ EB2D_BRANCHES = frozenset({
 	"VIRULENT", "VISCOUS", "CAUSTIC",
 })
 
+EB2E_BRANCHES = frozenset({
+	"PRIMARY", "SECONDARY", "TERTIARY", "FESTIVE", "FTB", "AUSTERE", "QUANTUM", "BOTANIA",
+})
+EB2E_INCLUDE = frozenset({"INK"})
+
 FORESTRY_GENUS = {
 	"ROCKY": "monapis",
 	"AGRARIAN": "rustapis",
 	"BOGGY": "paludapis",
 	"FROZEN": "coagapis",
+	"FESTIVE": "festapis",
+	"AUSTERE": "modapis",
 }
 
 SHARED_TAXA = frozenset(FORESTRY_GENUS.values())
+
+FORESTRY_COMB_ENUMS = frozenset({
+	"HONEY", "POWDERY", "SIMMERING", "STRINGY", "FROZEN", "DRIPPING", "SILKY",
+	"PARCHED", "MYSTERIOUS", "WHEATEN", "MOSSY", "MELLOW", "KAOLIN", "VINTAGE",
+	"SPONGE", "SCULKEN", "COCOA",
+})
+
+CE_COPY_PRODUCTS = {
+	"reforestry:bee_noble": [
+		{"kind": "forestry_comb", "enum": "DRIPPING", "reforestry_id": "reforestry:bee_comb_dripping", "chance": 0.2},
+	],
+}
 
 BATCHES = {
 	"EB2a": {
@@ -78,6 +97,12 @@ BATCHES = {
 		"include_enums": frozenset(),
 		"include_forestry_result": False,
 	},
+	"EB2e": {
+		"branches": EB2E_BRANCHES,
+		"defer": frozenset(),
+		"include_enums": EB2E_INCLUDE,
+		"include_forestry_result": False,
+	},
 }
 
 CUMULATIVE = {
@@ -85,6 +110,7 @@ CUMULATIVE = {
 	"EB2b": ["EB2a", "EB2b"],
 	"EB2c": ["EB2a", "EB2b", "EB2c"],
 	"EB2d": ["EB2a", "EB2b", "EB2c", "EB2d"],
+	"EB2e": ["EB2a", "EB2b", "EB2c", "EB2d", "EB2e"],
 }
 
 FERTILITY = {
@@ -113,6 +139,8 @@ BIOME_TAGS = {
 
 VANILLA_ITEMS = {
 	"minecraft:sugar": "Items.SUGAR",
+	"minecraft:quartz": "Items.QUARTZ",
+	"minecraft:ink_sac": "Items.INK_SAC",
 }
 
 
@@ -139,20 +167,29 @@ def resolve_product(entry: dict) -> tuple[str | None, str | None]:
 	if kind == "extra_bees_comb":
 		return f"ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.{entry['enum']})", None
 	if kind == "forestry_comb":
-		return f"ApicultureItems.BEE_COMBS.get(EnumHoneyComb.{entry['enum']}).item()", None
+		name = entry["enum"]
+		if name == "QUARTZ":
+			return "Items.QUARTZ", None
+		if name not in FORESTRY_COMB_ENUMS:
+			return None, f"missing forestry_comb {name}"
+		return f"ApicultureItems.BEE_COMBS.get(EnumHoneyComb.{name}).item()", None
 	if kind == "forestry_item" and rid == "reforestry:royal_jelly":
 		return "ApicultureItems.ROYAL_JELLY.item()", None
+	if kind == "forestry_item" and rid == "reforestry:pollen":
+		return "ApicultureItems.POLLEN_CLUSTER.get(EnumPollenCluster.NORMAL).item()", None
 	if kind == "item_stack":
 		item = entry.get("item")
+		if item == "minecraft:dye" and entry.get("meta") == 0:
+			return "Items.INK_SAC", None
 		expr = VANILLA_ITEMS.get(item)
 		if expr:
 			return expr, None
 		return None, f"unresolved item_stack {entry}"
 	if rid and rid.startswith("reforestry:bee_comb_"):
 		name = rid.removeprefix("reforestry:bee_comb_").upper()
-		if name in {"HONEY", "POWDERY", "SIMMERING", "STRINGY", "FROZEN", "DRIPPING", "SILKY",
-					"PARCHED", "MYSTERIOUS", "WHEATEN", "MOSSY", "MELLOW", "KAOLIN", "VINTAGE",
-					"SPONGE", "SCULKEN", "COCOA"}:
+		if name == "QUARTZ":
+			return "Items.QUARTZ", None
+		if name in FORESTRY_COMB_ENUMS:
 			return f"ApicultureItems.BEE_COMBS.get(EnumHoneyComb.{name}).item()", None
 		return f"ExtraBeesItems.BEE_COMBS.item(EnumExtraBeeComb.{name})", None
 	return None, f"unresolved product {entry}"
@@ -168,7 +205,7 @@ def allele_line(g: dict) -> tuple[str, str] | None:
 	if chrom == "NEVER_SLEEPS":
 		if g.get("value") is True or str(g.get("value")).lower() == "true":
 			return "ACTIVITY", "AlleleManager.INSTANCE.registryAllele(ActivityType.METATURNAL, false)"
-		return None
+		return "ACTIVITY", "AlleleManager.INSTANCE.registryAllele(ActivityType.DIURNAL, false)"
 	if kind == "boolean":
 		val = "true" if g.get("value") is True or str(g.get("value")).lower() == "true" else "false"
 		return chrom, f"AlleleManager.INSTANCE.booleanAllele({val}, false)"
@@ -182,6 +219,8 @@ def allele_line(g: dict) -> tuple[str, str] | None:
 		if group in ("Speed", "Lifespan", "Tolerance"):
 			prefix = {"Speed": "SPEED", "Lifespan": "LIFESPAN", "Tolerance": "TOLERANCE"}[group]
 			return chrom, f"ForestryAlleles.{prefix}_{value}"
+		if group == "Territory":
+			return "TERRITORY", f"ForestryAlleles.TERRITORY_{value}"
 		if group == "Flowers":
 			return "FLOWER_TYPE", f"AlleleManager.INSTANCE.registryAllele(FlowerType.{value}, false)"
 		raise ValueError(f"unknown enum_allele {g}")
@@ -258,7 +297,16 @@ def emit_species(species: dict, branch_by_enum: dict, mutations_by_result: dict,
 	hum = species.get("humidity")
 	if hum:
 		chain.append(f".setHumidity(HumidityType.{hum})")
-	for product in species.get("products") or []:
+	products = list(species.get("products") or [])
+	if not products and species.get("copy_products_from"):
+		cp = species["copy_products_from"]
+		src_id = cp.get("reforestry_id") if isinstance(cp, dict) else None
+		copied = CE_COPY_PRODUCTS.get(src_id)
+		if copied:
+			products = list(copied)
+		else:
+			warnings.append(f"{rid}: unresolved copy_products_from {cp}")
+	for product in products:
 		expr, err = resolve_product(product)
 		if err:
 			warnings.append(f"{rid}: {err}")
@@ -400,7 +448,18 @@ def generate(batch_name: str) -> tuple[str, dict]:
 	)
 
 	needs_items = any(
-		(p.get("kind") == "item_stack" for s in selected for p in (s.get("products") or []) + (s.get("specialties") or []))
+		(
+			p.get("kind") == "item_stack"
+			or (p.get("kind") == "forestry_comb" and p.get("enum") == "QUARTZ")
+			or (p.get("reforestry_id") or "").endswith("bee_comb_quartz")
+		)
+		for s in selected
+		for p in (s.get("products") or []) + (s.get("specialties") or [])
+	)
+	needs_pollen = any(
+		p.get("reforestry_id") == "reforestry:pollen"
+		for s in selected
+		for p in (s.get("products") or []) + (s.get("specialties") or [])
 	)
 
 	species_body = "\n\n".join(species_blocks)
@@ -423,6 +482,10 @@ def generate(batch_name: str) -> tuple[str, dict]:
 		"import com.leon1236.reforestry.apiculture.genetics.BeeChromosomes;",
 		"import com.leon1236.reforestry.apiculture.genetics.FlowerType;",
 		"import com.leon1236.reforestry.apiculture.items.EnumHoneyComb;",
+	])
+	if needs_pollen:
+		imports.append("import com.leon1236.reforestry.apiculture.items.EnumPollenCluster;")
+	imports.extend([
 		"import com.leon1236.reforestry.core.genetics.ForestryAlleles;",
 		"import com.leon1236.reforestry.core.genetics.alleles.AlleleManager;",
 		"import com.leon1236.reforestry.extra_bees.features.ExtraBeesItems;",
@@ -519,7 +582,7 @@ def apply_lang(batch_ids: list[str], species_doc: dict) -> int:
 
 def main() -> None:
 	parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-	parser.add_argument("--batch", default="EB2d", choices=sorted(BATCHES))
+	parser.add_argument("--batch", default="EB2e", choices=sorted(BATCHES))
 	parser.add_argument("--apply", action="store_true")
 	parser.add_argument("--lang", action="store_true", help="Merge Binnie species names into en_us.json")
 	parser.add_argument("--output", type=Path, default=OUT_SPECIES)
