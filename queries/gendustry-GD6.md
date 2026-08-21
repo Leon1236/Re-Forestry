@@ -12,18 +12,25 @@
   - Imprinter: 100 000 FE / 80 ticks
   - Transposer: 50 000 FE / 20 ticks; labware 20% consume
   - Replicator: 200 000 FE / 50 ticks
-- Errors: `NO_TEMPLATE`, `NO_BLANK`, `NO_SOURCE`, `NO_DNA`, `NO_PROTEIN` (+ specimen/labware as used)
-- Imprinter: template alleles onto individual genome; preserves mate when present
+- Errors: `NO_TEMPLATE`, `NO_BLANK`, `NO_SOURCE`, `NO_DNA`, `NO_PROTEIN` (+ specimen/labware as used); imprinter also `INCOMPATIBLE_SPECIES`
+- Imprinter: template alleles onto individual genome; preserves original mate when present
 - Transposer: copies filled sample/template onto matching blank
 - Replicator: complete template + DNA + protein → new individual (`IBee.setPristine(false)`); mutation stage 2 stack
 
 ## Choices
 
 - Three-input GUIs share sampler.png (donor does the same)
-- Imprinter validates organism/template before consuming inputs (GD5 workCycle discipline)
+- Imprinter validates organism/template/species type before consuming inputs (GD5 workCycle discipline)
 - Replicator species allele via `IValueAllele` + `ISpecies` (no donor `IAllele.cast()`)
 - Fluids in droplets; 1000 mB per cycle
 - No donor `fabric.mod.json` depends
+
+## Review (full GD6)
+
+- Imprinter rejects mismatched species type (avoids `Genome.Builder` crash on foreign chromosomes); preserves original mate instead of donor `setMate(newGenome)` copy-paste
+- Transposer requires filled source (alleles / gene-sample info); validates blank↔source match before consume
+- Replicator `hasWork` treats incomplete templates as `NO_TEMPLATE`
+- `INCOMPATIBLE_SPECIES` help text generalized for imprinter + mutatron
 
 ## Gaps / next
 
@@ -37,4 +44,4 @@
 2. Imprinter: FE + labware + specimen + non-empty template → imprinted output
 3. Transposer: blank + filled sample/template + labware → copy in output
 4. Replicator: complete template + DNA + protein buckets/tanks → new organism (ignoble bees)
-5. Error tabs for missing template / blank / source / dna / protein
+5. Error tabs for missing template / blank / source / dna / protein / incompatible species

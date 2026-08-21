@@ -149,9 +149,11 @@ public class ReplicatorBlockEntity extends PoweredTankBlockEntity implements Wor
 	@Override
 	public boolean hasWork() {
 		IErrorLogic errors = getErrorLogic();
+		ItemStack template = getItem(SLOT_TEMPLATE);
 		boolean noDna = errors.setCondition(getDnaTank().getAmount() < FLUID_PER_CYCLE, GendustryError.NO_DNA);
 		boolean noProtein = errors.setCondition(getProteinTank().getAmount() < FLUID_PER_CYCLE, GendustryError.NO_PROTEIN);
-		boolean noTemplate = errors.setCondition(getItem(SLOT_TEMPLATE).isEmpty(), GendustryError.NO_TEMPLATE);
+		boolean noTemplate = errors.setCondition(template.isEmpty() || !GeneticTemplateItem.isComplete(template),
+				GendustryError.NO_TEMPLATE);
 		return !noDna && !noProtein && !noTemplate;
 	}
 

@@ -26,7 +26,9 @@ import com.leon1236.reforestry.core.tiles.TilePowered;
 import com.leon1236.reforestry.gendustry.errors.GendustryError;
 import com.leon1236.reforestry.gendustry.features.GBlockEntities;
 import com.leon1236.reforestry.gendustry.features.GItems;
+import com.leon1236.reforestry.gendustry.item.GeneSampleItem;
 import com.leon1236.reforestry.gendustry.item.GendustryResourceType;
+import com.leon1236.reforestry.gendustry.item.GeneticTemplateItem;
 import com.leon1236.reforestry.gendustry.menu.ThreeInputMenu;
 
 public class GeneticTransposerBlockEntity extends TilePowered implements WorldlyContainer, IGendustryHintTile {
@@ -115,15 +117,23 @@ public class GeneticTransposerBlockEntity extends TilePowered implements Worldly
 	@Override
 	public boolean hasWork() {
 		IErrorLogic errors = getErrorLogic();
-		boolean noBlanks = errors.setCondition(getItem(SLOT_INPUT).isEmpty(), GendustryError.NO_BLANK);
-		boolean noSource = errors.setCondition(getItem(SLOT_SOURCE).isEmpty(), GendustryError.NO_SOURCE);
+		ItemStack blank = getItem(SLOT_INPUT);
+		ItemStack source = getItem(SLOT_SOURCE);
+		boolean noBlanks = errors.setCondition(blank.isEmpty(), GendustryError.NO_BLANK);
+		boolean noSource = errors.setCondition(source.isEmpty() || !isFilledSource(source), GendustryError.NO_SOURCE);
 		boolean noLabware = errors.setCondition(getItem(SLOT_LABWARE).isEmpty(), GendustryError.NO_LABWARE);
 		return !noBlanks && !noSource && !noLabware;
 	}
 
 	@Override
 	protected boolean workCycle() {
-		ItemStack copy = getItem(SLOT_SOURCE).copyWithCount(1);
+		ItemStack blank = getItem(SLOT_INPUT);
+		ItemStack source = getItem(SLOT_SOURCE);
+		if (blank.isEmpty() || !isFilledSource(source) || !blankMatchesSource(blank, source)) {
+			return false;
+		}
+
+		ItemStack copy = source.copyWithCount(1);
 		ItemStack output = getItem(SLOT_OUTPUT);
 		if (!output.isEmpty() && !ItemStack.isSameItemSameComponents(output, copy)) {
 			return false;
@@ -145,6 +155,28 @@ public class GeneticTransposerBlockEntity extends TilePowered implements Worldly
 			setItem(SLOT_OUTPUT, result);
 		}
 		return true;
+	}
+
+	private static boolean isFilledSource(ItemStack stack) {
+		if (stack.is(GItems.GENETIC_TEMPLATE.item())) {
+			return !GeneticTemplateItem.getAlleles(stack).isEmpty();
+		}
+		if (stack.is(GItems.GENE_SAMPLE.item())) {
+			return GeneSampleItem.getInfo(stack) != null;
+		}
+		return false;
+	}
+
+	private static boolean blankMatchesSource(ItemStack blank, ItemStack source) {
+		Item blankTemplate = GItems.RESOURCE.item(GendustryResourceType.BLANK_GENETIC_TEMPLATE);
+		Item blankSample = GItems.RESOURCE.item(GendustryResourceType.BLANK_GENE_SAMPLE);
+		if (source.is(GItems.GENETIC_TEMPLATE.item())) {
+			return blank.is(blankTemplate);
+		}
+		if (source.is(GItems.GENE_SAMPLE.item())) {
+			return blank.is(blankSample);
+		}
+		return false;
 	}
 
 	@Override
@@ -208,11 +240,11 @@ public class GeneticTransposerBlockEntity extends TilePowered implements Worldly
 			case SLOT_SOURCE -> {
 				ItemStack blank = getItem(SLOT_INPUT);
 				if (blank.is(blankTemplate)) {
-					yield stack.is(GItems.GENETIC_TEMPLATE.item());
+					yield stack.is(GItems.GENETIC_TEMPLATE.item()) && !GeneticTemplateItem.getAlleles(stack).isEmpty();
 				} else if (blank.is(blankSample)) {
-					yield stack.is(GItems.GENE_SAMPLE.item());
+					yield stack.is(GItems.GENE_SAMPLE.item()) && GeneSampleItem.getInfo(stack) != null;
 				} else {
-					yield stack.is(GItems.GENETIC_TEMPLATE.item()) || stack.is(GItems.GENE_SAMPLE.item());
+					yield isFilledSource(stack);
 				}
 			}
 			case SLOT_LABWARE -> stack.is(GItems.RESOURCE.item(GendustryResourceType.LABWARE));

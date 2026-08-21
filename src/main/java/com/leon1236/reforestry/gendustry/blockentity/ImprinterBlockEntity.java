@@ -26,6 +26,7 @@ import com.leon1236.reforestry.api.core.IErrorLogic;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.api.genetics.IIndividual;
 import com.leon1236.reforestry.api.genetics.ILifeStage;
+import com.leon1236.reforestry.api.genetics.ISpeciesType;
 import com.leon1236.reforestry.api.genetics.alleles.IAllele;
 import com.leon1236.reforestry.api.genetics.capability.IIndividualHandlerItem;
 import com.leon1236.reforestry.api.genetics.chromosomes.IChromosome;
@@ -36,6 +37,7 @@ import com.leon1236.reforestry.gendustry.features.GBlockEntities;
 import com.leon1236.reforestry.gendustry.features.GItems;
 import com.leon1236.reforestry.gendustry.item.GendustryResourceType;
 import com.leon1236.reforestry.gendustry.item.GeneticTemplateItem;
+import com.leon1236.reforestry.gendustry.item.SpeciesTypeItem;
 import com.leon1236.reforestry.gendustry.menu.ThreeInputMenu;
 
 public class ImprinterBlockEntity extends TilePowered implements WorldlyContainer, IGendustryHintTile {
@@ -123,10 +125,20 @@ public class ImprinterBlockEntity extends TilePowered implements WorldlyContaine
 	@Override
 	public boolean hasWork() {
 		IErrorLogic errors = getErrorLogic();
-		boolean noSpecimen = errors.setCondition(getItem(SLOT_INPUT).isEmpty(), ForestryError.NO_SPECIMEN);
-		boolean noTemplate = errors.setCondition(getItem(SLOT_TEMPLATE).isEmpty(), GendustryError.NO_TEMPLATE);
+		ItemStack organismStack = getItem(SLOT_INPUT);
+		ItemStack template = getItem(SLOT_TEMPLATE);
+		boolean noSpecimen = errors.setCondition(organismStack.isEmpty(), ForestryError.NO_SPECIMEN);
+		boolean noTemplate = errors.setCondition(template.isEmpty() || GeneticTemplateItem.getAlleles(template).isEmpty(),
+				GendustryError.NO_TEMPLATE);
 		boolean noLabware = errors.setCondition(getItem(SLOT_LABWARE).isEmpty(), GendustryError.NO_LABWARE);
-		return !noTemplate && !noLabware && !noSpecimen;
+		boolean incompatible = false;
+		if (!organismStack.isEmpty() && !template.isEmpty() && !GeneticTemplateItem.getAlleles(template).isEmpty()) {
+			IIndividual individual = IIndividualHandlerItem.getIndividual(organismStack);
+			ISpeciesType<?, ?> templateType = SpeciesTypeItem.getSpeciesType(template);
+			incompatible = individual == null || templateType == null || individual.getType() != templateType;
+		}
+		errors.setCondition(incompatible, GendustryError.INCOMPATIBLE_SPECIES);
+		return !noTemplate && !noLabware && !noSpecimen && !incompatible;
 	}
 
 	@Override
@@ -144,7 +156,8 @@ public class ImprinterBlockEntity extends TilePowered implements WorldlyContaine
 
 		ItemStack template = getItem(SLOT_TEMPLATE);
 		Map<IChromosome<?>, IAllele> alleles = GeneticTemplateItem.getAlleles(template);
-		if (alleles.isEmpty()) {
+		ISpeciesType<?, ?> templateType = SpeciesTypeItem.getSpeciesType(template);
+		if (alleles.isEmpty() || templateType == null || individual.getType() != templateType) {
 			return false;
 		}
 
@@ -153,8 +166,9 @@ public class ImprinterBlockEntity extends TilePowered implements WorldlyContaine
 
 		IGenome newGenome = individual.getGenome().copyWith(alleles);
 		IIndividual newIndividual = individual.copyWithGenome(newGenome);
-		if (individual.getMate() != null) {
-			newIndividual.setMate(newGenome);
+		IGenome mate = individual.getMate();
+		if (mate != null) {
+			newIndividual.setMate(mate);
 		}
 		setItem(SLOT_OUTPUT, newIndividual.createStack(stage));
 		return true;
@@ -206,9 +220,30 @@ public class ImprinterBlockEntity extends TilePowered implements WorldlyContaine
 	@Override
 	public boolean canPlaceItem(int slot, ItemStack stack) {
 		return switch (slot) {
-			case SLOT_INPUT -> IIndividualHandlerItem.isIndividual(stack);
-			case SLOT_TEMPLATE -> stack.is(GItems.GENETIC_TEMPLATE.item())
-					&& !GeneticTemplateItem.getAlleles(stack).isEmpty();
+			case SLOT_INPUT -> {
+				if (!IIndividualHandlerItem.isIndividual(stack)) {
+					yield false;
+				}
+				ItemStack template = getItem(SLOT_TEMPLATE);
+				if (template.isEmpty() || GeneticTemplateItem.getAlleles(template).isEmpty()) {
+					yield true;
+				}
+				IIndividual individual = IIndividualHandlerItem.getIndividual(stack);
+				ISpeciesType<?, ?> templateType = SpeciesTypeItem.getSpeciesType(template);
+				yield individual != null && templateType != null && individual.getType() == templateType;
+			}
+			case SLOT_TEMPLATE -> {
+				if (!stack.is(GItems.GENETIC_TEMPLATE.item()) || GeneticTemplateItem.getAlleles(stack).isEmpty()) {
+					yield false;
+				}
+				ItemStack organism = getItem(SLOT_INPUT);
+				if (organism.isEmpty()) {
+					yield true;
+				}
+				IIndividual individual = IIndividualHandlerItem.getIndividual(organism);
+				ISpeciesType<?, ?> templateType = SpeciesTypeItem.getSpeciesType(stack);
+				yield individual != null && templateType != null && individual.getType() == templateType;
+			}
 			case SLOT_LABWARE -> stack.is(GItems.RESOURCE.item(GendustryResourceType.LABWARE));
 			default -> false;
 		};

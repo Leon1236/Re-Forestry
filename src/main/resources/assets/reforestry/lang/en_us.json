@@ -2544,7 +2544,7 @@
   "errors.reforestry.no_samples.desc": "No Samples",
   "errors.reforestry.no_samples.help": "This machine requires Blank Gene Samples to operate.",
   "errors.reforestry.incompatible_species.desc": "Incompatible species",
-  "errors.reforestry.incompatible_species.help": "Individuals may only be mated with individuals of the same species type.",
+  "errors.reforestry.incompatible_species.help": "Only matching species types can be combined.",
   "errors.reforestry.no_mutations.desc": "No Mutations",
   "errors.reforestry.no_mutations.help": "There are no mutations between these two species. Please choose different species.",
   "errors.reforestry.no_mates.desc": "No Mates",
