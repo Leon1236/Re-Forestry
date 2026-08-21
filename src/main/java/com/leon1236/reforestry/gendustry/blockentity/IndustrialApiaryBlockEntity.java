@@ -1,5 +1,6 @@
 package com.leon1236.reforestry.gendustry.blockentity;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
@@ -36,14 +37,21 @@ import com.leon1236.reforestry.api.apiculture.IBeeHousingInventory;
 import com.leon1236.reforestry.api.apiculture.IBeeListener;
 import com.leon1236.reforestry.api.apiculture.IBeeModifier;
 import com.leon1236.reforestry.api.apiculture.IBeekeepingLogic;
+import com.leon1236.reforestry.api.apiculture.genetics.BeeLifeStage;
+import com.leon1236.reforestry.api.apiculture.genetics.IBee;
+import com.leon1236.reforestry.api.climate.ClimateState;
 import com.leon1236.reforestry.api.climate.IClimateProvider;
 import com.leon1236.reforestry.api.core.ForestryError;
 import com.leon1236.reforestry.api.core.HumidityType;
 import com.leon1236.reforestry.api.core.IErrorLogic;
 import com.leon1236.reforestry.api.core.TemperatureType;
+import com.leon1236.reforestry.api.genetics.IGenome;
+import com.leon1236.reforestry.api.genetics.capability.IIndividualHandlerItem;
 import com.leon1236.reforestry.apiculture.InventoryBeeHousing;
 import com.leon1236.reforestry.apiculture.genetics.BeekeepingLogic;
 import com.leon1236.reforestry.apiculture.items.ItemBeeGE;
+import com.leon1236.reforestry.arboriculture.features.ArboricultureDataComponents;
+import com.leon1236.reforestry.arboriculture.features.ArboricultureItems;
 import com.leon1236.reforestry.core.access.WorldlyAccessHelper;
 import com.leon1236.reforestry.core.energy.EnergyHelper;
 import com.leon1236.reforestry.core.inventory.InventoryUtil;
@@ -53,7 +61,7 @@ import com.leon1236.reforestry.gendustry.features.GBlockEntities;
 import com.leon1236.reforestry.gendustry.menu.IndustrialApiaryMenu;
 
 public class IndustrialApiaryBlockEntity extends TilePowered
-		implements WorldlyContainer, IBeeHousing, IBeeHousingInventory, IGendustryHintTile {
+		implements WorldlyContainer, IBeeHousing, IBeeHousingInventory, IBeeListener, IGendustryHintTile {
 	public static final String HINTS_KEY = "gendustry.industrial_apiary";
 	public static final int BASE_ENERGY = 200;
 	public static final long ENERGY_CAPACITY = 1000000L;
@@ -68,11 +76,9 @@ public class IndustrialApiaryBlockEntity extends TilePowered
 	public static final int OUTPUT_SLOT_COUNT = 9;
 	public static final int SLOT_COUNT = OUTPUT_SLOT_START + OUTPUT_SLOT_COUNT;
 
-	private static final IBeeModifier IDENTITY_MODIFIER = new IBeeModifier() {
-	};
-
 	private final NonNullList<ItemStack> items = NonNullList.withSize(SLOT_COUNT, ItemStack.EMPTY);
 	private final IBeekeepingLogic beeLogic = new BeekeepingLogic(this);
+	private final IndustrialApiaryBeeModifier modifier = new IndustrialApiaryBeeModifier();
 	private IClimateProvider climate = IForestryApi.get().getClimateManager().createDummyClimateProvider();
 	@Nullable
 	private GameProfile owner;
@@ -80,6 +86,7 @@ public class IndustrialApiaryBlockEntity extends TilePowered
 	private int workProgressPercent;
 	private int syncedEnergyUsage;
 	private int clientTicks;
+	boolean recycleQueen;
 	private final int[] syncedErrorIds = new int[ERROR_SLOT_COUNT];
 	private int syncedErrorCount;
 	private int syncedTemperatureOrdinal;
@@ -171,13 +178,18 @@ public class IndustrialApiaryBlockEntity extends TilePowered
 	@Override
 	public void setLevel(Level level) {
 		super.setLevel(level);
-		this.climate = IForestryApi.get().getClimateManager().createClimateProvider(level, getBlockPos());
+		refreshUpgrades();
 	}
 
 	public static void serverTick(Level level, BlockPos pos, BlockState state, IndustrialApiaryBlockEntity tile) {
 		tile.advanceTicks();
 		IErrorLogic errors = tile.getErrorLogic();
 		boolean disabled = tile.isRedstoneActivated();
+
+		if (tile.recycleQueen) {
+			tile.recycleQueen = false;
+			tile.recycleQueen();
+		}
 
 		if (disabled) {
 			errors.clearErrors();
@@ -200,7 +212,7 @@ public class IndustrialApiaryBlockEntity extends TilePowered
 		tile.workProgressPercent = tile.beeLogic.getWorkProgressPercent();
 		tile.syncErrors();
 		if ((level.getGameTime() & 63L) == 0L) {
-			tile.climate = IForestryApi.get().getClimateManager().createClimateProvider(level, pos);
+			tile.refreshClimate();
 		}
 	}
 
@@ -237,6 +249,99 @@ public class IndustrialApiaryBlockEntity extends TilePowered
 		for (int i = syncedErrorCount; i < ERROR_SLOT_COUNT; i++) {
 			syncedErrorIds[i] = -1;
 		}
+	}
+
+	private void recycleQueen() {
+		for (int i = 0; i < OUTPUT_SLOT_COUNT; i++) {
+			int slotIndex = OUTPUT_SLOT_START + i;
+			ItemStack stack = getItem(slotIndex);
+
+			IIndividualHandlerItem.ifPresent(stack, (bee, stage) -> {
+				if (stage == BeeLifeStage.PRINCESS) {
+					setItem(slotIndex, ItemStack.EMPTY);
+					setQueen(stack);
+				} else if (stage == BeeLifeStage.DRONE) {
+					ItemStack drone = getDrone();
+
+					if (drone.isEmpty()) {
+						setDrone(stack);
+						setItem(slotIndex, ItemStack.EMPTY);
+					} else {
+						int free = drone.getMaxStackSize() - drone.getCount();
+
+						if (free > 0 && ItemStack.isSameItemSameComponents(drone, stack)) {
+							int taken = Math.min(stack.getCount(), free);
+							stack.shrink(taken);
+							setDrone(drone.copyWithCount(drone.getCount() + taken));
+						}
+					}
+				}
+			});
+		}
+	}
+
+	private void refreshUpgrades() {
+		this.energyConsumption = BASE_ENERGY + this.modifier.recalculate(this);
+		this.beeLogic.setWorkThrottle(Math.max(5, 550 - this.modifier.throttle));
+		refreshClimate();
+	}
+
+	private void refreshClimate() {
+		Level level = getLevel();
+		if (level == null) {
+			return;
+		}
+		IClimateProvider base = this.modifier.nether
+				? new ClimateState(TemperatureType.HELLISH, HumidityType.ARID)
+				: IForestryApi.get().getClimateManager().createClimateProvider(level, getBlockPos());
+		this.climate = new ClimateState(
+				base.temperature().up(this.modifier.temperature),
+				base.humidity().up(this.modifier.humidity));
+	}
+
+	private void spawnAdditionalOffspring() {
+		int fertility = this.modifier.fertility;
+		ArrayList<IBee> drones = new ArrayList<>();
+
+		IIndividualHandlerItem.ifPresent(getQueen(), individual -> {
+			if (individual instanceof IBee queen) {
+				while (drones.size() < fertility) {
+					List<IBee> offspring = queen.spawnDrones(this);
+					if (offspring.isEmpty()) {
+						break;
+					}
+					drones.addAll(offspring);
+				}
+			}
+		});
+
+		for (int i = 0; i < fertility && i < drones.size(); i++) {
+			addProduct(drones.get(i).createStack(BeeLifeStage.DRONE));
+		}
+	}
+
+	@Override
+	public void onQueenDeath() {
+		this.recycleQueen = this.modifier.automated;
+		if (this.modifier.fertility > 0) {
+			spawnAdditionalOffspring();
+		}
+	}
+
+	@Override
+	public boolean onPollenRetrieved(IGenome pollen) {
+		if (!this.modifier.sieve) {
+			return false;
+		}
+		ItemStack pollenStack = new ItemStack(ArboricultureItems.POLLEN_FERTILE.item());
+		pollenStack.set(ArboricultureDataComponents.TREE_GENOME.type(), pollen);
+		return addProduct(pollenStack);
+	}
+
+	@Override
+	public void setChanged() {
+		super.setChanged();
+		refreshUpgrades();
 	}
 
 	@Override
@@ -294,12 +399,12 @@ public class IndustrialApiaryBlockEntity extends TilePowered
 
 	@Override
 	public Iterable<IBeeModifier> getBeeModifiers() {
-		return Collections.singleton(IDENTITY_MODIFIER);
+		return Collections.singleton(this.modifier);
 	}
 
 	@Override
 	public Iterable<IBeeListener> getBeeListeners() {
-		return List.of();
+		return Collections.singleton(this);
 	}
 
 	@Override
@@ -483,6 +588,10 @@ public class IndustrialApiaryBlockEntity extends TilePowered
 
 	@Override
 	public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction direction) {
+		if (this.recycleQueen && IIndividualHandlerItem.filter(stack,
+				(individual, stage) -> stage == BeeLifeStage.PRINCESS || stage == BeeLifeStage.DRONE)) {
+			return false;
+		}
 		boolean output = slot >= OUTPUT_SLOT_START && slot < OUTPUT_SLOT_START + OUTPUT_SLOT_COUNT;
 		return WorldlyAccessHelper.canTakeItemThroughFace(this, output, direction);
 	}
@@ -508,6 +617,7 @@ public class IndustrialApiaryBlockEntity extends TilePowered
 			UUID id = input.read("owner_uuid", UUIDUtil.CODEC).orElse(null);
 			this.owner = new GameProfile(id, name);
 		});
+		refreshUpgrades();
 	}
 
 	@Nullable

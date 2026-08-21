@@ -12,6 +12,9 @@ public interface IBeekeepingLogic {
 
     int getWorkProgressPercent();
 
+    default void setWorkThrottle(int ticks) {
+    }
+
     default void onGuiOpened() {
     }
 

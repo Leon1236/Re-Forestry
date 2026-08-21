@@ -66,7 +66,7 @@ Order: **GD0 → EB1 → GD1 → GD2 (incl. DNA) → GD3 (incl. DNA extractor) �
 | 7 | GD5 | M | Mutatron + advanced mutatron | **done** — GUIs, tanks, errors; FE ctor swap |
 | 8 | GD6 | M | Imprinter, transposer, replicator | **done** — Dual tanks; blank/source/dna/protein errors |
 | 9 | GD7a | M–L | Industrial apiary bees work with FE | **done** — `BeekeepingLogic(this)`; menu/GUI |
-| 10 | GD7b | M | Upgrades including fertility extra drones | Modifier + energy costs; youth mutation penalty |
+| 10 | GD7b | M | Upgrades including fertility extra drones | **done** — Modifier + energy; youth mutation −20%/stack |
 | 11 | GD8 | S | 12 errors + JEI | Error sprites; soft jei_mod_plugin |
 | 12 | EB5 | L | 7 alveary parts | 7 crafts; stimulator circuits; FE |
 | 13 | EB6 | M | Centrifuge/squeezer datapack | Soft-skip missing fluids/oredict |

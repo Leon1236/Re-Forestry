@@ -41,13 +41,14 @@ import com.leon1236.reforestry.core.genetics.mutations.Mutation;
 import com.leon1236.reforestry.core.genetics.pollen.PollenTypes;
 
 public final class BeekeepingLogic implements IBeekeepingLogic {
-    private static final int WORK_THROTTLE = 550;
+    private static final int DEFAULT_WORK_THROTTLE = 550;
     private static final float SECOND_PRINCESS_CHANCE = 0.0f;
 
     private final IBeeHousing housing;
     private final BeeHousingModifier beeModifier;
     private final HasFlowersCache hasFlowersCache = new HasFlowersCache();
     private final QueenCanWorkCache queenCanWorkCache = new QueenCanWorkCache();
+    private int workThrottle = DEFAULT_WORK_THROTTLE;
     private int throttleCounter;
     private ItemStack trackedQueenStack = ItemStack.EMPTY;
     private IEffectData[] effectData = new IEffectData[2];
@@ -56,6 +57,11 @@ public final class BeekeepingLogic implements IBeekeepingLogic {
     public BeekeepingLogic(IBeeHousing housing) {
         this.housing = housing;
         this.beeModifier = new BeeHousingModifier(housing);
+    }
+
+    @Override
+    public void setWorkThrottle(int ticks) {
+        this.workThrottle = Math.max(1, ticks);
     }
 
     public void setClientFlowerPositions(List<BlockPos> flowerPositions) {
@@ -124,7 +130,7 @@ public final class BeekeepingLogic implements IBeekeepingLogic {
 
         if ("princess".equals(beeItem.lifeStage())) {
             throttleCounter++;
-            if (throttleCounter < WORK_THROTTLE) {
+            if (throttleCounter < workThrottle) {
                 return;
             }
             throttleCounter = 0;
@@ -143,7 +149,7 @@ public final class BeekeepingLogic implements IBeekeepingLogic {
         effectData = applyEffects(genome, effectData, true);
 
         throttleCounter++;
-        if (throttleCounter < WORK_THROTTLE) {
+        if (throttleCounter < workThrottle) {
             return;
         }
         throttleCounter = 0;
@@ -244,7 +250,7 @@ public final class BeekeepingLogic implements IBeekeepingLogic {
             if (housing.beeInventory().getDrone().isEmpty()) {
                 return 0;
             }
-            return Math.round(100f * throttleCounter / WORK_THROTTLE);
+            return Math.round(100f * throttleCounter / workThrottle);
         }
 
         if (!"queen".equals(beeItem.lifeStage())) {
@@ -354,6 +360,9 @@ public final class BeekeepingLogic implements IBeekeepingLogic {
 
         if (mateGenome != null) {
             spawnOffspring(queenStack, genome, mateGenome, random);
+        }
+        for (IBeeListener listener : housing.getBeeListeners()) {
+            listener.onQueenDeath();
         }
         housing.beeInventory().setQueen(ItemStack.EMPTY);
     }

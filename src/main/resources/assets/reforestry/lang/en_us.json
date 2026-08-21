@@ -2371,7 +2371,7 @@
   "item.reforestry.weatherproof_upgrade": "Weatherproof Upgrade",
   "item.reforestry.weatherproof_upgrade.tooltip": "Allows bees to work during the rain.",
   "item.reforestry.youth_elite_upgrade": "Youth Elite Upgrade",
-  "item.reforestry.youth_elite_upgrade.tooltip": "Increases lifespan by 20%.",
+  "item.reforestry.youth_elite_upgrade.tooltip": "Decreases bee mutation chance by 20% per upgrade.",
   "itemGroup.gendustry": "Gendustry",
   "item.reforestry.bee_comb_barren": "Barren Comb",
   "item.reforestry.bee_comb_rotten": "Rotten Comb",
