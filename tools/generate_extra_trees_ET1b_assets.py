@@ -369,6 +369,55 @@ def append_tag(path: Path, entries: list[str]) -> None:
     write_json(path, data)
 
 
+def write_advancement(path: Path, recipe_id: str, unlock_item: str) -> None:
+    write_json(path, {
+        "parent": "minecraft:recipes/root",
+        "criteria": {
+            "has_item": {
+                "conditions": {"items": [{"items": unlock_item}]},
+                "trigger": "minecraft:inventory_changed",
+            },
+            "has_the_recipe": {
+                "conditions": {"recipe": recipe_id},
+                "trigger": "minecraft:recipe_unlocked",
+            },
+        },
+        "requirements": [["has_the_recipe", "has_item"]],
+        "rewards": {"recipes": [recipe_id]},
+    })
+
+
+def write_recipe_advancements(wood: str) -> None:
+    adv = DATA / "reforestry/advancement/recipes"
+    rid = f"reforestry:{wood}"
+    write_advancement(adv / f"building_blocks/{wood}_wood.json", f"{rid}_wood", f"{rid}_log")
+    write_advancement(adv / f"building_blocks/{wood}_stripped_wood.json", f"{rid}_stripped_wood", f"{rid}_stripped_log")
+    write_advancement(adv / f"building_blocks/{wood}_fireproof_wood.json", f"{rid}_fireproof_wood", f"{rid}_fireproof_log")
+    write_advancement(
+        adv / f"building_blocks/{wood}_fireproof_stripped_wood.json",
+        f"{rid}_fireproof_stripped_wood",
+        f"{rid}_fireproof_stripped_log",
+    )
+    write_advancement(adv / f"building_blocks/{wood}_planks.json", f"{rid}_planks", f"#reforestry:{wood}_logs")
+    write_advancement(adv / f"building_blocks/{wood}_slab.json", f"{rid}_slab", f"{rid}_planks")
+    write_advancement(adv / f"building_blocks/{wood}_stairs.json", f"{rid}_stairs", f"{rid}_planks")
+    write_advancement(adv / f"building_blocks/{wood}_fence.json", f"{rid}_fence", "#c:rods/wooden")
+    write_advancement(adv / f"building_blocks/{wood}_fence_gate.json", f"{rid}_fence_gate", "#c:rods/wooden")
+    write_advancement(adv / f"building_blocks/{wood}_fireproof_planks.json", f"{rid}_fireproof_planks", f"#reforestry:fireproof_{wood}_logs")
+    write_advancement(adv / f"building_blocks/{wood}_fireproof_slab.json", f"{rid}_fireproof_slab", f"{rid}_fireproof_planks")
+    write_advancement(adv / f"building_blocks/{wood}_fireproof_stairs.json", f"{rid}_fireproof_stairs", f"{rid}_fireproof_planks")
+    write_advancement(adv / f"building_blocks/{wood}_fireproof_fence.json", f"{rid}_fireproof_fence", "#c:rods/wooden")
+    write_advancement(adv / f"building_blocks/{wood}_fireproof_fence_gate.json", f"{rid}_fireproof_fence_gate", "#c:rods/wooden")
+    write_advancement(adv / f"redstone/{wood}_door.json", f"{rid}_door", f"{rid}_planks")
+    write_advancement(adv / f"redstone/{wood}_trapdoor.json", f"{rid}_trapdoor", f"{rid}_planks")
+    write_advancement(adv / f"redstone/{wood}_button.json", f"{rid}_button", f"{rid}_planks")
+    write_advancement(adv / f"redstone/{wood}_pressure_plate.json", f"{rid}_pressure_plate", f"{rid}_planks")
+    write_advancement(adv / f"misc/{wood}_sign.json", f"{rid}_sign", f"{rid}_planks")
+    write_advancement(adv / f"misc/{wood}_hanging_sign.json", f"{rid}_hanging_sign", "minecraft:iron_chain")
+    write_advancement(adv / f"misc/{wood}_boat.json", f"{rid}_boat", f"{rid}_planks")
+    write_advancement(adv / f"misc/{wood}_chest_boat.json", f"{rid}_chest_boat", f"{rid}_boat")
+
+
 def write_tags(products: list[str]) -> None:
     for wood in products:
         append_tag(DATA / f"reforestry/tags/block/{wood}_logs.json", [
@@ -428,6 +477,7 @@ def main() -> None:
         write_signs(wood)
         write_boats(wood)
         write_recipes(wood)
+        write_recipe_advancements(wood)
     write_tags(products)
     print(f"ET1b assets: {len(products)} product woods (stripped/wood/trapdoor/button/plate/signs/boats)")
 

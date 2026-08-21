@@ -43,6 +43,16 @@ Log-only bark variants + shrub stay LOG-only (not in the 30).
 | Charcoal walls | Explicitly out of scope |
 | Vanilla fireproof strip for oak etc. | Not touched |
 
+## Review (2026-08-21)
+
+Full WoodBlockKind matrix vs arboriculture for all **30** `WITH_PRODUCTS` woods: kinds match (17 enum kinds; fireproof only where arboriculture does). Log-only / shrub stay LOG-only. No charcoal walls.
+
+Must/Should fixed in review pass:
+
+- Recipe-unlock advancements for all 30 product woods (mirror larch’s 22 recipes each).
+- Hanging-sign unlock criteria: `minecraft:chain` → `minecraft:iron_chain` (MC 26.2 id; recipes already used iron chain).
+- Boat renderer null-safe texture fallback.
+
 ## Next
 
 **ET2** — fruits + ~88 species + mutations (`registerFruit`; overlap woods → `ForestryWoodType`).

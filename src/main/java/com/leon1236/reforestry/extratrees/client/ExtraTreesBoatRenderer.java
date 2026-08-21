@@ -94,7 +94,8 @@ public class ExtraTreesBoatRenderer<T extends AbstractBoat & IExtraTreesBoat> ex
 		state.isUnderWater = entity.isUnderWater();
 		state.rowingTimeLeft = entity.getRowingTime(0, partialTicks);
 		state.rowingTimeRight = entity.getRowingTime(1, partialTicks);
-		state.texture = this.textures.get(entity.getWoodType());
+		Identifier texture = this.textures.get(entity.getWoodType());
+		state.texture = texture != null ? texture : this.textures.get(ExtraTreeWoodType.CEDAR);
 	}
 
 	@Environment(EnvType.CLIENT)
