@@ -27,4 +27,8 @@ public record AllelePair<A extends IAllele>(A active, A inactive) {
         A picked = random.nextBoolean() ? active : inactive;
         return new AllelePair<>(picked, picked);
     }
+
+    public boolean isSameAlleles() {
+        return this.active.equals(this.inactive);
+    }
 }

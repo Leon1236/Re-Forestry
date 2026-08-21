@@ -7,8 +7,8 @@
 
 - `LepidopterologyFilterRuleType`: `FLUTTER` / `BUTTERFLY` / `SERUM` / `CATERPILLAR` / `COCOON` — mirrors CE `LepidopterologyFilterRuleType`.
 - `LepidopterologyFilterRule`: attaches PURE_BREED / NOCTURNAL / PURE_NOCTURNAL / FLYER / PURE_FLYER onto `DefaultFilterRuleType` containers.
-- Registered from `ReforestryPlugin.registerFilter` when `reforestry:lepidopterology` is loaded (`LepidopterologyFilterRule.init()` then rule types).
-- Species picker (`SpeciesWidget`) discovers `ForestrySpeciesTypes.BUTTERFLY` — CE butterflies and Extra Trees moths (`moth_*`) share that type.
+- Registered from `ReforestryPlugin.registerFilter` when `reforestry:lepidopterology` is **enabled** (`isModuleEnabled`, same EB2a gate). CE order: register rule types, then `LepidopterologyFilterRule.init()` so constructors `addLogic` onto default containers.
+- Species picker (`SpeciesWidget`) discovers `ForestrySpeciesTypes.BUTTERFLY` — CE butterflies and Extra Trees moths (`moth_*`) share that type. Labels use `IButterflySpecies.getDisplayName()`.
 - Analyzer sprites already at `textures/reforestry/atlas/gui/analyzer/{flutter,butterfly,serum,caterpillar,cocoon}.png`.
 - Lang keys `for.gui.filter.reforestry.lepidopterology.*` already present.
 
@@ -18,13 +18,13 @@ String stages match `ButterflyLifeStage.getSerializedName()`: `butterfly` / `ser
 
 ## Shared container rules
 
-| Rule | Butterfly check |
+| Rule | Butterfly check (CE `isSameAlleles` = allele `equals`) |
 |---|---|
-| PURE_BREED | active species id equals inactive |
+| PURE_BREED | active SPECIES allele equals inactive |
 | NOCTURNAL | active `NEVER_SLEEPS` |
-| PURE_NOCTURNAL | active and inactive `NEVER_SLEEPS` |
+| PURE_NOCTURNAL | active `NEVER_SLEEPS` and alleles equal |
 | FLYER | active `TOLERATES_RAIN` |
-| PURE_FLYER | active and inactive `TOLERATES_RAIN` |
+| PURE_FLYER | active `TOLERATES_RAIN` and alleles equal |
 
 No CAVE / PURE_CAVE for butterflies (CE same).
 

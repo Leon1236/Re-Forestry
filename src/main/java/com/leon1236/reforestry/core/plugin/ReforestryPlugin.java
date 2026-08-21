@@ -278,16 +278,16 @@ public final class ReforestryPlugin implements IForestryPlugin {
     @Override
     public void registerFilter(IFilterRegistration registration) {
         registration.registerFilterRuleTypes(DefaultFilterRuleType.values());
-        if (ModuleManager.INSTANCE.isModuleLoaded(ReForestry.id("apiculture"))) {
-            ApicultureFilterRule.init();
+        if (ModuleManager.INSTANCE.isModuleEnabled(ReForestry.id("apiculture"))) {
             registration.registerFilterRuleTypes(ApicultureFilterRuleType.values());
+            ApicultureFilterRule.init();
         }
-        if (ModuleManager.INSTANCE.isModuleLoaded(ReForestry.id("arboriculture"))) {
+        if (ModuleManager.INSTANCE.isModuleEnabled(ReForestry.id("arboriculture"))) {
             registration.registerFilterRuleTypes(ArboricultureFilterRuleType.values());
         }
-        if (ModuleManager.INSTANCE.isModuleLoaded(ReForestry.id("lepidopterology"))) {
-            LepidopterologyFilterRule.init();
+        if (ModuleManager.INSTANCE.isModuleEnabled(ReForestry.id("lepidopterology"))) {
             registration.registerFilterRuleTypes(LepidopterologyFilterRuleType.values());
+            LepidopterologyFilterRule.init();
         }
     }
 

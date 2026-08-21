@@ -29,6 +29,7 @@ import com.leon1236.reforestry.arboriculture.features.ArboricultureItems;
 import com.leon1236.reforestry.arboriculture.genetics.ArboricultureGenetics;
 import com.leon1236.reforestry.core.genetics.GeneticItemHelper;
 import com.leon1236.reforestry.core.genetics.root.BreedingTrackerManager;
+import com.leon1236.reforestry.api.lepidopterology.genetics.IButterflySpecies;
 import com.leon1236.reforestry.lepidopterology.features.LepidopterologyDataComponents;
 import com.leon1236.reforestry.lepidopterology.features.LepidopterologyItems;
 import com.leon1236.reforestry.lepidopterology.genetics.LepidopterologyGenetics;
@@ -117,8 +118,9 @@ public class SpeciesWidget extends FilterWidget implements ISelectableProvider<I
 		if (ArboricultureGenetics.getSpeciesSafe(selectable) != null) {
 			return Component.translatable("allele.reforestry.tree_species." + selectable.getPath());
 		}
-		if (LepidopterologyGenetics.getSpeciesSafe(selectable) != null) {
-			return Component.translatable("allele.reforestry.butterfly_species.butterfly_" + selectable.getPath());
+		IButterflySpecies butterfly = LepidopterologyGenetics.getSpeciesSafe(selectable);
+		if (butterfly != null) {
+			return butterfly.getDisplayName();
 		}
 		return Component.literal(selectable.toString());
 	}
