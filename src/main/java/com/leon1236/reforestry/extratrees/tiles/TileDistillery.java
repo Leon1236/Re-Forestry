@@ -2,6 +2,9 @@ package com.leon1236.reforestry.extratrees.tiles;
 
 import org.jetbrains.annotations.Nullable;
 
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
+import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.Container;
@@ -21,13 +24,18 @@ import com.leon1236.reforestry.core.fluids.MultiFluidTank;
 import com.leon1236.reforestry.core.tiles.TilePowered;
 import com.leon1236.reforestry.extratrees.features.ExtraTreesTiles;
 import com.leon1236.reforestry.extratrees.gui.ContainerDistillery;
+import com.leon1236.reforestry.extratrees.recipes.DistilleryRecipeManager;
 
 public class TileDistillery extends TilePowered implements WorldlyContainer {
 	private static final long ENERGY_CAPACITY = 10000;
 	private static final long ENERGY_MAX_RECEIVE = 200;
+	private static final int PROCESS_ENERGY = 16000;
+	private static final int BASE_PROCESS_TIME = 2000;
+	private static final int LEVEL_PROCESS_TIME = 800;
 	public static final long TANK_CAPACITY = FluidUnits.mbToDroplets(5000);
 
 	private final MultiFluidTank tanks;
+	private int level;
 
 	public TileDistillery(BlockPos pos, BlockState state) {
 		super(ExtraTreesTiles.DISTILLERY.type(), pos, state, ENERGY_CAPACITY, ENERGY_MAX_RECEIVE);
@@ -35,8 +43,7 @@ public class TileDistillery extends TilePowered implements WorldlyContainer {
 				.tank("Input", TANK_CAPACITY, FilteredFluidStorage.any())
 				.tank("Output", TANK_CAPACITY, FilteredFluidStorage.any())
 				.build();
-		setTicksPerWorkCycle(0);
-		setEnergyPerWorkCycle(0);
+		updateProcessTiming();
 	}
 
 	public static void serverTick(Level level, BlockPos pos, BlockState state, TileDistillery tile) {
@@ -55,14 +62,75 @@ public class TileDistillery extends TilePowered implements WorldlyContainer {
 		return this.tanks.tank("Output");
 	}
 
+	public int getDistillLevel() {
+		return level;
+	}
+
+	public void setDistillLevel(int level) {
+		this.level = Math.floorMod(level, 3);
+		updateProcessTiming();
+		setChanged();
+	}
+
+	public void cycleLevel() {
+		setDistillLevel(this.level + 1);
+	}
+
+	private void updateProcessTiming() {
+		setTicksPerWorkCycle(BASE_PROCESS_TIME + LEVEL_PROCESS_TIME * this.level);
+		setEnergyPerWorkCycle(PROCESS_ENERGY);
+	}
+
+	@Nullable
+	private DistilleryRecipeManager.DistilleryRecipe findCurrentRecipe() {
+		FluidVariant variant = getInputTank().getResource();
+		if (variant.isBlank()) {
+			return null;
+		}
+		DistilleryRecipeManager.DistilleryRecipe recipe = DistilleryRecipeManager.getRecipe(variant.getFluid(), level);
+		if (recipe == null) {
+			return null;
+		}
+		if (getInputTank().getAmount() < recipe.inputAmount()) {
+			return null;
+		}
+		return recipe;
+	}
+
 	@Override
 	public boolean hasWork() {
-		return false;
+		DistilleryRecipeManager.DistilleryRecipe recipe = findCurrentRecipe();
+		if (recipe == null) {
+			return false;
+		}
+		FluidVariant output = FluidVariant.of(recipe.output());
+		FilteredFluidStorage tank = getOutputTank();
+		if (!tank.getResource().isBlank() && !tank.getResource().equals(output)) {
+			return false;
+		}
+		try (Transaction transaction = Transaction.openOuter()) {
+			return tank.insert(output, recipe.outputAmount(), transaction) == recipe.outputAmount();
+		}
 	}
 
 	@Override
 	protected boolean workCycle() {
-		return false;
+		DistilleryRecipeManager.DistilleryRecipe recipe = findCurrentRecipe();
+		if (recipe == null) {
+			return false;
+		}
+		FluidVariant input = getInputTank().getResource();
+		FluidVariant output = FluidVariant.of(recipe.output());
+		try (Transaction transaction = Transaction.openOuter()) {
+			if (getInputTank().extract(input, recipe.inputAmount(), transaction) != recipe.inputAmount()) {
+				return false;
+			}
+			if (getOutputTank().insert(output, recipe.outputAmount(), transaction) != recipe.outputAmount()) {
+				return false;
+			}
+			transaction.commit();
+		}
+		return true;
 	}
 
 	@Override
@@ -127,12 +195,15 @@ public class TileDistillery extends TilePowered implements WorldlyContainer {
 	protected void saveAdditional(ValueOutput output) {
 		super.saveAdditional(output);
 		this.tanks.writeValue(output.child("Tanks"));
+		output.putByte("DistillLevel", (byte) level);
 	}
 
 	@Override
 	protected void loadAdditional(ValueInput input) {
 		super.loadAdditional(input);
 		this.tanks.readValue(input.childOrEmpty("Tanks"));
+		this.level = input.getByteOr("DistillLevel", (byte) 0);
+		updateProcessTiming();
 	}
 
 	@Nullable

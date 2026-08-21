@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "reforestry:block/fluid_rum_white"
+    },
+    "level=1": {
+      "model": "reforestry:block/fluid_rum_white"
+    },
+    "level=2": {
+      "model": "reforestry:block/fluid_rum_white"
+    },
+    "level=3": {
+      "model": "reforestry:block/fluid_rum_white"
+    },
+    "level=4": {
+      "model": "reforestry:block/fluid_rum_white"
+    },
+    "level=5": {
+      "model": "reforestry:block/fluid_rum_white"
+    },
+    "level=6": {
+      "model": "reforestry:block/fluid_rum_white"
+    },
+    "level=7": {
+      "model": "reforestry:block/fluid_rum_white"
+    },
+    "level=8": {
+      "model": "reforestry:block/fluid_rum_white"
+    },
+    "level=9": {
+      "model": "reforestry:block/fluid_rum_white"
+    },
+    "level=10": {
+      "model": "reforestry:block/fluid_rum_white"
+    },
+    "level=11": {
+      "model": "reforestry:block/fluid_rum_white"
+    },
+    "level=12": {
+      "model": "reforestry:block/fluid_rum_white"
+    },
+    "level=13": {
+      "model": "reforestry:block/fluid_rum_white"
+    },
+    "level=14": {
+      "model": "reforestry:block/fluid_rum_white"
+    },
+    "level=15": {
+      "model": "reforestry:block/fluid_rum_white"
+    }
+  }
+}

@@ -37,6 +37,8 @@ public class ModuleExtraTrees implements IForestryModule {
 		ExtraTreesTiles.init();
 		ExtraTreesMenuTypes.init();
 		ExtraTreesCreativeTabs.init();
+		com.leon1236.reforestry.extratrees.fluids.ExtraTreesFluids.init();
+		com.leon1236.reforestry.extratrees.recipes.ExtraTreesAlcoholRecipes.init();
 	}
 
 	@Override

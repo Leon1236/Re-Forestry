@@ -67,10 +67,23 @@ public class ExtraTreesCreativeTabs {
 			output.accept(ExtraTreesItems.SAWDUST.item());
 			output.accept(ExtraTreesItems.BARK.item());
 			output.accept(ExtraTreesItems.WOOD_WAX.item());
+			output.accept(ExtraTreesItems.YEAST.item());
+			output.accept(ExtraTreesItems.LAGER_YEAST.item());
+			output.accept(ExtraTreesItems.GRAIN_WHEAT.item());
+			output.accept(ExtraTreesItems.GRAIN_BARLEY.item());
+			output.accept(ExtraTreesItems.GRAIN_RYE.item());
+			output.accept(ExtraTreesItems.GRAIN_CORN.item());
+			output.accept(ExtraTreesItems.GRAIN_ROASTED.item());
+			if (ExtraTreesBlocks.HOPS.item() != null) {
+				output.accept(ExtraTreesBlocks.HOPS.item());
+			}
 			for (var feature : ExtraTreesBlocks.MACHINES.getAll().values()) {
 				if (feature.item() != null) {
 					output.accept(feature.item());
 				}
+			}
+			for (com.leon1236.reforestry.extratrees.fluids.ExtraTreesFluids fluid : com.leon1236.reforestry.extratrees.fluids.ExtraTreesFluids.values()) {
+				output.accept(fluid.getBucket());
 			}
 		});
 	});

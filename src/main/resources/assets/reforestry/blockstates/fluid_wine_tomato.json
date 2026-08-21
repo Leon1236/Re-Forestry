@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "reforestry:block/fluid_wine_tomato"
+    },
+    "level=1": {
+      "model": "reforestry:block/fluid_wine_tomato"
+    },
+    "level=2": {
+      "model": "reforestry:block/fluid_wine_tomato"
+    },
+    "level=3": {
+      "model": "reforestry:block/fluid_wine_tomato"
+    },
+    "level=4": {
+      "model": "reforestry:block/fluid_wine_tomato"
+    },
+    "level=5": {
+      "model": "reforestry:block/fluid_wine_tomato"
+    },
+    "level=6": {
+      "model": "reforestry:block/fluid_wine_tomato"
+    },
+    "level=7": {
+      "model": "reforestry:block/fluid_wine_tomato"
+    },
+    "level=8": {
+      "model": "reforestry:block/fluid_wine_tomato"
+    },
+    "level=9": {
+      "model": "reforestry:block/fluid_wine_tomato"
+    },
+    "level=10": {
+      "model": "reforestry:block/fluid_wine_tomato"
+    },
+    "level=11": {
+      "model": "reforestry:block/fluid_wine_tomato"
+    },
+    "level=12": {
+      "model": "reforestry:block/fluid_wine_tomato"
+    },
+    "level=13": {
+      "model": "reforestry:block/fluid_wine_tomato"
+    },
+    "level=14": {
+      "model": "reforestry:block/fluid_wine_tomato"
+    },
+    "level=15": {
+      "model": "reforestry:block/fluid_wine_tomato"
+    }
+  }
+}

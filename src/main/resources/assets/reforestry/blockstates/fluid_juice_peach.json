@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "reforestry:block/fluid_juice_peach"
+    },
+    "level=1": {
+      "model": "reforestry:block/fluid_juice_peach"
+    },
+    "level=2": {
+      "model": "reforestry:block/fluid_juice_peach"
+    },
+    "level=3": {
+      "model": "reforestry:block/fluid_juice_peach"
+    },
+    "level=4": {
+      "model": "reforestry:block/fluid_juice_peach"
+    },
+    "level=5": {
+      "model": "reforestry:block/fluid_juice_peach"
+    },
+    "level=6": {
+      "model": "reforestry:block/fluid_juice_peach"
+    },
+    "level=7": {
+      "model": "reforestry:block/fluid_juice_peach"
+    },
+    "level=8": {
+      "model": "reforestry:block/fluid_juice_peach"
+    },
+    "level=9": {
+      "model": "reforestry:block/fluid_juice_peach"
+    },
+    "level=10": {
+      "model": "reforestry:block/fluid_juice_peach"
+    },
+    "level=11": {
+      "model": "reforestry:block/fluid_juice_peach"
+    },
+    "level=12": {
+      "model": "reforestry:block/fluid_juice_peach"
+    },
+    "level=13": {
+      "model": "reforestry:block/fluid_juice_peach"
+    },
+    "level=14": {
+      "model": "reforestry:block/fluid_juice_peach"
+    },
+    "level=15": {
+      "model": "reforestry:block/fluid_juice_peach"
+    }
+  }
+}

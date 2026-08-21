@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "reforestry:block/fluid_brandy_pear"
+    },
+    "level=1": {
+      "model": "reforestry:block/fluid_brandy_pear"
+    },
+    "level=2": {
+      "model": "reforestry:block/fluid_brandy_pear"
+    },
+    "level=3": {
+      "model": "reforestry:block/fluid_brandy_pear"
+    },
+    "level=4": {
+      "model": "reforestry:block/fluid_brandy_pear"
+    },
+    "level=5": {
+      "model": "reforestry:block/fluid_brandy_pear"
+    },
+    "level=6": {
+      "model": "reforestry:block/fluid_brandy_pear"
+    },
+    "level=7": {
+      "model": "reforestry:block/fluid_brandy_pear"
+    },
+    "level=8": {
+      "model": "reforestry:block/fluid_brandy_pear"
+    },
+    "level=9": {
+      "model": "reforestry:block/fluid_brandy_pear"
+    },
+    "level=10": {
+      "model": "reforestry:block/fluid_brandy_pear"
+    },
+    "level=11": {
+      "model": "reforestry:block/fluid_brandy_pear"
+    },
+    "level=12": {
+      "model": "reforestry:block/fluid_brandy_pear"
+    },
+    "level=13": {
+      "model": "reforestry:block/fluid_brandy_pear"
+    },
+    "level=14": {
+      "model": "reforestry:block/fluid_brandy_pear"
+    },
+    "level=15": {
+      "model": "reforestry:block/fluid_brandy_pear"
+    }
+  }
+}

@@ -35,6 +35,22 @@ public class ScreenDistillery extends ScreenForestry<ContainerDistillery> {
 		ExtraTreesGuiTextures.blitBackground(guiGraphics, ExtraTreesGuiTextures.DISTILLERY, leftPos, topPos, imageWidth, imageHeight);
 		drawTank(guiGraphics, mouseX, mouseY, INPUT_TANK_X, menu.getInputAmountMb());
 		drawTank(guiGraphics, mouseX, mouseY, OUTPUT_TANK_X, menu.getOutputAmountMb());
+		guiGraphics.text(font, Component.literal("Lv " + (menu.getDistillLevel() + 1)), leftPos + 78, topPos + 52, 0x404040, false);
+	}
+
+	@Override
+	public boolean mouseClicked(net.minecraft.client.input.MouseButtonEvent event, boolean doubleClick) {
+		int levelLeft = leftPos + 70;
+		int levelTop = topPos + 48;
+		if (event.x() >= levelLeft && event.x() < levelLeft + 36 && event.y() >= levelTop && event.y() < levelTop + 16) {
+			if (minecraft != null && minecraft.player != null && minecraft.gameMode != null) {
+				if (menu.clickMenuButton(minecraft.player, 2)) {
+					minecraft.gameMode.handleInventoryButtonClick(menu.containerId, 2);
+				}
+			}
+			return true;
+		}
+		return super.mouseClicked(event, doubleClick);
 	}
 
 	private void drawTank(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY, int tankX, int amountMb) {

@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "reforestry:block/fluid_liqueur_blackcurrant"
+    },
+    "level=1": {
+      "model": "reforestry:block/fluid_liqueur_blackcurrant"
+    },
+    "level=2": {
+      "model": "reforestry:block/fluid_liqueur_blackcurrant"
+    },
+    "level=3": {
+      "model": "reforestry:block/fluid_liqueur_blackcurrant"
+    },
+    "level=4": {
+      "model": "reforestry:block/fluid_liqueur_blackcurrant"
+    },
+    "level=5": {
+      "model": "reforestry:block/fluid_liqueur_blackcurrant"
+    },
+    "level=6": {
+      "model": "reforestry:block/fluid_liqueur_blackcurrant"
+    },
+    "level=7": {
+      "model": "reforestry:block/fluid_liqueur_blackcurrant"
+    },
+    "level=8": {
+      "model": "reforestry:block/fluid_liqueur_blackcurrant"
+    },
+    "level=9": {
+      "model": "reforestry:block/fluid_liqueur_blackcurrant"
+    },
+    "level=10": {
+      "model": "reforestry:block/fluid_liqueur_blackcurrant"
+    },
+    "level=11": {
+      "model": "reforestry:block/fluid_liqueur_blackcurrant"
+    },
+    "level=12": {
+      "model": "reforestry:block/fluid_liqueur_blackcurrant"
+    },
+    "level=13": {
+      "model": "reforestry:block/fluid_liqueur_blackcurrant"
+    },
+    "level=14": {
+      "model": "reforestry:block/fluid_liqueur_blackcurrant"
+    },
+    "level=15": {
+      "model": "reforestry:block/fluid_liqueur_blackcurrant"
+    }
+  }
+}

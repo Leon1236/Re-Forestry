@@ -22,5 +22,6 @@ public class ExtraTreesClientHandler implements IClientModuleHandler {
 		MenuScreens.register(ExtraTreesMenuTypes.PRESS.type(), ScreenPress::new);
 		MenuScreens.register(ExtraTreesMenuTypes.BREWERY.type(), ScreenBrewery::new);
 		MenuScreens.register(ExtraTreesMenuTypes.DISTILLERY.type(), ScreenDistillery::new);
+		ExtraTreesFluidClientHandler.registerClient();
 	}
 }

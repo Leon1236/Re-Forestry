@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "reforestry:block/fluid_juice_olive"
+    },
+    "level=1": {
+      "model": "reforestry:block/fluid_juice_olive"
+    },
+    "level=2": {
+      "model": "reforestry:block/fluid_juice_olive"
+    },
+    "level=3": {
+      "model": "reforestry:block/fluid_juice_olive"
+    },
+    "level=4": {
+      "model": "reforestry:block/fluid_juice_olive"
+    },
+    "level=5": {
+      "model": "reforestry:block/fluid_juice_olive"
+    },
+    "level=6": {
+      "model": "reforestry:block/fluid_juice_olive"
+    },
+    "level=7": {
+      "model": "reforestry:block/fluid_juice_olive"
+    },
+    "level=8": {
+      "model": "reforestry:block/fluid_juice_olive"
+    },
+    "level=9": {
+      "model": "reforestry:block/fluid_juice_olive"
+    },
+    "level=10": {
+      "model": "reforestry:block/fluid_juice_olive"
+    },
+    "level=11": {
+      "model": "reforestry:block/fluid_juice_olive"
+    },
+    "level=12": {
+      "model": "reforestry:block/fluid_juice_olive"
+    },
+    "level=13": {
+      "model": "reforestry:block/fluid_juice_olive"
+    },
+    "level=14": {
+      "model": "reforestry:block/fluid_juice_olive"
+    },
+    "level=15": {
+      "model": "reforestry:block/fluid_juice_olive"
+    }
+  }
+}

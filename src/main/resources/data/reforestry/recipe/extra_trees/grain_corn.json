@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "s": "reforestry:grain_wheat"
+  },
+  "pattern": [
+    " s ",
+    "  s",
+    " s "
+  ],
+  "result": {
+    "id": "reforestry:grain_corn",
+    "count": 3
+  }
+}

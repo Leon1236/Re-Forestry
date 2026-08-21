@@ -39,7 +39,8 @@
 			"com.leon1236.reforestry.storage.compat.jei.StorageJeiPlugin",
 			"com.leon1236.reforestry.worktable.compat.jei.WorktableJeiPlugin",
 			"com.leon1236.reforestry.farming.compat.jei.FarmingJeiPlugin",
-			"com.leon1236.reforestry.gendustry.compat.jei.GendustryJeiPlugin"
+			"com.leon1236.reforestry.gendustry.compat.jei.GendustryJeiPlugin",
+			"com.leon1236.reforestry.extratrees.compat.jei.ExtraTreesJeiPlugin"
 		]
 	},
 	"mixins": [

@@ -19,6 +19,7 @@ import com.leon1236.reforestry.extratrees.tiles.TileDistillery;
 public class ContainerDistillery extends ContainerMachine<TileDistillery> implements IContainerEnergy, IContainerLiquidTanks {
 	private static final int INVENTORY_Y = 84;
 	private final SimpleContainerData tankData = new SimpleContainerData(4);
+	private final SimpleContainerData levelData = new SimpleContainerData(1);
 
 	public ContainerDistillery(int containerId, Inventory playerInventory, BlockPos pos) {
 		this(containerId, playerInventory, resolveTile(playerInventory, pos, TileDistillery.class));
@@ -29,6 +30,7 @@ public class ContainerDistillery extends ContainerMachine<TileDistillery> implem
 		addDataSlots(tile.getProgressData());
 		addDataSlots(tile.getEnergyData());
 		addDataSlots(tankData);
+		addDataSlots(levelData);
 	}
 
 	@Override
@@ -69,6 +71,10 @@ public class ContainerDistillery extends ContainerMachine<TileDistillery> implem
 
 	@Override
 	public boolean clickMenuButton(Player player, int id) {
+		if (id == 2) {
+			tile.cycleLevel();
+			return true;
+		}
 		if (super.clickMenuButton(player, id)) {
 			return true;
 		}
@@ -98,12 +104,17 @@ public class ContainerDistillery extends ContainerMachine<TileDistillery> implem
 		};
 	}
 
+	public int getDistillLevel() {
+		return levelData.get(0);
+	}
+
 	@Override
 	public void broadcastChanges() {
 		tankData.set(0, (int) FluidUnits.dropletsToMb(tile.getInputTank().getAmount()));
 		tankData.set(1, tile.getInputTank().getAmount() > 0 ? 1 : 0);
 		tankData.set(2, (int) FluidUnits.dropletsToMb(tile.getOutputTank().getAmount()));
 		tankData.set(3, tile.getOutputTank().getAmount() > 0 ? 1 : 0);
+		levelData.set(0, tile.getDistillLevel());
 		super.broadcastChanges();
 	}
 }

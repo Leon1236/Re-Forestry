@@ -16,6 +16,7 @@ import com.leon1236.reforestry.core.fluids.PipetteTankHelper;
 import com.leon1236.reforestry.core.gui.ContainerMachine;
 import com.leon1236.reforestry.core.gui.IContainerLiquidTanks;
 import com.leon1236.reforestry.extratrees.features.ExtraTreesMenuTypes;
+import com.leon1236.reforestry.extratrees.recipes.FruitPressRecipeManager;
 import com.leon1236.reforestry.extratrees.tiles.TilePress;
 
 public class ContainerPress extends ContainerMachine<TilePress> implements IContainerEnergy, IContainerLiquidTanks {
@@ -38,7 +39,7 @@ public class ContainerPress extends ContainerMachine<TilePress> implements ICont
 		addSlot(new Slot(tile, TilePress.SLOT_FRUIT, 24, 52) {
 			@Override
 			public boolean mayPlace(ItemStack stack) {
-				return true;
+				return FruitPressRecipeManager.isInput(stack);
 			}
 		});
 		addSlot(new Slot(tile, TilePress.SLOT_CURRENT, 62, 52) {

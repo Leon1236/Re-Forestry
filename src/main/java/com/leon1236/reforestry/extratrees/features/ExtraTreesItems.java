@@ -48,6 +48,13 @@ public class ExtraTreesItems {
 	public static final FeatureItem<Item> SAWDUST = REGISTRY.item("sawdust", Item::new);
 	public static final FeatureItem<Item> BARK = REGISTRY.item("bark", Item::new);
 	public static final FeatureItem<Item> WOOD_WAX = REGISTRY.item("wood_wax", Item::new);
+	public static final FeatureItem<Item> YEAST = REGISTRY.item("yeast", Item::new);
+	public static final FeatureItem<Item> LAGER_YEAST = REGISTRY.item("yeast_lager", Item::new);
+	public static final FeatureItem<Item> GRAIN_WHEAT = REGISTRY.item("grain_wheat", Item::new);
+	public static final FeatureItem<Item> GRAIN_BARLEY = REGISTRY.item("grain_barley", Item::new);
+	public static final FeatureItem<Item> GRAIN_RYE = REGISTRY.item("grain_rye", Item::new);
+	public static final FeatureItem<Item> GRAIN_CORN = REGISTRY.item("grain_corn", Item::new);
+	public static final FeatureItem<Item> GRAIN_ROASTED = REGISTRY.item("grain_roasted", Item::new);
 
 	public static void init() {
 		for (ExtraTreeWoodType type : ExtraTreeWoodType.WITH_PRODUCTS) {

@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "reforestry:block/fluid_brandy_citrus"
+    },
+    "level=1": {
+      "model": "reforestry:block/fluid_brandy_citrus"
+    },
+    "level=2": {
+      "model": "reforestry:block/fluid_brandy_citrus"
+    },
+    "level=3": {
+      "model": "reforestry:block/fluid_brandy_citrus"
+    },
+    "level=4": {
+      "model": "reforestry:block/fluid_brandy_citrus"
+    },
+    "level=5": {
+      "model": "reforestry:block/fluid_brandy_citrus"
+    },
+    "level=6": {
+      "model": "reforestry:block/fluid_brandy_citrus"
+    },
+    "level=7": {
+      "model": "reforestry:block/fluid_brandy_citrus"
+    },
+    "level=8": {
+      "model": "reforestry:block/fluid_brandy_citrus"
+    },
+    "level=9": {
+      "model": "reforestry:block/fluid_brandy_citrus"
+    },
+    "level=10": {
+      "model": "reforestry:block/fluid_brandy_citrus"
+    },
+    "level=11": {
+      "model": "reforestry:block/fluid_brandy_citrus"
+    },
+    "level=12": {
+      "model": "reforestry:block/fluid_brandy_citrus"
+    },
+    "level=13": {
+      "model": "reforestry:block/fluid_brandy_citrus"
+    },
+    "level=14": {
+      "model": "reforestry:block/fluid_brandy_citrus"
+    },
+    "level=15": {
+      "model": "reforestry:block/fluid_brandy_citrus"
+    }
+  }
+}

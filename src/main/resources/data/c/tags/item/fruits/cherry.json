@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "reforestry:fruit_cherry"
+    "reforestry:fruit_cherry",
+    "reforestry:wild_cherry",
+    "reforestry:sour_cherry",
+    "reforestry:black_cherry"
   ]
 }

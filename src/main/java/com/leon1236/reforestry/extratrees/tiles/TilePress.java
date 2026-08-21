@@ -2,6 +2,9 @@ package com.leon1236.reforestry.extratrees.tiles;
 
 import org.jetbrains.annotations.Nullable;
 
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
+import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
@@ -24,6 +27,7 @@ import com.leon1236.reforestry.core.fluids.MultiFluidTank;
 import com.leon1236.reforestry.core.tiles.TilePowered;
 import com.leon1236.reforestry.extratrees.features.ExtraTreesTiles;
 import com.leon1236.reforestry.extratrees.gui.ContainerPress;
+import com.leon1236.reforestry.extratrees.recipes.FruitPressRecipeManager;
 
 public class TilePress extends TilePowered implements WorldlyContainer {
 	public static final int SLOT_FRUIT = 0;
@@ -31,6 +35,8 @@ public class TilePress extends TilePowered implements WorldlyContainer {
 	public static final int SLOT_COUNT = 2;
 	private static final long ENERGY_CAPACITY = 10000;
 	private static final long ENERGY_MAX_RECEIVE = 200;
+	private static final int PROCESS_ENERGY = 1000;
+	private static final int PROCESS_TIME = 50;
 	public static final long TANK_CAPACITY = FluidUnits.mbToDroplets(5000);
 
 	private final NonNullList<ItemStack> items = NonNullList.withSize(SLOT_COUNT, ItemStack.EMPTY);
@@ -41,11 +47,12 @@ public class TilePress extends TilePowered implements WorldlyContainer {
 		this.tanks = MultiFluidTank.builder(this::setChanged)
 				.tank("Output", TANK_CAPACITY, FilteredFluidStorage.any())
 				.build();
-		setTicksPerWorkCycle(0);
-		setEnergyPerWorkCycle(0);
+		setTicksPerWorkCycle(PROCESS_TIME);
+		setEnergyPerWorkCycle(PROCESS_ENERGY);
 	}
 
 	public static void serverTick(Level level, BlockPos pos, BlockState state, TilePress tile) {
+		tile.restockCurrent();
 		tile.doWork(true);
 	}
 
@@ -57,14 +64,59 @@ public class TilePress extends TilePowered implements WorldlyContainer {
 		return this.tanks.tank("Output");
 	}
 
+	private void restockCurrent() {
+		if (!items.get(SLOT_CURRENT).isEmpty()) {
+			return;
+		}
+		ItemStack input = items.get(SLOT_FRUIT);
+		if (input.isEmpty() || !FruitPressRecipeManager.isInput(input)) {
+			return;
+		}
+		items.set(SLOT_CURRENT, input.split(1));
+		if (input.isEmpty()) {
+			items.set(SLOT_FRUIT, ItemStack.EMPTY);
+		}
+		setChanged();
+	}
+
 	@Override
 	public boolean hasWork() {
-		return false;
+		ItemStack current = items.get(SLOT_CURRENT);
+		FruitPressRecipeManager.FruitPressRecipe recipe = FruitPressRecipeManager.getRecipe(current);
+		if (recipe == null) {
+			return false;
+		}
+		FilteredFluidStorage tank = getOutputTank();
+		FluidVariant output = FluidVariant.of(recipe.output());
+		if (!tank.getResource().isBlank() && !tank.getResource().equals(output)) {
+			return false;
+		}
+		try (Transaction transaction = Transaction.openOuter()) {
+			return tank.insert(output, recipe.amountDroplets(), transaction) == recipe.amountDroplets();
+		}
 	}
 
 	@Override
 	protected boolean workCycle() {
-		return false;
+		ItemStack current = items.get(SLOT_CURRENT);
+		FruitPressRecipeManager.FruitPressRecipe recipe = FruitPressRecipeManager.getRecipe(current);
+		if (recipe == null) {
+			return false;
+		}
+		FluidVariant output = FluidVariant.of(recipe.output());
+		FilteredFluidStorage tank = getOutputTank();
+		try (Transaction transaction = Transaction.openOuter()) {
+			if (tank.insert(output, recipe.amountDroplets(), transaction) != recipe.amountDroplets()) {
+				return false;
+			}
+			transaction.commit();
+		}
+		current.shrink(1);
+		if (current.isEmpty()) {
+			items.set(SLOT_CURRENT, ItemStack.EMPTY);
+		}
+		setChanged();
+		return true;
 	}
 
 	@Override
@@ -112,7 +164,7 @@ public class TilePress extends TilePowered implements WorldlyContainer {
 
 	@Override
 	public boolean canPlaceItem(int slot, ItemStack stack) {
-		return slot == SLOT_FRUIT;
+		return slot == SLOT_FRUIT && FruitPressRecipeManager.isInput(stack);
 	}
 
 	@Override

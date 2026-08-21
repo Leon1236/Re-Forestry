@@ -9,9 +9,12 @@ import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityTypes;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.PushReaction;
 
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.api.arboriculture.WoodBlockKind;
@@ -38,6 +41,7 @@ import com.leon1236.reforestry.arboriculture.items.ItemBlockForestryHangingSign;
 import com.leon1236.reforestry.arboriculture.items.ItemBlockForestrySign;
 import com.leon1236.reforestry.arboriculture.items.ItemBlockForestryWood;
 import com.leon1236.reforestry.extratrees.ExtraTreeWoodType;
+import com.leon1236.reforestry.extratrees.blocks.BlockHops;
 import com.leon1236.reforestry.extratrees.blocks.ExtraTreeMachineType;
 import com.leon1236.reforestry.extratrees.blocks.ExtraTreesMachineBlock;
 import com.leon1236.reforestry.extratrees.blocks.ExtraTreesPodType;
@@ -198,6 +202,15 @@ public class ExtraTreesBlocks {
 			REGISTRY.blockGroup(ExtraTreesMachineBlock::new, ExtraTreeMachineType.VALUES)
 					.item(ItemBlockExtraTreesMachine::new)
 					.create();
+
+	public static final FeatureBlock<BlockHops> HOPS = REGISTRY.block("hops",
+			properties -> new BlockHops(properties
+					.noCollision()
+					.randomTicks()
+					.instabreak()
+					.sound(SoundType.CROP)
+					.pushReaction(PushReaction.DESTROY)),
+			BlockItem::new);
 
 	public static void init() {
 		for (ExtraTreeWoodType type : ExtraTreeWoodType.ALL_LOG_TYPES) {

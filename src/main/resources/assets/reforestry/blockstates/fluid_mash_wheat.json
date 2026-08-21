@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "reforestry:block/fluid_mash_wheat"
+    },
+    "level=1": {
+      "model": "reforestry:block/fluid_mash_wheat"
+    },
+    "level=2": {
+      "model": "reforestry:block/fluid_mash_wheat"
+    },
+    "level=3": {
+      "model": "reforestry:block/fluid_mash_wheat"
+    },
+    "level=4": {
+      "model": "reforestry:block/fluid_mash_wheat"
+    },
+    "level=5": {
+      "model": "reforestry:block/fluid_mash_wheat"
+    },
+    "level=6": {
+      "model": "reforestry:block/fluid_mash_wheat"
+    },
+    "level=7": {
+      "model": "reforestry:block/fluid_mash_wheat"
+    },
+    "level=8": {
+      "model": "reforestry:block/fluid_mash_wheat"
+    },
+    "level=9": {
+      "model": "reforestry:block/fluid_mash_wheat"
+    },
+    "level=10": {
+      "model": "reforestry:block/fluid_mash_wheat"
+    },
+    "level=11": {
+      "model": "reforestry:block/fluid_mash_wheat"
+    },
+    "level=12": {
+      "model": "reforestry:block/fluid_mash_wheat"
+    },
+    "level=13": {
+      "model": "reforestry:block/fluid_mash_wheat"
+    },
+    "level=14": {
+      "model": "reforestry:block/fluid_mash_wheat"
+    },
+    "level=15": {
+      "model": "reforestry:block/fluid_mash_wheat"
+    }
+  }
+}

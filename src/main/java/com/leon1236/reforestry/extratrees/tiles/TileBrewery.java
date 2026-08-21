@@ -2,6 +2,9 @@ package com.leon1236.reforestry.extratrees.tiles;
 
 import org.jetbrains.annotations.Nullable;
 
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
+import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
@@ -24,6 +27,7 @@ import com.leon1236.reforestry.core.fluids.MultiFluidTank;
 import com.leon1236.reforestry.core.tiles.TilePowered;
 import com.leon1236.reforestry.extratrees.features.ExtraTreesTiles;
 import com.leon1236.reforestry.extratrees.gui.ContainerBrewery;
+import com.leon1236.reforestry.extratrees.recipes.BreweryRecipeManager;
 
 public class TileBrewery extends TilePowered implements WorldlyContainer {
 	public static final int SLOT_GRAIN_0 = 0;
@@ -36,6 +40,8 @@ public class TileBrewery extends TilePowered implements WorldlyContainer {
 	public static final int SLOT_COUNT = SLOT_INVENTORY_START + SLOT_INVENTORY_COUNT;
 	private static final long ENERGY_CAPACITY = 10000;
 	private static final long ENERGY_MAX_RECEIVE = 200;
+	private static final int PROCESS_ENERGY = 16000;
+	private static final int PROCESS_TIME = 800;
 	public static final long TANK_CAPACITY = FluidUnits.mbToDroplets(5000);
 
 	private final NonNullList<ItemStack> items = NonNullList.withSize(SLOT_COUNT, ItemStack.EMPTY);
@@ -47,8 +53,8 @@ public class TileBrewery extends TilePowered implements WorldlyContainer {
 				.tank("Input", TANK_CAPACITY, FilteredFluidStorage.any())
 				.tank("Output", TANK_CAPACITY, FilteredFluidStorage.any())
 				.build();
-		setTicksPerWorkCycle(0);
-		setEnergyPerWorkCycle(0);
+		setTicksPerWorkCycle(PROCESS_TIME);
+		setEnergyPerWorkCycle(PROCESS_ENERGY);
 	}
 
 	public static void serverTick(Level level, BlockPos pos, BlockState state, TileBrewery tile) {
@@ -67,14 +73,86 @@ public class TileBrewery extends TilePowered implements WorldlyContainer {
 		return this.tanks.tank("Output");
 	}
 
+	@Nullable
+	private BreweryRecipeManager.BreweryRecipe findCurrentRecipe() {
+		if (getInputTank().getAmount() < BreweryRecipeManager.BUCKET_DROPLETS) {
+			return null;
+		}
+		FluidVariant variant = getInputTank().getResource();
+		if (variant.isBlank()) {
+			return null;
+		}
+		ItemStack[] grains = new ItemStack[]{
+				items.get(SLOT_GRAIN_0),
+				items.get(SLOT_GRAIN_1),
+				items.get(SLOT_GRAIN_2)
+		};
+		return BreweryRecipeManager.find(new BreweryRecipeManager.BreweryCrafting(
+				variant.getFluid(), items.get(SLOT_INPUT), grains, items.get(SLOT_YEAST)));
+	}
+
 	@Override
 	public boolean hasWork() {
-		return false;
+		BreweryRecipeManager.BreweryRecipe recipe = findCurrentRecipe();
+		if (recipe == null) {
+			return false;
+		}
+		FluidVariant output = FluidVariant.of(recipe.outputFluid());
+		FilteredFluidStorage tank = getOutputTank();
+		if (!tank.getResource().isBlank() && !tank.getResource().equals(output)) {
+			return false;
+		}
+		try (Transaction transaction = Transaction.openOuter()) {
+			return tank.insert(output, BreweryRecipeManager.BUCKET_DROPLETS, transaction) == BreweryRecipeManager.BUCKET_DROPLETS;
+		}
 	}
 
 	@Override
 	protected boolean workCycle() {
-		return false;
+		BreweryRecipeManager.BreweryRecipe recipe = findCurrentRecipe();
+		if (recipe == null) {
+			return false;
+		}
+		FluidVariant inputVariant = getInputTank().getResource();
+		FluidVariant output = FluidVariant.of(recipe.outputFluid());
+		try (Transaction transaction = Transaction.openOuter()) {
+			if (getInputTank().extract(inputVariant, BreweryRecipeManager.BUCKET_DROPLETS, transaction) != BreweryRecipeManager.BUCKET_DROPLETS) {
+				return false;
+			}
+			if (getOutputTank().insert(output, BreweryRecipeManager.BUCKET_DROPLETS, transaction) != BreweryRecipeManager.BUCKET_DROPLETS) {
+				return false;
+			}
+			transaction.commit();
+		}
+		if (recipe.grainTag() != null) {
+			for (int slot : new int[]{SLOT_GRAIN_0, SLOT_GRAIN_1, SLOT_GRAIN_2}) {
+				ItemStack stack = items.get(slot);
+				if (!stack.isEmpty()) {
+					stack.shrink(1);
+					if (stack.isEmpty()) {
+						items.set(slot, ItemStack.EMPTY);
+					}
+				}
+			}
+			if (recipe.ingredientTag() != null) {
+				ItemStack ingredient = items.get(SLOT_INPUT);
+				if (!ingredient.isEmpty()) {
+					ingredient.shrink(1);
+					if (ingredient.isEmpty()) {
+						items.set(SLOT_INPUT, ItemStack.EMPTY);
+					}
+				}
+			}
+		}
+		ItemStack yeast = items.get(SLOT_YEAST);
+		if (!yeast.isEmpty()) {
+			yeast.shrink(1);
+			if (yeast.isEmpty()) {
+				items.set(SLOT_YEAST, ItemStack.EMPTY);
+			}
+		}
+		setChanged();
+		return true;
 	}
 
 	@Override
@@ -122,7 +200,12 @@ public class TileBrewery extends TilePowered implements WorldlyContainer {
 
 	@Override
 	public boolean canPlaceItem(int slot, ItemStack stack) {
-		return true;
+		return switch (slot) {
+			case SLOT_GRAIN_0, SLOT_GRAIN_1, SLOT_GRAIN_2 -> BreweryRecipeManager.isValidGrain(stack);
+			case SLOT_INPUT -> BreweryRecipeManager.isValidIngredient(stack);
+			case SLOT_YEAST -> BreweryRecipeManager.isValidYeast(stack);
+			default -> slot >= SLOT_INVENTORY_START;
+		};
 	}
 
 	@Override
@@ -142,7 +225,7 @@ public class TileBrewery extends TilePowered implements WorldlyContainer {
 
 	@Override
 	public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction direction) {
-		return WorldlyAccessHelper.canPlaceItemThroughFace(this, true, direction);
+		return WorldlyAccessHelper.canPlaceItemThroughFace(this, canPlaceItem(slot, stack), direction);
 	}
 
 	@Override

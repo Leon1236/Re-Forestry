@@ -1,0 +1,18 @@
+{
+  "type": "reforestry:squeezer",
+  "time": 20,
+  "resources": [
+    {
+      "item": "reforestry:brazil_nut"
+    }
+  ],
+  "output": {
+    "fluid": "reforestry:seed_oil",
+    "amount": 20
+  },
+  "remnant": {
+    "item": "reforestry:mulch",
+    "count": 1
+  },
+  "chance": 0.02
+}

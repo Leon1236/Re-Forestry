@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "reforestry:block/fluid_latex"
+    },
+    "level=1": {
+      "model": "reforestry:block/fluid_latex"
+    },
+    "level=2": {
+      "model": "reforestry:block/fluid_latex"
+    },
+    "level=3": {
+      "model": "reforestry:block/fluid_latex"
+    },
+    "level=4": {
+      "model": "reforestry:block/fluid_latex"
+    },
+    "level=5": {
+      "model": "reforestry:block/fluid_latex"
+    },
+    "level=6": {
+      "model": "reforestry:block/fluid_latex"
+    },
+    "level=7": {
+      "model": "reforestry:block/fluid_latex"
+    },
+    "level=8": {
+      "model": "reforestry:block/fluid_latex"
+    },
+    "level=9": {
+      "model": "reforestry:block/fluid_latex"
+    },
+    "level=10": {
+      "model": "reforestry:block/fluid_latex"
+    },
+    "level=11": {
+      "model": "reforestry:block/fluid_latex"
+    },
+    "level=12": {
+      "model": "reforestry:block/fluid_latex"
+    },
+    "level=13": {
+      "model": "reforestry:block/fluid_latex"
+    },
+    "level=14": {
+      "model": "reforestry:block/fluid_latex"
+    },
+    "level=15": {
+      "model": "reforestry:block/fluid_latex"
+    }
+  }
+}
