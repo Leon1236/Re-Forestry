@@ -19,6 +19,7 @@ import com.leon1236.reforestry.cultivation.ModuleCultivation;
 import com.leon1236.reforestry.energy.ModuleEnergy;
 import com.leon1236.reforestry.factory.ModuleFactory;
 import com.leon1236.reforestry.farming.ModuleFarming;
+import com.leon1236.reforestry.gendustry.ModuleGendustry;
 import com.leon1236.reforestry.lepidopterology.ModuleLepidopterology;
 import com.leon1236.reforestry.modules.ModuleManager;
 import com.leon1236.reforestry.sorting.ModuleSorting;
@@ -44,7 +45,8 @@ public class ReForestry implements ModInitializer {
 				new ModuleWorktable(),
 				new ModuleSorting(),
 				new ModuleFarming(),
-				new ModuleCultivation()));
+				new ModuleCultivation(),
+				new ModuleGendustry()));
 		PluginManager.runPollenRegistration();
 		ModuleStorage.registerOptionalCrates();
 	}

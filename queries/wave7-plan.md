@@ -57,7 +57,7 @@ Order: **GD0 → EB1 → GD1 → GD2 (incl. DNA) → GD3 (incl. DNA extractor) �
 
 | # | ID | Size | Player exit | Connected must-ship |
 |---|---|---|---|---|
-| 1 | GD0 | S | Module toggle; tab with 10 parts, 23 upgrades, pollen kit | Plugin entry; upgrade tag; crafts; models/lang; pollen-kit use |
+| 1 | GD0 | S | Module toggle; tab with 10 parts, 23 upgrades, pollen kit | **done** — Plugin entry; upgrade tag; crafts; models/lang; pollen-kit use |
 | 2 | EB1 | M | `/give` combs, drops, frames, dusts, ectoplasm, hive blocks | Module + tab; frame crafts; scented_gear; dust/shard recipes |
 | 3 | GD1 | S | Three fluid buckets | Fluid blocks + textures + lang |
 | 4 | GD2 | M | Mutagen + protein + DNA recipes load | All 4+7+10 DNA (bee/tree/butterfly) |

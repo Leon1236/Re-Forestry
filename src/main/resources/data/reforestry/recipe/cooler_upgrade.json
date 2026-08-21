@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "reforestry:climate_control_module"
+    },
+    "F": {
+      "item": "reforestry:upgrade_frame"
+    },
+    "I": {
+      "tag": "c:ingots/bronze"
+    },
+    "P": {
+      "item": "minecraft:ice"
+    }
+  },
+  "pattern": [
+    "PPP",
+    "IFI",
+    "ICI"
+  ],
+  "result": {
+    "id": "reforestry:cooler_upgrade"
+  }
+}

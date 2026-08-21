@@ -45,7 +45,7 @@ Loaded today (`ReForestry.java`): `core`, `apiculture`, `arboriculture`, `lepido
 | **cultivation**                      | CU2 done                         | —                       |
 | **sorting**                          | S1 done                          | `S2` butterfly rules    |
 | **lepidopterology**                  | Wave 6 D0–D4 merged              | —                       |
-| gendustry / extra bees / extra trees | Extra Bees EB0 + Extra Trees ET0 extracts done | `GD0` |
+| gendustry / extra bees / extra trees | GD0 done (module + parts/upgrades/pollen kit) | `EB1` |
 | curios / Patchouli / 1.12 restore    | Optional                         | last                    |
 
 
@@ -419,7 +419,7 @@ Config-toggle modules. Ids: `reforestry:gendustry`, `reforestry:extra_bees`, `re
 
 | ID     | Size | Outcome | Deps |
 | ------ | ---- | ------- | ---- |
-| `GD0`  | S    | Module shell, tab, tags, config, crafts for 10 parts + 23 upgrades + pollen kit | GP0c |
+| `GD0`  | S    | Module shell, tab, tags, config, crafts for 10 parts + 23 upgrades + pollen kit | **done** |
 | `GD1`  | S    | Fluids `mutagen`, `liquid_dna`, `protein` + buckets | GD0 |
 | `GD2`  | M    | Recipe types/caches + mutagen/protein/**DNA** datapack (bee/tree/butterfly) | GD1 |
 | `GD3`  | M    | Mutagen producer, protein liquefier, **DNA extractor** | GD2 |
