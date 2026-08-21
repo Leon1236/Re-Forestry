@@ -23,7 +23,7 @@ public class AgricultureForestryPlugin implements IForestryPlugin {
 
 	@Override
 	public boolean shouldLoad() {
-		return IForestryApi.get().getModuleManager().isModuleLoaded(ReForestry.id("farming"));
+		return IForestryApi.get().getModuleManager().isModuleEnabled(ReForestry.id("farming"));
 	}
 
 	@Override

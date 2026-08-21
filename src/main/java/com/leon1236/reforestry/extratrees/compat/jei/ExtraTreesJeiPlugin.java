@@ -22,6 +22,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.material.Fluid;
 
 import com.leon1236.reforestry.ReForestry;
+import com.leon1236.reforestry.api.IForestryApi;
 import com.leon1236.reforestry.core.compat.jei.ForestryRecipeCategory;
 import com.leon1236.reforestry.extratrees.blocks.ExtraTreeMachineType;
 import com.leon1236.reforestry.extratrees.features.ExtraTreesBlocks;
@@ -50,6 +51,9 @@ public class ExtraTreesJeiPlugin implements IModPlugin {
 
 	@Override
 	public void registerCategories(IRecipeCategoryRegistration registry) {
+		if (!extraTreesEnabled()) {
+			return;
+		}
 		IJeiHelpers jeiHelpers = registry.getJeiHelpers();
 		IPlatformFluidHelper<?> fluidHelper = jeiHelpers.getPlatformFluidHelper();
 		registry.addRecipeCategories(
@@ -61,6 +65,9 @@ public class ExtraTreesJeiPlugin implements IModPlugin {
 
 	@Override
 	public void registerRecipes(IRecipeRegistration registration) {
+		if (!extraTreesEnabled()) {
+			return;
+		}
 		registration.addRecipes(FRUIT_PRESS, List.copyOf(FruitPressRecipeManager.recipes()));
 		registration.addRecipes(BREWERY, List.copyOf(BreweryRecipeManager.recipes()));
 		registration.addRecipes(DISTILLERY, List.copyOf(DistilleryRecipeManager.recipes()));
@@ -68,9 +75,16 @@ public class ExtraTreesJeiPlugin implements IModPlugin {
 
 	@Override
 	public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
+		if (!extraTreesEnabled()) {
+			return;
+		}
 		registration.addCraftingStation(FRUIT_PRESS, ExtraTreesBlocks.MACHINES.get(ExtraTreeMachineType.PRESS).block());
 		registration.addCraftingStation(BREWERY, ExtraTreesBlocks.MACHINES.get(ExtraTreeMachineType.BREWERY).block());
 		registration.addCraftingStation(DISTILLERY, ExtraTreesBlocks.MACHINES.get(ExtraTreeMachineType.DISTILLERY).block());
+	}
+
+	private static boolean extraTreesEnabled() {
+		return IForestryApi.get().getModuleManager().isModuleEnabled(ReForestry.id("extra_trees"));
 	}
 
 	private static ItemStack grainStackFor(net.minecraft.tags.TagKey<net.minecraft.world.item.Item> tag) {

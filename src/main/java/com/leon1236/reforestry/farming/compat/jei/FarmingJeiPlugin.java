@@ -67,6 +67,6 @@ public class FarmingJeiPlugin implements IModPlugin {
 	}
 
 	private static boolean farmingLoaded() {
-		return IForestryApi.get().getModuleManager().isModuleLoaded(ReForestry.id("farming"));
+		return IForestryApi.get().getModuleManager().isModuleEnabled(ReForestry.id("farming"));
 	}
 }

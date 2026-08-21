@@ -100,7 +100,7 @@ public class GendustryJeiPlugin implements IModPlugin {
 	}
 
 	private static boolean gendustryLoaded() {
-		return IForestryApi.get().getModuleManager().isModuleLoaded(ReForestry.id("gendustry"));
+		return IForestryApi.get().getModuleManager().isModuleEnabled(ReForestry.id("gendustry"));
 	}
 
 	private static <F> void registerFluidInfo(IRecipeRegistration registration) {

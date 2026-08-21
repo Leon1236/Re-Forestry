@@ -16,6 +16,8 @@ import com.leon1236.reforestry.extratrees.features.ExtraTreesEntities;
 import com.leon1236.reforestry.extratrees.features.ExtraTreesItems;
 import com.leon1236.reforestry.extratrees.features.ExtraTreesMenuTypes;
 import com.leon1236.reforestry.extratrees.features.ExtraTreesTiles;
+import com.leon1236.reforestry.extratrees.fluids.ExtraTreesFluids;
+import com.leon1236.reforestry.extratrees.recipes.ExtraTreesAlcoholRecipes;
 
 @ForestryModule(name = "Extra Trees", description = "Extra Trees woods, fruits, machines, and moths.")
 public class ModuleExtraTrees implements IForestryModule {
@@ -37,8 +39,8 @@ public class ModuleExtraTrees implements IForestryModule {
 		ExtraTreesTiles.init();
 		ExtraTreesMenuTypes.init();
 		ExtraTreesCreativeTabs.init();
-		com.leon1236.reforestry.extratrees.fluids.ExtraTreesFluids.init();
-		com.leon1236.reforestry.extratrees.recipes.ExtraTreesAlcoholRecipes.init();
+		ExtraTreesFluids.init();
+		ExtraTreesAlcoholRecipes.init();
 	}
 
 	@Override
