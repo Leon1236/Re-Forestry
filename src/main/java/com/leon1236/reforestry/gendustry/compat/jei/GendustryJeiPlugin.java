@@ -18,6 +18,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.material.Fluid;
 
 import com.leon1236.reforestry.ReForestry;
+import com.leon1236.reforestry.api.IForestryApi;
 import com.leon1236.reforestry.apiculture.compat.jei.MutationDisplay;
 import com.leon1236.reforestry.core.compat.jei.JeiRecipeSources;
 import com.leon1236.reforestry.core.fluids.FluidUnits;
@@ -43,11 +44,17 @@ public class GendustryJeiPlugin implements IModPlugin {
 
 	@Override
 	public void registerItemSubtypes(ISubtypeRegistration registration) {
+		if (!gendustryLoaded()) {
+			return;
+		}
 		registration.registerSubtypeInterpreter(GItems.GENE_SAMPLE.item(), new GeneSampleInterpreter());
 	}
 
 	@Override
 	public void registerCategories(IRecipeCategoryRegistration registration) {
+		if (!gendustryLoaded()) {
+			return;
+		}
 		IJeiHelpers jeiHelpers = registration.getJeiHelpers();
 		IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
 		IPlatformFluidHelper<?> fluidHelper = jeiHelpers.getPlatformFluidHelper();
@@ -58,6 +65,9 @@ public class GendustryJeiPlugin implements IModPlugin {
 
 	@Override
 	public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
+		if (!gendustryLoaded()) {
+			return;
+		}
 		registration.addCraftingStation(GendustryJeiRecipeTypes.MUTAGEN_PRODUCER, MutagenRecipeCategory.ICON_STACK);
 		registration.addCraftingStation(GendustryJeiRecipeTypes.DNA_EXTRACTOR, DNAExtractorRecipeCategory.ICON_STACK);
 		registration.addCraftingStation(GendustryJeiRecipeTypes.PROTEIN_LIQUEFIER, ProteinProducerRecipeCategory.ICON_STACK);
@@ -65,6 +75,9 @@ public class GendustryJeiPlugin implements IModPlugin {
 
 	@Override
 	public void registerRecipes(IRecipeRegistration registration) {
+		if (!gendustryLoaded()) {
+			return;
+		}
 		registration.addRecipes(GendustryJeiRecipeTypes.MUTAGEN_PRODUCER, JeiRecipeSources.collect(MutagenRecipe.class));
 		registration.addRecipes(GendustryJeiRecipeTypes.PROTEIN_LIQUEFIER, JeiRecipeSources.collect(ProteinRecipe.class));
 		registration.addRecipes(GendustryJeiRecipeTypes.DNA_EXTRACTOR, JeiRecipeSources.collect(DnaRecipe.class));
@@ -73,6 +86,9 @@ public class GendustryJeiPlugin implements IModPlugin {
 
 	@Override
 	public void registerGuiHandlers(IGuiHandlerRegistration registration) {
+		if (!gendustryLoaded()) {
+			return;
+		}
 		IRecipeType<?>[] mutationTypes = registration.getJeiHelpers().getAllRecipeTypes()
 				.filter(type -> type.getRecipeClass() == MutationDisplay.class)
 				.toArray(IRecipeType[]::new);
@@ -81,6 +97,10 @@ public class GendustryJeiPlugin implements IModPlugin {
 			registration.addRecipeClickArea(ScreenAdvancedMutatron.class, 68, 38, 55, 18, mutationTypes);
 		}
 		registration.addGuiContainerHandler(ScreenProducer.class, new ProducerGuiContainerHandler());
+	}
+
+	private static boolean gendustryLoaded() {
+		return IForestryApi.get().getModuleManager().isModuleLoaded(ReForestry.id("gendustry"));
 	}
 
 	private static <F> void registerFluidInfo(IRecipeRegistration registration) {

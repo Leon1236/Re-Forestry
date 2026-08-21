@@ -19,6 +19,12 @@
 - Mirror local Factory/Apiculture JEI APIs (`IRecipeType`, `addCraftingStation`, `GuiGraphicsExtractor`) — not Forge `ForgeTypes.FLUID_STACK`
 - DNA labware chance tooltip uses existing `ChanceTooltipCallback(0.1f)` / `for.jei.chance`
 - No donor mod dependency; JEI stays soft via `suggests` + entrypoint only
+- JEI registration gated on `gendustry` module (same pattern as `FarmingJeiPlugin`) so a disabled module does not load `GItems`/`GBlocks` via JEI
+- Advanced mutatron progress bar also opens mutation JEI (donor only wired MutatronScreen)
+
+## Review fixes
+
+- Matched donor `errors.reforestry.incompatible_species.help` English text
 
 ## Gaps / next
 
