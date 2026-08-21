@@ -1,6 +1,7 @@
 package com.leon1236.reforestry.api.plugin;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -28,6 +29,8 @@ public interface IButterflySpeciesBuilder extends ISpeciesBuilder<IButterflySpec
 	IButterflySpeciesBuilder setSpawnBiomes(TagKey<Biome> biomeTag);
 
 	IButterflySpeciesBuilder setRarity(float rarity);
+
+	IButterflySpeciesBuilder addMutations(Consumer<IMutationsRegistration> mutations);
 
 	int getSerumColor();
 

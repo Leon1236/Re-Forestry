@@ -8,12 +8,12 @@ import com.leon1236.reforestry.api.plugin.IButterflySpeciesBuilder;
 import com.leon1236.reforestry.api.plugin.ILepidopterologyRegistration;
 import com.leon1236.reforestry.core.genetics.alleles.AlleleManager;
 import com.leon1236.reforestry.lepidopterology.genetics.ButterflyChromosomes;
-import com.leon1236.reforestry.lepidopterology.genetics.ButterflySpeciesBuilder;
+import com.leon1236.reforestry.lepidopterology.genetics.LepidopterologyGenetics;
 
 public final class LepidopterologyRegistrationImpl implements ILepidopterologyRegistration {
 	@Override
 	public IButterflySpeciesBuilder registerSpecies(Identifier id, String genus, String species, boolean dominant, int serumColor, float rarity) {
-		return new ButterflySpeciesBuilder(id, genus, species, dominant, serumColor, rarity);
+		return LepidopterologyGenetics.registerSpecies(id, genus, species, dominant, serumColor, rarity);
 	}
 
 	@Override

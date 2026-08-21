@@ -48,6 +48,8 @@ public final class ForestryAlleles {
     public static final IIntegerAllele FERTILITY_2 = fertility(2, true);
     public static final IIntegerAllele FERTILITY_3 = fertility(3, false);
     public static final IIntegerAllele FERTILITY_4 = fertility(4, false);
+    public static final IIntegerAllele FERTILITY_5 = fertility(5, false);
+    public static final IIntegerAllele FERTILITY_10 = fertility(10, false);
 
     public static final IValueAllele<Vec3i> TERRITORY_AVERAGE = territory(9, 6, 9, false);
     public static final IValueAllele<Vec3i> TERRITORY_LARGE = territory(11, 8, 11, false);
@@ -156,7 +158,18 @@ public final class ForestryAlleles {
     public static final IFloatAllele SIZE_SMALLEST = AlleleManager.INSTANCE.floatAllele(0.3f, false);
     public static final IFloatAllele SIZE_SMALLER = AlleleManager.INSTANCE.floatAllele(0.4f, false);
     public static final IFloatAllele SIZE_SMALL = AlleleManager.INSTANCE.floatAllele(0.5f, false);
+    public static final IFloatAllele SIZE_AVERAGE = AlleleManager.INSTANCE.floatAllele(0.6f, false);
+    public static final IFloatAllele SIZE_LARGE = AlleleManager.INSTANCE.floatAllele(0.75f, false);
+    public static final IFloatAllele SIZE_LARGER = AlleleManager.INSTANCE.floatAllele(0.9f, false);
+    public static final IFloatAllele SIZE_LARGEST = AlleleManager.INSTANCE.floatAllele(1.0f, false);
+
+    public static final IIntegerAllele METABOLISM_SLOWEST = AlleleManager.INSTANCE.integerAllele(1, false);
     public static final IIntegerAllele METABOLISM_SLOWER = AlleleManager.INSTANCE.integerAllele(2, false);
+    public static final IIntegerAllele METABOLISM_SLOW = AlleleManager.INSTANCE.integerAllele(3, false);
+    public static final IIntegerAllele METABOLISM_NORMAL = AlleleManager.INSTANCE.integerAllele(5, false);
+    public static final IIntegerAllele METABOLISM_FAST = AlleleManager.INSTANCE.integerAllele(7, false);
+    public static final IIntegerAllele METABOLISM_FASTER = AlleleManager.INSTANCE.integerAllele(8, false);
+    public static final IIntegerAllele METABOLISM_FASTEST = AlleleManager.INSTANCE.integerAllele(10, false);
 
     private ForestryAlleles() {
     }

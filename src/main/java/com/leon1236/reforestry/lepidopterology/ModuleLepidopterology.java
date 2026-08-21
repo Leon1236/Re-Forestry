@@ -13,9 +13,13 @@ import com.leon1236.reforestry.lepidopterology.client.LepidopterologyClientHandl
 import com.leon1236.reforestry.lepidopterology.features.LepidopterologyCreativeTabs;
 import com.leon1236.reforestry.lepidopterology.features.LepidopterologyDataComponents;
 import com.leon1236.reforestry.lepidopterology.features.LepidopterologyItems;
+import com.leon1236.reforestry.lepidopterology.genetics.LepidopterologyGenetics;
 
 @ForestryModule(name = "Lepidopterology", description = "Butterflies. Pretty.")
 public class ModuleLepidopterology implements IForestryModule {
+	private static final float SERUM_CHANCE = 0.55f;
+	private static final float SECOND_SERUM_CHANCE = 0f;
+
 	@Override
 	public Identifier getId() {
 		return ReForestry.id("lepidopterology");
@@ -30,7 +34,16 @@ public class ModuleLepidopterology implements IForestryModule {
 	public void init() {
 		LepidopterologyItems.init();
 		LepidopterologyDataComponents.init();
+		LepidopterologyGenetics.finalizeRegistration();
 		LepidopterologyCreativeTabs.init();
+	}
+
+	public static float getSerumChance() {
+		return SERUM_CHANCE;
+	}
+
+	public static float getSecondSerumChance() {
+		return SECOND_SERUM_CHANCE;
 	}
 
 	@Override

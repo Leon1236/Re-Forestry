@@ -1,6 +1,7 @@
 package com.leon1236.reforestry.core.plugin;
 
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 import net.minecraft.resources.Identifier;
@@ -17,6 +18,7 @@ import com.leon1236.reforestry.api.circuits.ForestryCircuitSocketTypes;
 import com.leon1236.reforestry.api.core.ForestryError;
 import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
 import com.leon1236.reforestry.api.lepidopterology.ForestryButterflyEffects;
+import com.leon1236.reforestry.api.lepidopterology.ForestryButterflySpecies;
 import com.leon1236.reforestry.api.lepidopterology.ForestryCocoons;
 import com.leon1236.reforestry.api.lepidopterology.genetics.ButterflyLifeStage;
 import com.leon1236.reforestry.api.plugin.IApicultureRegistration;
@@ -27,6 +29,8 @@ import com.leon1236.reforestry.api.plugin.IForestryPlugin;
 import com.leon1236.reforestry.api.plugin.IGeneticRegistration;
 import com.leon1236.reforestry.api.plugin.ILepidopterologyRegistration;
 import com.leon1236.reforestry.api.plugin.IPollenRegistration;
+import com.leon1236.reforestry.api.client.plugin.IClientRegistration;
+import com.leon1236.reforestry.lepidopterology.client.ButterflyAnalyzerPlugin;
 import com.leon1236.reforestry.apiculture.features.ApicultureEffects;
 import com.leon1236.reforestry.apiculture.features.ApicultureItems;
 import com.leon1236.reforestry.apiculture.genetics.BeeChromosomes;
@@ -40,6 +44,7 @@ import com.leon1236.reforestry.core.circuits.EnumElectronTube;
 import com.leon1236.reforestry.core.features.CoreItems;
 import com.leon1236.reforestry.factory.circuits.CircuitMachineUpgrade;
 import com.leon1236.reforestry.apiculture.genetics.DefaultBeeSpecies;
+import com.leon1236.reforestry.lepidopterology.genetics.DefaultButterflySpecies;
 import com.leon1236.reforestry.apiculture.genetics.JubilanceFactory;
 import com.leon1236.reforestry.arboriculture.ForestryWoodType;
 import com.leon1236.reforestry.arboriculture.VanillaWoodType;
@@ -100,6 +105,7 @@ public final class ReforestryPlugin implements IForestryPlugin {
 		registration.registerEffect(ForestryButterflyEffects.NONE, ButterflyChromosomes.NONE_EFFECT);
 		registration.registerCocoon(ForestryCocoons.DEFAULT, ButterflyChromosomes.DEFAULT_COCOON);
 		registration.registerCocoon(ForestryCocoons.SILK, ButterflyChromosomes.SILK_COCOON);
+		DefaultButterflySpecies.register(registration);
 	}
 
     @Override
@@ -256,4 +262,18 @@ public final class ReforestryPlugin implements IForestryPlugin {
                 new ItemStack(CoreItems.ELECTRON_TUBES.get(EnumElectronTube.AMBER).item()),
                 new CircuitMachineUpgrade("machine.fortune.1", 0, 0.05f, 1.25f));
     }
+
+	@Override
+	public void registerClient(Consumer<Consumer<IClientRegistration>> registrar) {
+		registrar.accept(client -> {
+			client.setAnalyzerPlugin(ForestrySpeciesTypes.BUTTERFLY, new ButterflyAnalyzerPlugin());
+			for (Identifier speciesId : ForestryButterflySpecies.ALL) {
+				String path = speciesId.getPath();
+				client.setButterflySprites(
+						speciesId,
+						Identifier.fromNamespaceAndPath(speciesId.getNamespace(), "item/butterfly/" + path),
+						Identifier.fromNamespaceAndPath(speciesId.getNamespace(), "textures/entity/butterfly/" + path + ".png"));
+			}
+		});
+	}
 }

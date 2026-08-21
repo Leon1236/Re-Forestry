@@ -15,10 +15,13 @@ import com.leon1236.reforestry.api.core.IProduct;
 import com.leon1236.reforestry.api.core.TemperatureType;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.api.genetics.IGenomeBuilder;
+import com.leon1236.reforestry.api.genetics.alleles.IRegistryAllele;
 import com.leon1236.reforestry.api.lepidopterology.genetics.IButterflySpecies;
 import com.leon1236.reforestry.api.lepidopterology.genetics.IButterflySpeciesType;
 import com.leon1236.reforestry.api.plugin.IButterflySpeciesBuilder;
+import com.leon1236.reforestry.api.plugin.IMutationsRegistration;
 import com.leon1236.reforestry.api.plugin.ISpeciesBuilder;
+import com.leon1236.reforestry.core.genetics.mutations.MutationsRegistration;
 
 public final class ButterflySpeciesBuilder implements IButterflySpeciesBuilder {
 	private final Identifier id;
@@ -38,10 +41,11 @@ public final class ButterflySpeciesBuilder implements IButterflySpeciesBuilder {
 	private String authority = "";
 	private TemperatureType temperature = TemperatureType.NORMAL;
 	private HumidityType humidity = HumidityType.NORMAL;
-	private Consumer<IGenomeBuilder> genome = builder -> {
-	};
 	private final List<IProduct> products = new ArrayList<>();
 	private final List<IProduct> caterpillarProducts = new ArrayList<>();
+	private Consumer<IGenomeBuilder> genome = builder -> {
+	};
+	private final MutationsRegistration mutations = new MutationsRegistration();
 	private ISpeciesBuilder.ISpeciesFactory<IButterflySpeciesType, IButterflySpecies, IButterflySpeciesBuilder> factory;
 
 	public ButterflySpeciesBuilder(Identifier id, String genus, String species, boolean dominant, int serumColor, float rarity) {
@@ -171,7 +175,10 @@ public final class ButterflySpeciesBuilder implements IButterflySpeciesBuilder {
 
 	@Override
 	public ISpeciesBuilder.ISpeciesFactory<IButterflySpeciesType, IButterflySpecies, IButterflySpeciesBuilder> createSpeciesFactory() {
-		return factory;
+		if (factory != null) {
+			return factory;
+		}
+		return (id, type, defaultGenome, builder) -> ((ButterflySpeciesBuilder) builder).buildSpecies();
 	}
 
 	@Override
@@ -207,6 +214,12 @@ public final class ButterflySpeciesBuilder implements IButterflySpeciesBuilder {
 	@Override
 	public ButterflySpeciesBuilder setRarity(float rarity) {
 		this.rarity = rarity;
+		return this;
+	}
+
+	@Override
+	public ButterflySpeciesBuilder addMutations(Consumer<IMutationsRegistration> mutations) {
+		mutations.accept(this.mutations);
 		return this;
 	}
 
@@ -251,7 +264,27 @@ public final class ButterflySpeciesBuilder implements IButterflySpeciesBuilder {
 		return List.copyOf(caterpillarProducts);
 	}
 
+	boolean dominant() {
+		return dominant;
+	}
+
 	Identifier id() {
 		return id;
+	}
+
+	MutationsRegistration mutations() {
+		return mutations;
+	}
+
+	IButterflySpecies buildSpecies() {
+		return new ButterflySpecies(id, genus, species, dominant, serumColor, rarity, flightDistance, nocturnal, moth,
+				spawnBiomes, glint, secret, complexity, authority, temperature, humidity,
+				List.copyOf(products), List.copyOf(caterpillarProducts));
+	}
+
+	IGenome buildGenome(IRegistryAllele<IButterflySpecies> speciesAllele) {
+		IGenomeBuilder builder = ButterflyChromosomes.KARYOTYPE.genomeBuilder().set(ButterflyChromosomes.SPECIES, speciesAllele);
+		genome.accept(builder);
+		return builder.build();
 	}
 }

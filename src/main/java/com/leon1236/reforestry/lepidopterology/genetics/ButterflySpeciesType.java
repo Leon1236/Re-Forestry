@@ -36,7 +36,7 @@ public final class ButterflySpeciesType extends SpeciesType<IButterflySpecies, I
 
 	private ButterflySpeciesType() {
 		super(ForestrySpeciesTypes.BUTTERFLY, ButterflyChromosomes.KARYOTYPE, ButterflyLifeStage.BUTTERFLY,
-				ForestryButterflySpecies.CABBAGE_WHITE, List.of(ButterflyLifeStage.values()));
+				ForestryButterflySpecies.MONARCH, List.of(ButterflyLifeStage.values()));
 	}
 
 	@Override
@@ -56,9 +56,7 @@ public final class ButterflySpeciesType extends SpeciesType<IButterflySpecies, I
 
 	@Override
 	public ImmutableMap<Identifier, IButterflySpecies> handleSpeciesRegistration(List<IForestryPlugin> plugins) {
-		ImmutableMap<Identifier, IButterflySpecies> empty = ImmutableMap.of();
-		onSpeciesRegistered(empty);
-		return empty;
+		return ImmutableMap.copyOf(LepidopterologyGenetics.getSpeciesById());
 	}
 
 	@Override
