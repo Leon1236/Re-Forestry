@@ -468,7 +468,11 @@ def parse_allele(expr: str) -> dict:
     return out
 
 
-def parse_comb_product(expr: str, locals_map: dict[str, str] | None = None) -> dict:
+def parse_comb_product(
+    expr: str,
+    locals_map: dict[str, str] | None = None,
+    misc_ids: dict[str, str] | None = None,
+) -> dict:
     text = re.sub(r"\s+", " ", expr.strip())
     if locals_map and text in locals_map:
         text = locals_map[text]
@@ -482,7 +486,8 @@ def parse_comb_product(expr: str, locals_map: dict[str, str] | None = None) -> d
     extra_item = re.fullmatch(r"ExtraBeeItems\.(\w+)(?:\.get\(\s*1\s*\))?", text)
     if extra_item:
         name = extra_item.group(1)
-        out.update({"kind": "extra_bees_misc", "enum": name, "reforestry_id": rid(name.lower())})
+        item_id = (misc_ids or {}).get(name) or rid(name.lower())
+        out.update({"kind": "extra_bees_misc", "enum": name, "reforestry_id": item_id})
         return out
     drop = re.fullmatch(r"EnumHoneyDrop\.(\w+)(?:\.get\(\s*1\s*\))?", text)
     if drop:
@@ -523,7 +528,7 @@ DYE_METAS = [1, 11, 4, 2, 0, 15, 3, 14, 6, 5, 8, 12, 9, 10, 13, 7]
 DYE_REMNANT = {0: "BLACK_DYE", 1: "RED_DYE", 2: "GREEN_DYE", 3: "BROWN_DYE", 4: "BLUE_DYE", 11: "YELLOW_DYE", 15: "WHITE_DYE"}
 
 
-def dye_comb_products(comb_enum: str) -> list[dict]:
+def dye_comb_products(comb_enum: str, misc_ids: dict[str, str] | None = None) -> list[dict]:
     index = DYE_COMB_ORDER.index(comb_enum)
     meta = DYE_METAS[index]
     drop = DYE_COMB_ORDER[index]
@@ -545,7 +550,7 @@ def dye_comb_products(comb_enum: str) -> list[dict]:
             "source": f"ExtraBeeItems.{remnant}.get(1)",
             "kind": "extra_bees_misc",
             "enum": remnant,
-            "reforestry_id": rid(remnant.lower()),
+            "reforestry_id": (misc_ids or {}).get(remnant) or rid(remnant.lower()),
             "chance": None,
             "role": "squeezer_remnant",
             "try": False,
@@ -566,20 +571,24 @@ def dye_comb_products(comb_enum: str) -> list[dict]:
     return products
 
 
-def parse_comb_products(body: str, comb_enum: str) -> tuple[list[dict], list[str]]:
+def parse_comb_products(
+    body: str,
+    comb_enum: str,
+    misc_ids: dict[str, str] | None = None,
+) -> tuple[list[dict], list[str]]:
     products: list[dict] = []
     copies: list[str] = []
     locals_map = {}
     for match in re.finditer(r"ItemStack\s+(\w+)\s*=\s*(.+?);", body):
         locals_map[match.group(1)] = match.group(2).strip()
     if "addDyeSubtypes" in body:
-        return dye_comb_products(comb_enum), copies
+        return dye_comb_products(comb_enum, misc_ids), copies
     for copy in re.finditer(r"copyProducts\s*\(\s*EnumHoneyComb\.(\w+)\s*\)", body):
         copies.append(copy.group(1))
     for name, args in find_named_calls(body, ("tryAddProduct", "addProduct")):
         if len(args) < 2:
             continue
-        item = parse_comb_product(args[0], locals_map)
+        item = parse_comb_product(args[0], locals_map, misc_ids)
         item["chance"] = float(args[1].rstrip("fF"))
         item["try"] = name == "tryAddProduct"
         products.append(item)
@@ -824,7 +833,7 @@ def extract_flowers(src: str, local: dict) -> list[dict]:
     return out
 
 
-def extract_combs(src: str, local: dict) -> list[dict]:
+def extract_combs(src: str, local: dict, misc_ids: dict[str, str] | None = None) -> list[dict]:
     members = parse_enum_members(src)
     out = []
     copies: dict[str, list[str]] = {}
@@ -834,7 +843,7 @@ def extract_combs(src: str, local: dict) -> list[dict]:
         inactive = not ints
         secondary = ints[0] if len(ints) >= 1 else 16777215
         primary = ints[1] if len(ints) >= 2 else 16777215
-        products, copy_from = parse_comb_products(member["body"], member["name"])
+        products, copy_from = parse_comb_products(member["body"], member["name"], misc_ids)
         copies[member["name"]] = copy_from
         entry = {
             "enum": member["name"],
@@ -1300,10 +1309,11 @@ def main() -> None:
     species, skipped_commented, mutations = extract_species(definition, branches, local)
     effects = extract_effects(effect_src, local)
     flowers = extract_flowers(flower_src, local)
-    combs = extract_combs(comb_src, local)
     drops = extract_drops(drop_src)
     propolis = extract_propolis(propolis_src)
     misc = extract_misc(misc_src)
+    misc_ids = {entry["enum"]: entry["reforestry_id"] for entry in misc}
+    combs = extract_combs(comb_src, local, misc_ids)
     frames = extract_frames(frame_src)
     industrial = extract_industrial_frames(industrial_src)
     alveary = extract_alveary(machine_src)

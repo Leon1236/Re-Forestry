@@ -1752,7 +1752,7 @@
           "source": "ExtraBeeItems.RED_DYE.get(1)",
           "kind": "extra_bees_misc",
           "enum": "RED_DYE",
-          "reforestry_id": "reforestry:red_dye",
+          "reforestry_id": "reforestry:dye_red",
           "chance": null,
           "role": "squeezer_remnant",
           "try": false
@@ -1794,7 +1794,7 @@
           "source": "ExtraBeeItems.YELLOW_DYE.get(1)",
           "kind": "extra_bees_misc",
           "enum": "YELLOW_DYE",
-          "reforestry_id": "reforestry:yellow_dye",
+          "reforestry_id": "reforestry:dye_yellow",
           "chance": null,
           "role": "squeezer_remnant",
           "try": false
@@ -1836,7 +1836,7 @@
           "source": "ExtraBeeItems.BLUE_DYE.get(1)",
           "kind": "extra_bees_misc",
           "enum": "BLUE_DYE",
-          "reforestry_id": "reforestry:blue_dye",
+          "reforestry_id": "reforestry:dye_blue",
           "chance": null,
           "role": "squeezer_remnant",
           "try": false
@@ -1878,7 +1878,7 @@
           "source": "ExtraBeeItems.GREEN_DYE.get(1)",
           "kind": "extra_bees_misc",
           "enum": "GREEN_DYE",
-          "reforestry_id": "reforestry:green_dye",
+          "reforestry_id": "reforestry:dye_green",
           "chance": null,
           "role": "squeezer_remnant",
           "try": false
@@ -1920,7 +1920,7 @@
           "source": "ExtraBeeItems.BLACK_DYE.get(1)",
           "kind": "extra_bees_misc",
           "enum": "BLACK_DYE",
-          "reforestry_id": "reforestry:black_dye",
+          "reforestry_id": "reforestry:dye_black",
           "chance": null,
           "role": "squeezer_remnant",
           "try": false
@@ -1962,7 +1962,7 @@
           "source": "ExtraBeeItems.WHITE_DYE.get(1)",
           "kind": "extra_bees_misc",
           "enum": "WHITE_DYE",
-          "reforestry_id": "reforestry:white_dye",
+          "reforestry_id": "reforestry:dye_white",
           "chance": null,
           "role": "squeezer_remnant",
           "try": false
@@ -2004,7 +2004,7 @@
           "source": "ExtraBeeItems.BROWN_DYE.get(1)",
           "kind": "extra_bees_misc",
           "enum": "BROWN_DYE",
-          "reforestry_id": "reforestry:brown_dye",
+          "reforestry_id": "reforestry:dye_brown",
           "chance": null,
           "role": "squeezer_remnant",
           "try": false

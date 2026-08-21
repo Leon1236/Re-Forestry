@@ -91,7 +91,7 @@ Factory JEI already lists `reforestry:centrifuge` / `reforestry:squeezer` from t
 
 - No Binnie `acid` / `poison` / `liquidnitrogen` / BuildCraft-style `oil`/`fuel` / Railcraft `creosote` in this stack
 - OreDict try-products stay gated until a later optional compat maps them
-- Extract dye remnant ids `red_dye` etc. are wrong; generator remaps via `misc[].reforestry_id` (`dye_red`, …)
+- Extract dye remnant ids now use `misc[].reforestry_id` (`dye_red`, …); generator still remaps via misc as a safety net
 
 ## Player checks
 
