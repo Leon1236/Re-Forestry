@@ -1,5 +1,7 @@
 package com.leon1236.reforestry.extra_bees.plugin;
 
+import java.util.List;
+
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 
@@ -17,6 +19,7 @@ import com.leon1236.reforestry.extra_bees.circuit.StimulatorCircuit;
 import com.leon1236.reforestry.extra_bees.genetics.ExtraBeesBeeSpecies;
 import com.leon1236.reforestry.extra_bees.genetics.ExtraBeesFlowerType;
 import com.leon1236.reforestry.extra_bees.genetics.effects.ExtraBeesEffects;
+import com.leon1236.reforestry.extra_bees.hives.ExtraBeesHiveDefinition;
 
 public class ExtraBeesForestryPlugin implements IForestryPlugin {
 	@Override
@@ -41,6 +44,25 @@ public class ExtraBeesForestryPlugin implements IForestryPlugin {
 	public void registerApiculture(IApicultureRegistration registration) {
 		ExtraBeesEffects.register(registration);
 		ExtraBeesBeeSpecies.register(registration);
+		registerHives(registration);
+	}
+
+	private static void registerHives(IApicultureRegistration registration) {
+		registration.registerHive(ReForestry.id("bee_water"), ExtraBeesHiveDefinition.WATER)
+				.addDrop(0.80, ReForestry.id("bee_water"), () -> List.of(), 0.5f)
+				.addDrop(0.03, ReForestry.id("bee_valiant"), () -> List.of(), 0.5f);
+
+		registration.registerHive(ReForestry.id("bee_rock"), ExtraBeesHiveDefinition.ROCK)
+				.addDrop(0.80, ReForestry.id("bee_rock"), () -> List.of(), 0.5f)
+				.addDrop(0.03, ReForestry.id("bee_valiant"), () -> List.of(), 0.5f);
+
+		registration.registerHive(ReForestry.id("bee_basalt"), ExtraBeesHiveDefinition.NETHER)
+				.addDrop(0.80, ReForestry.id("bee_basalt"), () -> List.of(), 0.5f)
+				.addDrop(0.03, ReForestry.id("bee_valiant"), () -> List.of(), 0.5f);
+
+		registration.registerHive(ReForestry.id("bee_marble"), ExtraBeesHiveDefinition.MARBLE)
+				.addDrop(0.80, ReForestry.id("bee_marble"), () -> List.of(), 0.5f)
+				.addDrop(0.03, ReForestry.id("bee_valiant"), () -> List.of(), 0.5f);
 	}
 
 	@Override

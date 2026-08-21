@@ -3,7 +3,7 @@
 What is **done and working** in the mod today.  
 Update this file when a roadmap step lands. For how-to-build guidance, see `CLAUDE.md`. For the next work items, see **Next up** at the bottom.
 
-Last updated: 2026-08-21 (EB2e: 24 Extra Bees dye/quantum/festive/FTB/Botania + INK; 24 EB muts; cumulative 116 species / 134 EB muts + 34 FR = 168. Next: EB4)
+Last updated: 2026-08-21 (EB4: Extra Bees wild hives water/rock/eb_nether/marble + worldgen + scoop loot. Next: ET1a)
 
 ---
 
@@ -234,9 +234,9 @@ Play notes: `queries/storage-B1-b3-backpacks.md`, `queries/storage-B4-naturalist
 
 ## Next up (not implemented yet)
 
-**Next up: Wave 7 `EB4`.** EB2e dyes/quantum/festive/FTB/Botania + INK landed (116 species / 168 mutations). Locked remaining order: see `queries/wave7-plan.md` (EB4 → ET1a…). No solar/combustion.
+**Next up: Wave 7 `ET1a`.** EB4 Extra Bees wild hives + worldgen/loot landed. Locked remaining order: see `queries/wave7-plan.md` (ET1a…). No solar/combustion.
 
-**Wave 7 addons:** GD0 + EB1 + GD1–GD8 + EB5 + EB6 + EB-FLOWERS+EB3 + EB2a–EB2e done; Extra Trees still extract-only until ET1a.
+**Wave 7 addons:** GD0 + EB1 + GD1–GD8 + EB5 + EB6 + EB-FLOWERS+EB3 + EB2a–EB2e + EB4 done; Extra Trees still extract-only until ET1a.
 
 | ID | Status | Notes |
 |---|---|---|
@@ -259,6 +259,7 @@ Play notes: `queries/storage-B1-b3-backpacks.md`, `queries/storage-B4-naturalist
 | `EB2c` | Done | 27 species (metallic/metallic2/precious/mineral/gemstone/nuclear); 45 EB mutations; ore comb specialties; radioactive effect; cumulative generator. See `queries/extra-bees-EB2c.md` |
 | `EB2d` | Done | 9 species (virulent/viscous/caustic); 9 EB mutations; miasmic/ectoplasm/acid effects; cumulative generator. See `queries/extra-bees-EB2d.md` |
 | `EB2e` | Done | 24 species (PRIMARY/SECONDARY/TERTIARY dyes + INK + festive/FTB/austere/quantum/Botania); 24 EB mutations; cumulative 116 / 168. Soft Botania flower from EB3. See `queries/extra-bees-EB2e.md` |
+| `EB4` | Done | `registerHive` water/rock/basalt/marble; Binnie placement gens; loot 0.8 + valiant 0.03 ignoble 0.5; `c:stones/marble` soft-tag; scoop mineable. See `queries/extra-bees-EB4.md` |
 | `EB0` | Extract done | `tools/extract_extra_bees.py` + `queries/extra-bees-*.json` — 116 species, 168 mutations, 25 effects. |
 | `ET0` | Extract done | `tools/extract_extra_trees.py` + `queries/extra-trees-extract/` — 97 species (skip 9 binomials), 59 fruits, 36 planks (skip 6 → 30 new + shrub log), 97 mutations, 22 moths. No Java woods/module. |
 | `W7-INT` | Merged | Local 1b–4 + origin/main Wave 5 + Wave 6 lepidopterology. Farming/energy/filter kept. |
@@ -292,7 +293,7 @@ Older (partially stale): [`queries/item-gap-implementation-plan.md`](../queries/
 |---|---|---|---|
 | 1 | `GP0a1–d` | Species-type / plugin genetics façade | **done** (merged from GitHub) |
 | 2 | `D0→D4` | **Lepidopterology** | **done** (merged from GitHub). Unlocks `butterfly_chest` recipe and sorting `S2` |
-| 3 | Addons | Gendustry → Extra Bees → Extra Trees | Config modules; **GD0…GD8 + EB1 + EB5 + EB6 + EB-FLOWERS+EB3 + EB2a–EB2e done**. Next: **EB4** |
+| 3 | Addons | Gendustry → Extra Bees → Extra Trees | Config modules; **GD0…GD8 + EB1 + EB5 + EB6 + EB-FLOWERS+EB3 + EB2a–EB2e + EB4 done**. Next: **ET1a** |
 | 4 | Restore | Greenhouse, climatology, database, guide book (CE-dropped 1.12) | Optional |
 | — | `TR1` | Optional Trinkets spectacles slot | Helmet already works (A5) |
 

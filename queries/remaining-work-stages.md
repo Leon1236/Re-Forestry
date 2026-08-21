@@ -450,7 +450,7 @@ Skip Binnie Genetics serums/isolator (Gendustry is the modern line).
 | `EB2c` | L | 27 species + 45 EB mutations (metallic…nuclear + precious) — **done** | EB2b |
 | `EB2d` | L | 9 species + 9 EB mutations (viscous/caustic/virulent) — **done** | EB2c |
 | `EB2e` | L | 24 species + 24 EB mutations (dye/quantum/festive/FTB/Botania + INK) — **done** (116 / 168) | EB2d |
-| `EB4` | M | Hives water/rock/nether/marble + worldgen + loot | EB2a |
+| `EB4` | M | Hives water/rock/nether/marble + worldgen + loot — **done** | EB2a |
 
 
 ### Extra Trees (extract + reimplement; designer deferred)
@@ -496,7 +496,7 @@ Skip Binnie Genetics serums/isolator (Gendustry is the modern line).
 ## Suggested next sessions (human order)
 
 1. Wave 7 remaining order is locked in `queries/wave7-plan.md`: **GD0 → EB1 → GD1…GD8 → EB5 → EB6 → EB-FLOWERS+EB3 → EB2a–e → EB4 → ET1a…ET6 → S2**.  
-2. Do not start ET1 until GD/EB playable stages in that order. Flowers + EB3 before any EB2 species batch.
+2. Next playable stage: **ET1a** (Extra Trees woods). Do not start ET1b until ET1a lands.
 
 **Can start in parallel with nothing else:** `TR1`.
 

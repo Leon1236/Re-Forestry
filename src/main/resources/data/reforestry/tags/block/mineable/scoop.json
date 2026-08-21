@@ -11,6 +11,10 @@
     "reforestry:beehive_lush",
     "reforestry:beehive_aquatic",
     "reforestry:beehive_nether",
-    "reforestry:beehive_swarm"
+    "reforestry:beehive_swarm",
+    "reforestry:beehive_water",
+    "reforestry:beehive_rock",
+    "reforestry:beehive_eb_nether",
+    "reforestry:beehive_marble"
   ]
 }

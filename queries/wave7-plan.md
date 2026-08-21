@@ -76,7 +76,7 @@ Order: **GD0 → EB1 → GD1 → GD2 (incl. DNA) → GD3 (incl. DNA extractor) �
 | 17 | EB2c | L | Metals/minerals/gems/nuclear (+ precious) | **done** — 27 species, 45 EB muts |
 | 18 | EB2d | L | Viscous/caustic/virulent | **done** — 9 species, 9 EB muts |
 | 19 | EB2e | L | Dyes + quantum/FTB/botania (+ INK); 116 species / 168 muts | **done** — After EB2d |
-| 20 | EB4 | M | Four hives + worldgen | Loot + marble soft-tag |
+| 20 | EB4 | M | Four hives + worldgen | **done** — Loot + marble soft-tag |
 | 21 | ET1a | L | 30 woods + shrub log | ExtraTreeWoodType + WoodAccess |
 | 22 | ET1b | L | Stripped/boats/signs/trapdoor/button/plate | Full WoodBlockKind; no charcoal walls |
 | 23 | ET2 | L | Fruits + ~88 species + mutations | registerFruit; overlap woods → ForestryWoodType |

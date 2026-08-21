@@ -1,0 +1,13 @@
+{
+  "values": [
+    "#minecraft:sand",
+    "minecraft:gravel",
+    "minecraft:clay",
+    "#minecraft:dirt",
+    "#minecraft:base_stone_overworld",
+    "#minecraft:base_stone_nether",
+    "#minecraft:stone_ore_replaceables",
+    "minecraft:cobblestone",
+    "minecraft:mossy_cobblestone"
+  ]
+}
