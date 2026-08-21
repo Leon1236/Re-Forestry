@@ -8,7 +8,13 @@
 !/gradle/
 !/src/
 !/.cursor/
+!/queries/
+!/files/
+!/tools/
 
 __pycache__/
 *.pyc
 **/graphify-out/
+/files/CoFH/
+/files/mods MD/
+queries/_ce_material_usage_tmp.txt

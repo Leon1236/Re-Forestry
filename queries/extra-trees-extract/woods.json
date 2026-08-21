@@ -1,0 +1,1031 @@
+{
+  "source_class": "binnie.extratrees.wood.planks.ExtraTreePlanks",
+  "log_class": "binnie.extratrees.wood.EnumETLog",
+  "shrub_class": "binnie.extratrees.wood.EnumShrubLog",
+  "plank_count": 36,
+  "overlap_count": 6,
+  "new_plank_count": 30,
+  "shrub_log_count": 1,
+  "planks": [
+    {
+      "enum": "Fir",
+      "path": "fir",
+      "color": "0xc38c54",
+      "ce_overlap": true,
+      "forestry_wood_type": "FIR",
+      "reuse": "ForestryWoodType.FIR",
+      "register": false,
+      "reforestry_id_note": "reuse ForestryWoodType.FIR"
+    },
+    {
+      "enum": "Cedar",
+      "path": "cedar",
+      "color": "0xd86634",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Cedar"
+    },
+    {
+      "enum": "Hemlock",
+      "path": "hemlock",
+      "color": "0xc7b56c",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Hemlock"
+    },
+    {
+      "enum": "Cypress",
+      "path": "cypress",
+      "color": "0xf6b85c",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Cypress"
+    },
+    {
+      "enum": "Fig",
+      "path": "fig",
+      "color": "0xc8882a",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Fig"
+    },
+    {
+      "enum": "Beech",
+      "path": "beech",
+      "color": "0xe19951",
+      "ce_overlap": true,
+      "forestry_wood_type": "BEECH",
+      "reuse": "ForestryWoodType.BEECH",
+      "register": false,
+      "reforestry_id_note": "reuse ForestryWoodType.BEECH"
+    },
+    {
+      "enum": "Alder",
+      "path": "alder",
+      "color": "0xb88553",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Alder"
+    },
+    {
+      "enum": "Hazel",
+      "path": "hazel",
+      "color": "0xcdb195",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Hazel"
+    },
+    {
+      "enum": "Hornbeam",
+      "path": "hornbeam",
+      "color": "0xc39860",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Hornbeam"
+    },
+    {
+      "enum": "Box",
+      "path": "box",
+      "color": "0xfbf1c6",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Box"
+    },
+    {
+      "enum": "Butternut",
+      "path": "butternut",
+      "color": "0xecaa7a",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Butternut"
+    },
+    {
+      "enum": "Hickory",
+      "path": "hickory",
+      "color": "0xdab48e",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Hickory"
+    },
+    {
+      "enum": "Whitebeam",
+      "path": "whitebeam",
+      "color": "0xc9c2b9",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Whitebeam"
+    },
+    {
+      "enum": "Elm",
+      "path": "elm",
+      "color": "0xf0a964",
+      "ce_overlap": true,
+      "forestry_wood_type": "ELM",
+      "reuse": "ForestryWoodType.ELM",
+      "register": false,
+      "reforestry_id_note": "reuse ForestryWoodType.ELM"
+    },
+    {
+      "enum": "Apple",
+      "path": "apple",
+      "color": "0x603528",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Apple"
+    },
+    {
+      "enum": "Yew",
+      "path": "yew",
+      "color": "0xe0a57a",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Yew"
+    },
+    {
+      "enum": "Pear",
+      "path": "pear",
+      "color": "0xb8896d",
+      "ce_overlap": true,
+      "forestry_wood_type": "PEAR",
+      "reuse": "ForestryWoodType.PEAR",
+      "register": false,
+      "reforestry_id_note": "reuse ForestryWoodType.PEAR"
+    },
+    {
+      "enum": "Hawthorn",
+      "path": "hawthorn",
+      "color": "0xcc8362",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Hawthorn"
+    },
+    {
+      "enum": "Rowan",
+      "path": "rowan",
+      "color": "0xcfad9a",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Rowan"
+    },
+    {
+      "enum": "Elder",
+      "path": "elder",
+      "color": "0xbe9279",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Elder"
+    },
+    {
+      "enum": "Maclura",
+      "path": "maclura",
+      "color": "0xf3b22e",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Maclura"
+    },
+    {
+      "enum": "Syzgium",
+      "path": "syzgium",
+      "color": "0xe6c3c1",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Syzgium"
+    },
+    {
+      "enum": "Brazilwood",
+      "path": "brazilwood",
+      "color": "0x723e57",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Brazilwood"
+    },
+    {
+      "enum": "Logwood",
+      "path": "logwood",
+      "color": "0xa4372c",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Logwood"
+    },
+    {
+      "enum": "Iroko",
+      "path": "iroko",
+      "color": "0x753400",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Iroko"
+    },
+    {
+      "enum": "Locust",
+      "path": "locust",
+      "color": "0xc39160",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Locust"
+    },
+    {
+      "enum": "Eucalyptus",
+      "path": "eucalyptus",
+      "color": "0xf6ab8b",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Eucalyptus"
+    },
+    {
+      "enum": "Purpleheart",
+      "path": "purpleheart",
+      "color": "0x5b1c2f",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Purpleheart"
+    },
+    {
+      "enum": "Ash",
+      "path": "ash",
+      "color": "0xf5c768",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Ash"
+    },
+    {
+      "enum": "Holly",
+      "path": "holly",
+      "color": "0xfbf6e7",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Holly"
+    },
+    {
+      "enum": "Olive",
+      "path": "olive",
+      "color": "0xb0ad88",
+      "ce_overlap": true,
+      "forestry_wood_type": "OLIVE",
+      "reuse": "ForestryWoodType.OLIVE",
+      "register": false,
+      "reforestry_id_note": "reuse ForestryWoodType.OLIVE"
+    },
+    {
+      "enum": "Sweetgum",
+      "path": "sweetgum",
+      "color": "0xd59658",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Sweetgum"
+    },
+    {
+      "enum": "Rosewood",
+      "path": "rosewood",
+      "color": "0x761500",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Rosewood"
+    },
+    {
+      "enum": "Gingko",
+      "path": "gingko",
+      "color": "0xf4e7ba",
+      "ce_overlap": true,
+      "forestry_wood_type": "GINKGO",
+      "reuse": "ForestryWoodType.GINKGO",
+      "register": false,
+      "reforestry_id_note": "reuse ForestryWoodType.GINKGO"
+    },
+    {
+      "enum": "PinkIvory",
+      "path": "pink_ivory",
+      "color": "0xec8ca0",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.PinkIvory"
+    },
+    {
+      "enum": "Banana",
+      "path": "banana",
+      "color": "0x907343",
+      "ce_overlap": false,
+      "forestry_wood_type": null,
+      "reuse": null,
+      "register": true,
+      "reforestry_id_note": "ExtraTreeWoodType.Banana"
+    }
+  ],
+  "logs": [
+    {
+      "enum": "Apple",
+      "display": "Apple",
+      "uid": "apple",
+      "path": "apple",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Apple",
+        "path": "apple"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Fig",
+      "display": "Fig",
+      "uid": "fig",
+      "path": "fig",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Fig",
+        "path": "fig"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Butternut",
+      "display": "Butternut",
+      "uid": "butternut",
+      "path": "butternut",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Butternut",
+        "path": "butternut"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Whitebeam",
+      "display": "Whitebeam",
+      "uid": "whitebeam",
+      "path": "whitebeam",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Whitebeam",
+        "path": "whitebeam"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Rowan",
+      "display": "Rowan",
+      "uid": "rowan",
+      "path": "rowan",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Rowan",
+        "path": "rowan"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Hemlock",
+      "display": "Hemlock",
+      "uid": "hemlock",
+      "path": "hemlock",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Hemlock",
+        "path": "hemlock"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Ash",
+      "display": "Ash",
+      "uid": "ash",
+      "path": "ash",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Ash",
+        "path": "ash"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Alder",
+      "display": "Alder",
+      "uid": "alder",
+      "path": "alder",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Alder",
+        "path": "alder"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Beech",
+      "display": "Beech",
+      "uid": "beech",
+      "path": "beech",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Beech",
+        "path": "beech"
+      },
+      "has_products": true,
+      "ce_overlap": true,
+      "forestry_wood_type": "BEECH"
+    },
+    {
+      "enum": "Hawthorn",
+      "display": "Hawthorn",
+      "uid": "hawthorn",
+      "path": "hawthorn",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Hawthorn",
+        "path": "hawthorn"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Banana",
+      "display": "Banana",
+      "uid": "banana",
+      "path": "banana",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Banana",
+        "path": "banana"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Yew",
+      "display": "Yew",
+      "uid": "yew",
+      "path": "yew",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Yew",
+        "path": "yew"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Cypress",
+      "display": "Cypress",
+      "uid": "cypress",
+      "path": "cypress",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Cypress",
+        "path": "cypress"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Fir",
+      "display": "Fir",
+      "uid": "fir",
+      "path": "fir",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Fir",
+        "path": "fir"
+      },
+      "has_products": true,
+      "ce_overlap": true,
+      "forestry_wood_type": "FIR"
+    },
+    {
+      "enum": "Hazel",
+      "display": "Hazel",
+      "uid": "hazel",
+      "path": "hazel",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Hazel",
+        "path": "hazel"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Hickory",
+      "display": "Hickory",
+      "uid": "hickory",
+      "path": "hickory",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Hickory",
+        "path": "hickory"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Elm",
+      "display": "Elm",
+      "uid": "elm",
+      "path": "elm",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Elm",
+        "path": "elm"
+      },
+      "has_products": true,
+      "ce_overlap": true,
+      "forestry_wood_type": "ELM"
+    },
+    {
+      "enum": "Elder",
+      "display": "Elder",
+      "uid": "elder",
+      "path": "elder",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Elder",
+        "path": "elder"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Holly",
+      "display": "Holly",
+      "uid": "holly",
+      "path": "holly",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Holly",
+        "path": "holly"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Hornbeam",
+      "display": "Hornbeam",
+      "uid": "hornbeam",
+      "path": "hornbeam",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Hornbeam",
+        "path": "hornbeam"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Cedar",
+      "display": "Cedar",
+      "uid": "cedar",
+      "path": "cedar",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Cedar",
+        "path": "cedar"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Olive",
+      "display": "Olive",
+      "uid": "olive",
+      "path": "olive",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Olive",
+        "path": "olive"
+      },
+      "has_products": true,
+      "ce_overlap": true,
+      "forestry_wood_type": "OLIVE"
+    },
+    {
+      "enum": "Sweetgum",
+      "display": "Sweetgum",
+      "uid": "sweetgum",
+      "path": "sweetgum",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Sweetgum",
+        "path": "sweetgum"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Locust",
+      "display": "Locust",
+      "uid": "locust",
+      "path": "locust",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Locust",
+        "path": "locust"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Pear",
+      "display": "Pear",
+      "uid": "pear",
+      "path": "pear",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Pear",
+        "path": "pear"
+      },
+      "has_products": true,
+      "ce_overlap": true,
+      "forestry_wood_type": "PEAR"
+    },
+    {
+      "enum": "Maclura",
+      "display": "Maclura",
+      "uid": "maclura",
+      "path": "maclura",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Maclura",
+        "path": "maclura"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Brazilwood",
+      "display": "Brazilwood",
+      "uid": "brazilwood",
+      "path": "brazilwood",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Brazilwood",
+        "path": "brazilwood"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Logwood",
+      "display": "Logwood",
+      "uid": "logwood",
+      "path": "logwood",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Logwood",
+        "path": "logwood"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Rosewood",
+      "display": "Rosewood",
+      "uid": "rosewood",
+      "path": "rosewood",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Rosewood",
+        "path": "rosewood"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Purpleheart",
+      "display": "Purpleheart",
+      "uid": "purpleheart",
+      "path": "purpleheart",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Purpleheart",
+        "path": "purpleheart"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Iroko",
+      "display": "Iroko",
+      "uid": "iroko",
+      "path": "iroko",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Iroko",
+        "path": "iroko"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Gingko",
+      "display": "Gingko",
+      "uid": "gingko",
+      "path": "gingko",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Gingko",
+        "path": "gingko"
+      },
+      "has_products": true,
+      "ce_overlap": true,
+      "forestry_wood_type": "GINKGO"
+    },
+    {
+      "enum": "Eucalyptus",
+      "display": "Eucalyptus",
+      "uid": "eucalyptus",
+      "path": "eucalyptus",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Eucalyptus",
+        "path": "eucalyptus"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Box",
+      "display": "Box",
+      "uid": "box",
+      "path": "box",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Box",
+        "path": "box"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Syzgium",
+      "display": "Syzgium",
+      "uid": "syzgium",
+      "path": "syzgium",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Syzgium",
+        "path": "syzgium"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "PinkIvory",
+      "display": "PinkIvory",
+      "uid": "pinkivory",
+      "path": "pink_ivory",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "PinkIvory",
+        "path": "pink_ivory"
+      },
+      "has_products": true,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Eucalyptus2",
+      "display": "Eucalyptus",
+      "uid": "eucalyptus",
+      "path": "eucalyptus2",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Eucalyptus",
+        "path": "eucalyptus"
+      },
+      "has_products": false,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Eucalyptus3",
+      "display": "Eucalyptus",
+      "uid": "eucalyptus",
+      "path": "eucalyptus3",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Eucalyptus",
+        "path": "eucalyptus"
+      },
+      "has_products": false,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Cherry",
+      "display": "Cherry",
+      "uid": "cherry",
+      "path": "cherry",
+      "plank": {
+        "kind": "forestry_plank",
+        "enum": "CHERRY",
+        "path": "cherry"
+      },
+      "has_products": false,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Cinnamon",
+      "display": "Cinnamon",
+      "uid": "cinnamon",
+      "path": "cinnamon",
+      "plank": {
+        "kind": "vanilla_plank",
+        "enum": "JUNGLE",
+        "path": "jungle"
+      },
+      "has_products": false,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    }
+  ],
+  "shrub_logs": [
+    {
+      "enum": "INSTANCE",
+      "path": "shrub_log",
+      "register": true,
+      "note": "EnumShrubLog.INSTANCE — extra log, not a plank wood"
+    }
+  ],
+  "ce_overlap_woods": [
+    {
+      "et_plank": "Fir",
+      "forestry_wood_type": "FIR",
+      "note": "do not re-register; ExtraTreeWoodType skips these"
+    },
+    {
+      "et_plank": "Beech",
+      "forestry_wood_type": "BEECH",
+      "note": "do not re-register; ExtraTreeWoodType skips these"
+    },
+    {
+      "et_plank": "Elm",
+      "forestry_wood_type": "ELM",
+      "note": "do not re-register; ExtraTreeWoodType skips these"
+    },
+    {
+      "et_plank": "Pear",
+      "forestry_wood_type": "PEAR",
+      "note": "do not re-register; ExtraTreeWoodType skips these"
+    },
+    {
+      "et_plank": "Olive",
+      "forestry_wood_type": "OLIVE",
+      "note": "do not re-register; ExtraTreeWoodType skips these"
+    },
+    {
+      "et_plank": "Gingko",
+      "forestry_wood_type": "GINKGO",
+      "note": "do not re-register; ExtraTreeWoodType skips these"
+    }
+  ],
+  "log_only_variants": [
+    {
+      "enum": "Eucalyptus2",
+      "display": "Eucalyptus",
+      "uid": "eucalyptus",
+      "path": "eucalyptus2",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Eucalyptus",
+        "path": "eucalyptus"
+      },
+      "has_products": false,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Eucalyptus3",
+      "display": "Eucalyptus",
+      "uid": "eucalyptus",
+      "path": "eucalyptus3",
+      "plank": {
+        "kind": "et_plank",
+        "enum": "Eucalyptus",
+        "path": "eucalyptus"
+      },
+      "has_products": false,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Cherry",
+      "display": "Cherry",
+      "uid": "cherry",
+      "path": "cherry",
+      "plank": {
+        "kind": "forestry_plank",
+        "enum": "CHERRY",
+        "path": "cherry"
+      },
+      "has_products": false,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    },
+    {
+      "enum": "Cinnamon",
+      "display": "Cinnamon",
+      "uid": "cinnamon",
+      "path": "cinnamon",
+      "plank": {
+        "kind": "vanilla_plank",
+        "enum": "JUNGLE",
+        "path": "jungle"
+      },
+      "has_products": false,
+      "ce_overlap": false,
+      "forestry_wood_type": null
+    }
+  ]
+}

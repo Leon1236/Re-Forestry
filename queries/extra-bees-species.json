@@ -1,0 +1,6251 @@
+{
+  "source_class": "binnie.extrabees.genetics.ExtraBeeDefinition",
+  "branch_class": "binnie.extrabees.genetics.ExtraBeeBranchDefinition",
+  "count": 116,
+  "default_genome": [],
+  "branches": [
+    {
+      "enum": "BARREN",
+      "scientific": "Vacapis",
+      "uid": "barren",
+      "empty": false,
+      "genome": [
+        {
+          "source": "EnumAllele.Tolerance.DOWN_1",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "DOWN_1",
+          "chromosome": "HUMIDITY_TOLERANCE"
+        },
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "NEVER_SLEEPS"
+        },
+        {
+          "source": "EnumAllele.Speed.SLOWER",
+          "kind": "enum_allele",
+          "group": "Speed",
+          "value": "SLOWER",
+          "chromosome": "SPEED"
+        },
+        {
+          "source": "EnumAllele.Lifespan.SHORT",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "SHORT",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "EnumAllele.Tolerance.UP_1",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "UP_1",
+          "chromosome": "TEMPERATURE_TOLERANCE"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesFlowers.DEAD.getUID())",
+          "kind": "extra_bees_flower",
+          "enum": "DEAD",
+          "binnie_uid": "extrabees.flower.dead",
+          "reforestry_id": "reforestry:flower_type_dead",
+          "chromosome": "FLOWER_PROVIDER"
+        },
+        {
+          "source": "EnumAllele.Fertility.LOW",
+          "kind": "enum_allele",
+          "group": "Fertility",
+          "value": "LOW",
+          "chromosome": "FERTILITY"
+        }
+      ],
+      "uses_default_only": false
+    },
+    {
+      "enum": "HOSTILE",
+      "scientific": "Infenapis",
+      "uid": "hostile",
+      "empty": false,
+      "genome": [
+        {
+          "source": "EnumAllele.Tolerance.DOWN_1",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "DOWN_1",
+          "chromosome": "HUMIDITY_TOLERANCE"
+        },
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "NEVER_SLEEPS"
+        },
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "CAVE_DWELLING"
+        },
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "TOLERATES_RAIN"
+        },
+        {
+          "source": "EnumAllele.Speed.SLOWER",
+          "kind": "enum_allele",
+          "group": "Speed",
+          "value": "SLOWER",
+          "chromosome": "SPEED"
+        },
+        {
+          "source": "EnumAllele.Lifespan.SHORT",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "SHORT",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "EnumAllele.Tolerance.UP_1",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "UP_1",
+          "chromosome": "TEMPERATURE_TOLERANCE"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesFlowers.DEAD.getUID())",
+          "kind": "extra_bees_flower",
+          "enum": "DEAD",
+          "binnie_uid": "extrabees.flower.dead",
+          "reforestry_id": "reforestry:flower_type_dead",
+          "chromosome": "FLOWER_PROVIDER"
+        },
+        {
+          "source": "EnumAllele.Fertility.LOW",
+          "kind": "enum_allele",
+          "group": "Fertility",
+          "value": "LOW",
+          "chromosome": "FERTILITY"
+        }
+      ],
+      "uses_default_only": false
+    },
+    {
+      "enum": "ROCKY",
+      "scientific": "Monapis",
+      "uid": "rocky",
+      "empty": false,
+      "genome": [
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "NEVER_SLEEPS"
+        },
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "CAVE_DWELLING"
+        },
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "TOLERATES_RAIN"
+        },
+        {
+          "source": "EnumAllele.Fertility.LOW",
+          "kind": "enum_allele",
+          "group": "Fertility",
+          "value": "LOW",
+          "chromosome": "FERTILITY"
+        },
+        {
+          "source": "EnumAllele.Tolerance.BOTH_1",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "BOTH_1",
+          "chromosome": "TEMPERATURE_TOLERANCE"
+        },
+        {
+          "source": "EnumAllele.Tolerance.BOTH_1",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "BOTH_1",
+          "chromosome": "HUMIDITY_TOLERANCE"
+        },
+        {
+          "source": "EnumAllele.Lifespan.SHORT",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "SHORT",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesFlowers.ROCK.getUID())",
+          "kind": "extra_bees_flower",
+          "enum": "ROCK",
+          "binnie_uid": "extrabees.flower.rock",
+          "reforestry_id": "reforestry:flower_type_rock",
+          "chromosome": "FLOWER_PROVIDER"
+        }
+      ],
+      "uses_default_only": false
+    },
+    {
+      "enum": "METALLIC",
+      "scientific": "Lamminapis",
+      "uid": "metallic",
+      "empty": false,
+      "genome": [
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "NEVER_SLEEPS"
+        },
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "CAVE_DWELLING"
+        },
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "TOLERATES_RAIN"
+        },
+        {
+          "source": "EnumAllele.Fertility.LOW",
+          "kind": "enum_allele",
+          "group": "Fertility",
+          "value": "LOW",
+          "chromosome": "FERTILITY"
+        },
+        {
+          "source": "EnumAllele.Lifespan.SHORT",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "SHORT",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesFlowers.ROCK.getUID())",
+          "kind": "extra_bees_flower",
+          "enum": "ROCK",
+          "binnie_uid": "extrabees.flower.rock",
+          "reforestry_id": "reforestry:flower_type_rock",
+          "chromosome": "FLOWER_PROVIDER"
+        },
+        {
+          "source": "EnumAllele.Tolerance.BOTH_2",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "BOTH_2",
+          "chromosome": "TEMPERATURE_TOLERANCE"
+        },
+        {
+          "source": "EnumAllele.Tolerance.BOTH_2",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "BOTH_2",
+          "chromosome": "HUMIDITY_TOLERANCE"
+        }
+      ],
+      "uses_default_only": false
+    },
+    {
+      "enum": "METALLIC2",
+      "scientific": "Metalapis",
+      "uid": "metallic2",
+      "empty": false,
+      "genome": [
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "NEVER_SLEEPS"
+        },
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "CAVE_DWELLING"
+        },
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "TOLERATES_RAIN"
+        },
+        {
+          "source": "EnumAllele.Fertility.LOW",
+          "kind": "enum_allele",
+          "group": "Fertility",
+          "value": "LOW",
+          "chromosome": "FERTILITY"
+        },
+        {
+          "source": "EnumAllele.Lifespan.SHORT",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "SHORT",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesFlowers.ROCK.getUID())",
+          "kind": "extra_bees_flower",
+          "enum": "ROCK",
+          "binnie_uid": "extrabees.flower.rock",
+          "reforestry_id": "reforestry:flower_type_rock",
+          "chromosome": "FLOWER_PROVIDER"
+        },
+        {
+          "source": "EnumAllele.Tolerance.BOTH_2",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "BOTH_2",
+          "chromosome": "TEMPERATURE_TOLERANCE"
+        },
+        {
+          "source": "EnumAllele.Tolerance.BOTH_2",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "BOTH_2",
+          "chromosome": "HUMIDITY_TOLERANCE"
+        }
+      ],
+      "uses_default_only": false
+    },
+    {
+      "enum": "ALLOY",
+      "scientific": "Allapis",
+      "uid": "alloy",
+      "empty": true,
+      "genome": [],
+      "uses_default_only": true
+    },
+    {
+      "enum": "PRECIOUS",
+      "scientific": "Pluriapis",
+      "uid": "precious",
+      "empty": false,
+      "genome": [
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "NEVER_SLEEPS"
+        },
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "CAVE_DWELLING"
+        },
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "TOLERATES_RAIN"
+        },
+        {
+          "source": "EnumAllele.Fertility.LOW",
+          "kind": "enum_allele",
+          "group": "Fertility",
+          "value": "LOW",
+          "chromosome": "FERTILITY"
+        },
+        {
+          "source": "EnumAllele.Lifespan.SHORT",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "SHORT",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesFlowers.ROCK.getUID())",
+          "kind": "extra_bees_flower",
+          "enum": "ROCK",
+          "binnie_uid": "extrabees.flower.rock",
+          "reforestry_id": "reforestry:flower_type_rock",
+          "chromosome": "FLOWER_PROVIDER"
+        },
+        {
+          "source": "EnumAllele.Tolerance.BOTH_2",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "BOTH_2",
+          "chromosome": "TEMPERATURE_TOLERANCE"
+        },
+        {
+          "source": "EnumAllele.Tolerance.BOTH_2",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "BOTH_2",
+          "chromosome": "HUMIDITY_TOLERANCE"
+        }
+      ],
+      "uses_default_only": false
+    },
+    {
+      "enum": "MINERAL",
+      "scientific": "Niphapis",
+      "uid": "mineral",
+      "empty": false,
+      "genome": [
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "NEVER_SLEEPS"
+        },
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "CAVE_DWELLING"
+        },
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "TOLERATES_RAIN"
+        },
+        {
+          "source": "EnumAllele.Fertility.LOW",
+          "kind": "enum_allele",
+          "group": "Fertility",
+          "value": "LOW",
+          "chromosome": "FERTILITY"
+        },
+        {
+          "source": "EnumAllele.Lifespan.SHORT",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "SHORT",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesFlowers.ROCK.getUID())",
+          "kind": "extra_bees_flower",
+          "enum": "ROCK",
+          "binnie_uid": "extrabees.flower.rock",
+          "reforestry_id": "reforestry:flower_type_rock",
+          "chromosome": "FLOWER_PROVIDER"
+        },
+        {
+          "source": "EnumAllele.Tolerance.BOTH_2",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "BOTH_2",
+          "chromosome": "TEMPERATURE_TOLERANCE"
+        },
+        {
+          "source": "EnumAllele.Tolerance.BOTH_2",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "BOTH_2",
+          "chromosome": "HUMIDITY_TOLERANCE"
+        }
+      ],
+      "uses_default_only": false
+    },
+    {
+      "enum": "GEMSTONE",
+      "scientific": "Gemmapis",
+      "uid": "gemstone",
+      "empty": false,
+      "genome": [
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "NEVER_SLEEPS"
+        },
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "CAVE_DWELLING"
+        },
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "TOLERATES_RAIN"
+        },
+        {
+          "source": "EnumAllele.Fertility.LOW",
+          "kind": "enum_allele",
+          "group": "Fertility",
+          "value": "LOW",
+          "chromosome": "FERTILITY"
+        },
+        {
+          "source": "EnumAllele.Lifespan.SHORT",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "SHORT",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesFlowers.ROCK.getUID())",
+          "kind": "extra_bees_flower",
+          "enum": "ROCK",
+          "binnie_uid": "extrabees.flower.rock",
+          "reforestry_id": "reforestry:flower_type_rock",
+          "chromosome": "FLOWER_PROVIDER"
+        },
+        {
+          "source": "EnumAllele.Tolerance.BOTH_2",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "BOTH_2",
+          "chromosome": "TEMPERATURE_TOLERANCE"
+        },
+        {
+          "source": "EnumAllele.Tolerance.BOTH_2",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "BOTH_2",
+          "chromosome": "HUMIDITY_TOLERANCE"
+        }
+      ],
+      "uses_default_only": false
+    },
+    {
+      "enum": "NUCLEAR",
+      "scientific": "Levapis",
+      "uid": "nuclear",
+      "empty": false,
+      "genome": [
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "NEVER_SLEEPS"
+        },
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "CAVE_DWELLING"
+        },
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "TOLERATES_RAIN"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesFlowers.ROCK.getUID())",
+          "kind": "extra_bees_flower",
+          "enum": "ROCK",
+          "binnie_uid": "extrabees.flower.rock",
+          "reforestry_id": "reforestry:flower_type_rock",
+          "chromosome": "FLOWER_PROVIDER"
+        },
+        {
+          "source": "EnumAllele.Tolerance.BOTH_2",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "BOTH_2",
+          "chromosome": "TEMPERATURE_TOLERANCE"
+        },
+        {
+          "source": "EnumAllele.Tolerance.BOTH_2",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "BOTH_2",
+          "chromosome": "HUMIDITY_TOLERANCE"
+        },
+        {
+          "source": "EnumAllele.Fertility.LOW",
+          "kind": "enum_allele",
+          "group": "Fertility",
+          "value": "LOW",
+          "chromosome": "FERTILITY"
+        },
+        {
+          "source": "EnumAllele.Lifespan.SHORTEST",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "SHORTEST",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesEffect.RADIOACTIVE.getUID())",
+          "kind": "extra_bees_effect",
+          "enum": "RADIOACTIVE",
+          "binnie_uid": "extrabees.effect.radioactive",
+          "reforestry_id": "reforestry:bee_effect_radioactive",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "uses_default_only": false
+    },
+    {
+      "enum": "HISTORIC",
+      "scientific": "Priscapis",
+      "uid": "historic",
+      "empty": false,
+      "genome": [
+        {
+          "source": "EnumAllele.Speed.SLOWER",
+          "kind": "enum_allele",
+          "group": "Speed",
+          "value": "SLOWER",
+          "chromosome": "SPEED"
+        },
+        {
+          "source": "EnumAllele.Lifespan.ELONGATED",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "ELONGATED",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "EnumAllele.Flowering.SLOW",
+          "kind": "enum_allele",
+          "group": "Flowering",
+          "value": "SLOW",
+          "chromosome": "FLOWERING"
+        }
+      ],
+      "uses_default_only": false
+    },
+    {
+      "enum": "FOSSILIZED",
+      "scientific": "Fosiapis",
+      "uid": "fossilized",
+      "empty": false,
+      "genome": [
+        {
+          "source": "EnumAllele.Speed.SLOWER",
+          "kind": "enum_allele",
+          "group": "Speed",
+          "value": "SLOWER",
+          "chromosome": "SPEED"
+        },
+        {
+          "source": "EnumAllele.Lifespan.NORMAL",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "NORMAL",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "EnumAllele.Flowering.SLOW",
+          "kind": "enum_allele",
+          "group": "Flowering",
+          "value": "SLOW",
+          "chromosome": "FLOWERING"
+        }
+      ],
+      "uses_default_only": false
+    },
+    {
+      "enum": "REFINED",
+      "scientific": "Petrapis",
+      "uid": "refined",
+      "empty": false,
+      "genome": [
+        {
+          "source": "EnumAllele.Speed.SLOWER",
+          "kind": "enum_allele",
+          "group": "Speed",
+          "value": "SLOWER",
+          "chromosome": "SPEED"
+        },
+        {
+          "source": "EnumAllele.Lifespan.NORMAL",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "NORMAL",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "EnumAllele.Flowering.SLOW",
+          "kind": "enum_allele",
+          "group": "Flowering",
+          "value": "SLOW",
+          "chromosome": "FLOWERING"
+        }
+      ],
+      "uses_default_only": false
+    },
+    {
+      "enum": "AQUATIC",
+      "scientific": "Aquapis",
+      "uid": "aquatic",
+      "empty": false,
+      "genome": [
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "TOLERATES_RAIN"
+        },
+        {
+          "source": "EnumAllele.Flowering.SLOWEST",
+          "kind": "enum_allele",
+          "group": "Flowering",
+          "value": "SLOWEST",
+          "chromosome": "FLOWERING"
+        },
+        {
+          "source": "EnumAllele.Tolerance.BOTH_1",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "BOTH_1",
+          "chromosome": "HUMIDITY_TOLERANCE"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesFlowers.WATER.getUID())",
+          "kind": "extra_bees_flower",
+          "enum": "WATER",
+          "binnie_uid": "extrabees.flower.water",
+          "reforestry_id": "reforestry:flower_type_water",
+          "chromosome": "FLOWER_PROVIDER"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesEffect.WATER.getUID())",
+          "kind": "extra_bees_effect",
+          "enum": "WATER",
+          "binnie_uid": "extrabees.effect.water",
+          "reforestry_id": "reforestry:bee_effect_water",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "uses_default_only": false
+    },
+    {
+      "enum": "SACCHARINE",
+      "scientific": "Sacchapis",
+      "uid": "saccharine",
+      "empty": false,
+      "genome": [
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesFlowers.SUGAR.getUID())",
+          "kind": "extra_bees_flower",
+          "enum": "SUGAR",
+          "binnie_uid": "extrabees.flower.sugar",
+          "reforestry_id": "reforestry:flower_type_sugar",
+          "chromosome": "FLOWER_PROVIDER"
+        }
+      ],
+      "uses_default_only": false
+    },
+    {
+      "enum": "CLASSICAL",
+      "scientific": "Grecapis",
+      "uid": "classical",
+      "empty": false,
+      "genome": [
+        {
+          "source": "EnumAllele.Speed.SLOWER",
+          "kind": "enum_allele",
+          "group": "Speed",
+          "value": "SLOWER",
+          "chromosome": "SPEED"
+        },
+        {
+          "source": "EnumAllele.Lifespan.SHORT",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "SHORT",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "EnumAllele.Flowering.SLOW",
+          "kind": "enum_allele",
+          "group": "Flowering",
+          "value": "SLOW",
+          "chromosome": "FLOWERING"
+        }
+      ],
+      "uses_default_only": false
+    },
+    {
+      "enum": "VOLCANIC",
+      "scientific": "Irrapis",
+      "uid": "volcanic",
+      "empty": false,
+      "genome": [
+        {
+          "source": "EnumAllele.Tolerance.DOWN_2",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "DOWN_2",
+          "chromosome": "TEMPERATURE_TOLERANCE"
+        },
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "NEVER_SLEEPS"
+        },
+        {
+          "source": "EnumAllele.Flowers.NETHER",
+          "kind": "enum_allele",
+          "group": "Flowers",
+          "value": "NETHER",
+          "chromosome": "FLOWER_PROVIDER"
+        },
+        {
+          "source": "EnumAllele.Flowering.AVERAGE",
+          "kind": "enum_allele",
+          "group": "Flowering",
+          "value": "AVERAGE",
+          "chromosome": "FLOWERING"
+        },
+        {
+          "source": "EnumAllele.Speed.SLOWER",
+          "kind": "enum_allele",
+          "group": "Speed",
+          "value": "SLOWER",
+          "chromosome": "SPEED"
+        },
+        {
+          "source": "EnumAllele.Lifespan.NORMAL",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "NORMAL",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesEffect.METEOR.getUID())",
+          "kind": "extra_bees_effect",
+          "enum": "METEOR",
+          "binnie_uid": "extrabees.effect.meteor",
+          "reforestry_id": "reforestry:bee_effect_meteor",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "uses_default_only": false
+    },
+    {
+      "enum": "VIRULENT",
+      "scientific": "Virapis",
+      "uid": "virulent",
+      "empty": false,
+      "genome": [
+        {
+          "source": "EnumAllele.Speed.SLOWER",
+          "kind": "enum_allele",
+          "group": "Speed",
+          "value": "SLOWER",
+          "chromosome": "SPEED"
+        },
+        {
+          "source": "EnumAllele.Lifespan.SHORT",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "SHORT",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "EnumAllele.Tolerance.UP_1",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "UP_1",
+          "chromosome": "TEMPERATURE_TOLERANCE"
+        },
+        {
+          "source": "EnumAllele.Tolerance.UP_1",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "UP_1",
+          "chromosome": "HUMIDITY_TOLERANCE"
+        },
+        {
+          "source": "EnumAllele.Flowers.JUNGLE",
+          "kind": "enum_allele",
+          "group": "Flowers",
+          "value": "JUNGLE",
+          "chromosome": "FLOWER_PROVIDER"
+        },
+        {
+          "source": "AlleleEffects.effectMiasmic",
+          "kind": "forestry_effect",
+          "enum": "MIASMIC",
+          "reforestry_id": "reforestry:bee_effect_miasmic",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "uses_default_only": false
+    },
+    {
+      "enum": "VISCOUS",
+      "scientific": "Viscapis",
+      "uid": "viscous",
+      "empty": false,
+      "genome": [
+        {
+          "source": "EnumAllele.Tolerance.UP_1",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "UP_1",
+          "chromosome": "TEMPERATURE_TOLERANCE"
+        },
+        {
+          "source": "EnumAllele.Tolerance.UP_1",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "UP_1",
+          "chromosome": "HUMIDITY_TOLERANCE"
+        },
+        {
+          "source": "EnumAllele.Flowers.JUNGLE",
+          "kind": "enum_allele",
+          "group": "Flowers",
+          "value": "JUNGLE",
+          "chromosome": "FLOWER_PROVIDER"
+        },
+        {
+          "source": "EnumAllele.Speed.SLOW",
+          "kind": "enum_allele",
+          "group": "Speed",
+          "value": "SLOW",
+          "chromosome": "SPEED"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesEffect.ECTOPLASM.getUID())",
+          "kind": "extra_bees_effect",
+          "enum": "ECTOPLASM",
+          "binnie_uid": "extrabees.effect.ectoplasm",
+          "reforestry_id": "reforestry:bee_effect_ectoplasm",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "uses_default_only": false
+    },
+    {
+      "enum": "CAUSTIC",
+      "scientific": "Morbapis",
+      "uid": "caustic",
+      "empty": false,
+      "genome": [
+        {
+          "source": "EnumAllele.Tolerance.UP_1",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "UP_1",
+          "chromosome": "TEMPERATURE_TOLERANCE"
+        },
+        {
+          "source": "EnumAllele.Tolerance.UP_1",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "UP_1",
+          "chromosome": "HUMIDITY_TOLERANCE"
+        },
+        {
+          "source": "EnumAllele.Flowers.JUNGLE",
+          "kind": "enum_allele",
+          "group": "Flowers",
+          "value": "JUNGLE",
+          "chromosome": "FLOWER_PROVIDER"
+        },
+        {
+          "source": "EnumAllele.Speed.FAST",
+          "kind": "enum_allele",
+          "group": "Speed",
+          "value": "FAST",
+          "chromosome": "SPEED"
+        },
+        {
+          "source": "EnumAllele.Flowering.AVERAGE",
+          "kind": "enum_allele",
+          "group": "Flowering",
+          "value": "AVERAGE",
+          "chromosome": "FLOWERING"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesEffect.ACID.getUID())",
+          "kind": "extra_bees_effect",
+          "enum": "ACID",
+          "binnie_uid": "extrabees.effect.acid",
+          "reforestry_id": "reforestry:bee_effect_acid",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "uses_default_only": false
+    },
+    {
+      "enum": "ENERGETIC",
+      "scientific": "Incitapis",
+      "uid": "energetic",
+      "empty": false,
+      "genome": [
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "CAVE_DWELLING"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesFlowers.REDSTONE.getUID())",
+          "kind": "extra_bees_flower",
+          "enum": "REDSTONE",
+          "binnie_uid": "extrabees.flower.redstone",
+          "reforestry_id": "reforestry:flower_type_redstone",
+          "chromosome": "FLOWER_PROVIDER"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesEffect.LIGHTNING.getUID())",
+          "kind": "extra_bees_effect",
+          "enum": "LIGHTNING",
+          "binnie_uid": "extrabees.effect.lightning",
+          "reforestry_id": "reforestry:bee_effect_lightning",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "uses_default_only": false
+    },
+    {
+      "enum": "FARMING",
+      "scientific": "Agriapis",
+      "uid": "farming",
+      "empty": false,
+      "genome": [],
+      "uses_default_only": true
+    },
+    {
+      "enum": "SHADOW",
+      "scientific": "Pullapis",
+      "uid": "shadow",
+      "empty": false,
+      "genome": [
+        {
+          "source": "EnumAllele.Tolerance.DOWN_2",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "DOWN_2",
+          "chromosome": "TEMPERATURE_TOLERANCE"
+        },
+        {
+          "source": "EnumAllele.Flowering.AVERAGE",
+          "kind": "enum_allele",
+          "group": "Flowering",
+          "value": "AVERAGE",
+          "chromosome": "FLOWERING"
+        },
+        {
+          "source": "EnumAllele.Flowers.NETHER",
+          "kind": "enum_allele",
+          "group": "Flowers",
+          "value": "NETHER",
+          "chromosome": "FLOWER_PROVIDER"
+        },
+        {
+          "source": "false",
+          "kind": "boolean",
+          "value": false,
+          "chromosome": "NEVER_SLEEPS"
+        },
+        {
+          "source": "EnumAllele.Speed.SLOWER",
+          "kind": "enum_allele",
+          "group": "Speed",
+          "value": "SLOWER",
+          "chromosome": "SPEED"
+        },
+        {
+          "source": "EnumAllele.Lifespan.NORMAL",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "NORMAL",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesEffect.BLINDNESS.getUID())",
+          "kind": "extra_bees_effect",
+          "enum": "BLINDNESS",
+          "binnie_uid": "extrabees.effect.blindness",
+          "reforestry_id": "reforestry:bee_effect_blindness",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "uses_default_only": false
+    },
+    {
+      "enum": "PRIMARY",
+      "scientific": "Primapis",
+      "uid": "primary",
+      "empty": false,
+      "genome": [],
+      "uses_default_only": true
+    },
+    {
+      "enum": "SECONDARY",
+      "scientific": "Secapis",
+      "uid": "secondary",
+      "empty": false,
+      "genome": [],
+      "uses_default_only": true
+    },
+    {
+      "enum": "TERTIARY",
+      "scientific": "Tertiapis",
+      "uid": "tertiary",
+      "empty": false,
+      "genome": [],
+      "uses_default_only": true
+    },
+    {
+      "enum": "FTB",
+      "scientific": "Eftebeapis",
+      "uid": "ftb",
+      "empty": false,
+      "genome": [
+        {
+          "source": "EnumAllele.Speed.SLOWER",
+          "kind": "enum_allele",
+          "group": "Speed",
+          "value": "SLOWER",
+          "chromosome": "SPEED"
+        },
+        {
+          "source": "EnumAllele.Lifespan.NORMAL",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "NORMAL",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "AlleleEffects.effectBeatific",
+          "kind": "forestry_effect",
+          "enum": "BEATIFIC",
+          "reforestry_id": "reforestry:bee_effect_beatific",
+          "chromosome": "EFFECT"
+        },
+        {
+          "source": "EnumAllele.Fertility.MAXIMUM",
+          "kind": "enum_allele",
+          "group": "Fertility",
+          "value": "MAXIMUM",
+          "chromosome": "FERTILITY"
+        },
+        {
+          "source": "EnumAllele.Flowering.MAXIMUM",
+          "kind": "enum_allele",
+          "group": "Flowering",
+          "value": "MAXIMUM",
+          "chromosome": "FLOWERING"
+        },
+        {
+          "source": "EnumAllele.Territory.LARGEST",
+          "kind": "enum_allele",
+          "group": "Territory",
+          "value": "LARGEST",
+          "chromosome": "TERRITORY"
+        }
+      ],
+      "uses_default_only": false
+    },
+    {
+      "enum": "QUANTUM",
+      "scientific": "Quantapis",
+      "uid": "quantum",
+      "empty": false,
+      "genome": [
+        {
+          "source": "EnumAllele.Fertility.LOW",
+          "kind": "enum_allele",
+          "group": "Fertility",
+          "value": "LOW",
+          "chromosome": "FERTILITY"
+        },
+        {
+          "source": "EnumAllele.Speed.SLOWER",
+          "kind": "enum_allele",
+          "group": "Speed",
+          "value": "SLOWER",
+          "chromosome": "SPEED"
+        },
+        {
+          "source": "EnumAllele.Lifespan.LONGER",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "LONGER",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "EnumAllele.Tolerance.UP_1",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "UP_1",
+          "chromosome": "TEMPERATURE_TOLERANCE"
+        },
+        {
+          "source": "EnumAllele.Territory.LARGE",
+          "kind": "enum_allele",
+          "group": "Territory",
+          "value": "LARGE",
+          "chromosome": "TERRITORY"
+        },
+        {
+          "source": "EnumAllele.Flowers.END",
+          "kind": "enum_allele",
+          "group": "Flowers",
+          "value": "END",
+          "chromosome": "FLOWER_PROVIDER"
+        },
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "NEVER_SLEEPS"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesEffect.GRAVITY.getUID())",
+          "kind": "extra_bees_effect",
+          "enum": "GRAVITY",
+          "binnie_uid": "extrabees.effect.gravity",
+          "reforestry_id": "reforestry:bee_effect_gravity",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "uses_default_only": false
+    },
+    {
+      "enum": "BOTANIA",
+      "scientific": "Botaniapis",
+      "uid": "botania",
+      "empty": false,
+      "genome": [
+        {
+          "source": "EnumAllele.Speed.SLOWER",
+          "kind": "enum_allele",
+          "group": "Speed",
+          "value": "SLOWER",
+          "chromosome": "SPEED"
+        },
+        {
+          "source": "EnumAllele.Lifespan.SHORT",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "SHORT",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "EnumAllele.Flowering.SLOW",
+          "kind": "enum_allele",
+          "group": "Flowering",
+          "value": "SLOW",
+          "chromosome": "FLOWERING"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesFlowers.MYSTICAL.getUID())",
+          "kind": "extra_bees_flower",
+          "enum": "MYSTICAL",
+          "binnie_uid": "extrabees.flower.mystical",
+          "reforestry_id": "reforestry:flower_type_mystical",
+          "chromosome": "FLOWER_PROVIDER"
+        }
+      ],
+      "uses_default_only": false
+    }
+  ],
+  "commented_skipped": [
+    "ELECTRUM",
+    "OLIVINE",
+    "PEAT",
+    "CITRUS",
+    "MINT",
+    "ANGRY",
+    "INVAR",
+    "BRONZE",
+    "BRASS",
+    "STEEL"
+  ],
+  "species": [
+    {
+      "enum": "ARID",
+      "binnie_uid": "extrabees.species.arid",
+      "reforestry_id": "reforestry:bee_arid",
+      "collision": false,
+      "binomial": "aridus",
+      "dominant": true,
+      "primary_color": "0xbee854",
+      "secondary_color": "0xcbe374",
+      "authority": "Binnie",
+      "branch": "BARREN",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": "HOT",
+      "humidity": "ARID",
+      "products": [
+        {
+          "source": "EnumHoneyComb.BARREN.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "BARREN",
+          "reforestry_id": "reforestry:bee_comb_barren",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "EnumAllele.Fertility.NORMAL",
+          "kind": "enum_allele",
+          "group": "Fertility",
+          "value": "NORMAL",
+          "chromosome": "FERTILITY"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Vacapis"
+    },
+    {
+      "enum": "BARREN",
+      "binnie_uid": "extrabees.species.barren",
+      "reforestry_id": "reforestry:bee_barren",
+      "collision": false,
+      "binomial": "infelix",
+      "dominant": true,
+      "primary_color": "0xe0d263",
+      "secondary_color": "0xcbe374",
+      "authority": "Binnie",
+      "branch": "BARREN",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": "HOT",
+      "humidity": "ARID",
+      "products": [
+        {
+          "source": "EnumHoneyComb.BARREN.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "BARREN",
+          "reforestry_id": "reforestry:bee_comb_barren",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Vacapis"
+    },
+    {
+      "enum": "DESOLATE",
+      "binnie_uid": "extrabees.species.desolate",
+      "reforestry_id": "reforestry:bee_desolate",
+      "collision": false,
+      "binomial": "desolo",
+      "dominant": false,
+      "primary_color": "0xd1b890",
+      "secondary_color": "0xcbe374",
+      "authority": "Binnie",
+      "branch": "BARREN",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": true,
+      "nocturnal": false,
+      "temperature": "HOT",
+      "humidity": "ARID",
+      "products": [
+        {
+          "source": "EnumHoneyComb.BARREN.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "BARREN",
+          "reforestry_id": "reforestry:bee_comb_barren",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "NEVER_SLEEPS"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesEffect.HUNGER.getUID())",
+          "kind": "extra_bees_effect",
+          "enum": "HUNGER",
+          "binnie_uid": "extrabees.effect.hunger",
+          "reforestry_id": "reforestry:bee_effect_hunger",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Vacapis"
+    },
+    {
+      "enum": "DECOMPOSING",
+      "binnie_uid": "extrabees.species.decomposing",
+      "reforestry_id": "reforestry:bee_decomposing",
+      "collision": false,
+      "binomial": "aegrus",
+      "dominant": true,
+      "primary_color": "0x523711",
+      "secondary_color": "0xffffff",
+      "authority": "Binnie",
+      "branch": "BARREN",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": "HOT",
+      "humidity": "ARID",
+      "products": [
+        {
+          "source": "EnumHoneyComb.BARREN.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "BARREN",
+          "reforestry_id": "reforestry:bee_comb_barren",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.COMPOST.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "COMPOST",
+          "reforestry_id": "reforestry:bee_comb_compost",
+          "chance": 0.08
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Vacapis"
+    },
+    {
+      "enum": "GNAWING",
+      "binnie_uid": "extrabees.species.gnawing",
+      "reforestry_id": "reforestry:bee_gnawing",
+      "collision": false,
+      "binomial": "apica",
+      "dominant": true,
+      "primary_color": "0xe874b0",
+      "secondary_color": "0xcbe374",
+      "authority": "Binnie",
+      "branch": "BARREN",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": "HOT",
+      "humidity": "ARID",
+      "products": [
+        {
+          "source": "EnumHoneyComb.BARREN.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "BARREN",
+          "reforestry_id": "reforestry:bee_comb_barren",
+          "chance": 0.25
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.SAWDUST.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "SAWDUST",
+          "reforestry_id": "reforestry:bee_comb_sawdust",
+          "chance": 0.25
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesFlowers.WOOD.getUID())",
+          "kind": "extra_bees_flower",
+          "enum": "WOOD",
+          "binnie_uid": "extrabees.flower.wood",
+          "reforestry_id": "reforestry:flower_type_wood",
+          "chromosome": "FLOWER_PROVIDER"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Vacapis"
+    },
+    {
+      "enum": "ROTTEN",
+      "binnie_uid": "extrabees.species.rotten",
+      "reforestry_id": "reforestry:bee_rotten",
+      "collision": false,
+      "binomial": "caries",
+      "dominant": true,
+      "primary_color": "0xbfe0b6",
+      "secondary_color": "0xcbe374",
+      "authority": "Binnie",
+      "branch": "HOSTILE",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": "HOT",
+      "humidity": "ARID",
+      "products": [
+        {
+          "source": "EnumHoneyComb.BARREN.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "BARREN",
+          "reforestry_id": "reforestry:bee_comb_barren",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.ROTTEN.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "ROTTEN",
+          "reforestry_id": "reforestry:bee_comb_rotten",
+          "chance": 0.1
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesEffect.SPAWN_ZOMBIE.getUID())",
+          "kind": "extra_bees_effect",
+          "enum": "SPAWN_ZOMBIE",
+          "binnie_uid": "extrabees.effect.spawn_zombie",
+          "reforestry_id": "reforestry:bee_effect_spawn_zombie",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Infenapis"
+    },
+    {
+      "enum": "BONE",
+      "binnie_uid": "extrabees.species.bone",
+      "reforestry_id": "reforestry:bee_bone",
+      "collision": false,
+      "binomial": "os",
+      "dominant": true,
+      "primary_color": "0xe9ede8",
+      "secondary_color": "0xcbe374",
+      "authority": "Binnie",
+      "branch": "HOSTILE",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": "HOT",
+      "humidity": "ARID",
+      "products": [
+        {
+          "source": "EnumHoneyComb.BARREN.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "BARREN",
+          "reforestry_id": "reforestry:bee_comb_barren",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.BONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "BONE",
+          "reforestry_id": "reforestry:bee_comb_bone",
+          "chance": 0.1
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesEffect.SPAWN_SKELETON.getUID())",
+          "kind": "extra_bees_effect",
+          "enum": "SPAWN_SKELETON",
+          "binnie_uid": "extrabees.effect.spawn_skeleton",
+          "reforestry_id": "reforestry:bee_effect_spawn_skeleton",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Infenapis"
+    },
+    {
+      "enum": "CREEPER",
+      "binnie_uid": "extrabees.species.creeper",
+      "reforestry_id": "reforestry:bee_creeper",
+      "collision": false,
+      "binomial": "erepo",
+      "dominant": true,
+      "primary_color": "0x2ce615",
+      "secondary_color": "0xcbe374",
+      "authority": "Binnie",
+      "branch": "HOSTILE",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": "HOT",
+      "humidity": "ARID",
+      "products": [
+        {
+          "source": "EnumHoneyComb.BARREN.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "BARREN",
+          "reforestry_id": "reforestry:bee_comb_barren",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.POWDERY.get()",
+          "kind": "forestry_comb",
+          "enum": "POWDERY",
+          "reforestry_id": "reforestry:bee_comb_powdery",
+          "chance": 0.08
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesEffect.SPAWN_CREEPER.getUID())",
+          "kind": "extra_bees_effect",
+          "enum": "SPAWN_CREEPER",
+          "binnie_uid": "extrabees.effect.spawn_creeper",
+          "reforestry_id": "reforestry:bee_effect_spawn_creeper",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Infenapis"
+    },
+    {
+      "enum": "ROCK",
+      "binnie_uid": "extrabees.species.rock",
+      "reforestry_id": "reforestry:bee_rock",
+      "collision": false,
+      "binomial": "saxum",
+      "dominant": true,
+      "primary_color": "0xa8a8a8",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "ROCKY",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": true,
+      "branch_empty": false,
+      "branch_scientific": "Monapis"
+    },
+    {
+      "enum": "STONE",
+      "binnie_uid": "extrabees.species.stone",
+      "reforestry_id": "reforestry:bee_stone",
+      "collision": false,
+      "binomial": "lapis",
+      "dominant": false,
+      "primary_color": "0x757575",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "ROCKY",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Monapis"
+    },
+    {
+      "enum": "GRANITE",
+      "binnie_uid": "extrabees.species.granite",
+      "reforestry_id": "reforestry:bee_granite",
+      "collision": false,
+      "binomial": "granum",
+      "dominant": true,
+      "primary_color": "0x695555",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "ROCKY",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "EnumAllele.Tolerance.BOTH_2",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "BOTH_2",
+          "chromosome": "TEMPERATURE_TOLERANCE"
+        },
+        {
+          "source": "EnumAllele.Tolerance.BOTH_2",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "BOTH_2",
+          "chromosome": "HUMIDITY_TOLERANCE"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Monapis"
+    },
+    {
+      "enum": "MINERAL",
+      "binnie_uid": "extrabees.species.mineral",
+      "reforestry_id": "reforestry:bee_mineral",
+      "collision": false,
+      "binomial": "minerale",
+      "dominant": true,
+      "primary_color": "0x6e757d",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "ROCKY",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "EnumAllele.Tolerance.BOTH_2",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "BOTH_2",
+          "chromosome": "TEMPERATURE_TOLERANCE"
+        },
+        {
+          "source": "EnumAllele.Tolerance.BOTH_2",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "BOTH_2",
+          "chromosome": "HUMIDITY_TOLERANCE"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Monapis"
+    },
+    {
+      "enum": "COPPER",
+      "binnie_uid": "extrabees.species.copper",
+      "reforestry_id": "reforestry:bee_copper",
+      "collision": false,
+      "binomial": "cuprous",
+      "dominant": true,
+      "primary_color": "0xd16308",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "METALLIC",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.COPPER.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "COPPER",
+          "reforestry_id": "reforestry:bee_comb_copper",
+          "chance": 0.06
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Lamminapis"
+    },
+    {
+      "enum": "TIN",
+      "binnie_uid": "extrabees.species.tin",
+      "reforestry_id": "reforestry:bee_tin",
+      "collision": false,
+      "binomial": "stannus",
+      "dominant": true,
+      "primary_color": "0xbdb1bd",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "METALLIC",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.TIN.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "TIN",
+          "reforestry_id": "reforestry:bee_comb_tin",
+          "chance": 0.06
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Lamminapis"
+    },
+    {
+      "enum": "IRON",
+      "binnie_uid": "extrabees.species.iron",
+      "reforestry_id": "reforestry:bee_iron",
+      "collision": false,
+      "binomial": "ferrous",
+      "dominant": false,
+      "primary_color": "0xa87058",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "METALLIC",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.IRON.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "IRON",
+          "reforestry_id": "reforestry:bee_comb_iron",
+          "chance": 0.05
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Lamminapis"
+    },
+    {
+      "enum": "LEAD",
+      "binnie_uid": "extrabees.species.lead",
+      "reforestry_id": "reforestry:bee_lead",
+      "collision": false,
+      "binomial": "plumbous",
+      "dominant": true,
+      "primary_color": "0xad8bab",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "METALLIC",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.LEAD.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "LEAD",
+          "reforestry_id": "reforestry:bee_comb_lead",
+          "chance": 0.05
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Lamminapis"
+    },
+    {
+      "enum": "ZINC",
+      "binnie_uid": "extrabees.species.zinc",
+      "reforestry_id": "reforestry:bee_zinc",
+      "collision": false,
+      "binomial": "spelta",
+      "dominant": true,
+      "primary_color": "0xedebff",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "METALLIC2",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.ZINC.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "ZINC",
+          "reforestry_id": "reforestry:bee_comb_zinc",
+          "chance": 0.05
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Metalapis"
+    },
+    {
+      "enum": "TITANIUM",
+      "binnie_uid": "extrabees.species.titanium",
+      "reforestry_id": "reforestry:bee_titanium",
+      "collision": false,
+      "binomial": "titania",
+      "dominant": true,
+      "primary_color": "0xb0aae3",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "METALLIC2",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.TITANIUM.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "TITANIUM",
+          "reforestry_id": "reforestry:bee_comb_titanium",
+          "chance": 0.02
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Metalapis"
+    },
+    {
+      "enum": "TUNGSTATE",
+      "binnie_uid": "extrabees.species.tungstate",
+      "reforestry_id": "reforestry:bee_tungstate",
+      "collision": false,
+      "binomial": "wolfram",
+      "dominant": true,
+      "primary_color": "0x131214",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "METALLIC2",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.TUNGSTEN.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "TUNGSTEN",
+          "reforestry_id": "reforestry:bee_comb_tungsten",
+          "chance": 0.01
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Metalapis"
+    },
+    {
+      "enum": "NICKEL",
+      "binnie_uid": "extrabees.species.nickel",
+      "reforestry_id": "reforestry:bee_nickel",
+      "collision": false,
+      "binomial": "claro",
+      "dominant": true,
+      "primary_color": "0xffdefc",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "METALLIC2",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.NICKEL.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "NICKEL",
+          "reforestry_id": "reforestry:bee_comb_nickel",
+          "chance": 0.05
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Metalapis"
+    },
+    {
+      "enum": "GOLD",
+      "binnie_uid": "extrabees.species.gold",
+      "reforestry_id": "reforestry:bee_gold",
+      "collision": false,
+      "binomial": "aureus",
+      "dominant": true,
+      "primary_color": "0xe6cc0b",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "PRECIOUS",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.GOLD.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "GOLD",
+          "reforestry_id": "reforestry:bee_comb_gold",
+          "chance": 0.02
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Pluriapis"
+    },
+    {
+      "enum": "SILVER",
+      "binnie_uid": "extrabees.species.silver",
+      "reforestry_id": "reforestry:bee_silver",
+      "collision": false,
+      "binomial": "argentus",
+      "dominant": false,
+      "primary_color": "0x43455b",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "PRECIOUS",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.SILVER.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "SILVER",
+          "reforestry_id": "reforestry:bee_comb_silver",
+          "chance": 0.02
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Pluriapis"
+    },
+    {
+      "enum": "PLATINUM",
+      "binnie_uid": "extrabees.species.platinum",
+      "reforestry_id": "reforestry:bee_platinum",
+      "collision": false,
+      "binomial": "platina",
+      "dominant": false,
+      "primary_color": "0xdbdbdb",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "PRECIOUS",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.PLATINUM.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "PLATINUM",
+          "reforestry_id": "reforestry:bee_comb_platinum",
+          "chance": 0.01
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Pluriapis"
+    },
+    {
+      "enum": "LAPIS",
+      "binnie_uid": "extrabees.species.lapis",
+      "reforestry_id": "reforestry:bee_lapis",
+      "collision": false,
+      "binomial": "lazuli",
+      "dominant": true,
+      "primary_color": "0x3d2cdb",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "MINERAL",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.LAPIS.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "LAPIS",
+          "reforestry_id": "reforestry:bee_comb_lapis",
+          "chance": 0.05
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Niphapis"
+    },
+    {
+      "enum": "SODALITE",
+      "binnie_uid": "extrabees.species.sodalite",
+      "reforestry_id": "reforestry:bee_sodalite",
+      "collision": false,
+      "binomial": "soda",
+      "dominant": false,
+      "primary_color": "0x154fed",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "MINERAL",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.SODALITE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "SODALITE",
+          "reforestry_id": "reforestry:bee_comb_sodalite",
+          "chance": 0.04
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Niphapis"
+    },
+    {
+      "enum": "PYRITE",
+      "binnie_uid": "extrabees.species.pyrite",
+      "reforestry_id": "reforestry:bee_pyrite",
+      "collision": false,
+      "binomial": "pyrus",
+      "dominant": false,
+      "primary_color": "0xe3a739",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "MINERAL",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.PYRITE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "PYRITE",
+          "reforestry_id": "reforestry:bee_comb_pyrite",
+          "chance": 0.05
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Niphapis"
+    },
+    {
+      "enum": "BAUXITE",
+      "binnie_uid": "extrabees.species.bauxite",
+      "reforestry_id": "reforestry:bee_bauxite",
+      "collision": false,
+      "binomial": "bauxus",
+      "dominant": false,
+      "primary_color": "0x9c6500",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "MINERAL",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.BAUXITE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "BAUXITE",
+          "reforestry_id": "reforestry:bee_comb_bauxite",
+          "chance": 0.04
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Niphapis"
+    },
+    {
+      "enum": "CINNABAR",
+      "binnie_uid": "extrabees.species.cinnabar",
+      "reforestry_id": "reforestry:bee_cinnabar",
+      "collision": false,
+      "binomial": "cinna",
+      "dominant": false,
+      "primary_color": "0x47320b",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "MINERAL",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.CINNABAR.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "CINNABAR",
+          "reforestry_id": "reforestry:bee_comb_cinnabar",
+          "chance": 0.04
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Niphapis"
+    },
+    {
+      "enum": "SPHALERITE",
+      "binnie_uid": "extrabees.species.sphalerite",
+      "reforestry_id": "reforestry:bee_sphalerite",
+      "collision": false,
+      "binomial": "spahleri",
+      "dominant": false,
+      "primary_color": "0xdbd51d",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "MINERAL",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.SPHALERITE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "SPHALERITE",
+          "reforestry_id": "reforestry:bee_comb_sphalerite",
+          "chance": 0.04
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Niphapis"
+    },
+    {
+      "enum": "EMERALD",
+      "binnie_uid": "extrabees.species.emerald",
+      "reforestry_id": "reforestry:bee_emerald",
+      "collision": false,
+      "binomial": "emerala",
+      "dominant": true,
+      "primary_color": "0x1cff03",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "GEMSTONE",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.EMERALD.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "EMERALD",
+          "reforestry_id": "reforestry:bee_comb_emerald",
+          "chance": 0.04
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Gemmapis"
+    },
+    {
+      "enum": "RUBY",
+      "binnie_uid": "extrabees.species.ruby",
+      "reforestry_id": "reforestry:bee_ruby",
+      "collision": false,
+      "binomial": "ruba",
+      "dominant": true,
+      "primary_color": "0xd60000",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "GEMSTONE",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.RUBY.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "RUBY",
+          "reforestry_id": "reforestry:bee_comb_ruby",
+          "chance": 0.03
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Gemmapis"
+    },
+    {
+      "enum": "SAPPHIRE",
+      "binnie_uid": "extrabees.species.sapphire",
+      "reforestry_id": "reforestry:bee_sapphire",
+      "collision": false,
+      "binomial": "saphhira",
+      "dominant": true,
+      "primary_color": "0x0a47ff",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "GEMSTONE",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.SAPPHIRE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "SAPPHIRE",
+          "reforestry_id": "reforestry:bee_comb_sapphire",
+          "chance": 0.03
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Gemmapis"
+    },
+    {
+      "enum": "DIAMOND",
+      "binnie_uid": "extrabees.species.diamond",
+      "reforestry_id": "reforestry:bee_diamond",
+      "collision": false,
+      "binomial": "diama",
+      "dominant": true,
+      "primary_color": "0x7fbdfa",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "GEMSTONE",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.STONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "STONE",
+          "reforestry_id": "reforestry:bee_comb_stone",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.DIAMOND.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "DIAMOND",
+          "reforestry_id": "reforestry:bee_comb_diamond",
+          "chance": 0.01
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Gemmapis"
+    },
+    {
+      "enum": "UNSTABLE",
+      "binnie_uid": "extrabees.species.unstable",
+      "reforestry_id": "reforestry:bee_unstable",
+      "collision": false,
+      "binomial": "levis",
+      "dominant": false,
+      "primary_color": "0x3e8c34",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "NUCLEAR",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.BARREN.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "BARREN",
+          "reforestry_id": "reforestry:bee_comb_barren",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Levapis"
+    },
+    {
+      "enum": "NUCLEAR",
+      "binnie_uid": "extrabees.species.nuclear",
+      "reforestry_id": "reforestry:bee_nuclear",
+      "collision": false,
+      "binomial": "nucleus",
+      "dominant": false,
+      "primary_color": "0x41cc2f",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "NUCLEAR",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.BARREN.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "BARREN",
+          "reforestry_id": "reforestry:bee_comb_barren",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Levapis"
+    },
+    {
+      "enum": "RADIOACTIVE",
+      "binnie_uid": "extrabees.species.radioactive",
+      "reforestry_id": "reforestry:bee_radioactive",
+      "collision": false,
+      "binomial": "fervens",
+      "dominant": false,
+      "primary_color": "0x1eff00",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "NUCLEAR",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": true,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.BARREN.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "BARREN",
+          "reforestry_id": "reforestry:bee_comb_barren",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.URANIUM.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "URANIUM",
+          "reforestry_id": "reforestry:bee_comb_uranium",
+          "chance": 0.02
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Levapis"
+    },
+    {
+      "enum": "YELLORIUM",
+      "binnie_uid": "extrabees.species.yellorium",
+      "reforestry_id": "reforestry:bee_yellorium",
+      "collision": false,
+      "binomial": "yellori",
+      "dominant": true,
+      "primary_color": "0xd5ed00",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "NUCLEAR",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.BARREN.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "BARREN",
+          "reforestry_id": "reforestry:bee_comb_barren",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.YELLORIUM.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "YELLORIUM",
+          "reforestry_id": "reforestry:bee_comb_yellorium",
+          "chance": 0.02
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "EnumAllele.Fertility.LOW",
+          "kind": "enum_allele",
+          "group": "Fertility",
+          "value": "LOW",
+          "chromosome": "FERTILITY"
+        },
+        {
+          "source": "EnumAllele.Lifespan.SHORTEST",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "SHORTEST",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesEffect.RADIOACTIVE.getUID())",
+          "kind": "extra_bees_effect",
+          "enum": "RADIOACTIVE",
+          "binnie_uid": "extrabees.effect.radioactive",
+          "reforestry_id": "reforestry:bee_effect_radioactive",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Levapis"
+    },
+    {
+      "enum": "CYANITE",
+      "binnie_uid": "extrabees.species.cyanite",
+      "reforestry_id": "reforestry:bee_cyanite",
+      "collision": false,
+      "binomial": "cyanita",
+      "dominant": true,
+      "primary_color": "0x0086ed",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "NUCLEAR",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.BARREN.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "BARREN",
+          "reforestry_id": "reforestry:bee_comb_barren",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.CYANITE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "CYANITE",
+          "reforestry_id": "reforestry:bee_comb_cyanite",
+          "chance": 0.01
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "EnumAllele.Fertility.LOW",
+          "kind": "enum_allele",
+          "group": "Fertility",
+          "value": "LOW",
+          "chromosome": "FERTILITY"
+        },
+        {
+          "source": "EnumAllele.Lifespan.SHORTEST",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "SHORTEST",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesEffect.RADIOACTIVE.getUID())",
+          "kind": "extra_bees_effect",
+          "enum": "RADIOACTIVE",
+          "binnie_uid": "extrabees.effect.radioactive",
+          "reforestry_id": "reforestry:bee_effect_radioactive",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Levapis"
+    },
+    {
+      "enum": "BLUTONIUM",
+      "binnie_uid": "extrabees.species.blutonium",
+      "reforestry_id": "reforestry:bee_blutonium",
+      "collision": false,
+      "binomial": "caruthus",
+      "dominant": true,
+      "primary_color": "0x1b00e6",
+      "secondary_color": "0x999999",
+      "authority": "Binnie",
+      "branch": "NUCLEAR",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.BARREN.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "BARREN",
+          "reforestry_id": "reforestry:bee_comb_barren",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.BLUTONIUM.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "BLUTONIUM",
+          "reforestry_id": "reforestry:bee_comb_blutonium",
+          "chance": 0.01
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "EnumAllele.Fertility.LOW",
+          "kind": "enum_allele",
+          "group": "Fertility",
+          "value": "LOW",
+          "chromosome": "FERTILITY"
+        },
+        {
+          "source": "EnumAllele.Lifespan.SHORTEST",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "SHORTEST",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesEffect.RADIOACTIVE.getUID())",
+          "kind": "extra_bees_effect",
+          "enum": "RADIOACTIVE",
+          "binnie_uid": "extrabees.effect.radioactive",
+          "reforestry_id": "reforestry:bee_effect_radioactive",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Levapis"
+    },
+    {
+      "enum": "ANCIENT",
+      "binnie_uid": "extrabees.species.ancient",
+      "reforestry_id": "reforestry:bee_ancient",
+      "collision": false,
+      "binomial": "antiquus",
+      "dominant": true,
+      "primary_color": "0xf2db8f",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "HISTORIC",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.OLD.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "OLD",
+          "reforestry_id": "reforestry:bee_comb_old",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Priscapis"
+    },
+    {
+      "enum": "PRIMEVAL",
+      "binnie_uid": "extrabees.species.primeval",
+      "reforestry_id": "reforestry:bee_eb_primeval",
+      "collision": true,
+      "collides_with": "reforestry:bee_primeval",
+      "binomial": "priscus",
+      "dominant": true,
+      "primary_color": "0xb3a67b",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "HISTORIC",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.OLD.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "OLD",
+          "reforestry_id": "reforestry:bee_comb_old",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "EnumAllele.Lifespan.LONG",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "LONG",
+          "chromosome": "LIFESPAN"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Priscapis"
+    },
+    {
+      "enum": "PREHISTORIC",
+      "binnie_uid": "extrabees.species.prehistoric",
+      "reforestry_id": "reforestry:bee_prehistoric",
+      "collision": false,
+      "binomial": "pristinus",
+      "dominant": false,
+      "primary_color": "0x6e5a40",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "HISTORIC",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.OLD.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "OLD",
+          "reforestry_id": "reforestry:bee_comb_old",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "EnumAllele.Lifespan.LONGER",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "LONGER",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "EnumAllele.Fertility.LOW",
+          "kind": "enum_allele",
+          "group": "Fertility",
+          "value": "LOW",
+          "chromosome": "FERTILITY"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Priscapis"
+    },
+    {
+      "enum": "RELIC",
+      "binnie_uid": "extrabees.species.relic",
+      "reforestry_id": "reforestry:bee_eb_relic",
+      "collision": true,
+      "collides_with": "reforestry:bee_relic",
+      "binomial": "sapiens",
+      "dominant": true,
+      "primary_color": "0x4d3e16",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "HISTORIC",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": true,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.OLD.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "OLD",
+          "reforestry_id": "reforestry:bee_comb_old",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "EnumAllele.Lifespan.LONGEST",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "LONGEST",
+          "chromosome": "LIFESPAN"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Priscapis"
+    },
+    {
+      "enum": "COAL",
+      "binnie_uid": "extrabees.species.coal",
+      "reforestry_id": "reforestry:bee_coal",
+      "collision": false,
+      "binomial": "carbo",
+      "dominant": true,
+      "primary_color": "0x7a7648",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "FOSSILIZED",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.OLD.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "OLD",
+          "reforestry_id": "reforestry:bee_comb_old",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.COAL.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "COAL",
+          "reforestry_id": "reforestry:bee_comb_coal",
+          "chance": 0.08
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Fosiapis"
+    },
+    {
+      "enum": "RESIN",
+      "binnie_uid": "extrabees.species.resin",
+      "reforestry_id": "reforestry:bee_resin",
+      "collision": false,
+      "binomial": "lacrima",
+      "dominant": false,
+      "primary_color": "0xa6731b",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "FOSSILIZED",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.OLD.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "OLD",
+          "reforestry_id": "reforestry:bee_comb_old",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.RESIN.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "RESIN",
+          "reforestry_id": "reforestry:bee_comb_resin",
+          "chance": 0.05
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Fosiapis"
+    },
+    {
+      "enum": "OIL",
+      "binnie_uid": "extrabees.species.oil",
+      "reforestry_id": "reforestry:bee_oil",
+      "collision": false,
+      "binomial": "lubricus",
+      "dominant": true,
+      "primary_color": "0x574770",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "FOSSILIZED",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.OLD.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "OLD",
+          "reforestry_id": "reforestry:bee_comb_old",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.OIL.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "OIL",
+          "reforestry_id": "reforestry:bee_comb_oil",
+          "chance": 0.05
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Fosiapis"
+    },
+    {
+      "enum": "DISTILLED",
+      "binnie_uid": "extrabees.species.distilled",
+      "reforestry_id": "reforestry:bee_distilled",
+      "collision": false,
+      "binomial": "distilli",
+      "dominant": false,
+      "primary_color": "0x356356",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "REFINED",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.OLD.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "OLD",
+          "reforestry_id": "reforestry:bee_comb_old",
+          "chance": 0.1
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Petrapis"
+    },
+    {
+      "enum": "FUEL",
+      "binnie_uid": "extrabees.species.fuel",
+      "reforestry_id": "reforestry:bee_fuel",
+      "collision": false,
+      "binomial": "refina",
+      "dominant": true,
+      "primary_color": "0xffc003",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "REFINED",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": true,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.OIL.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "OIL",
+          "reforestry_id": "reforestry:bee_comb_oil",
+          "chance": 0.1
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.FUEL.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "FUEL",
+          "reforestry_id": "reforestry:bee_comb_fuel",
+          "chance": 0.04
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Petrapis"
+    },
+    {
+      "enum": "CREOSOTE",
+      "binnie_uid": "extrabees.species.creosote",
+      "reforestry_id": "reforestry:bee_creosote",
+      "collision": false,
+      "binomial": "creosota",
+      "dominant": true,
+      "primary_color": "0x979e13",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "REFINED",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": true,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.COAL.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "COAL",
+          "reforestry_id": "reforestry:bee_comb_coal",
+          "chance": 0.1
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.CREOSOTE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "CREOSOTE",
+          "reforestry_id": "reforestry:bee_comb_creosote",
+          "chance": 0.07
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Petrapis"
+    },
+    {
+      "enum": "LATEX",
+      "binnie_uid": "extrabees.species.latex",
+      "reforestry_id": "reforestry:bee_latex",
+      "collision": false,
+      "binomial": "latex",
+      "dominant": true,
+      "primary_color": "0x494a3e",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "REFINED",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": true,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.RESIN.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "RESIN",
+          "reforestry_id": "reforestry:bee_comb_resin",
+          "chance": 0.1
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.LATEX.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "LATEX",
+          "reforestry_id": "reforestry:bee_comb_latex",
+          "chance": 0.05
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Petrapis"
+    },
+    {
+      "enum": "WATER",
+      "binnie_uid": "extrabees.species.water",
+      "reforestry_id": "reforestry:bee_water",
+      "collision": false,
+      "binomial": "aqua",
+      "dominant": true,
+      "primary_color": "0x94a2ff",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "AQUATIC",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": "DAMP",
+      "products": [
+        {
+          "source": "EnumHoneyComb.WATER.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "WATER",
+          "reforestry_id": "reforestry:bee_comb_water",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": true,
+      "branch_empty": false,
+      "branch_scientific": "Aquapis"
+    },
+    {
+      "enum": "RIVER",
+      "binnie_uid": "extrabees.species.river",
+      "reforestry_id": "reforestry:bee_river",
+      "collision": false,
+      "binomial": "flumen",
+      "dominant": true,
+      "primary_color": "0x83b3d4",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "AQUATIC",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": "DAMP",
+      "products": [
+        {
+          "source": "EnumHoneyComb.WATER.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "WATER",
+          "reforestry_id": "reforestry:bee_comb_water",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.CLAY.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "CLAY",
+          "reforestry_id": "reforestry:bee_comb_clay",
+          "chance": 0.2
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Aquapis"
+    },
+    {
+      "enum": "OCEAN",
+      "binnie_uid": "extrabees.species.ocean",
+      "reforestry_id": "reforestry:bee_ocean",
+      "collision": false,
+      "binomial": "mare",
+      "dominant": false,
+      "primary_color": "0x1d2ead",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "AQUATIC",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": "DAMP",
+      "products": [
+        {
+          "source": "EnumHoneyComb.WATER.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "WATER",
+          "reforestry_id": "reforestry:bee_comb_water",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Aquapis"
+    },
+    {
+      "enum": "INK",
+      "binnie_uid": "extrabees.species.ink",
+      "reforestry_id": "reforestry:bee_ink",
+      "collision": false,
+      "binomial": "atramentum",
+      "dominant": true,
+      "primary_color": "0x0e1447",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "AQUATIC",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": "DAMP",
+      "products": [
+        {
+          "source": "EnumHoneyComb.WATER.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "WATER",
+          "reforestry_id": "reforestry:bee_comb_water",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [
+        {
+          "source": "new ItemStack(Items.DYE, 1, 0)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "DYE",
+          "count": 1,
+          "meta": 0,
+          "item": "minecraft:dye",
+          "chance": 0.1
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Aquapis"
+    },
+    {
+      "enum": "GROWING",
+      "binnie_uid": "extrabees.species.growing",
+      "reforestry_id": "reforestry:bee_growing",
+      "collision": false,
+      "binomial": "tyrelli",
+      "dominant": true,
+      "primary_color": "0x5bebd8",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "AGRARIAN",
+      "branch_source": "BeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.35
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "EnumAllele.Fertility.HIGH",
+          "kind": "enum_allele",
+          "group": "Fertility",
+          "value": "HIGH",
+          "chromosome": "FERTILITY"
+        },
+        {
+          "source": "EnumAllele.Flowering.AVERAGE",
+          "kind": "enum_allele",
+          "group": "Flowering",
+          "value": "AVERAGE",
+          "chromosome": "FLOWERING"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesFlowers.LEAVES.getUID())",
+          "kind": "extra_bees_flower",
+          "enum": "LEAVES",
+          "binnie_uid": "extrabees.flower.leaves",
+          "reforestry_id": "reforestry:flower_type_leaves",
+          "chromosome": "FLOWER_PROVIDER"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": null
+    },
+    {
+      "enum": "FARM",
+      "binnie_uid": "extrabees.species.farm",
+      "reforestry_id": "reforestry:bee_farm",
+      "collision": false,
+      "binomial": "ager",
+      "dominant": true,
+      "primary_color": "0x75db60",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "AGRARIAN",
+      "branch_source": "BeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.WHEATEN.get()",
+          "kind": "forestry_comb",
+          "enum": "WHEATEN",
+          "reforestry_id": "reforestry:bee_comb_wheaten",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.SEED.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "SEED",
+          "reforestry_id": "reforestry:bee_comb_seed",
+          "chance": 0.1
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": null
+    },
+    {
+      "enum": "THRIVING",
+      "binnie_uid": "extrabees.species.thriving",
+      "reforestry_id": "reforestry:bee_thriving",
+      "collision": false,
+      "binomial": "thriva",
+      "dominant": true,
+      "primary_color": "0x34e37d",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "AGRARIAN",
+      "branch_source": "BeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.35
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "EnumAllele.Fertility.HIGH",
+          "kind": "enum_allele",
+          "group": "Fertility",
+          "value": "HIGH",
+          "chromosome": "FERTILITY"
+        },
+        {
+          "source": "EnumAllele.Flowering.FAST",
+          "kind": "enum_allele",
+          "group": "Flowering",
+          "value": "FAST",
+          "chromosome": "FLOWERING"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesFlowers.LEAVES.getUID())",
+          "kind": "extra_bees_flower",
+          "enum": "LEAVES",
+          "binnie_uid": "extrabees.flower.leaves",
+          "reforestry_id": "reforestry:flower_type_leaves",
+          "chromosome": "FLOWER_PROVIDER"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": null
+    },
+    {
+      "enum": "BLOOMING",
+      "binnie_uid": "extrabees.species.blooming",
+      "reforestry_id": "reforestry:bee_blooming",
+      "collision": false,
+      "binomial": "blooma",
+      "dominant": true,
+      "primary_color": "0x0abf34",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "AGRARIAN",
+      "branch_source": "BeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.35
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "EnumAllele.Fertility.HIGH",
+          "kind": "enum_allele",
+          "group": "Fertility",
+          "value": "HIGH",
+          "chromosome": "FERTILITY"
+        },
+        {
+          "source": "EnumAllele.Flowering.FASTEST",
+          "kind": "enum_allele",
+          "group": "Flowering",
+          "value": "FASTEST",
+          "chromosome": "FLOWERING"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesFlowers.SAPLING.getUID())",
+          "kind": "extra_bees_flower",
+          "enum": "SAPLING",
+          "binnie_uid": "extrabees.flower.sapling",
+          "reforestry_id": "reforestry:flower_type_sapling",
+          "chromosome": "FLOWER_PROVIDER"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesEffect.BONEMEAL_SAPLING.getUID())",
+          "kind": "extra_bees_effect",
+          "enum": "BONEMEAL_SAPLING",
+          "binnie_uid": "extrabees.effect.bonemeal_sapling",
+          "reforestry_id": "reforestry:bee_effect_bonemeal_sapling",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": null
+    },
+    {
+      "enum": "SWEET",
+      "binnie_uid": "extrabees.species.sweet",
+      "reforestry_id": "reforestry:bee_sweet",
+      "collision": false,
+      "binomial": "mellitus",
+      "dominant": true,
+      "primary_color": "0xfc51f1",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "SACCHARINE",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.4
+        },
+        {
+          "source": "new ItemStack(Items.SUGAR, 1, 0)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "SUGAR",
+          "count": 1,
+          "meta": 0,
+          "item": "minecraft:sugar",
+          "chance": 0.1
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Sacchapis"
+    },
+    {
+      "enum": "SUGAR",
+      "binnie_uid": "extrabees.species.sugar",
+      "reforestry_id": "reforestry:bee_sugar",
+      "collision": false,
+      "binomial": "dulcis",
+      "dominant": true,
+      "primary_color": "0xe6d3e0",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "SACCHARINE",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.4
+        },
+        {
+          "source": "new ItemStack(Items.SUGAR, 1, 0)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "SUGAR",
+          "count": 1,
+          "meta": 0,
+          "item": "minecraft:sugar",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Sacchapis"
+    },
+    {
+      "enum": "RIPENING",
+      "binnie_uid": "extrabees.species.ripening",
+      "reforestry_id": "reforestry:bee_ripening",
+      "collision": false,
+      "binomial": "ripa",
+      "dominant": true,
+      "primary_color": "0xb2c75d",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "SACCHARINE",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.3
+        },
+        {
+          "source": "new ItemStack(Items.SUGAR, 1, 0)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "SUGAR",
+          "count": 1,
+          "meta": 0,
+          "item": "minecraft:sugar",
+          "chance": 0.1
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.FRUIT.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "FRUIT",
+          "reforestry_id": "reforestry:bee_comb_fruit",
+          "chance": 0.1
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesFlowers.FRUIT.getUID())",
+          "kind": "extra_bees_flower",
+          "enum": "FRUIT",
+          "binnie_uid": "extrabees.flower.fruit",
+          "reforestry_id": "reforestry:flower_type_fruit",
+          "chromosome": "FLOWER_PROVIDER"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Sacchapis"
+    },
+    {
+      "enum": "FRUIT",
+      "binnie_uid": "extrabees.species.fruit",
+      "reforestry_id": "reforestry:bee_fruit",
+      "collision": false,
+      "binomial": "pomum",
+      "dominant": true,
+      "primary_color": "0xdb5876",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "SACCHARINE",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": true,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.3
+        },
+        {
+          "source": "new ItemStack(Items.SUGAR, 1, 0)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "SUGAR",
+          "count": 1,
+          "meta": 0,
+          "item": "minecraft:sugar",
+          "chance": 0.15
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.FRUIT.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "FRUIT",
+          "reforestry_id": "reforestry:bee_comb_fruit",
+          "chance": 0.2
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesEffect.BONEMEAL_FRUIT.getUID())",
+          "kind": "extra_bees_effect",
+          "enum": "BONEMEAL_FRUIT",
+          "binnie_uid": "extrabees.effect.bonemeal_fruit",
+          "reforestry_id": "reforestry:bee_effect_bonemeal_fruit",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Sacchapis"
+    },
+    {
+      "enum": "ALCOHOL",
+      "binnie_uid": "extrabees.species.alcohol",
+      "reforestry_id": "reforestry:bee_alcohol",
+      "collision": false,
+      "binomial": "vinum",
+      "dominant": false,
+      "primary_color": "0xe88a61",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "FARMING",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.WHEATEN.get()",
+          "kind": "forestry_comb",
+          "enum": "WHEATEN",
+          "reforestry_id": "reforestry:bee_comb_wheaten",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.ALCOHOL.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "ALCOHOL",
+          "reforestry_id": "reforestry:bee_comb_alcohol",
+          "chance": 0.1
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "AlleleHelper.getAllele(\"forestry.effectDrunkard\")",
+          "kind": "forestry_allele",
+          "binnie_uid": "forestry.effectDrunkard",
+          "reforestry_id": "reforestry:bee_effect_drunkard",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Agriapis"
+    },
+    {
+      "enum": "MILK",
+      "binnie_uid": "extrabees.species.milk",
+      "reforestry_id": "reforestry:bee_milk",
+      "collision": false,
+      "binomial": "lacteus",
+      "dominant": true,
+      "primary_color": "0xe3e8e8",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "FARMING",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.WHEATEN.get()",
+          "kind": "forestry_comb",
+          "enum": "WHEATEN",
+          "reforestry_id": "reforestry:bee_comb_wheaten",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.MILK.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "MILK",
+          "reforestry_id": "reforestry:bee_comb_milk",
+          "chance": 0.1
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Agriapis"
+    },
+    {
+      "enum": "COFFEE",
+      "binnie_uid": "extrabees.species.coffee",
+      "reforestry_id": "reforestry:bee_coffee",
+      "collision": false,
+      "binomial": "arabica",
+      "dominant": true,
+      "primary_color": "0x8c5e30",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "FARMING",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.WHEATEN.get()",
+          "kind": "forestry_comb",
+          "enum": "WHEATEN",
+          "reforestry_id": "reforestry:bee_comb_wheaten",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.COFFEE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "COFFEE",
+          "reforestry_id": "reforestry:bee_comb_coffee",
+          "chance": 0.08
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Agriapis"
+    },
+    {
+      "enum": "SWAMP",
+      "binnie_uid": "extrabees.species.swamp",
+      "reforestry_id": "reforestry:bee_swamp",
+      "collision": false,
+      "binomial": "paludis",
+      "dominant": true,
+      "primary_color": "0x356933",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "BOGGY",
+      "branch_source": "BeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": "DAMP",
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.MOSSY.get()",
+          "kind": "forestry_comb",
+          "enum": "MOSSY",
+          "reforestry_id": "reforestry:bee_comb_mossy",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesEffect.SLOW.getUID())",
+          "kind": "extra_bees_effect",
+          "enum": "SLOW",
+          "binnie_uid": "extrabees.effect.slow",
+          "reforestry_id": "reforestry:bee_effect_slow",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": null
+    },
+    {
+      "enum": "BOGGY",
+      "binnie_uid": "extrabees.species.boggy",
+      "reforestry_id": "reforestry:bee_eb_boggy",
+      "collision": true,
+      "collides_with": "reforestry:bee_boggy",
+      "binomial": "lama",
+      "dominant": false,
+      "primary_color": "0x785c29",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "BOGGY",
+      "branch_source": "BeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.MOSSY.get()",
+          "kind": "forestry_comb",
+          "enum": "MOSSY",
+          "reforestry_id": "reforestry:bee_comb_mossy",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesEffect.SLOW.getUID())",
+          "kind": "extra_bees_effect",
+          "enum": "SLOW",
+          "binnie_uid": "extrabees.effect.slow",
+          "reforestry_id": "reforestry:bee_effect_slow",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": null
+    },
+    {
+      "enum": "FUNGAL",
+      "binnie_uid": "extrabees.species.fungal",
+      "reforestry_id": "reforestry:bee_fungal",
+      "collision": false,
+      "binomial": "boletus",
+      "dominant": true,
+      "primary_color": "0xd16200",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "BOGGY",
+      "branch_source": "BeeBranchDefinition",
+      "secret": false,
+      "has_effect": true,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.MOSSY.get()",
+          "kind": "forestry_comb",
+          "enum": "MOSSY",
+          "reforestry_id": "reforestry:bee_comb_mossy",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.FUNGAL.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "FUNGAL",
+          "reforestry_id": "reforestry:bee_comb_fungal",
+          "chance": 0.15
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesEffect.BONEMEAL_MUSHROOM.getUID())",
+          "kind": "extra_bees_effect",
+          "enum": "BONEMEAL_MUSHROOM",
+          "binnie_uid": "extrabees.effect.bonemeal_mushroom",
+          "reforestry_id": "reforestry:bee_effect_bonemeal_mushroom",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": null
+    },
+    {
+      "enum": "MARBLE",
+      "binnie_uid": "extrabees.species.marble",
+      "reforestry_id": "reforestry:bee_marble",
+      "collision": false,
+      "binomial": "marbla",
+      "dominant": true,
+      "primary_color": "0xd6c9cf",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "CLASSICAL",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": true,
+      "branch_empty": false,
+      "branch_scientific": "Grecapis"
+    },
+    {
+      "enum": "ROMAN",
+      "binnie_uid": "extrabees.species.roman",
+      "reforestry_id": "reforestry:bee_roman",
+      "collision": false,
+      "binomial": "roman",
+      "dominant": true,
+      "primary_color": "0xad8bb0",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "CLASSICAL",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Grecapis"
+    },
+    {
+      "enum": "GREEK",
+      "binnie_uid": "extrabees.species.greek",
+      "reforestry_id": "reforestry:bee_greek",
+      "collision": false,
+      "binomial": "greco",
+      "dominant": false,
+      "primary_color": "0x854c8a",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "CLASSICAL",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Grecapis"
+    },
+    {
+      "enum": "CLASSICAL",
+      "binnie_uid": "extrabees.species.classical",
+      "reforestry_id": "reforestry:bee_classical",
+      "collision": false,
+      "binomial": "classica",
+      "dominant": false,
+      "primary_color": "0x831d8c",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "CLASSICAL",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": true,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [
+        {
+          "source": "Mods.Forestry.stack(\"royal_jelly\")",
+          "kind": "forestry_item",
+          "binnie_stack": "royal_jelly",
+          "reforestry_id": "reforestry:royal_jelly",
+          "chance": 0.25
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Grecapis"
+    },
+    {
+      "enum": "BASALT",
+      "binnie_uid": "extrabees.species.basalt",
+      "reforestry_id": "reforestry:bee_basalt",
+      "collision": false,
+      "binomial": "aceri",
+      "dominant": true,
+      "primary_color": "0x8c6969",
+      "secondary_color": "0x9a2323",
+      "authority": "Binnie",
+      "branch": "VOLCANIC",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": true,
+      "temperature": "HELLISH",
+      "humidity": "ARID",
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.SIMMERING.get()",
+          "kind": "forestry_comb",
+          "enum": "SIMMERING",
+          "reforestry_id": "reforestry:bee_comb_simmering",
+          "chance": 0.25
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "AlleleEffects.effectAggressive",
+          "kind": "forestry_effect",
+          "enum": "AGGRESSIVE",
+          "reforestry_id": "reforestry:bee_effect_aggressive",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "hive_found": true,
+      "branch_empty": false,
+      "branch_scientific": "Irrapis"
+    },
+    {
+      "enum": "TEMPERED",
+      "binnie_uid": "extrabees.species.tempered",
+      "reforestry_id": "reforestry:bee_tempered",
+      "collision": false,
+      "binomial": "iratus",
+      "dominant": false,
+      "primary_color": "0x8a4848",
+      "secondary_color": "0x9a2323",
+      "authority": "Binnie",
+      "branch": "VOLCANIC",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": true,
+      "temperature": "HELLISH",
+      "humidity": "ARID",
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.SIMMERING.get()",
+          "kind": "forestry_comb",
+          "enum": "SIMMERING",
+          "reforestry_id": "reforestry:bee_comb_simmering",
+          "chance": 0.25
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Irrapis"
+    },
+    {
+      "enum": "VOLCANIC",
+      "binnie_uid": "extrabees.species.volcanic",
+      "reforestry_id": "reforestry:bee_volcanic",
+      "collision": false,
+      "binomial": "volcano",
+      "dominant": true,
+      "primary_color": "0x4d0c0c",
+      "secondary_color": "0x9a2323",
+      "authority": "Binnie",
+      "branch": "VOLCANIC",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": true,
+      "nocturnal": true,
+      "temperature": "HELLISH",
+      "humidity": "ARID",
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.SIMMERING.get()",
+          "kind": "forestry_comb",
+          "enum": "SIMMERING",
+          "reforestry_id": "reforestry:bee_comb_simmering",
+          "chance": 0.25
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.BLAZE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "BLAZE",
+          "reforestry_id": "reforestry:bee_comb_blaze",
+          "chance": 0.1
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Irrapis"
+    },
+    {
+      "enum": "GLOWSTONE",
+      "binnie_uid": "extrabees.species.glowstone",
+      "reforestry_id": "reforestry:bee_glowstone",
+      "collision": false,
+      "binomial": "glowia",
+      "dominant": true,
+      "primary_color": "0xe0c61b",
+      "secondary_color": "0x9a2323",
+      "authority": "Binnie",
+      "branch": "VOLCANIC",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": true,
+      "temperature": "HELLISH",
+      "humidity": "ARID",
+      "products": [
+        {
+          "source": "EnumHoneyComb.GLOWSTONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "GLOWSTONE",
+          "reforestry_id": "reforestry:bee_comb_glowstone",
+          "chance": 0.15
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "AlleleEffects.effectAggressive",
+          "kind": "forestry_effect",
+          "enum": "AGGRESSIVE",
+          "reforestry_id": "reforestry:bee_effect_aggressive",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Irrapis"
+    },
+    {
+      "enum": "MALICIOUS",
+      "binnie_uid": "extrabees.species.malicious",
+      "reforestry_id": "reforestry:bee_malicious",
+      "collision": false,
+      "binomial": "acerbus",
+      "dominant": true,
+      "primary_color": "0x782a77",
+      "secondary_color": "0x069764",
+      "authority": "Binnie",
+      "branch": "VIRULENT",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": "WARM",
+      "humidity": "DAMP",
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.SILKY.get()",
+          "kind": "forestry_comb",
+          "enum": "SILKY",
+          "reforestry_id": "reforestry:bee_comb_silky",
+          "chance": 0.25
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Virapis"
+    },
+    {
+      "enum": "INFECTIOUS",
+      "binnie_uid": "extrabees.species.infectious",
+      "reforestry_id": "reforestry:bee_infectious",
+      "collision": false,
+      "binomial": "contagio",
+      "dominant": true,
+      "primary_color": "0xb82eb5",
+      "secondary_color": "0x069764",
+      "authority": "Binnie",
+      "branch": "VIRULENT",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.SILKY.get()",
+          "kind": "forestry_comb",
+          "enum": "SILKY",
+          "reforestry_id": "reforestry:bee_comb_silky",
+          "chance": 0.25
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "EnumAllele.Flowering.SLOW",
+          "kind": "enum_allele",
+          "group": "Flowering",
+          "value": "SLOW",
+          "chromosome": "FLOWERING"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Virapis"
+    },
+    {
+      "enum": "VIRULENT",
+      "binnie_uid": "extrabees.species.virulent",
+      "reforestry_id": "reforestry:bee_virulent",
+      "collision": false,
+      "binomial": "morbus",
+      "dominant": false,
+      "primary_color": "0xf013ec",
+      "secondary_color": "0x069764",
+      "authority": "Binnie",
+      "branch": "VIRULENT",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": true,
+      "nocturnal": false,
+      "temperature": "WARM",
+      "humidity": "DAMP",
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.SILKY.get()",
+          "kind": "forestry_comb",
+          "enum": "SILKY",
+          "reforestry_id": "reforestry:bee_comb_silky",
+          "chance": 0.25
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.VENOMOUS.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "VENOMOUS",
+          "reforestry_id": "reforestry:bee_comb_venomous",
+          "chance": 0.12
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "EnumAllele.Flowering.AVERAGE",
+          "kind": "enum_allele",
+          "group": "Flowering",
+          "value": "AVERAGE",
+          "chromosome": "FLOWERING"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Virapis"
+    },
+    {
+      "enum": "VISCOUS",
+      "binnie_uid": "extrabees.species.viscous",
+      "reforestry_id": "reforestry:bee_viscous",
+      "collision": false,
+      "binomial": "liquidus",
+      "dominant": true,
+      "primary_color": "0x09470e",
+      "secondary_color": "0x069764",
+      "authority": "Binnie",
+      "branch": "VISCOUS",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": "WARM",
+      "humidity": "DAMP",
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.SILKY.get()",
+          "kind": "forestry_comb",
+          "enum": "SILKY",
+          "reforestry_id": "reforestry:bee_comb_silky",
+          "chance": 0.25
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Viscapis"
+    },
+    {
+      "enum": "GLUTINOUS",
+      "binnie_uid": "extrabees.species.glutinous",
+      "reforestry_id": "reforestry:bee_glutinous",
+      "collision": false,
+      "binomial": "glutina",
+      "dominant": true,
+      "primary_color": "0x1d8c27",
+      "secondary_color": "0x069764",
+      "authority": "Binnie",
+      "branch": "VISCOUS",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": "WARM",
+      "humidity": "DAMP",
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.SILKY.get()",
+          "kind": "forestry_comb",
+          "enum": "SILKY",
+          "reforestry_id": "reforestry:bee_comb_silky",
+          "chance": 0.25
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "EnumAllele.Speed.NORMAL",
+          "kind": "enum_allele",
+          "group": "Speed",
+          "value": "NORMAL",
+          "chromosome": "SPEED"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Viscapis"
+    },
+    {
+      "enum": "STICKY",
+      "binnie_uid": "extrabees.species.sticky",
+      "reforestry_id": "reforestry:bee_sticky",
+      "collision": false,
+      "binomial": "lentesco",
+      "dominant": true,
+      "primary_color": "0x17e328",
+      "secondary_color": "0x069764",
+      "authority": "Binnie",
+      "branch": "VISCOUS",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": true,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.SILKY.get()",
+          "kind": "forestry_comb",
+          "enum": "SILKY",
+          "reforestry_id": "reforestry:bee_comb_silky",
+          "chance": 0.25
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.SLIME.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "SLIME",
+          "reforestry_id": "reforestry:bee_comb_slime",
+          "chance": 0.12
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "EnumAllele.Speed.FAST",
+          "kind": "enum_allele",
+          "group": "Speed",
+          "value": "FAST",
+          "chromosome": "SPEED"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Viscapis"
+    },
+    {
+      "enum": "CORROSIVE",
+      "binnie_uid": "extrabees.species.corrosive",
+      "reforestry_id": "reforestry:bee_corrosive",
+      "collision": false,
+      "binomial": "corrumpo",
+      "dominant": false,
+      "primary_color": "0x4a5c0b",
+      "secondary_color": "0x069764",
+      "authority": "Binnie",
+      "branch": "CAUSTIC",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": "WARM",
+      "humidity": "DAMP",
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.SILKY.get()",
+          "kind": "forestry_comb",
+          "enum": "SILKY",
+          "reforestry_id": "reforestry:bee_comb_silky",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Morbapis"
+    },
+    {
+      "enum": "CAUSTIC",
+      "binnie_uid": "extrabees.species.caustic",
+      "reforestry_id": "reforestry:bee_caustic",
+      "collision": false,
+      "binomial": "torrens",
+      "dominant": true,
+      "primary_color": "0x84a11d",
+      "secondary_color": "0x069764",
+      "authority": "Binnie",
+      "branch": "CAUSTIC",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": "WARM",
+      "humidity": "DAMP",
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.SILKY.get()",
+          "kind": "forestry_comb",
+          "enum": "SILKY",
+          "reforestry_id": "reforestry:bee_comb_silky",
+          "chance": 0.25
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.ACIDIC.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "ACIDIC",
+          "reforestry_id": "reforestry:bee_comb_acidic",
+          "chance": 0.03
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Morbapis"
+    },
+    {
+      "enum": "ACIDIC",
+      "binnie_uid": "extrabees.species.acidic",
+      "reforestry_id": "reforestry:bee_acidic",
+      "collision": false,
+      "binomial": "acidus",
+      "dominant": true,
+      "primary_color": "0xc0f016",
+      "secondary_color": "0x069764",
+      "authority": "Binnie",
+      "branch": "CAUSTIC",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": true,
+      "nocturnal": false,
+      "temperature": "WARM",
+      "humidity": "DAMP",
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.SILKY.get()",
+          "kind": "forestry_comb",
+          "enum": "SILKY",
+          "reforestry_id": "reforestry:bee_comb_silky",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.ACIDIC.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "ACIDIC",
+          "reforestry_id": "reforestry:bee_comb_acidic",
+          "chance": 0.16
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Morbapis"
+    },
+    {
+      "enum": "EXCITED",
+      "binnie_uid": "extrabees.species.excited",
+      "reforestry_id": "reforestry:bee_excited",
+      "collision": false,
+      "binomial": "excita",
+      "dominant": true,
+      "primary_color": "0xff4545",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "ENERGETIC",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.REDSTONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "REDSTONE",
+          "reforestry_id": "reforestry:bee_comb_redstone",
+          "chance": 0.1
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Incitapis"
+    },
+    {
+      "enum": "ENERGETIC",
+      "binnie_uid": "extrabees.species.energetic",
+      "reforestry_id": "reforestry:bee_energetic",
+      "collision": false,
+      "binomial": "energia",
+      "dominant": false,
+      "primary_color": "0xe835c7",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "ENERGETIC",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.REDSTONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "REDSTONE",
+          "reforestry_id": "reforestry:bee_comb_redstone",
+          "chance": 0.12
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Incitapis"
+    },
+    {
+      "enum": "ECSTATIC",
+      "binnie_uid": "extrabees.species.ecstatic",
+      "reforestry_id": "reforestry:bee_ecstatic",
+      "collision": false,
+      "binomial": "ecstatica",
+      "dominant": true,
+      "primary_color": "0xaf35e8",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "ENERGETIC",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": true,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "EnumHoneyComb.REDSTONE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "REDSTONE",
+          "reforestry_id": "reforestry:bee_comb_redstone",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.IC2ENERGY.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "IC2ENERGY",
+          "reforestry_id": "reforestry:bee_comb_ic2energy",
+          "chance": 0.08
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesEffect.POWER.getUID())",
+          "kind": "extra_bees_effect",
+          "enum": "POWER",
+          "binnie_uid": "extrabees.effect.power",
+          "reforestry_id": "reforestry:bee_effect_power",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Incitapis"
+    },
+    {
+      "enum": "ARTIC",
+      "binnie_uid": "extrabees.species.artic",
+      "reforestry_id": "reforestry:bee_artic",
+      "collision": false,
+      "binomial": "artica",
+      "dominant": true,
+      "primary_color": "0xade0e0",
+      "secondary_color": "0xdaf5f3",
+      "authority": "Binnie",
+      "branch": "FROZEN",
+      "branch_source": "BeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": "ICY",
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.FROZEN.get()",
+          "kind": "forestry_comb",
+          "enum": "FROZEN",
+          "reforestry_id": "reforestry:bee_comb_frozen",
+          "chance": 0.25
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "EnumAllele.Speed.SLOWER",
+          "kind": "enum_allele",
+          "group": "Speed",
+          "value": "SLOWER",
+          "chromosome": "SPEED"
+        },
+        {
+          "source": "EnumAllele.Lifespan.SHORT",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "SHORT",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "EnumAllele.Fertility.MAXIMUM",
+          "kind": "enum_allele",
+          "group": "Fertility",
+          "value": "MAXIMUM",
+          "chromosome": "FERTILITY"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": null
+    },
+    {
+      "enum": "FREEZING",
+      "binnie_uid": "extrabees.species.freezing",
+      "reforestry_id": "reforestry:bee_freezing",
+      "collision": false,
+      "binomial": "glacia",
+      "dominant": true,
+      "primary_color": "0x7be3e3",
+      "secondary_color": "0xdaf5f3",
+      "authority": "Binnie",
+      "branch": "FROZEN",
+      "branch_source": "BeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": "ICY",
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.FROZEN.get()",
+          "kind": "forestry_comb",
+          "enum": "FROZEN",
+          "reforestry_id": "reforestry:bee_comb_frozen",
+          "chance": 0.2
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.GLACIAL.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "GLACIAL",
+          "reforestry_id": "reforestry:bee_comb_glacial",
+          "chance": 0.1
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "EnumAllele.Speed.SLOWER",
+          "kind": "enum_allele",
+          "group": "Speed",
+          "value": "SLOWER",
+          "chromosome": "SPEED"
+        },
+        {
+          "source": "EnumAllele.Lifespan.SHORT",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "SHORT",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "EnumAllele.Fertility.MAXIMUM",
+          "kind": "enum_allele",
+          "group": "Fertility",
+          "value": "MAXIMUM",
+          "chromosome": "FERTILITY"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": null
+    },
+    {
+      "enum": "SHADOW",
+      "binnie_uid": "extrabees.species.shadow",
+      "reforestry_id": "reforestry:bee_shadow",
+      "collision": false,
+      "binomial": "shadowa",
+      "dominant": false,
+      "primary_color": "0x595959",
+      "secondary_color": "0x333333",
+      "authority": "Binnie",
+      "branch": "SHADOW",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": true,
+      "temperature": "HELLISH",
+      "humidity": "ARID",
+      "products": [
+        {
+          "source": "EnumHoneyComb.SHADOW.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "SHADOW",
+          "reforestry_id": "reforestry:bee_comb_shadow",
+          "chance": 0.05
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Pullapis"
+    },
+    {
+      "enum": "DARKENED",
+      "binnie_uid": "extrabees.species.darkened",
+      "reforestry_id": "reforestry:bee_darkened",
+      "collision": false,
+      "binomial": "darka",
+      "dominant": true,
+      "primary_color": "0x332e33",
+      "secondary_color": "0x333333",
+      "authority": "Binnie",
+      "branch": "SHADOW",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": true,
+      "temperature": "HELLISH",
+      "humidity": "ARID",
+      "products": [
+        {
+          "source": "EnumHoneyComb.SHADOW.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "SHADOW",
+          "reforestry_id": "reforestry:bee_comb_shadow",
+          "chance": 0.1
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Pullapis"
+    },
+    {
+      "enum": "ABYSS",
+      "binnie_uid": "extrabees.species.abyss",
+      "reforestry_id": "reforestry:bee_abyss",
+      "collision": false,
+      "binomial": "abyssba",
+      "dominant": true,
+      "primary_color": "0x210821",
+      "secondary_color": "0x333333",
+      "authority": "Binnie",
+      "branch": "SHADOW",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": true,
+      "nocturnal": true,
+      "temperature": "HELLISH",
+      "humidity": "ARID",
+      "products": [
+        {
+          "source": "EnumHoneyComb.SHADOW.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "SHADOW",
+          "reforestry_id": "reforestry:bee_comb_shadow",
+          "chance": 0.25
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesEffect.WITHER.getUID())",
+          "kind": "extra_bees_effect",
+          "enum": "WITHER",
+          "binnie_uid": "extrabees.effect.wither",
+          "reforestry_id": "reforestry:bee_effect_wither",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Pullapis"
+    },
+    {
+      "enum": "RED",
+      "binnie_uid": "extrabees.species.red",
+      "reforestry_id": "reforestry:bee_red",
+      "collision": false,
+      "binomial": "rubra",
+      "dominant": true,
+      "primary_color": "0xff0000",
+      "secondary_color": "0x8cff00",
+      "authority": "Binnie",
+      "branch": "PRIMARY",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.75
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.RED.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "RED",
+          "reforestry_id": "reforestry:bee_comb_red",
+          "chance": 0.25
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Primapis"
+    },
+    {
+      "enum": "YELLOW",
+      "binnie_uid": "extrabees.species.yellow",
+      "reforestry_id": "reforestry:bee_yellow",
+      "collision": false,
+      "binomial": "fulvus",
+      "dominant": true,
+      "primary_color": "0xffdd00",
+      "secondary_color": "0x8cff00",
+      "authority": "Binnie",
+      "branch": "PRIMARY",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.75
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.YELLOW.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "YELLOW",
+          "reforestry_id": "reforestry:bee_comb_yellow",
+          "chance": 0.25
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Primapis"
+    },
+    {
+      "enum": "BLUE",
+      "binnie_uid": "extrabees.species.blue",
+      "reforestry_id": "reforestry:bee_blue",
+      "collision": false,
+      "binomial": "caeruleus",
+      "dominant": true,
+      "primary_color": "0x0022ff",
+      "secondary_color": "0x8cff00",
+      "authority": "Binnie",
+      "branch": "PRIMARY",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.75
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.BLUE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "BLUE",
+          "reforestry_id": "reforestry:bee_comb_blue",
+          "chance": 0.25
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Primapis"
+    },
+    {
+      "enum": "GREEN",
+      "binnie_uid": "extrabees.species.green",
+      "reforestry_id": "reforestry:bee_green",
+      "collision": false,
+      "binomial": "prasinus",
+      "dominant": true,
+      "primary_color": "0x009900",
+      "secondary_color": "0x8cff00",
+      "authority": "Binnie",
+      "branch": "PRIMARY",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.75
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.GREEN.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "GREEN",
+          "reforestry_id": "reforestry:bee_comb_green",
+          "chance": 0.25
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Primapis"
+    },
+    {
+      "enum": "BLACK",
+      "binnie_uid": "extrabees.species.black",
+      "reforestry_id": "reforestry:bee_black",
+      "collision": false,
+      "binomial": "niger",
+      "dominant": true,
+      "primary_color": "0x575757",
+      "secondary_color": "0x8cff00",
+      "authority": "Binnie",
+      "branch": "PRIMARY",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.75
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.BLACK.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "BLACK",
+          "reforestry_id": "reforestry:bee_comb_black",
+          "chance": 0.25
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Primapis"
+    },
+    {
+      "enum": "WHITE",
+      "binnie_uid": "extrabees.species.white",
+      "reforestry_id": "reforestry:bee_white",
+      "collision": false,
+      "binomial": "albus",
+      "dominant": true,
+      "primary_color": "0xffffff",
+      "secondary_color": "0x8cff00",
+      "authority": "Binnie",
+      "branch": "PRIMARY",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.75
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.WHITE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "WHITE",
+          "reforestry_id": "reforestry:bee_comb_white",
+          "chance": 0.25
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Primapis"
+    },
+    {
+      "enum": "BROWN",
+      "binnie_uid": "extrabees.species.brown",
+      "reforestry_id": "reforestry:bee_brown",
+      "collision": false,
+      "binomial": "fuscus",
+      "dominant": true,
+      "primary_color": "0x5c350f",
+      "secondary_color": "0x8cff00",
+      "authority": "Binnie",
+      "branch": "PRIMARY",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.75
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.BROWN.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "BROWN",
+          "reforestry_id": "reforestry:bee_comb_brown",
+          "chance": 0.25
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Primapis"
+    },
+    {
+      "enum": "ORANGE",
+      "binnie_uid": "extrabees.species.orange",
+      "reforestry_id": "reforestry:bee_orange",
+      "collision": false,
+      "binomial": "flammeus",
+      "dominant": true,
+      "primary_color": "0xff9d00",
+      "secondary_color": "0x8cff00",
+      "authority": "Binnie",
+      "branch": "SECONDARY",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.75
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.ORANGE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "ORANGE",
+          "reforestry_id": "reforestry:bee_comb_orange",
+          "chance": 0.25
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Secapis"
+    },
+    {
+      "enum": "CYAN",
+      "binnie_uid": "extrabees.species.cyan",
+      "reforestry_id": "reforestry:bee_cyan",
+      "collision": false,
+      "binomial": "cyana",
+      "dominant": true,
+      "primary_color": "0x00ffe5",
+      "secondary_color": "0x8cff00",
+      "authority": "Binnie",
+      "branch": "SECONDARY",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.75
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.CYAN.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "CYAN",
+          "reforestry_id": "reforestry:bee_comb_cyan",
+          "chance": 0.25
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Secapis"
+    },
+    {
+      "enum": "PURPLE",
+      "binnie_uid": "extrabees.species.purple",
+      "reforestry_id": "reforestry:bee_purple",
+      "collision": false,
+      "binomial": "purpureus",
+      "dominant": true,
+      "primary_color": "0xae00ff",
+      "secondary_color": "0x8cff00",
+      "authority": "Binnie",
+      "branch": "SECONDARY",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.75
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.PURPLE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "PURPLE",
+          "reforestry_id": "reforestry:bee_comb_purple",
+          "chance": 0.25
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Secapis"
+    },
+    {
+      "enum": "GRAY",
+      "binnie_uid": "extrabees.species.gray",
+      "reforestry_id": "reforestry:bee_gray",
+      "collision": false,
+      "binomial": "ravus",
+      "dominant": true,
+      "primary_color": "0xbababa",
+      "secondary_color": "0x8cff00",
+      "authority": "Binnie",
+      "branch": "SECONDARY",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.75
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.GRAY.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "GRAY",
+          "reforestry_id": "reforestry:bee_comb_gray",
+          "chance": 0.25
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Secapis"
+    },
+    {
+      "enum": "LIGHTBLUE",
+      "binnie_uid": "extrabees.species.lightblue",
+      "reforestry_id": "reforestry:bee_lightblue",
+      "collision": false,
+      "binomial": "aqua",
+      "dominant": true,
+      "primary_color": "0x009dff",
+      "secondary_color": "0x8cff00",
+      "authority": "Binnie",
+      "branch": "SECONDARY",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.75
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.LIGHTBLUE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "LIGHTBLUE",
+          "reforestry_id": "reforestry:bee_comb_lightblue",
+          "chance": 0.25
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Secapis"
+    },
+    {
+      "enum": "PINK",
+      "binnie_uid": "extrabees.species.pink",
+      "reforestry_id": "reforestry:bee_pink",
+      "collision": false,
+      "binomial": "rosaceus",
+      "dominant": true,
+      "primary_color": "0xff80df",
+      "secondary_color": "0x8cff00",
+      "authority": "Binnie",
+      "branch": "SECONDARY",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.75
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.PINK.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "PINK",
+          "reforestry_id": "reforestry:bee_comb_pink",
+          "chance": 0.25
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Secapis"
+    },
+    {
+      "enum": "LIMEGREEN",
+      "binnie_uid": "extrabees.species.limegreen",
+      "reforestry_id": "reforestry:bee_limegreen",
+      "collision": false,
+      "binomial": "lima",
+      "dominant": true,
+      "primary_color": "0x00ff08",
+      "secondary_color": "0x8cff00",
+      "authority": "Binnie",
+      "branch": "SECONDARY",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.75
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.LIMEGREEN.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "LIMEGREEN",
+          "reforestry_id": "reforestry:bee_comb_limegreen",
+          "chance": 0.25
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Secapis"
+    },
+    {
+      "enum": "MAGENTA",
+      "binnie_uid": "extrabees.species.magenta",
+      "reforestry_id": "reforestry:bee_magenta",
+      "collision": false,
+      "binomial": "fuchsia",
+      "dominant": true,
+      "primary_color": "0xff00cc",
+      "secondary_color": "0x8cff00",
+      "authority": "Binnie",
+      "branch": "TERTIARY",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.75
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.MAGENTA.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "MAGENTA",
+          "reforestry_id": "reforestry:bee_comb_magenta",
+          "chance": 0.25
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Tertiapis"
+    },
+    {
+      "enum": "LIGHTGRAY",
+      "binnie_uid": "extrabees.species.lightgray",
+      "reforestry_id": "reforestry:bee_lightgray",
+      "collision": false,
+      "binomial": "canus",
+      "dominant": true,
+      "primary_color": "0xc9c9c9",
+      "secondary_color": "0x8cff00",
+      "authority": "Binnie",
+      "branch": "TERTIARY",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.75
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.LIGHTGRAY.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "LIGHTGRAY",
+          "reforestry_id": "reforestry:bee_comb_lightgray",
+          "chance": 0.25
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Tertiapis"
+    },
+    {
+      "enum": "CELEBRATORY",
+      "binnie_uid": "extrabees.species.celebratory",
+      "reforestry_id": "reforestry:bee_celebratory",
+      "collision": false,
+      "binomial": "celeba",
+      "dominant": true,
+      "primary_color": "0xfa0a6a",
+      "secondary_color": "0xd40000",
+      "authority": "Binnie",
+      "branch": "FESTIVE",
+      "branch_source": "BeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": "ICY",
+      "humidity": null,
+      "products": [],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "true",
+          "kind": "boolean",
+          "value": true,
+          "chromosome": "NEVER_SLEEPS"
+        },
+        {
+          "source": "AlleleHelper.getAllele(ExtraBeesEffect.FIREWORKS.getUID())",
+          "kind": "extra_bees_effect",
+          "enum": "FIREWORKS",
+          "binnie_uid": "extrabees.effect.fireworks",
+          "reforestry_id": "reforestry:bee_effect_fireworks",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": null
+    },
+    {
+      "enum": "JADED",
+      "binnie_uid": "extrabees.species.jaded",
+      "reforestry_id": "reforestry:bee_jaded",
+      "collision": false,
+      "binomial": "jadeca",
+      "dominant": true,
+      "primary_color": "0xfa0a6a",
+      "secondary_color": "0xdc8aeb",
+      "authority": "Binnie",
+      "branch": "FTB",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": true,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.HONEY.get()",
+          "kind": "forestry_comb",
+          "enum": "HONEY",
+          "reforestry_id": "reforestry:bee_comb_honey",
+          "chance": 0.3
+        }
+      ],
+      "specialties": [
+        {
+          "source": "Mods.Forestry.stack(\"pollen\")",
+          "kind": "forestry_item",
+          "binnie_stack": "pollen",
+          "reforestry_id": "reforestry:pollen",
+          "chance": 0.2
+        },
+        {
+          "source": "EnumHoneyComb.PURPLE.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "PURPLE",
+          "reforestry_id": "reforestry:bee_comb_purple",
+          "chance": 0.15
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Eftebeapis"
+    },
+    {
+      "enum": "HAZARDOUS",
+      "binnie_uid": "extrabees.species.hazardous",
+      "reforestry_id": "reforestry:bee_hazardous",
+      "collision": false,
+      "binomial": "infensus",
+      "dominant": true,
+      "primary_color": "0xb06c28",
+      "secondary_color": "0xffdc16",
+      "authority": "Binnie",
+      "branch": "AUSTERE",
+      "branch_source": "BeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": "HOT",
+      "humidity": "ARID",
+      "products": [
+        {
+          "source": "EnumHoneyComb.SALTPETER.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "SALTPETER",
+          "reforestry_id": "reforestry:bee_comb_saltpeter",
+          "chance": 0.12
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "EnumAllele.Speed.SLOWEST",
+          "kind": "enum_allele",
+          "group": "Speed",
+          "value": "SLOWEST",
+          "chromosome": "SPEED"
+        },
+        {
+          "source": "EnumAllele.Lifespan.LONGER",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "LONGER",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "EnumAllele.Tolerance.DOWN_2",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "DOWN_2",
+          "chromosome": "TEMPERATURE_TOLERANCE"
+        },
+        {
+          "source": "AlleleEffects.effectCreeper",
+          "kind": "forestry_effect",
+          "enum": "CREEPER",
+          "reforestry_id": "reforestry:bee_effect_creeper",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": null
+    },
+    {
+      "enum": "QUANTUM",
+      "binnie_uid": "extrabees.species.quantum",
+      "reforestry_id": "reforestry:bee_quantum",
+      "collision": false,
+      "binomial": "quanta",
+      "dominant": true,
+      "primary_color": "0x37c5db",
+      "secondary_color": "0xd50fdb",
+      "authority": "Binnie",
+      "branch": "QUANTUM",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.QUARTZ.get()",
+          "kind": "forestry_comb",
+          "enum": "QUARTZ",
+          "reforestry_id": "reforestry:bee_comb_quartz",
+          "chance": 0.25
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.CERTUS.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "CERTUS",
+          "reforestry_id": "reforestry:bee_comb_certus",
+          "chance": 0.15
+        },
+        {
+          "source": "EnumHoneyComb.ENDERPEARL.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "ENDERPEARL",
+          "reforestry_id": "reforestry:bee_comb_enderpearl",
+          "chance": 0.15
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [
+        {
+          "source": "EnumAllele.Fertility.NORMAL",
+          "kind": "enum_allele",
+          "group": "Fertility",
+          "value": "NORMAL",
+          "chromosome": "FERTILITY"
+        },
+        {
+          "source": "EnumAllele.Speed.SLOWEST",
+          "kind": "enum_allele",
+          "group": "Speed",
+          "value": "SLOWEST",
+          "chromosome": "SPEED"
+        },
+        {
+          "source": "EnumAllele.Lifespan.SHORTER",
+          "kind": "enum_allele",
+          "group": "Lifespan",
+          "value": "SHORTER",
+          "chromosome": "LIFESPAN"
+        },
+        {
+          "source": "EnumAllele.Tolerance.NONE",
+          "kind": "enum_allele",
+          "group": "Tolerance",
+          "value": "NONE",
+          "chromosome": "TEMPERATURE_TOLERANCE"
+        },
+        {
+          "source": "EnumAllele.Flowers.VANILLA",
+          "kind": "enum_allele",
+          "group": "Flowers",
+          "value": "VANILLA",
+          "chromosome": "FLOWER_PROVIDER"
+        },
+        {
+          "source": "false",
+          "kind": "boolean",
+          "value": false,
+          "chromosome": "NEVER_SLEEPS"
+        },
+        {
+          "source": "EnumAllele.Territory.AVERAGE",
+          "kind": "enum_allele",
+          "group": "Territory",
+          "value": "AVERAGE",
+          "chromosome": "TERRITORY"
+        },
+        {
+          "source": "AlleleEffects.effectNone",
+          "kind": "forestry_effect",
+          "enum": "NONE",
+          "reforestry_id": "reforestry:bee_effect_none",
+          "chromosome": "EFFECT"
+        }
+      ],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Quantapis"
+    },
+    {
+      "enum": "UNUSUAL",
+      "binnie_uid": "extrabees.species.unusual",
+      "reforestry_id": "reforestry:bee_unusual",
+      "collision": false,
+      "binomial": "daniella",
+      "dominant": true,
+      "primary_color": "0x59a4ba",
+      "secondary_color": "0xbaa2eb",
+      "authority": "Binnie",
+      "branch": "QUANTUM",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": "COLD",
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.QUARTZ.get()",
+          "kind": "forestry_comb",
+          "enum": "QUARTZ",
+          "reforestry_id": "reforestry:bee_comb_quartz",
+          "chance": 0.25
+        }
+      ],
+      "specialties": [],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Quantapis"
+    },
+    {
+      "enum": "SPATIAL",
+      "binnie_uid": "extrabees.species.spatial",
+      "reforestry_id": "reforestry:bee_spatial",
+      "collision": false,
+      "binomial": "spatia",
+      "dominant": true,
+      "primary_color": "0x4c1be0",
+      "secondary_color": "0xa44ecc",
+      "authority": "Binnie",
+      "branch": "QUANTUM",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": "COLD",
+      "humidity": null,
+      "products": [
+        {
+          "source": "ItemHoneyComb.VanillaComb.QUARTZ.get()",
+          "kind": "forestry_comb",
+          "enum": "QUARTZ",
+          "reforestry_id": "reforestry:bee_comb_quartz",
+          "chance": 0.25
+        }
+      ],
+      "specialties": [
+        {
+          "source": "EnumHoneyComb.CERTUS.get(1)",
+          "kind": "extra_bees_comb",
+          "enum": "CERTUS",
+          "reforestry_id": "reforestry:bee_comb_certus",
+          "chance": 0.05
+        }
+      ],
+      "copy_products_from": null,
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Quantapis"
+    },
+    {
+      "enum": "MYSTICAL",
+      "binnie_uid": "extrabees.species.mystical",
+      "reforestry_id": "reforestry:bee_mystical",
+      "collision": false,
+      "binomial": "mystica",
+      "dominant": true,
+      "primary_color": "0x46a722",
+      "secondary_color": "0xffffff",
+      "authority": "Binnie",
+      "branch": "BOTANIA",
+      "branch_source": "ExtraBeeBranchDefinition",
+      "secret": false,
+      "has_effect": false,
+      "nocturnal": false,
+      "temperature": null,
+      "humidity": null,
+      "products": [],
+      "specialties": [],
+      "copy_products_from": {
+        "source": "BeeDefinition",
+        "enum": "NOBLE",
+        "reforestry_id": "reforestry:bee_noble"
+      },
+      "genome_overrides": [],
+      "hive_found": false,
+      "branch_empty": false,
+      "branch_scientific": "Botaniapis"
+    }
+  ]
+}

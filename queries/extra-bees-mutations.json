@@ -1,0 +1,4405 @@
+{
+  "source_class": "binnie.extrabees.genetics.ExtraBeeDefinition",
+  "count": 168,
+  "forestry_result_count": 34,
+  "mutations": [
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MEADOWS",
+        "binnie_uid": "forestry.species.meadows",
+        "reforestry_id": "reforestry:bee_meadows",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "FRUGAL",
+        "binnie_uid": "forestry.species.frugal",
+        "reforestry_id": "reforestry:bee_frugal",
+        "forestry": true
+      },
+      "chance": 10,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ARID",
+        "binnie_uid": "extrabees.species.arid",
+        "reforestry_id": "reforestry:bee_arid",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "FOREST",
+        "binnie_uid": "forestry.species.forest",
+        "reforestry_id": "reforestry:bee_forest",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "FRUGAL",
+        "binnie_uid": "forestry.species.frugal",
+        "reforestry_id": "reforestry:bee_frugal",
+        "forestry": true
+      },
+      "chance": 10,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ARID",
+        "binnie_uid": "extrabees.species.arid",
+        "reforestry_id": "reforestry:bee_arid",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ARID",
+        "binnie_uid": "extrabees.species.arid",
+        "reforestry_id": "reforestry:bee_arid",
+        "forestry": false
+      },
+      "chance": 10,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BARREN",
+        "binnie_uid": "extrabees.species.barren",
+        "reforestry_id": "reforestry:bee_barren",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ARID",
+        "binnie_uid": "extrabees.species.arid",
+        "reforestry_id": "reforestry:bee_arid",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BARREN",
+        "binnie_uid": "extrabees.species.barren",
+        "reforestry_id": "reforestry:bee_barren",
+        "forestry": false
+      },
+      "chance": 10,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "DESOLATE",
+        "binnie_uid": "extrabees.species.desolate",
+        "reforestry_id": "reforestry:bee_desolate",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MARSHY",
+        "binnie_uid": "forestry.species.marshy",
+        "reforestry_id": "reforestry:bee_marshy",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BARREN",
+        "binnie_uid": "extrabees.species.barren",
+        "reforestry_id": "reforestry:bee_barren",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "DECOMPOSING",
+        "binnie_uid": "extrabees.species.decomposing",
+        "reforestry_id": "reforestry:bee_decomposing",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "FOREST",
+        "binnie_uid": "forestry.species.forest",
+        "reforestry_id": "reforestry:bee_forest",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BARREN",
+        "binnie_uid": "extrabees.species.barren",
+        "reforestry_id": "reforestry:bee_barren",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "GNAWING",
+        "binnie_uid": "extrabees.species.gnawing",
+        "reforestry_id": "reforestry:bee_gnawing",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MEADOWS",
+        "binnie_uid": "forestry.species.meadows",
+        "reforestry_id": "reforestry:bee_meadows",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "DESOLATE",
+        "binnie_uid": "extrabees.species.desolate",
+        "reforestry_id": "reforestry:bee_desolate",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ROTTEN",
+        "binnie_uid": "extrabees.species.rotten",
+        "reforestry_id": "reforestry:bee_rotten",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "FOREST",
+        "binnie_uid": "forestry.species.forest",
+        "reforestry_id": "reforestry:bee_forest",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "DESOLATE",
+        "binnie_uid": "extrabees.species.desolate",
+        "reforestry_id": "reforestry:bee_desolate",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BONE",
+        "binnie_uid": "extrabees.species.bone",
+        "reforestry_id": "reforestry:bee_bone",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MODEST",
+        "binnie_uid": "forestry.species.modest",
+        "reforestry_id": "reforestry:bee_modest",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "DESOLATE",
+        "binnie_uid": "extrabees.species.desolate",
+        "reforestry_id": "reforestry:bee_desolate",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "CREEPER",
+        "binnie_uid": "extrabees.species.creeper",
+        "reforestry_id": "reforestry:bee_creeper",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "DILIGENT",
+        "binnie_uid": "forestry.species.diligent",
+        "reforestry_id": "reforestry:bee_diligent",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ROCK",
+        "binnie_uid": "extrabees.species.rock",
+        "reforestry_id": "reforestry:bee_rock",
+        "forestry": false
+      },
+      "chance": 12,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "STONE",
+        "binnie_uid": "extrabees.species.stone",
+        "reforestry_id": "reforestry:bee_stone",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "UNWEARY",
+        "binnie_uid": "forestry.species.unweary",
+        "reforestry_id": "reforestry:bee_unweary",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "STONE",
+        "binnie_uid": "extrabees.species.stone",
+        "reforestry_id": "reforestry:bee_stone",
+        "forestry": false
+      },
+      "chance": 10,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "GRANITE",
+        "binnie_uid": "extrabees.species.granite",
+        "reforestry_id": "reforestry:bee_granite",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "INDUSTRIOUS",
+        "binnie_uid": "forestry.species.industrious",
+        "reforestry_id": "reforestry:bee_industrious",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "GRANITE",
+        "binnie_uid": "extrabees.species.granite",
+        "reforestry_id": "reforestry:bee_granite",
+        "forestry": false
+      },
+      "chance": 6,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MINERAL",
+        "binnie_uid": "extrabees.species.mineral",
+        "reforestry_id": "reforestry:bee_mineral",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "WINTRY",
+        "binnie_uid": "forestry.species.wintry",
+        "reforestry_id": "reforestry:bee_wintry",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MINERAL",
+        "binnie_uid": "extrabees.species.mineral",
+        "reforestry_id": "reforestry:bee_mineral",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "COPPER",
+        "binnie_uid": "extrabees.species.copper",
+        "reforestry_id": "reforestry:bee_copper",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MODEST",
+        "binnie_uid": "forestry.species.modest",
+        "reforestry_id": "reforestry:bee_modest",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MINERAL",
+        "binnie_uid": "extrabees.species.mineral",
+        "reforestry_id": "reforestry:bee_mineral",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "COPPER",
+        "binnie_uid": "extrabees.species.copper",
+        "reforestry_id": "reforestry:bee_copper",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MARSHY",
+        "binnie_uid": "forestry.species.marshy",
+        "reforestry_id": "reforestry:bee_marshy",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MINERAL",
+        "binnie_uid": "extrabees.species.mineral",
+        "reforestry_id": "reforestry:bee_mineral",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "TIN",
+        "binnie_uid": "extrabees.species.tin",
+        "reforestry_id": "reforestry:bee_tin",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "TROPICAL",
+        "binnie_uid": "forestry.species.tropical",
+        "reforestry_id": "reforestry:bee_tropical",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MINERAL",
+        "binnie_uid": "extrabees.species.mineral",
+        "reforestry_id": "reforestry:bee_mineral",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "TIN",
+        "binnie_uid": "extrabees.species.tin",
+        "reforestry_id": "reforestry:bee_tin",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MEADOWS",
+        "binnie_uid": "forestry.species.meadows",
+        "reforestry_id": "reforestry:bee_meadows",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MINERAL",
+        "binnie_uid": "extrabees.species.mineral",
+        "reforestry_id": "reforestry:bee_mineral",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "IRON",
+        "binnie_uid": "extrabees.species.iron",
+        "reforestry_id": "reforestry:bee_iron",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "FOREST",
+        "binnie_uid": "forestry.species.forest",
+        "reforestry_id": "reforestry:bee_forest",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MINERAL",
+        "binnie_uid": "extrabees.species.mineral",
+        "reforestry_id": "reforestry:bee_mineral",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "IRON",
+        "binnie_uid": "extrabees.species.iron",
+        "reforestry_id": "reforestry:bee_iron",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MEADOWS",
+        "binnie_uid": "forestry.species.meadows",
+        "reforestry_id": "reforestry:bee_meadows",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MINERAL",
+        "binnie_uid": "extrabees.species.mineral",
+        "reforestry_id": "reforestry:bee_mineral",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "LEAD",
+        "binnie_uid": "extrabees.species.lead",
+        "reforestry_id": "reforestry:bee_lead",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MODEST",
+        "binnie_uid": "forestry.species.modest",
+        "reforestry_id": "reforestry:bee_modest",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MINERAL",
+        "binnie_uid": "extrabees.species.mineral",
+        "reforestry_id": "reforestry:bee_mineral",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "LEAD",
+        "binnie_uid": "extrabees.species.lead",
+        "reforestry_id": "reforestry:bee_lead",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "WINTRY",
+        "binnie_uid": "forestry.species.wintry",
+        "reforestry_id": "reforestry:bee_wintry",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MINERAL",
+        "binnie_uid": "extrabees.species.mineral",
+        "reforestry_id": "reforestry:bee_mineral",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ZINC",
+        "binnie_uid": "extrabees.species.zinc",
+        "reforestry_id": "reforestry:bee_zinc",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "TROPICAL",
+        "binnie_uid": "forestry.species.tropical",
+        "reforestry_id": "reforestry:bee_tropical",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MINERAL",
+        "binnie_uid": "extrabees.species.mineral",
+        "reforestry_id": "reforestry:bee_mineral",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ZINC",
+        "binnie_uid": "extrabees.species.zinc",
+        "reforestry_id": "reforestry:bee_zinc",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "CULTIVATED",
+        "binnie_uid": "forestry.species.cultivated",
+        "reforestry_id": "reforestry:bee_cultivated",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MINERAL",
+        "binnie_uid": "extrabees.species.mineral",
+        "reforestry_id": "reforestry:bee_mineral",
+        "forestry": false
+      },
+      "chance": 3,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "TITANIUM",
+        "binnie_uid": "extrabees.species.titanium",
+        "reforestry_id": "reforestry:bee_titanium",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MINERAL",
+        "binnie_uid": "extrabees.species.mineral",
+        "reforestry_id": "reforestry:bee_mineral",
+        "forestry": false
+      },
+      "chance": 3,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "TUNGSTATE",
+        "binnie_uid": "extrabees.species.tungstate",
+        "reforestry_id": "reforestry:bee_tungstate",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "FOREST",
+        "binnie_uid": "forestry.species.forest",
+        "reforestry_id": "reforestry:bee_forest",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MINERAL",
+        "binnie_uid": "extrabees.species.mineral",
+        "reforestry_id": "reforestry:bee_mineral",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "NICKEL",
+        "binnie_uid": "extrabees.species.nickel",
+        "reforestry_id": "reforestry:bee_nickel",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MARSHY",
+        "binnie_uid": "forestry.species.marshy",
+        "reforestry_id": "reforestry:bee_marshy",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MINERAL",
+        "binnie_uid": "extrabees.species.mineral",
+        "reforestry_id": "reforestry:bee_mineral",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "NICKEL",
+        "binnie_uid": "extrabees.species.nickel",
+        "reforestry_id": "reforestry:bee_nickel",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MAJESTIC",
+        "binnie_uid": "forestry.species.majestic",
+        "reforestry_id": "reforestry:bee_majestic",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "IRON",
+        "binnie_uid": "extrabees.species.iron",
+        "reforestry_id": "reforestry:bee_iron",
+        "forestry": false
+      },
+      "chance": 2,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "GOLD",
+        "binnie_uid": "extrabees.species.gold",
+        "reforestry_id": "reforestry:bee_gold",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MAJESTIC",
+        "binnie_uid": "forestry.species.majestic",
+        "reforestry_id": "reforestry:bee_majestic",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "COPPER",
+        "binnie_uid": "extrabees.species.copper",
+        "reforestry_id": "reforestry:bee_copper",
+        "forestry": false
+      },
+      "chance": 2,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "GOLD",
+        "binnie_uid": "extrabees.species.gold",
+        "reforestry_id": "reforestry:bee_gold",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MAJESTIC",
+        "binnie_uid": "forestry.species.majestic",
+        "reforestry_id": "reforestry:bee_majestic",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "NICKEL",
+        "binnie_uid": "extrabees.species.nickel",
+        "reforestry_id": "reforestry:bee_nickel",
+        "forestry": false
+      },
+      "chance": 2,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "GOLD",
+        "binnie_uid": "extrabees.species.gold",
+        "reforestry_id": "reforestry:bee_gold",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MAJESTIC",
+        "binnie_uid": "forestry.species.majestic",
+        "reforestry_id": "reforestry:bee_majestic",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "TUNGSTATE",
+        "binnie_uid": "extrabees.species.tungstate",
+        "reforestry_id": "reforestry:bee_tungstate",
+        "forestry": false
+      },
+      "chance": 2,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "GOLD",
+        "binnie_uid": "extrabees.species.gold",
+        "reforestry_id": "reforestry:bee_gold",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MAJESTIC",
+        "binnie_uid": "forestry.species.majestic",
+        "reforestry_id": "reforestry:bee_majestic",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ZINC",
+        "binnie_uid": "extrabees.species.zinc",
+        "reforestry_id": "reforestry:bee_zinc",
+        "forestry": false
+      },
+      "chance": 2,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "SILVER",
+        "binnie_uid": "extrabees.species.silver",
+        "reforestry_id": "reforestry:bee_silver",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MAJESTIC",
+        "binnie_uid": "forestry.species.majestic",
+        "reforestry_id": "reforestry:bee_majestic",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "TIN",
+        "binnie_uid": "extrabees.species.tin",
+        "reforestry_id": "reforestry:bee_tin",
+        "forestry": false
+      },
+      "chance": 2,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "SILVER",
+        "binnie_uid": "extrabees.species.silver",
+        "reforestry_id": "reforestry:bee_silver",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MAJESTIC",
+        "binnie_uid": "forestry.species.majestic",
+        "reforestry_id": "reforestry:bee_majestic",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "LEAD",
+        "binnie_uid": "extrabees.species.lead",
+        "reforestry_id": "reforestry:bee_lead",
+        "forestry": false
+      },
+      "chance": 2,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "SILVER",
+        "binnie_uid": "extrabees.species.silver",
+        "reforestry_id": "reforestry:bee_silver",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MAJESTIC",
+        "binnie_uid": "forestry.species.majestic",
+        "reforestry_id": "reforestry:bee_majestic",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "TITANIUM",
+        "binnie_uid": "extrabees.species.titanium",
+        "reforestry_id": "reforestry:bee_titanium",
+        "forestry": false
+      },
+      "chance": 2,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "SILVER",
+        "binnie_uid": "extrabees.species.silver",
+        "reforestry_id": "reforestry:bee_silver",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "GOLD",
+        "binnie_uid": "extrabees.species.gold",
+        "reforestry_id": "reforestry:bee_gold",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "SILVER",
+        "binnie_uid": "extrabees.species.silver",
+        "reforestry_id": "reforestry:bee_silver",
+        "forestry": false
+      },
+      "chance": 2,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "PLATINUM",
+        "binnie_uid": "extrabees.species.platinum",
+        "reforestry_id": "reforestry:bee_platinum",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "WATER",
+        "binnie_uid": "extrabees.species.water",
+        "reforestry_id": "reforestry:bee_water",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MINERAL",
+        "binnie_uid": "extrabees.species.mineral",
+        "reforestry_id": "reforestry:bee_mineral",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "LAPIS",
+        "binnie_uid": "extrabees.species.lapis",
+        "reforestry_id": "reforestry:bee_lapis",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "LAPIS",
+        "binnie_uid": "extrabees.species.lapis",
+        "reforestry_id": "reforestry:bee_lapis",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "DILIGENT",
+        "binnie_uid": "forestry.species.diligent",
+        "reforestry_id": "reforestry:bee_diligent",
+        "forestry": true
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "SODALITE",
+        "binnie_uid": "extrabees.species.sodalite",
+        "reforestry_id": "reforestry:bee_sodalite",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "IRON",
+        "binnie_uid": "extrabees.species.iron",
+        "reforestry_id": "reforestry:bee_iron",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "SINISTER",
+        "binnie_uid": "forestry.species.sinister",
+        "reforestry_id": "reforestry:bee_sinister",
+        "forestry": true
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "PYRITE",
+        "binnie_uid": "extrabees.species.pyrite",
+        "reforestry_id": "reforestry:bee_pyrite",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MINERAL",
+        "binnie_uid": "extrabees.species.mineral",
+        "reforestry_id": "reforestry:bee_mineral",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "DILIGENT",
+        "binnie_uid": "forestry.species.diligent",
+        "reforestry_id": "reforestry:bee_diligent",
+        "forestry": true
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BAUXITE",
+        "binnie_uid": "extrabees.species.bauxite",
+        "reforestry_id": "reforestry:bee_bauxite",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MINERAL",
+        "binnie_uid": "extrabees.species.mineral",
+        "reforestry_id": "reforestry:bee_mineral",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "SINISTER",
+        "binnie_uid": "forestry.species.sinister",
+        "reforestry_id": "reforestry:bee_sinister",
+        "forestry": true
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "CINNABAR",
+        "binnie_uid": "extrabees.species.cinnabar",
+        "reforestry_id": "reforestry:bee_cinnabar",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "TIN",
+        "binnie_uid": "extrabees.species.tin",
+        "reforestry_id": "reforestry:bee_tin",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "SINISTER",
+        "binnie_uid": "forestry.species.sinister",
+        "reforestry_id": "reforestry:bee_sinister",
+        "forestry": true
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "SPHALERITE",
+        "binnie_uid": "extrabees.species.sphalerite",
+        "reforestry_id": "reforestry:bee_sphalerite",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "FOREST",
+        "binnie_uid": "forestry.species.forest",
+        "reforestry_id": "reforestry:bee_forest",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "LAPIS",
+        "binnie_uid": "extrabees.species.lapis",
+        "reforestry_id": "reforestry:bee_lapis",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "EMERALD",
+        "binnie_uid": "extrabees.species.emerald",
+        "reforestry_id": "reforestry:bee_emerald",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MODEST",
+        "binnie_uid": "forestry.species.modest",
+        "reforestry_id": "reforestry:bee_modest",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "LAPIS",
+        "binnie_uid": "extrabees.species.lapis",
+        "reforestry_id": "reforestry:bee_lapis",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "RUBY",
+        "binnie_uid": "extrabees.species.ruby",
+        "reforestry_id": "reforestry:bee_ruby",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "WATER",
+        "binnie_uid": "extrabees.species.water",
+        "reforestry_id": "reforestry:bee_water",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "LAPIS",
+        "binnie_uid": "extrabees.species.lapis",
+        "reforestry_id": "reforestry:bee_lapis",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "SAPPHIRE",
+        "binnie_uid": "extrabees.species.sapphire",
+        "reforestry_id": "reforestry:bee_sapphire",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "CULTIVATED",
+        "binnie_uid": "forestry.species.cultivated",
+        "reforestry_id": "reforestry:bee_cultivated",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "LAPIS",
+        "binnie_uid": "extrabees.species.lapis",
+        "reforestry_id": "reforestry:bee_lapis",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "DIAMOND",
+        "binnie_uid": "extrabees.species.diamond",
+        "reforestry_id": "reforestry:bee_diamond",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "PREHISTORIC",
+        "binnie_uid": "extrabees.species.prehistoric",
+        "reforestry_id": "reforestry:bee_prehistoric",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MINERAL",
+        "binnie_uid": "extrabees.species.mineral",
+        "reforestry_id": "reforestry:bee_mineral",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "UNSTABLE",
+        "binnie_uid": "extrabees.species.unstable",
+        "reforestry_id": "reforestry:bee_unstable",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "UNSTABLE",
+        "binnie_uid": "extrabees.species.unstable",
+        "reforestry_id": "reforestry:bee_unstable",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "IRON",
+        "binnie_uid": "extrabees.species.iron",
+        "reforestry_id": "reforestry:bee_iron",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "NUCLEAR",
+        "binnie_uid": "extrabees.species.nuclear",
+        "reforestry_id": "reforestry:bee_nuclear",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "UNSTABLE",
+        "binnie_uid": "extrabees.species.unstable",
+        "reforestry_id": "reforestry:bee_unstable",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "COPPER",
+        "binnie_uid": "extrabees.species.copper",
+        "reforestry_id": "reforestry:bee_copper",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "NUCLEAR",
+        "binnie_uid": "extrabees.species.nuclear",
+        "reforestry_id": "reforestry:bee_nuclear",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "UNSTABLE",
+        "binnie_uid": "extrabees.species.unstable",
+        "reforestry_id": "reforestry:bee_unstable",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "TIN",
+        "binnie_uid": "extrabees.species.tin",
+        "reforestry_id": "reforestry:bee_tin",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "NUCLEAR",
+        "binnie_uid": "extrabees.species.nuclear",
+        "reforestry_id": "reforestry:bee_nuclear",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "UNSTABLE",
+        "binnie_uid": "extrabees.species.unstable",
+        "reforestry_id": "reforestry:bee_unstable",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ZINC",
+        "binnie_uid": "extrabees.species.zinc",
+        "reforestry_id": "reforestry:bee_zinc",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "NUCLEAR",
+        "binnie_uid": "extrabees.species.nuclear",
+        "reforestry_id": "reforestry:bee_nuclear",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "UNSTABLE",
+        "binnie_uid": "extrabees.species.unstable",
+        "reforestry_id": "reforestry:bee_unstable",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "NICKEL",
+        "binnie_uid": "extrabees.species.nickel",
+        "reforestry_id": "reforestry:bee_nickel",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "NUCLEAR",
+        "binnie_uid": "extrabees.species.nuclear",
+        "reforestry_id": "reforestry:bee_nuclear",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "UNSTABLE",
+        "binnie_uid": "extrabees.species.unstable",
+        "reforestry_id": "reforestry:bee_unstable",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "LEAD",
+        "binnie_uid": "extrabees.species.lead",
+        "reforestry_id": "reforestry:bee_lead",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "NUCLEAR",
+        "binnie_uid": "extrabees.species.nuclear",
+        "reforestry_id": "reforestry:bee_nuclear",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "NUCLEAR",
+        "binnie_uid": "extrabees.species.nuclear",
+        "reforestry_id": "reforestry:bee_nuclear",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "GOLD",
+        "binnie_uid": "extrabees.species.gold",
+        "reforestry_id": "reforestry:bee_gold",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "RADIOACTIVE",
+        "binnie_uid": "extrabees.species.radioactive",
+        "reforestry_id": "reforestry:bee_radioactive",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "NUCLEAR",
+        "binnie_uid": "extrabees.species.nuclear",
+        "reforestry_id": "reforestry:bee_nuclear",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "SILVER",
+        "binnie_uid": "extrabees.species.silver",
+        "reforestry_id": "reforestry:bee_silver",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "RADIOACTIVE",
+        "binnie_uid": "extrabees.species.radioactive",
+        "reforestry_id": "reforestry:bee_radioactive",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "FRUGAL",
+        "binnie_uid": "forestry.species.frugal",
+        "reforestry_id": "reforestry:bee_frugal",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "NUCLEAR",
+        "binnie_uid": "extrabees.species.nuclear",
+        "reforestry_id": "reforestry:bee_nuclear",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "YELLORIUM",
+        "binnie_uid": "extrabees.species.yellorium",
+        "reforestry_id": "reforestry:bee_yellorium",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "NUCLEAR",
+        "binnie_uid": "extrabees.species.nuclear",
+        "reforestry_id": "reforestry:bee_nuclear",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "YELLORIUM",
+        "binnie_uid": "extrabees.species.yellorium",
+        "reforestry_id": "reforestry:bee_yellorium",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "CYANITE",
+        "binnie_uid": "extrabees.species.cyanite",
+        "reforestry_id": "reforestry:bee_cyanite",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "CYANITE",
+        "binnie_uid": "extrabees.species.cyanite",
+        "reforestry_id": "reforestry:bee_cyanite",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "YELLORIUM",
+        "binnie_uid": "extrabees.species.yellorium",
+        "reforestry_id": "reforestry:bee_yellorium",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BLUTONIUM",
+        "binnie_uid": "extrabees.species.blutonium",
+        "reforestry_id": "reforestry:bee_blutonium",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "NOBLE",
+        "binnie_uid": "forestry.species.noble",
+        "reforestry_id": "reforestry:bee_noble",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "DILIGENT",
+        "binnie_uid": "forestry.species.diligent",
+        "reforestry_id": "reforestry:bee_diligent",
+        "forestry": true
+      },
+      "chance": 10,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ANCIENT",
+        "binnie_uid": "extrabees.species.ancient",
+        "reforestry_id": "reforestry:bee_ancient",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "SECLUDED",
+        "binnie_uid": "forestry.species.secluded",
+        "reforestry_id": "reforestry:bee_secluded",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ANCIENT",
+        "binnie_uid": "extrabees.species.ancient",
+        "reforestry_id": "reforestry:bee_ancient",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "PRIMEVAL",
+        "binnie_uid": "extrabees.species.primeval",
+        "reforestry_id": "reforestry:bee_eb_primeval",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "PRIMEVAL",
+        "binnie_uid": "extrabees.species.primeval",
+        "reforestry_id": "reforestry:bee_eb_primeval",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ANCIENT",
+        "binnie_uid": "extrabees.species.ancient",
+        "reforestry_id": "reforestry:bee_ancient",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "PREHISTORIC",
+        "binnie_uid": "extrabees.species.prehistoric",
+        "reforestry_id": "reforestry:bee_prehistoric",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "IMPERIAL",
+        "binnie_uid": "forestry.species.imperial",
+        "reforestry_id": "reforestry:bee_imperial",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "PREHISTORIC",
+        "binnie_uid": "extrabees.species.prehistoric",
+        "reforestry_id": "reforestry:bee_prehistoric",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "RELIC",
+        "binnie_uid": "extrabees.species.relic",
+        "reforestry_id": "reforestry:bee_eb_relic",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "PRIMEVAL",
+        "binnie_uid": "extrabees.species.primeval",
+        "reforestry_id": "reforestry:bee_eb_primeval",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "GROWING",
+        "binnie_uid": "extrabees.species.growing",
+        "reforestry_id": "reforestry:bee_growing",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "COAL",
+        "binnie_uid": "extrabees.species.coal",
+        "reforestry_id": "reforestry:bee_coal",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "RURAL",
+        "binnie_uid": "forestry.species.rural",
+        "reforestry_id": "reforestry:bee_rural",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "PRIMEVAL",
+        "binnie_uid": "extrabees.species.primeval",
+        "reforestry_id": "reforestry:bee_eb_primeval",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "COAL",
+        "binnie_uid": "extrabees.species.coal",
+        "reforestry_id": "reforestry:bee_coal",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MIRY",
+        "binnie_uid": "forestry.species.miry",
+        "reforestry_id": "reforestry:bee_miry",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "PRIMEVAL",
+        "binnie_uid": "extrabees.species.primeval",
+        "reforestry_id": "reforestry:bee_eb_primeval",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "RESIN",
+        "binnie_uid": "extrabees.species.resin",
+        "reforestry_id": "reforestry:bee_resin",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "OCEAN",
+        "binnie_uid": "extrabees.species.ocean",
+        "reforestry_id": "reforestry:bee_ocean",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "PRIMEVAL",
+        "binnie_uid": "extrabees.species.primeval",
+        "reforestry_id": "reforestry:bee_eb_primeval",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "OIL",
+        "binnie_uid": "extrabees.species.oil",
+        "reforestry_id": "reforestry:bee_oil",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "FRUGAL",
+        "binnie_uid": "forestry.species.frugal",
+        "reforestry_id": "reforestry:bee_frugal",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "PRIMEVAL",
+        "binnie_uid": "extrabees.species.primeval",
+        "reforestry_id": "reforestry:bee_eb_primeval",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "OIL",
+        "binnie_uid": "extrabees.species.oil",
+        "reforestry_id": "reforestry:bee_oil",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "INDUSTRIOUS",
+        "binnie_uid": "forestry.species.industrious",
+        "reforestry_id": "reforestry:bee_industrious",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "OIL",
+        "binnie_uid": "extrabees.species.oil",
+        "reforestry_id": "reforestry:bee_oil",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "DISTILLED",
+        "binnie_uid": "extrabees.species.distilled",
+        "reforestry_id": "reforestry:bee_distilled",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "DISTILLED",
+        "binnie_uid": "extrabees.species.distilled",
+        "reforestry_id": "reforestry:bee_distilled",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "OIL",
+        "binnie_uid": "extrabees.species.oil",
+        "reforestry_id": "reforestry:bee_oil",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "FUEL",
+        "binnie_uid": "extrabees.species.fuel",
+        "reforestry_id": "reforestry:bee_fuel",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "DISTILLED",
+        "binnie_uid": "extrabees.species.distilled",
+        "reforestry_id": "reforestry:bee_distilled",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "COAL",
+        "binnie_uid": "extrabees.species.coal",
+        "reforestry_id": "reforestry:bee_coal",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "CREOSOTE",
+        "binnie_uid": "extrabees.species.creosote",
+        "reforestry_id": "reforestry:bee_creosote",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "DISTILLED",
+        "binnie_uid": "extrabees.species.distilled",
+        "reforestry_id": "reforestry:bee_distilled",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "RESIN",
+        "binnie_uid": "extrabees.species.resin",
+        "reforestry_id": "reforestry:bee_resin",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "LATEX",
+        "binnie_uid": "extrabees.species.latex",
+        "reforestry_id": "reforestry:bee_latex",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "DILIGENT",
+        "binnie_uid": "forestry.species.diligent",
+        "reforestry_id": "reforestry:bee_diligent",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "WATER",
+        "binnie_uid": "extrabees.species.water",
+        "reforestry_id": "reforestry:bee_water",
+        "forestry": false
+      },
+      "chance": 10,
+      "conditions": [
+        {
+          "type": "restrictBiomeType",
+          "biome": "RIVER"
+        }
+      ],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "RIVER",
+        "binnie_uid": "extrabees.species.river",
+        "reforestry_id": "reforestry:bee_river",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "DILIGENT",
+        "binnie_uid": "forestry.species.diligent",
+        "reforestry_id": "reforestry:bee_diligent",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "WATER",
+        "binnie_uid": "extrabees.species.water",
+        "reforestry_id": "reforestry:bee_water",
+        "forestry": false
+      },
+      "chance": 10,
+      "conditions": [
+        {
+          "type": "restrictBiomeType",
+          "biome": "OCEAN"
+        }
+      ],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "OCEAN",
+        "binnie_uid": "extrabees.species.ocean",
+        "reforestry_id": "reforestry:bee_ocean",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BLACK",
+        "binnie_uid": "extrabees.species.black",
+        "reforestry_id": "reforestry:bee_black",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "OCEAN",
+        "binnie_uid": "extrabees.species.ocean",
+        "reforestry_id": "reforestry:bee_ocean",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "INK",
+        "binnie_uid": "extrabees.species.ink",
+        "reforestry_id": "reforestry:bee_ink",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "FOREST",
+        "binnie_uid": "forestry.species.forest",
+        "reforestry_id": "reforestry:bee_forest",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "DILIGENT",
+        "binnie_uid": "forestry.species.diligent",
+        "reforestry_id": "reforestry:bee_diligent",
+        "forestry": true
+      },
+      "chance": 10,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "GROWING",
+        "binnie_uid": "extrabees.species.growing",
+        "reforestry_id": "reforestry:bee_growing",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "FARMERLY",
+        "binnie_uid": "forestry.species.farmerly",
+        "reforestry_id": "reforestry:bee_farmerly",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "MEADOWS",
+        "binnie_uid": "forestry.species.meadows",
+        "reforestry_id": "reforestry:bee_meadows",
+        "forestry": true
+      },
+      "chance": 10,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "FARM",
+        "binnie_uid": "extrabees.species.farm",
+        "reforestry_id": "reforestry:bee_farm",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "UNWEARY",
+        "binnie_uid": "forestry.species.unweary",
+        "reforestry_id": "reforestry:bee_unweary",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "GROWING",
+        "binnie_uid": "extrabees.species.growing",
+        "reforestry_id": "reforestry:bee_growing",
+        "forestry": false
+      },
+      "chance": 10,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "THRIVING",
+        "binnie_uid": "extrabees.species.thriving",
+        "reforestry_id": "reforestry:bee_thriving",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "INDUSTRIOUS",
+        "binnie_uid": "forestry.species.industrious",
+        "reforestry_id": "reforestry:bee_industrious",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "THRIVING",
+        "binnie_uid": "extrabees.species.thriving",
+        "reforestry_id": "reforestry:bee_thriving",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BLOOMING",
+        "binnie_uid": "extrabees.species.blooming",
+        "reforestry_id": "reforestry:bee_blooming",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "VALIANT",
+        "binnie_uid": "forestry.species.valiant",
+        "reforestry_id": "reforestry:bee_valiant",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "DILIGENT",
+        "binnie_uid": "forestry.species.diligent",
+        "reforestry_id": "reforestry:bee_diligent",
+        "forestry": true
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "SWEET",
+        "binnie_uid": "extrabees.species.sweet",
+        "reforestry_id": "reforestry:bee_sweet",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "RURAL",
+        "binnie_uid": "forestry.species.rural",
+        "reforestry_id": "reforestry:bee_rural",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "SWEET",
+        "binnie_uid": "extrabees.species.sweet",
+        "reforestry_id": "reforestry:bee_sweet",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "SUGAR",
+        "binnie_uid": "extrabees.species.sugar",
+        "reforestry_id": "reforestry:bee_sugar",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "SWEET",
+        "binnie_uid": "extrabees.species.sweet",
+        "reforestry_id": "reforestry:bee_sweet",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "GROWING",
+        "binnie_uid": "extrabees.species.growing",
+        "reforestry_id": "reforestry:bee_growing",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "RIPENING",
+        "binnie_uid": "extrabees.species.ripening",
+        "reforestry_id": "reforestry:bee_ripening",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "SWEET",
+        "binnie_uid": "extrabees.species.sweet",
+        "reforestry_id": "reforestry:bee_sweet",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "THRIVING",
+        "binnie_uid": "extrabees.species.thriving",
+        "reforestry_id": "reforestry:bee_thriving",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "FRUIT",
+        "binnie_uid": "extrabees.species.fruit",
+        "reforestry_id": "reforestry:bee_fruit",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "FARMERLY",
+        "binnie_uid": "forestry.species.farmerly",
+        "reforestry_id": "reforestry:bee_farmerly",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "MEADOWS",
+        "binnie_uid": "forestry.species.meadows",
+        "reforestry_id": "reforestry:bee_meadows",
+        "forestry": true
+      },
+      "chance": 10,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ALCOHOL",
+        "binnie_uid": "extrabees.species.alcohol",
+        "reforestry_id": "reforestry:bee_alcohol",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "FARMERLY",
+        "binnie_uid": "forestry.species.farmerly",
+        "reforestry_id": "reforestry:bee_farmerly",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "WATER",
+        "binnie_uid": "extrabees.species.water",
+        "reforestry_id": "reforestry:bee_water",
+        "forestry": false
+      },
+      "chance": 10,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MILK",
+        "binnie_uid": "extrabees.species.milk",
+        "reforestry_id": "reforestry:bee_milk",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "FARMERLY",
+        "binnie_uid": "forestry.species.farmerly",
+        "reforestry_id": "reforestry:bee_farmerly",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "TROPICAL",
+        "binnie_uid": "forestry.species.tropical",
+        "reforestry_id": "reforestry:bee_tropical",
+        "forestry": true
+      },
+      "chance": 10,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "COFFEE",
+        "binnie_uid": "extrabees.species.coffee",
+        "reforestry_id": "reforestry:bee_coffee",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MIRY",
+        "binnie_uid": "forestry.species.miry",
+        "reforestry_id": "reforestry:bee_miry",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "WATER",
+        "binnie_uid": "extrabees.species.water",
+        "reforestry_id": "reforestry:bee_water",
+        "forestry": false
+      },
+      "chance": 10,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "SWAMP",
+        "binnie_uid": "extrabees.species.swamp",
+        "reforestry_id": "reforestry:bee_swamp",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "BOGGY",
+        "binnie_uid": "forestry.species.boggy",
+        "reforestry_id": "reforestry:bee_boggy",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "SWAMP",
+        "binnie_uid": "extrabees.species.swamp",
+        "reforestry_id": "reforestry:bee_swamp",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BOGGY",
+        "binnie_uid": "extrabees.species.boggy",
+        "reforestry_id": "reforestry:bee_eb_boggy",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "BOGGY",
+        "binnie_uid": "forestry.species.boggy",
+        "reforestry_id": "reforestry:bee_boggy",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "MIRY",
+        "binnie_uid": "forestry.species.miry",
+        "reforestry_id": "reforestry:bee_miry",
+        "forestry": true
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "FUNGAL",
+        "binnie_uid": "extrabees.species.fungal",
+        "reforestry_id": "reforestry:bee_fungal",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "BOGGY",
+        "binnie_uid": "forestry.species.boggy",
+        "reforestry_id": "reforestry:bee_boggy",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "SWAMP",
+        "binnie_uid": "extrabees.species.swamp",
+        "reforestry_id": "reforestry:bee_swamp",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "FUNGAL",
+        "binnie_uid": "extrabees.species.fungal",
+        "reforestry_id": "reforestry:bee_fungal",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MARBLE",
+        "binnie_uid": "extrabees.species.marble",
+        "reforestry_id": "reforestry:bee_marble",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "HEROIC",
+        "binnie_uid": "forestry.species.heroic",
+        "reforestry_id": "reforestry:bee_heroic",
+        "forestry": true
+      },
+      "chance": 10,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ROMAN",
+        "binnie_uid": "extrabees.species.roman",
+        "reforestry_id": "reforestry:bee_roman",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ROMAN",
+        "binnie_uid": "extrabees.species.roman",
+        "reforestry_id": "reforestry:bee_roman",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MARBLE",
+        "binnie_uid": "extrabees.species.marble",
+        "reforestry_id": "reforestry:bee_marble",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "GREEK",
+        "binnie_uid": "extrabees.species.greek",
+        "reforestry_id": "reforestry:bee_greek",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "GREEK",
+        "binnie_uid": "extrabees.species.greek",
+        "reforestry_id": "reforestry:bee_greek",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ROMAN",
+        "binnie_uid": "extrabees.species.roman",
+        "reforestry_id": "reforestry:bee_roman",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "CLASSICAL",
+        "binnie_uid": "extrabees.species.classical",
+        "reforestry_id": "reforestry:bee_classical",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "FIENDISH",
+        "binnie_uid": "forestry.species.fiendish",
+        "reforestry_id": "reforestry:bee_fiendish",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BASALT",
+        "binnie_uid": "extrabees.species.basalt",
+        "reforestry_id": "reforestry:bee_basalt",
+        "forestry": false
+      },
+      "chance": 30,
+      "conditions": [
+        {
+          "type": "restrictBiomeType",
+          "biome": "NETHER"
+        }
+      ],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "TEMPERED",
+        "binnie_uid": "extrabees.species.tempered",
+        "reforestry_id": "reforestry:bee_tempered",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "DEMONIC",
+        "binnie_uid": "forestry.species.demonic",
+        "reforestry_id": "reforestry:bee_demonic",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "TEMPERED",
+        "binnie_uid": "extrabees.species.tempered",
+        "reforestry_id": "reforestry:bee_tempered",
+        "forestry": false
+      },
+      "chance": 20,
+      "conditions": [
+        {
+          "type": "restrictBiomeType",
+          "biome": "NETHER"
+        }
+      ],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "VOLCANIC",
+        "binnie_uid": "extrabees.species.volcanic",
+        "reforestry_id": "reforestry:bee_volcanic",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "TEMPERED",
+        "binnie_uid": "extrabees.species.tempered",
+        "reforestry_id": "reforestry:bee_tempered",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "EXCITED",
+        "binnie_uid": "extrabees.species.excited",
+        "reforestry_id": "reforestry:bee_excited",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "GLOWSTONE",
+        "binnie_uid": "extrabees.species.glowstone",
+        "reforestry_id": "reforestry:bee_glowstone",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "SINISTER",
+        "binnie_uid": "forestry.species.sinister",
+        "reforestry_id": "reforestry:bee_sinister",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "TROPICAL",
+        "binnie_uid": "forestry.species.tropical",
+        "reforestry_id": "reforestry:bee_tropical",
+        "forestry": true
+      },
+      "chance": 10,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MALICIOUS",
+        "binnie_uid": "extrabees.species.malicious",
+        "reforestry_id": "reforestry:bee_malicious",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "TROPICAL",
+        "binnie_uid": "forestry.species.tropical",
+        "reforestry_id": "reforestry:bee_tropical",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MALICIOUS",
+        "binnie_uid": "extrabees.species.malicious",
+        "reforestry_id": "reforestry:bee_malicious",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "INFECTIOUS",
+        "binnie_uid": "extrabees.species.infectious",
+        "reforestry_id": "reforestry:bee_infectious",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MALICIOUS",
+        "binnie_uid": "extrabees.species.malicious",
+        "reforestry_id": "reforestry:bee_malicious",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "INFECTIOUS",
+        "binnie_uid": "extrabees.species.infectious",
+        "reforestry_id": "reforestry:bee_infectious",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "VIRULENT",
+        "binnie_uid": "extrabees.species.virulent",
+        "reforestry_id": "reforestry:bee_virulent",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "EXOTIC",
+        "binnie_uid": "forestry.species.exotic",
+        "reforestry_id": "reforestry:bee_exotic",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "WATER",
+        "binnie_uid": "extrabees.species.water",
+        "reforestry_id": "reforestry:bee_water",
+        "forestry": false
+      },
+      "chance": 10,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "VISCOUS",
+        "binnie_uid": "extrabees.species.viscous",
+        "reforestry_id": "reforestry:bee_viscous",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "EXOTIC",
+        "binnie_uid": "forestry.species.exotic",
+        "reforestry_id": "reforestry:bee_exotic",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "VISCOUS",
+        "binnie_uid": "extrabees.species.viscous",
+        "reforestry_id": "reforestry:bee_viscous",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "GLUTINOUS",
+        "binnie_uid": "extrabees.species.glutinous",
+        "reforestry_id": "reforestry:bee_glutinous",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "VISCOUS",
+        "binnie_uid": "extrabees.species.viscous",
+        "reforestry_id": "reforestry:bee_viscous",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "GLUTINOUS",
+        "binnie_uid": "extrabees.species.glutinous",
+        "reforestry_id": "reforestry:bee_glutinous",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "STICKY",
+        "binnie_uid": "extrabees.species.sticky",
+        "reforestry_id": "reforestry:bee_sticky",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MALICIOUS",
+        "binnie_uid": "extrabees.species.malicious",
+        "reforestry_id": "reforestry:bee_malicious",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "VISCOUS",
+        "binnie_uid": "extrabees.species.viscous",
+        "reforestry_id": "reforestry:bee_viscous",
+        "forestry": false
+      },
+      "chance": 10,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "CORROSIVE",
+        "binnie_uid": "extrabees.species.corrosive",
+        "reforestry_id": "reforestry:bee_corrosive",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "FIENDISH",
+        "binnie_uid": "forestry.species.fiendish",
+        "reforestry_id": "reforestry:bee_fiendish",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "CORROSIVE",
+        "binnie_uid": "extrabees.species.corrosive",
+        "reforestry_id": "reforestry:bee_corrosive",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "CAUSTIC",
+        "binnie_uid": "extrabees.species.caustic",
+        "reforestry_id": "reforestry:bee_caustic",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "CORROSIVE",
+        "binnie_uid": "extrabees.species.corrosive",
+        "reforestry_id": "reforestry:bee_corrosive",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "CAUSTIC",
+        "binnie_uid": "extrabees.species.caustic",
+        "reforestry_id": "reforestry:bee_caustic",
+        "forestry": false
+      },
+      "chance": 4,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ACIDIC",
+        "binnie_uid": "extrabees.species.acidic",
+        "reforestry_id": "reforestry:bee_acidic",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "VALIANT",
+        "binnie_uid": "forestry.species.valiant",
+        "reforestry_id": "reforestry:bee_valiant",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "CULTIVATED",
+        "binnie_uid": "forestry.species.cultivated",
+        "reforestry_id": "reforestry:bee_cultivated",
+        "forestry": true
+      },
+      "chance": 10,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "EXCITED",
+        "binnie_uid": "extrabees.species.excited",
+        "reforestry_id": "reforestry:bee_excited",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "DILIGENT",
+        "binnie_uid": "forestry.species.diligent",
+        "reforestry_id": "reforestry:bee_diligent",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "EXCITED",
+        "binnie_uid": "extrabees.species.excited",
+        "reforestry_id": "reforestry:bee_excited",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ENERGETIC",
+        "binnie_uid": "extrabees.species.energetic",
+        "reforestry_id": "reforestry:bee_energetic",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "EXCITED",
+        "binnie_uid": "extrabees.species.excited",
+        "reforestry_id": "reforestry:bee_excited",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ENERGETIC",
+        "binnie_uid": "extrabees.species.energetic",
+        "reforestry_id": "reforestry:bee_energetic",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ECSTATIC",
+        "binnie_uid": "extrabees.species.ecstatic",
+        "reforestry_id": "reforestry:bee_ecstatic",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "WINTRY",
+        "binnie_uid": "forestry.species.wintry",
+        "reforestry_id": "reforestry:bee_wintry",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "DILIGENT",
+        "binnie_uid": "forestry.species.diligent",
+        "reforestry_id": "reforestry:bee_diligent",
+        "forestry": true
+      },
+      "chance": 10,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ARTIC",
+        "binnie_uid": "extrabees.species.artic",
+        "reforestry_id": "reforestry:bee_artic",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "OCEAN",
+        "binnie_uid": "extrabees.species.ocean",
+        "reforestry_id": "reforestry:bee_ocean",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ARTIC",
+        "binnie_uid": "extrabees.species.artic",
+        "reforestry_id": "reforestry:bee_artic",
+        "forestry": false
+      },
+      "chance": 10,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "FREEZING",
+        "binnie_uid": "extrabees.species.freezing",
+        "reforestry_id": "reforestry:bee_freezing",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "SINISTER",
+        "binnie_uid": "forestry.species.sinister",
+        "reforestry_id": "reforestry:bee_sinister",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ROCK",
+        "binnie_uid": "extrabees.species.rock",
+        "reforestry_id": "reforestry:bee_rock",
+        "forestry": false
+      },
+      "chance": 10,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "SHADOW",
+        "binnie_uid": "extrabees.species.shadow",
+        "reforestry_id": "reforestry:bee_shadow",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "SHADOW",
+        "binnie_uid": "extrabees.species.shadow",
+        "reforestry_id": "reforestry:bee_shadow",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ROCK",
+        "binnie_uid": "extrabees.species.rock",
+        "reforestry_id": "reforestry:bee_rock",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "DARKENED",
+        "binnie_uid": "extrabees.species.darkened",
+        "reforestry_id": "reforestry:bee_darkened",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "SHADOW",
+        "binnie_uid": "extrabees.species.shadow",
+        "reforestry_id": "reforestry:bee_shadow",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "DARKENED",
+        "binnie_uid": "extrabees.species.darkened",
+        "reforestry_id": "reforestry:bee_darkened",
+        "forestry": false
+      },
+      "chance": 8,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ABYSS",
+        "binnie_uid": "extrabees.species.abyss",
+        "reforestry_id": "reforestry:bee_abyss",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "FOREST",
+        "binnie_uid": "forestry.species.forest",
+        "reforestry_id": "reforestry:bee_forest",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "VALIANT",
+        "binnie_uid": "forestry.species.valiant",
+        "reforestry_id": "reforestry:bee_valiant",
+        "forestry": true
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "RED",
+        "binnie_uid": "extrabees.species.red",
+        "reforestry_id": "reforestry:bee_red",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MEADOWS",
+        "binnie_uid": "forestry.species.meadows",
+        "reforestry_id": "reforestry:bee_meadows",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "VALIANT",
+        "binnie_uid": "forestry.species.valiant",
+        "reforestry_id": "reforestry:bee_valiant",
+        "forestry": true
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "YELLOW",
+        "binnie_uid": "extrabees.species.yellow",
+        "reforestry_id": "reforestry:bee_yellow",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "VALIANT",
+        "binnie_uid": "forestry.species.valiant",
+        "reforestry_id": "reforestry:bee_valiant",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "WATER",
+        "binnie_uid": "extrabees.species.water",
+        "reforestry_id": "reforestry:bee_water",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BLUE",
+        "binnie_uid": "extrabees.species.blue",
+        "reforestry_id": "reforestry:bee_blue",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "TROPICAL",
+        "binnie_uid": "forestry.species.tropical",
+        "reforestry_id": "reforestry:bee_tropical",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "VALIANT",
+        "binnie_uid": "forestry.species.valiant",
+        "reforestry_id": "reforestry:bee_valiant",
+        "forestry": true
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "GREEN",
+        "binnie_uid": "extrabees.species.green",
+        "reforestry_id": "reforestry:bee_green",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "VALIANT",
+        "binnie_uid": "forestry.species.valiant",
+        "reforestry_id": "reforestry:bee_valiant",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ROCK",
+        "binnie_uid": "extrabees.species.rock",
+        "reforestry_id": "reforestry:bee_rock",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BLACK",
+        "binnie_uid": "extrabees.species.black",
+        "reforestry_id": "reforestry:bee_black",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "WINTRY",
+        "binnie_uid": "forestry.species.wintry",
+        "reforestry_id": "reforestry:bee_wintry",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "VALIANT",
+        "binnie_uid": "forestry.species.valiant",
+        "reforestry_id": "reforestry:bee_valiant",
+        "forestry": true
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "WHITE",
+        "binnie_uid": "extrabees.species.white",
+        "reforestry_id": "reforestry:bee_white",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MARSHY",
+        "binnie_uid": "forestry.species.marshy",
+        "reforestry_id": "reforestry:bee_marshy",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "VALIANT",
+        "binnie_uid": "forestry.species.valiant",
+        "reforestry_id": "reforestry:bee_valiant",
+        "forestry": true
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BROWN",
+        "binnie_uid": "extrabees.species.brown",
+        "reforestry_id": "reforestry:bee_brown",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "RED",
+        "binnie_uid": "extrabees.species.red",
+        "reforestry_id": "reforestry:bee_red",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "YELLOW",
+        "binnie_uid": "extrabees.species.yellow",
+        "reforestry_id": "reforestry:bee_yellow",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ORANGE",
+        "binnie_uid": "extrabees.species.orange",
+        "reforestry_id": "reforestry:bee_orange",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "GREEN",
+        "binnie_uid": "extrabees.species.green",
+        "reforestry_id": "reforestry:bee_green",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BLUE",
+        "binnie_uid": "extrabees.species.blue",
+        "reforestry_id": "reforestry:bee_blue",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "CYAN",
+        "binnie_uid": "extrabees.species.cyan",
+        "reforestry_id": "reforestry:bee_cyan",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "RED",
+        "binnie_uid": "extrabees.species.red",
+        "reforestry_id": "reforestry:bee_red",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BLUE",
+        "binnie_uid": "extrabees.species.blue",
+        "reforestry_id": "reforestry:bee_blue",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "PURPLE",
+        "binnie_uid": "extrabees.species.purple",
+        "reforestry_id": "reforestry:bee_purple",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BLACK",
+        "binnie_uid": "extrabees.species.black",
+        "reforestry_id": "reforestry:bee_black",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "WHITE",
+        "binnie_uid": "extrabees.species.white",
+        "reforestry_id": "reforestry:bee_white",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "GRAY",
+        "binnie_uid": "extrabees.species.gray",
+        "reforestry_id": "reforestry:bee_gray",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BLUE",
+        "binnie_uid": "extrabees.species.blue",
+        "reforestry_id": "reforestry:bee_blue",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "WHITE",
+        "binnie_uid": "extrabees.species.white",
+        "reforestry_id": "reforestry:bee_white",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "LIGHTBLUE",
+        "binnie_uid": "extrabees.species.lightblue",
+        "reforestry_id": "reforestry:bee_lightblue",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "RED",
+        "binnie_uid": "extrabees.species.red",
+        "reforestry_id": "reforestry:bee_red",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "WHITE",
+        "binnie_uid": "extrabees.species.white",
+        "reforestry_id": "reforestry:bee_white",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "PINK",
+        "binnie_uid": "extrabees.species.pink",
+        "reforestry_id": "reforestry:bee_pink",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "GREEN",
+        "binnie_uid": "extrabees.species.green",
+        "reforestry_id": "reforestry:bee_green",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "WHITE",
+        "binnie_uid": "extrabees.species.white",
+        "reforestry_id": "reforestry:bee_white",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "LIMEGREEN",
+        "binnie_uid": "extrabees.species.limegreen",
+        "reforestry_id": "reforestry:bee_limegreen",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "PURPLE",
+        "binnie_uid": "extrabees.species.purple",
+        "reforestry_id": "reforestry:bee_purple",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "PINK",
+        "binnie_uid": "extrabees.species.pink",
+        "reforestry_id": "reforestry:bee_pink",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MAGENTA",
+        "binnie_uid": "extrabees.species.magenta",
+        "reforestry_id": "reforestry:bee_magenta",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "GRAY",
+        "binnie_uid": "extrabees.species.gray",
+        "reforestry_id": "reforestry:bee_gray",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "WHITE",
+        "binnie_uid": "extrabees.species.white",
+        "reforestry_id": "reforestry:bee_white",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "LIGHTGRAY",
+        "binnie_uid": "extrabees.species.lightgray",
+        "reforestry_id": "reforestry:bee_lightgray",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "AUSTERE",
+        "binnie_uid": "forestry.species.austere",
+        "reforestry_id": "reforestry:bee_austere",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "EXCITED",
+        "binnie_uid": "extrabees.species.excited",
+        "reforestry_id": "reforestry:bee_excited",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "CELEBRATORY",
+        "binnie_uid": "extrabees.species.celebratory",
+        "reforestry_id": "reforestry:bee_celebratory",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "ENDED",
+        "binnie_uid": "forestry.species.ended",
+        "reforestry_id": "reforestry:bee_ended",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "RELIC",
+        "binnie_uid": "extrabees.species.relic",
+        "reforestry_id": "reforestry:bee_eb_relic",
+        "forestry": false
+      },
+      "chance": 2,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "JADED",
+        "binnie_uid": "extrabees.species.jaded",
+        "reforestry_id": "reforestry:bee_jaded",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "AUSTERE",
+        "binnie_uid": "forestry.species.austere",
+        "reforestry_id": "reforestry:bee_austere",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "DESOLATE",
+        "binnie_uid": "extrabees.species.desolate",
+        "reforestry_id": "reforestry:bee_desolate",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "HAZARDOUS",
+        "binnie_uid": "extrabees.species.hazardous",
+        "reforestry_id": "reforestry:bee_hazardous",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "SPECTRAL",
+        "binnie_uid": "forestry.species.spectral",
+        "reforestry_id": "reforestry:bee_spectral",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "SPATIAL",
+        "binnie_uid": "extrabees.species.spatial",
+        "reforestry_id": "reforestry:bee_spatial",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "QUANTUM",
+        "binnie_uid": "extrabees.species.quantum",
+        "reforestry_id": "reforestry:bee_quantum",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "SECLUDED",
+        "binnie_uid": "forestry.species.secluded",
+        "reforestry_id": "reforestry:bee_secluded",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "ENDED",
+        "binnie_uid": "forestry.species.ended",
+        "reforestry_id": "reforestry:bee_ended",
+        "forestry": true
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "UNUSUAL",
+        "binnie_uid": "extrabees.species.unusual",
+        "reforestry_id": "reforestry:bee_unusual",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "HERMITIC",
+        "binnie_uid": "forestry.species.hermitic",
+        "reforestry_id": "reforestry:bee_hermitic",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "UNUSUAL",
+        "binnie_uid": "extrabees.species.unusual",
+        "reforestry_id": "reforestry:bee_unusual",
+        "forestry": false
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "SPATIAL",
+        "binnie_uid": "extrabees.species.spatial",
+        "reforestry_id": "reforestry:bee_spatial",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "NOBLE",
+        "binnie_uid": "forestry.species.noble",
+        "reforestry_id": "reforestry:bee_noble",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "MONASTIC",
+        "binnie_uid": "forestry.species.monastic",
+        "reforestry_id": "reforestry:bee_monastic",
+        "forestry": true
+      },
+      "chance": 5,
+      "conditions": [],
+      "result": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MYSTICAL",
+        "binnie_uid": "extrabees.species.mystical",
+        "reforestry_id": "reforestry:bee_mystical",
+        "forestry": false
+      },
+      "forestry_result": false
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "FOREST",
+        "binnie_uid": "forestry.species.forest",
+        "reforestry_id": "reforestry:bee_forest",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "WATER",
+        "binnie_uid": "extrabees.species.water",
+        "reforestry_id": "reforestry:bee_water",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MEADOWS",
+        "binnie_uid": "forestry.species.meadows",
+        "reforestry_id": "reforestry:bee_meadows",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "WATER",
+        "binnie_uid": "extrabees.species.water",
+        "reforestry_id": "reforestry:bee_water",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MODEST",
+        "binnie_uid": "forestry.species.modest",
+        "reforestry_id": "reforestry:bee_modest",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "WATER",
+        "binnie_uid": "extrabees.species.water",
+        "reforestry_id": "reforestry:bee_water",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "TROPICAL",
+        "binnie_uid": "forestry.species.tropical",
+        "reforestry_id": "reforestry:bee_tropical",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "WATER",
+        "binnie_uid": "extrabees.species.water",
+        "reforestry_id": "reforestry:bee_water",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MARSHY",
+        "binnie_uid": "forestry.species.marshy",
+        "reforestry_id": "reforestry:bee_marshy",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "WATER",
+        "binnie_uid": "extrabees.species.water",
+        "reforestry_id": "reforestry:bee_water",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "WINTRY",
+        "binnie_uid": "forestry.species.wintry",
+        "reforestry_id": "reforestry:bee_wintry",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "WATER",
+        "binnie_uid": "extrabees.species.water",
+        "reforestry_id": "reforestry:bee_water",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ROCK",
+        "binnie_uid": "extrabees.species.rock",
+        "reforestry_id": "reforestry:bee_rock",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "WATER",
+        "binnie_uid": "extrabees.species.water",
+        "reforestry_id": "reforestry:bee_water",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BASALT",
+        "binnie_uid": "extrabees.species.basalt",
+        "reforestry_id": "reforestry:bee_basalt",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "WATER",
+        "binnie_uid": "extrabees.species.water",
+        "reforestry_id": "reforestry:bee_water",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "FOREST",
+        "binnie_uid": "forestry.species.forest",
+        "reforestry_id": "reforestry:bee_forest",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ROCK",
+        "binnie_uid": "extrabees.species.rock",
+        "reforestry_id": "reforestry:bee_rock",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MEADOWS",
+        "binnie_uid": "forestry.species.meadows",
+        "reforestry_id": "reforestry:bee_meadows",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ROCK",
+        "binnie_uid": "extrabees.species.rock",
+        "reforestry_id": "reforestry:bee_rock",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MODEST",
+        "binnie_uid": "forestry.species.modest",
+        "reforestry_id": "reforestry:bee_modest",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ROCK",
+        "binnie_uid": "extrabees.species.rock",
+        "reforestry_id": "reforestry:bee_rock",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "TROPICAL",
+        "binnie_uid": "forestry.species.tropical",
+        "reforestry_id": "reforestry:bee_tropical",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ROCK",
+        "binnie_uid": "extrabees.species.rock",
+        "reforestry_id": "reforestry:bee_rock",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MARSHY",
+        "binnie_uid": "forestry.species.marshy",
+        "reforestry_id": "reforestry:bee_marshy",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ROCK",
+        "binnie_uid": "extrabees.species.rock",
+        "reforestry_id": "reforestry:bee_rock",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "WINTRY",
+        "binnie_uid": "forestry.species.wintry",
+        "reforestry_id": "reforestry:bee_wintry",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ROCK",
+        "binnie_uid": "extrabees.species.rock",
+        "reforestry_id": "reforestry:bee_rock",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BASALT",
+        "binnie_uid": "extrabees.species.basalt",
+        "reforestry_id": "reforestry:bee_basalt",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ROCK",
+        "binnie_uid": "extrabees.species.rock",
+        "reforestry_id": "reforestry:bee_rock",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "FOREST",
+        "binnie_uid": "forestry.species.forest",
+        "reforestry_id": "reforestry:bee_forest",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BASALT",
+        "binnie_uid": "extrabees.species.basalt",
+        "reforestry_id": "reforestry:bee_basalt",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MEADOWS",
+        "binnie_uid": "forestry.species.meadows",
+        "reforestry_id": "reforestry:bee_meadows",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BASALT",
+        "binnie_uid": "extrabees.species.basalt",
+        "reforestry_id": "reforestry:bee_basalt",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MODEST",
+        "binnie_uid": "forestry.species.modest",
+        "reforestry_id": "reforestry:bee_modest",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BASALT",
+        "binnie_uid": "extrabees.species.basalt",
+        "reforestry_id": "reforestry:bee_basalt",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "TROPICAL",
+        "binnie_uid": "forestry.species.tropical",
+        "reforestry_id": "reforestry:bee_tropical",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BASALT",
+        "binnie_uid": "extrabees.species.basalt",
+        "reforestry_id": "reforestry:bee_basalt",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "MARSHY",
+        "binnie_uid": "forestry.species.marshy",
+        "reforestry_id": "reforestry:bee_marshy",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BASALT",
+        "binnie_uid": "extrabees.species.basalt",
+        "reforestry_id": "reforestry:bee_basalt",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "WINTRY",
+        "binnie_uid": "forestry.species.wintry",
+        "reforestry_id": "reforestry:bee_wintry",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BASALT",
+        "binnie_uid": "extrabees.species.basalt",
+        "reforestry_id": "reforestry:bee_basalt",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "WATER",
+        "binnie_uid": "extrabees.species.water",
+        "reforestry_id": "reforestry:bee_water",
+        "forestry": false
+      },
+      "chance": 12,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "CULTIVATED",
+        "binnie_uid": "forestry.species.cultivated",
+        "reforestry_id": "reforestry:bee_cultivated",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ROCK",
+        "binnie_uid": "extrabees.species.rock",
+        "reforestry_id": "reforestry:bee_rock",
+        "forestry": false
+      },
+      "chance": 12,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "CULTIVATED",
+        "binnie_uid": "forestry.species.cultivated",
+        "reforestry_id": "reforestry:bee_cultivated",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BASALT",
+        "binnie_uid": "extrabees.species.basalt",
+        "reforestry_id": "reforestry:bee_basalt",
+        "forestry": false
+      },
+      "chance": 12,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "CULTIVATED",
+        "binnie_uid": "forestry.species.cultivated",
+        "reforestry_id": "reforestry:bee_cultivated",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "WATER",
+        "binnie_uid": "extrabees.species.water",
+        "reforestry_id": "reforestry:bee_water",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MARBLE",
+        "binnie_uid": "extrabees.species.marble",
+        "reforestry_id": "reforestry:bee_marble",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "ROCK",
+        "binnie_uid": "extrabees.species.rock",
+        "reforestry_id": "reforestry:bee_rock",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MARBLE",
+        "binnie_uid": "extrabees.species.marble",
+        "reforestry_id": "reforestry:bee_marble",
+        "forestry": false
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MARBLE",
+        "binnie_uid": "extrabees.species.marble",
+        "reforestry_id": "reforestry:bee_marble",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "FOREST",
+        "binnie_uid": "forestry.species.forest",
+        "reforestry_id": "reforestry:bee_forest",
+        "forestry": true
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MARBLE",
+        "binnie_uid": "extrabees.species.marble",
+        "reforestry_id": "reforestry:bee_marble",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "MEADOWS",
+        "binnie_uid": "forestry.species.meadows",
+        "reforestry_id": "reforestry:bee_meadows",
+        "forestry": true
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MARBLE",
+        "binnie_uid": "extrabees.species.marble",
+        "reforestry_id": "reforestry:bee_marble",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "MODEST",
+        "binnie_uid": "forestry.species.modest",
+        "reforestry_id": "reforestry:bee_modest",
+        "forestry": true
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MARBLE",
+        "binnie_uid": "extrabees.species.marble",
+        "reforestry_id": "reforestry:bee_marble",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "TROPICAL",
+        "binnie_uid": "forestry.species.tropical",
+        "reforestry_id": "reforestry:bee_tropical",
+        "forestry": true
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MARBLE",
+        "binnie_uid": "extrabees.species.marble",
+        "reforestry_id": "reforestry:bee_marble",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "MARSHY",
+        "binnie_uid": "forestry.species.marshy",
+        "reforestry_id": "reforestry:bee_marshy",
+        "forestry": true
+      },
+      "chance": 15,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "ExtraBeeDefinition",
+        "enum": "MARBLE",
+        "binnie_uid": "extrabees.species.marble",
+        "reforestry_id": "reforestry:bee_marble",
+        "forestry": false
+      },
+      "parent1": {
+        "source": "BeeDefinition",
+        "enum": "COMMON",
+        "binnie_uid": "forestry.species.common",
+        "reforestry_id": "reforestry:bee_common",
+        "forestry": true
+      },
+      "chance": 12,
+      "conditions": [],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "CULTIVATED",
+        "binnie_uid": "forestry.species.cultivated",
+        "reforestry_id": "reforestry:bee_cultivated",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "CULTIVATED",
+        "binnie_uid": "forestry.species.cultivated",
+        "reforestry_id": "reforestry:bee_cultivated",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BASALT",
+        "binnie_uid": "extrabees.species.basalt",
+        "reforestry_id": "reforestry:bee_basalt",
+        "forestry": false
+      },
+      "chance": 60,
+      "conditions": [
+        {
+          "type": "restrictBiomeType",
+          "biome": "NETHER"
+        }
+      ],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "SINISTER",
+        "binnie_uid": "forestry.species.sinister",
+        "reforestry_id": "reforestry:bee_sinister",
+        "forestry": true
+      },
+      "forestry_result": true
+    },
+    {
+      "parent0": {
+        "source": "BeeDefinition",
+        "enum": "SINISTER",
+        "binnie_uid": "forestry.species.sinister",
+        "reforestry_id": "reforestry:bee_sinister",
+        "forestry": true
+      },
+      "parent1": {
+        "source": "ExtraBeeDefinition",
+        "enum": "BASALT",
+        "binnie_uid": "extrabees.species.basalt",
+        "reforestry_id": "reforestry:bee_basalt",
+        "forestry": false
+      },
+      "chance": 40,
+      "conditions": [
+        {
+          "type": "restrictBiomeType",
+          "biome": "NETHER"
+        }
+      ],
+      "result": {
+        "source": "BeeDefinition",
+        "enum": "FIENDISH",
+        "binnie_uid": "forestry.species.fiendish",
+        "reforestry_id": "reforestry:bee_fiendish",
+        "forestry": true
+      },
+      "forestry_result": true
+    }
+  ]
+}

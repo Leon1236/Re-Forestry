@@ -6,6 +6,7 @@ alwaysApply: true
 # Conventions
 
 - **No code comments** — clean code only.
+- **Never skip a fix that can be done here** — see `reforestry-no-skip.mdc`. Reviews’ Should-fix / Nice items get implemented unless a later module or missing 26.2 API truly blocks them (then `queries/`).
 - **Mirror CE** registry ids and feature names; registry ids are contracts, not style. Primary CE is **1.21.1**; keep our current package layout.
 - **Prefer Fabric API hooks over Mixins.** Mixin only when no hook exists; keep it minimal.
 - **No Fabric equivalent?** Write down the chosen approach (in the change summary / CLAUDE.md when durable) — do not improvise silently.

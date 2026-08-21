@@ -1,0 +1,128 @@
+{
+  "source_class": "binnie.extrabees.genetics.ExtraBeesFlowers",
+  "count": 11,
+  "flowers": [
+    {
+      "enum": "WATER",
+      "binnie_uid": "extrabees.flower.water",
+      "reforestry_id": "reforestry:flower_type_water",
+      "collision": false,
+      "dominant": true,
+      "acceptable_blocks": [
+        "minecraft:waterlily"
+      ],
+      "material_rule": null
+    },
+    {
+      "enum": "SUGAR",
+      "binnie_uid": "extrabees.flower.sugar",
+      "reforestry_id": "reforestry:flower_type_sugar",
+      "collision": false,
+      "dominant": true,
+      "acceptable_blocks": [
+        "minecraft:reeds"
+      ],
+      "material_rule": null
+    },
+    {
+      "enum": "ROCK",
+      "binnie_uid": "extrabees.flower.rock",
+      "reforestry_id": "reforestry:flower_type_rock",
+      "collision": false,
+      "dominant": true,
+      "acceptable_blocks": [
+        "minecraft:cobblestone",
+        "minecraft:stone"
+      ],
+      "material_rule": "ROCK"
+    },
+    {
+      "enum": "BOOK",
+      "binnie_uid": "extrabees.flower.book",
+      "reforestry_id": "reforestry:flower_type_book",
+      "collision": false,
+      "dominant": true,
+      "acceptable_blocks": [
+        "minecraft:bookshelf"
+      ],
+      "material_rule": null
+    },
+    {
+      "enum": "DEAD",
+      "binnie_uid": "extrabees.flower.dead",
+      "reforestry_id": "reforestry:flower_type_dead",
+      "collision": false,
+      "dominant": true,
+      "acceptable_blocks": [
+        "minecraft:deadbush"
+      ],
+      "material_rule": null
+    },
+    {
+      "enum": "REDSTONE",
+      "binnie_uid": "extrabees.flower.redstone",
+      "reforestry_id": "reforestry:flower_type_redstone",
+      "collision": false,
+      "dominant": true,
+      "acceptable_blocks": [
+        "minecraft:redstone_torch",
+        "minecraft:redstone_block",
+        "minecraft:redstone_ore",
+        "minecraft:lit_redstone_ore"
+      ],
+      "material_rule": null
+    },
+    {
+      "enum": "WOOD",
+      "binnie_uid": "extrabees.flower.wood",
+      "reforestry_id": "reforestry:flower_type_wood",
+      "collision": false,
+      "dominant": true,
+      "acceptable_blocks": [],
+      "material_rule": "WOOD"
+    },
+    {
+      "enum": "LEAVES",
+      "binnie_uid": "extrabees.flower.leaves",
+      "reforestry_id": "reforestry:flower_type_leaves",
+      "collision": false,
+      "dominant": true,
+      "acceptable_blocks": [],
+      "material_rule": "LEAVES"
+    },
+    {
+      "enum": "SAPLING",
+      "binnie_uid": "extrabees.flower.sapling",
+      "reforestry_id": "reforestry:flower_type_sapling",
+      "collision": false,
+      "dominant": true,
+      "acceptable_blocks": [
+        "ore:treeSapling"
+      ],
+      "material_rule": null
+    },
+    {
+      "enum": "FRUIT",
+      "binnie_uid": "extrabees.flower.fruit",
+      "reforestry_id": "reforestry:flower_type_fruit",
+      "collision": false,
+      "dominant": true,
+      "acceptable_blocks": [
+        "minecraft:melon_block",
+        "minecraft:melon_stem"
+      ],
+      "material_rule": null
+    },
+    {
+      "enum": "MYSTICAL",
+      "binnie_uid": "extrabees.flower.mystical",
+      "reforestry_id": "reforestry:flower_type_mystical",
+      "collision": false,
+      "dominant": true,
+      "acceptable_blocks": [
+        "botania:flower"
+      ],
+      "material_rule": null
+    }
+  ]
+}

@@ -1,0 +1,2841 @@
+{
+  "source_class": "binnie.extratrees.genetics.ExtraTreeMutation",
+  "count": 97,
+  "vanilla_name_map": {
+    "Oak": "reforestry:tree_oak",
+    "Birch": "reforestry:tree_birch",
+    "Cherry": "reforestry:tree_hill_cherry",
+    "Lemon": "reforestry:tree_lemon",
+    "Maple": "reforestry:tree_maple",
+    "Plum": "reforestry:tree_plum",
+    "Chestnut": "reforestry:tree_chestnut",
+    "Walnut": "reforestry:tree_walnut",
+    "Lime": "reforestry:tree_lime",
+    "Willow": "reforestry:tree_willow",
+    "Ebony": "reforestry:tree_ebony",
+    "Balsa": "reforestry:tree_balsa",
+    "Jungle": "reforestry:tree_jungle",
+    "Kapok": "reforestry:tree_kapok",
+    "Teak": "reforestry:tree_teak",
+    "Spruce": "reforestry:tree_spruce",
+    "Pine": "reforestry:tree_pine",
+    "Larch": "reforestry:tree_larch",
+    "Mahogony": "reforestry:tree_mahogany",
+    "Wenge": "reforestry:tree_wenge"
+  },
+  "mutations": [
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Cherry",
+        "binnie_uid": "forestry.treeCherry",
+        "reforestry_id": "reforestry:tree_hill_cherry",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Lemon",
+        "binnie_uid": "forestry.treeLemon",
+        "reforestry_id": "reforestry:tree_lemon",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "KeyLime",
+        "binnie_uid": "keylime",
+        "reforestry_id": "reforestry:tree_key_lime",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "KeyLime",
+        "binnie_uid": "keylime",
+        "reforestry_id": "reforestry:tree_key_lime",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Lemon",
+        "binnie_uid": "forestry.treeLemon",
+        "reforestry_id": "reforestry:tree_lemon",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "FingerLime",
+        "binnie_uid": "fingerlime",
+        "reforestry_id": "reforestry:tree_finger_lime",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Cherry",
+        "binnie_uid": "forestry.treeCherry",
+        "reforestry_id": "reforestry:tree_hill_cherry",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Lemon",
+        "binnie_uid": "forestry.treeLemon",
+        "reforestry_id": "reforestry:tree_lemon",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Pomelo",
+        "binnie_uid": "pomelo",
+        "reforestry_id": "reforestry:tree_pomelo",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Pomelo",
+        "binnie_uid": "pomelo",
+        "reforestry_id": "reforestry:tree_pomelo",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Cherry",
+        "binnie_uid": "forestry.treeCherry",
+        "reforestry_id": "reforestry:tree_hill_cherry",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Manderin",
+        "binnie_uid": "manderin",
+        "reforestry_id": "reforestry:tree_manderin",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Pomelo",
+        "binnie_uid": "pomelo",
+        "reforestry_id": "reforestry:tree_pomelo",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Lemon",
+        "binnie_uid": "forestry.treeLemon",
+        "reforestry_id": "reforestry:tree_lemon",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Citron",
+        "binnie_uid": "citron",
+        "reforestry_id": "reforestry:tree_citron",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Manderin",
+        "binnie_uid": "manderin",
+        "reforestry_id": "reforestry:tree_manderin",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Cherry",
+        "binnie_uid": "forestry.treeCherry",
+        "reforestry_id": "reforestry:tree_hill_cherry",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Kumquat",
+        "binnie_uid": "kumquat",
+        "reforestry_id": "reforestry:tree_kumquat",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Pomelo",
+        "binnie_uid": "pomelo",
+        "reforestry_id": "reforestry:tree_pomelo",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Manderin",
+        "binnie_uid": "manderin",
+        "reforestry_id": "reforestry:tree_manderin",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Orange",
+        "binnie_uid": "orange",
+        "reforestry_id": "reforestry:tree_orange",
+        "forestry": false,
+        "action": "skip_reuse"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": true
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Citron",
+        "binnie_uid": "citron",
+        "reforestry_id": "reforestry:tree_citron",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Manderin",
+        "binnie_uid": "manderin",
+        "reforestry_id": "reforestry:tree_manderin",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "BuddhaHand",
+        "binnie_uid": "buddhahand",
+        "reforestry_id": "reforestry:tree_buddha_hand",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Kumquat",
+        "binnie_uid": "kumquat",
+        "reforestry_id": "reforestry:tree_kumquat",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Manderin",
+        "binnie_uid": "manderin",
+        "reforestry_id": "reforestry:tree_manderin",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Tangerine",
+        "binnie_uid": "tangerine",
+        "reforestry_id": "reforestry:tree_tangerine",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Kumquat",
+        "binnie_uid": "kumquat",
+        "reforestry_id": "reforestry:tree_kumquat",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Manderin",
+        "binnie_uid": "manderin",
+        "reforestry_id": "reforestry:tree_manderin",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Satsuma",
+        "binnie_uid": "satsuma",
+        "reforestry_id": "reforestry:tree_satsuma",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Pomelo",
+        "binnie_uid": "pomelo",
+        "reforestry_id": "reforestry:tree_pomelo",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Orange",
+        "binnie_uid": "orange",
+        "reforestry_id": "reforestry:tree_orange",
+        "forestry": false,
+        "action": "skip_reuse"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Grapefruit",
+        "binnie_uid": "grapefruit",
+        "reforestry_id": "reforestry:tree_grapefruit",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Pomelo",
+        "binnie_uid": "pomelo",
+        "reforestry_id": "reforestry:tree_pomelo",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "KeyLime",
+        "binnie_uid": "keylime",
+        "reforestry_id": "reforestry:tree_key_lime",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Lime",
+        "binnie_uid": "lime",
+        "reforestry_id": "reforestry:tree_et_lime",
+        "forestry": false,
+        "action": "id_collision_remap"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Oak",
+        "binnie_uid": "forestry.treeOak",
+        "reforestry_id": "reforestry:tree_oak",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Cherry",
+        "binnie_uid": "forestry.treeCherry",
+        "reforestry_id": "reforestry:tree_hill_cherry",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "OrchardApple",
+        "binnie_uid": "orchardapple",
+        "reforestry_id": "reforestry:tree_orchard_apple",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "OrchardApple",
+        "binnie_uid": "orchardapple",
+        "reforestry_id": "reforestry:tree_orchard_apple",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Maple",
+        "binnie_uid": "forestry.treeMaple",
+        "reforestry_id": "reforestry:tree_maple",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "SweetCrabapple",
+        "binnie_uid": "sweetcrabapple",
+        "reforestry_id": "reforestry:tree_sweet_crabapple",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "OrchardApple",
+        "binnie_uid": "orchardapple",
+        "reforestry_id": "reforestry:tree_orchard_apple",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "SweetCrabapple",
+        "binnie_uid": "sweetcrabapple",
+        "reforestry_id": "reforestry:tree_sweet_crabapple",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "FloweringCrabapple",
+        "binnie_uid": "floweringcrabapple",
+        "reforestry_id": "reforestry:tree_flowering_crabapple",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "OrchardApple",
+        "binnie_uid": "orchardapple",
+        "reforestry_id": "reforestry:tree_orchard_apple",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Birch",
+        "binnie_uid": "forestry.treeBirch",
+        "reforestry_id": "reforestry:tree_birch",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "PrairieCrabapple",
+        "binnie_uid": "prairiecrabapple",
+        "reforestry_id": "reforestry:tree_prairie_crabapple",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Plum",
+        "binnie_uid": "forestry.treePlum",
+        "reforestry_id": "reforestry:tree_plum",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "OrchardApple",
+        "binnie_uid": "orchardapple",
+        "reforestry_id": "reforestry:tree_orchard_apple",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Blackthorn",
+        "binnie_uid": "blackthorn",
+        "reforestry_id": "reforestry:tree_blackthorn",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Plum",
+        "binnie_uid": "forestry.treePlum",
+        "reforestry_id": "reforestry:tree_plum",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Cherry",
+        "binnie_uid": "forestry.treeCherry",
+        "reforestry_id": "reforestry:tree_hill_cherry",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "CherryPlum",
+        "binnie_uid": "cherryplum",
+        "reforestry_id": "reforestry:tree_cherry_plum",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Plum",
+        "binnie_uid": "forestry.treePlum",
+        "reforestry_id": "reforestry:tree_plum",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Chestnut",
+        "binnie_uid": "forestry.treeChestnut",
+        "reforestry_id": "reforestry:tree_chestnut",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Peach",
+        "binnie_uid": "peach",
+        "reforestry_id": "reforestry:tree_peach",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Plum",
+        "binnie_uid": "forestry.treePlum",
+        "reforestry_id": "reforestry:tree_plum",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Peach",
+        "binnie_uid": "peach",
+        "reforestry_id": "reforestry:tree_peach",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Nectarine",
+        "binnie_uid": "nectarine",
+        "reforestry_id": "reforestry:tree_nectarine",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Plum",
+        "binnie_uid": "forestry.treePlum",
+        "reforestry_id": "reforestry:tree_plum",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Peach",
+        "binnie_uid": "peach",
+        "reforestry_id": "reforestry:tree_peach",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Apricot",
+        "binnie_uid": "apricot",
+        "reforestry_id": "reforestry:tree_apricot",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Plum",
+        "binnie_uid": "forestry.treePlum",
+        "reforestry_id": "reforestry:tree_plum",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Walnut",
+        "binnie_uid": "forestry.treeWalnut",
+        "reforestry_id": "reforestry:tree_walnut",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Almond",
+        "binnie_uid": "almond",
+        "reforestry_id": "reforestry:tree_almond",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Lime",
+        "binnie_uid": "forestry.treeLime",
+        "reforestry_id": "reforestry:tree_lime",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Cherry",
+        "binnie_uid": "forestry.treeCherry",
+        "reforestry_id": "reforestry:tree_hill_cherry",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "WildCherry",
+        "binnie_uid": "wildcherry",
+        "reforestry_id": "reforestry:tree_wild_cherry",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Willow",
+        "binnie_uid": "forestry.treeWillow",
+        "reforestry_id": "reforestry:tree_willow",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Cherry",
+        "binnie_uid": "forestry.treeCherry",
+        "reforestry_id": "reforestry:tree_hill_cherry",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "SourCherry",
+        "binnie_uid": "sourcherry",
+        "reforestry_id": "reforestry:tree_hill_cherry",
+        "forestry": false,
+        "action": "skip_reuse"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": true
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Ebony",
+        "binnie_uid": "forestry.treeEbony",
+        "reforestry_id": "reforestry:tree_ebony",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Cherry",
+        "binnie_uid": "forestry.treeCherry",
+        "reforestry_id": "reforestry:tree_hill_cherry",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "BlackCherry",
+        "binnie_uid": "blackcherry",
+        "reforestry_id": "reforestry:tree_black_cherry",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Balsa",
+        "binnie_uid": "forestry.treeBalsa",
+        "reforestry_id": "reforestry:tree_balsa",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Jungle",
+        "binnie_uid": "forestry.treeJungle",
+        "reforestry_id": "reforestry:tree_jungle",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Banana",
+        "binnie_uid": "banana",
+        "reforestry_id": "reforestry:tree_banana",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Banana",
+        "binnie_uid": "banana",
+        "reforestry_id": "reforestry:tree_banana",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Kapok",
+        "binnie_uid": "forestry.treeKapok",
+        "reforestry_id": "reforestry:tree_kapok",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "RedBanana",
+        "binnie_uid": "redbanana",
+        "reforestry_id": "reforestry:tree_red_banana",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Banana",
+        "binnie_uid": "banana",
+        "reforestry_id": "reforestry:tree_banana",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Teak",
+        "binnie_uid": "forestry.treeTeak",
+        "reforestry_id": "reforestry:tree_teak",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Plantain",
+        "binnie_uid": "plantain",
+        "reforestry_id": "reforestry:tree_plantain",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Birch",
+        "binnie_uid": "forestry.treeBirch",
+        "reforestry_id": "reforestry:tree_birch",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Oak",
+        "binnie_uid": "forestry.treeOak",
+        "reforestry_id": "reforestry:tree_oak",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Beech",
+        "binnie_uid": "beech",
+        "reforestry_id": "reforestry:tree_beech",
+        "forestry": false,
+        "action": "skip_reuse"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": true
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Birch",
+        "binnie_uid": "forestry.treeBirch",
+        "reforestry_id": "reforestry:tree_birch",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Beech",
+        "binnie_uid": "beech",
+        "reforestry_id": "reforestry:tree_beech",
+        "forestry": false,
+        "action": "skip_reuse"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Alder",
+        "binnie_uid": "alder",
+        "reforestry_id": "reforestry:tree_alder",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Alder",
+        "binnie_uid": "alder",
+        "reforestry_id": "reforestry:tree_alder",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Beech",
+        "binnie_uid": "beech",
+        "reforestry_id": "reforestry:tree_beech",
+        "forestry": false,
+        "action": "skip_reuse"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Aspen",
+        "binnie_uid": "aspen",
+        "reforestry_id": "reforestry:tree_aspen",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Aspen",
+        "binnie_uid": "aspen",
+        "reforestry_id": "reforestry:tree_aspen",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Alder",
+        "binnie_uid": "alder",
+        "reforestry_id": "reforestry:tree_alder",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Rowan",
+        "binnie_uid": "rowan",
+        "reforestry_id": "reforestry:tree_rowan",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Beech",
+        "binnie_uid": "beech",
+        "reforestry_id": "reforestry:tree_beech",
+        "forestry": false,
+        "action": "skip_reuse"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Aspen",
+        "binnie_uid": "aspen",
+        "reforestry_id": "reforestry:tree_aspen",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Hazel",
+        "binnie_uid": "hazel",
+        "reforestry_id": "reforestry:tree_hazel",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Beech",
+        "binnie_uid": "beech",
+        "reforestry_id": "reforestry:tree_beech",
+        "forestry": false,
+        "action": "skip_reuse"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Rowan",
+        "binnie_uid": "rowan",
+        "reforestry_id": "reforestry:tree_rowan",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Hawthorn",
+        "binnie_uid": "hawthorn",
+        "reforestry_id": "reforestry:tree_hawthorn",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Alder",
+        "binnie_uid": "alder",
+        "reforestry_id": "reforestry:tree_alder",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Aspen",
+        "binnie_uid": "aspen",
+        "reforestry_id": "reforestry:tree_aspen",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Elder",
+        "binnie_uid": "elder",
+        "reforestry_id": "reforestry:tree_elder",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Alder",
+        "binnie_uid": "alder",
+        "reforestry_id": "reforestry:tree_alder",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Rowan",
+        "binnie_uid": "rowan",
+        "reforestry_id": "reforestry:tree_rowan",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Holly",
+        "binnie_uid": "holly",
+        "reforestry_id": "reforestry:tree_holly",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Willow",
+        "binnie_uid": "forestry.treeWillow",
+        "reforestry_id": "reforestry:tree_willow",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Aspen",
+        "binnie_uid": "aspen",
+        "reforestry_id": "reforestry:tree_aspen",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Sallow",
+        "binnie_uid": "sallow",
+        "reforestry_id": "reforestry:tree_sallow",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Beech",
+        "binnie_uid": "beech",
+        "reforestry_id": "reforestry:tree_beech",
+        "forestry": false,
+        "action": "skip_reuse"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Birch",
+        "binnie_uid": "forestry.treeBirch",
+        "reforestry_id": "reforestry:tree_birch",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Pecan",
+        "binnie_uid": "pecan",
+        "reforestry_id": "reforestry:tree_pecan",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Beech",
+        "binnie_uid": "beech",
+        "reforestry_id": "reforestry:tree_beech",
+        "forestry": false,
+        "action": "skip_reuse"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Spruce",
+        "binnie_uid": "forestry.treeSpruce",
+        "reforestry_id": "reforestry:tree_spruce",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "CopperBeech",
+        "binnie_uid": "copperbeech",
+        "reforestry_id": "reforestry:tree_copper_beech",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Lime",
+        "binnie_uid": "forestry.treeLime",
+        "reforestry_id": "reforestry:tree_lime",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Spruce",
+        "binnie_uid": "forestry.treeSpruce",
+        "reforestry_id": "reforestry:tree_spruce",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Ash",
+        "binnie_uid": "ash",
+        "reforestry_id": "reforestry:tree_ash",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Ash",
+        "binnie_uid": "ash",
+        "reforestry_id": "reforestry:tree_ash",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Birch",
+        "binnie_uid": "forestry.treeBirch",
+        "reforestry_id": "reforestry:tree_birch",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Whitebeam",
+        "binnie_uid": "whitebeam",
+        "reforestry_id": "reforestry:tree_whitebeam",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Ash",
+        "binnie_uid": "ash",
+        "reforestry_id": "reforestry:tree_ash",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Pine",
+        "binnie_uid": "forestry.treePine",
+        "reforestry_id": "reforestry:tree_pine",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Elm",
+        "binnie_uid": "elm",
+        "reforestry_id": "reforestry:tree_et_elm",
+        "forestry": false,
+        "action": "id_collision_remap"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Ash",
+        "binnie_uid": "ash",
+        "reforestry_id": "reforestry:tree_ash",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Larch",
+        "binnie_uid": "forestry.treeLarch",
+        "reforestry_id": "reforestry:tree_larch",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Hornbeam",
+        "binnie_uid": "hornbeam",
+        "reforestry_id": "reforestry:tree_hornbeam",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Ash",
+        "binnie_uid": "ash",
+        "reforestry_id": "reforestry:tree_ash",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Maple",
+        "binnie_uid": "forestry.treeMaple",
+        "reforestry_id": "reforestry:tree_maple",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Sycamore",
+        "binnie_uid": "sycamore",
+        "reforestry_id": "reforestry:tree_sycamore",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Larch",
+        "binnie_uid": "forestry.treeLarch",
+        "reforestry_id": "reforestry:tree_larch",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Spruce",
+        "binnie_uid": "forestry.treeSpruce",
+        "reforestry_id": "reforestry:tree_spruce",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Yew",
+        "binnie_uid": "yew",
+        "reforestry_id": "reforestry:tree_yew",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Larch",
+        "binnie_uid": "forestry.treeLarch",
+        "reforestry_id": "reforestry:tree_larch",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Alder",
+        "binnie_uid": "alder",
+        "reforestry_id": "reforestry:tree_alder",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "BalsamFir",
+        "binnie_uid": "balsamfir",
+        "reforestry_id": "reforestry:tree_fir",
+        "forestry": false,
+        "action": "skip_reuse"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": true
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Pine",
+        "binnie_uid": "forestry.treePine",
+        "reforestry_id": "reforestry:tree_pine",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "BalsamFir",
+        "binnie_uid": "balsamfir",
+        "reforestry_id": "reforestry:tree_fir",
+        "forestry": false,
+        "action": "skip_reuse"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Fir",
+        "binnie_uid": "fir",
+        "reforestry_id": "reforestry:tree_et_fir",
+        "forestry": false,
+        "action": "id_collision_remap"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Pine",
+        "binnie_uid": "forestry.treePine",
+        "reforestry_id": "reforestry:tree_pine",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Fir",
+        "binnie_uid": "fir",
+        "reforestry_id": "reforestry:tree_et_fir",
+        "forestry": false,
+        "action": "id_collision_remap"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Hemlock",
+        "binnie_uid": "hemlock",
+        "reforestry_id": "reforestry:tree_hemlock",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": 80,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Fir",
+        "binnie_uid": "fir",
+        "reforestry_id": "reforestry:tree_et_fir",
+        "forestry": false,
+        "action": "id_collision_remap"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Larch",
+        "binnie_uid": "forestry.treeLarch",
+        "reforestry_id": "reforestry:tree_larch",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Cedar",
+        "binnie_uid": "cedar",
+        "reforestry_id": "reforestry:tree_cedar",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": 60,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Fir",
+        "binnie_uid": "fir",
+        "reforestry_id": "reforestry:tree_et_fir",
+        "forestry": false,
+        "action": "id_collision_remap"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Spruce",
+        "binnie_uid": "forestry.treeSpruce",
+        "reforestry_id": "reforestry:tree_spruce",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "DouglasFir",
+        "binnie_uid": "douglasfir",
+        "reforestry_id": "reforestry:tree_douglas_fir",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": 60,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Pine",
+        "binnie_uid": "forestry.treePine",
+        "reforestry_id": "reforestry:tree_pine",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Spruce",
+        "binnie_uid": "forestry.treeSpruce",
+        "reforestry_id": "reforestry:tree_spruce",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Cypress",
+        "binnie_uid": "cypress",
+        "reforestry_id": "reforestry:tree_cypress",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Pine",
+        "binnie_uid": "forestry.treePine",
+        "reforestry_id": "reforestry:tree_pine",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Spruce",
+        "binnie_uid": "forestry.treeSpruce",
+        "reforestry_id": "reforestry:tree_spruce",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "LoblollyPine",
+        "binnie_uid": "loblollypine",
+        "reforestry_id": "reforestry:tree_loblolly_pine",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Walnut",
+        "binnie_uid": "forestry.treeWalnut",
+        "reforestry_id": "reforestry:tree_walnut",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Cherry",
+        "binnie_uid": "forestry.treeCherry",
+        "reforestry_id": "reforestry:tree_hill_cherry",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Butternut",
+        "binnie_uid": "butternut",
+        "reforestry_id": "reforestry:tree_butternut",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Walnut",
+        "binnie_uid": "forestry.treeWalnut",
+        "reforestry_id": "reforestry:tree_walnut",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Oak",
+        "binnie_uid": "forestry.treeOak",
+        "reforestry_id": "reforestry:tree_oak",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "AcornOak",
+        "binnie_uid": "acornoak",
+        "reforestry_id": "reforestry:tree_acorn_oak",
+        "forestry": false,
+        "action": "keep_acorn_oak"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Cherry",
+        "binnie_uid": "forestry.treeCherry",
+        "reforestry_id": "reforestry:tree_hill_cherry",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Alder",
+        "binnie_uid": "alder",
+        "reforestry_id": "reforestry:tree_alder",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Olive",
+        "binnie_uid": "olive",
+        "reforestry_id": "reforestry:tree_olive",
+        "forestry": false,
+        "action": "skip_reuse"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": true
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Maple",
+        "binnie_uid": "forestry.treeMaple",
+        "reforestry_id": "reforestry:tree_maple",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Lime",
+        "binnie_uid": "forestry.treeLime",
+        "reforestry_id": "reforestry:tree_lime",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "RedMaple",
+        "binnie_uid": "redmaple",
+        "reforestry_id": "reforestry:tree_red_maple",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Maple",
+        "binnie_uid": "forestry.treeMaple",
+        "reforestry_id": "reforestry:tree_maple",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Larch",
+        "binnie_uid": "forestry.treeLarch",
+        "reforestry_id": "reforestry:tree_larch",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Sweetgum",
+        "binnie_uid": "sweetgum",
+        "reforestry_id": "reforestry:tree_sweetgum",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Balsa",
+        "binnie_uid": "forestry.treeBalsa",
+        "reforestry_id": "reforestry:tree_balsa",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Lime",
+        "binnie_uid": "forestry.treeLime",
+        "reforestry_id": "reforestry:tree_lime",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Locust",
+        "binnie_uid": "locust",
+        "reforestry_id": "reforestry:tree_locust",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Balsa",
+        "binnie_uid": "forestry.treeBalsa",
+        "reforestry_id": "reforestry:tree_balsa",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Teak",
+        "binnie_uid": "forestry.treeTeak",
+        "reforestry_id": "reforestry:tree_teak",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Iroko",
+        "binnie_uid": "iroko",
+        "reforestry_id": "reforestry:tree_iroko",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "OrchardApple",
+        "binnie_uid": "orchardapple",
+        "reforestry_id": "reforestry:tree_orchard_apple",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Birch",
+        "binnie_uid": "forestry.treeBirch",
+        "reforestry_id": "reforestry:tree_birch",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Pear",
+        "binnie_uid": "pear",
+        "reforestry_id": "reforestry:tree_pear",
+        "forestry": false,
+        "action": "skip_reuse"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": true
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Ebony",
+        "binnie_uid": "forestry.treeEbony",
+        "reforestry_id": "reforestry:tree_ebony",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Teak",
+        "binnie_uid": "forestry.treeTeak",
+        "reforestry_id": "reforestry:tree_teak",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "OldFustic",
+        "binnie_uid": "oldfustic",
+        "reforestry_id": "reforestry:tree_old_fustic",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "OldFustic",
+        "binnie_uid": "oldfustic",
+        "reforestry_id": "reforestry:tree_old_fustic",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Kapok",
+        "binnie_uid": "forestry.treeKapok",
+        "reforestry_id": "reforestry:tree_kapok",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "OsangeOrange",
+        "binnie_uid": "osangeorange",
+        "reforestry_id": "reforestry:tree_osange_orange",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Ebony",
+        "binnie_uid": "forestry.treeEbony",
+        "reforestry_id": "reforestry:tree_ebony",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Teak",
+        "binnie_uid": "forestry.treeTeak",
+        "reforestry_id": "reforestry:tree_teak",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Brazilwood",
+        "binnie_uid": "brazilwood",
+        "reforestry_id": "reforestry:tree_brazilwood",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Brazilwood",
+        "binnie_uid": "brazilwood",
+        "reforestry_id": "reforestry:tree_brazilwood",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Kapok",
+        "binnie_uid": "forestry.treeKapok",
+        "reforestry_id": "reforestry:tree_kapok",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Purpleheart",
+        "binnie_uid": "purpleheart",
+        "reforestry_id": "reforestry:tree_purpleheart",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Ebony",
+        "binnie_uid": "forestry.treeEbony",
+        "reforestry_id": "reforestry:tree_ebony",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Teak",
+        "binnie_uid": "forestry.treeTeak",
+        "reforestry_id": "reforestry:tree_teak",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Rosewood",
+        "binnie_uid": "rosewood",
+        "reforestry_id": "reforestry:tree_rosewood",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Rosewood",
+        "binnie_uid": "rosewood",
+        "reforestry_id": "reforestry:tree_rosewood",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Kapok",
+        "binnie_uid": "forestry.treeKapok",
+        "reforestry_id": "reforestry:tree_kapok",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Logwood",
+        "binnie_uid": "logwood",
+        "reforestry_id": "reforestry:tree_logwood",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Wenge",
+        "binnie_uid": "forestry.treeWenge",
+        "reforestry_id": "reforestry:tree_wenge",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Lime",
+        "binnie_uid": "forestry.treeLime",
+        "reforestry_id": "reforestry:tree_lime",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Gingko",
+        "binnie_uid": "gingko",
+        "reforestry_id": "reforestry:tree_ginkgo",
+        "forestry": false,
+        "action": "skip_reuse"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": true
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Beech",
+        "binnie_uid": "beech",
+        "reforestry_id": "reforestry:tree_beech",
+        "forestry": false,
+        "action": "skip_reuse"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Jungle",
+        "binnie_uid": "forestry.treeJungle",
+        "reforestry_id": "reforestry:tree_jungle",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Brazilnut",
+        "binnie_uid": "brazilnut",
+        "reforestry_id": "reforestry:tree_brazilnut",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Balsa",
+        "binnie_uid": "forestry.treeBalsa",
+        "reforestry_id": "reforestry:tree_balsa",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Jungle",
+        "binnie_uid": "forestry.treeJungle",
+        "reforestry_id": "reforestry:tree_jungle",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "RoseGum",
+        "binnie_uid": "rosegum",
+        "reforestry_id": "reforestry:tree_rose_gum",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "RoseGum",
+        "binnie_uid": "rosegum",
+        "reforestry_id": "reforestry:tree_rose_gum",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Mahogony",
+        "binnie_uid": "forestry.treeMahogony",
+        "reforestry_id": "reforestry:tree_mahogany",
+        "forestry": true,
+        "typo": true
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "SwampGum",
+        "binnie_uid": "swampgum",
+        "reforestry_id": "reforestry:tree_swamp_gum",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Coffee",
+        "binnie_uid": "coffee",
+        "reforestry_id": "reforestry:tree_coffee",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Teak",
+        "binnie_uid": "forestry.treeTeak",
+        "reforestry_id": "reforestry:tree_teak",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Clove",
+        "binnie_uid": "clove",
+        "reforestry_id": "reforestry:tree_clove",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Cherry",
+        "binnie_uid": "forestry.treeCherry",
+        "reforestry_id": "reforestry:tree_hill_cherry",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Jungle",
+        "binnie_uid": "forestry.treeJungle",
+        "reforestry_id": "reforestry:tree_jungle",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Coffee",
+        "binnie_uid": "coffee",
+        "reforestry_id": "reforestry:tree_coffee",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Holly",
+        "binnie_uid": "holly",
+        "reforestry_id": "reforestry:tree_holly",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Alder",
+        "binnie_uid": "alder",
+        "reforestry_id": "reforestry:tree_alder",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Box",
+        "binnie_uid": "box",
+        "reforestry_id": "reforestry:tree_box",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Hemlock",
+        "binnie_uid": "hemlock",
+        "reforestry_id": "reforestry:tree_hemlock",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Jungle",
+        "binnie_uid": "forestry.treeJungle",
+        "reforestry_id": "reforestry:tree_jungle",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "MonkeyPuzzle",
+        "binnie_uid": "monkeypuzzle",
+        "reforestry_id": "reforestry:tree_pewen",
+        "forestry": false,
+        "action": "skip_reuse"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": true
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "RoseGum",
+        "binnie_uid": "rosegum",
+        "reforestry_id": "reforestry:tree_rose_gum",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Balsa",
+        "binnie_uid": "forestry.treeBalsa",
+        "reforestry_id": "reforestry:tree_balsa",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "RainbowGum",
+        "binnie_uid": "rainbowgum",
+        "reforestry_id": "reforestry:tree_rainbow_gum",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "RoseGum",
+        "binnie_uid": "rosegum",
+        "reforestry_id": "reforestry:tree_rose_gum",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Brazilwood",
+        "binnie_uid": "brazilwood",
+        "reforestry_id": "reforestry:tree_brazilwood",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "PinkIvory",
+        "binnie_uid": "pinkivory",
+        "reforestry_id": "reforestry:tree_pink_ivory",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Cherry",
+        "binnie_uid": "forestry.treeCherry",
+        "reforestry_id": "reforestry:tree_hill_cherry",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Elder",
+        "binnie_uid": "elder",
+        "reforestry_id": "reforestry:tree_elder",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Raspberry",
+        "binnie_uid": "raspberry",
+        "reforestry_id": "reforestry:tree_raspberry",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Cherry",
+        "binnie_uid": "forestry.treeCherry",
+        "reforestry_id": "reforestry:tree_hill_cherry",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Elder",
+        "binnie_uid": "elder",
+        "reforestry_id": "reforestry:tree_elder",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Redcurrant",
+        "binnie_uid": "redcurrant",
+        "reforestry_id": "reforestry:tree_redcurrant",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "BlackCherry",
+        "binnie_uid": "blackcherry",
+        "reforestry_id": "reforestry:tree_black_cherry",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Redcurrant",
+        "binnie_uid": "redcurrant",
+        "reforestry_id": "reforestry:tree_redcurrant",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Blackcurrant",
+        "binnie_uid": "blackcurrant",
+        "reforestry_id": "reforestry:tree_blackcurrant",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "BlackCherry",
+        "binnie_uid": "blackcherry",
+        "reforestry_id": "reforestry:tree_black_cherry",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Raspberry",
+        "binnie_uid": "raspberry",
+        "reforestry_id": "reforestry:tree_raspberry",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Blackberry",
+        "binnie_uid": "blackberry",
+        "reforestry_id": "reforestry:tree_blackberry",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Blackberry",
+        "binnie_uid": "blackberry",
+        "reforestry_id": "reforestry:tree_blackberry",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Raspberry",
+        "binnie_uid": "raspberry",
+        "reforestry_id": "reforestry:tree_raspberry",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Blueberry",
+        "binnie_uid": "blueberry",
+        "reforestry_id": "reforestry:tree_blueberry",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Blackberry",
+        "binnie_uid": "blackberry",
+        "reforestry_id": "reforestry:tree_blackberry",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "CherryPlum",
+        "binnie_uid": "cherryplum",
+        "reforestry_id": "reforestry:tree_cherry_plum",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Cranberry",
+        "binnie_uid": "cranberry",
+        "reforestry_id": "reforestry:tree_cranberry",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Raspberry",
+        "binnie_uid": "raspberry",
+        "reforestry_id": "reforestry:tree_raspberry",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Fir",
+        "binnie_uid": "fir",
+        "reforestry_id": "reforestry:tree_et_fir",
+        "forestry": false,
+        "action": "id_collision_remap"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Juniper",
+        "binnie_uid": "juniper",
+        "reforestry_id": "reforestry:tree_juniper",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Raspberry",
+        "binnie_uid": "raspberry",
+        "reforestry_id": "reforestry:tree_raspberry",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Lime",
+        "binnie_uid": "lime",
+        "reforestry_id": "reforestry:tree_et_lime",
+        "forestry": false,
+        "action": "id_collision_remap"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Gooseberry",
+        "binnie_uid": "gooseberry",
+        "reforestry_id": "reforestry:tree_gooseberry",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Raspberry",
+        "binnie_uid": "raspberry",
+        "reforestry_id": "reforestry:tree_raspberry",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Orange",
+        "binnie_uid": "orange",
+        "reforestry_id": "reforestry:tree_orange",
+        "forestry": false,
+        "action": "skip_reuse"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "GoldenRaspberry",
+        "binnie_uid": "goldenraspberry",
+        "reforestry_id": "reforestry:tree_golden_raspberry",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Teak",
+        "binnie_uid": "forestry.treeTeak",
+        "reforestry_id": "reforestry:tree_teak",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Rosewood",
+        "binnie_uid": "rosewood",
+        "reforestry_id": "reforestry:tree_rosewood",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Cinnamon",
+        "binnie_uid": "cinnamon",
+        "reforestry_id": "reforestry:tree_cinnamon",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Balsa",
+        "binnie_uid": "forestry.treeBalsa",
+        "reforestry_id": "reforestry:tree_balsa",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Brazilnut",
+        "binnie_uid": "brazilnut",
+        "reforestry_id": "reforestry:tree_brazilnut",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Coconut",
+        "binnie_uid": "coconut",
+        "reforestry_id": "reforestry:tree_coconut",
+        "forestry": false,
+        "action": "skip_reuse"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": true
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Teak",
+        "binnie_uid": "forestry.treeTeak",
+        "reforestry_id": "reforestry:tree_teak",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Oak",
+        "binnie_uid": "forestry.treeOak",
+        "reforestry_id": "reforestry:tree_oak",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Cashew",
+        "binnie_uid": "cashew",
+        "reforestry_id": "reforestry:tree_cashew",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Wenge",
+        "binnie_uid": "forestry.treeWenge",
+        "reforestry_id": "reforestry:tree_wenge",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "getVanilla",
+        "vanilla_name": "Oak",
+        "binnie_uid": "forestry.treeOak",
+        "reforestry_id": "reforestry:tree_oak",
+        "forestry": true,
+        "typo": false
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Avocado",
+        "binnie_uid": "avocado",
+        "reforestry_id": "reforestry:tree_avocado",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Teak",
+        "binnie_uid": "forestry.treeTeak",
+        "reforestry_id": "reforestry:tree_teak",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Clove",
+        "binnie_uid": "clove",
+        "reforestry_id": "reforestry:tree_clove",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Nutmeg",
+        "binnie_uid": "nutmeg",
+        "reforestry_id": "reforestry:tree_nutmeg",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Teak",
+        "binnie_uid": "forestry.treeTeak",
+        "reforestry_id": "reforestry:tree_teak",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Clove",
+        "binnie_uid": "clove",
+        "reforestry_id": "reforestry:tree_clove",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Allspice",
+        "binnie_uid": "allspice",
+        "reforestry_id": "reforestry:tree_allspice",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Allspice",
+        "binnie_uid": "allspice",
+        "reforestry_id": "reforestry:tree_allspice",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Clove",
+        "binnie_uid": "clove",
+        "reforestry_id": "reforestry:tree_clove",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "StarAnise",
+        "binnie_uid": "staranise",
+        "reforestry_id": "reforestry:tree_star_anise",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "getVanilla",
+        "vanilla_name": "Jungle",
+        "binnie_uid": "forestry.treeJungle",
+        "reforestry_id": "reforestry:tree_jungle",
+        "forestry": true,
+        "typo": false
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Orange",
+        "binnie_uid": "orange",
+        "reforestry_id": "reforestry:tree_orange",
+        "forestry": false,
+        "action": "skip_reuse"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Mango",
+        "binnie_uid": "mango",
+        "reforestry_id": "reforestry:tree_mango",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "StarAnise",
+        "binnie_uid": "staranise",
+        "reforestry_id": "reforestry:tree_star_anise",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Mango",
+        "binnie_uid": "mango",
+        "reforestry_id": "reforestry:tree_mango",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Starfruit",
+        "binnie_uid": "starfruit",
+        "reforestry_id": "reforestry:tree_starfruit",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Hazel",
+        "binnie_uid": "hazel",
+        "reforestry_id": "reforestry:tree_hazel",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Gingko",
+        "binnie_uid": "gingko",
+        "reforestry_id": "reforestry:tree_ginkgo",
+        "forestry": false,
+        "action": "skip_reuse"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Candlenut",
+        "binnie_uid": "candlenut",
+        "reforestry_id": "reforestry:tree_candlenut",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Hazel",
+        "binnie_uid": "hazel",
+        "reforestry_id": "reforestry:tree_hazel",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Gingko",
+        "binnie_uid": "gingko",
+        "reforestry_id": "reforestry:tree_ginkgo",
+        "forestry": false,
+        "action": "skip_reuse"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "Chilli",
+        "binnie_uid": "chilli",
+        "reforestry_id": "reforestry:tree_chilli",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    },
+    {
+      "parent0": {
+        "source": "ETTreeDefinition",
+        "enum": "Hazel",
+        "binnie_uid": "hazel",
+        "reforestry_id": "reforestry:tree_hazel",
+        "forestry": false,
+        "action": "register"
+      },
+      "parent1": {
+        "source": "ETTreeDefinition",
+        "enum": "Alder",
+        "binnie_uid": "alder",
+        "reforestry_id": "reforestry:tree_alder",
+        "forestry": false,
+        "action": "register"
+      },
+      "result": {
+        "source": "ETTreeDefinition",
+        "enum": "DwarfHazel",
+        "binnie_uid": "dwarfhazel",
+        "reforestry_id": "reforestry:tree_dwarf_hazel",
+        "forestry": false,
+        "action": "register"
+      },
+      "chance": 10,
+      "height": null,
+      "result_skipped": false
+    }
+  ]
+}
