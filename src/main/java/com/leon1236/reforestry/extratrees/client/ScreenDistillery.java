@@ -8,6 +8,11 @@ import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.Fluids;
+
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariantAttributes;
 
 import com.leon1236.reforestry.core.client.ScreenForestry;
 import com.leon1236.reforestry.extratrees.gui.ContainerDistillery;
@@ -33,9 +38,15 @@ public class ScreenDistillery extends ScreenForestry<ContainerDistillery> {
 	public void extractBackground(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY, float delta) {
 		super.extractBackground(guiGraphics, mouseX, mouseY, delta);
 		ExtraTreesGuiTextures.blitBackground(guiGraphics, ExtraTreesGuiTextures.DISTILLERY, leftPos, topPos, imageWidth, imageHeight);
-		drawTank(guiGraphics, mouseX, mouseY, INPUT_TANK_X, menu.getInputAmountMb());
-		drawTank(guiGraphics, mouseX, mouseY, OUTPUT_TANK_X, menu.getOutputAmountMb());
-		guiGraphics.text(font, Component.literal("Lv " + (menu.getDistillLevel() + 1)), leftPos + 78, topPos + 52, 0x404040, false);
+		drawTank(guiGraphics, mouseX, mouseY, INPUT_TANK_X, menu.getInputAmountMb(), menu.getInputFluid());
+		drawTank(guiGraphics, mouseX, mouseY, OUTPUT_TANK_X, menu.getOutputAmountMb(), menu.getOutputFluid());
+		guiGraphics.text(
+				font,
+				Component.translatable("extratrees.gui.distillery.level", menu.getDistillLevel() + 1),
+				leftPos + 78,
+				topPos + 52,
+				0x404040,
+				false);
 	}
 
 	@Override
@@ -53,7 +64,7 @@ public class ScreenDistillery extends ScreenForestry<ContainerDistillery> {
 		return super.mouseClicked(event, doubleClick);
 	}
 
-	private void drawTank(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY, int tankX, int amountMb) {
+	private void drawTank(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY, int tankX, int amountMb, Fluid fluid) {
 		int capacity = menu.getTankCapacityMb();
 		if (amountMb > 0 && capacity > 0) {
 			int filled = Math.min(TANK_HEIGHT, TANK_HEIGHT * amountMb / capacity);
@@ -65,9 +76,16 @@ public class ScreenDistillery extends ScreenForestry<ContainerDistillery> {
 		int tankTop = topPos + TANK_Y;
 		if (mouseX >= tankLeft && mouseX < tankLeft + TANK_WIDTH && mouseY >= tankTop && mouseY < tankTop + TANK_HEIGHT) {
 			List<Component> lines = new ArrayList<>();
-			lines.add(Component.translatable("for.gui.empty"));
+			lines.add(fluidName(fluid, amountMb));
 			lines.add(Component.literal(amountMb + " / " + capacity + " mB"));
 			guiGraphics.setTooltipForNextFrame(font, lines, Optional.<TooltipComponent>empty(), mouseX, mouseY);
 		}
+	}
+
+	private static Component fluidName(Fluid fluid, int amountMb) {
+		if (amountMb <= 0 || fluid == null || fluid == Fluids.EMPTY) {
+			return Component.translatable("for.gui.empty");
+		}
+		return FluidVariantAttributes.getName(FluidVariant.of(fluid));
 	}
 }

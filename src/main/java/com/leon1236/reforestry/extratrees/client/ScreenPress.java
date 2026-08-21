@@ -8,6 +8,11 @@ import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.Fluids;
+
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariantAttributes;
 
 import com.leon1236.reforestry.core.client.ScreenForestry;
 import com.leon1236.reforestry.extratrees.gui.ContainerPress;
@@ -45,9 +50,16 @@ public class ScreenPress extends ScreenForestry<ContainerPress> {
 		int tankTop = topPos + TANK_Y;
 		if (mouseX >= tankLeft && mouseX < tankLeft + TANK_WIDTH && mouseY >= tankTop && mouseY < tankTop + TANK_HEIGHT) {
 			List<Component> lines = new ArrayList<>();
-			lines.add(Component.translatable("for.gui.empty"));
+			lines.add(fluidName(menu.getOutputFluid(), amountMb));
 			lines.add(Component.literal(amountMb + " / " + capacity + " mB"));
 			guiGraphics.setTooltipForNextFrame(font, lines, Optional.<TooltipComponent>empty(), mouseX, mouseY);
 		}
+	}
+
+	private static Component fluidName(Fluid fluid, int amountMb) {
+		if (amountMb <= 0 || fluid == null || fluid == Fluids.EMPTY) {
+			return Component.translatable("for.gui.empty");
+		}
+		return FluidVariantAttributes.getName(FluidVariant.of(fluid));
 	}
 }

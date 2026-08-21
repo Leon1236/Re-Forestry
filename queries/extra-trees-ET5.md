@@ -45,6 +45,15 @@
 | Liqueur machine recipes | Binnie mostly cocktail mixing, not brewery |
 | Press GUI fruit-specific art | Still factory still.png stand-in |
 | Village hops field | Binnie `VillageHopeField` not ported |
+| Potato / agave / sparkling / fruit brew inputs | Binnie also has no brewery liquid for these (solid potato ferment unused; cocktail-only alcohols) |
+
+## Review fixes (2026-08-21)
+
+- Brewery grain recipes match Binnie `grainCount >= 2` (empty third slot allowed)
+- Press/brewery/distillery tank tooltips show fluid name when filled
+- Distillery level uses lang `extratrees.gui.distillery.level`
+- `yeast_lager` display fixed to "Lager Yeast" (Binnie EN typo)
+- Removed no-op `BlockHops.randomTick` override
 
 ## Next
 

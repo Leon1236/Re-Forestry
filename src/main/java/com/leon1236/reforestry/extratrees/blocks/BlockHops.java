@@ -3,8 +3,6 @@ package com.leon1236.reforestry.extratrees.blocks;
 import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -51,11 +49,6 @@ public class BlockHops extends CropBlock {
 			return InteractionResult.SUCCESS;
 		}
 		return super.useWithoutItem(state, level, pos, player, hitResult);
-	}
-
-	@Override
-	protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-		super.randomTick(state, level, pos, random);
 	}
 
 	@Override

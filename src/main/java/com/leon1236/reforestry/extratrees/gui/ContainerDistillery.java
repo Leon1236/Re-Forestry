@@ -1,10 +1,12 @@
 package com.leon1236.reforestry.extratrees.gui;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.SimpleContainerData;
+import net.minecraft.world.level.material.Fluid;
 
 import net.fabricmc.fabric.api.transfer.v1.fluid.base.SingleFluidStorage;
 
@@ -41,8 +43,16 @@ public class ContainerDistillery extends ContainerMachine<TileDistillery> implem
 		return tankData.get(0);
 	}
 
+	public Fluid getInputFluid() {
+		return BuiltInRegistries.FLUID.byId(tankData.get(1));
+	}
+
 	public int getOutputAmountMb() {
 		return tankData.get(2);
+	}
+
+	public Fluid getOutputFluid() {
+		return BuiltInRegistries.FLUID.byId(tankData.get(3));
 	}
 
 	public int getTankCapacityMb() {
@@ -110,10 +120,12 @@ public class ContainerDistillery extends ContainerMachine<TileDistillery> implem
 
 	@Override
 	public void broadcastChanges() {
-		tankData.set(0, (int) FluidUnits.dropletsToMb(tile.getInputTank().getAmount()));
-		tankData.set(1, tile.getInputTank().getAmount() > 0 ? 1 : 0);
-		tankData.set(2, (int) FluidUnits.dropletsToMb(tile.getOutputTank().getAmount()));
-		tankData.set(3, tile.getOutputTank().getAmount() > 0 ? 1 : 0);
+		var input = tile.getInputTank();
+		var output = tile.getOutputTank();
+		tankData.set(0, (int) FluidUnits.dropletsToMb(input.getAmount()));
+		tankData.set(1, BuiltInRegistries.FLUID.getId(input.getResource().getFluid()));
+		tankData.set(2, (int) FluidUnits.dropletsToMb(output.getAmount()));
+		tankData.set(3, BuiltInRegistries.FLUID.getId(output.getResource().getFluid()));
 		levelData.set(0, tile.getDistillLevel());
 		super.broadcastChanges();
 	}

@@ -808,7 +808,7 @@ def update_lang(entries: list[dict], apply: bool) -> int:
 				added += 1
 	misc = {
 		"item.reforestry.yeast": binnie.get("extratrees.item.yeast.name", "Yeast"),
-		"item.reforestry.yeast_lager": binnie.get("extratrees.item.yeast_lager.name", "Lager Yeast"),
+		"item.reforestry.yeast_lager": "Lager Yeast",
 		"item.reforestry.grain_wheat": binnie.get("extratrees.item.grain_wheat.name", "Wheat Grain"),
 		"item.reforestry.grain_barley": binnie.get("extratrees.item.grain_barley.name", "Barley Grain"),
 		"item.reforestry.grain_rye": binnie.get("extratrees.item.grain_rye.name", "Rye Grain"),
@@ -816,9 +816,10 @@ def update_lang(entries: list[dict], apply: bool) -> int:
 		"item.reforestry.grain_roasted": binnie.get("extratrees.item.grain_roasted.name", "Roasted Grain"),
 		"item.reforestry.hops": binnie.get("extratrees.item.hops.name", "Hops"),
 		"block.reforestry.hops": binnie.get("extratrees.item.hops.name", "Hops"),
+		"extratrees.gui.distillery.level": "Lv %s",
 	}
 	for k, v in misc.items():
-		if k not in lang:
+		if k not in lang or lang.get(k) == "Lager LagerYeast":
 			lang[k] = v
 			added += 1
 	if apply:

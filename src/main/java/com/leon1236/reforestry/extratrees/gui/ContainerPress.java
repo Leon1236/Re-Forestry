@@ -1,12 +1,14 @@
 package com.leon1236.reforestry.extratrees.gui;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.material.Fluid;
 
 import net.fabricmc.fabric.api.transfer.v1.fluid.base.SingleFluidStorage;
 
@@ -57,6 +59,10 @@ public class ContainerPress extends ContainerMachine<TilePress> implements ICont
 
 	public int getOutputAmountMb() {
 		return tankData.get(0);
+	}
+
+	public Fluid getOutputFluid() {
+		return BuiltInRegistries.FLUID.byId(tankData.get(1));
 	}
 
 	public int getTankCapacityMb() {
@@ -112,8 +118,9 @@ public class ContainerPress extends ContainerMachine<TilePress> implements ICont
 
 	@Override
 	public void broadcastChanges() {
-		tankData.set(0, (int) FluidUnits.dropletsToMb(tile.getOutputTank().getAmount()));
-		tankData.set(1, tile.getOutputTank().getAmount() > 0 ? 1 : 0);
+		var tank = tile.getOutputTank();
+		tankData.set(0, (int) FluidUnits.dropletsToMb(tank.getAmount()));
+		tankData.set(1, BuiltInRegistries.FLUID.getId(tank.getResource().getFluid()));
 		super.broadcastChanges();
 	}
 }

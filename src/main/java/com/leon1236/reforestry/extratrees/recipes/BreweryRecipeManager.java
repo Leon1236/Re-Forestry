@@ -131,10 +131,9 @@ public final class BreweryRecipeManager {
 				}
 				int grainCount = 0;
 				for (ItemStack stack : crafting.grains()) {
-					if (stack == null || stack.isEmpty() || !stack.is(grainTag)) {
-						return false;
+					if (stack != null && !stack.isEmpty() && stack.is(grainTag)) {
+						grainCount++;
 					}
-					grainCount++;
 				}
 				if (grainCount < 2) {
 					return false;
