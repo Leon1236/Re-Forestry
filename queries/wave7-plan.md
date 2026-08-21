@@ -1,15 +1,14 @@
 # Wave 7 — Addons (locked plan)
 
-**Date:** 2026-08-21 (revised after checking cloud)  
-**Repo state:** this workspace has Waves **1b–4** (escritoire, energy, sorting, farming) that were never pushed. GitHub `main` has **Wave 5** (GP0a1–d) merged as [PR #1](https://github.com/Leon1236/Re-Forestry/pull/1). **Wave 6** lepidopterology (D0–D4) is a complete draft [PR #2](https://github.com/Leon1236/Re-Forestry/pull/2) on `cursor/wave-6-lepidopterology-9408`. Histories **diverged** at `b7bf6cbc`. Mail out of scope.
+**Date:** 2026-08-21 (re-planned; docs synced to full-port order)  
+**Repo state:** W7-INT done — Waves 1b–4 + Wave 5 genetics API + Wave 6 butterflies on this tree. EB0 + ET0 extracts done. Mail out of scope.
 
-Re-plan vs `queries/remaining-work-stages.md` Wave 7, verified against:
+Re-plan vs donor clones / extracts:
 
-- Gendustry: `MarkDown_Maker/Finished_github_clone/2026-07-24/thedarkcolour-gendustry`
-- Binnie: `MarkDown_Maker/Finished_github_clone/2026-07-24/ACGaming-Binnie`
-- Textures: `for textures only/thedarkcolour-gendustry/` and `for textures only/ACGaming-Binnie/`
-
-Graphify `index.json` Documents clone paths are stale — use the workspace `MarkDown_Maker/Finished_github_clone/2026-07-24/` copies.
+- Gendustry: `MarkDown_Maker/github_clone/thedarkcolour-gendustry` (or Finished_github_clone copy)
+- Binnie: `MarkDown_Maker/.../ACGaming-Binnie`
+- Extracts: `queries/extra-bees-*.json`, `queries/extra-trees-extract/`
+- Textures: `for textures only/thedarkcolour-gendustry/` and `for textures only/ACGaming-Binnie/` (or donor `src/main/resources`)
 
 ## Locked decisions
 
@@ -18,16 +17,18 @@ Graphify `index.json` Documents clone paths are stale — use the workspace `Mar
 | Packages | `com.leon1236.reforestry.gendustry` / `extra_bees` / `extratrees` |
 | Module ids | `reforestry:gendustry` / `extra_bees` / `extra_trees` |
 | Namespace | always `reforestry:` |
-| Plugins | `GendustryForestryPlugin`, `ExtraBeesForestryPlugin`, `ExtraTreesForestryPlugin` |
+| Plugins | `GendustryForestryPlugin`, `ExtraBeesForestryPlugin`, `ExtraTreesForestryPlugin` via `fabric.mod.json` `reforestry:plugin` |
 | Woods | `ExtraTreeWoodType` + `FeatureBlockGroup` + `WoodAccess`. Do not edit `ForestryWoodType` |
 | Infuser / nursery | **never** — unfinished in Binnie |
 | Designer | **ET-D** deferred |
-| Kitchen bottle rack | **ET-K** optional after ET5 |
+| Kitchen bottle rack | **ET-K** deferred — Binnie never shipped it; foods do not depend on it |
 | EB id collisions | `bee_eb_primeval`, `bee_eb_relic`, `bee_eb_boggy`; effect `bee_effect_eb_radioactive`; hive `beehive_eb_nether` |
 | ARTIC | keep Binnie spelling |
 | Youth elite upgrade | port code (mutation −20%/stack), not the lifespan tooltip |
 | Gendustry energy ctor | local `TilePowered(capacity, maxReceive)` — swap donor argument order |
-| Industrial apiary | `new BeekeepingLogic(this)` like `TileBeeHousing`, not donor `IIndividualHandlerItem` |
+| Industrial apiary | `new BeekeepingLogic(this)` like `TileBeeHousing` |
+| EB genetics order | **Flowers + 25 effects before any EB2 species batch** |
+| Charcoal walls | Not an ET1b goal |
 
 **Skip:** Gendustry scoop/grafter/uranium/Patchouli/`debug_wand`; Extra Bees dictionary / honey crystal / industrial frames / Binnie genetics / inactive combs / ALLOY branch; Extra Trees 9 duplicate species + 6 overlap woods + databases; mail.
 
@@ -35,10 +36,10 @@ Graphify `index.json` Documents clone paths are stale — use the workspace `Mar
 
 | Content | Count | Note |
 |---|---|---|
-| Extra Bees species | 116 | 32 branches; ALLOY empty |
+| Extra Bees species | 116 | 29 branch enum values; ALLOY empty |
 | Extra Bees mutations | 168 | 34 result in CE bees (`modifySpecies` — GP0c) |
 | Extra Bees effects | 25 | |
-| Extra Bees flower types | 11 | GP0b before EB2 |
+| Extra Bees flower types | 11 | before EB2 |
 | Extra Trees species | 97 | skip 9 CE duplicates → ~88 new |
 | Extra Trees fruits | 59 | ~54 new |
 | Extra Trees plank woods | 36 | skip 6 CE overlap → **30 new** + shrub log |
@@ -46,62 +47,44 @@ Graphify `index.json` Documents clone paths are stale — use the workspace `Mar
 | Gendustry machines | 10 | |
 | Gendustry upgrades | 23 | 17 + 6 elite |
 
-## Cloud Wave 5 / 6 (checked 2026-08-21)
+## Prerequisite
 
-| Wave | Where | Status | What addons get |
-|---|---|---|---|
-| 5 GP0a1–d | `origin/main` (PR #1 **merged**) | Not in this worktree | `ISpecies` / `IIndividual` / `IGeneticManager` / `IIndividualHandlerItem`; `registerGenetics` / `registerFlowerType` / `modifySpecies` / `registerFruit` / `registerErrors` / empty `BUTTERFLY` type |
-| 6 D0–D4 | `cursor/wave-6-lepidopterology-9408` (PR #2 **draft**) | Not in this worktree | Module + items `butterfly` / `butterfly_serum` / `caterpillar` / `cocoon`; 35 species; entity; cocoons; mating; chest recipe |
+**W7-INT** — **done**. **EB0 / ET0** — **done**.
 
-Cloud `IForestryPlugin` does **not** have local `registerFilter` / `registerFarming` (Waves 3–4). Cloud `ReForestry.java` does **not** load energy/sorting/farming/cultivation. Merge must **keep local modules + those plugin hooks**.
+## Now (remaining order)
 
-Wave 5 leftover (not a Wave 7 skip): taxon JSON allele maps are not applied to genomes yet (`queries/genetics-wave5-report.md` on origin/main).
+Order: **GD0 → EB1 → GD1 → GD2 (incl. DNA) → GD3 (incl. DNA extractor) → GD4 → GD5 → GD6 → GD7a → GD7b → GD8 → EB5 → EB6 → EB-FLOWERS+EB3 → EB2a–e → EB4 → ET1a → ET1b → ET2 → ET3 → ET4 → ET5 → ET6 → S2**
 
-## Prerequisite before genetics-dependent addon stages
-
-**W7-INT** — **done** (2026-08-21). Local tree has Wave 5 API + Wave 6 butterflies + Waves 1b–4.
-
-Extracts **EB0 / ET0** do not need that merge.
-
-## Now (after W7-INT)
-
-Order: **EB0 → ET0 → W7-INT → GD0 → EB1 → GD1 → GD2 (incl. DNA) → GD3 (incl. DNA extractor) → GD4 → GD5 → GD6 → GD7a → GD7b → GD8 → EB5 → EB6 → EB2a–e → EB3 → EB4 → ET1a → ET1b → ET2 → ET3 → ET4 → ET5 → ET6 → S2**
-
-| # | ID | Size | Player exit |
-|---|---|---|---|
-| 1 | EB0 | M | Extract JSON + `tools/extract_extra_bees.py` (no merge needed) |
-| 2 | ET0 | M | Extract JSON + `tools/extract_extra_trees.py` (no merge needed) |
-| 3 | W7-INT | M | Local tree has Wave 5 API + Wave 6 butterflies + Waves 1b–4; `./gradlew classes` |
-| 4 | GD0 | S | Module toggle; tab with parts, 23 upgrades, pollen kit |
-| 5 | EB1 | M | `/give` combs, drops, frames, dusts, ectoplasm, hive blocks |
-| 6 | GD1 | S | Three fluid buckets |
-| 7 | GD2 | M | Mutagen + protein + bee/tree DNA recipes (butterfly DNA after Wave 6) |
-| 8 | GD3 | M | Mutagen producer, protein liquefier, **DNA extractor** |
-| 9 | GD4 | M | Sampler + gene sample/template |
-| 10 | GD5 | M | Mutatron + advanced mutatron |
-| 11 | GD6 | M | Imprinter, transposer, replicator |
-| 12 | GD7a | M–L | Industrial apiary bees work with FE |
-| 13 | GD7b | M | Upgrades including fertility extra drones |
-| 14 | GD8 | S | 12 errors + JEI (producers + gene-sample subtypes) |
-| 15 | EB5 | L | 7 alveary parts |
-| 16 | EB6 | M | Centrifuge/squeezer datapack |
-| 17 | EB2a–e | L | 116 Extra Bees species + 168 mutations (flower types via `registerFlowerType`) |
-| 18 | EB3 | M | 25 bee effects wired |
-| 19 | EB4 | M | Four hives + worldgen |
-| 20 | ET1a | L | 30 woods + shrub log (1.12 kinds) |
-| 21 | ET1b | L | Stripped/boats/signs/charcoal walls |
-| 22 | ET2 | L | Fruits + ~88 species + mutations |
-| 23 | ET3 | L | Growth / worldgen |
-| 24 | ET4 | L | Lumbermill, press, brewery, distillery |
-| 25 | ET5 | L | Foods, juices, alcohol, hops |
-| 26 | ET6 | M | 22 Extra Trees moths on Wave 6 butterfly type |
-| 27 | S2 | S | Genetic filter butterfly rules |
-
-Optional: **ET-K** bottle rack after ET5.
+| # | ID | Size | Player exit | Connected must-ship |
+|---|---|---|---|---|
+| 1 | GD0 | S | Module toggle; tab with 10 parts, 23 upgrades, pollen kit | Plugin entry; upgrade tag; crafts; models/lang; pollen-kit use |
+| 2 | EB1 | M | `/give` combs, drops, frames, dusts, ectoplasm, hive blocks | Module + tab; frame crafts; scented_gear; dust/shard recipes |
+| 3 | GD1 | S | Three fluid buckets | Fluid blocks + textures + lang |
+| 4 | GD2 | M | Mutagen + protein + DNA recipes load | All 4+7+10 DNA (bee/tree/butterfly) |
+| 5 | GD3 | M | Mutagen producer, protein liquefier, DNA extractor | Menus/screens; labware chance; energy ctor swap |
+| 6 | GD4 | M | Sampler + gene sample/template | 26.2 components; wipe + combine; gene_samples tab |
+| 7 | GD5 | M | Mutatron + advanced mutatron | GUIs, tanks, errors |
+| 8 | GD6 | M | Imprinter, transposer, replicator | Dual tanks; blank/source/dna/protein errors |
+| 9 | GD7a | M–L | Industrial apiary bees work with FE | `BeekeepingLogic(this)`; menu/GUI |
+| 10 | GD7b | M | Upgrades including fertility extra drones | Modifier + energy costs; youth mutation penalty |
+| 11 | GD8 | S | 12 errors + JEI | Error sprites; soft jei_mod_plugin |
+| 12 | EB5 | L | 7 alveary parts | 7 crafts; stimulator circuits; FE |
+| 13 | EB6 | M | Centrifuge/squeezer datapack | Soft-skip missing fluids/oredict |
+| 14 | EB-FLOWERS+EB3 | M | 11 flower types + 25 effects | Before any EB2 genomes |
+| 15–19 | EB2a–e | L | 116 species + 168 mutations | 34 `modifySpecies` with EB2a |
+| 20 | EB4 | M | Four hives + worldgen | Loot + marble soft-tag |
+| 21 | ET1a | L | 30 woods + shrub log | ExtraTreeWoodType + WoodAccess |
+| 22 | ET1b | L | Stripped/boats/signs/trapdoor/button/plate | Full WoodBlockKind; no charcoal walls |
+| 23 | ET2 | L | Fruits + ~88 species + mutations | registerFruit; overlap woods → ForestryWoodType |
+| 24 | ET3 | L | Growth / worldgen | FeatureTree ports |
+| 25 | ET4 | L | Lumbermill, press, brewery, distillery | Lumbermill playable; misc early items |
+| 26 | ET5 | L | Foods, juices, alcohol, hops | Fluids + machine recipes |
+| 27 | ET6 | M | 22 moths on butterfly type | Ids `moth_*` |
+| 28 | S2 | S | Genetic filter butterfly/moth rules | After ET6 |
 
 ## Still deferred (not this pass)
 
-**ET-D** designer / stained glass / multi-fence. Infuser and nursery never shipped in Binnie. Binnie genetics serums (Gendustry covers that). Mail.
+**ET-D** designer / stained glass / multi-fence. Infuser and nursery never shipped in Binnie. **ET-K** bottle rack. Binnie genetics serums (Gendustry covers that). Mail.
 
 ## Agent prompt stub
 
