@@ -31,12 +31,14 @@ import com.leon1236.reforestry.arboriculture.blocks.BlockForestryStandingSign;
 import com.leon1236.reforestry.arboriculture.blocks.BlockForestryTrapdoor;
 import com.leon1236.reforestry.arboriculture.blocks.BlockForestryWallHangingSign;
 import com.leon1236.reforestry.arboriculture.blocks.BlockForestryWallSign;
+import com.leon1236.reforestry.arboriculture.blocks.BlockFruitPod;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureTiles;
 import com.leon1236.reforestry.arboriculture.items.ItemBlockForestryDoor;
 import com.leon1236.reforestry.arboriculture.items.ItemBlockForestryHangingSign;
 import com.leon1236.reforestry.arboriculture.items.ItemBlockForestrySign;
 import com.leon1236.reforestry.arboriculture.items.ItemBlockForestryWood;
 import com.leon1236.reforestry.extratrees.ExtraTreeWoodType;
+import com.leon1236.reforestry.extratrees.blocks.ExtraTreesPodType;
 import com.leon1236.reforestry.modules.features.FeatureBlock;
 import com.leon1236.reforestry.modules.features.FeatureBlockGroup;
 import com.leon1236.reforestry.modules.features.FeatureGroup;
@@ -155,6 +157,12 @@ public class ExtraTreesBlocks {
 					.identifier("hanging_sign", FeatureGroup.IdentifierType.SUFFIX)
 					.create());
 
+	public static final FeatureBlockGroup<BlockFruitPod, ExtraTreesPodType> PODS =
+			REGISTRY.blockGroup(BlockFruitPod::new, ExtraTreesPodType.VALUES)
+					.item((block, properties) -> new net.minecraft.world.item.BlockItem(block, properties))
+					.identifier("pods")
+					.create();
+
 	private static <B extends Block & IWoodTyped> FeatureBlockGroup<B, ExtraTreeWoodType> woodGroup(
 			BiFunction<ExtraTreeWoodType, BlockBehaviour.Properties, B> constructor,
 			WoodBlockKind kind,
@@ -210,5 +218,9 @@ public class ExtraTreesBlocks {
 		Stream.concat(HANGING_SIGN.getAll().values().stream().map(feature -> (Block) feature.block()),
 						WALL_HANGING_SIGN.getAll().values().stream().map(feature -> (Block) feature.block()))
 				.forEach(block -> ((FabricBlockEntityType) BlockEntityTypes.HANGING_SIGN).addValidBlock(block));
+
+		for (FeatureBlock<BlockFruitPod> feature : PODS.getAll().values()) {
+			((FabricBlockEntityType) ArboricultureTiles.PODS.type()).addValidBlock(feature.block());
+		}
 	}
 }

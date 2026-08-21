@@ -1,9 +1,15 @@
 package com.leon1236.reforestry.extratrees.features;
 
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemUseAnimation;
+import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.level.block.DispenserBlock;
 
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.extratrees.ExtraTreeWoodType;
+import com.leon1236.reforestry.extratrees.items.EnumExtraTreesFood;
 import com.leon1236.reforestry.extratrees.items.ExtraTreesBoatDispenserBehavior;
 import com.leon1236.reforestry.extratrees.items.ItemExtraTreesBoat;
 import com.leon1236.reforestry.modules.features.FeatureGroup;
@@ -13,6 +19,19 @@ import com.leon1236.reforestry.modules.features.ModFeatureRegistry;
 
 public class ExtraTreesItems {
 	private static final IFeatureRegistry REGISTRY = ModFeatureRegistry.get(ReForestry.id("extra_trees"));
+
+	public static final FeatureItemGroup<Item, EnumExtraTreesFood> FOODS =
+			REGISTRY.itemGroup((type, properties) -> new Item(properties.food(
+					new FoodProperties.Builder()
+							.nutrition(type.nutrition)
+							.saturationModifier(type.saturationModifier)
+							.build(),
+					Consumable.builder()
+							.animation(ItemUseAnimation.EAT)
+							.sound(SoundEvents.GENERIC_EAT)
+							.consumeSeconds(1.6f)
+							.build())), EnumExtraTreesFood.VALUES)
+					.create();
 
 	public static final FeatureItemGroup<ItemExtraTreesBoat, ExtraTreeWoodType> BOAT = REGISTRY
 			.itemGroup((type, properties) -> new ItemExtraTreesBoat(type, false, properties), ExtraTreeWoodType.WITH_PRODUCTS)

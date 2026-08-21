@@ -461,7 +461,7 @@ Skip Binnie Genetics serums/isolator (Gendustry is the modern line).
 | `ET0`  | M    | Extract — **done** (2026-08-21) | none |
 | `ET1a` | L    | 30 new woods + shrub log (`ExtraTreeWoodType`) — **done** | ET0 |
 | `ET1b` | L    | Stripped/boats/signs/trapdoor/button/plate (no charcoal walls) — **done** | ET1a |
-| `ET2`  | L    | Fruit alleles + ~88 species + mutations | GP0c, ET1a |
+| `ET2`  | L    | Fruit alleles + ~88 species + mutations — **done** | GP0c, ET1a |
 | `ET3`  | L    | Growth features / worldgen | ET2 |
 | `ET4`  | L    | Lumbermill, press, brewery, distillery (not designer) | factory patterns |
 | `ET5`  | L    | Foods / juices / alcohol / hops | ET4 |
@@ -496,7 +496,7 @@ Skip Binnie Genetics serums/isolator (Gendustry is the modern line).
 ## Suggested next sessions (human order)
 
 1. Wave 7 remaining order is locked in `queries/wave7-plan.md`: **GD0 → EB1 → GD1…GD8 → EB5 → EB6 → EB-FLOWERS+EB3 → EB2a–e → EB4 → ET1a…ET6 → S2**.  
-2. Next playable stage: **ET2** (Extra Trees fruits + ~88 species + mutations). Do not start ET3 until ET2 lands.
+2. Next playable stage: **ET3** (Extra Trees growth / worldgen). Do not start ET4 until ET3 lands.
 
 **Can start in parallel with nothing else:** `TR1`.
 

@@ -36,6 +36,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import com.leon1236.reforestry.api.arboriculture.IFruitPodType;
 import com.leon1236.reforestry.arboriculture.tiles.TileFruitPod;
 import com.leon1236.reforestry.core.tiles.TileUtil;
 import com.leon1236.reforestry.core.utils.BlockUtil;
@@ -67,10 +68,10 @@ public class BlockFruitPod extends HorizontalDirectionalBlock implements Bonemea
             Block.box(4, 4, 7, 12, 12, 15)
     };
 
-    private final ForestryPodType podType;
+    private final IFruitPodType podType;
     private final MapCodec<BlockFruitPod> codec;
 
-    public BlockFruitPod(ForestryPodType podType, Properties properties) {
+    public BlockFruitPod(IFruitPodType podType, Properties properties) {
         super(properties.randomTicks().strength(0.2f, 3.0f).sound(SoundType.WOOD));
         this.podType = podType;
         this.codec = simpleCodec(props -> new BlockFruitPod(podType, props));
@@ -82,7 +83,7 @@ public class BlockFruitPod extends HorizontalDirectionalBlock implements Bonemea
         return codec;
     }
 
-    public ForestryPodType getPodType() {
+    public IFruitPodType getPodType() {
         return podType;
     }
 
@@ -129,7 +130,7 @@ public class BlockFruitPod extends HorizontalDirectionalBlock implements Bonemea
     @Override
     protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         Direction facing = state.getValue(FACING);
-        return BlockUtil.isValidPodLocation(level, pos, facing, this.podType.getFruit().getLogTag());
+        return BlockUtil.isValidPodLocation(level, pos, facing, this.podType.logTag());
     }
 
     @Nullable
@@ -193,7 +194,7 @@ public class BlockFruitPod extends HorizontalDirectionalBlock implements Bonemea
 
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        if (this.podType != ForestryPodType.COCONUT) {
+        if (!this.podType.useSmallAabb()) {
             return SHAPES.get(state.getValue(AGE)).get(state.getValue(FACING));
         }
         int i = state.getValue(AGE);

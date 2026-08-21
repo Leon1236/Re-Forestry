@@ -91,12 +91,7 @@ public class TileFruitPod extends BlockEntity implements IFruitBearer {
         if (allele instanceof IValueAllele<?> valueAllele && valueAllele.value() instanceof IFruit resolved) {
             return resolved;
         }
-        for (IFruit candidate : DefaultFruits.ALL) {
-            if (candidate.id().equals(id)) {
-                return candidate;
-            }
-        }
-        return null;
+        return TreeChromosomes.FRUIT.getSafe(id).orElse(null);
     }
 
     public void onBlockTick(RandomSource rand) {

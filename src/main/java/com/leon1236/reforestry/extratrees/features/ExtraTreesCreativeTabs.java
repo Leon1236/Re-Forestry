@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.extratrees.ExtraTreeWoodType;
+import com.leon1236.reforestry.extratrees.items.EnumExtraTreesFood;
 import com.leon1236.reforestry.modules.features.FeatureBlock;
 import com.leon1236.reforestry.modules.features.FeatureBlockGroup;
 import com.leon1236.reforestry.modules.features.FeatureCreativeTab;
@@ -43,6 +44,14 @@ public class ExtraTreesCreativeTabs {
 	public static final FeatureCreativeTab EXTRA_TREES = REGISTRY.creativeTab("extra_trees", tab -> {
 		tab.icon(() -> ExtraTreesBlocks.PLANKS.get(ExtraTreeWoodType.CEDAR).item().getDefaultInstance());
 		tab.displayItems((parameters, output) -> {
+			for (EnumExtraTreesFood food : EnumExtraTreesFood.VALUES) {
+				output.accept(ExtraTreesItems.FOODS.item(food));
+			}
+			for (FeatureBlock<?> feature : ExtraTreesBlocks.PODS.getAll().values()) {
+				if (feature.item() != null) {
+					output.accept(feature.item());
+				}
+			}
 			for (FeatureBlockGroup<?, ExtraTreeWoodType> group : WOOD_GROUPS) {
 				for (FeatureBlock<?> feature : group.getAll().values()) {
 					if (feature.item() != null) {

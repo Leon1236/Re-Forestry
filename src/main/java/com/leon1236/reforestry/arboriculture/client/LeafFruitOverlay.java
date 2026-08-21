@@ -30,6 +30,12 @@ public final class LeafFruitOverlay {
             ReForestry.id("block/leaves/fruits.berries"),
             ReForestry.id("block/leaves/fruits.citrus"),
             ReForestry.id("block/leaves/fruits.plums"),
+            ReForestry.id("block/fruit/tiny"),
+            ReForestry.id("block/fruit/small"),
+            ReForestry.id("block/fruit/average"),
+            ReForestry.id("block/fruit/large"),
+            ReForestry.id("block/fruit/larger"),
+            ReForestry.id("block/fruit/pear"),
     };
 
     private LeafFruitOverlay() {

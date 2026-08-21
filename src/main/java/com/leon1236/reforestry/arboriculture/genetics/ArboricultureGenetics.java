@@ -46,6 +46,17 @@ public final class ArboricultureGenetics {
         return builder;
     }
 
+    public static void modifySpecies(Identifier id, java.util.function.Consumer<com.leon1236.reforestry.api.plugin.ITreeSpeciesBuilder> action) {
+        if (finalized) {
+            throw new IllegalStateException("Tree species registration is already finalized");
+        }
+        TreeSpeciesBuilder builder = builders.get(id);
+        if (builder == null) {
+            throw new IllegalArgumentException("Unknown tree species: " + id);
+        }
+        action.accept(builder);
+    }
+
     public static void finalizeRegistration() {
         if (finalized) {
             throw new IllegalStateException("Tree species registration is already finalized");

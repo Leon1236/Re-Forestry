@@ -55,4 +55,8 @@ Must/Should fixed in review pass:
 
 ## Next
 
-**ET2** — fruits + ~88 species + mutations (`registerFruit`; overlap woods → `ForestryWoodType`).
+**ET2** — fruits + ~88 species + mutations (`registerFruit`; overlap woods → `ForestryWoodType`) — **done** (`queries/extra-trees-ET2.md`).
+
+## Next
+
+**ET3** — growth features / worldgen.

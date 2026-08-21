@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "reforestry:block/pods/red_banana.1"
+  }
+}
