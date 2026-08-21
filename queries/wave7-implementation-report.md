@@ -105,15 +105,22 @@ Per-stage writeups live under:
 
 ## Final five independent reviews
 
-*(Filled when the five parallel review agents complete.)*
+All five PASS after Must/Should fixes on `cursor/wave-7-full-port-6593`.
 
 | Review | Focus | Verdict |
 |---|---|---|
-| 1 | Gendustry GD0–GD8 | **PASS** — see `queries/gendustry-wave7-review.md` |
-| 2 | Extra Bees EB1–EB4 | **PASS** — see `queries/extra-bees-wave7-full-review.md` |
-| 3 | Extra Trees ET1–ET6 | pending |
-| 4 | API / namespace / module wiring | **PASS** — see `queries/wave7-api-wiring-review.md` |
-| 5 | Assets / lang / recipes / DoD | **PASS** — see `queries/wave7-dod-asset-review.md` |
+| 1 | Gendustry GD0–GD8 | **PASS** — `queries/gendustry-wave7-review.md` |
+| 2 | Extra Bees EB1–EB4 | **PASS** — `queries/extra-bees-wave7-full-review.md` |
+| 3 | Extra Trees ET1–ET6 | **PASS** — `queries/extra-trees-review-wave7.md` |
+| 4 | API / namespace / module wiring | **PASS** — `queries/wave7-api-wiring-review.md` |
+| 5 | Assets / lang / recipes / DoD | **PASS** — `queries/wave7-dod-asset-review.md` |
+
+### Cross-review conclusions
+
+- **Counts match** locked plan/extracts: 10 Gendustry machines, 23 upgrades, 21 processor recipes; 116 EB species / 168 mutations; 30 ET woods + 88 species / 97 mutations / 22 moths; S2 filter rules.
+- **Standalone:** no donor `depends`; packages under `com.leon1236.reforestry.{gendustry,extra_bees,extratrees}`; namespace `reforestry:`.
+- **Fixes from final reviews:** JEI/`shouldLoad` → `isModuleEnabled`; Gendustry recipe unlocks + imprinter remate; ectoplasm cobweb/placement; ET sapling/leaf resolvers (88 species); pod loot; ectoplasm hoe tag; orphan papayimar crop tag removed.
+- **Residual (documented, not FAIL):** marble hive needs `#c:stones/marble`; press/brewery/distillery GUI stand-ins; mutatron JEI bee-only; ET cocktails/double-high hops deferred.
 
 ## How to verify locally
 
