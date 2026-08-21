@@ -19,10 +19,13 @@
 
 | Skip | Reason |
 |---|---|
-| `mutation_elite_upgrade` / `fertility_elite_upgrade` recipes | Need `mutagen` / `liquid_dna` / `protein` buckets (GD1) |
 | Machines / gene_sample / genetic_template | Later stages (GD3+, GD4) |
 | industrial_scoop / industrial_grafter / debug_wand | Wave 7 skip list |
 | Upgrade gameplay | Inert until GD7b — do not claim they modify apiaries |
+
+## Connected follow-up (GD1)
+
+`mutation_elite_upgrade` / `fertility_elite_upgrade` crafts shipped with GD1 fluids.
 
 ## Tag mapping
 

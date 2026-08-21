@@ -1,6 +1,7 @@
 package com.leon1236.reforestry.gendustry.features;
 
 import com.leon1236.reforestry.ReForestry;
+import com.leon1236.reforestry.gendustry.fluids.GFluids;
 import com.leon1236.reforestry.modules.features.FeatureCreativeTab;
 import com.leon1236.reforestry.modules.features.FeatureItem;
 import com.leon1236.reforestry.modules.features.IFeatureRegistry;
@@ -21,6 +22,9 @@ public class GCreativeTabs {
 			}
 			for (FeatureItem<?> feature : GItems.ELITE_UPGRADE.getAll().values()) {
 				output.accept(feature.item());
+			}
+			for (GFluids fluid : GFluids.values()) {
+				output.accept(fluid.getBucket());
 			}
 		});
 	});
