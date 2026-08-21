@@ -172,7 +172,7 @@ public enum AlvearySimulatorCircuitType implements IBeeModifier {
 			tooltip.add(Component.translatable("item.reforestry.bee.modifier.territory", territory));
 		}
 		if (hellish) {
-			tooltip.add(Component.translatable("for.binnie.circuit.stimulator.nether"));
+			tooltip.add(Component.translatable("for.gui.hellish"));
 		}
 		tooltip.add(Component.translatable("item.reforestry.bee.modifier.genetic.decay", geneticDecay));
 	}

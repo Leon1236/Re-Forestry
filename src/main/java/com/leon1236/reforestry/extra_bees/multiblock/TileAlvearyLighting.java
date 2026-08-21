@@ -11,20 +11,18 @@ import com.leon1236.reforestry.extra_bees.blocks.BlockExtraBeeAlvearyType;
 import com.leon1236.reforestry.extra_bees.features.ExtraBeesTiles;
 
 public class TileAlvearyLighting extends TileExtraBeeAlveary
-		implements IAlvearyComponent.BeeModifier<MultiblockLogicAlveary> {
-	private static final IBeeModifier MODIFIER = new IBeeModifier() {
-		@Override
-		public boolean isAlwaysActive(IGenome genome) {
-			return true;
-		}
-	};
-
+		implements IAlvearyComponent.BeeModifier<MultiblockLogicAlveary>, IBeeModifier {
 	public TileAlvearyLighting(BlockPos pos, BlockState state) {
 		super(ExtraBeesTiles.ALVEARY_LIGHTING.type(), BlockExtraBeeAlvearyType.LIGHTING, pos, state);
 	}
 
 	@Override
 	public IBeeModifier getBeeModifier() {
-		return MODIFIER;
+		return this;
+	}
+
+	@Override
+	public boolean isAlwaysActive(IGenome genome) {
+		return true;
 	}
 }

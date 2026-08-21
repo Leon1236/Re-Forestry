@@ -130,7 +130,7 @@ public class TileAlvearyHatchery extends TileExtraBeeAlveary
 
 	@Override
 	public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction direction) {
-		return false;
+		return this.inventory.canPlaceItem(slot, stack);
 	}
 
 	@Override

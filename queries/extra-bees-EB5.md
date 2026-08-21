@@ -32,6 +32,13 @@ Stimulator + transmission use Team Reborn `SimpleEnergyStorage` (1000 capacity) 
 
 Tiles use `MultiblockLogicAlveary` + `IAlvearyComponent` so they assemble with Forestry alveary. `BlockAlveary` entrance detection counts Extra Bees alveary blocks as neighbors.
 
+## Review fixes (2026-08-21)
+
+- Rain shield / lighting return per-tile `IBeeModifier` (`this`) so removing one of several identical parts does not clear the shared static modifier from `AlvearyController`
+- Item tooltips include Binnie per-part `extrabees.alveary.*.info` italic lines
+- Nether circuit boolean tooltip uses `for.gui.hellish` (not the circuit title key)
+- Hatchery hoppers may insert larvae (`canPlaceItemThroughFace` matches slot validator)
+
 ## Gaps / skips
 
 | Item | Note |
