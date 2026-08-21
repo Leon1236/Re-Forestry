@@ -422,7 +422,7 @@ Config-toggle modules. Ids: `reforestry:gendustry`, `reforestry:extra_bees`, `re
 | `GD0`  | S    | Module shell, tab, tags, config, crafts for 10 parts + 23 upgrades + pollen kit | **done** |
 | `GD1`  | S    | Fluids `mutagen`, `liquid_dna`, `protein` + buckets | **done** |
 | `GD2`  | M    | Recipe types/caches + mutagen/protein/**DNA** datapack (bee/tree/butterfly) | **done** |
-| `GD3`  | M    | Mutagen producer, protein liquefier, **DNA extractor** | GD2 |
+| `GD3`  | M    | Mutagen producer, protein liquefier, **DNA extractor** | **done** |
 | `GD4`  | M    | Sampler + gene sample/template (components, wipe, gene_samples tab) | GP0c, GD0 |
 | `GD5`  | M    | Mutatron + advanced mutatron | GP0c, GD2 |
 | `GD6`  | M    | Imprinter, transposer, replicator | GD4–5 |

@@ -2,8 +2,14 @@ package com.leon1236.reforestry.gendustry.block;
 
 import com.mojang.serialization.MapCodec;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.Container;
+import net.minecraft.world.Containers;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 
@@ -24,5 +30,13 @@ public class GendustryMachineBlock extends BlockMachine<GendustryMachineType> {
 	@Override
 	protected MapCodec<? extends GendustryMachineBlock> codec() {
 		return codec;
+	}
+
+	@Override
+	public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+		if (!level.isClientSide() && level.getBlockEntity(pos) instanceof Container container) {
+			Containers.dropContents(level, pos, container);
+		}
+		return super.playerWillDestroy(level, pos, state, player);
 	}
 }

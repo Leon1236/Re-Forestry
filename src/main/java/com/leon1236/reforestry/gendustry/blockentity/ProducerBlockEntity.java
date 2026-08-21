@@ -167,11 +167,8 @@ public abstract class ProducerBlockEntity<R extends ProcessorRecipe> extends Pow
 		long resultAmount = FluidUnits.mbToDroplets(this.currentRecipe.getAmount());
 		FluidVariant resultVariant = FluidVariant.of(this.resultFluid.getFluid());
 		FilteredFluidStorage productTank = getProductTank();
-
-		try (Transaction transaction = Transaction.openOuter()) {
-			if (productTank.insert(resultVariant, resultAmount, transaction) != resultAmount) {
-				return false;
-			}
+		if (productTank.getTankCapacity() - productTank.getAmount() < resultAmount) {
+			return false;
 		}
 
 		ItemStack input = getItem(SLOT_INPUT);

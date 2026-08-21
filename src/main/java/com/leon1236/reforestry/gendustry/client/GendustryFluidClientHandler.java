@@ -35,10 +35,11 @@ public final class GendustryFluidClientHandler {
 			FluidModel.Unbaked model = new FluidModel.Unbaked(still, flowing, null, null);
 			FluidRenderingRegistry.register(fluid.getFluid(), fluid.getFlowing(), model);
 
+			int particleColor = fluid.getFeature().properties().particleColor() | 0xFF000000;
 			FluidVariantRenderHandler handler = new FluidVariantRenderHandler() {
 				@Override
 				public int getColor(FluidVariant fluidVariant, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos) {
-					return 0xFFFFFFFF;
+					return particleColor;
 				}
 			};
 			FluidVariantRendering.register(fluid.getFluid(), handler);

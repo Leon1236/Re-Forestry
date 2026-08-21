@@ -17,17 +17,17 @@ import com.leon1236.reforestry.core.fluids.FeatureFluid;
 import com.leon1236.reforestry.core.fluids.ForestryFluidProperties;
 
 public enum GFluids {
-	MUTAGEN,
-	LIQUID_DNA,
-	PROTEIN;
+	MUTAGEN(0x3CA14E),
+	LIQUID_DNA(0x80329F),
+	PROTEIN(0xC15757);
 
 	private final FeatureFluid feature;
 
-	GFluids() {
+	GFluids(int particleColor) {
 		this.feature = FeatureFluid.create(
 				ReForestry.id("gendustry"),
 				name().toLowerCase(Locale.ROOT),
-				ForestryFluidProperties.builder().build());
+				ForestryFluidProperties.builder().particleColor(particleColor).build());
 	}
 
 	public FeatureFluid getFeature() {

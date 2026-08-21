@@ -13,6 +13,9 @@
 - DNA extractor `usesLabware=true` with 10% labware consume chance
 - Crafts, loot tables, `#minecraft:mineable/pickaxe`, GUI texture, hints, lang
 - `GendustryError` (12) registered for DNA labware + later machines (sprites copied)
+- Creative tab: machines first (donor order), icon `mutagen_producer`
+- Tank GUI colors from fluid `particleColor` (sampled from still textures)
+- Inventory drops on break (`playerWillDestroy`)
 
 ## Energy / cycle
 
@@ -28,6 +31,7 @@
 - Menu id stays donor `processor` (donor todo rename)
 - Errors shipped early (needed for `NO_LABWARE`); JEI still GD8
 - No donor `fabric.mod.json` depends
+- No Forge caps — Team Reborn energy + Fabric transfer fluids/items
 
 ## Gaps / next
 
@@ -40,3 +44,4 @@
 1. Craft or `/give` the three machines; place; open GUI (shared processor layout)
 2. Feed FE + valid input (redstone / meat / bee); fluid appears in tank; empty bucket fills
 3. DNA extractor: needs labware; labware sometimes consumes (10%)
+4. Creative tab: machines → pollen kit → buckets → parts → upgrades
