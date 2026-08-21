@@ -45,7 +45,7 @@ Loaded today (`ReForestry.java`): `core`, `apiculture`, `arboriculture`, `lepido
 | **cultivation**                      | CU2 done                         | —                       |
 | **sorting**                          | S1 done                          | `S2` butterfly rules    |
 | **lepidopterology**                  | Wave 6 D0–D4 merged              | —                       |
-| gendustry / extra bees / extra trees | GD0 done (module + parts/upgrades/pollen kit) | `EB1` |
+| gendustry / extra bees / extra trees | GD0 + EB1 done | `GD1` |
 | curios / Patchouli / 1.12 restore    | Optional                         | last                    |
 
 
@@ -441,7 +441,7 @@ Skip Binnie Genetics serums/isolator (Gendustry is the modern line).
 | ID    | Size | Outcome | Deps |
 | ----- | ---- | ------- | ---- |
 | `EB0` | M    | Extract — **done** (2026-08-21) | none |
-| `EB1` | M    | Module + items (combs, drops, frames, ectoplasm, hive blocks) + crafts | EB0 |
+| `EB1` | M    | Module + items (combs, drops, frames, ectoplasm, hive blocks) + crafts — **done** | EB0 |
 | `EB5` | L    | 7 alveary parts + crafts + stimulator circuits | EB1, alveary |
 | `EB6` | M    | Centrifuge/squeezer datapack (soft-skip missing fluids) | EB1, factory |
 | `EB-FLOWERS` + `EB3` | M | 11 flower types + 25 effects (**before** species) | EB1, GP0b |
