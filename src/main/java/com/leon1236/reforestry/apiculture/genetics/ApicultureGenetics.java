@@ -40,6 +40,17 @@ public final class ApicultureGenetics {
         return builder;
     }
 
+    public static void modifySpecies(Identifier id, java.util.function.Consumer<com.leon1236.reforestry.api.plugin.IBeeSpeciesBuilder> action) {
+        if (finalized) {
+            throw new IllegalStateException("Bee species registration is already finalized");
+        }
+        BeeSpeciesBuilder builder = builders.get(id);
+        if (builder == null) {
+            throw new IllegalArgumentException("Unknown bee species: " + id);
+        }
+        action.accept(builder);
+    }
+
     public static void finalizeRegistration() {
         if (finalized) {
             throw new IllegalStateException("Bee species registration is already finalized");

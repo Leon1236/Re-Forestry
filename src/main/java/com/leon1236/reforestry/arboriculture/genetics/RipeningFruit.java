@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.BlockGetter;
 
+import com.leon1236.reforestry.api.arboriculture.genetics.IFruit;
 import com.leon1236.reforestry.api.genetics.IGenome;
 
 public class RipeningFruit extends Fruit {
@@ -15,7 +16,7 @@ public class RipeningFruit extends Fruit {
     private final int diffB;
     private final Identifier sprite;
 
-    public RipeningFruit(Identifier id, boolean dominant, int ripeningPeriod, Identifier sprite, int ripe, int callow, List<Product> products) {
+    public RipeningFruit(Identifier id, boolean dominant, int ripeningPeriod, Identifier sprite, int ripe, int callow, List<IFruit.Product> products) {
         super(id, dominant, ripeningPeriod, products);
         this.sprite = sprite;
         this.colourCallow = callow;

@@ -22,7 +22,7 @@ import com.leon1236.reforestry.api.arboriculture.IWoodType;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.arboriculture.blocks.ForestryLeafType;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureBlocks;
-import com.leon1236.reforestry.arboriculture.genetics.IFruit;
+import com.leon1236.reforestry.api.arboriculture.genetics.IFruit;
 import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
 import com.leon1236.reforestry.modules.features.FeatureBlockGroup;
 

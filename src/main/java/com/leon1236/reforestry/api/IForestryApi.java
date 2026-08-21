@@ -31,4 +31,6 @@ public interface IForestryApi {
     IFlowerTypeManager getFlowerTypeManager();
 
     IPollenManager getPollenManager();
+
+    com.leon1236.reforestry.api.arboriculture.ITreeManager getTreeManager();
 }

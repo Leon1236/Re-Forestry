@@ -1,5 +1,6 @@
 package com.leon1236.reforestry.arboriculture.genetics;
 
+import com.leon1236.reforestry.api.arboriculture.genetics.IFruit;
 import java.util.List;
 
 import net.minecraft.resources.Identifier;

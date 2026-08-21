@@ -20,7 +20,7 @@ import com.leon1236.reforestry.api.genetics.IBreedingTracker;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.core.genetics.root.BreedingTrackerManager;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureTiles;
-import com.leon1236.reforestry.arboriculture.genetics.IFruit;
+import com.leon1236.reforestry.api.arboriculture.genetics.IFruit;
 import com.leon1236.reforestry.arboriculture.genetics.ITreeSpecies;
 import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
 import com.leon1236.reforestry.arboriculture.genetics.TreeMating;

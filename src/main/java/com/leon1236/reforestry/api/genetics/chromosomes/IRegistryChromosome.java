@@ -17,5 +17,9 @@ public interface IRegistryChromosome<V extends IRegistryAlleleValue> extends ICh
 
     void populate(ImmutableMap<Identifier, V> values);
 
+    default void registerValue(Identifier id, V value) {
+        throw new UnsupportedOperationException("registerValue");
+    }
+
     boolean isPopulated();
 }

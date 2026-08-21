@@ -1,5 +1,6 @@
 package com.leon1236.reforestry.arboriculture.genetics;
 
+import com.leon1236.reforestry.api.arboriculture.genetics.IFruit;
 import java.util.List;
 
 import org.jetbrains.annotations.Nullable;
@@ -59,12 +60,12 @@ public class DummyFruit implements IFruit {
     }
 
     @Override
-    public List<Product> getProducts() {
+    public List<IFruit.Product> getProducts() {
         return List.of();
     }
 
     @Override
-    public List<Product> getSpecialties() {
+    public List<IFruit.Product> getSpecialties() {
         return List.of();
     }
 

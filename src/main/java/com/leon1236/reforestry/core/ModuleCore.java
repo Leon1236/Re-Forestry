@@ -72,6 +72,7 @@ public class ModuleCore implements IForestryModule {
         registerClimateReloadHooks();
         ResourceLoader.get(PackType.SERVER_DATA).registerReloadListener(ReForestry.id("taxa"), new TaxonManager());
         PluginManager.runGeneticsRegistration();
+        PluginManager.runLepidopterologyRegistration();
     }
 
     @Override

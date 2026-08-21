@@ -91,6 +91,7 @@ public final class PluginManager {
             plugin.registerArboriculture(registration);
         }
         CharcoalManager.setInstance(registration.getCharcoalManager());
+        ((ForestryApiImpl) ForestryApiImpl.get()).setTreeManager(registration.buildTreeManager());
     }
 
     public static void runCircuitRegistration() {

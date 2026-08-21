@@ -2,6 +2,7 @@ package com.leon1236.reforestry.api.plugin;
 
 import java.util.function.Consumer;
 
+import net.minecraft.network.chat.TextColor;
 import net.minecraft.resources.Identifier;
 
 import com.leon1236.reforestry.api.core.HumidityType;
@@ -9,9 +10,8 @@ import com.leon1236.reforestry.api.core.TemperatureType;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.api.genetics.IGenomeBuilder;
 import com.leon1236.reforestry.api.genetics.ISpecies;
-import com.leon1236.reforestry.api.genetics.ISpeciesType;
 
-public interface ISpeciesBuilder<T extends ISpeciesType<S, ?>, S extends ISpecies<?>, B extends ISpeciesBuilder<T, S, B>> {
+public interface ISpeciesBuilder<T, S extends ISpecies<?>, B extends ISpeciesBuilder<T, S, B>> {
 	B setDominant(boolean dominant);
 
 	B setGenome(Consumer<IGenomeBuilder> genome);
@@ -25,6 +25,10 @@ public interface ISpeciesBuilder<T extends ISpeciesType<S, ?>, S extends ISpecie
 	B setComplexity(int complexity);
 
 	B setEscritoireColor(int color);
+
+	default B setEscritoireColor(TextColor color) {
+		return setEscritoireColor(color.getValue());
+	}
 
 	B setSecret(boolean secret);
 
@@ -57,7 +61,7 @@ public interface ISpeciesBuilder<T extends ISpeciesType<S, ?>, S extends ISpecie
 	ISpeciesFactory<T, S, B> createSpeciesFactory();
 
 	@FunctionalInterface
-	interface ISpeciesFactory<T extends ISpeciesType<S, ?>, S extends ISpecies<?>, B extends ISpeciesBuilder<T, S, B>> {
+	interface ISpeciesFactory<T, S extends ISpecies<?>, B extends ISpeciesBuilder<T, S, B>> {
 		S create(Identifier id, T speciesType, IGenome defaultGenome, B builder);
 	}
 }

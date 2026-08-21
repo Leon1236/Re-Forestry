@@ -20,6 +20,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import com.leon1236.reforestry.api.arboriculture.ITreeGenerator;
 import com.leon1236.reforestry.api.arboriculture.IWoodType;
+import com.leon1236.reforestry.api.arboriculture.genetics.ITree;
 import com.leon1236.reforestry.api.core.HumidityType;
 import com.leon1236.reforestry.api.core.TemperatureType;
 import com.leon1236.reforestry.api.genetics.AllelePair;
@@ -47,7 +48,10 @@ record TreeSpecies(
         List<BlockState> vanillaLeafStates,
         List<Item> vanillaSaplingItems,
         Supplier<ItemStack> decorativeLeaves,
-        float rarity) implements ITreeSpecies {
+        float rarity,
+        boolean secret,
+        boolean glint,
+        int complexity) implements ITreeSpecies {
     @Override
     public ITreeGenerator getGenerator() {
         return generator;
@@ -157,32 +161,32 @@ record TreeSpecies(
     }
 
     @Override
-    public ISpeciesType<? extends ITreeSpecies, Tree> getType() {
+    public ISpeciesType<? extends ITreeSpecies, ITree> getType() {
         return TreeSpeciesType.INSTANCE;
     }
 
     @Override
     public boolean isSecret() {
-        return false;
+        return secret;
     }
 
     @Override
     public int getComplexity() {
-        return 1;
+        return complexity;
     }
 
     @Override
-    public Tree createIndividual(Map<IChromosome<?>, IAllele> alleles) {
+    public ITree createIndividual(Map<IChromosome<?>, IAllele> alleles) {
         return createIndividual(getDefaultGenome().copyWith(alleles));
     }
 
     @Override
-    public Tree createIndividualFromPairs(Map<IChromosome<?>, AllelePair<?>> allelePairs) {
+    public ITree createIndividualFromPairs(Map<IChromosome<?>, AllelePair<?>> allelePairs) {
         return createIndividual(getDefaultGenome().copyWithPairs(allelePairs));
     }
 
     @Override
-    public Tree createIndividual(IGenome genome) {
+    public ITree createIndividual(IGenome genome) {
         if (genome.karyotype() != TreeChromosomes.KARYOTYPE) {
             throw new IllegalArgumentException("Genome karyotype does not match tree species");
         }
@@ -191,7 +195,7 @@ record TreeSpecies(
 
     @Override
     public boolean hasGlint() {
-        return false;
+        return glint;
     }
 
     @Override
@@ -210,7 +214,7 @@ record TreeSpecies(
     }
 
     @Override
-    public void addTooltip(Tree individual, List<Component> tooltip) {
+    public void addTooltip(ITree individual, List<Component> tooltip) {
         GeneticsTooltips.addHybridTooltip(tooltip::add, individual.getGenome(), TreeChromosomes.SPECIES, "for.trees.hybrid");
         if (!individual.isAnalyzed()) {
             tooltip.add(Component.literal("<").append(Component.translatable("for.gui.unknown")).append(">")

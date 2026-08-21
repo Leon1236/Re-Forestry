@@ -24,7 +24,7 @@ import com.leon1236.reforestry.api.genetics.alleles.IValueAllele;
 import com.leon1236.reforestry.arboriculture.blocks.BlockFruitPod;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureTiles;
 import com.leon1236.reforestry.arboriculture.genetics.DefaultFruits;
-import com.leon1236.reforestry.arboriculture.genetics.IFruit;
+import com.leon1236.reforestry.api.arboriculture.genetics.IFruit;
 import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
 import com.leon1236.reforestry.core.genetics.alleles.AlleleManager;
 import com.leon1236.reforestry.core.utils.BlockUtil;

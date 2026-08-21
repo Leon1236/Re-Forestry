@@ -8,13 +8,14 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
+import com.leon1236.reforestry.api.arboriculture.genetics.IFruit;
 import com.leon1236.reforestry.api.genetics.IGenome;
 
 public class Fruit extends DummyFruit {
-    private final List<Product> products;
+    private final List<IFruit.Product> products;
     protected final int ripeningPeriod;
 
-    public Fruit(Identifier id, boolean dominant, int ripeningPeriod, List<Product> products) {
+    public Fruit(Identifier id, boolean dominant, int ripeningPeriod, List<IFruit.Product> products) {
         super(id, dominant);
         this.products = List.copyOf(products);
         this.ripeningPeriod = ripeningPeriod;
@@ -27,7 +28,7 @@ public class Fruit extends DummyFruit {
         }
         RandomSource rand = level.getRandom();
         List<ItemStack> stacks = new ArrayList<>(products.size());
-        for (Product product : products) {
+        for (IFruit.Product product : products) {
             if (product.chance() == 1.0f || product.chance() >= rand.nextFloat()) {
                 stacks.add(new ItemStack(product.item()));
             }
@@ -36,7 +37,7 @@ public class Fruit extends DummyFruit {
     }
 
     @Override
-    public List<Product> getProducts() {
+    public List<IFruit.Product> getProducts() {
         return products;
     }
 }

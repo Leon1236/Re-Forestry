@@ -14,6 +14,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.state.BlockState;
 
 import com.leon1236.reforestry.ReForestry;
+import com.leon1236.reforestry.api.arboriculture.genetics.ITree;
 import com.leon1236.reforestry.api.arboriculture.genetics.ITreeSpeciesType;
 import com.leon1236.reforestry.api.arboriculture.genetics.TreeLifeStage;
 import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
@@ -22,10 +23,10 @@ import com.leon1236.reforestry.api.genetics.IIndividual;
 import com.leon1236.reforestry.api.plugin.IForestryPlugin;
 import com.leon1236.reforestry.core.genetics.SpeciesType;
 
-public final class TreeSpeciesType extends SpeciesType<ITreeSpecies, Tree> implements ITreeSpeciesType {
+public final class TreeSpeciesType extends SpeciesType<ITreeSpecies, ITree> implements ITreeSpeciesType {
 	public static final TreeSpeciesType INSTANCE = new TreeSpeciesType();
 
-	private final IdentityHashMap<Item, Tree> vanillaItems = new IdentityHashMap<>();
+	private final IdentityHashMap<Item, ITree> vanillaItems = new IdentityHashMap<>();
 
 	private TreeSpeciesType() {
 		super(ForestrySpeciesTypes.TREE, TreeChromosomes.KARYOTYPE, TreeLifeStage.SAPLING,
@@ -37,7 +38,7 @@ public final class TreeSpeciesType extends SpeciesType<ITreeSpecies, Tree> imple
 		super.onSpeciesRegistered(allSpecies);
 		vanillaItems.clear();
 		for (ITreeSpecies species : allSpecies.values()) {
-			Tree individual = species.createIndividual();
+			ITree individual = species.createIndividual();
 			for (Item item : species.getVanillaSaplingItems()) {
 				vanillaItems.put(item, individual);
 			}
@@ -46,14 +47,14 @@ public final class TreeSpeciesType extends SpeciesType<ITreeSpecies, Tree> imple
 
 	@Override
 	@Nullable
-	public Tree getVanillaIndividual(BlockState state) {
+	public ITree getVanillaIndividual(BlockState state) {
 		IGenome genome = ArboricultureGenetics.getVanillaIndividual(state);
 		return genome == null ? null : new Tree(genome);
 	}
 
 	@Override
 	@Nullable
-	public Tree getVanillaIndividual(Item item) {
+	public ITree getVanillaIndividual(Item item) {
 		return vanillaItems.get(item);
 	}
 
@@ -64,11 +65,11 @@ public final class TreeSpeciesType extends SpeciesType<ITreeSpecies, Tree> imple
 
 	@Override
 	public boolean isMember(IIndividual individual) {
-		return individual instanceof Tree;
+		return individual instanceof ITree;
 	}
 
 	@Override
-	public Codec<? extends Tree> getIndividualCodec() {
+	public Codec<? extends ITree> getIndividualCodec() {
 		return Tree.CODEC;
 	}
 

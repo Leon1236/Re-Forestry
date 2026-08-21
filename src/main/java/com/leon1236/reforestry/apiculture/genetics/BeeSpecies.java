@@ -8,6 +8,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 
 import com.leon1236.reforestry.api.apiculture.IBeeJubilance;
+import com.leon1236.reforestry.api.apiculture.genetics.IBee;
 import com.leon1236.reforestry.api.core.HumidityType;
 import com.leon1236.reforestry.api.core.TemperatureType;
 import com.leon1236.reforestry.api.genetics.AllelePair;
@@ -22,7 +23,8 @@ import com.leon1236.reforestry.core.genetics.Taxon;
 record BeeSpecies(Identifier id, String genus, String species, boolean dominant, int outlineColor, int bodyColor,
                    int stripesColor, boolean secret, boolean glint, String authority,
                    TemperatureType temperature, HumidityType humidity,
-                   List<Product> products, List<Product> specialties, IBeeJubilance jubilance) implements IBeeSpecies {
+                   List<IBeeSpecies.Product> products, List<IBeeSpecies.Product> specialties, IBeeJubilance jubilance,
+                   int complexity) implements IBeeSpecies {
     @Override
     public TemperatureType getTemperature() {
         return temperature;
@@ -63,7 +65,7 @@ record BeeSpecies(Identifier id, String genus, String species, boolean dominant,
     }
 
     @Override
-    public ISpeciesType<? extends IBeeSpecies, Bee> getType() {
+	public ISpeciesType<? extends IBeeSpecies, IBee> getType() {
         return BeeSpeciesType.INSTANCE;
     }
 
@@ -74,21 +76,21 @@ record BeeSpecies(Identifier id, String genus, String species, boolean dominant,
 
     @Override
     public int getComplexity() {
-        return 1;
+        return complexity;
     }
 
     @Override
-    public Bee createIndividual(Map<IChromosome<?>, IAllele> alleles) {
+    public IBee createIndividual(Map<IChromosome<?>, IAllele> alleles) {
         return createIndividual(getDefaultGenome().copyWith(alleles));
     }
 
     @Override
-    public Bee createIndividualFromPairs(Map<IChromosome<?>, AllelePair<?>> allelePairs) {
+    public IBee createIndividualFromPairs(Map<IChromosome<?>, AllelePair<?>> allelePairs) {
         return createIndividual(getDefaultGenome().copyWithPairs(allelePairs));
     }
 
     @Override
-    public Bee createIndividual(IGenome genome) {
+    public IBee createIndividual(IGenome genome) {
         if (genome.karyotype() != BeeChromosomes.KARYOTYPE) {
             throw new IllegalArgumentException("Genome karyotype does not match bee species");
         }
@@ -116,7 +118,7 @@ record BeeSpecies(Identifier id, String genus, String species, boolean dominant,
     }
 
     @Override
-    public void addTooltip(Bee individual, List<Component> tooltip) {
+    public void addTooltip(IBee individual, List<Component> tooltip) {
         GeneticsTooltips.addHybridTooltip(tooltip::add, individual.getGenome(), BeeChromosomes.SPECIES, "for.bees.hybrid");
         if (!individual.isAnalyzed()) {
             tooltip.add(Component.literal("<").append(Component.translatable("for.gui.unknown")).append(">")

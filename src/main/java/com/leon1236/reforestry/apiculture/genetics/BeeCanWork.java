@@ -9,6 +9,7 @@ import net.minecraft.core.Vec3i;
 import net.minecraft.world.level.Level;
 
 import com.leon1236.reforestry.api.apiculture.IBeeHousing;
+import com.leon1236.reforestry.api.apiculture.IActivityType;
 import com.leon1236.reforestry.api.apiculture.LightPreference;
 import com.leon1236.reforestry.apiculture.BeeHousingModifier;
 import com.leon1236.reforestry.api.core.ForestryError;

@@ -153,6 +153,11 @@ public final class ForestryAlleles {
     public static final IIntegerAllele GIRTH_9 = girth(9);
     public static final IIntegerAllele GIRTH_10 = girth(10);
 
+    public static final IFloatAllele SIZE_SMALLEST = AlleleManager.INSTANCE.floatAllele(0.3f, false);
+    public static final IFloatAllele SIZE_SMALLER = AlleleManager.INSTANCE.floatAllele(0.4f, false);
+    public static final IFloatAllele SIZE_SMALL = AlleleManager.INSTANCE.floatAllele(0.5f, false);
+    public static final IIntegerAllele METABOLISM_SLOWER = AlleleManager.INSTANCE.integerAllele(2, false);
+
     private ForestryAlleles() {
     }
 

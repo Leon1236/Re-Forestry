@@ -1,0 +1,68 @@
+package com.leon1236.reforestry.api.arboriculture.genetics;
+
+import java.util.List;
+
+import org.jetbrains.annotations.Nullable;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.Identifier;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+
+import com.leon1236.reforestry.api.core.IProduct;
+import com.leon1236.reforestry.api.core.IProductProducer;
+import com.leon1236.reforestry.api.core.ISpecialtyProducer;
+import com.leon1236.reforestry.api.genetics.IGenome;
+import com.leon1236.reforestry.api.genetics.alleles.IRegistryAlleleValue;
+
+public interface IFruit extends IRegistryAlleleValue, IProductProducer, ISpecialtyProducer {
+	boolean isDominant();
+
+	boolean isFruitLeaf();
+
+	int getColour(IGenome genome, BlockGetter world, BlockPos pos, int ripeningTime);
+
+	int getDecorativeColor();
+
+	float getFruitChance(IGenome genome);
+
+	int getRipeningPeriod();
+
+	@Override
+	List<Product> getProducts();
+
+	@Override
+	List<Product> getSpecialties();
+
+	List<ItemStack> getFruits(IGenome genome, Level level, int ripeningTime);
+
+	@Nullable
+	Identifier getSprite(IGenome genome, BlockGetter world, BlockPos pos, int ripeningTime);
+
+	@Nullable
+	default Identifier getDecorativeSprite() {
+		return null;
+	}
+
+	boolean requiresFruitBlocks();
+
+	boolean trySpawnFruitBlock(IGenome genome, LevelAccessor level, RandomSource rand, BlockPos pos);
+
+	default TagKey<Block> getLogTag() {
+		return BlockTags.JUNGLE_LOGS;
+	}
+
+	record Product(Item item, float chance) implements IProduct {
+		@Override
+		public ItemStack createStack() {
+			return new ItemStack(item);
+		}
+	}
+}

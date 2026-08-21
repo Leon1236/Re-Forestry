@@ -1,5 +1,7 @@
 package com.leon1236.reforestry.arboriculture.genetics;
 
+import com.leon1236.reforestry.api.arboriculture.genetics.IFruit;
+import com.leon1236.reforestry.api.arboriculture.genetics.ITreeEffect;
 import java.util.function.Consumer;
 
 import net.minecraft.ChatFormatting;

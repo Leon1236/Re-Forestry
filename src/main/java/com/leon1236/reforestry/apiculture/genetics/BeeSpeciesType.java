@@ -14,6 +14,7 @@ import net.minecraft.world.level.LevelAccessor;
 
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.api.apiculture.genetics.BeeLifeStage;
+import com.leon1236.reforestry.api.apiculture.genetics.IBee;
 import com.leon1236.reforestry.api.apiculture.genetics.IBeeSpeciesType;
 import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
 import com.leon1236.reforestry.api.genetics.IBreedingTracker;
@@ -22,7 +23,7 @@ import com.leon1236.reforestry.api.genetics.ILifeStage;
 import com.leon1236.reforestry.api.plugin.IForestryPlugin;
 import com.leon1236.reforestry.core.genetics.SpeciesType;
 
-public final class BeeSpeciesType extends SpeciesType<IBeeSpecies, Bee> implements IBeeSpeciesType {
+public final class BeeSpeciesType extends SpeciesType<IBeeSpecies, IBee> implements IBeeSpeciesType {
 	public static final BeeSpeciesType INSTANCE = new BeeSpeciesType();
 
 	private BeeSpeciesType() {
@@ -61,11 +62,11 @@ public final class BeeSpeciesType extends SpeciesType<IBeeSpecies, Bee> implemen
 
 	@Override
 	public boolean isMember(IIndividual individual) {
-		return individual instanceof Bee;
+		return individual instanceof IBee;
 	}
 
 	@Override
-	public Codec<? extends Bee> getIndividualCodec() {
+	public Codec<? extends IBee> getIndividualCodec() {
 		return Bee.CODEC;
 	}
 

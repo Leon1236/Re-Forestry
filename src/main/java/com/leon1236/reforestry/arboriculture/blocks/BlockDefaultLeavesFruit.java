@@ -25,7 +25,7 @@ import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureBlocks;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureDataComponents;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureItems;
-import com.leon1236.reforestry.arboriculture.genetics.IFruit;
+import com.leon1236.reforestry.api.arboriculture.genetics.IFruit;
 import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
 
 public class BlockDefaultLeavesFruit extends BlockAbstractLeaves {

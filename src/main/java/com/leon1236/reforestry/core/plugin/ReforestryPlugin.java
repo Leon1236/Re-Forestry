@@ -16,12 +16,16 @@ import com.leon1236.reforestry.api.circuits.ForestryCircuitLayouts;
 import com.leon1236.reforestry.api.circuits.ForestryCircuitSocketTypes;
 import com.leon1236.reforestry.api.core.ForestryError;
 import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
+import com.leon1236.reforestry.api.lepidopterology.ForestryButterflyEffects;
+import com.leon1236.reforestry.api.lepidopterology.ForestryCocoons;
+import com.leon1236.reforestry.api.lepidopterology.genetics.ButterflyLifeStage;
 import com.leon1236.reforestry.api.plugin.IApicultureRegistration;
 import com.leon1236.reforestry.api.plugin.IArboricultureRegistration;
 import com.leon1236.reforestry.api.plugin.ICircuitRegistration;
 import com.leon1236.reforestry.api.plugin.IErrorRegistration;
 import com.leon1236.reforestry.api.plugin.IForestryPlugin;
 import com.leon1236.reforestry.api.plugin.IGeneticRegistration;
+import com.leon1236.reforestry.api.plugin.ILepidopterologyRegistration;
 import com.leon1236.reforestry.api.plugin.IPollenRegistration;
 import com.leon1236.reforestry.apiculture.features.ApicultureEffects;
 import com.leon1236.reforestry.apiculture.features.ApicultureItems;
@@ -30,11 +34,16 @@ import com.leon1236.reforestry.apiculture.genetics.BeeSpeciesType;
 import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
 import com.leon1236.reforestry.arboriculture.genetics.TreePollenType;
 import com.leon1236.reforestry.arboriculture.genetics.TreeSpeciesType;
+import com.leon1236.reforestry.lepidopterology.genetics.ButterflyChromosomes;
+import com.leon1236.reforestry.lepidopterology.genetics.ButterflySpeciesType;
 import com.leon1236.reforestry.core.circuits.EnumElectronTube;
 import com.leon1236.reforestry.core.features.CoreItems;
 import com.leon1236.reforestry.factory.circuits.CircuitMachineUpgrade;
 import com.leon1236.reforestry.apiculture.genetics.DefaultBeeSpecies;
 import com.leon1236.reforestry.apiculture.genetics.JubilanceFactory;
+import com.leon1236.reforestry.arboriculture.ForestryWoodType;
+import com.leon1236.reforestry.arboriculture.VanillaWoodType;
+import com.leon1236.reforestry.arboriculture.features.ArboricultureBlocks;
 import com.leon1236.reforestry.apiculture.genetics.effects.AggressiveBeeEffect;
 import com.leon1236.reforestry.apiculture.genetics.effects.AgingBeeEffect;
 import com.leon1236.reforestry.apiculture.genetics.effects.AscensionBeeEffect;
@@ -76,11 +85,22 @@ public final class ReforestryPlugin implements IForestryPlugin {
                 .setKaryotype(BeeChromosomes.KARYOTYPE)
                 .addStages(BeeLifeStage.values())
                 .setDefaultStage(BeeLifeStage.DRONE);
-        registration.registerSpeciesType(ForestrySpeciesTypes.TREE, (karyotype, builder) -> TreeSpeciesType.INSTANCE)
-                .setKaryotype(TreeChromosomes.KARYOTYPE)
-                .addStages(TreeLifeStage.values())
-                .setDefaultStage(TreeLifeStage.SAPLING);
-    }
+		registration.registerSpeciesType(ForestrySpeciesTypes.TREE, (karyotype, builder) -> TreeSpeciesType.INSTANCE)
+			.setKaryotype(TreeChromosomes.KARYOTYPE)
+			.addStages(TreeLifeStage.values())
+			.setDefaultStage(TreeLifeStage.SAPLING);
+		registration.registerSpeciesType(ForestrySpeciesTypes.BUTTERFLY, (karyotype, builder) -> ButterflySpeciesType.INSTANCE)
+			.setKaryotype(ButterflyChromosomes.KARYOTYPE)
+			.addStages(ButterflyLifeStage.values())
+			.setDefaultStage(ButterflyLifeStage.BUTTERFLY);
+	}
+
+	@Override
+	public void registerLepidopterology(ILepidopterologyRegistration registration) {
+		registration.registerEffect(ForestryButterflyEffects.NONE, ButterflyChromosomes.NONE_EFFECT);
+		registration.registerCocoon(ForestryCocoons.DEFAULT, ButterflyChromosomes.DEFAULT_COCOON);
+		registration.registerCocoon(ForestryCocoons.SILK, ButterflyChromosomes.SILK_COCOON);
+	}
 
     @Override
     public void registerErrors(IErrorRegistration registration) {
@@ -99,6 +119,7 @@ public final class ReforestryPlugin implements IForestryPlugin {
         BeeManager.jubilanceFactory = new JubilanceFactory();
         registerBeeEffects(registration);
         DefaultBeeSpecies.register(registration);
+        registration.registerSwarmerMaterial(ApicultureItems.ROYAL_JELLY.item(), 0.01f);
 
         Supplier<List<ItemStack>> honeyComb = comb(EnumHoneyComb.HONEY);
         Supplier<List<ItemStack>> parchedComb = comb(EnumHoneyComb.PARCHED);
@@ -198,6 +219,28 @@ public final class ReforestryPlugin implements IForestryPlugin {
         registration.registerCharcoalPitWall(Blocks.DIRT, 2);
         registration.registerCharcoalPitWall(Blocks.GRAVEL, 1);
         registration.registerCharcoalPitWall(Blocks.NETHERRACK, 3);
+        for (ForestryWoodType type : ForestryWoodType.VALUES) {
+            registration.registerRefractoryWaxable(
+                    ArboricultureBlocks.PLANKS.get(type).block(),
+                    ArboricultureBlocks.PLANKS_FIREPROOF.get(type).block());
+        }
+        for (VanillaWoodType type : VanillaWoodType.VALUES) {
+            registration.registerRefractoryWaxable(vanillaPlanks(type), ArboricultureBlocks.FIREPROOF_PLANKS.get(type).block());
+        }
+    }
+
+    private static net.minecraft.world.level.block.Block vanillaPlanks(VanillaWoodType type) {
+        return switch (type) {
+            case OAK -> Blocks.OAK_PLANKS;
+            case SPRUCE -> Blocks.SPRUCE_PLANKS;
+            case BIRCH -> Blocks.BIRCH_PLANKS;
+            case JUNGLE -> Blocks.JUNGLE_PLANKS;
+            case ACACIA -> Blocks.ACACIA_PLANKS;
+            case DARK_OAK -> Blocks.DARK_OAK_PLANKS;
+            case CHERRY -> Blocks.CHERRY_PLANKS;
+            case MANGROVE -> Blocks.MANGROVE_PLANKS;
+            case PALE_OAK -> Blocks.PALE_OAK_PLANKS;
+        };
     }
 
     @Override
