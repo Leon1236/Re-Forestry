@@ -7,7 +7,6 @@ import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -20,9 +19,6 @@ import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 
 import team.reborn.energy.api.EnergyStorage;
 
-import com.leon1236.reforestry.api.apiculture.IBeeHousing;
-import com.leon1236.reforestry.api.genetics.IEffectData;
-import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.extra_bees.features.ExtraBeesBlocks;
 
 public final class ExtraBeesEffectLogic {
@@ -131,10 +127,5 @@ public final class ExtraBeesEffectLogic {
 
 	public static EntityType<? extends Mob> creeper() {
 		return EntityTypes.CREEPER;
-	}
-
-	public static boolean playerNearby(Level level, BlockPos pos, double distance) {
-		Player player = level.getNearestPlayer(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, distance, false);
-		return player != null;
 	}
 }

@@ -82,8 +82,10 @@ Binnie stored `particles/*` texture paths but never spawned them from `doFX` (hi
 
 ## Gaps / next
 
-- EB2 species not started (must use these flower/effect alleles)  
-- Custom Binnie particle textures under genetics `items/particles/` not shipped as particle types (vanilla FX used instead)  
-- Birthday calendar: Binnie `month=3, date+1` → April 11  
+- EB2 species not started (must use these flower/effect alleles)
+- Custom Binnie particle textures under genetics `items/particles/` not shipped as particle types (vanilla FX used instead)
+- Birthday fireworks: star + gold always; on April 11 also RGB + trail (Binnie `Birthday(3, 10)` → date+1)
+- EB potion effects (blindness/confusion/wither/slow) and hunger use player-only Binnie armor rolls; CE `PotionBeeEffect` path not used
+- FIREWORKS always trails (Binnie `setTrail`); FESTIVAL is plain white
 
 **Next stage:** `EB2a`

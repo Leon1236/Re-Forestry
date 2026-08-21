@@ -36,7 +36,6 @@ import com.leon1236.reforestry.api.genetics.IEffectData;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.api.plugin.IApicultureRegistration;
 import com.leon1236.reforestry.apiculture.genetics.BeeChromosomes;
-import com.leon1236.reforestry.apiculture.genetics.effects.PotionBeeEffect;
 import com.leon1236.reforestry.apiculture.genetics.effects.ThrottledBeeEffect;
 import com.leon1236.reforestry.core.damage.CoreDamageTypes;
 import com.leon1236.reforestry.extra_bees.genetics.ExtraBeesBeeEffects;
@@ -59,18 +58,18 @@ public final class ExtraBeesEffects {
 		registration.registerBeeEffect(ExtraBeesBeeEffects.METEOR, new MeteorEffect());
 		registration.registerBeeEffect(ExtraBeesBeeEffects.HUNGER, new HungerEffect());
 		registration.registerBeeEffect(ExtraBeesBeeEffects.FOOD, new FoodEffect());
-		registration.registerBeeEffect(ExtraBeesBeeEffects.BLINDNESS, new FxPotionEffect(ExtraBeesBeeEffects.BLINDNESS, MobEffects.BLINDNESS, 200, ExtraBeesEffectHelper.blindnessFx()));
-		registration.registerBeeEffect(ExtraBeesBeeEffects.CONFUSION, new PotionBeeEffect(ExtraBeesBeeEffects.CONFUSION, true, MobEffects.NAUSEA, 200));
+		registration.registerBeeEffect(ExtraBeesBeeEffects.BLINDNESS, new PlayerPotionEffect(ExtraBeesBeeEffects.BLINDNESS, MobEffects.BLINDNESS, 200, ExtraBeesEffectHelper.blindnessFx()));
+		registration.registerBeeEffect(ExtraBeesBeeEffects.CONFUSION, new PlayerPotionEffect(ExtraBeesBeeEffects.CONFUSION, MobEffects.NAUSEA, 200, null));
 		registration.registerBeeEffect(ExtraBeesBeeEffects.FIREWORKS, new FireworksEffect(ExtraBeesBeeEffects.FIREWORKS, 8, true));
 		registration.registerBeeEffect(ExtraBeesBeeEffects.FESTIVAL, new FireworksEffect(ExtraBeesBeeEffects.FESTIVAL, 12, false));
 		registration.registerBeeEffect(ExtraBeesBeeEffects.BIRTHDAY, new BirthdayEffect());
 		registration.registerBeeEffect(ExtraBeesBeeEffects.TELEPORT, new TeleportEffect());
 		registration.registerBeeEffect(ExtraBeesBeeEffects.GRAVITY, new PullEffect(ExtraBeesBeeEffects.GRAVITY, true));
 		registration.registerBeeEffect(ExtraBeesBeeEffects.THIEF, new PullEffect(ExtraBeesBeeEffects.THIEF, false));
-		registration.registerBeeEffect(ExtraBeesBeeEffects.WITHER, new FxPotionEffect(ExtraBeesBeeEffects.WITHER, MobEffects.WITHER, 200, ExtraBeesEffectHelper.witherFx()));
+		registration.registerBeeEffect(ExtraBeesBeeEffects.WITHER, new PlayerPotionEffect(ExtraBeesBeeEffects.WITHER, MobEffects.WITHER, 200, ExtraBeesEffectHelper.witherFx()));
 		registration.registerBeeEffect(ExtraBeesBeeEffects.WATER, new TerritoryBlockEffect(ExtraBeesBeeEffects.WATER, 40,
 				ExtraBeesEffectLogic::fillWater, ExtraBeesEffectHelper.waterFx()));
-		registration.registerBeeEffect(ExtraBeesBeeEffects.SLOW, new PotionBeeEffect(ExtraBeesBeeEffects.SLOW, true, MobEffects.WEAKNESS, 200));
+		registration.registerBeeEffect(ExtraBeesBeeEffects.SLOW, new PlayerPotionEffect(ExtraBeesBeeEffects.SLOW, MobEffects.WEAKNESS, 200, null));
 		registration.registerBeeEffect(ExtraBeesBeeEffects.BONEMEAL_SAPLING, new BonemealEffect(ExtraBeesBeeEffects.BONEMEAL_SAPLING, BonemealKind.SAPLING));
 		registration.registerBeeEffect(ExtraBeesBeeEffects.BONEMEAL_FRUIT, new BonemealEffect(ExtraBeesBeeEffects.BONEMEAL_FRUIT, BonemealKind.FRUIT));
 		registration.registerBeeEffect(ExtraBeesBeeEffects.BONEMEAL_MUSHROOM, new BonemealEffect(ExtraBeesBeeEffects.BONEMEAL_MUSHROOM, BonemealKind.MUSHROOM));
@@ -178,15 +177,17 @@ public final class ExtraBeesEffects {
 			List<LivingEntity> entities = ThrottledBeeEffect.getEntitiesInRange(genome, housing, LivingEntity.class);
 			for (LivingEntity entity : entities) {
 				int damage = 4;
-				int count = BeeManager.getArmorApiaristHelper().wearsItems(entity, this, true);
-				if (count > 3) {
-					continue;
-				} else if (count > 2) {
-					damage = 1;
-				} else if (count > 1) {
-					damage = 2;
-				} else if (count > 0) {
-					damage = 3;
+				if (entity instanceof Player) {
+					int count = BeeManager.getArmorApiaristHelper().wearsItems(entity, this, true);
+					if (count > 3) {
+						continue;
+					} else if (count > 2) {
+						damage = 1;
+					} else if (count > 1) {
+						damage = 2;
+					} else if (count > 0) {
+						damage = 3;
+					}
 				}
 				entity.hurtServer(serverLevel, CoreDamageTypes.source(serverLevel, CoreDamageTypes.RADIOACTIVE), damage);
 			}
@@ -267,17 +268,38 @@ public final class ExtraBeesEffects {
 		}
 	}
 
-	private static final class FxPotionEffect extends PotionBeeEffect {
+	private static final class PlayerPotionEffect extends ThrottledBeeEffect {
+		private final net.minecraft.core.Holder<net.minecraft.world.effect.MobEffect> potion;
+		private final int duration;
 		private final ExtraBeesEffectHelper.ParticleTypesHolder fx;
 
-		private FxPotionEffect(net.minecraft.resources.Identifier id, net.minecraft.core.Holder<net.minecraft.world.effect.MobEffect> potion,
-				int duration, ExtraBeesEffectHelper.ParticleTypesHolder fx) {
-			super(id, true, potion, duration);
+		private PlayerPotionEffect(net.minecraft.resources.Identifier id,
+				net.minecraft.core.Holder<net.minecraft.world.effect.MobEffect> potion, int duration,
+				ExtraBeesEffectHelper.ParticleTypesHolder fx) {
+			super(id, true, 40, false, false);
+			this.potion = potion;
+			this.duration = duration;
 			this.fx = fx;
 		}
 
 		@Override
+		protected IEffectData doEffectThrottled(IGenome genome, IEffectData storedData, IBeeHousing housing) {
+			Level level = housing.level();
+			List<Player> players = ThrottledBeeEffect.getEntitiesInRange(genome, housing, Player.class);
+			for (Player player : players) {
+				if (level.getRandom().nextInt(4) < BeeManager.getArmorApiaristHelper().wearsItems(player, this, true)) {
+					continue;
+				}
+				player.addEffect(new MobEffectInstance(potion, duration));
+			}
+			return storedData;
+		}
+
+		@Override
 		public IEffectData doFX(IGenome genome, IEffectData storedData, IBeeHousing housing) {
+			if (fx == null) {
+				return super.doFX(genome, storedData, housing);
+			}
 			return ExtraBeesEffectHelper.doFx(genome, storedData, housing, fx);
 		}
 	}
@@ -302,7 +324,7 @@ public final class ExtraBeesEffects {
 			if (!serverLevel.isLoaded(pos) || level.getRandom().nextInt(chanceDenom) >= 1 || !level.canSeeSky(pos)) {
 				return storedData;
 			}
-			ItemStack rocket = createFirework(genome, colored, false);
+			ItemStack rocket = colored ? createSpeciesFirework(genome) : createPlainFirework();
 			FireworkRocketEntity entity = new FireworkRocketEntity(serverLevel, pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, rocket);
 			serverLevel.addFreshEntity(entity);
 			return storedData;
@@ -324,8 +346,7 @@ public final class ExtraBeesEffects {
 			if (!serverLevel.isLoaded(pos) || level.getRandom().nextInt(12) >= 1 || !level.canSeeSky(pos)) {
 				return storedData;
 			}
-			boolean today = isBinnieBirthday();
-			ItemStack rocket = createFirework(genome, today, today);
+			ItemStack rocket = createBirthdayFirework(isBinnieBirthday());
 			FireworkRocketEntity entity = new FireworkRocketEntity(serverLevel, pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, rocket);
 			serverLevel.addFreshEntity(entity);
 			return storedData;
@@ -337,23 +358,29 @@ public final class ExtraBeesEffects {
 		}
 	}
 
-	private static ItemStack createFirework(IGenome genome, boolean colored, boolean trail) {
+	private static ItemStack createSpeciesFirework(IGenome genome) {
+		int primary = genome.getActiveAllele(BeeChromosomes.SPECIES).value().bodyColor();
+		int secondary = genome.getActiveAllele(BeeChromosomes.SPECIES).value().stripesColor();
+		IntList colors = IntList.of(primary, primary, secondary, secondary, primary, secondary);
+		FireworkExplosion explosion = new FireworkExplosion(FireworkExplosion.Shape.SMALL_BALL, colors, IntList.of(), false, true);
 		ItemStack firework = new ItemStack(Items.FIREWORK_ROCKET);
-		IntList colors;
-		FireworkExplosion.Shape shape;
-		if (colored) {
-			int primary = genome.getActiveAllele(BeeChromosomes.SPECIES).value().bodyColor();
-			int secondary = genome.getActiveAllele(BeeChromosomes.SPECIES).value().stripesColor();
-			colors = IntList.of(primary, primary, secondary, secondary);
-			shape = FireworkExplosion.Shape.SMALL_BALL;
-		} else if (trail) {
-			colors = IntList.of(0xffd700, 0xff0000, 0x00ff00, 0x0000ff);
-			shape = FireworkExplosion.Shape.STAR;
-		} else {
-			colors = IntList.of(0xffffff);
-			shape = FireworkExplosion.Shape.SMALL_BALL;
-		}
-		FireworkExplosion explosion = new FireworkExplosion(shape, colors, IntList.of(), false, trail);
+		firework.set(DataComponents.FIREWORKS, new Fireworks(0, List.of(explosion)));
+		return firework;
+	}
+
+	private static ItemStack createPlainFirework() {
+		FireworkExplosion explosion = new FireworkExplosion(FireworkExplosion.Shape.SMALL_BALL, IntList.of(0xffffff), IntList.of(), false, false);
+		ItemStack firework = new ItemStack(Items.FIREWORK_ROCKET);
+		firework.set(DataComponents.FIREWORKS, new Fireworks(0, List.of(explosion)));
+		return firework;
+	}
+
+	private static ItemStack createBirthdayFirework(boolean today) {
+		IntList colors = today
+				? IntList.of(0xffdd00, 0xff0000, 0x00ff00, 0x0000ff)
+				: IntList.of(0xffdd00);
+		FireworkExplosion explosion = new FireworkExplosion(FireworkExplosion.Shape.STAR, colors, IntList.of(), false, today);
+		ItemStack firework = new ItemStack(Items.FIREWORK_ROCKET);
 		firework.set(DataComponents.FIREWORKS, new Fireworks(0, List.of(explosion)));
 		return firework;
 	}
@@ -481,23 +508,21 @@ public final class ExtraBeesEffects {
 					if (!ExtraBeesFlowerType.FRUIT.isAcceptableFlower(level, pos)) {
 						return storedData;
 					}
-					BoneMealItemGrow(serverLevel, pos);
+					growWithBoneMeal(serverLevel, pos);
 				}
 				case MUSHROOM -> {
 					if (!state.is(Blocks.BROWN_MUSHROOM) && !state.is(Blocks.RED_MUSHROOM)) {
 						return storedData;
 					}
-					BoneMealItemGrow(serverLevel, pos);
+					growWithBoneMeal(serverLevel, pos);
 				}
 			}
 			return storedData;
 		}
 
-		private static void BoneMealItemGrow(ServerLevel level, BlockPos pos) {
+		private static void growWithBoneMeal(ServerLevel level, BlockPos pos) {
 			ItemStack stack = new ItemStack(Items.BONE_MEAL);
-			if (Items.BONE_MEAL instanceof net.minecraft.world.item.BoneMealItem) {
-				net.minecraft.world.item.BoneMealItem.growCrop(stack, level, pos);
-			}
+			net.minecraft.world.item.BoneMealItem.growCrop(stack, level, pos);
 		}
 	}
 }

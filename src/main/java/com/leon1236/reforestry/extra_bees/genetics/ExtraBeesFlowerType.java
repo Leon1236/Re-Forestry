@@ -25,6 +25,7 @@ import com.leon1236.reforestry.api.ForestryTags;
 import com.leon1236.reforestry.api.core.genetics.IFruitBearer;
 import com.leon1236.reforestry.api.genetics.IIndividual;
 import com.leon1236.reforestry.apiculture.genetics.IFlowerType;
+
 public enum ExtraBeesFlowerType implements IFlowerType {
 	WATER,
 	SUGAR,
