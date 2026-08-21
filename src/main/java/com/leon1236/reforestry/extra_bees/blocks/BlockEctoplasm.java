@@ -2,10 +2,10 @@ package com.leon1236.reforestry.extra_bees.blocks;
 
 import com.mojang.serialization.MapCodec;
 
-import net.minecraft.world.level.block.WebBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
-public class BlockEctoplasm extends WebBlock {
+public class BlockEctoplasm extends Block {
 	public static final MapCodec<BlockEctoplasm> CODEC = simpleCodec(BlockEctoplasm::new);
 
 	public BlockEctoplasm(BlockBehaviour.Properties properties) {
@@ -13,7 +13,7 @@ public class BlockEctoplasm extends WebBlock {
 	}
 
 	@Override
-	public MapCodec<BlockEctoplasm> codec() {
+	protected MapCodec<? extends BlockEctoplasm> codec() {
 		return CODEC;
 	}
 }

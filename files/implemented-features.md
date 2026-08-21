@@ -3,7 +3,7 @@
 What is **done and working** in the mod today.  
 Update this file when a roadmap step lands. For how-to-build guidance, see `CLAUDE.md`. For the next work items, see **Next up** at the bottom.
 
-Last updated: 2026-08-21 (GD0: Gendustry module shell + parts/upgrades/pollen kit. Next: EB1)
+Last updated: 2026-08-21 (EB1: Extra Bees module shell + items/blocks. Next: GD1)
 
 ---
 
@@ -234,14 +234,15 @@ Play notes: `queries/storage-B1-b3-backpacks.md`, `queries/storage-B4-naturalist
 
 ## Next up (not implemented yet)
 
-**Next up: Wave 7 `EB1`.** Gendustry GD0 landed (module, tab, 10 parts + 23 upgrades + pollen kit). Locked remaining order: see `queries/wave7-plan.md` (GD0 → EB1 → GD1…). No solar/combustion.
+**Next up: Wave 7 `GD1`.** Extra Bees EB1 landed (module, tab, combs/drops/frames/misc/hives). Locked remaining order: see `queries/wave7-plan.md` (EB1 → GD1…). No solar/combustion.
 
-**Wave 7 addons:** GD0 playable shell done; Extra Bees/Trees still extract-only until EB1 / ET1a.
+**Wave 7 addons:** GD0 + EB1 playable shells done; Extra Trees still extract-only until ET1a.
 
 | ID | Status | Notes |
 |---|---|---|
 | `GD0` | Done | `ModuleGendustry` + plugin; depends arboriculture; 10 resource parts + 17 upgrades + 6 elite + `pollen_kit`; tag `reforestry:upgrades`; crafts (2 elite crafts wait on GD1 fluids); `IPollen.createStack` via `TreePollenType`. Upgrades inert until GD7b. See `queries/gendustry-GD0.md` |
-| `EB0` | Extract done | `tools/extract_extra_bees.py` + `queries/extra-bees-*.json` — 116 species, 168 mutations, 25 effects. No Java module. |
+| `EB1` | Done | `ModuleExtraBees` + plugin; depends apiculture; 74 combs, 24 drops, 4 propolis, 5 frames, 30 misc, ectoplasm, 4 hives (`beehive_eb_nether`); frame crafts + carpenter `scented_gear` + dust/shard recipes. Worldgen/loot EB4. See `queries/extra-bees-EB1.md` |
+| `EB0` | Extract done | `tools/extract_extra_bees.py` + `queries/extra-bees-*.json` — 116 species, 168 mutations, 25 effects. |
 | `ET0` | Extract done | `tools/extract_extra_trees.py` + `queries/extra-trees-extract/` — 97 species (skip 9 binomials), 59 fruits, 36 planks (skip 6 → 30 new + shrub log), 97 mutations, 22 moths. No Java woods/module. |
 | `W7-INT` | Merged | Local 1b–4 + origin/main Wave 5 + Wave 6 lepidopterology. Farming/energy/filter kept. |
 
@@ -274,7 +275,7 @@ Older (partially stale): [`queries/item-gap-implementation-plan.md`](../queries/
 |---|---|---|---|
 | 1 | `GP0a1–d` | Species-type / plugin genetics façade | **done** (merged from GitHub) |
 | 2 | `D0→D4` | **Lepidopterology** | **done** (merged from GitHub). Unlocks `butterfly_chest` recipe and sorting `S2` |
-| 3 | Addons | Gendustry → Extra Bees → Extra Trees | Config modules; **GD0 done**. Next: **EB1** |
+| 3 | Addons | Gendustry → Extra Bees → Extra Trees | Config modules; **GD0 + EB1 done**. Next: **GD1** |
 | 4 | Restore | Greenhouse, climatology, database, guide book (CE-dropped 1.12) | Optional |
 | — | `TR1` | Optional Trinkets spectacles slot | Helmet already works (A5) |
 
