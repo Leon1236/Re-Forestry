@@ -1,37 +1,45 @@
 # A8 — Forester's manual
 
-## Decision: stub item (not Patchouli yet)
+## Decision: native Forester's Almanac (Wave 9 BOOK-0)
 
-**Choice:** register `reforestry:foresters_manual` as a **stub**. Right-click sends a clear chat message; no custom book GUI.
+**Choice:** Replace Patchouli stub with a **native 1.12-style almanac** (`api/book`, client screens, JSON loader). No Patchouli dependency.
 
-**Why not Patchouli on this stack**
+**Stage 0 (DATA-FIX):** Gameplay advancement tree + guide loot wired.
 
-| Check | Result |
+| File | Purpose |
 |---|---|
-| Target | Minecraft `~26.2` (Fabric Loom) |
-| Patchouli Maven (`maven.blamejared.com`) | Only `vazkii.patchouli:patchouli-fabric:26.1-94` (+ SNAPSHOT) |
-| Fabric/CurseForge/Modrinth | No Patchouli build tagged for **26.2** (2026-07-26) |
-| Hard-depend on 26.1 | Would fight `minecraft: ~26.2` and risk loader/API mismatch |
+| `data/reforestry/advancement/root.json` | Honeycomb tab; grants `grant_guide` loot on first join |
+| `data/reforestry/loot_table/grant_guide.json` | Gives `reforestry:foresters_manual` |
+| `advancement/recipes/misc/analyzer.json` | Criterion fixed to `reforestry:portable_alyzer` |
+| `advancement/recipes/tools/portable_alyzer.json` | Unlocks carpenter portable alyzer craft |
+| `advancement/recipes/misc/foresters_manual_butterfly.json` | Butterfly manual recipe unlock |
 
-Plan rule: do **not** invent a full custom book UI silently. Stub is the allowed A8 fallback until Patchouli ships 26.2.
+**Recipes on disk:** `foresters_manual_honeydrop`, `foresters_manual_sapling`, `foresters_manual_butterfly`.
 
 ## CE behaviour (source of truth)
 
-- `ForestersManualItem` → `PatchouliAPI.get().openBookGUI(serverPlayer, itemId)` + page-turn sound.
-- Book datapack: `data/.../patchouli_books/foresters_manual/book.json` with `custom_book_item`, `dont_generate_book`, `use_resource_pack`.
-- Content under `assets/.../patchouli_books/foresters_manual/...`.
-- Recipes (shapeless book + one of): `honey_drop`, `#minecraft:saplings`, `butterfly_ge`.
+- `ForestersManualItem` → open book GUI + page-turn sound (was Patchouli on CE).
+- Book content: Patchouli JSON under `assets/reforestry/patchouli_books/` — loaded natively in BOOK-0.
 - Advancement reward loot `grant_guide` gives the item.
 
-## What we ship now
+## BOOK-0 deliverables (Stage 1) — **done**
 
-- Item class `ForestersManualItem` (CE name), registry id `foresters_manual`.
-- Model/texture/lang/tab already present or wired; recipes for honey_drop + saplings.
-- Butterfly recipe **skipped** until Track D (`butterfly_ge` unregistered).
-- Patchouli book JSON + entries already under `assets/reforestry/patchouli_books/` and `data/reforestry/patchouli_books/` — inert without Patchouli; kept for a later soft/hard depend.
+- `api/book/*` — `IForesterBook`, `IBookCategory`, `IBookEntry`, `IBookPage`, `IBookLoader`
+- `core/book/*` — `BookLoader` reads existing Patchouli JSON under `patchouli_books/foresters_manual/`
+- Page renderers — text, crafting, spotlight, image, carpenter, fabricator, farm_gui, farm_layout
+- Client screens — categories → entries → pages (`ScreenForesterBookCategories` / `Entries` / `Pages`)
+- `ForestersManualItem.use()` opens almanac via `ForesterBookOpener` + page-turn sound
+- Registered in `CoreClientHandler` (`ForesterBookClient.register()`)
 
-## Upgrade path (when Patchouli 26.2 exists)
+## BOOK-CORE (Wave 9 Stage 3) — **done**
 
-1. Add BlameJared maven + `modImplementation` / optional `depends` or `suggests` in `fabric.mod.json`.
-2. Change `use()` to call `PatchouliAPI.get().openBookGUI(...)` (Fabric item id via registry).
-3. Remove stub chat key; smoke: open book pages for core/beekeeping entries.
+17 entries under `core` category load from existing Patchouli JSON and render natively:
+
+`analyzer`, `bog_earth`, `casings`, `circuit_board`, `compost`, `escritoire`, `fertilizer_compound`, `gears`, `humus`, `ores`, `pipette`, `portable_alyzer`, `resources`, `soldering_iron`, `tubes`, `worktable`, `wrench`.
+
+Dual-recipe pages (`recipe` + `recipe2`) and carpenter/fabricator `/double` templates use live recipe lookup in `BookPageRenderer`. Spotlight pages support optional `title` key.
+
+## BOOK-GENETICS + BOOK-LEPIDO (Wave 9 Stage 4) — **done**
+
+- `genetics/filter` — existing Patchouli entry (crafting + filter GUI text)
+- New **lepidopterology** category + 6 entries: `introduction`, `scoop`, `butterfly_chest`, `lifecycle`, `mating`, `filter_rules`

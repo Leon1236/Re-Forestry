@@ -17,7 +17,7 @@ Crafted in `ModuleMachine.doInit`: `lumbermill`, `press`, `brewery`, `distillery
 
 | Item | Why |
 |---|---|
-| Infuser | Java exists under `machines/infuser/` (`InfuserMachine` uid `infuser`) but **is not an `ExtraTreeMachine` constant**, so it was never registered. Wave 7: never. |
+| Infuser | Java exists under `machines/infuser/` (`InfuserMachine` uid `infuser`) but **is not an `ExtraTreeMachine` constant**, so it was never registered. Wave 7: never. Wave 9 Stage 2 deleted orphan `assets/reforestry/items/infuser.json` + model/lang. |
 | Nursery | `ExtraTreeMachine.Nursery` supplier returns `null` with a TODO pointing at `PackageNursery`. Tile class exists. Wave 7: never. |
 
 ## ET-D deferred

@@ -143,4 +143,19 @@ public final class ApicultureGenetics {
     public static java.util.Map<Identifier, IBeeSpecies> getSpeciesById() {
         return speciesById;
     }
+
+    public static void rebuildDefaultGenomes() {
+        if (!finalized) {
+            return;
+        }
+        for (Map.Entry<Identifier, BeeSpeciesBuilder> entry : builders.entrySet()) {
+            BeeSpeciesBuilder builder = entry.getValue();
+            IBeeSpecies species = speciesById.get(entry.getKey());
+            if (species == null) {
+                continue;
+            }
+            IRegistryAllele<IBeeSpecies> allele = AlleleManager.INSTANCE.registryAllele(species, builder.dominant());
+            defaultGenomes.put(entry.getKey(), builder.buildGenome(allele));
+        }
+    }
 }

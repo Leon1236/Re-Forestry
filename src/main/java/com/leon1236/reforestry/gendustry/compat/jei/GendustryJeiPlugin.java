@@ -20,6 +20,8 @@ import net.minecraft.world.level.material.Fluid;
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.api.IForestryApi;
 import com.leon1236.reforestry.apiculture.compat.jei.MutationDisplay;
+import com.leon1236.reforestry.core.compat.jei.JeiDescriptions;
+import com.leon1236.reforestry.modules.features.FeatureItem;
 import com.leon1236.reforestry.core.compat.jei.JeiRecipeSources;
 import com.leon1236.reforestry.core.fluids.FluidUnits;
 import com.leon1236.reforestry.gendustry.client.ScreenAdvancedMutatron;
@@ -29,6 +31,8 @@ import com.leon1236.reforestry.gendustry.compat.jei.producers.DNAExtractorRecipe
 import com.leon1236.reforestry.gendustry.compat.jei.producers.MutagenRecipeCategory;
 import com.leon1236.reforestry.gendustry.compat.jei.producers.ProducerGuiContainerHandler;
 import com.leon1236.reforestry.gendustry.compat.jei.producers.ProteinProducerRecipeCategory;
+import com.leon1236.reforestry.gendustry.block.GendustryMachineType;
+import com.leon1236.reforestry.gendustry.features.GBlocks;
 import com.leon1236.reforestry.gendustry.features.GItems;
 import com.leon1236.reforestry.gendustry.fluids.GFluids;
 import com.leon1236.reforestry.gendustry.recipe.DnaRecipe;
@@ -82,6 +86,7 @@ public class GendustryJeiPlugin implements IModPlugin {
 		registration.addRecipes(GendustryJeiRecipeTypes.PROTEIN_LIQUEFIER, JeiRecipeSources.collect(ProteinRecipe.class));
 		registration.addRecipes(GendustryJeiRecipeTypes.DNA_EXTRACTOR, JeiRecipeSources.collect(DnaRecipe.class));
 		registerFluidInfo(registration);
+		registerDescriptions(registration);
 	}
 
 	@Override
@@ -97,6 +102,16 @@ public class GendustryJeiPlugin implements IModPlugin {
 			registration.addRecipeClickArea(ScreenAdvancedMutatron.class, 68, 38, 55, 18, mutationTypes);
 		}
 		registration.addGuiContainerHandler(ScreenProducer.class, new ProducerGuiContainerHandler());
+	}
+
+	private static void registerDescriptions(IRecipeRegistration registration) {
+		for (GendustryMachineType type : GendustryMachineType.values()) {
+			JeiDescriptions.addDescription(registration, GBlocks.MACHINE.get(type).block());
+		}
+		FeatureItem<?>[] upgrades = GItems.UPGRADE.getAll().values().toArray(FeatureItem[]::new);
+		FeatureItem<?>[] eliteUpgrades = GItems.ELITE_UPGRADE.getAll().values().toArray(FeatureItem[]::new);
+		JeiDescriptions.addDescription(registration, "gendustry_upgrade", upgrades);
+		JeiDescriptions.addDescription(registration, "gendustry_elite_upgrade", eliteUpgrades);
 	}
 
 	private static boolean gendustryLoaded() {

@@ -16,7 +16,9 @@ import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 
+import com.leon1236.reforestry.api.genetics.ISpeciesType;
 import com.leon1236.reforestry.core.compat.jei.ForestryRecipeCategory;
+import com.leon1236.reforestry.core.compat.jei.GeneticsJeiHelper;
 
 public class MutationsRecipeCategory extends ForestryRecipeCategory<MutationDisplay> {
 	private static final int SPECIES_SLOTS_Y = 16;
@@ -25,15 +27,25 @@ public class MutationsRecipeCategory extends ForestryRecipeCategory<MutationDisp
 	private static final int SPECIES_SLOT_2_X = 126;
 
 	private final IDrawable icon;
+	private final IRecipeType<MutationDisplay> recipeType;
+	private final ISpeciesType<?, ?> speciesType;
 
-	public MutationsRecipeCategory(IDrawable background, IDrawable icon) {
-		super(background, "for.jei.mutations.reforestry.bee_species");
+	public MutationsRecipeCategory(
+			IDrawable background,
+			IDrawable icon,
+			IRecipeType<MutationDisplay> recipeType,
+			String titleKey,
+			ISpeciesType<?, ?> speciesType
+	) {
+		super(background, titleKey);
 		this.icon = icon;
+		this.recipeType = recipeType;
+		this.speciesType = speciesType;
 	}
 
 	@Override
 	public IRecipeType<MutationDisplay> getRecipeType() {
-		return ApicultureJeiRecipeTypes.BEE_MUTATIONS;
+		return recipeType;
 	}
 
 	@Override
@@ -60,16 +72,16 @@ public class MutationsRecipeCategory extends ForestryRecipeCategory<MutationDisp
 	@Override
 	public void draw(MutationDisplay recipe, IRecipeSlotsView recipeSlotsView, GuiGraphicsExtractor graphics, double mouseX, double mouseY) {
 		super.draw(recipe, recipeSlotsView, graphics, mouseX, mouseY);
-		BeeJeiHelper.drawCentered(graphics, BeeJeiHelper.speciesName(recipe.mutation.firstParent()), SPECIES_SLOT_0_X + 9, SPECIES_SLOTS_Y + 22, 0xffffffff);
-		BeeJeiHelper.drawCentered(graphics, BeeJeiHelper.speciesName(recipe.mutation.secondParent()), SPECIES_SLOT_1_X + 9, SPECIES_SLOTS_Y + 22, 0xffffffff);
-		BeeJeiHelper.drawCentered(graphics, BeeJeiHelper.speciesName(recipe.mutation.result()), SPECIES_SLOT_2_X + 9, SPECIES_SLOTS_Y + 22, 0xffffffff);
+		GeneticsJeiHelper.drawCentered(graphics, speciesType.getSpecies(recipe.firstParentId()).getDisplayName(), SPECIES_SLOT_0_X + 9, SPECIES_SLOTS_Y + 22, 0xffffffff);
+		GeneticsJeiHelper.drawCentered(graphics, speciesType.getSpecies(recipe.secondParentId()).getDisplayName(), SPECIES_SLOT_1_X + 9, SPECIES_SLOTS_Y + 22, 0xffffffff);
+		GeneticsJeiHelper.drawCentered(graphics, speciesType.getSpecies(recipe.resultId()).getDisplayName(), SPECIES_SLOT_2_X + 9, SPECIES_SLOTS_Y + 22, 0xffffffff);
 
-		String percentageString = BeeJeiHelper.formatPercentage(recipe.mutation.getChance()) + "%";
+		String percentageString = GeneticsJeiHelper.formatPercentage(recipe.mutation.getChance()) + "%";
 		List<Component> conditions = recipe.mutation.getSpecialConditions();
 		if (conditions.isEmpty()) {
-			BeeJeiHelper.drawCentered(graphics, Component.literal(percentageString), 105, 12, 0xffffff);
+			GeneticsJeiHelper.drawCentered(graphics, Component.literal(percentageString), 105, 12, 0xffffff);
 		} else {
-			BeeJeiHelper.drawCentered(graphics, Component.literal("[" + percentageString + "]"), 105, 12, 0xffffff);
+			GeneticsJeiHelper.drawCentered(graphics, Component.literal("[" + percentageString + "]"), 105, 12, 0xffffff);
 		}
 	}
 

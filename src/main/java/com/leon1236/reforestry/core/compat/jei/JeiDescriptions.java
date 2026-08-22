@@ -49,6 +49,20 @@ public final class JeiDescriptions {
 				Component.translatable(DESCRIPTION_KEY + itemKey));
 	}
 
+	public static void addDescription(IRecipeRegistration registry, String itemKey, Block... blocks) {
+		List<ItemStack> stacks = new ArrayList<>(blocks.length);
+		for (Block block : blocks) {
+			Item item = block.asItem();
+			if (item != Items.AIR) {
+				stacks.add(new ItemStack(item));
+			}
+		}
+		registry.addIngredientInfo(
+				stacks,
+				VanillaTypes.ITEM_STACK,
+				Component.translatable(DESCRIPTION_KEY + itemKey));
+	}
+
 	public static void addDescription(IRecipeRegistration registry, String itemKey, FeatureItem<?>... items) {
 		List<ItemStack> stacks = new ArrayList<>(items.length);
 		for (FeatureItem<?> item : items) {

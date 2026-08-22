@@ -10,8 +10,10 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 
 import com.leon1236.reforestry.api.core.IProduct;
+import com.leon1236.reforestry.api.core.ToleranceType;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.api.genetics.alleles.IAllele;
+import com.leon1236.reforestry.api.genetics.alleles.IValueAllele;
 import com.leon1236.reforestry.api.genetics.chromosomes.IChromosome;
 
 public interface IAnalyzerGraphics {
@@ -34,6 +36,9 @@ public interface IAnalyzerGraphics {
 	void setHaploid(boolean haploid);
 
 	void drawTaxonomyPage(IGenome genome);
+
+	void drawClimatePreferences(IChromosome<IValueAllele<ToleranceType>> temperatureTolerance,
+			IChromosome<IValueAllele<ToleranceType>> humidityTolerance, IGenome genome);
 
 	void drawMutationsPage(IGenome genome, Function<Identifier, ItemStack> iconGetter);
 

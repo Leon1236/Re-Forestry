@@ -21,6 +21,7 @@ import net.minecraft.world.item.ItemStack;
 import com.leon1236.reforestry.api.core.IProduct;
 import com.leon1236.reforestry.core.compat.jei.ChanceTooltipCallback;
 import com.leon1236.reforestry.core.compat.jei.ForestryRecipeCategory;
+import com.leon1236.reforestry.core.compat.jei.GeneticsJeiHelper;
 
 public class ProductsRecipeCategory extends ForestryRecipeCategory<ProductRecipe> {
 	private static final int SPECIES_SLOT_X = 30;
@@ -30,15 +31,22 @@ public class ProductsRecipeCategory extends ForestryRecipeCategory<ProductRecipe
 	private static final int SPECIALTY_SLOTS_Y = 33;
 
 	private final IDrawable icon;
+	private final IRecipeType<ProductRecipe> recipeType;
 
-	public ProductsRecipeCategory(IDrawable background, IDrawable icon) {
-		super(background, "for.jei.products.reforestry.bee_species");
+	public ProductsRecipeCategory(
+			IDrawable background,
+			IDrawable icon,
+			IRecipeType<ProductRecipe> recipeType,
+			String titleKey
+	) {
+		super(background, titleKey);
 		this.icon = icon;
+		this.recipeType = recipeType;
 	}
 
 	@Override
 	public IRecipeType<ProductRecipe> getRecipeType() {
-		return ApicultureJeiRecipeTypes.BEE_PRODUCTS;
+		return recipeType;
 	}
 
 	@Override
@@ -91,7 +99,7 @@ public class ProductsRecipeCategory extends ForestryRecipeCategory<ProductRecipe
 	@Override
 	public void draw(ProductRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphicsExtractor graphics, double mouseX, double mouseY) {
 		super.draw(recipe, recipeSlotsView, graphics, mouseX, mouseY);
-		BeeJeiHelper.drawCentered(graphics, BeeJeiHelper.speciesName(recipe.speciesId), SPECIES_SLOT_X + 9, SPECIES_SLOT_Y + 22, 0xffffff);
+		GeneticsJeiHelper.drawCentered(graphics, recipe.species.getDisplayName(), SPECIES_SLOT_X + 9, SPECIES_SLOT_Y + 22, 0xffffff);
 	}
 
 	private record ProductChanceTooltip(List<? extends IProduct> products) implements IRecipeSlotRichTooltipCallback {

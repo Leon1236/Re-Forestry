@@ -14,10 +14,12 @@ import net.minecraft.resources.Identifier;
 
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.api.genetics.IGeneticManager;
+import com.leon1236.reforestry.api.genetics.IKaryotype;
 import com.leon1236.reforestry.api.genetics.IMutationManager;
 import com.leon1236.reforestry.api.genetics.ISpeciesType;
 import com.leon1236.reforestry.api.genetics.ITaxon;
 import com.leon1236.reforestry.api.genetics.TaxonomicRank;
+import com.leon1236.reforestry.api.genetics.chromosomes.IChromosome;
 
 public final class GeneticManager implements IGeneticManager {
 	private final Map<Identifier, ISpeciesType<?, ?>> speciesTypes = new LinkedHashMap<>();
@@ -30,6 +32,7 @@ public final class GeneticManager implements IGeneticManager {
 	public void applyDatapackTaxa(Collection<TaxonDefinition> definitions) {
 		if (definitions.isEmpty()) {
 			taxa = ImmutableMap.of();
+			rebuildDefaultGenomes();
 			return;
 		}
 
@@ -59,7 +62,7 @@ public final class GeneticManager implements IGeneticManager {
 					ReForestry.LOGGER.warn("Datapack taxon '{}' skipped: already registered", def.name());
 				} else {
 					TaxonomicRank rank = def.rank() != null ? def.rank() : parent.rank().next();
-					merged.put(def.name(), new Taxon(def.name(), rank, parent, Map.of()));
+					merged.put(def.name(), new Taxon(def.name(), rank, parent, buildTaxonAlleles(def)));
 				}
 			}
 		}
@@ -67,6 +70,43 @@ public final class GeneticManager implements IGeneticManager {
 			ReForestry.LOGGER.warn("Datapack taxon '{}' skipped: parent '{}' was never registered", def.name(), def.parent());
 		}
 		taxa = ImmutableMap.copyOf(merged);
+		rebuildDefaultGenomes();
+	}
+
+	private Map<IChromosome<?>, ITaxon.TaxonAllele> buildTaxonAlleles(TaxonDefinition def) {
+		if (def.alleles().isEmpty()) {
+			return Map.of();
+		}
+		if (def.type() == null) {
+			ReForestry.LOGGER.warn("Taxon '{}' declares alleles but species type is unknown; ignoring its defaults",
+					def.name());
+			return Map.of();
+		}
+		ISpeciesType<?, ?> type = getSpeciesTypeSafe(def.type());
+		if (type == null) {
+			ReForestry.LOGGER.warn("Taxon '{}' declares alleles but species type '{}' is unknown; ignoring its defaults",
+					def.name(), def.type());
+			return Map.of();
+		}
+		IKaryotype karyotype = type.getKaryotype();
+		Map<IChromosome<?>, ITaxon.TaxonAllele> result = new LinkedHashMap<>();
+		for (var entry : def.alleles().entrySet()) {
+			IChromosome<?> chromosome = entry.getKey();
+			if (!karyotype.chromosomes().contains(chromosome)) {
+				ReForestry.LOGGER.warn(
+						"Taxon '{}' default allele skipped: chromosome '{}' is invalid for species type '{}'",
+						def.name(), chromosome.id(), def.type());
+				continue;
+			}
+			result.put(chromosome, entry.getValue());
+		}
+		return Map.copyOf(result);
+	}
+
+	private static void rebuildDefaultGenomes() {
+		com.leon1236.reforestry.apiculture.genetics.ApicultureGenetics.rebuildDefaultGenomes();
+		com.leon1236.reforestry.arboriculture.genetics.ArboricultureGenetics.rebuildDefaultGenomes();
+		com.leon1236.reforestry.lepidopterology.genetics.LepidopterologyGenetics.rebuildDefaultGenomes();
 	}
 
 	@Override

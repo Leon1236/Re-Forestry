@@ -27,4 +27,7 @@ public interface IForestryModule {
 
     default void registerClientHandler(Consumer<IClientModuleHandler> registrar) {
     }
+
+    default void installClientManagers(com.leon1236.reforestry.core.client.ClientRegistrationImpl registration) {
+    }
 }

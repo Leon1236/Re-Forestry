@@ -20,11 +20,16 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.state.BlockState;
 
+import com.leon1236.reforestry.api.IForestryApi;
 import com.leon1236.reforestry.api.apiculture.IBeeHousing;
 import com.leon1236.reforestry.api.apiculture.IFlowerType;
 import com.leon1236.reforestry.api.apiculture.genetics.IBee;
 import com.leon1236.reforestry.api.apiculture.genetics.IBeeEffect;
+import com.leon1236.reforestry.api.climate.IClimateManager;
+import com.leon1236.reforestry.api.core.HumidityType;
 import com.leon1236.reforestry.api.core.IError;
+import com.leon1236.reforestry.api.core.TemperatureType;
+import com.leon1236.reforestry.api.genetics.ClimateHelper;
 import com.leon1236.reforestry.api.genetics.IEffectData;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.api.genetics.pollen.IPollen;
@@ -139,7 +144,22 @@ public class Bee extends IndividualLiving<IBeeSpecies, IBee, BeeSpeciesType> imp
 
 	@Override
 	public List<Holder.Reference<Biome>> getSuitableBiomes(Registry<Biome> registry) {
-		return List.of();
+		ArrayList<Holder.Reference<Biome>> suitable = new ArrayList<>();
+		for (Holder.Reference<Biome> holder : registry.listElements().toList()) {
+			if (isSuitableBiome(holder)) {
+				suitable.add(holder);
+			}
+		}
+		return suitable;
+	}
+
+	private boolean isSuitableBiome(Holder<Biome> biome) {
+		IClimateManager manager = IForestryApi.get().getClimateManager();
+		TemperatureType temperature = manager.getTemperature(biome);
+		HumidityType humidity = manager.getHumidity(biome);
+		return ClimateHelper.isWithinLimits(temperature, humidity,
+				species.getTemperature(), genome.getActiveAllele(BeeChromosomes.TEMPERATURE_TOLERANCE).value(),
+				species.getHumidity(), genome.getActiveAllele(BeeChromosomes.HUMIDITY_TOLERANCE).value());
 	}
 
 	@Override

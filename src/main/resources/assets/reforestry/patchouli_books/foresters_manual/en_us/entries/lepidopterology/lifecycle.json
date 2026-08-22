@@ -1,0 +1,15 @@
+{
+  "name": "for.gui.book.patchouli.entry.lepidopterology.lifecycle",
+  "category": "reforestry:lepidopterology",
+  "icon": "reforestry:caterpillar",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "for.gui.book.patchouli.entry.lepidopterology.lifecycle1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "for.gui.book.patchouli.entry.lepidopterology.lifecycle2"
+    }
+  ]
+}

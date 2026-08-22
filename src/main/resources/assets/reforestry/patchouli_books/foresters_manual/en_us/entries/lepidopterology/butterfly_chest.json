@@ -1,0 +1,16 @@
+{
+  "name": "for.gui.book.patchouli.entry.lepidopterology.butterfly_chest",
+  "category": "reforestry:lepidopterology",
+  "icon": "reforestry:butterfly_chest",
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "recipe": "reforestry:butterfly_chest",
+      "text": "for.gui.book.patchouli.entry.lepidopterology.butterfly_chest1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "for.gui.book.patchouli.entry.lepidopterology.butterfly_chest2"
+    }
+  ]
+}

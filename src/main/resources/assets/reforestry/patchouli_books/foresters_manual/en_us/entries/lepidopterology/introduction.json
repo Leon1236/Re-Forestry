@@ -1,0 +1,15 @@
+{
+  "name": "for.gui.book.patchouli.entry.lepidopterology.introduction",
+  "category": "reforestry:lepidopterology",
+  "icon": "reforestry:butterfly",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "for.gui.book.patchouli.entry.lepidopterology.introduction1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "for.gui.book.patchouli.entry.lepidopterology.introduction2"
+    }
+  ]
+}

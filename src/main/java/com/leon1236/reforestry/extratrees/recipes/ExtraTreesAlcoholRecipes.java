@@ -1,5 +1,9 @@
 package com.leon1236.reforestry.extratrees.recipes;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.material.Fluid;
@@ -23,7 +27,12 @@ public final class ExtraTreesAlcoholRecipes {
 		seeded = true;
 		registerPress();
 		registerBrewery();
+		registerLiqueurs();
 		registerDistillery();
+	}
+
+	private static TagKey<Item> cropTag(String path) {
+		return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", "crops/" + path));
 	}
 
 	private static void registerPress() {
@@ -82,6 +91,21 @@ public final class ExtraTreesAlcoholRecipes {
 		BreweryRecipeManager.addGrainRecipe(ExtraTreesTags.Items.GRAIN_CORN, ExtraTreesFluids.CORN.getFluid(), null, new ItemStack(ExtraTreesItems.YEAST.item()));
 		BreweryRecipeManager.addGrainRecipe(ExtraTreesTags.Items.GRAIN_RYE, ExtraTreesFluids.RYE.getFluid(), null, new ItemStack(ExtraTreesItems.YEAST.item()));
 		BreweryRecipeManager.addGrainRecipe(ExtraTreesTags.Items.GRAIN_WHEAT, ExtraTreesFluids.WHEAT.getFluid(), null, new ItemStack(ExtraTreesItems.YEAST.item()));
+	}
+
+	private static void registerLiqueurs() {
+		Fluid spirit = ExtraTreesFluids.NEUTRAL_SPIRIT.getFluid();
+		BreweryRecipeManager.addLiqueurRecipe(spirit, cropTag("almond"), ExtraTreesFluids.ALMOND.getFluid());
+		BreweryRecipeManager.addLiqueurRecipe(spirit, cropTag("orange"), ExtraTreesFluids.LIQUEUR_ORANGE.getFluid());
+		BreweryRecipeManager.addLiqueurRecipe(spirit, cropTag("banana"), ExtraTreesFluids.LIQUEUR_BANANA.getFluid());
+		BreweryRecipeManager.addLiqueurRecipe(spirit, cropTag("coffee"), ExtraTreesFluids.COFFEE.getFluid());
+		BreweryRecipeManager.addLiqueurRecipe(spirit, cropTag("hazelnut"), ExtraTreesFluids.HAZELNUT.getFluid());
+		BreweryRecipeManager.addLiqueurRecipe(spirit, cropTag("peach"), ExtraTreesFluids.LIQUEUR_PEACH.getFluid());
+		BreweryRecipeManager.addLiqueurRecipe(spirit, cropTag("lime"), ExtraTreesFluids.LIQUEUR_LEMON.getFluid());
+		BreweryRecipeManager.addLiqueurRecipe(spirit, cropTag("cherry"), ExtraTreesFluids.LIQUEUR_CHERRY.getFluid());
+		BreweryRecipeManager.addLiqueurRecipe(spirit, cropTag("blackcurrant"), ExtraTreesFluids.BLACKCURRANT.getFluid());
+		BreweryRecipeManager.addLiqueurRecipe(spirit, cropTag("blackberry"), ExtraTreesFluids.BLACKBERRY.getFluid());
+		BreweryRecipeManager.addLiqueurRecipe(spirit, cropTag("raspberry"), ExtraTreesFluids.RASPBERRY.getFluid());
 	}
 
 	private static void registerDistillery() {

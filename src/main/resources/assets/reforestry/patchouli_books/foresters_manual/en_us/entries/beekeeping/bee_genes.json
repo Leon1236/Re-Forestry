@@ -1,7 +1,7 @@
 {
   "name": "for.gui.book.patchouli.entry.beekeeping.genes",
   "category": "reforestry:beekeeping",
-  "icon": "reforestry:bee_larvae_ge{Genome:{Chromosomes:[{UID1:\"reforestry.speciesDiligent\",UID0:\"reforestry.speciesDiligent\",Slot:0b}]}}",
+  "icon": "reforestry:bee_larvae_ge",
   "pages": [
     {
       "type": "patchouli:text",

@@ -139,4 +139,20 @@ public final class LepidopterologyGenetics {
 		}
 		return null;
 	}
+
+	public static void rebuildDefaultGenomes() {
+		if (!finalized) {
+			return;
+		}
+		for (Map.Entry<Identifier, ButterflySpeciesBuilder> entry : builders.entrySet()) {
+			ButterflySpeciesBuilder builder = entry.getValue();
+			IButterflySpecies species = speciesById.get(entry.getKey());
+			if (species == null) {
+				continue;
+			}
+			IRegistryAllele<IButterflySpecies> allele = AlleleManager.INSTANCE.registryAllele(species,
+					builder.dominant());
+			defaultGenomes.put(entry.getKey(), builder.buildGenome(allele));
+		}
+	}
 }

@@ -57,6 +57,11 @@ public class FarmBlock extends BlockStructure {
 		return this.farmMaterial;
 	}
 
+	@Override
+	protected boolean isSignalSource(BlockState state) {
+		return this.type == EnumFarmBlockType.CONTROL;
+	}
+
 	@Nullable
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {

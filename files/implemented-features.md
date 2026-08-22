@@ -3,7 +3,7 @@
 What is **done and working** in the mod today.  
 Update this file when a roadmap step lands. For how-to-build guidance, see `CLAUDE.md`. For the next work items, see **Next up** at the bottom.
 
-Last updated: 2026-08-21 (S2: lepidopterology genetic filter rules. Wave 7 remaining: none)
+Last updated: 2026-08-22 (Wave 9 complete: stages 0–11 + 13)
 
 ---
 
@@ -33,6 +33,17 @@ Last updated: 2026-08-21 (S2: lepidopterology genetic filter rules. Wave 7 remai
 | CORE-E5 | Escritoire BER | Desk BER (`RenderEscritoire` + `escritoire.png`); specimen on `SLOT_ANALYZE` via BE update tag / `sendBlockUpdated` (no `itemstack_display`). Item special TESR. See `queries/core-e5.md` |
 | CORE-V1 | Arborist villager | Unemployed villager takes arborist job at `tree_chest`. Trades copy CE `ArboricultureVillagers` (planks/logs/sapling/pollen/`grafter_proven`). 26.2 `TradeSet` datapack + loot functions. Complexity = CE mutation-depth heuristic; giant sequoia forced to 10. See `queries/core-v1-arborist.md` |
 | CORE-V2 | Beekeeper villager | Unemployed villager takes beekeeper job at `escritoire`. Trades copy CE `ApicultureVillagers` (combs/smoker/propolis drones/princess/frame/apiary/monastic/ended). 26.2 `TradeSet` datapack + loot functions. Apiarist houses under `structure/village/` + jigsaw inject. See `queries/core-v2-beekeeper.md` |
+| W9-JEI-CORE | Core JEI descriptions | `CoreJeiPlugin`: compost/mulch/fertilizer, desk analyzer, escritoire, pipette, wrench, portable alyzer. `JeiDescriptions` grouped overload for blocks. See `queries/apiculture-jei.md` |
+| W9-HYGIENE | Mail/orphan asset cleanup | Removed mail `ForestryError` constants + lang; deleted orphan `infuser`/`raintank` assets + Patchouli raintank entry; removed `foresters_manual.stub` lang. See `queries/mail-dropped.md` |
+| W9-GEN-JEI | Genetics JEI (tree + butterfly) | Shared `GeneticsJeiHelper`; tree/butterfly product + mutation categories; `Mutation.specialAlleles` on JEI stacks; `LepidopterologyJeiPlugin`; mutatron opens all mutation types. See `queries/apiculture-jei.md` |
+| W9-BOOK-GEN | Almanac genetics + lepidopterology | `genetics/filter` entry + new lepidopterology category (6 pages). See `queries/core-A8-foresters-manual.md` |
+| W9-GP-POLISH | Genetics Wave 5 deferred Should | Taxon JSON alleles → default genomes; `Bee.getSuitableBiomes`; hive-drop allele overload; bee/leaf/sapling client model maps. See `queries/genetics-GP0-polish.md` |
+| W9-FACTORY-DATA | Comb blocks + wax capsule recipe | 17 comb→block crafts + advancements; `bog_earth_wax_capsule` alias. See `queries/factory-F6-data.md` |
+| W9-FACTORY-VIS | Factory polish + machine book | Industrial apiary owner ledger; smelter almanac page; rainmaker client FX. See `queries/wave9-stage7.md` |
+| W9-ADDON-POLISH | Addon UX + almanac appendix | EB centrifuge fallbacks; ET press/brewery/distillery GUI art + liqueurs; Addons book category (4 pages). See `queries/wave9-stage8.md` |
+| W9-CORE-UX | Farm + analyzer UX | Farm CONTROL redstone wire connect; portable alyzer taxonomy + climate icons; farm/arbor almanac verified. See `queries/wave9-stage9.md` |
+| W9-BOOK-BEE | Beekeeping almanac batch | 19 beekeeping + alveary pages; `tools/validate_book.py`. See `queries/wave9-stage10.md` |
+| TR1 | Trinkets spectacles slot | Optional `compat/trinkets/` — spectacles in head face/hat when Trinkets loaded; helmet slot unchanged (A5). See `queries/wave9-stage11-tr1.md` |
 
 ---
 
@@ -47,8 +58,8 @@ Last updated: 2026-08-21 (S2: lepidopterology genetic filter rules. Wave 7 remai
 | A4 | Wrench + pipette | `IToolPipette` API; wrench rotates `BlockMachine` facings; pipette fills/empties GUI tanks via Fabric transfer — see `queries/core-A4-wrench-pipette.md` |
 | A5 | Naturalist helmet | `naturalist_helmet` / spectacles; `IArmorNaturalist` + `ISpectacleBlock`; Gizmo outlines for pollinated leaves, wild hives, creative multiblock refs — see `queries/core-A5-naturalist-helmet.md` |
 | A6 | Research note | `research_note` + breeding tracker; structure-chest loot with random mutation data — see `queries/core-A6-research-note.md` |
-| A7 | Portable alyzer | `portable_alyzer` item GUI; `IndividualItems` + `analyzed` component; bee/tree chromosome pages — see `queries/core-A7-portable-alyzer.md` |
-| A8 | Forester's manual | Stub item + recipes; Patchouli book assets kept inert until 26.2 Patchouli exists — see `queries/core-A8-foresters-manual.md` |
+| A7 | Portable alyzer | `portable_alyzer` item GUI; taxonomy tree + climate/tolerance icons on pages II/V (Wave 9 Stage 9). See `queries/core-A7-portable-alyzer.md` |
+| A8 | Forester's manual | Native Forester's Almanac: ~73 entries / 11 categories (core, machines, engines, beekeeping, alveary, farming, arboriculture, genetics, lepidopterology, addons). See `queries/core-A8-foresters-manual.md`, `queries/wave9-implementation-report.md` |
 | A9 | Naturalist chests + desk analyzer | `bee_chest` / `tree_chest` / `butterfly_chest` (125-slot paged GUI, species filters). Analyzer: honey + FE → analyze. Bag recipes craftable except lepidopterist (no butterfly-chest recipe until lepidopterology). Escritoire: `CORE-E1a` (empty GUI); game/notes/BER later. See `queries/core-naturalist-chests.md` |
 | 6 | Simple blocks | 81 vanilla-wood fireproof wood blocks |
 | 3C | Bee comb blocks | 17 `block_bee_comb_*` with dual-tint coloring |
@@ -74,7 +85,7 @@ Last updated: 2026-08-21 (S2: lepidopterology genetic filter rules. Wave 7 remai
 | 4.7 | Bee effects P0 + jubilance | Remaining dummy effects are real CE classes (radioactive, creeper, ignition, reanimation/resurrection, repulsion, fertile, mycophilic, sifter, glow berry, rejuvenation/chronophage, guardian, phasing, ascension, sculk). EASTER stays dummy. Specialties only if both species jubilant, then primary specialties × speed. Hermit jubilance on monastic/secluded/hermitic. `tryMate` registers the new queen. See `queries/apiculture-effects-p0.md` |
 | 4.8 | Pristine / ignoble stock | Wild hive princesses roll CE ignoble chance; tooltip (genome required) + analyzer show Pristine/Ignoble Stock (pristine italic) and captivity generations; patriotic bees also produce random fireworks; `/reforestry bee give [species] [drone\|princess\|queen\|larvae] [player]` (path-only species, default forest drone). See `queries/apiculture-pristine-ignoble.md` |
 | 4.9 | Wax blocks | CE 1.20.1 restore: `wax_block` / `wax_block_refractory` (3×3 wax ↔ 9 items). Yellow block is flammable 45/45; 26.2 has no `onCaughtFire` melt. Fabricator wax smelting skipped (no crafts consume wax fluid). Creative tab: after wild hives, before alveary. See `queries/apiculture-wax-blocks.md` |
-| 4.10 | Bee JEI | Products + mutations categories (`reforestry:bee_species_products` / `bee_species_mutations`); species subtypes on all four bee items; creative-frame force-mutation subtype; frame/suit/scoop descriptions. Bees only — no tree/butterfly species-type loop. See `queries/apiculture-jei.md` |
+| 4.10 | Bee JEI | Products + mutations categories (`reforestry:bee_species_products` / `bee_species_mutations`); species subtypes on all four bee items; creative-frame force-mutation subtype; frame/suit/scoop descriptions. Tree/butterfly categories in arboriculture/lepidopterology plugins (Stage 4). See `queries/apiculture-jei.md` |
 | A-CRAFT | Survival craft recipes | Shaped crafts for existing `apiary`, `bee_house`, `honeyed_slice`, `ambrosia`. `honey_pot` restored from 1.12 (CE 1.21.1 dropped it). Apiary center is `impregnated_casing` (CE 1.21.1, not `sturdy_machine`). See `queries/a-craft-honey-pot.md` |
 | A-BREW | Pollen brewing | Awkward potion + `pollen_cluster_normal` → healing; awkward + `pollen_cluster_crystalline` → regeneration. Fabric `FabricPotionBrewingBuilder.BUILD` (no Mixin). Holders: `minecraft:awkward`, `minecraft:healing`, `minecraft:regeneration` |
 | A-SNIFF | Sniffer amber drone | `minecraft:gameplay/sniffer_digging` (`BuiltInLootTables.SNIFFER_DIGGING`): `amber_drone` and `amber_sapling` added to the existing pool via Fabric `modifyPools`. See `queries/a-sniff.md` |
@@ -108,7 +119,7 @@ Last updated: 2026-08-21 (S2: lepidopterology genetic filter rules. Wave 7 remai
 | 11.9f | Creative tabs / models / lang | Tab lists leaves/pods/boats/charcoal; MC 26.2 item defs; lang fallbacks |
 | 11.9g | Tree admin commands | `/reforestry tree spawnTree\|spawnForest <species>` (op; needs player look-dir) |
 | 11.9i | Integration pass | Play-loop probes + docs; fixed `pale_pale_oak_*` datapack ids and item `#minecraft:leaves` ↔ block-only `reforestry:leaves` — see `queries/arb-11.9i-integration.md` |
-| ARB-JEI | Tree/charcoal JEI | Sapling + `pollen_fertile` species subtypes; grafter / `grafter_proven` descriptions; charcoal pile category `reforestry:charcoal.pile` from `CharcoalManager.getWalls()` (catalyst `log_pile`). No tree mutation/product categories (CE has none). |
+| ARB-JEI | Tree/charcoal JEI | Sapling + `pollen_fertile` species subtypes; grafter / `grafter_proven` descriptions; charcoal pile category `reforestry:charcoal.pile` from `CharcoalManager.getWalls()`; tree product + mutation categories (Stage 4). |
 
 **Deferred / polish (not blocking Phase 5):** none. Arborist villager is **CORE-V1** (done).
 
@@ -202,6 +213,7 @@ Play notes: `queries/storage-B1-b3-backpacks.md`, `queries/storage-B4-naturalist
 | FE0 | Energy module + fuels | `reforestry:energy` toggles in module config. `EngineBronzeFuel` / `EngineCopperFuel` on existing `api.fuels`. Biogas + peat maps seeded from CE `setupApi` (no ethanol). See `queries/energy-FE0.md` |
 | FE1 | Peat engine | `reforestry:peat_engine` (not `engine_peat`). Place, feed peat, redstone on, face a centrifuge → centrifuge runs without `debug_creative_energy`. Ash every 7500 burn ticks. See `queries/energy-FE1.md` |
 | FE2 | Biogas + clockwork | `reforestry:biogas_engine` burns fluid fuel (needs heat / lava in the heating tank) and pushes FE. `reforestry:clockwork_engine` has no menu; right-click winds, overwind deals `reforestry:clockwork` damage. See `queries/energy-FE2.md` |
+| W9-JEI-ENG | Engine JEI descriptions | `EnergyJeiPlugin`: peat/biogas/clockwork engine ingredient info (module-gated). |
 
 ## Wave 3 — Sorting
 
@@ -210,6 +222,7 @@ Play notes: `queries/storage-B1-b3-backpacks.md`, `queries/storage-B4-naturalist
 | S0 | Filter API + sorting module | `reforestry:sorting` toggles in module config. `IForestryApi.getFilterManager()` holds `DefaultFilterRuleType` (CLOSED default). `FilterData` is `(Identifier, IGenome, String)` over `IndividualItems` — no `ISpecies`/`IIndividual`. `IFilterSlotDelegate` on `ItemInventory`. No genetic_filter block. See `queries/sorting-S0.md` |
 | S1 | Genetic filter block | Place `reforestry:genetic_filter`. GUI rules + discovered bee/tree species picker (Identifier, not `ISpecies`). Hopper in → matching faces out. Custom `ItemStorage.SIDED` insert routing (not worldly `InventoryHelper`). Bee/tree rules only. See `queries/sorting-S1.md` |
 | S2 | Butterfly / moth filter rules | `LepidopterologyFilterRuleType` (flutter/butterfly/serum/caterpillar/cocoon) + shared PURE_BREED/NOCTURNAL/FLYER logics. Species picker discovers CE butterflies + ET6 `moth_*`. Analyzer sprites already on disk. See `queries/sorting-S2.md` |
+| W9-JEI-SORT | Filter JEI description | `SortingJeiPlugin`: `genetic_filter` ingredient info (module-gated). |
 
 ## Wave 4 — Farming
 
@@ -235,7 +248,9 @@ Play notes: `queries/storage-B1-b3-backpacks.md`, `queries/storage-B4-naturalist
 
 ## Next up (not implemented yet)
 
-**Next up: none for Wave 7.** S2 genetic filter butterfly/moth rules landed. Deferred only: ET-D, ET-K, never-shipped infuser/nursery. No solar/combustion.
+**Wave 9 is complete** (stages 0–11 + 13). Optional **Wave 8 restore** (Stage 12): climatology/greenhouse/database/decorative blocks — see `queries/remaining-work-stages.md`.
+
+Remaining almanac gaps: `validate_book.py` flags ~12 core pages referencing CE resource-storage / compost recipe ids not ported (tin/bronze/apatite blocks never registered).
 
 **Wave 7 addons:** GD0 + EB1 + GD1–GD8 + EB5 + EB6 + EB-FLOWERS+EB3 + EB2a–EB2e + EB4 + ET1a + ET1b + ET2 + ET3 + ET4 + ET5 + ET6 + S2 **done**.
 
@@ -250,9 +265,9 @@ Play notes: `queries/storage-B1-b3-backpacks.md`, `queries/storage-B4-naturalist
 | `GD6` | Done | `imprinter` / `genetic_transposer` / `replicator`; dual DNA+protein tanks; blank/source/dna/protein/template errors; FE ctor swap. See `queries/gendustry-GD6.md` |
 | `GD7a` | Done | `industrial_apiary` as `IBeeHousing` + `new BeekeepingLogic(this)`; FE (1M/100k, BASE_ENERGY 200); menu/GUI; upgrade slots accept items with identity modifiers. See `queries/gendustry-GD7a.md` |
 | `GD7b` | Done | `IndustrialApiaryBeeModifier`; upgrade energy + climate/throttle; fertility drones; automation recycle; youth mutation −20%/stack (honest tooltip); sieve pollen; `IBeekeepingLogic.setWorkThrottle`. See `queries/gendustry-GD7b.md` |
-| `GD8` | Done | 12 `GendustryError` sprites + lang; `GendustryJeiPlugin` soft entry; mutagen/protein/DNA JEI categories + catalysts; gene-sample subtypes; fluid info; mutatron→mutation click. See `queries/gendustry-GD8.md` |
+| `GD8` | Done | 12 `GendustryError` sprites + lang; `GendustryJeiPlugin` soft entry; mutagen/protein/DNA JEI categories + catalysts; gene-sample subtypes; fluid info; mutatron→mutation click; **Wave 9 Stage 3:** all 10 machine + upgrade/elite-upgrade ingredient descriptions. See `queries/gendustry-GD8.md` |
 | `EB1` | Done | `ModuleExtraBees` + plugin; depends apiculture; 74 combs, 24 drops, 4 propolis, 5 frames, 30 misc, ectoplasm, 4 hives (`beehive_eb_nether`); frame crafts + carpenter `scented_gear` + dust/shard recipes. Worldgen/loot EB4. See `queries/extra-bees-EB1.md` |
-| `EB5` | Done | 7 alveary parts (`alveary_mutator|frame|rain_shield|lighting|stimulator|hatchery|transmission`); multiblock `IAlvearyComponent`; 7 crafts; 9 stimulator circuits + FE; GUIs for mutator/frame/hatchery/stimulator. See `queries/extra-bees-EB5.md` |
+| `EB5` | Done | 7 alveary parts (`alveary_mutator|frame|rain_shield|lighting|stimulator|hatchery|transmission`); multiblock `IAlvearyComponent`; 7 crafts; 9 stimulator circuits + FE; GUIs for mutator/frame/hatchery/stimulator. **Wave 9 Stage 3:** `ExtraBeesJeiPlugin` frame/alveary/ectoplasm/hive descriptions. See `queries/extra-bees-EB5.md` |
 | `EB6` | Done | 74 centrifuge + 21 squeezer datapack recipes from `extra-bees-items.json` via `tools/generate_extra_bees_machine_recipes.py`; soft-skip IC2/OreDict/missing fluids. See `queries/extra-bees-EB6.md` |
 | `EB-FLOWERS` + `EB3` | Done | 11 flower types + 25 effects (`bee_effect_eb_radioactive`); soft Botania MYSTICAL; FX particles; lang. See `queries/extra-bees-EB3.md` |
 | `EB2a` | Done | 25 species (barren/rocky/hostile/volcanic/shadow/aquatic/classical; hive WATER/ROCK/BASALT/MARBLE); 22 EB mutations; 34 `modifySpecies` FR mutations; taxa + lang; generator `tools/generate_extra_bees_species.py`. Deferred INK/GLOWSTONE. See `queries/extra-bees-EB2a.md` |
@@ -281,6 +296,7 @@ Play notes: `queries/storage-B1-b3-backpacks.md`, `queries/storage-B4-naturalist
 | GP0b Plugin registerGenetics | done | genetics-first plugin order; flower/pollen/error/client hooks |
 | GP0c Promote bee/tree API | done | `IBee`/`ITree`/`IFruit`; `modifySpecies`; `ITreeManager` |
 | GP0d Lepidopterology API shell | done | empty `BUTTERFLY` type; 34 taxa; items landed in Wave 6 D0 |
+| GP-POLISH (Wave 9 Stage 5) | done | Taxon alleles, suitable biomes, hive-drop alleles, client model maps — see `queries/genetics-GP0-polish.md` |
 
 ## Wave 6 — Lepidopterology
 
@@ -302,7 +318,7 @@ Older (partially stale): [`queries/item-gap-implementation-plan.md`](../queries/
 | 2 | `D0→D4` | **Lepidopterology** | **done** (merged from GitHub). Unlocks `butterfly_chest` recipe and sorting `S2` |
 | 3 | Addons | Gendustry → Extra Bees → Extra Trees | Config modules; **GD0…GD8 + EB1 + EB5 + EB6 + EB-FLOWERS+EB3 + EB2a–EB2e + EB4 + ET1a + ET1b + ET2 + ET3 + ET4 + ET5 + ET6 + S2 done**. Wave 7 remaining: none |
 | 4 | Restore | Greenhouse, climatology, database, guide book (CE-dropped 1.12) | Optional |
-| — | `TR1` | Optional Trinkets spectacles slot | Helmet already works (A5) |
+| — | `TR1` | Optional Trinkets spectacles slot | **done** — `core/compat/trinkets/`; see `queries/wave9-stage11-tr1.md` |
 
 ---
 

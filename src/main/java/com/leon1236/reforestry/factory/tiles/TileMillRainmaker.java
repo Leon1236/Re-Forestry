@@ -93,6 +93,17 @@ public class TileMillRainmaker extends TileMill {
 
             yParticle += 2;
             particleCount++;
+        } else if (!isSimulating && this.charge > 0 && level.getRandom().nextInt(6) == 0) {
+            var random = level.getRandom();
+            level.addParticle(
+                    ParticleTypes.CLOUD,
+                    this.getBlockPos().getX() + 0.5 + (random.nextDouble() - 0.5) * 0.2,
+                    this.getBlockPos().getY() + 1.0 + random.nextDouble(),
+                    this.getBlockPos().getZ() + 0.5 + (random.nextDouble() - 0.5) * 0.2,
+                    0.0,
+                    0.01,
+                    0.0
+            );
         }
     }
 

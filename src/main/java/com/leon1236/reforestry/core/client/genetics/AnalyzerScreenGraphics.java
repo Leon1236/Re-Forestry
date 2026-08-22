@@ -1,5 +1,6 @@
 package com.leon1236.reforestry.core.client.genetics;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
@@ -12,21 +13,28 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.renderer.RenderPipelines;
+import net.minecraft.locale.Language;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.Identifier;
+import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.api.client.genetics.IAnalyzerGraphics;
+import com.leon1236.reforestry.api.core.IClimateSensitive;
 import com.leon1236.reforestry.api.core.IProduct;
+import com.leon1236.reforestry.api.core.ToleranceType;
+import com.leon1236.reforestry.api.genetics.ClimateHelper;
 import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
 import com.leon1236.reforestry.api.genetics.IBreedingTracker;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.api.genetics.IMutation;
+import com.leon1236.reforestry.api.genetics.ISpecies;
+import com.leon1236.reforestry.api.genetics.ITaxon;
 import com.leon1236.reforestry.api.genetics.alleles.IAllele;
 import com.leon1236.reforestry.api.genetics.alleles.IRegistryAlleleValue;
+import com.leon1236.reforestry.api.genetics.alleles.IValueAllele;
 import com.leon1236.reforestry.api.genetics.chromosomes.IChromosome;
 import com.leon1236.reforestry.api.genetics.chromosomes.IRegistryChromosome;
 import com.leon1236.reforestry.apiculture.genetics.ApicultureGenetics;
@@ -42,6 +50,10 @@ public class AnalyzerScreenGraphics implements IAnalyzerGraphics {
 
 	private static final int LABEL_COLOR = 0xFF404040;
 	private static final int RESEARCHED_PLUS_COLOR = 0xFF000000;
+	private static final int CLIMATE_PREFERENCE_COLOR = 0xFF3687EC;
+	private static final int SPECIES_GREEN = 0xFF7FFF00;
+	private static final int DESCRIPTION_GRAY = 0xFF808080;
+	private static final int SIGNATURE_COLOR = 0xFFADFF2F;
 	private static final Identifier TEXTURE = ReForestry.id("textures/gui/portablealyzer.png");
 
 	private final GuiGraphicsExtractor graphics;
@@ -184,20 +196,152 @@ public class AnalyzerScreenGraphics implements IAnalyzerGraphics {
 		drawText(Component.translatable("for.gui.alyzer.classification").append(":"));
 		addLineSpacing(1);
 
-		IChromosome<?> speciesChromosome = genome.karyotype().speciesChromosome();
-		if (!(speciesChromosome instanceof IRegistryChromosome<?> registry)) {
+		ISpecies<?> species = speciesFromGenome(genome);
+		if (species == null) {
 			drawText(Component.translatable("for.gui.alyzer.nodescription"));
 			return;
 		}
 
-		IRegistryAlleleValue active = genome.getActiveAllele((IRegistryChromosome<IRegistryAlleleValue>) registry).value();
-		MutableComponent speciesName = Component.translatable(
-				"allele." + registry.id().getNamespace() + '.' + registry.id().getPath() + '.' + active.id().getPath());
-		drawColored(speciesName, 0, 0xFF7FFF00);
+		ArrayDeque<ITaxon> hierarchy = new ArrayDeque<>();
+		ITaxon taxon = species.getGenus();
+		while (taxon != null) {
+			if (!taxon.name().isEmpty()) {
+				hierarchy.push(taxon);
+			}
+			taxon = taxon.parent();
+		}
+
+		boolean overcrowded = hierarchy.size() > 5;
+		int indent = 0;
+		while (!hierarchy.isEmpty()) {
+			ITaxon group = hierarchy.pop();
+			if (overcrowded && group.rank().isDroppable()) {
+				continue;
+			}
+
+			String name = Character.toUpperCase(group.name().charAt(0)) + group.name().substring(1);
+			drawColored(Component.literal(name), indent, group.rank().getColour() | 0xFF000000);
+			drawColored(Component.literal(group.rank().name()), 158, group.rank().getColour() | 0xFF000000);
+			addLineSpacing(1);
+			indent += 12;
+		}
+
+		String binomial = species.getBinomial();
+		if (this.font.width(binomial) > 96) {
+			binomial = Character.toUpperCase(species.getGenusName().charAt(0)) + ". " + species.getSpeciesName();
+		}
+		drawColored(Component.literal(binomial), indent, SPECIES_GREEN);
+		drawColored(Component.literal("SPECIES"), 158, SPECIES_GREEN);
 		addLineSpacing(1);
-		drawText(Component.translatable("for.gui.alyzer.authority").append(": Sengir"));
-		addLineSpacing(2);
-		drawText(Component.translatable("for.gui.alyzer.nodescription"));
+
+		drawText(Component.translatable("for.gui.alyzer.authority").append(": ").append(species.getAuthority()));
+		addLineSpacing(1);
+
+		String descriptionKey = species.getDescriptionTranslationKey();
+		if (Language.getInstance().has(descriptionKey)) {
+			String[] tokens = Component.translatable(descriptionKey).getString().split("\\|");
+			drawWrappedText(Component.literal(tokens[0]), DESCRIPTION_GRAY);
+			if (tokens.length > 1) {
+				addVerticalSpacing(1);
+				String signature = "- " + tokens[1];
+				drawColored(Component.literal(signature), 210 - 12 - this.font.width(signature), SIGNATURE_COLOR);
+			}
+		} else {
+			drawWrappedText(Component.translatable("for.gui.alyzer.nodescription"), DESCRIPTION_GRAY);
+		}
+	}
+
+	@Override
+	public void drawClimatePreferences(IChromosome<IValueAllele<ToleranceType>> temperatureTolerance,
+			IChromosome<IValueAllele<ToleranceType>> humidityTolerance, IGenome genome) {
+		IClimateSensitive active = climateSpecies(genome, true);
+		IClimateSensitive inactive = climateSpecies(genome, false);
+		if (active == null || inactive == null) {
+			return;
+		}
+
+		drawClimateSection(temperatureTolerance, species -> ClimateHelper.toDisplay(species.getTemperature()), active, inactive);
+		drawClimateSection(humidityTolerance, species -> ClimateHelper.toDisplay(species.getHumidity()), active, inactive);
+	}
+
+	private void drawClimateSection(IChromosome<IValueAllele<ToleranceType>> tolerance,
+			Function<IClimateSensitive, Component> preference, IClimateSensitive active, IClimateSensitive inactive) {
+		drawColored(tolerance.getChromosomeDisplayName(), 0, LABEL_COLOR);
+		drawColored(preference.apply(active), COLUMN_1, CLIMATE_PREFERENCE_COLOR);
+		if (!this.haploid) {
+			drawColored(preference.apply(inactive), COLUMN_2, CLIMATE_PREFERENCE_COLOR);
+		}
+		addLineSpacing(1);
+
+		int rowStartX = this.currentX;
+		this.currentX += 8;
+		IValueAllele<ToleranceType> activeTolerance = this.genome.getActiveAllele(tolerance);
+		IValueAllele<ToleranceType> inactiveTolerance = this.genome.getInactiveAllele(tolerance);
+		drawColored(Component.translatable("for.gui.tolerance"), 0, LABEL_COLOR);
+		drawToleranceAllele(tolerance, activeTolerance, COLUMN_1);
+		if (!this.haploid) {
+			drawToleranceAllele(tolerance, inactiveTolerance, COLUMN_2);
+		}
+		this.currentX = rowStartX;
+		addVerticalSpacing(2);
+	}
+
+	private void drawToleranceAllele(IChromosome<IValueAllele<ToleranceType>> tolerance, IValueAllele<ToleranceType> allele,
+			int column) {
+		int savedX = this.currentX;
+		if (column == COLUMN_1) {
+			this.currentX += 6;
+		}
+		Identifier icon = toleranceIcon(allele.value());
+		this.graphics.blit(RenderPipelines.GUI_TEXTURED, icon,
+				this.currentX - 16 + column, this.currentY - 4, 0.0f, 0.0f, 16, 16, 16, 16);
+		Component text = Component.literal("(")
+				.append(tolerance.getDisplayName(allele))
+				.append(")");
+		drawColored(text, column, colorForDominance(allele.dominant()));
+		this.currentX = savedX;
+	}
+
+	private static Identifier toleranceIcon(ToleranceType type) {
+		String name = switch (type) {
+			case BOTH_1, BOTH_2, BOTH_3, BOTH_4, BOTH_5 -> "tolerance_both";
+			case DOWN_1, DOWN_2, DOWN_3, DOWN_4, DOWN_5 -> "tolerance_down";
+			case UP_1, UP_2, UP_3, UP_4, UP_5 -> "tolerance_up";
+			default -> "tolerance_none";
+		};
+		return ReForestry.id("textures/reforestry/atlas/gui/analyzer/" + name + ".png");
+	}
+
+	private void drawWrappedText(Component text, int color) {
+		for (FormattedCharSequence line : this.font.split(text, 200)) {
+			this.graphics.text(this.font, line, this.currentX, this.currentY, color, false);
+			addVerticalSpacing(9);
+		}
+	}
+
+	@Nullable
+	@SuppressWarnings("unchecked")
+	private ISpecies<?> speciesFromGenome(IGenome genome) {
+		IChromosome<?> speciesChromosome = genome.karyotype().speciesChromosome();
+		if (!(speciesChromosome instanceof IRegistryChromosome<?> registry)) {
+			return null;
+		}
+		IRegistryAlleleValue value = genome.getActiveAllele((IRegistryChromosome<IRegistryAlleleValue>) registry).value();
+		return value instanceof ISpecies<?> species ? species : null;
+	}
+
+	@Nullable
+	@SuppressWarnings("unchecked")
+	private IClimateSensitive climateSpecies(IGenome genome, boolean active) {
+		IChromosome<?> speciesChromosome = genome.karyotype().speciesChromosome();
+		if (!(speciesChromosome instanceof IRegistryChromosome<?> registry)) {
+			return null;
+		}
+		IRegistryChromosome<IRegistryAlleleValue> typed = (IRegistryChromosome<IRegistryAlleleValue>) registry;
+		IRegistryAlleleValue value = active
+				? genome.getActiveAllele(typed).value()
+				: genome.getInactiveAllele(typed).value();
+		return value instanceof IClimateSensitive climate ? climate : null;
 	}
 
 	@Override

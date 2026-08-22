@@ -1,0 +1,17 @@
+{
+  "name": "for.gui.book.patchouli.entry.addons.industrial_apiary",
+  "category": "reforestry:addons",
+  "icon": "reforestry:industrial_apiary",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "reforestry:industrial_apiary",
+      "link_recipe": true,
+      "text": "for.gui.book.patchouli.entry.addons.industrial_apiary1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "for.gui.book.patchouli.entry.addons.industrial_apiary2"
+    }
+  ]
+}

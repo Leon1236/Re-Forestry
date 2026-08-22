@@ -66,6 +66,17 @@ public abstract class TileMill extends TileBase {
                             0.125f,
                             0.01f
                     );
+                } else if (level.isClientSide()) {
+                    var random = level.getRandom();
+                    level.addParticle(
+                            PARTICLES,
+                            this.getBlockPos().getX() + 0.5 + (random.nextDouble() - 0.5) * 0.25,
+                            this.getBlockPos().getY() + 0.5,
+                            this.getBlockPos().getZ() + 0.5 + (random.nextDouble() - 0.5) * 0.25,
+                            0.0,
+                            0.02,
+                            0.0
+                    );
                 }
                 setChanged();
             }

@@ -40,7 +40,11 @@
 			"com.leon1236.reforestry.worktable.compat.jei.WorktableJeiPlugin",
 			"com.leon1236.reforestry.farming.compat.jei.FarmingJeiPlugin",
 			"com.leon1236.reforestry.gendustry.compat.jei.GendustryJeiPlugin",
-			"com.leon1236.reforestry.extratrees.compat.jei.ExtraTreesJeiPlugin"
+			"com.leon1236.reforestry.extratrees.compat.jei.ExtraTreesJeiPlugin",
+			"com.leon1236.reforestry.energy.compat.jei.EnergyJeiPlugin",
+			"com.leon1236.reforestry.sorting.compat.jei.SortingJeiPlugin",
+			"com.leon1236.reforestry.extra_bees.compat.jei.ExtraBeesJeiPlugin",
+			"com.leon1236.reforestry.lepidopterology.compat.jei.LepidopterologyJeiPlugin"
 		]
 	},
 	"mixins": [

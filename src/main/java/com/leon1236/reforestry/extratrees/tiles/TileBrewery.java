@@ -143,12 +143,22 @@ public class TileBrewery extends TilePowered implements WorldlyContainer {
 					}
 				}
 			}
+		} else if (recipe.skipYeast() && recipe.ingredientTag() != null) {
+			ItemStack ingredient = items.get(SLOT_INPUT);
+			if (!ingredient.isEmpty()) {
+				ingredient.shrink(1);
+				if (ingredient.isEmpty()) {
+					items.set(SLOT_INPUT, ItemStack.EMPTY);
+				}
+			}
 		}
-		ItemStack yeast = items.get(SLOT_YEAST);
-		if (!yeast.isEmpty()) {
-			yeast.shrink(1);
-			if (yeast.isEmpty()) {
-				items.set(SLOT_YEAST, ItemStack.EMPTY);
+		if (!recipe.skipYeast()) {
+			ItemStack yeast = items.get(SLOT_YEAST);
+			if (!yeast.isEmpty()) {
+				yeast.shrink(1);
+				if (yeast.isEmpty()) {
+					items.set(SLOT_YEAST, ItemStack.EMPTY);
+				}
 			}
 		}
 		setChanged();

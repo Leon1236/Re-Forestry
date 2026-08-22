@@ -2,6 +2,7 @@ package com.leon1236.reforestry.core.plugin;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Supplier;
 
 import net.minecraft.resources.Identifier;
@@ -10,6 +11,8 @@ import net.minecraft.world.item.ItemStack;
 import com.leon1236.reforestry.api.apiculture.hives.IHive;
 import com.leon1236.reforestry.api.apiculture.hives.IHiveDefinition;
 import com.leon1236.reforestry.api.apiculture.hives.IHiveDrop;
+import com.leon1236.reforestry.api.genetics.alleles.IAllele;
+import com.leon1236.reforestry.api.genetics.chromosomes.IChromosome;
 import com.leon1236.reforestry.api.plugin.IHiveBuilder;
 import com.leon1236.reforestry.apiculture.genetics.HiveDrop;
 import com.leon1236.reforestry.apiculture.hives.Hive;
@@ -26,8 +29,8 @@ public final class HiveBuilder implements IHiveBuilder {
 
     @Override
     public IHiveBuilder addDrop(double chance, Identifier speciesId, Supplier<List<ItemStack>> extraItems,
-            float ignobleChance) {
-        drops.add(new HiveDrop(chance, speciesId, extraItems, ignobleChance));
+            float ignobleChance, Map<IChromosome<?>, IAllele> alleles) {
+        drops.add(new HiveDrop(chance, speciesId, extraItems, ignobleChance, alleles));
         return this;
     }
 

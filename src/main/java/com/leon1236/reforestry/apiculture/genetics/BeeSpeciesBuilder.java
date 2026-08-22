@@ -18,6 +18,7 @@ import com.leon1236.reforestry.api.genetics.alleles.IRegistryAllele;
 import com.leon1236.reforestry.api.plugin.IBeeSpeciesBuilder;
 import com.leon1236.reforestry.api.plugin.IMutationsRegistration;
 import com.leon1236.reforestry.api.plugin.ISpeciesBuilder;
+import com.leon1236.reforestry.core.genetics.SpeciesGenomeHelper;
 import com.leon1236.reforestry.core.genetics.mutations.MutationsRegistration;
 
 public final class BeeSpeciesBuilder implements IBeeSpeciesBuilder {
@@ -277,7 +278,8 @@ public final class BeeSpeciesBuilder implements IBeeSpeciesBuilder {
 	}
 
 	IGenome buildGenome(IRegistryAllele<IBeeSpecies> speciesAllele) {
-		IGenomeBuilder builder = BeeChromosomes.KARYOTYPE.genomeBuilder().set(BeeChromosomes.SPECIES, speciesAllele);
+		IGenomeBuilder builder = SpeciesGenomeHelper.createDefaultGenomeBuilder(
+				BeeChromosomes.KARYOTYPE, genus, BeeChromosomes.SPECIES, speciesAllele);
 		genome.accept(builder);
 		return builder.build();
 	}

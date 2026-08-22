@@ -15,6 +15,7 @@ import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.api.client.plugin.IClientRegistration;
 import com.leon1236.reforestry.api.genetics.ISpeciesType;
 import com.leon1236.reforestry.api.plugin.IForestryPlugin;
+import com.leon1236.reforestry.api.modules.IForestryModule;
 import com.leon1236.reforestry.apiculture.genetics.BeeChromosomes;
 import com.leon1236.reforestry.arboriculture.charcoal.CharcoalManager;
 import com.leon1236.reforestry.core.ForestryApiImpl;
@@ -24,6 +25,7 @@ import com.leon1236.reforestry.core.errors.ErrorManager;
 import com.leon1236.reforestry.core.genetics.FlowerTypeManager;
 import com.leon1236.reforestry.core.genetics.GeneticManager;
 import com.leon1236.reforestry.farming.farmlogic.FarmingManager;
+import com.leon1236.reforestry.modules.ModuleManager;
 import com.leon1236.reforestry.sorting.FilterManager;
 
 public final class PluginManager {
@@ -83,6 +85,9 @@ public final class PluginManager {
         ClientRegistrationImpl registration = new ClientRegistrationImpl();
         for (IForestryPlugin plugin : plugins()) {
             plugin.registerClient(consumer -> consumer.accept(registration));
+        }
+        for (IForestryModule module : ModuleManager.INSTANCE.getLoadedModules()) {
+            module.installClientManagers(registration);
         }
     }
 

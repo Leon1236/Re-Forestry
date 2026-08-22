@@ -5,7 +5,7 @@
   "pages": [
     {
       "type": "crafting",
-      "recipe": "reforestry:farm_hatch_brick",
+      "recipe": "reforestry:brick_farm_hatch",
       "text": "for.gui.book.patchouli.entry.farming.structure.farm_structure.hatch1"
     }
   ]

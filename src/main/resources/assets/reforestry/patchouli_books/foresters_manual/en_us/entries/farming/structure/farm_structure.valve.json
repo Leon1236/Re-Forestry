@@ -9,7 +9,7 @@
     },
     {
       "type": "crafting",
-      "recipe": "reforestry:farm_valve_brick"
+      "recipe": "reforestry:brick_farm_valve"
     }
   ]
 }

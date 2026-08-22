@@ -480,7 +480,7 @@ Skip Binnie Genetics serums/isolator (Gendustry is the modern line).
 
 | ID            | Size | Now?          | Notes                                                                                                           |
 | ------------- | ---- | ------------- | --------------------------------------------------------------------------------------------------------------- |
-| `CORE-P1`     | S    | **No**        | Patchouli book. Blocked: no Patchouli for MC 26.2. Stub item is enough (`queries/core-A8-foresters-manual.md`). |
+| `CORE-P1`     | S    | **Superseded** | Replaced by Wave 9 BOOK-0 native almanac (`queries/core-A8-foresters-manual.md`). |
 | `TR1`         | S    | Yes           | Optional Trinkets head slot for spectacles. Soft `compat/` + `isModLoaded`. Helmet already works (A5).          |
 | `OR3`         | S    | Optional      | 1.12 habitat locator. CE dropped it. Texture leftovers only.                                                    |
 | `OR2`         | M    | Late          | 1.12 species database machine.                                                                                  |
@@ -493,12 +493,32 @@ Skip Binnie Genetics serums/isolator (Gendustry is the modern line).
 
 
 
+## Wave 9 — post–Wave 7 polish (plan: `.cursor/plans/remaining_implementation_map_146cd7da.plan.md`)
+
+| Stage | ID | Status | Notes |
+|---|---|---|---|
+| 0 | DATA-FIX | **done** | Analyzer advancement fix, portable alyzer unlock, root advancement + grant_guide loot |
+| 1 | BOOK-0 | **done** | Native Forester's Almanac framework — see `queries/core-A8-foresters-manual.md` |
+| 2 | HYGIENE | **done** | Mail lang + ForestryError cleanup; orphan infuser/raintank assets deleted; stub manual lang removed |
+| 3 | JEI-CORE + BOOK-CORE | **done** | Core/energy/sorting/extra_bees/gendustry JEI descriptions; 17 core almanac entries |
+| 4 | GEN-JEI + BOOK-GENETICS + BOOK-LEPIDO | **done** | Tree/butterfly JEI; mutatron opens all mutation types; genetics/filter + 6 lepidopterology almanac pages |
+| 5 | GP-POLISH | **done** | Taxon alleles, getSuitableBiomes, hive-drop overload, client model maps — see `queries/genetics-GP0-polish.md` |
+| 6 | FACTORY-DATA | **done** | 17 comb block recipes + advancements; `bog_earth_wax_capsule` alias; advancement re-extract — see `queries/factory-F6-data.md` |
+| 7 | FACTORY-VIS + BOOK-MACHINES | **done** | Owner ledger, smelter almanac page, rainmaker client FX; squeezer BER unchanged — see `queries/wave9-stage7.md` |
+| 8 | ADDON-POLISH + BOOK-ADDON | **done** | EB centrifuge fallbacks, ET GUI art + liqueurs, Addons almanac category — see `queries/wave9-stage8.md` |
+| 9 | CORE-UX + BOOK-FARM-ARBOR | **done** | Farm redstone vis, alyzer taxonomy/climate, 13 farm/arbor pages verified — see `queries/wave9-stage9.md` |
+| 10 | BOOK-BEE | **done** | 19 bee/alveary pages + `tools/validate_book.py` — see `queries/wave9-stage10.md` |
+| 11 | TR1 | **done** | Optional Trinkets spectacles slot — see `queries/wave9-stage11-tr1.md` |
+| 12 | WAVE8-RESTORE | **skipped** | Optional OR0/greenhouse/database — not started (confirm before port) |
+| 13 | DOC-SYNC | **done** | Status docs + `queries/wave9-implementation-report.md` |
+
+---
+
 ## Suggested next sessions (human order)
 
-1. Wave 7 locked order in `queries/wave7-plan.md` is complete through **S2**.  
-2. Next playable stage for Wave 7: **none**. Deferred only: ET-D / ET-K / never-shipped infuser-nursery.
-
-**Can start in parallel with nothing else:** `TR1`.
+1. Wave 9 Stages **0–11 + 13** are **done**; Stage **12** (Wave 8 restore) remains optional.  
+2. Optional: Stage 12 OR0 climatology / greenhouse / decorative blocks if desired.  
+3. Post-Wave-9 polish: fix remaining almanac recipe refs flagged by `validate_book.py` (core resource-storage CE recipes never ported).
 
 ---
 

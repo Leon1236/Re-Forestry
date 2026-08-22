@@ -12,7 +12,8 @@
 - Catalysts, recipe collect via `JeiRecipeSources`, producer GUI click areas
 - Gene-sample subtype interpreter (`type|chromosome|allele`; Recipe context → `"written"`)
 - Fluid ingredient info: `info.reforestry.mutagen` / `dna` / `protein`
-- Mutatron + advanced mutatron progress bar → `MutationDisplay` recipe types (bee mutations today)
+- Mutatron + advanced mutatron progress bar → `MutationDisplay` recipe types (bee, tree, and butterfly categories)
+- **Wave 9 Stage 3:** `registerDescriptions` — all 10 `GendustryMachineType` blocks + grouped `gendustry_upgrade` / `gendustry_elite_upgrade` items via `JeiDescriptions.addDescription`
 
 ## Choices
 
@@ -28,7 +29,6 @@
 
 ## Gaps / next
 
-- Tree/butterfly mutation JEI categories do not exist yet — mutatron click only opens bee `MutationDisplay` types until those land
 - Owner ledger still missing on industrial apiary screen (pre-GD8 polish)
 - **Next:** EB5
 

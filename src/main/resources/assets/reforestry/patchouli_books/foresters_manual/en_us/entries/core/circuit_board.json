@@ -5,7 +5,7 @@
   "pages": [
     {
       "type": "spotlight",
-      "title": "Circuit Boards",
+      "title": "for.gui.book.patchouli.entry.core.circuit_board",
       "item": "reforestry:circuit_board_intricate",
       "text": "for.gui.book.patchouli.entry.core.circuit_board1"
     },

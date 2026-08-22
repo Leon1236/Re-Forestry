@@ -12,6 +12,8 @@ import com.leon1236.reforestry.api.client.IClientModuleHandler;
 import com.leon1236.reforestry.api.modules.ForestryModule;
 import com.leon1236.reforestry.api.modules.IForestryModule;
 import com.leon1236.reforestry.arboriculture.client.ArboricultureClientHandler;
+import com.leon1236.reforestry.arboriculture.client.TreeClientManager;
+import com.leon1236.reforestry.core.client.ClientRegistrationImpl;
 import com.leon1236.reforestry.arboriculture.commands.CommandTree;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureBlocks;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureCreativeTabs;
@@ -67,5 +69,11 @@ public class ModuleArboriculture implements IForestryModule {
     @Override
     public void registerClientHandler(Consumer<IClientModuleHandler> registrar) {
         registrar.accept(new ArboricultureClientHandler());
+    }
+
+    @Override
+    public void installClientManagers(ClientRegistrationImpl registration) {
+        TreeClientManager.INSTANCE.install(registration.getLeafSprites(), registration.getLeafTints(),
+                registration.getSaplingModels());
     }
 }

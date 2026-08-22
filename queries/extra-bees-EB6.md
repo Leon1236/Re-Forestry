@@ -14,10 +14,10 @@
 
 | Kind | Written | Soft-skipped |
 |---|---:|---:|
-| Centrifuge (active combs) | **74** | 0 recipes omitted (22 try-product lines soft-skipped inside recipes) |
+| Centrifuge (active combs) | **74** | 0 recipes omitted (15 try-product lines soft-skipped inside recipes; was 22 / 29 pre–Stage 8) |
 | Squeezer honey drops | **20** | 4 (energy empty; acid/poison/liquidnitrogen missing) |
 | Squeezer propolis | **1** (water) | 3 (oil/fuel/creosote missing) |
-| **Soft-skip lines total** | | **29** |
+| **Soft-skip lines total** | | **22** (was 29 before Wave 9 Stage 8 oredict fallbacks) |
 
 Paths:
 

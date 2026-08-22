@@ -3,6 +3,7 @@ package com.leon1236.reforestry;
 import java.util.List;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
 
 import net.minecraft.resources.Identifier;
 
@@ -14,6 +15,7 @@ import com.leon1236.reforestry.apiculture.ModuleApiculture;
 import com.leon1236.reforestry.arboriculture.ModuleArboriculture;
 import com.leon1236.reforestry.core.ForestryApiImpl;
 import com.leon1236.reforestry.core.ModuleCore;
+import com.leon1236.reforestry.core.compat.trinkets.TrinketsCompat;
 import com.leon1236.reforestry.core.plugin.PluginManager;
 import com.leon1236.reforestry.cultivation.ModuleCultivation;
 import com.leon1236.reforestry.energy.ModuleEnergy;
@@ -53,6 +55,9 @@ public class ReForestry implements ModInitializer {
 				new ModuleExtraTrees()));
 		PluginManager.runPollenRegistration();
 		ModuleStorage.registerOptionalCrates();
+		if (FabricLoader.getInstance().isModLoaded("trinkets")) {
+			TrinketsCompat.init();
+		}
 	}
 
 	public static Identifier id(String path) {

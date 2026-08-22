@@ -30,6 +30,7 @@ import com.leon1236.reforestry.api.plugin.ISpeciesBuilder;
 import com.leon1236.reforestry.api.plugin.ITreeSpeciesBuilder;
 import com.leon1236.reforestry.arboriculture.worldgen.DefaultTreeGenerator;
 import com.leon1236.reforestry.arboriculture.worldgen.FeatureTreeVanilla;
+import com.leon1236.reforestry.core.genetics.SpeciesGenomeHelper;
 import com.leon1236.reforestry.core.genetics.mutations.MutationsRegistration;
 
 public final class TreeSpeciesBuilder implements ITreeSpeciesBuilder {
@@ -306,7 +307,8 @@ public final class TreeSpeciesBuilder implements ITreeSpeciesBuilder {
     }
 
     IGenome buildGenome(IRegistryAllele<ITreeSpecies> speciesAllele) {
-        IGenomeBuilder builder = TreeChromosomes.KARYOTYPE.genomeBuilder().set(TreeChromosomes.SPECIES, speciesAllele);
+        IGenomeBuilder builder = SpeciesGenomeHelper.createDefaultGenomeBuilder(
+                TreeChromosomes.KARYOTYPE, genus, TreeChromosomes.SPECIES, speciesAllele);
         genome.accept(builder);
         return builder.build();
     }

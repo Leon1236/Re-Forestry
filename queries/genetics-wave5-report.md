@@ -48,14 +48,14 @@ Wave 5 is coded and compiles (`./gradlew classes`, JDK 25). It is a **public fac
 | Plugin completeness | none for Wave 5 wiring | leftover CE `META-INF/services/forestry.api.*` removed; jubilance map now lives on `BeeSpeciesType` |
 | DoD / ids | none | 160 taxa; 35 butterfly constants; no new butterfly items |
 
-Deferred Should (documented, not this wave): taxon **allele maps** are stored in JSON but not applied to genomes yet (CE resolves them against a karyotype); `IBee.getSuitableBiomes` is empty; `addVillageBee` was not in the plan; `IBeeSpecies` keeps record-style accessors so `DefaultBeeSpecies` does not break; client `registerClient` leaf/bee model maps are collected then discarded except analyzer plugins; `IHiveBuilder.addDrop` has no allele-map overload; `IPollen` is not generic/`LevelAccessor`.
+Deferred Should (Wave 9 Stage 5 **GP-POLISH** closed unless noted): ~~taxon allele maps~~ **done**; ~~`IBee.getSuitableBiomes`~~ **done**; ~~`IHiveBuilder.addDrop` allele-map overload~~ **done**; ~~client model maps discarded~~ **wired** (species-tinted `ModelBee` still deferred). Still open: `addVillageBee` was not in the plan; `IBeeSpecies` keeps record-style accessors so `DefaultBeeSpecies` does not break; `IPollen` is not generic/`LevelAccessor`.
 
 ## Leftover gaps
 
 - **D0–D4** butterfly content (items, entity, 35 species, chest recipe).
 - **S2** sorting / filter-rule growth on `IGeneticRegistration`.
 - **Gendustry** / Extra Bees species / Extra Trees fruits as content.
-- Taxon default-allele inheritance (JSON is copied; genomes do not yet inherit genus alleles).
+- ~~Taxon default-allele inheritance~~ — **done** (Wave 9 Stage 5 GP-TAXON).
 
 ## Smoke (world not required to mark coded)
 

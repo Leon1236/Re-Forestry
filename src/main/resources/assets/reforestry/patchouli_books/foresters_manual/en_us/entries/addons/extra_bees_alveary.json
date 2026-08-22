@@ -1,0 +1,15 @@
+{
+  "name": "for.gui.book.patchouli.entry.addons.extra_bees_alveary",
+  "category": "reforestry:addons",
+  "icon": "reforestry:alveary_mutator",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "for.gui.book.patchouli.entry.addons.extra_bees_alveary1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "for.gui.book.patchouli.entry.addons.extra_bees_alveary2"
+    }
+  ]
+}

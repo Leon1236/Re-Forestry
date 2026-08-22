@@ -50,6 +50,8 @@ public abstract class ScreenForestry<T extends AbstractContainerMenu> extends Ab
 	@Nullable
 	private GuiHintLedger hintLedger;
 	@Nullable
+	private GuiOwnerLedger ownerLedger;
+	@Nullable
 	private String hintKey;
 	@Nullable
 	private FluidVariant recipeGhostFluid;
@@ -76,6 +78,10 @@ public abstract class ScreenForestry<T extends AbstractContainerMenu> extends Ab
 
 	protected void setHintKey(@Nullable String hintKey) {
 		this.hintKey = hintKey;
+	}
+
+	protected void setOwnerLedger(@Nullable com.mojang.authlib.GameProfile owner) {
+		this.ownerLedger = owner != null ? new GuiOwnerLedger(owner) : null;
 	}
 
 	@Override
@@ -163,6 +169,9 @@ public abstract class ScreenForestry<T extends AbstractContainerMenu> extends Ab
 		if (this.hintLedger != null) {
 			this.hintLedger.draw(graphics, this.font, this.leftPos, this.topPos, this.imageHeight, mouseX, mouseY);
 		}
+		if (this.ownerLedger != null) {
+			this.ownerLedger.draw(graphics, this.font, this.leftPos, this.topPos, this.imageHeight, mouseX, mouseY);
+		}
 		if (this.recipeLedger != null) {
 			this.recipeLedger.draw(graphics, this.font, this.leftPos, this.topPos, this.imageHeight, mouseX, mouseY);
 		}
@@ -186,6 +195,9 @@ public abstract class ScreenForestry<T extends AbstractContainerMenu> extends Ab
 			return true;
 		}
 		if (this.hintLedger != null && this.hintLedger.mouseClicked(event.x(), event.y())) {
+			return true;
+		}
+		if (this.ownerLedger != null && this.ownerLedger.mouseClicked(event.x(), event.y())) {
 			return true;
 		}
 		if (tryAccessLedgerClick(event)) {
@@ -327,6 +339,9 @@ public abstract class ScreenForestry<T extends AbstractContainerMenu> extends Ab
 		List<Rect2i> areas = new ArrayList<>();
 		if (this.hintLedger != null) {
 			areas.addAll(this.hintLedger.getExtraAreas());
+		}
+		if (this.ownerLedger != null) {
+			areas.addAll(this.ownerLedger.getExtraAreas());
 		}
 		if (this.recipeLedger != null) {
 			areas.addAll(this.recipeLedger.getExtraAreas());

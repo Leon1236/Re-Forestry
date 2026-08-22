@@ -6,6 +6,14 @@
     {
       "item": "reforestry:honey_drop",
       "chance": 0.25
+    },
+    {
+      "item": "minecraft:stick",
+      "chance": 1.0
+    },
+    {
+      "item": "minecraft:stick",
+      "chance": 1.0
     }
   ]
 }

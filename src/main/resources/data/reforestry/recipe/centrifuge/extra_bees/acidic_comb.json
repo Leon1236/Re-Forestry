@@ -10,6 +10,10 @@
     {
       "item": "reforestry:honey_drop_acid",
       "chance": 0.5
+    },
+    {
+      "item": "minecraft:gunpowder",
+      "chance": 0.75
     }
   ]
 }

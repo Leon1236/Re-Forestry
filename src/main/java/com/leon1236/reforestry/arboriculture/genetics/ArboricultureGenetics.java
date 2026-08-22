@@ -169,4 +169,19 @@ public final class ArboricultureGenetics {
     public static Map<Identifier, ITreeSpecies> getSpeciesById() {
         return speciesById;
     }
+
+    public static void rebuildDefaultGenomes() {
+        if (!finalized) {
+            return;
+        }
+        for (Map.Entry<Identifier, TreeSpeciesBuilder> entry : builders.entrySet()) {
+            TreeSpeciesBuilder builder = entry.getValue();
+            ITreeSpecies species = speciesById.get(entry.getKey());
+            if (species == null) {
+                continue;
+            }
+            IRegistryAllele<ITreeSpecies> allele = AlleleManager.INSTANCE.registryAllele(species, builder.dominant());
+            defaultGenomes.put(entry.getKey(), builder.buildGenome(allele));
+        }
+    }
 }

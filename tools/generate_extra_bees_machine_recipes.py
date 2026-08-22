@@ -67,6 +67,16 @@ DYE_META_REMNANT = {
 	15: "minecraft:white_dye",
 }
 
+OREDICT_TO_ITEM = {
+	"dustSulfur": "minecraft:gunpowder",
+	"dustSmallIron": "minecraft:iron_nugget",
+	"dustSmallPyrite": "minecraft:iron_nugget",
+	"dustCertusQuartz": "minecraft:quartz",
+	"dustEnderPearl": "minecraft:ender_pearl",
+	"dustSawdust": "minecraft:stick",
+	"sawdust": "minecraft:stick",
+}
+
 ITEM_STACK_FIELD = {
 	"ROTTEN_FLESH": "minecraft:rotten_flesh",
 	"REDSTONE": "minecraft:redstone",
@@ -156,7 +166,13 @@ def resolve_product_item(
 	if kind == "ic2_item":
 		return None, count, f"ic2:{product.get('name')}"
 	if kind == "oredict":
-		return None, count, f"oredict:{product.get('ore')}"
+		ore = product.get("ore")
+		mapped = OREDICT_TO_ITEM.get(ore) if ore else None
+		if mapped:
+			if mapped not in known_items and not mapped.startswith("minecraft:"):
+				return None, count, f"missing item {mapped}"
+			return mapped, count, None
+		return None, count, f"oredict:{ore}"
 	if kind == "item_stack":
 		item, reason = resolve_item_stack(product, remnant=remnant)
 		if item is None:

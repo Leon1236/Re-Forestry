@@ -34,9 +34,13 @@ public final class BreweryRecipeManager {
 		RECIPES.add(BreweryRecipe.grain(grain, output, ingredient, yeast));
 	}
 
+	public static void addLiqueurRecipe(Fluid inputSpirit, TagKey<Item> flavorCrop, Fluid outputLiqueur) {
+		RECIPES.add(BreweryRecipe.liqueur(inputSpirit, flavorCrop, outputLiqueur));
+	}
+
 	@Nullable
 	public static BreweryRecipe find(BreweryCrafting crafting) {
-		if (crafting.inputFluid() == null || crafting.yeast().isEmpty()) {
+		if (crafting.inputFluid() == null) {
 			return null;
 		}
 		for (BreweryRecipe recipe : RECIPES) {
@@ -102,20 +106,42 @@ public final class BreweryRecipeManager {
 			Fluid outputFluid,
 			ItemStack yeast,
 			@Nullable TagKey<Item> grainTag,
-			@Nullable TagKey<Item> ingredientTag
+			@Nullable TagKey<Item> ingredientTag,
+			boolean skipYeast
 	) {
 		public static BreweryRecipe juice(Fluid input, Fluid output, @Nullable ItemStack yeast) {
 			ItemStack yeastStack = yeast == null || yeast.isEmpty()
 					? ItemStack.EMPTY
 					: yeast.copy();
-			return new BreweryRecipe(input, output, yeastStack, null, null);
+			return new BreweryRecipe(input, output, yeastStack, null, null, false);
 		}
 
 		public static BreweryRecipe grain(TagKey<Item> grain, Fluid output, @Nullable TagKey<Item> ingredient, ItemStack yeast) {
-			return new BreweryRecipe(Fluids.WATER, output, yeast.copy(), grain, ingredient);
+			return new BreweryRecipe(Fluids.WATER, output, yeast.copy(), grain, ingredient, false);
+		}
+
+		public static BreweryRecipe liqueur(Fluid inputSpirit, TagKey<Item> flavorCrop, Fluid outputLiqueur) {
+			return new BreweryRecipe(inputSpirit, outputLiqueur, ItemStack.EMPTY, null, flavorCrop, true);
 		}
 
 		public boolean matches(BreweryCrafting crafting) {
+			if (skipYeast) {
+				if (!crafting.yeast().isEmpty()) {
+					return false;
+				}
+				if (crafting.inputFluid() != inputFluid) {
+					return false;
+				}
+				if (ingredientTag == null || crafting.ingredient().isEmpty() || !crafting.ingredient().is(ingredientTag)) {
+					return false;
+				}
+				for (ItemStack stack : crafting.grains()) {
+					if (stack != null && !stack.isEmpty()) {
+						return false;
+					}
+				}
+				return true;
+			}
 			if (crafting.yeast().isEmpty()) {
 				return false;
 			}

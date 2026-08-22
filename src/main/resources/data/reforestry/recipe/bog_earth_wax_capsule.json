@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": "minecraft:dirt",
+    "X": {
+      "item": "reforestry:capsule",
+      "components": {
+        "reforestry:fluid_container_contents": {
+          "variant": "minecraft:water",
+          "amount": 1000
+        }
+      }
+    },
+    "Y": "#minecraft:sand"
+  },
+  "pattern": [
+    "#Y#",
+    "YXY",
+    "#Y#"
+  ],
+  "result": {
+    "count": 8,
+    "id": "reforestry:bog_earth"
+  },
+  "show_notification": true
+}

@@ -9,7 +9,7 @@
     },
     {
       "type": "crafting",
-      "recipe": "reforestry:farm_plain_brick",
+      "recipe": "reforestry:brick_farm_plain",
       "text": "for.gui.book.patchouli.entry.farming.structure.farm_structure2"
     }
   ]

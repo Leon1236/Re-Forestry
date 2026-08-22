@@ -61,7 +61,8 @@ public enum EnumExtraTreesFood implements IItemSubtype {
 	STAR_ANISE("star_anise", 0, 0.0f),
 	MANGO("mango", 4, 0.4f),
 	STARFRUIT("starfruit", 2, 0.2f),
-	CANDLENUT("candlenut", 0, 0.0f);
+	CANDLENUT("candlenut", 0, 0.0f),
+	PAPAYIMAR("papayimar", 8, 0.8f);
 
 	public static final EnumExtraTreesFood[] VALUES = values();
 

@@ -19,10 +19,11 @@ import net.minecraft.world.item.ItemStack;
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.apiculture.features.ApicultureItems;
 import com.leon1236.reforestry.apiculture.genetics.ApicultureGenetics;
+import com.leon1236.reforestry.apiculture.genetics.BeeSpeciesType;
 import com.leon1236.reforestry.apiculture.genetics.IBeeSpecies;
+import com.leon1236.reforestry.core.compat.jei.GeneticsJeiHelper;
 import com.leon1236.reforestry.apiculture.items.ItemCreativeHiveFrame;
 import com.leon1236.reforestry.core.compat.jei.JeiDescriptions;
-import com.leon1236.reforestry.core.genetics.mutations.Mutation;
 
 @JeiPlugin
 public class ApicultureJeiPlugin implements IModPlugin {
@@ -40,8 +41,10 @@ public class ApicultureJeiPlugin implements IModPlugin {
 		IDrawable mutationsBackground = helper.createDrawable(BACKGROUND, 0, 30, 162, 61);
 		IDrawable icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, defaultQueenIcon());
 		registration.addRecipeCategories(
-				new ProductsRecipeCategory(productsBackground, icon),
-				new MutationsRecipeCategory(mutationsBackground, icon)
+				new ProductsRecipeCategory(productsBackground, icon, ApicultureJeiRecipeTypes.BEE_PRODUCTS,
+						"for.jei.products.reforestry.bee_species"),
+				new MutationsRecipeCategory(mutationsBackground, icon, ApicultureJeiRecipeTypes.BEE_MUTATIONS,
+						"for.jei.mutations.reforestry.bee_species", BeeSpeciesType.INSTANCE)
 		);
 	}
 
@@ -74,16 +77,16 @@ public class ApicultureJeiPlugin implements IModPlugin {
 		List<ProductRecipe> products = new ArrayList<>();
 		for (Identifier speciesId : ApicultureGenetics.getAllSpeciesIds()) {
 			IBeeSpecies species = ApicultureGenetics.getSpecies(speciesId);
-			if (species.products().isEmpty() && species.specialties().isEmpty()) {
+			if (!GeneticsJeiHelper.hasProducts(species)) {
 				continue;
 			}
-			products.add(new ProductRecipe(speciesId, species));
+			products.add(new ProductRecipe(species));
 		}
 		registry.addRecipes(ApicultureJeiRecipeTypes.BEE_PRODUCTS, products);
 
 		List<MutationDisplay> mutations = new ArrayList<>();
-		for (Mutation mutation : ApicultureGenetics.getAllMutations()) {
-			mutations.add(new MutationDisplay(mutation));
+		for (com.leon1236.reforestry.core.genetics.mutations.Mutation mutation : ApicultureGenetics.getAllMutations()) {
+			mutations.add(new MutationDisplay(mutation, BeeSpeciesType.INSTANCE));
 		}
 		registry.addRecipes(ApicultureJeiRecipeTypes.BEE_MUTATIONS, mutations);
 	}

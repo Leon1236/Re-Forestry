@@ -9,7 +9,7 @@
     },
     {
       "type": "crafting",
-      "recipe": "reforestry:farm_gearbox_brick",
+      "recipe": "reforestry:brick_farm_gearbox",
       "text": "for.gui.book.patchouli.entry.farming.structure.farm_structure.gearbox2"
     }
   ]

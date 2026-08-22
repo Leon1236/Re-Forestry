@@ -30,8 +30,8 @@ public class ButterflyAnalyzerPlugin implements IAnalyzerPlugin {
 	@Override
 	public void drawPage2(IAnalyzerGraphics graphics, IGenome genome, String lifeStage, ItemStack specimen) {
 		graphics.drawSpeciesHeader();
-		graphics.drawChromosomeRow(ButterflyChromosomes.TEMPERATURE_TOLERANCE);
-		graphics.drawChromosomeRow(ButterflyChromosomes.HUMIDITY_TOLERANCE);
+		graphics.drawClimatePreferences(ButterflyChromosomes.TEMPERATURE_TOLERANCE, ButterflyChromosomes.HUMIDITY_TOLERANCE,
+				genome);
 		graphics.drawChromosomeRow(ButterflyChromosomes.NEVER_SLEEPS);
 		graphics.drawChromosomeRow(ButterflyChromosomes.TOLERATES_RAIN);
 		graphics.drawChromosomeRow(ButterflyChromosomes.FIREPROOF);

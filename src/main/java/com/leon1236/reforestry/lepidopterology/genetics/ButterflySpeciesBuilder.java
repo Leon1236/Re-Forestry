@@ -21,6 +21,7 @@ import com.leon1236.reforestry.api.lepidopterology.genetics.IButterflySpeciesTyp
 import com.leon1236.reforestry.api.plugin.IButterflySpeciesBuilder;
 import com.leon1236.reforestry.api.plugin.IMutationsRegistration;
 import com.leon1236.reforestry.api.plugin.ISpeciesBuilder;
+import com.leon1236.reforestry.core.genetics.SpeciesGenomeHelper;
 import com.leon1236.reforestry.core.genetics.mutations.MutationsRegistration;
 
 public final class ButterflySpeciesBuilder implements IButterflySpeciesBuilder {
@@ -283,7 +284,8 @@ public final class ButterflySpeciesBuilder implements IButterflySpeciesBuilder {
 	}
 
 	IGenome buildGenome(IRegistryAllele<IButterflySpecies> speciesAllele) {
-		IGenomeBuilder builder = ButterflyChromosomes.KARYOTYPE.genomeBuilder().set(ButterflyChromosomes.SPECIES, speciesAllele);
+		IGenomeBuilder builder = SpeciesGenomeHelper.createDefaultGenomeBuilder(
+				ButterflyChromosomes.KARYOTYPE, genus, ButterflyChromosomes.SPECIES, speciesAllele);
 		genome.accept(builder);
 		return builder.build();
 	}

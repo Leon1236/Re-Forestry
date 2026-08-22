@@ -1,0 +1,15 @@
+{
+  "name": "for.gui.book.patchouli.entry.addons.gendustry_overview",
+  "category": "reforestry:addons",
+  "icon": "reforestry:mutagen",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "for.gui.book.patchouli.entry.addons.gendustry_overview1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "for.gui.book.patchouli.entry.addons.gendustry_overview2"
+    }
+  ]
+}

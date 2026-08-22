@@ -1,0 +1,15 @@
+{
+  "name": "for.gui.book.patchouli.entry.lepidopterology.filter_rules",
+  "category": "reforestry:lepidopterology",
+  "icon": "reforestry:genetic_filter",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "for.gui.book.patchouli.entry.lepidopterology.filter_rules1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "for.gui.book.patchouli.entry.lepidopterology.filter_rules2"
+    }
+  ]
+}

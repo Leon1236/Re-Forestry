@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Blocks;
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.api.apiculture.BeeManager;
 import com.leon1236.reforestry.api.apiculture.ForestryBeeEffects;
+import com.leon1236.reforestry.api.apiculture.ForestryBeeSpecies;
 import com.leon1236.reforestry.api.apiculture.genetics.BeeLifeStage;
 import com.leon1236.reforestry.api.arboriculture.genetics.TreeLifeStage;
 import com.leon1236.reforestry.api.circuits.ForestryCircuitLayouts;
@@ -308,6 +309,14 @@ public final class ReforestryPlugin implements IForestryPlugin {
 	@Override
 	public void registerClient(Consumer<Consumer<IClientRegistration>> registrar) {
 		registrar.accept(client -> {
+			client.setDefaultBeeModel(BeeLifeStage.DRONE, ReForestry.id("item/bee_drone_default"));
+			client.setDefaultBeeModel(BeeLifeStage.PRINCESS, ReForestry.id("item/bee_princess_default"));
+			client.setDefaultBeeModel(BeeLifeStage.QUEEN, ReForestry.id("item/bee_queen_default"));
+			client.setDefaultBeeModel(BeeLifeStage.LARVAE, ReForestry.id("item/bee_larvae_default"));
+			client.setCustomBeeModel(ForestryBeeSpecies.VANILLA, BeeLifeStage.DRONE, ReForestry.id("item/bee_drone_cube"));
+			client.setCustomBeeModel(ForestryBeeSpecies.VANILLA, BeeLifeStage.PRINCESS,
+					ReForestry.id("item/bee_princess_cube"));
+			client.setCustomBeeModel(ForestryBeeSpecies.VANILLA, BeeLifeStage.QUEEN, ReForestry.id("item/bee_queen_cube"));
 			client.setAnalyzerPlugin(ForestrySpeciesTypes.BUTTERFLY, new ButterflyAnalyzerPlugin());
 			for (Identifier speciesId : ForestryButterflySpecies.ALL) {
 				String path = speciesId.getPath();

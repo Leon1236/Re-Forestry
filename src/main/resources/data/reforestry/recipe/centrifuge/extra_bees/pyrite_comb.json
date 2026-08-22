@@ -10,6 +10,14 @@
     {
       "item": "reforestry:honey_drop",
       "chance": 0.25
+    },
+    {
+      "item": "minecraft:iron_nugget",
+      "chance": 1.0
+    },
+    {
+      "item": "minecraft:iron_nugget",
+      "chance": 1.0
     }
   ]
 }

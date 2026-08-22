@@ -42,17 +42,6 @@ public enum ForestryError implements IError {
     NO_HEAT("no_heat"),
     NO_ENERGY_NET("no_energy_net"),
 
-    NO_STAMPS("no_stamps"),
-    NO_PAPER("no_paper"),
-    NO_SUPPLIES("no_supplies", "no_resource"),
-    NO_TRADE("no_trade", "no_resource"),
-
-    NOT_ALPHANUMERIC("not_alpha_numeric"),
-    NOT_UNIQUE("not_unique"),
-
-    NOT_POST_PAID("not_postpaid", "no_stamps"),
-    NO_RECIPIENT("no_recipient"),
-
     NO_CIRCUIT_BOARD("no_circuit_board"),
     NO_CIRCUIT_LAYOUT("no_circuit_layout"),
     CIRCUIT_MISMATCH("circuit_mismatch"),

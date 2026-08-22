@@ -33,8 +33,7 @@ public class BeeAnalyzerPlugin implements IAnalyzerPlugin {
 	public void drawPage2(IAnalyzerGraphics graphics, IGenome genome, String lifeStage, ItemStack specimen) {
 		graphics.setHaploid("drone".equals(lifeStage));
 		graphics.drawSpeciesHeader();
-		graphics.drawChromosomeRow(BeeChromosomes.TEMPERATURE_TOLERANCE);
-		graphics.drawChromosomeRow(BeeChromosomes.HUMIDITY_TOLERANCE);
+		graphics.drawClimatePreferences(BeeChromosomes.TEMPERATURE_TOLERANCE, BeeChromosomes.HUMIDITY_TOLERANCE, genome);
 		graphics.drawChromosomeRow(BeeChromosomes.ACTIVITY);
 		graphics.drawChromosomeRow(BeeChromosomes.TOLERATES_RAIN);
 		graphics.drawChromosomeRow(BeeChromosomes.CAVE_DWELLING);

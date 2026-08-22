@@ -1,0 +1,177 @@
+{
+  "criteria": {
+    "used_forestry": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {}
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:textures/block/honeycomb_block.png",
+    "description": {
+      "translate": "advancements.reforestry.root.description"
+    },
+    "icon": {
+      "components": {
+        "reforestry:bee_generation": 0,
+        "reforestry:bee_pristine": true,
+        "reforestry:bee_genome": {
+          "genome": {
+            "reforestry:activity": {
+              "active": {
+                "dominant": true,
+                "value": "reforestry:activity_diurnal"
+              },
+              "inactive": {
+                "dominant": true,
+                "value": "reforestry:activity_diurnal"
+              }
+            },
+            "reforestry:bee_effect": {
+              "active": {
+                "dominant": true,
+                "value": "reforestry:bee_effect_none"
+              },
+              "inactive": {
+                "dominant": true,
+                "value": "reforestry:bee_effect_none"
+              }
+            },
+            "reforestry:bee_species": {
+              "active": {
+                "value": "reforestry:bee_industrious"
+              },
+              "inactive": {
+                "value": "reforestry:bee_industrious"
+              }
+            },
+            "reforestry:cave_dwelling": {
+              "active": {
+                "dominant": true,
+                "value": false
+              },
+              "inactive": {
+                "dominant": true,
+                "value": false
+              }
+            },
+            "reforestry:fertility": {
+              "active": {
+                "dominant": true,
+                "value": 2
+              },
+              "inactive": {
+                "dominant": true,
+                "value": 2
+              }
+            },
+            "reforestry:flower_type": {
+              "active": {
+                "dominant": true,
+                "value": "reforestry:flower_type_vanilla"
+              },
+              "inactive": {
+                "dominant": true,
+                "value": "reforestry:flower_type_vanilla"
+              }
+            },
+            "reforestry:humidity_tolerance": {
+              "active": {
+                "value": "NONE"
+              },
+              "inactive": {
+                "value": "NONE"
+              }
+            },
+            "reforestry:lifespan": {
+              "active": {
+                "value": 40
+              },
+              "inactive": {
+                "value": 40
+              }
+            },
+            "reforestry:pollination": {
+              "active": {
+                "value": 25
+              },
+              "inactive": {
+                "value": 25
+              }
+            },
+            "reforestry:speed": {
+              "active": {
+                "dominant": true,
+                "value": 0.6
+              },
+              "inactive": {
+                "dominant": true,
+                "value": 0.6
+              }
+            },
+            "reforestry:temperature_tolerance": {
+              "active": {
+                "value": "NONE"
+              },
+              "inactive": {
+                "value": "NONE"
+              }
+            },
+            "reforestry:territory": {
+              "active": {
+                "value": [
+                  9,
+                  6,
+                  9
+                ]
+              },
+              "inactive": {
+                "value": [
+                  9,
+                  6,
+                  9
+                ]
+              }
+            },
+            "reforestry:tolerates_rain": {
+              "active": {
+                "dominant": true,
+                "value": false
+              },
+              "inactive": {
+                "dominant": true,
+                "value": false
+              }
+            }
+          },
+          "karyotype": "reforestry:bees"
+        }
+      },
+      "count": 1,
+      "id": "reforestry:queen_bee"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancements.reforestry.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "used_forestry"
+    ]
+  ],
+  "rewards": {
+    "loot": [
+      "reforestry:grant_guide"
+    ]
+  },
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "combs",
+  "key": {
+    "#": "reforestry:bee_comb_sponge"
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "id": "reforestry:block_bee_comb_sponge"
+  },
+  "show_notification": true
+}

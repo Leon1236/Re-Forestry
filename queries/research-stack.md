@@ -71,25 +71,25 @@ Aliases: `CE` (Forestry CE **1.21.1**), `CE20` (frozen CE **1.20.1**), `IF`, `JE
 
 `thedarkcolour-ForestryCE` is the **1.21.1** clone (primary). Frozen 1.20.1 lives beside it as `thedarkcolour-ForestryCE-1.20.1` (recipe extract scripts and alias `CE20`). `tools/graphify_clone.py` finds `graphify` on PATH, `$GRAPHIFY`, or `~/micromamba/envs/cei/bin/graphify`.
 
-## Graphify rebuilt 2026-07-29 (code-only AST; CE graphs rebuilt 2026-08-17)
+## Graphify rebuilt 2026-08-22 (full refresh: clones + mods.db + graphify)
 
 | Graph | Nodes | Edges |
 |---|---:|---:|
 | `reforestry-local` (`graphify-out/`) | 8905 | 22207 |
-| `thedarkcolour-ForestryCE` (`1.21.1` @ `3ab0463`, rebuilt 2026-08-17) | 15050 | 55669 |
-| `thedarkcolour-ForestryCE-1.20.1` (frozen `1.20.1` @ `df32704`, rebuilt 2026-08-17) | 14469 | 52225 |
+| `thedarkcolour-ForestryCE` (`1.21.1` @ `6c2b822`, rebuilt 2026-08-22) | 15704 | 58372 |
+| `thedarkcolour-ForestryCE-1.20.1` (frozen `1.20.1` @ `4abde9a`, rebuilt 2026-08-22) | 14457 | 52207 |
 | `thedarkcolour-Immersive-Forestry` | 18308 | 47300 |
-| `ForestryMC-ForestryMC` | 22302 | 59778 |
-| `FabricMC-fabric-api` (`26.2` @ `adde6dd`, rebuilt 2026-08-17) | 12799 | 41214 |
-| `ACGaming-Binnie` | 15664 | 38863 |
+| `ForestryMC-ForestryMC` (`mc-1.12` @ `72e15b0`, rebuilt 2026-08-22) | 18196 | 63455 |
+| `FabricMC-fabric-api` (`26.2` @ `370a4fc`, rebuilt 2026-08-22) | 12814 | 41271 |
+| `ACGaming-Binnie` (`master-MC1.12` @ `21df891`, rebuilt 2026-08-22) | 13280 | 41564 |
 | `Minecraft-26.2` | 80222 | 297589 |
-| `mezz-JustEnoughItems` (`26.2` @ `1fb4e4e`, rebuilt 2026-08-17) | 6162 | 20157 |
-| `Tiviacz1337-Travelers-Backpack` (Fabric `26.1-fabric`, rebuilt 2026-07-30) | 3811 | 10178 |
-| `bernie-g-geckolib` | 2941 | 7306 |
-| `SuperMartijn642-SuperMartijn642sCoreLib` (`forge-1.16` @ `cd4fd3b`, rebuilt 2026-08-17) | 2012 | 5235 |
-| `thedarkcolour-gendustry` | 1104 | 2343 |
-| `Tutorials-By-Kaupenjoe-Fabric-Tutorial-26.X` (`main` @ `16103a9`, rebuilt 2026-08-17) | 654 | 1745 |
-| `thedarkcolour-ModKit` | 563 | 1259 |
-| `TechReborn-Energy` | 156 | 337 |
+| `mezz-JustEnoughItems` (`26.2` @ `a71ae7c`, rebuilt 2026-08-22) | 6232 | 20458 |
+| `Tiviacz1337-Travelers-Backpack` (Fabric `26.1-fabric` @ `4c30fc4`, rebuilt 2026-08-22) | 2990 | 10821 |
+| `bernie-g-geckolib` (`main` @ `0504807`, rebuilt 2026-08-22) | 2578 | 7609 |
+| `SuperMartijn642-SuperMartijn642sCoreLib` (`forge-1.16` @ `7903696`, rebuilt 2026-08-22) | 2017 | 5244 |
+| `thedarkcolour-gendustry` (`1.20.1` @ `a9fac63`, rebuilt 2026-08-22) | 856 | 2505 |
+| `Tutorials-By-Kaupenjoe-Fabric-Tutorial-26.X` (`main` @ `16103a9`, rebuilt 2026-08-22) | 654 | 1745 |
+| `thedarkcolour-ModKit` (`1.20.1` @ `2623205`, rebuilt 2026-08-22) | 442 | 1293 |
+| `TechReborn-Energy` (`master` @ `fdc4144`, rebuilt 2026-08-22) | 144 | 347 |
 
 Skipped: `FabricMC-yarn` (mappings only). No live clone for `CoFH-1.20.4` (MCP dump only).

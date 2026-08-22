@@ -12,6 +12,8 @@ import com.leon1236.reforestry.api.client.IClientModuleHandler;
 import com.leon1236.reforestry.api.modules.ForestryModule;
 import com.leon1236.reforestry.api.modules.IForestryModule;
 import com.leon1236.reforestry.apiculture.client.ApicultureClientHandler;
+import com.leon1236.reforestry.apiculture.client.BeeClientManager;
+import com.leon1236.reforestry.core.client.ClientRegistrationImpl;
 import com.leon1236.reforestry.apiculture.commands.CommandBee;
 import com.leon1236.reforestry.apiculture.features.ApicultureBlocks;
 import com.leon1236.reforestry.apiculture.features.ApicultureCreativeTabs;
@@ -65,5 +67,10 @@ public class ModuleApiculture implements IForestryModule {
     @Override
     public void registerClientHandler(Consumer<IClientModuleHandler> registrar) {
         registrar.accept(new ApicultureClientHandler());
+    }
+
+    @Override
+    public void installClientManagers(ClientRegistrationImpl registration) {
+        BeeClientManager.INSTANCE.install(registration.getDefaultBeeModels(), registration.getCustomBeeModels());
     }
 }

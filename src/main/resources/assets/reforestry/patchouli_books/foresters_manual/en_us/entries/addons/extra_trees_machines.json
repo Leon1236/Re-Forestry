@@ -1,0 +1,15 @@
+{
+  "name": "for.gui.book.patchouli.entry.addons.extra_trees_machines",
+  "category": "reforestry:addons",
+  "icon": "reforestry:lumbermill",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "for.gui.book.patchouli.entry.addons.extra_trees_machines1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "for.gui.book.patchouli.entry.addons.extra_trees_machines2"
+    }
+  ]
+}

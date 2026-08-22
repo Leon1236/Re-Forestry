@@ -10,7 +10,7 @@
 
 Minecraft 26.2 client jar uses singular `data/minecraft/advancement/` (not `advancements/`). Recipe unlocks live under `advancement/recipes/` and parent **`minecraft:recipes/root`** (that file’s only criterion is `minecraft:impossible`).
 
-CE 1.21.1 matches that: folder `advancement/recipes/{misc,combat,building_blocks,food,tools,redstone}/`. All 1135 recipe unlocks already parent to `minecraft:recipes/root`. The extra `advancement/root.json` is the honeycomb gameplay tree (guide-book reward) — not copied.
+CE 1.21.1 matches that: folder `advancement/recipes/{misc,combat,building_blocks,food,tools,redstone}/`. All 1135 recipe unlocks already parent to `minecraft:recipes/root`. The extra `advancement/root.json` is the honeycomb gameplay tree (guide-book reward) — **copied Wave 9 Stage 0** (`data/reforestry/advancement/root.json` + existing `loot_table/grant_guide.json`).
 
 No written file needed a parent retarget. Mail / escritoire skips never left a dangling `forestry:` parent.
 
@@ -51,7 +51,7 @@ Criterion items ride the same path remap (`survivalists_pickaxe` → `bronze_pic
 
 Not remapped (no matching vanilla crafting recipe):
 
-- `portable_analyzer` — local alyzer craft is carpenter-only (`carpenter/portable_analyzer`); no `portable_alyzer.json`
+- ~~`portable_analyzer`~~ — **fixed Wave 9 Stage 0:** `analyzer` unlock criterion uses `reforestry:portable_alyzer`; new `recipes/tools/portable_alyzer.json` unlocks `carpenter/portable_analyzer`
 - `raintank` / `genetic_filter` / `wax_capsule` / `bog_earth_wax_capsule` / escritoire / mail. Engine unlocks (`peat_engine`, `biogas_engine`, `clockwork_engine`) were copied in FE1–FE2.
 
 ### Missing-recipe breakdown (65 at extract; peat later copied)

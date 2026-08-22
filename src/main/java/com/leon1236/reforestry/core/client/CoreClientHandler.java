@@ -9,6 +9,8 @@ import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 
 import com.leon1236.reforestry.api.client.IClientModuleHandler;
+import com.leon1236.reforestry.core.book.ForesterBookOpener;
+import com.leon1236.reforestry.core.book.client.ForesterBookClient;
 import com.leon1236.reforestry.core.client.genetics.GeneticClientManager;
 import com.leon1236.reforestry.core.features.CoreMenuTypes;
 import com.leon1236.reforestry.core.features.CoreTiles;
@@ -27,6 +29,8 @@ public class CoreClientHandler implements IClientModuleHandler {
 		FluidClientHandler.registerClient();
 		SpectaclesHighlightRenderer.register();
 		GeneticClientManager.INSTANCE.bootstrap();
+		ForesterBookClient.register();
+		ForesterBookOpener.setOpener(ForesterBookClient::openBook);
 		ClientPlayNetworking.registerGlobalReceiver(EscritoireGameSyncPayload.TYPE, (payload, context) -> {
 			context.client().execute(() -> {
 				if (context.client().level == null) {
