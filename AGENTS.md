@@ -18,4 +18,4 @@ Re-Forestry is a **Fabric mod for Minecraft 26.2** (Java 25, Gradle 9.5.1 via th
 
 ### Gotchas
 - On server start, some **pre-existing data-pack ERRORs** appear (missing tag references such as `#c:sandstone_blocks`, `#c:slimeballs`). These are mod-content issues, not environment problems; the server still starts.
-- `.cursor/mcp.json` declares `minecraft-world` and `minecraft-mods` MCP servers, but they point at files under `MarkDown_Maker/` and `tools/minecraft_world_mcp/` that are **not present in this repository**, so those MCP servers do not run here. Test in-world by driving the `runServer` console + logs directly instead.
+- `.cursor/mcp.json` declares `minecraft-world` and `minecraft-mods` MCP servers whose interpreter is `MarkDown_Maker/Markdown_files/.venv/bin/python`. That `MarkDown_Maker/` tree (and its venv) is **not tracked in this repo**, so both MCP servers fail to launch here even though `tools/minecraft_world_mcp/` and `tools/enable_dev_rcon.py` are present. To test in-world without the MCP, drive the `runServer` console directly (e.g. tmux `send-keys`) and read `run/logs/latest.log`.
