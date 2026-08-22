@@ -3,6 +3,8 @@ package com.leon1236.reforestry.energy;
 import java.util.List;
 import java.util.function.Consumer;
 
+import net.fabricmc.fabric.api.event.lifecycle.v1.CommonLifecycleEvents;
+
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.material.Fluid;
@@ -24,6 +26,8 @@ import com.leon1236.reforestry.energy.features.EnergyTiles;
 
 @ForestryModule(name = "Energy", description = "Adds several RF engines.")
 public class ModuleEnergy implements IForestryModule {
+    private static boolean fuelsSeeded;
+
     @Override
     public Identifier getId() {
         return ReForestry.id("energy");
@@ -36,10 +40,10 @@ public class ModuleEnergy implements IForestryModule {
 
     @Override
     public void init() {
-        setupApi();
         EnergyBlocks.init();
         EnergyTiles.init();
         EnergyMenus.init();
+        CommonLifecycleEvents.TAGS_LOADED.register((registries, client) -> setupApi());
     }
 
     @Override
@@ -48,6 +52,11 @@ public class ModuleEnergy implements IForestryModule {
     }
 
     private static void setupApi() {
+        if (fuelsSeeded) {
+            return;
+        }
+        fuelsSeeded = true;
+
         Fluid biomass = ForestryFluids.BIOMASS.getFluid();
         FuelManager.registerBiogasEngineFuel(biomass, new EngineBronzeFuel(biomass,
                 EnergyConstants.ENGINE_FUEL_VALUE_BIOMASS, EnergyConstants.ENGINE_CYCLE_DURATION_BIOMASS, 1));

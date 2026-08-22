@@ -3,6 +3,8 @@ package com.leon1236.reforestry.extra_bees;
 import java.util.List;
 import java.util.function.Consumer;
 
+import net.fabricmc.fabric.api.event.lifecycle.v1.CommonLifecycleEvents;
+
 import net.minecraft.resources.Identifier;
 
 import com.leon1236.reforestry.ReForestry;
@@ -36,7 +38,7 @@ public class ModuleExtraBees implements IForestryModule {
 		ExtraBeesTiles.init();
 		ExtraBeesMenuTypes.init();
 		ExtraBeesCreativeTabs.init();
-		AlvearyMutationHandler.registerMutationItems();
+		CommonLifecycleEvents.TAGS_LOADED.register((registries, client) -> AlvearyMutationHandler.registerMutationItems());
 	}
 
 	@Override

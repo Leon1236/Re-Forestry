@@ -3,6 +3,8 @@ package com.leon1236.reforestry.farming;
 import java.util.List;
 import java.util.function.Consumer;
 
+import net.fabricmc.fabric.api.event.lifecycle.v1.CommonLifecycleEvents;
+
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 
@@ -36,12 +38,12 @@ public class ModuleFarming implements IForestryModule {
 		FarmingTiles.init();
 		FarmingMenuTypes.init();
 		FarmingCreativeTabs.init();
-		PluginManager.runFarmingRegistration(registration -> {
+		CommonLifecycleEvents.TAGS_LOADED.register((registries, client) -> PluginManager.runFarmingRegistration(registration -> {
 			Item fertilizer = CoreItems.FERTILIZER_COMPOUND.item();
 			if (registration.getFertilizers().getInt(fertilizer) <= 0) {
 				registration.registerFertilizer(fertilizer, 500);
 			}
-		});
+		}));
 	}
 
 	@Override
