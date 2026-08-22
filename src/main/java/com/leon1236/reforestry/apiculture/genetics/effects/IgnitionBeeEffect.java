@@ -29,7 +29,7 @@ public class IgnitionBeeEffect extends ThrottledBeeEffect {
 			int chance = ignitionChance;
 			int duration = fireDuration;
 
-			int count = BeeManager.armorApiaristHelper.wearsItems(entity, this, true);
+			int count = BeeManager.getArmorApiaristHelper().wearsItems(entity, this, true);
 			if (count > 3) {
 				continue;
 			} else if (count > 2) {

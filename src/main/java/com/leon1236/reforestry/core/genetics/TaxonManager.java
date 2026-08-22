@@ -18,7 +18,7 @@ public final class TaxonManager extends SimpleJsonResourceReloadListener<TaxonDe
 	@Override
 	protected void apply(Map<Identifier, TaxonDefinition> object, ResourceManager resourceManager,
 			ProfilerFiller profiler) {
-		if (IForestryApi.INSTANCE.getGeneticManager() instanceof GeneticManager manager) {
+		if (IForestryApi.get().getGeneticManager() instanceof GeneticManager manager) {
 			manager.applyDatapackTaxa(object.values());
 		}
 	}

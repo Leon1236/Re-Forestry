@@ -5,10 +5,13 @@ import com.leon1236.reforestry.core.tiles.TileNaturalistChest;
 
 public enum NaturalistChestBlockType implements IBlockType {
 	BEE_CHEST("bee_chest", new MachineProperties.Builder<>(CoreTiles.BEE_CHEST, "bee_chest")
+			.setClientTicker(TileNaturalistChest::clientTick)
 			.create()),
 	TREE_CHEST("tree_chest", new MachineProperties.Builder<>(CoreTiles.TREE_CHEST, "tree_chest")
+			.setClientTicker(TileNaturalistChest::clientTick)
 			.create()),
 	BUTTERFLY_CHEST("butterfly_chest", new MachineProperties.Builder<>(CoreTiles.BUTTERFLY_CHEST, "butterfly_chest")
+			.setClientTicker(TileNaturalistChest::clientTick)
 			.create());
 
 	private final String serializedName;

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/hemlock_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/hemlock_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/hemlock_slab_top"
+    }
+  }
+}

@@ -68,16 +68,21 @@ public abstract class FeatureTree extends FeatureArboriculture {
 		this.girth = this.tree.getGirth(genome);
 	}
 
+	@Override
+	protected int getClearGirth() {
+		return this.girth;
+	}
+
 	protected int modifyByHeight(LevelAccessor world, int val, int min, int max) {
-		//ITreeModifier treeModifier = SpeciesUtil.TREE_TYPE.get().getTreekeepingMode(world);
-		int determined = Math.round(val * this.tree.getHeightModifier(this.tree.getDefaultGenome()));/* * treeModifier.getHeightModifier(tree.getGenome(), 1f)*/
+
+		int determined = Math.round(val * this.tree.getHeightModifier(this.tree.getDefaultGenome()));
 		return determined < min ? min : Math.min(determined, max);
 	}
 
 	protected int determineHeight(LevelAccessor world, RandomSource rand, IGenome genome, int baseHeight, int heightVariation) {
-		//ITreeModifier treeModifier = SpeciesUtil.TREE_TYPE.get().getTreekeepingMode(world);
+
 		int height = baseHeight + rand.nextInt(heightVariation);
-		int adjustedHeight = Math.round(height * this.tree.getHeightModifier(genome));/* * treeModifier.getHeightModifier(tree.getGenome(), 1f)*/
+		int adjustedHeight = Math.round(height * this.tree.getHeightModifier(genome));
 		return adjustedHeight < this.minHeight ? this.minHeight : Math.min(adjustedHeight, this.maxHeight);
 	}
 }

@@ -1,0 +1,1546 @@
+{
+  "namespace": "reforestry",
+  "policy": {
+    "species_path": "bee_<enum.lower>",
+    "collisions": {
+      "primeval": "bee_eb_primeval",
+      "relic": "bee_eb_relic",
+      "boggy": "bee_eb_boggy"
+    },
+    "effect_collisions": {
+      "radioactive": "bee_effect_eb_radioactive"
+    },
+    "hive_collisions": {
+      "nether": "beehive_eb_nether"
+    },
+    "keep_spelling": [
+      "ARTIC"
+    ],
+    "skip_empty_alloy_branch": true,
+    "skip_inactive_combs": true
+  },
+  "species": [
+    {
+      "enum": "ARID",
+      "binnie_uid": "extrabees.species.arid",
+      "reforestry_id": "reforestry:bee_arid",
+      "collision": false
+    },
+    {
+      "enum": "BARREN",
+      "binnie_uid": "extrabees.species.barren",
+      "reforestry_id": "reforestry:bee_barren",
+      "collision": false
+    },
+    {
+      "enum": "DESOLATE",
+      "binnie_uid": "extrabees.species.desolate",
+      "reforestry_id": "reforestry:bee_desolate",
+      "collision": false
+    },
+    {
+      "enum": "DECOMPOSING",
+      "binnie_uid": "extrabees.species.decomposing",
+      "reforestry_id": "reforestry:bee_decomposing",
+      "collision": false
+    },
+    {
+      "enum": "GNAWING",
+      "binnie_uid": "extrabees.species.gnawing",
+      "reforestry_id": "reforestry:bee_gnawing",
+      "collision": false
+    },
+    {
+      "enum": "ROTTEN",
+      "binnie_uid": "extrabees.species.rotten",
+      "reforestry_id": "reforestry:bee_rotten",
+      "collision": false
+    },
+    {
+      "enum": "BONE",
+      "binnie_uid": "extrabees.species.bone",
+      "reforestry_id": "reforestry:bee_bone",
+      "collision": false
+    },
+    {
+      "enum": "CREEPER",
+      "binnie_uid": "extrabees.species.creeper",
+      "reforestry_id": "reforestry:bee_creeper",
+      "collision": false
+    },
+    {
+      "enum": "ROCK",
+      "binnie_uid": "extrabees.species.rock",
+      "reforestry_id": "reforestry:bee_rock",
+      "collision": false
+    },
+    {
+      "enum": "STONE",
+      "binnie_uid": "extrabees.species.stone",
+      "reforestry_id": "reforestry:bee_stone",
+      "collision": false
+    },
+    {
+      "enum": "GRANITE",
+      "binnie_uid": "extrabees.species.granite",
+      "reforestry_id": "reforestry:bee_granite",
+      "collision": false
+    },
+    {
+      "enum": "MINERAL",
+      "binnie_uid": "extrabees.species.mineral",
+      "reforestry_id": "reforestry:bee_mineral",
+      "collision": false
+    },
+    {
+      "enum": "COPPER",
+      "binnie_uid": "extrabees.species.copper",
+      "reforestry_id": "reforestry:bee_copper",
+      "collision": false
+    },
+    {
+      "enum": "TIN",
+      "binnie_uid": "extrabees.species.tin",
+      "reforestry_id": "reforestry:bee_tin",
+      "collision": false
+    },
+    {
+      "enum": "IRON",
+      "binnie_uid": "extrabees.species.iron",
+      "reforestry_id": "reforestry:bee_iron",
+      "collision": false
+    },
+    {
+      "enum": "LEAD",
+      "binnie_uid": "extrabees.species.lead",
+      "reforestry_id": "reforestry:bee_lead",
+      "collision": false
+    },
+    {
+      "enum": "ZINC",
+      "binnie_uid": "extrabees.species.zinc",
+      "reforestry_id": "reforestry:bee_zinc",
+      "collision": false
+    },
+    {
+      "enum": "TITANIUM",
+      "binnie_uid": "extrabees.species.titanium",
+      "reforestry_id": "reforestry:bee_titanium",
+      "collision": false
+    },
+    {
+      "enum": "TUNGSTATE",
+      "binnie_uid": "extrabees.species.tungstate",
+      "reforestry_id": "reforestry:bee_tungstate",
+      "collision": false
+    },
+    {
+      "enum": "NICKEL",
+      "binnie_uid": "extrabees.species.nickel",
+      "reforestry_id": "reforestry:bee_nickel",
+      "collision": false
+    },
+    {
+      "enum": "GOLD",
+      "binnie_uid": "extrabees.species.gold",
+      "reforestry_id": "reforestry:bee_gold",
+      "collision": false
+    },
+    {
+      "enum": "SILVER",
+      "binnie_uid": "extrabees.species.silver",
+      "reforestry_id": "reforestry:bee_silver",
+      "collision": false
+    },
+    {
+      "enum": "PLATINUM",
+      "binnie_uid": "extrabees.species.platinum",
+      "reforestry_id": "reforestry:bee_platinum",
+      "collision": false
+    },
+    {
+      "enum": "LAPIS",
+      "binnie_uid": "extrabees.species.lapis",
+      "reforestry_id": "reforestry:bee_lapis",
+      "collision": false
+    },
+    {
+      "enum": "SODALITE",
+      "binnie_uid": "extrabees.species.sodalite",
+      "reforestry_id": "reforestry:bee_sodalite",
+      "collision": false
+    },
+    {
+      "enum": "PYRITE",
+      "binnie_uid": "extrabees.species.pyrite",
+      "reforestry_id": "reforestry:bee_pyrite",
+      "collision": false
+    },
+    {
+      "enum": "BAUXITE",
+      "binnie_uid": "extrabees.species.bauxite",
+      "reforestry_id": "reforestry:bee_bauxite",
+      "collision": false
+    },
+    {
+      "enum": "CINNABAR",
+      "binnie_uid": "extrabees.species.cinnabar",
+      "reforestry_id": "reforestry:bee_cinnabar",
+      "collision": false
+    },
+    {
+      "enum": "SPHALERITE",
+      "binnie_uid": "extrabees.species.sphalerite",
+      "reforestry_id": "reforestry:bee_sphalerite",
+      "collision": false
+    },
+    {
+      "enum": "EMERALD",
+      "binnie_uid": "extrabees.species.emerald",
+      "reforestry_id": "reforestry:bee_emerald",
+      "collision": false
+    },
+    {
+      "enum": "RUBY",
+      "binnie_uid": "extrabees.species.ruby",
+      "reforestry_id": "reforestry:bee_ruby",
+      "collision": false
+    },
+    {
+      "enum": "SAPPHIRE",
+      "binnie_uid": "extrabees.species.sapphire",
+      "reforestry_id": "reforestry:bee_sapphire",
+      "collision": false
+    },
+    {
+      "enum": "DIAMOND",
+      "binnie_uid": "extrabees.species.diamond",
+      "reforestry_id": "reforestry:bee_diamond",
+      "collision": false
+    },
+    {
+      "enum": "UNSTABLE",
+      "binnie_uid": "extrabees.species.unstable",
+      "reforestry_id": "reforestry:bee_unstable",
+      "collision": false
+    },
+    {
+      "enum": "NUCLEAR",
+      "binnie_uid": "extrabees.species.nuclear",
+      "reforestry_id": "reforestry:bee_nuclear",
+      "collision": false
+    },
+    {
+      "enum": "RADIOACTIVE",
+      "binnie_uid": "extrabees.species.radioactive",
+      "reforestry_id": "reforestry:bee_radioactive",
+      "collision": false
+    },
+    {
+      "enum": "YELLORIUM",
+      "binnie_uid": "extrabees.species.yellorium",
+      "reforestry_id": "reforestry:bee_yellorium",
+      "collision": false
+    },
+    {
+      "enum": "CYANITE",
+      "binnie_uid": "extrabees.species.cyanite",
+      "reforestry_id": "reforestry:bee_cyanite",
+      "collision": false
+    },
+    {
+      "enum": "BLUTONIUM",
+      "binnie_uid": "extrabees.species.blutonium",
+      "reforestry_id": "reforestry:bee_blutonium",
+      "collision": false
+    },
+    {
+      "enum": "ANCIENT",
+      "binnie_uid": "extrabees.species.ancient",
+      "reforestry_id": "reforestry:bee_ancient",
+      "collision": false
+    },
+    {
+      "enum": "PRIMEVAL",
+      "binnie_uid": "extrabees.species.primeval",
+      "reforestry_id": "reforestry:bee_eb_primeval",
+      "collision": true,
+      "collides_with": "reforestry:bee_primeval"
+    },
+    {
+      "enum": "PREHISTORIC",
+      "binnie_uid": "extrabees.species.prehistoric",
+      "reforestry_id": "reforestry:bee_prehistoric",
+      "collision": false
+    },
+    {
+      "enum": "RELIC",
+      "binnie_uid": "extrabees.species.relic",
+      "reforestry_id": "reforestry:bee_eb_relic",
+      "collision": true,
+      "collides_with": "reforestry:bee_relic"
+    },
+    {
+      "enum": "COAL",
+      "binnie_uid": "extrabees.species.coal",
+      "reforestry_id": "reforestry:bee_coal",
+      "collision": false
+    },
+    {
+      "enum": "RESIN",
+      "binnie_uid": "extrabees.species.resin",
+      "reforestry_id": "reforestry:bee_resin",
+      "collision": false
+    },
+    {
+      "enum": "OIL",
+      "binnie_uid": "extrabees.species.oil",
+      "reforestry_id": "reforestry:bee_oil",
+      "collision": false
+    },
+    {
+      "enum": "DISTILLED",
+      "binnie_uid": "extrabees.species.distilled",
+      "reforestry_id": "reforestry:bee_distilled",
+      "collision": false
+    },
+    {
+      "enum": "FUEL",
+      "binnie_uid": "extrabees.species.fuel",
+      "reforestry_id": "reforestry:bee_fuel",
+      "collision": false
+    },
+    {
+      "enum": "CREOSOTE",
+      "binnie_uid": "extrabees.species.creosote",
+      "reforestry_id": "reforestry:bee_creosote",
+      "collision": false
+    },
+    {
+      "enum": "LATEX",
+      "binnie_uid": "extrabees.species.latex",
+      "reforestry_id": "reforestry:bee_latex",
+      "collision": false
+    },
+    {
+      "enum": "WATER",
+      "binnie_uid": "extrabees.species.water",
+      "reforestry_id": "reforestry:bee_water",
+      "collision": false
+    },
+    {
+      "enum": "RIVER",
+      "binnie_uid": "extrabees.species.river",
+      "reforestry_id": "reforestry:bee_river",
+      "collision": false
+    },
+    {
+      "enum": "OCEAN",
+      "binnie_uid": "extrabees.species.ocean",
+      "reforestry_id": "reforestry:bee_ocean",
+      "collision": false
+    },
+    {
+      "enum": "INK",
+      "binnie_uid": "extrabees.species.ink",
+      "reforestry_id": "reforestry:bee_ink",
+      "collision": false
+    },
+    {
+      "enum": "GROWING",
+      "binnie_uid": "extrabees.species.growing",
+      "reforestry_id": "reforestry:bee_growing",
+      "collision": false
+    },
+    {
+      "enum": "FARM",
+      "binnie_uid": "extrabees.species.farm",
+      "reforestry_id": "reforestry:bee_farm",
+      "collision": false
+    },
+    {
+      "enum": "THRIVING",
+      "binnie_uid": "extrabees.species.thriving",
+      "reforestry_id": "reforestry:bee_thriving",
+      "collision": false
+    },
+    {
+      "enum": "BLOOMING",
+      "binnie_uid": "extrabees.species.blooming",
+      "reforestry_id": "reforestry:bee_blooming",
+      "collision": false
+    },
+    {
+      "enum": "SWEET",
+      "binnie_uid": "extrabees.species.sweet",
+      "reforestry_id": "reforestry:bee_sweet",
+      "collision": false
+    },
+    {
+      "enum": "SUGAR",
+      "binnie_uid": "extrabees.species.sugar",
+      "reforestry_id": "reforestry:bee_sugar",
+      "collision": false
+    },
+    {
+      "enum": "RIPENING",
+      "binnie_uid": "extrabees.species.ripening",
+      "reforestry_id": "reforestry:bee_ripening",
+      "collision": false
+    },
+    {
+      "enum": "FRUIT",
+      "binnie_uid": "extrabees.species.fruit",
+      "reforestry_id": "reforestry:bee_fruit",
+      "collision": false
+    },
+    {
+      "enum": "ALCOHOL",
+      "binnie_uid": "extrabees.species.alcohol",
+      "reforestry_id": "reforestry:bee_alcohol",
+      "collision": false
+    },
+    {
+      "enum": "MILK",
+      "binnie_uid": "extrabees.species.milk",
+      "reforestry_id": "reforestry:bee_milk",
+      "collision": false
+    },
+    {
+      "enum": "COFFEE",
+      "binnie_uid": "extrabees.species.coffee",
+      "reforestry_id": "reforestry:bee_coffee",
+      "collision": false
+    },
+    {
+      "enum": "SWAMP",
+      "binnie_uid": "extrabees.species.swamp",
+      "reforestry_id": "reforestry:bee_swamp",
+      "collision": false
+    },
+    {
+      "enum": "BOGGY",
+      "binnie_uid": "extrabees.species.boggy",
+      "reforestry_id": "reforestry:bee_eb_boggy",
+      "collision": true,
+      "collides_with": "reforestry:bee_boggy"
+    },
+    {
+      "enum": "FUNGAL",
+      "binnie_uid": "extrabees.species.fungal",
+      "reforestry_id": "reforestry:bee_fungal",
+      "collision": false
+    },
+    {
+      "enum": "MARBLE",
+      "binnie_uid": "extrabees.species.marble",
+      "reforestry_id": "reforestry:bee_marble",
+      "collision": false
+    },
+    {
+      "enum": "ROMAN",
+      "binnie_uid": "extrabees.species.roman",
+      "reforestry_id": "reforestry:bee_roman",
+      "collision": false
+    },
+    {
+      "enum": "GREEK",
+      "binnie_uid": "extrabees.species.greek",
+      "reforestry_id": "reforestry:bee_greek",
+      "collision": false
+    },
+    {
+      "enum": "CLASSICAL",
+      "binnie_uid": "extrabees.species.classical",
+      "reforestry_id": "reforestry:bee_classical",
+      "collision": false
+    },
+    {
+      "enum": "BASALT",
+      "binnie_uid": "extrabees.species.basalt",
+      "reforestry_id": "reforestry:bee_basalt",
+      "collision": false
+    },
+    {
+      "enum": "TEMPERED",
+      "binnie_uid": "extrabees.species.tempered",
+      "reforestry_id": "reforestry:bee_tempered",
+      "collision": false
+    },
+    {
+      "enum": "VOLCANIC",
+      "binnie_uid": "extrabees.species.volcanic",
+      "reforestry_id": "reforestry:bee_volcanic",
+      "collision": false
+    },
+    {
+      "enum": "GLOWSTONE",
+      "binnie_uid": "extrabees.species.glowstone",
+      "reforestry_id": "reforestry:bee_glowstone",
+      "collision": false
+    },
+    {
+      "enum": "MALICIOUS",
+      "binnie_uid": "extrabees.species.malicious",
+      "reforestry_id": "reforestry:bee_malicious",
+      "collision": false
+    },
+    {
+      "enum": "INFECTIOUS",
+      "binnie_uid": "extrabees.species.infectious",
+      "reforestry_id": "reforestry:bee_infectious",
+      "collision": false
+    },
+    {
+      "enum": "VIRULENT",
+      "binnie_uid": "extrabees.species.virulent",
+      "reforestry_id": "reforestry:bee_virulent",
+      "collision": false
+    },
+    {
+      "enum": "VISCOUS",
+      "binnie_uid": "extrabees.species.viscous",
+      "reforestry_id": "reforestry:bee_viscous",
+      "collision": false
+    },
+    {
+      "enum": "GLUTINOUS",
+      "binnie_uid": "extrabees.species.glutinous",
+      "reforestry_id": "reforestry:bee_glutinous",
+      "collision": false
+    },
+    {
+      "enum": "STICKY",
+      "binnie_uid": "extrabees.species.sticky",
+      "reforestry_id": "reforestry:bee_sticky",
+      "collision": false
+    },
+    {
+      "enum": "CORROSIVE",
+      "binnie_uid": "extrabees.species.corrosive",
+      "reforestry_id": "reforestry:bee_corrosive",
+      "collision": false
+    },
+    {
+      "enum": "CAUSTIC",
+      "binnie_uid": "extrabees.species.caustic",
+      "reforestry_id": "reforestry:bee_caustic",
+      "collision": false
+    },
+    {
+      "enum": "ACIDIC",
+      "binnie_uid": "extrabees.species.acidic",
+      "reforestry_id": "reforestry:bee_acidic",
+      "collision": false
+    },
+    {
+      "enum": "EXCITED",
+      "binnie_uid": "extrabees.species.excited",
+      "reforestry_id": "reforestry:bee_excited",
+      "collision": false
+    },
+    {
+      "enum": "ENERGETIC",
+      "binnie_uid": "extrabees.species.energetic",
+      "reforestry_id": "reforestry:bee_energetic",
+      "collision": false
+    },
+    {
+      "enum": "ECSTATIC",
+      "binnie_uid": "extrabees.species.ecstatic",
+      "reforestry_id": "reforestry:bee_ecstatic",
+      "collision": false
+    },
+    {
+      "enum": "ARTIC",
+      "binnie_uid": "extrabees.species.artic",
+      "reforestry_id": "reforestry:bee_artic",
+      "collision": false
+    },
+    {
+      "enum": "FREEZING",
+      "binnie_uid": "extrabees.species.freezing",
+      "reforestry_id": "reforestry:bee_freezing",
+      "collision": false
+    },
+    {
+      "enum": "SHADOW",
+      "binnie_uid": "extrabees.species.shadow",
+      "reforestry_id": "reforestry:bee_shadow",
+      "collision": false
+    },
+    {
+      "enum": "DARKENED",
+      "binnie_uid": "extrabees.species.darkened",
+      "reforestry_id": "reforestry:bee_darkened",
+      "collision": false
+    },
+    {
+      "enum": "ABYSS",
+      "binnie_uid": "extrabees.species.abyss",
+      "reforestry_id": "reforestry:bee_abyss",
+      "collision": false
+    },
+    {
+      "enum": "RED",
+      "binnie_uid": "extrabees.species.red",
+      "reforestry_id": "reforestry:bee_red",
+      "collision": false
+    },
+    {
+      "enum": "YELLOW",
+      "binnie_uid": "extrabees.species.yellow",
+      "reforestry_id": "reforestry:bee_yellow",
+      "collision": false
+    },
+    {
+      "enum": "BLUE",
+      "binnie_uid": "extrabees.species.blue",
+      "reforestry_id": "reforestry:bee_blue",
+      "collision": false
+    },
+    {
+      "enum": "GREEN",
+      "binnie_uid": "extrabees.species.green",
+      "reforestry_id": "reforestry:bee_green",
+      "collision": false
+    },
+    {
+      "enum": "BLACK",
+      "binnie_uid": "extrabees.species.black",
+      "reforestry_id": "reforestry:bee_black",
+      "collision": false
+    },
+    {
+      "enum": "WHITE",
+      "binnie_uid": "extrabees.species.white",
+      "reforestry_id": "reforestry:bee_white",
+      "collision": false
+    },
+    {
+      "enum": "BROWN",
+      "binnie_uid": "extrabees.species.brown",
+      "reforestry_id": "reforestry:bee_brown",
+      "collision": false
+    },
+    {
+      "enum": "ORANGE",
+      "binnie_uid": "extrabees.species.orange",
+      "reforestry_id": "reforestry:bee_orange",
+      "collision": false
+    },
+    {
+      "enum": "CYAN",
+      "binnie_uid": "extrabees.species.cyan",
+      "reforestry_id": "reforestry:bee_cyan",
+      "collision": false
+    },
+    {
+      "enum": "PURPLE",
+      "binnie_uid": "extrabees.species.purple",
+      "reforestry_id": "reforestry:bee_purple",
+      "collision": false
+    },
+    {
+      "enum": "GRAY",
+      "binnie_uid": "extrabees.species.gray",
+      "reforestry_id": "reforestry:bee_gray",
+      "collision": false
+    },
+    {
+      "enum": "LIGHTBLUE",
+      "binnie_uid": "extrabees.species.lightblue",
+      "reforestry_id": "reforestry:bee_lightblue",
+      "collision": false
+    },
+    {
+      "enum": "PINK",
+      "binnie_uid": "extrabees.species.pink",
+      "reforestry_id": "reforestry:bee_pink",
+      "collision": false
+    },
+    {
+      "enum": "LIMEGREEN",
+      "binnie_uid": "extrabees.species.limegreen",
+      "reforestry_id": "reforestry:bee_limegreen",
+      "collision": false
+    },
+    {
+      "enum": "MAGENTA",
+      "binnie_uid": "extrabees.species.magenta",
+      "reforestry_id": "reforestry:bee_magenta",
+      "collision": false
+    },
+    {
+      "enum": "LIGHTGRAY",
+      "binnie_uid": "extrabees.species.lightgray",
+      "reforestry_id": "reforestry:bee_lightgray",
+      "collision": false
+    },
+    {
+      "enum": "CELEBRATORY",
+      "binnie_uid": "extrabees.species.celebratory",
+      "reforestry_id": "reforestry:bee_celebratory",
+      "collision": false
+    },
+    {
+      "enum": "JADED",
+      "binnie_uid": "extrabees.species.jaded",
+      "reforestry_id": "reforestry:bee_jaded",
+      "collision": false
+    },
+    {
+      "enum": "HAZARDOUS",
+      "binnie_uid": "extrabees.species.hazardous",
+      "reforestry_id": "reforestry:bee_hazardous",
+      "collision": false
+    },
+    {
+      "enum": "QUANTUM",
+      "binnie_uid": "extrabees.species.quantum",
+      "reforestry_id": "reforestry:bee_quantum",
+      "collision": false
+    },
+    {
+      "enum": "UNUSUAL",
+      "binnie_uid": "extrabees.species.unusual",
+      "reforestry_id": "reforestry:bee_unusual",
+      "collision": false
+    },
+    {
+      "enum": "SPATIAL",
+      "binnie_uid": "extrabees.species.spatial",
+      "reforestry_id": "reforestry:bee_spatial",
+      "collision": false
+    },
+    {
+      "enum": "MYSTICAL",
+      "binnie_uid": "extrabees.species.mystical",
+      "reforestry_id": "reforestry:bee_mystical",
+      "collision": false
+    }
+  ],
+  "effects": [
+    {
+      "enum": "ECTOPLASM",
+      "binnie_uid": "extrabees.effect.ectoplasm",
+      "reforestry_id": "reforestry:bee_effect_ectoplasm",
+      "collision": false
+    },
+    {
+      "enum": "ACID",
+      "binnie_uid": "extrabees.effect.acid",
+      "reforestry_id": "reforestry:bee_effect_acid",
+      "collision": false
+    },
+    {
+      "enum": "SPAWN_ZOMBIE",
+      "binnie_uid": "extrabees.effect.spawn_zombie",
+      "reforestry_id": "reforestry:bee_effect_spawn_zombie",
+      "collision": false
+    },
+    {
+      "enum": "SPAWN_SKELETON",
+      "binnie_uid": "extrabees.effect.spawn_skeleton",
+      "reforestry_id": "reforestry:bee_effect_spawn_skeleton",
+      "collision": false
+    },
+    {
+      "enum": "SPAWN_CREEPER",
+      "binnie_uid": "extrabees.effect.spawn_creeper",
+      "reforestry_id": "reforestry:bee_effect_spawn_creeper",
+      "collision": false
+    },
+    {
+      "enum": "LIGHTNING",
+      "binnie_uid": "extrabees.effect.lightning",
+      "reforestry_id": "reforestry:bee_effect_lightning",
+      "collision": false
+    },
+    {
+      "enum": "RADIOACTIVE",
+      "binnie_uid": "extrabees.effect.radioactive",
+      "reforestry_id": "reforestry:bee_effect_eb_radioactive",
+      "collision": true,
+      "collides_with": "reforestry:bee_effect_radioactive"
+    },
+    {
+      "enum": "METEOR",
+      "binnie_uid": "extrabees.effect.meteor",
+      "reforestry_id": "reforestry:bee_effect_meteor",
+      "collision": false
+    },
+    {
+      "enum": "HUNGER",
+      "binnie_uid": "extrabees.effect.hunger",
+      "reforestry_id": "reforestry:bee_effect_hunger",
+      "collision": false
+    },
+    {
+      "enum": "FOOD",
+      "binnie_uid": "extrabees.effect.food",
+      "reforestry_id": "reforestry:bee_effect_food",
+      "collision": false
+    },
+    {
+      "enum": "BLINDNESS",
+      "binnie_uid": "extrabees.effect.blindness",
+      "reforestry_id": "reforestry:bee_effect_blindness",
+      "collision": false
+    },
+    {
+      "enum": "CONFUSION",
+      "binnie_uid": "extrabees.effect.confusion",
+      "reforestry_id": "reforestry:bee_effect_confusion",
+      "collision": false
+    },
+    {
+      "enum": "FIREWORKS",
+      "binnie_uid": "extrabees.effect.fireworks",
+      "reforestry_id": "reforestry:bee_effect_fireworks",
+      "collision": false
+    },
+    {
+      "enum": "FESTIVAL",
+      "binnie_uid": "extrabees.effect.festival",
+      "reforestry_id": "reforestry:bee_effect_festival",
+      "collision": false
+    },
+    {
+      "enum": "BIRTHDAY",
+      "binnie_uid": "extrabees.effect.birthday",
+      "reforestry_id": "reforestry:bee_effect_birthday",
+      "collision": false
+    },
+    {
+      "enum": "TELEPORT",
+      "binnie_uid": "extrabees.effect.teleport",
+      "reforestry_id": "reforestry:bee_effect_teleport",
+      "collision": false
+    },
+    {
+      "enum": "GRAVITY",
+      "binnie_uid": "extrabees.effect.gravity",
+      "reforestry_id": "reforestry:bee_effect_gravity",
+      "collision": false
+    },
+    {
+      "enum": "THIEF",
+      "binnie_uid": "extrabees.effect.thief",
+      "reforestry_id": "reforestry:bee_effect_thief",
+      "collision": false
+    },
+    {
+      "enum": "WITHER",
+      "binnie_uid": "extrabees.effect.wither",
+      "reforestry_id": "reforestry:bee_effect_wither",
+      "collision": false
+    },
+    {
+      "enum": "WATER",
+      "binnie_uid": "extrabees.effect.water",
+      "reforestry_id": "reforestry:bee_effect_water",
+      "collision": false
+    },
+    {
+      "enum": "SLOW",
+      "binnie_uid": "extrabees.effect.slow",
+      "reforestry_id": "reforestry:bee_effect_slow",
+      "collision": false
+    },
+    {
+      "enum": "BONEMEAL_SAPLING",
+      "binnie_uid": "extrabees.effect.bonemeal_sapling",
+      "reforestry_id": "reforestry:bee_effect_bonemeal_sapling",
+      "collision": false
+    },
+    {
+      "enum": "BONEMEAL_FRUIT",
+      "binnie_uid": "extrabees.effect.bonemeal_fruit",
+      "reforestry_id": "reforestry:bee_effect_bonemeal_fruit",
+      "collision": false
+    },
+    {
+      "enum": "BONEMEAL_MUSHROOM",
+      "binnie_uid": "extrabees.effect.bonemeal_mushroom",
+      "reforestry_id": "reforestry:bee_effect_bonemeal_mushroom",
+      "collision": false
+    },
+    {
+      "enum": "POWER",
+      "binnie_uid": "extrabees.effect.power",
+      "reforestry_id": "reforestry:bee_effect_power",
+      "collision": false
+    }
+  ],
+  "flowers": [
+    {
+      "enum": "WATER",
+      "binnie_uid": "extrabees.flower.water",
+      "reforestry_id": "reforestry:flower_type_water",
+      "collision": false
+    },
+    {
+      "enum": "SUGAR",
+      "binnie_uid": "extrabees.flower.sugar",
+      "reforestry_id": "reforestry:flower_type_sugar",
+      "collision": false
+    },
+    {
+      "enum": "ROCK",
+      "binnie_uid": "extrabees.flower.rock",
+      "reforestry_id": "reforestry:flower_type_rock",
+      "collision": false
+    },
+    {
+      "enum": "BOOK",
+      "binnie_uid": "extrabees.flower.book",
+      "reforestry_id": "reforestry:flower_type_book",
+      "collision": false
+    },
+    {
+      "enum": "DEAD",
+      "binnie_uid": "extrabees.flower.dead",
+      "reforestry_id": "reforestry:flower_type_dead",
+      "collision": false
+    },
+    {
+      "enum": "REDSTONE",
+      "binnie_uid": "extrabees.flower.redstone",
+      "reforestry_id": "reforestry:flower_type_redstone",
+      "collision": false
+    },
+    {
+      "enum": "WOOD",
+      "binnie_uid": "extrabees.flower.wood",
+      "reforestry_id": "reforestry:flower_type_wood",
+      "collision": false
+    },
+    {
+      "enum": "LEAVES",
+      "binnie_uid": "extrabees.flower.leaves",
+      "reforestry_id": "reforestry:flower_type_leaves",
+      "collision": false
+    },
+    {
+      "enum": "SAPLING",
+      "binnie_uid": "extrabees.flower.sapling",
+      "reforestry_id": "reforestry:flower_type_sapling",
+      "collision": false
+    },
+    {
+      "enum": "FRUIT",
+      "binnie_uid": "extrabees.flower.fruit",
+      "reforestry_id": "reforestry:flower_type_fruit",
+      "collision": false
+    },
+    {
+      "enum": "MYSTICAL",
+      "binnie_uid": "extrabees.flower.mystical",
+      "reforestry_id": "reforestry:flower_type_mystical",
+      "collision": false
+    }
+  ],
+  "hives": [
+    {
+      "enum": "WATER",
+      "binnie_uid": "extrabees:hive",
+      "reforestry_id": "reforestry:beehive_water",
+      "collision": false
+    },
+    {
+      "enum": "ROCK",
+      "binnie_uid": "extrabees:hive",
+      "reforestry_id": "reforestry:beehive_rock",
+      "collision": false
+    },
+    {
+      "enum": "NETHER",
+      "binnie_uid": "extrabees:hive",
+      "reforestry_id": "reforestry:beehive_eb_nether",
+      "collision": true,
+      "collides_with": "reforestry:beehive_nether"
+    },
+    {
+      "enum": "MARBLE",
+      "binnie_uid": "extrabees:hive",
+      "reforestry_id": "reforestry:beehive_marble",
+      "collision": false
+    }
+  ],
+  "combs": [
+    {
+      "enum": "BARREN",
+      "reforestry_id": "reforestry:bee_comb_barren",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "ROTTEN",
+      "reforestry_id": "reforestry:bee_comb_rotten",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "BONE",
+      "reforestry_id": "reforestry:bee_comb_bone",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "OIL",
+      "reforestry_id": "reforestry:bee_comb_oil",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "COAL",
+      "reforestry_id": "reforestry:bee_comb_coal",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "FUEL",
+      "reforestry_id": "reforestry:bee_comb_fuel",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "WATER",
+      "reforestry_id": "reforestry:bee_comb_water",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "MILK",
+      "reforestry_id": "reforestry:bee_comb_milk",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "FRUIT",
+      "reforestry_id": "reforestry:bee_comb_fruit",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "SEED",
+      "reforestry_id": "reforestry:bee_comb_seed",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "ALCOHOL",
+      "reforestry_id": "reforestry:bee_comb_alcohol",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "STONE",
+      "reforestry_id": "reforestry:bee_comb_stone",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "REDSTONE",
+      "reforestry_id": "reforestry:bee_comb_redstone",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "RESIN",
+      "reforestry_id": "reforestry:bee_comb_resin",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "IC2ENERGY",
+      "reforestry_id": "reforestry:bee_comb_ic2energy",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "IRON",
+      "reforestry_id": "reforestry:bee_comb_iron",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "GOLD",
+      "reforestry_id": "reforestry:bee_comb_gold",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "COPPER",
+      "reforestry_id": "reforestry:bee_comb_copper",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "TIN",
+      "reforestry_id": "reforestry:bee_comb_tin",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "SILVER",
+      "reforestry_id": "reforestry:bee_comb_silver",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "BRONZE",
+      "reforestry_id": "reforestry:bee_comb_bronze",
+      "active": false,
+      "skipped": true
+    },
+    {
+      "enum": "URANIUM",
+      "reforestry_id": "reforestry:bee_comb_uranium",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "CLAY",
+      "reforestry_id": "reforestry:bee_comb_clay",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "OLD",
+      "reforestry_id": "reforestry:bee_comb_old",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "FUNGAL",
+      "reforestry_id": "reforestry:bee_comb_fungal",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "CREOSOTE",
+      "reforestry_id": "reforestry:bee_comb_creosote",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "LATEX",
+      "reforestry_id": "reforestry:bee_comb_latex",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "ACIDIC",
+      "reforestry_id": "reforestry:bee_comb_acidic",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "VENOMOUS",
+      "reforestry_id": "reforestry:bee_comb_venomous",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "SLIME",
+      "reforestry_id": "reforestry:bee_comb_slime",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "BLAZE",
+      "reforestry_id": "reforestry:bee_comb_blaze",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "COFFEE",
+      "reforestry_id": "reforestry:bee_comb_coffee",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "GLACIAL",
+      "reforestry_id": "reforestry:bee_comb_glacial",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "MINT",
+      "reforestry_id": "reforestry:bee_comb_mint",
+      "active": false,
+      "skipped": true
+    },
+    {
+      "enum": "CITRUS",
+      "reforestry_id": "reforestry:bee_comb_citrus",
+      "active": false,
+      "skipped": true
+    },
+    {
+      "enum": "PEAT",
+      "reforestry_id": "reforestry:bee_comb_peat",
+      "active": false,
+      "skipped": true
+    },
+    {
+      "enum": "SHADOW",
+      "reforestry_id": "reforestry:bee_comb_shadow",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "LEAD",
+      "reforestry_id": "reforestry:bee_comb_lead",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "BRASS",
+      "reforestry_id": "reforestry:bee_comb_brass",
+      "active": false,
+      "skipped": true
+    },
+    {
+      "enum": "ELECTRUM",
+      "reforestry_id": "reforestry:bee_comb_electrum",
+      "active": false,
+      "skipped": true
+    },
+    {
+      "enum": "ZINC",
+      "reforestry_id": "reforestry:bee_comb_zinc",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "TITANIUM",
+      "reforestry_id": "reforestry:bee_comb_titanium",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "TUNGSTEN",
+      "reforestry_id": "reforestry:bee_comb_tungsten",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "STEEL",
+      "reforestry_id": "reforestry:bee_comb_steel",
+      "active": false,
+      "skipped": true
+    },
+    {
+      "enum": "IRIDIUM",
+      "reforestry_id": "reforestry:bee_comb_iridium",
+      "active": false,
+      "skipped": true
+    },
+    {
+      "enum": "PLATINUM",
+      "reforestry_id": "reforestry:bee_comb_platinum",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "LAPIS",
+      "reforestry_id": "reforestry:bee_comb_lapis",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "SODALITE",
+      "reforestry_id": "reforestry:bee_comb_sodalite",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "PYRITE",
+      "reforestry_id": "reforestry:bee_comb_pyrite",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "BAUXITE",
+      "reforestry_id": "reforestry:bee_comb_bauxite",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "CINNABAR",
+      "reforestry_id": "reforestry:bee_comb_cinnabar",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "SPHALERITE",
+      "reforestry_id": "reforestry:bee_comb_sphalerite",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "EMERALD",
+      "reforestry_id": "reforestry:bee_comb_emerald",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "RUBY",
+      "reforestry_id": "reforestry:bee_comb_ruby",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "SAPPHIRE",
+      "reforestry_id": "reforestry:bee_comb_sapphire",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "OLIVINE",
+      "reforestry_id": "reforestry:bee_comb_olivine",
+      "active": false,
+      "skipped": true
+    },
+    {
+      "enum": "DIAMOND",
+      "reforestry_id": "reforestry:bee_comb_diamond",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "RED",
+      "reforestry_id": "reforestry:bee_comb_red",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "YELLOW",
+      "reforestry_id": "reforestry:bee_comb_yellow",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "BLUE",
+      "reforestry_id": "reforestry:bee_comb_blue",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "GREEN",
+      "reforestry_id": "reforestry:bee_comb_green",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "BLACK",
+      "reforestry_id": "reforestry:bee_comb_black",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "WHITE",
+      "reforestry_id": "reforestry:bee_comb_white",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "BROWN",
+      "reforestry_id": "reforestry:bee_comb_brown",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "ORANGE",
+      "reforestry_id": "reforestry:bee_comb_orange",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "CYAN",
+      "reforestry_id": "reforestry:bee_comb_cyan",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "PURPLE",
+      "reforestry_id": "reforestry:bee_comb_purple",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "GRAY",
+      "reforestry_id": "reforestry:bee_comb_gray",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "LIGHTBLUE",
+      "reforestry_id": "reforestry:bee_comb_lightblue",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "PINK",
+      "reforestry_id": "reforestry:bee_comb_pink",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "LIMEGREEN",
+      "reforestry_id": "reforestry:bee_comb_limegreen",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "MAGENTA",
+      "reforestry_id": "reforestry:bee_comb_magenta",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "LIGHTGRAY",
+      "reforestry_id": "reforestry:bee_comb_lightgray",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "NICKEL",
+      "reforestry_id": "reforestry:bee_comb_nickel",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "INVAR",
+      "reforestry_id": "reforestry:bee_comb_invar",
+      "active": false,
+      "skipped": true
+    },
+    {
+      "enum": "GLOWSTONE",
+      "reforestry_id": "reforestry:bee_comb_glowstone",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "SALTPETER",
+      "reforestry_id": "reforestry:bee_comb_saltpeter",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "PULP",
+      "reforestry_id": "reforestry:bee_comb_pulp",
+      "active": false,
+      "skipped": true
+    },
+    {
+      "enum": "MULCH",
+      "reforestry_id": "reforestry:bee_comb_mulch",
+      "active": false,
+      "skipped": true
+    },
+    {
+      "enum": "COMPOST",
+      "reforestry_id": "reforestry:bee_comb_compost",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "SAWDUST",
+      "reforestry_id": "reforestry:bee_comb_sawdust",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "CERTUS",
+      "reforestry_id": "reforestry:bee_comb_certus",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "ENDERPEARL",
+      "reforestry_id": "reforestry:bee_comb_enderpearl",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "YELLORIUM",
+      "reforestry_id": "reforestry:bee_comb_yellorium",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "CYANITE",
+      "reforestry_id": "reforestry:bee_comb_cyanite",
+      "active": true,
+      "skipped": false
+    },
+    {
+      "enum": "BLUTONIUM",
+      "reforestry_id": "reforestry:bee_comb_blutonium",
+      "active": true,
+      "skipped": false
+    }
+  ],
+  "frames": [
+    {
+      "enum": "COCOA",
+      "binnie_uid": "hive_frame.cocoa",
+      "reforestry_id": "reforestry:hive_frame_cocoa"
+    },
+    {
+      "enum": "CAGE",
+      "binnie_uid": "hive_frame.cage",
+      "reforestry_id": "reforestry:hive_frame_cage"
+    },
+    {
+      "enum": "SOUL",
+      "binnie_uid": "hive_frame.soul",
+      "reforestry_id": "reforestry:hive_frame_soul"
+    },
+    {
+      "enum": "CLAY",
+      "binnie_uid": "hive_frame.clay",
+      "reforestry_id": "reforestry:hive_frame_clay"
+    },
+    {
+      "enum": "DEBUG",
+      "binnie_uid": "hive_frame.debug",
+      "reforestry_id": "reforestry:hive_frame_debug"
+    }
+  ],
+  "alveary": [
+    {
+      "enum": "MUTATOR",
+      "reforestry_id": "reforestry:alveary_mutator"
+    },
+    {
+      "enum": "FRAME",
+      "reforestry_id": "reforestry:alveary_frame"
+    },
+    {
+      "enum": "RAIN_SHIELD",
+      "reforestry_id": "reforestry:alveary_rain_shield"
+    },
+    {
+      "enum": "LIGHTING",
+      "reforestry_id": "reforestry:alveary_lighting"
+    },
+    {
+      "enum": "STIMULATOR",
+      "reforestry_id": "reforestry:alveary_stimulator"
+    },
+    {
+      "enum": "HATCHERY",
+      "reforestry_id": "reforestry:alveary_hatchery"
+    },
+    {
+      "enum": "TRANSMISSION",
+      "reforestry_id": "reforestry:alveary_transmission"
+    }
+  ]
+}

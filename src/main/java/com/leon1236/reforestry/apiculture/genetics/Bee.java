@@ -14,7 +14,9 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -187,11 +189,25 @@ public class Bee extends IndividualLiving<IBeeSpecies, IBee, BeeSpeciesType> imp
 
 	@Override
 	public List<IBee> spawnDrones(IBeeHousing housing) {
-		int fertility = Math.max(1, genome.getActiveAllele(BeeChromosomes.FERTILITY).value());
-		List<IBee> drones = new ArrayList<>(fertility);
-		for (int i = 0; i < fertility; i++) {
-			IBee drone = copy();
-			drone.setPristine(false);
+		if (mate == null) {
+			return List.of();
+		}
+		int toCreate = genome.getActiveAllele(BeeChromosomes.FERTILITY).value();
+		if (toCreate < 1) {
+			return List.of();
+		}
+		Level level = housing.level();
+		if (level == null) {
+			return List.of();
+		}
+		RandomSource random = level.getRandom();
+		List<IBee> drones = new ArrayList<>(toCreate);
+		for (int i = 0; i < toCreate; i++) {
+			BeeMating.MatingResult result = random.nextBoolean()
+					? BeeMating.resolveOffspringGenome(genome, mate, housing, random)
+					: BeeMating.resolveOffspringGenome(mate, genome, housing, random);
+			Bee drone = new Bee(result.genome());
+			drone.setPristine(true);
 			drones.add(drone);
 		}
 		return drones;

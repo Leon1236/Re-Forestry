@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "reforestry:gold_dust",
+    "reforestry:gold_dust",
+    "reforestry:gold_dust",
+    "reforestry:gold_dust",
+    "reforestry:gold_dust",
+    "reforestry:gold_dust",
+    "reforestry:gold_dust",
+    "reforestry:gold_dust",
+    "reforestry:gold_dust"
+  ],
+  "result": {
+    "id": "minecraft:gold_ingot",
+    "count": 1
+  }
+}

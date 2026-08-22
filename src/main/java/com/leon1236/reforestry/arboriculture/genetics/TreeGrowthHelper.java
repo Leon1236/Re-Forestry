@@ -50,6 +50,11 @@ public class TreeGrowthHelper {
 			for (int y = 0; y < area.getY(); y++) {
 				for (int z = 0; z < area.getZ(); z++) {
 					BlockPos pos = start.offset(x, y, z);
+					if (!level.getChunkSource().hasChunk(
+							SectionPos.blockToSectionCoord(pos.getX()),
+							SectionPos.blockToSectionCoord(pos.getZ()))) {
+						return false;
+					}
 					BlockState blockState = level.getBlockState(pos);
 					if (!blockState.canBeReplaced() && !blockState.is(BlockTags.LEAVES)) {
 						return false;

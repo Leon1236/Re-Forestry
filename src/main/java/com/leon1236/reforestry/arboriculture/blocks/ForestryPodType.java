@@ -2,11 +2,14 @@ package com.leon1236.reforestry.arboriculture.blocks;
 
 import java.util.Locale;
 
-import com.leon1236.reforestry.api.core.IBlockSubtype;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.block.Block;
+
+import com.leon1236.reforestry.api.arboriculture.IFruitPodType;
 import com.leon1236.reforestry.arboriculture.genetics.DefaultFruits;
 import com.leon1236.reforestry.api.arboriculture.genetics.IFruit;
 
-public enum ForestryPodType implements IBlockSubtype {
+public enum ForestryPodType implements IFruitPodType {
     COCOA,
     DATES,
     PAPAYA,
@@ -26,5 +29,15 @@ public enum ForestryPodType implements IBlockSubtype {
             case PAPAYA -> DefaultFruits.PAPAYA;
             case COCONUT -> DefaultFruits.COCONUT;
         };
+    }
+
+    @Override
+    public TagKey<Block> logTag() {
+        return getFruit().getLogTag();
+    }
+
+    @Override
+    public boolean useSmallAabb() {
+        return this == COCONUT;
     }
 }

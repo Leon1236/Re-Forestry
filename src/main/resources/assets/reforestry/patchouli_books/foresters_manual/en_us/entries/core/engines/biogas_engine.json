@@ -1,11 +1,11 @@
 {
-  "icon": "reforestry:engine_biogas",
+  "icon": "reforestry:biogas_engine",
   "name": "for.gui.book.patchouli.entry.core.engine.biogas",
   "category": "reforestry:engines",
   "pages": [
     {
       "type": "crafting",
-      "recipe": "reforestry:engine_biogas",
+      "recipe": "reforestry:biogas_engine",
       "text": "for.gui.book.patchouli.entry.core.engine.biogas1"
     },
     {

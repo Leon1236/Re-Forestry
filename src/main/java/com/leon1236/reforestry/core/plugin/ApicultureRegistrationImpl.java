@@ -1,9 +1,11 @@
 package com.leon1236.reforestry.core.plugin;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 
 import net.minecraft.resources.Identifier;
@@ -15,6 +17,9 @@ import com.leon1236.reforestry.api.apiculture.genetics.IBeeEffect;
 import com.leon1236.reforestry.api.apiculture.hives.IHive;
 import com.leon1236.reforestry.api.apiculture.hives.IHiveDefinition;
 import com.leon1236.reforestry.api.apiculture.hives.IHiveManager;
+import com.leon1236.reforestry.api.apiculture.hives.VillageHive;
+import com.leon1236.reforestry.api.genetics.alleles.IAllele;
+import com.leon1236.reforestry.api.genetics.chromosomes.IChromosome;
 import com.leon1236.reforestry.api.plugin.IApicultureRegistration;
 import com.leon1236.reforestry.api.plugin.IBeeSpeciesBuilder;
 import com.leon1236.reforestry.api.plugin.IHiveBuilder;
@@ -29,6 +34,8 @@ import com.leon1236.reforestry.core.genetics.alleles.AlleleManager;
 public final class ApicultureRegistrationImpl implements IApicultureRegistration {
 	private final Map<Identifier, HiveBuilder> hives = new LinkedHashMap<>();
 	private final Map<Identifier, IBeeEffect> beeEffects = new LinkedHashMap<>();
+	private final ArrayList<VillageHive> commonVillageHives = new ArrayList<>();
+	private final ArrayList<VillageHive> rareVillageHives = new ArrayList<>();
 
 	@Override
 	public IBeeSpeciesBuilder registerSpecies(Identifier id, String genus, String species, boolean dominant, int outlineColor) {
@@ -89,6 +96,11 @@ public final class ApicultureRegistrationImpl implements IApicultureRegistration
 		SwarmerMaterials.register(swarmItem, swarmChance);
 	}
 
+	@Override
+	public void addVillageBee(Identifier speciesId, boolean rare, Map<IChromosome<?>, IAllele> alleles) {
+		(rare ? rareVillageHives : commonVillageHives).add(new VillageHive(speciesId, alleles));
+	}
+
 	public void finalizeEffects() {
 		BeeChromosomes.EFFECT.populate(ImmutableMap.copyOf(beeEffects));
 		ForestryAlleles.initBeeEffects();
@@ -99,6 +111,9 @@ public final class ApicultureRegistrationImpl implements IApicultureRegistration
 		for (Map.Entry<Identifier, HiveBuilder> entry : hives.entrySet()) {
 			map.put(entry.getKey(), entry.getValue().build());
 		}
-		return new HiveManager(map.build());
+		return new HiveManager(
+				map.build(),
+				ImmutableList.copyOf(commonVillageHives),
+				ImmutableList.copyOf(rareVillageHives));
 	}
 }

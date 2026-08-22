@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "reforestry:beeswax"
+    },
+    "F": {
+      "item": "reforestry:upgrade_frame"
+    },
+    "G": {
+      "tag": "c:gears/bronze"
+    },
+    "I": {
+      "tag": "c:ingots/bronze"
+    },
+    "R": {
+      "tag": "c:dusts/redstone"
+    }
+  },
+  "pattern": [
+    "DRD",
+    "RFR",
+    "IGI"
+  ],
+  "result": {
+    "id": "reforestry:weatherproof_upgrade"
+  }
+}

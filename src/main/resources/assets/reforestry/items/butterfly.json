@@ -1,6 +1,411 @@
 {
   "model": {
-    "type": "minecraft:model",
-    "model": "reforestry:item/butterfly"
+    "type": "minecraft:select",
+    "property": "reforestry:butterfly_species",
+    "cases": [
+      {
+        "when": "reforestry:cabbage_white",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/cabbage_white"
+        }
+      },
+      {
+        "when": "reforestry:brimstone",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/brimstone"
+        }
+      },
+      {
+        "when": "reforestry:aurora",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/aurora"
+        }
+      },
+      {
+        "when": "reforestry:clouded_yellow",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/clouded_yellow"
+        }
+      },
+      {
+        "when": "reforestry:palaeno_sulphur",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/palaeno_sulphur"
+        }
+      },
+      {
+        "when": "reforestry:reseda",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/reseda"
+        }
+      },
+      {
+        "when": "reforestry:spring_azure",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/spring_azure"
+        }
+      },
+      {
+        "when": "reforestry:gozora_azure",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/gozora_azure"
+        }
+      },
+      {
+        "when": "reforestry:citrus_swallow",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/citrus_swallow"
+        }
+      },
+      {
+        "when": "reforestry:emerald_peacock",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/emerald_peacock"
+        }
+      },
+      {
+        "when": "reforestry:thoas_swallow",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/thoas_swallow"
+        }
+      },
+      {
+        "when": "reforestry:spicebush_swallow",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/spicebush_swallow"
+        }
+      },
+      {
+        "when": "reforestry:black_swallow",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/black_swallow"
+        }
+      },
+      {
+        "when": "reforestry:zebra_swallow",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/zebra_swallow"
+        }
+      },
+      {
+        "when": "reforestry:glasswing",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/glasswing"
+        }
+      },
+      {
+        "when": "reforestry:speckled_wood",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/speckled_wood"
+        }
+      },
+      {
+        "when": "reforestry:mspeckled_wood",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/mspeckled_wood"
+        }
+      },
+      {
+        "when": "reforestry:cspeckled_wood",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/cspeckled_wood"
+        }
+      },
+      {
+        "when": "reforestry:mbluemorpho",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/mbluemorpho"
+        }
+      },
+      {
+        "when": "reforestry:pbluemorpho",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/pbluemorpho"
+        }
+      },
+      {
+        "when": "reforestry:rbluemorpho",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/rbluemorpho"
+        }
+      },
+      {
+        "when": "reforestry:comma",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/comma"
+        }
+      },
+      {
+        "when": "reforestry:batesia",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/batesia"
+        }
+      },
+      {
+        "when": "reforestry:blue_wing",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/blue_wing"
+        }
+      },
+      {
+        "when": "reforestry:monarch",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/monarch"
+        }
+      },
+      {
+        "when": "reforestry:blue_duke",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/blue_duke"
+        }
+      },
+      {
+        "when": "reforestry:glassy_tiger",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/glassy_tiger"
+        }
+      },
+      {
+        "when": "reforestry:postman",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/postman"
+        }
+      },
+      {
+        "when": "reforestry:malachite",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/malachite"
+        }
+      },
+      {
+        "when": "reforestry:leopard_lacewing",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/leopard_lacewing"
+        }
+      },
+      {
+        "when": "reforestry:diana_fritillary",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/diana_fritillary"
+        }
+      },
+      {
+        "when": "reforestry:brimstone_moth",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/brimstone_moth"
+        }
+      },
+      {
+        "when": "reforestry:latticed_heath",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/latticed_heath"
+        }
+      },
+      {
+        "when": "reforestry:atlas",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/atlas"
+        }
+      },
+      {
+        "when": "reforestry:bombyx_mori",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/bombyx_mori"
+        }
+      },
+      {
+        "when": "reforestry:moth_white_admiral",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/moth_white_admiral"
+        }
+      },
+      {
+        "when": "reforestry:moth_purple_emperor",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/moth_purple_emperor"
+        }
+      },
+      {
+        "when": "reforestry:moth_red_admiral",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/moth_red_admiral"
+        }
+      },
+      {
+        "when": "reforestry:moth_painted_lady",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/moth_painted_lady"
+        }
+      },
+      {
+        "when": "reforestry:moth_small_tortoiseshell",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/moth_small_tortoiseshell"
+        }
+      },
+      {
+        "when": "reforestry:moth_camberwell_beauty",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/moth_camberwell_beauty"
+        }
+      },
+      {
+        "when": "reforestry:moth_peacock",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/moth_peacock"
+        }
+      },
+      {
+        "when": "reforestry:moth_wall",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/moth_wall"
+        }
+      },
+      {
+        "when": "reforestry:moth_crimson_rose",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/moth_crimson_rose"
+        }
+      },
+      {
+        "when": "reforestry:moth_kaiser_i_hind",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/moth_kaiser_i_hind"
+        }
+      },
+      {
+        "when": "reforestry:moth_golden_birdwing",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/moth_golden_birdwing"
+        }
+      },
+      {
+        "when": "reforestry:moth_marsh_fritillary",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/moth_marsh_fritillary"
+        }
+      },
+      {
+        "when": "reforestry:moth_pearl_bordered_fritillary",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/moth_pearl_bordered_fritillary"
+        }
+      },
+      {
+        "when": "reforestry:moth_queen_of_spain_fritillary",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/moth_queen_of_spain_fritillary"
+        }
+      },
+      {
+        "when": "reforestry:moth_speckled_wood",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/moth_speckled_wood"
+        }
+      },
+      {
+        "when": "reforestry:moth_scotch_angus",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/moth_scotch_angus"
+        }
+      },
+      {
+        "when": "reforestry:moth_gatekeeper",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/moth_gatekeeper"
+        }
+      },
+      {
+        "when": "reforestry:moth_meadow_brown",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/moth_meadow_brown"
+        }
+      },
+      {
+        "when": "reforestry:moth_small_heath",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/moth_small_heath"
+        }
+      },
+      {
+        "when": "reforestry:moth_ringlet",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/moth_ringlet"
+        }
+      },
+      {
+        "when": "reforestry:moth_monarch",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/moth_monarch"
+        }
+      },
+      {
+        "when": "reforestry:moth_marbled_white",
+        "model": {
+          "type": "minecraft:model",
+          "model": "reforestry:item/butterfly/moth_marbled_white"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "reforestry:item/butterfly"
+    }
   }
 }

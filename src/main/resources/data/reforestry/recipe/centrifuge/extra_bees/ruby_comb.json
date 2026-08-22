@@ -1,0 +1,19 @@
+{
+  "type": "reforestry:centrifuge",
+  "input": "reforestry:bee_comb_ruby",
+  "time": 20,
+  "products": [
+    {
+      "item": "reforestry:beeswax",
+      "chance": 0.5
+    },
+    {
+      "item": "reforestry:honey_drop",
+      "chance": 0.25
+    },
+    {
+      "item": "reforestry:ruby_shard",
+      "chance": 1.0
+    }
+  ]
+}

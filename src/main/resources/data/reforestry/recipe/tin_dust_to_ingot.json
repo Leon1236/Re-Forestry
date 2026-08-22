@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "reforestry:tin_dust",
+    "reforestry:tin_dust",
+    "reforestry:tin_dust",
+    "reforestry:tin_dust",
+    "reforestry:tin_dust",
+    "reforestry:tin_dust",
+    "reforestry:tin_dust",
+    "reforestry:tin_dust",
+    "reforestry:tin_dust"
+  ],
+  "result": {
+    "id": "reforestry:ingot_tin",
+    "count": 1
+  }
+}

@@ -7,7 +7,12 @@ import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.WorldlyContainer;
@@ -123,7 +128,7 @@ public class TileAnalyzer extends TilePowered implements WorldlyContainer {
 			if (syncedErrorCount >= ERROR_SLOT_COUNT) {
 				break;
 			}
-			short id = IForestryApi.INSTANCE.getErrorManager().getNumericId(error);
+			short id = IForestryApi.get().getErrorManager().getNumericId(error);
 			syncedErrorIds[syncedErrorCount++] = id;
 		}
 		for (int i = syncedErrorCount; i < ERROR_SLOT_COUNT; i++) {
@@ -268,6 +273,9 @@ public class TileAnalyzer extends TilePowered implements WorldlyContainer {
 		ItemStack result = ContainerHelper.removeItem(items, slot, amount);
 		if (!result.isEmpty()) {
 			setChanged();
+			if (slot == SLOT_ANALYZE) {
+				syncToClient();
+			}
 		}
 		return result;
 	}
@@ -284,6 +292,9 @@ public class TileAnalyzer extends TilePowered implements WorldlyContainer {
 			stack.setCount(getMaxStackSize(stack));
 		}
 		setChanged();
+		if (slot == SLOT_ANALYZE) {
+			syncToClient();
+		}
 	}
 
 	@Override
@@ -337,6 +348,27 @@ public class TileAnalyzer extends TilePowered implements WorldlyContainer {
 		items.clear();
 		ContainerHelper.loadAllItems(input, items);
 		this.tanks.readValue(input.childOrEmpty("Tanks"));
+	}
+
+	public ItemStack getIndividualOnDisplay() {
+		return getItem(SLOT_ANALYZE);
+	}
+
+	private void syncToClient() {
+		Level level = getLevel();
+		if (level != null && !level.isClientSide() && level.isLoaded(this.worldPosition)) {
+			level.sendBlockUpdated(this.worldPosition, getBlockState(), getBlockState(), 3);
+		}
+	}
+
+	@Override
+	public Packet<ClientGamePacketListener> getUpdatePacket() {
+		return ClientboundBlockEntityDataPacket.create(this);
+	}
+
+	@Override
+	public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+		return saveCustomOnly(registries);
 	}
 
 	@Nullable

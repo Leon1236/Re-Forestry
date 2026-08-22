@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/purpleheart_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/purpleheart_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/purpleheart_slab_top"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "reforestry:block/distillery"
+    },
+    "facing=south": {
+      "model": "reforestry:block/distillery",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "reforestry:block/distillery",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "reforestry:block/distillery",
+      "y": 90
+    }
+  }
+}

@@ -16,7 +16,7 @@ import com.leon1236.reforestry.api.core.IErrorLogic;
 import com.leon1236.reforestry.api.core.IErrorLogicSource;
 
 public abstract class TileForestry extends BlockEntity implements IErrorLogicSource, ExtendedMenuProvider<BlockPos> {
-    private final IErrorLogic errorLogic = IForestryApi.INSTANCE.getErrorManager().createErrorLogic();
+    private final IErrorLogic errorLogic = IForestryApi.get().getErrorManager().createErrorLogic();
     private final TickHelper tickHelper;
 
     protected TileForestry(BlockEntityType<?> type, BlockPos pos, BlockState state) {

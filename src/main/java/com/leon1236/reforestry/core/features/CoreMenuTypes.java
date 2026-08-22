@@ -5,6 +5,7 @@ import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 
 import com.leon1236.reforestry.ReForestry;
+import com.leon1236.reforestry.core.escritoire.ContainerEscritoire;
 import com.leon1236.reforestry.core.gui.ContainerAlyzer;
 import com.leon1236.reforestry.core.gui.ContainerAnalyzer;
 import com.leon1236.reforestry.core.gui.ContainerNaturalistChest;
@@ -36,6 +37,9 @@ public class CoreMenuTypes {
 
     public static final FeatureMenuType<ContainerAnalyzer, BlockPos> ANALYZER =
             REGISTRY.menuType("analyzer", ContainerAnalyzer::new, BlockPos.STREAM_CODEC);
+
+    public static final FeatureMenuType<ContainerEscritoire, BlockPos> ESCRITOIRE =
+            REGISTRY.menuType("escritoire", ContainerEscritoire::new, BlockPos.STREAM_CODEC);
 
     public static void init() {
     }

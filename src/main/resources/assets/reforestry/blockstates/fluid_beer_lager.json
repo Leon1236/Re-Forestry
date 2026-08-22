@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "reforestry:block/fluid_beer_lager"
+    },
+    "level=1": {
+      "model": "reforestry:block/fluid_beer_lager"
+    },
+    "level=2": {
+      "model": "reforestry:block/fluid_beer_lager"
+    },
+    "level=3": {
+      "model": "reforestry:block/fluid_beer_lager"
+    },
+    "level=4": {
+      "model": "reforestry:block/fluid_beer_lager"
+    },
+    "level=5": {
+      "model": "reforestry:block/fluid_beer_lager"
+    },
+    "level=6": {
+      "model": "reforestry:block/fluid_beer_lager"
+    },
+    "level=7": {
+      "model": "reforestry:block/fluid_beer_lager"
+    },
+    "level=8": {
+      "model": "reforestry:block/fluid_beer_lager"
+    },
+    "level=9": {
+      "model": "reforestry:block/fluid_beer_lager"
+    },
+    "level=10": {
+      "model": "reforestry:block/fluid_beer_lager"
+    },
+    "level=11": {
+      "model": "reforestry:block/fluid_beer_lager"
+    },
+    "level=12": {
+      "model": "reforestry:block/fluid_beer_lager"
+    },
+    "level=13": {
+      "model": "reforestry:block/fluid_beer_lager"
+    },
+    "level=14": {
+      "model": "reforestry:block/fluid_beer_lager"
+    },
+    "level=15": {
+      "model": "reforestry:block/fluid_beer_lager"
+    }
+  }
+}

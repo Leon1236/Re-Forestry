@@ -48,7 +48,7 @@ public class CreeperBeeEffect extends ThrottledBeeEffect {
 			int chance = explosionChance;
 			storedData.setInteger(indexExplosionForce, defaultForce);
 
-			int count = BeeManager.armorApiaristHelper.wearsItems(player, this, true);
+			int count = BeeManager.getArmorApiaristHelper().wearsItems(player, this, true);
 			if (count > 3) {
 				continue;
 			} else if (count > 2) {

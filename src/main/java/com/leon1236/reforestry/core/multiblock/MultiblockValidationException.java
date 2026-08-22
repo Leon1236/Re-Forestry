@@ -4,12 +4,6 @@ import net.minecraft.core.BlockPos;
 
 import org.jetbrains.annotations.Nullable;
 
-/**
- * An exception thrown when trying to validate a multiblock. Requires a string describing why the multiblock
- * could not assemble.
- *
- * @author Erogenous Beef
- */
 public class MultiblockValidationException extends Exception {
 
 	@Nullable

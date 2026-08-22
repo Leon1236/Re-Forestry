@@ -1,6 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "reforestry:item/crate-filled"
+    "layer0": "reforestry:item/crate-filled",
+    "layer1": "minecraft:block/jungle_log"
   }
 }

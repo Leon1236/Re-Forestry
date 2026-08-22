@@ -1,6 +1,8 @@
 package com.leon1236.reforestry.core.plugin;
 
 import java.util.List;
+import java.util.Map;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 import net.minecraft.resources.Identifier;
@@ -17,16 +19,20 @@ import com.leon1236.reforestry.api.circuits.ForestryCircuitSocketTypes;
 import com.leon1236.reforestry.api.core.ForestryError;
 import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
 import com.leon1236.reforestry.api.lepidopterology.ForestryButterflyEffects;
+import com.leon1236.reforestry.api.lepidopterology.ForestryButterflySpecies;
 import com.leon1236.reforestry.api.lepidopterology.ForestryCocoons;
 import com.leon1236.reforestry.api.lepidopterology.genetics.ButterflyLifeStage;
 import com.leon1236.reforestry.api.plugin.IApicultureRegistration;
 import com.leon1236.reforestry.api.plugin.IArboricultureRegistration;
 import com.leon1236.reforestry.api.plugin.ICircuitRegistration;
 import com.leon1236.reforestry.api.plugin.IErrorRegistration;
+import com.leon1236.reforestry.api.plugin.IFilterRegistration;
 import com.leon1236.reforestry.api.plugin.IForestryPlugin;
 import com.leon1236.reforestry.api.plugin.IGeneticRegistration;
 import com.leon1236.reforestry.api.plugin.ILepidopterologyRegistration;
 import com.leon1236.reforestry.api.plugin.IPollenRegistration;
+import com.leon1236.reforestry.api.client.plugin.IClientRegistration;
+import com.leon1236.reforestry.lepidopterology.client.ButterflyAnalyzerPlugin;
 import com.leon1236.reforestry.apiculture.features.ApicultureEffects;
 import com.leon1236.reforestry.apiculture.features.ApicultureItems;
 import com.leon1236.reforestry.apiculture.genetics.BeeChromosomes;
@@ -38,8 +44,11 @@ import com.leon1236.reforestry.lepidopterology.genetics.ButterflyChromosomes;
 import com.leon1236.reforestry.lepidopterology.genetics.ButterflySpeciesType;
 import com.leon1236.reforestry.core.circuits.EnumElectronTube;
 import com.leon1236.reforestry.core.features.CoreItems;
+import com.leon1236.reforestry.core.genetics.ForestryAlleles;
+import com.leon1236.reforestry.core.genetics.alleles.AlleleManager;
 import com.leon1236.reforestry.factory.circuits.CircuitMachineUpgrade;
 import com.leon1236.reforestry.apiculture.genetics.DefaultBeeSpecies;
+import com.leon1236.reforestry.lepidopterology.genetics.DefaultButterflySpecies;
 import com.leon1236.reforestry.apiculture.genetics.JubilanceFactory;
 import com.leon1236.reforestry.arboriculture.ForestryWoodType;
 import com.leon1236.reforestry.arboriculture.VanillaWoodType;
@@ -70,6 +79,13 @@ import com.leon1236.reforestry.apiculture.genetics.effects.SnowingBeeEffect;
 import com.leon1236.reforestry.apiculture.hives.HiveDefinition;
 import com.leon1236.reforestry.apiculture.items.EnumHoneyComb;
 import com.leon1236.reforestry.arboriculture.genetics.DefaultTreeSpecies;
+import com.leon1236.reforestry.apiculture.genetics.ApicultureFilterRule;
+import com.leon1236.reforestry.apiculture.genetics.ApicultureFilterRuleType;
+import com.leon1236.reforestry.arboriculture.genetics.ArboricultureFilterRuleType;
+import com.leon1236.reforestry.lepidopterology.genetics.LepidopterologyFilterRule;
+import com.leon1236.reforestry.lepidopterology.genetics.LepidopterologyFilterRuleType;
+import com.leon1236.reforestry.modules.ModuleManager;
+import com.leon1236.reforestry.sorting.DefaultFilterRuleType;
 
 import net.minecraft.world.effect.MobEffects;
 
@@ -100,6 +116,7 @@ public final class ReforestryPlugin implements IForestryPlugin {
 		registration.registerEffect(ForestryButterflyEffects.NONE, ButterflyChromosomes.NONE_EFFECT);
 		registration.registerCocoon(ForestryCocoons.DEFAULT, ButterflyChromosomes.DEFAULT_COCOON);
 		registration.registerCocoon(ForestryCocoons.SILK, ButterflyChromosomes.SILK_COCOON);
+		DefaultButterflySpecies.register(registration);
 	}
 
     @Override
@@ -116,7 +133,7 @@ public final class ReforestryPlugin implements IForestryPlugin {
 
     @Override
     public void registerApiculture(IApicultureRegistration registration) {
-        BeeManager.jubilanceFactory = new JubilanceFactory();
+        BeeManager.setJubilanceFactory(new JubilanceFactory());
         registerBeeEffects(registration);
         DefaultBeeSpecies.register(registration);
         registration.registerSwarmerMaterial(ApicultureItems.ROYAL_JELLY.item(), 0.01f);
@@ -171,6 +188,21 @@ public final class ReforestryPlugin implements IForestryPlugin {
 
         registration.registerHive(ReForestry.id("bee_embittered"), HiveDefinition.NETHER)
                 .addDrop(0.80, ReForestry.id("bee_embittered"), simmerComb, 0.7f);
+
+        registration.addVillageBee(ReForestry.id("bee_forest"), false);
+        registration.addVillageBee(ReForestry.id("bee_meadows"), false);
+        registration.addVillageBee(ReForestry.id("bee_modest"), false);
+        registration.addVillageBee(ReForestry.id("bee_marshy"), false);
+        registration.addVillageBee(ReForestry.id("bee_wintry"), false);
+        registration.addVillageBee(ReForestry.id("bee_tropical"), false);
+        registration.addVillageBee(ReForestry.id("bee_savanna"), false);
+
+        registration.addVillageBee(ReForestry.id("bee_forest"), true, Map.of(
+                BeeChromosomes.TOLERATES_RAIN, AlleleManager.INSTANCE.booleanAllele(true, true)));
+        registration.addVillageBee(ReForestry.id("bee_common"), true, Map.of(
+                BeeChromosomes.TEMPERATURE_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_1,
+                BeeChromosomes.HUMIDITY_TOLERANCE, ForestryAlleles.TOLERANCE_BOTH_1));
+        registration.addVillageBee(ReForestry.id("bee_valiant"), true);
     }
 
     private static void registerBeeEffects(IApicultureRegistration apiculture) {
@@ -244,6 +276,22 @@ public final class ReforestryPlugin implements IForestryPlugin {
     }
 
     @Override
+    public void registerFilter(IFilterRegistration registration) {
+        registration.registerFilterRuleTypes(DefaultFilterRuleType.values());
+        if (ModuleManager.INSTANCE.isModuleEnabled(ReForestry.id("apiculture"))) {
+            registration.registerFilterRuleTypes(ApicultureFilterRuleType.values());
+            ApicultureFilterRule.init();
+        }
+        if (ModuleManager.INSTANCE.isModuleEnabled(ReForestry.id("arboriculture"))) {
+            registration.registerFilterRuleTypes(ArboricultureFilterRuleType.values());
+        }
+        if (ModuleManager.INSTANCE.isModuleEnabled(ReForestry.id("lepidopterology"))) {
+            registration.registerFilterRuleTypes(LepidopterologyFilterRuleType.values());
+            LepidopterologyFilterRule.init();
+        }
+    }
+
+    @Override
     public void registerCircuits(ICircuitRegistration circuits) {
         circuits.registerLayout(ForestryCircuitLayouts.MACHINE_UPGRADE, ForestryCircuitSocketTypes.MACHINE);
         circuits.registerCircuit(ForestryCircuitLayouts.MACHINE_UPGRADE,
@@ -256,4 +304,18 @@ public final class ReforestryPlugin implements IForestryPlugin {
                 new ItemStack(CoreItems.ELECTRON_TUBES.get(EnumElectronTube.AMBER).item()),
                 new CircuitMachineUpgrade("machine.fortune.1", 0, 0.05f, 1.25f));
     }
+
+	@Override
+	public void registerClient(Consumer<Consumer<IClientRegistration>> registrar) {
+		registrar.accept(client -> {
+			client.setAnalyzerPlugin(ForestrySpeciesTypes.BUTTERFLY, new ButterflyAnalyzerPlugin());
+			for (Identifier speciesId : ForestryButterflySpecies.ALL) {
+				String path = speciesId.getPath();
+				client.setButterflySprites(
+						speciesId,
+						Identifier.fromNamespaceAndPath(speciesId.getNamespace(), "item/butterfly/" + path),
+						Identifier.fromNamespaceAndPath(speciesId.getNamespace(), "textures/entity/butterfly/" + path + ".png"));
+			}
+		});
+	}
 }

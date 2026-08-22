@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "reforestry:block/extra_bees/alveary/alveary_lighting_top",
+    "side": "reforestry:block/extra_bees/alveary/alveary_lighting_side"
+  }
+}

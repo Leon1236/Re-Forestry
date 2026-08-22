@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "reforestry:upgrade_frame"
+    },
+    "G": {
+      "tag": "c:gears/bronze"
+    },
+    "I": {
+      "tag": "c:ingots/bronze"
+    },
+    "P": {
+      "tag": "minecraft:small_flowers"
+    }
+  },
+  "pattern": [
+    "PPP",
+    "IFI",
+    "IGI"
+  ],
+  "result": {
+    "id": "reforestry:pollination_upgrade"
+  }
+}

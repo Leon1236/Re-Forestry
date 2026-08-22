@@ -1,0 +1,27 @@
+{
+  "type": "reforestry:carpenter",
+  "time": 100,
+  "recipe": {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "key": {
+      "j": "reforestry:royal_jelly",
+      "b": "reforestry:beeswax",
+      "p": "reforestry:pollen_cluster_normal",
+      "g": "#minecraft:planks"
+    },
+    "pattern": [
+      " j ",
+      "bgb",
+      " p "
+    ],
+    "result": {
+      "id": "reforestry:scented_gear"
+    },
+    "show_notification": true
+  },
+  "liquid": {
+    "fluid": "reforestry:honey",
+    "amount": 500
+  }
+}

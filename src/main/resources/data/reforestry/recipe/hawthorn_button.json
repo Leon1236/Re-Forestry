@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    "reforestry:hawthorn_planks"
+  ],
+  "result": {
+    "id": "reforestry:hawthorn_button"
+  }
+}

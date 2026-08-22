@@ -1,0 +1,15 @@
+{
+  "type": "reforestry:centrifuge",
+  "input": "reforestry:bee_comb_glowstone",
+  "time": 20,
+  "products": [
+    {
+      "item": "reforestry:honey_drop",
+      "chance": 0.25
+    },
+    {
+      "item": "minecraft:glowstone_dust",
+      "chance": 1.0
+    }
+  ]
+}

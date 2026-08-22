@@ -17,17 +17,17 @@ public class FeatureCoconut extends FeatureTree {
 	}
 
 	private static final Vec3i[] LEAF_VECTORS = {
-		// Top layer
+
 		new Vec3i(1, 1, 1),
 		new Vec3i(-1, 1, 1),
 		new Vec3i(1, 1, -1),
 		new Vec3i(-1, 1, -1),
-		// Middle layer
+
 		new Vec3i(1, 0, 0),
 		new Vec3i(-1, 0, 0),
 		new Vec3i(0, 0, 1),
 		new Vec3i(0, 0, -1),
-		// Bottom layer
+
 		new Vec3i(1, -1, 1),
 		new Vec3i(-1, -1, 1),
 		new Vec3i(1, -1, -1),
@@ -45,7 +45,7 @@ public class FeatureCoconut extends FeatureTree {
 	protected void generateLeaves(IGenome genome, LevelAccessor level, RandomSource rand, TreeBlockTypeLeaf leaf, TreeContour contour, BlockPos sp) {
 		int o = this.girth / 2;
 
-		BlockPos startPos = contour.getTrunkOrigins().get(0).offset(0, o, 0); //the sp parameter is not useful as it gives us the base of the tree :facepalm:
+		BlockPos startPos = contour.getTrunkOrigins().get(0).offset(0, o, 0);
 
 		int length = 3 + (this.girth / 2);
 
@@ -56,7 +56,7 @@ public class FeatureCoconut extends FeatureTree {
 
 			float trueLength = dx * dx + dy * dy + dz * dz;
 			float lengthMod = 1;
-			// Truncate diagonal distances, to prevent decay
+
 			if (trueLength > length * length) lengthMod *= 0.75f;
 
 			BlockPos endPos = startPos.offset(

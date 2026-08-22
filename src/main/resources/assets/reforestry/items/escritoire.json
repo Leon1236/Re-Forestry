@@ -1,6 +1,9 @@
 {
   "model": {
-    "type": "minecraft:model",
-    "model": "reforestry:item/escritoire"
+    "type": "minecraft:special",
+    "base": "reforestry:item/factory_tesr",
+    "model": {
+      "type": "reforestry:escritoire"
+    }
   }
 }

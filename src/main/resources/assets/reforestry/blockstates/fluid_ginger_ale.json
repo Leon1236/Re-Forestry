@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "reforestry:block/fluid_ginger_ale"
+    },
+    "level=1": {
+      "model": "reforestry:block/fluid_ginger_ale"
+    },
+    "level=2": {
+      "model": "reforestry:block/fluid_ginger_ale"
+    },
+    "level=3": {
+      "model": "reforestry:block/fluid_ginger_ale"
+    },
+    "level=4": {
+      "model": "reforestry:block/fluid_ginger_ale"
+    },
+    "level=5": {
+      "model": "reforestry:block/fluid_ginger_ale"
+    },
+    "level=6": {
+      "model": "reforestry:block/fluid_ginger_ale"
+    },
+    "level=7": {
+      "model": "reforestry:block/fluid_ginger_ale"
+    },
+    "level=8": {
+      "model": "reforestry:block/fluid_ginger_ale"
+    },
+    "level=9": {
+      "model": "reforestry:block/fluid_ginger_ale"
+    },
+    "level=10": {
+      "model": "reforestry:block/fluid_ginger_ale"
+    },
+    "level=11": {
+      "model": "reforestry:block/fluid_ginger_ale"
+    },
+    "level=12": {
+      "model": "reforestry:block/fluid_ginger_ale"
+    },
+    "level=13": {
+      "model": "reforestry:block/fluid_ginger_ale"
+    },
+    "level=14": {
+      "model": "reforestry:block/fluid_ginger_ale"
+    },
+    "level=15": {
+      "model": "reforestry:block/fluid_ginger_ale"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "#reforestry:fireproof_butternut_logs"
+  ],
+  "result": {
+    "count": 4,
+    "id": "reforestry:butternut_fireproof_planks"
+  }
+}

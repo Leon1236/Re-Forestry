@@ -3,6 +3,8 @@ package com.leon1236.reforestry.apiculture;
 import java.util.List;
 import java.util.function.Consumer;
 
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+
 import net.minecraft.resources.Identifier;
 
 import com.leon1236.reforestry.ReForestry;
@@ -10,6 +12,7 @@ import com.leon1236.reforestry.api.client.IClientModuleHandler;
 import com.leon1236.reforestry.api.modules.ForestryModule;
 import com.leon1236.reforestry.api.modules.IForestryModule;
 import com.leon1236.reforestry.apiculture.client.ApicultureClientHandler;
+import com.leon1236.reforestry.apiculture.commands.CommandBee;
 import com.leon1236.reforestry.apiculture.features.ApicultureBlocks;
 import com.leon1236.reforestry.apiculture.features.ApicultureCreativeTabs;
 import com.leon1236.reforestry.apiculture.features.ApicultureDataComponents;
@@ -20,6 +23,10 @@ import com.leon1236.reforestry.apiculture.features.ApicultureMenuTypes;
 import com.leon1236.reforestry.apiculture.features.ApicultureParticles;
 import com.leon1236.reforestry.apiculture.features.ApicultureTiles;
 import com.leon1236.reforestry.apiculture.genetics.ApicultureGenetics;
+import com.leon1236.reforestry.apiculture.loot.SnifferAmberDroneLoot;
+import com.leon1236.reforestry.apiculture.villagers.ApicultureVillagers;
+import com.leon1236.reforestry.apiculture.worldgen.VillagerJigsaw;
+import com.leon1236.reforestry.core.commands.ReforestryCommands;
 import com.leon1236.reforestry.core.plugin.PluginManager;
 
 @ForestryModule(name = "Apiculture", description = "Beekeeping, apiaries, hives, bee genetics.")
@@ -37,6 +44,8 @@ public class ModuleApiculture implements IForestryModule {
     @Override
     public void init() {
         ApicultureItems.init();
+        PollenBrewingRecipes.init();
+        SnifferAmberDroneLoot.init();
         ApicultureDataComponents.init();
         ApicultureEffects.init();
         ApicultureBlocks.init();
@@ -47,6 +56,10 @@ public class ModuleApiculture implements IForestryModule {
         ApicultureParticles.init();
         ApicultureFeatures.init();
         ApicultureCreativeTabs.init();
+        ApicultureVillagers.init();
+        VillagerJigsaw.init();
+        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) ->
+                ReforestryCommands.registerSubcommand(dispatcher, CommandBee.register()));
     }
 
     @Override

@@ -1,0 +1,24 @@
+{
+  "type": "reforestry:carpenter",
+  "time": 50,
+  "recipe": {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "key": {
+      "#": "#minecraft:planks"
+    },
+    "pattern": [
+      "#  ",
+      "###",
+      "# #"
+    ],
+    "result": {
+      "id": "reforestry:escritoire"
+    },
+    "show_notification": true
+  },
+  "liquid": {
+    "fluid": "reforestry:seed_oil",
+    "amount": 500
+  }
+}

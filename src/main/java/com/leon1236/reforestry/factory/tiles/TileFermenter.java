@@ -71,6 +71,7 @@ public class TileFermenter extends TilePowered implements WorldlyContainer, IRen
     private int fuelBurnTime;
     private int fuelTotalTime;
     private int fuelCurrentFerment;
+    private boolean resourceClaimed;
 
     private final ContainerData machineData = new ContainerData() {
         @Override
@@ -141,7 +142,7 @@ public class TileFermenter extends TilePowered implements WorldlyContainer, IRen
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, TileFermenter tile) {
-        tile.doWork();
+        tile.doWork(true);
         if (tile.updateOnInterval(20)) {
             FluidContainerHelper.drainIntoTank(tile, SLOT_INPUT, tile.getResourceTank());
             FilteredFluidStorage productTank = tile.getProductTank();
@@ -202,7 +203,7 @@ public class TileFermenter extends TilePowered implements WorldlyContainer, IRen
             if (syncedErrorCount >= ERROR_SLOT_COUNT) {
                 break;
             }
-            short id = IForestryApi.INSTANCE.getErrorManager().getNumericId(error);
+            short id = IForestryApi.get().getErrorManager().getNumericId(error);
             syncedErrorIds[syncedErrorCount++] = id;
         }
         for (int i = syncedErrorCount; i < ERROR_SLOT_COUNT; i++) {
@@ -213,13 +214,14 @@ public class TileFermenter extends TilePowered implements WorldlyContainer, IRen
     @Override
     public boolean hasWork() {
         checkRecipe();
-        checkFuel();
+        boolean canLoadFuel = this.fuelBurnTime > 0 || canLoadFuel();
 
-        int fermented = Math.min(this.fermentationTime, this.fuelCurrentFerment);
+        int fermentPerCycle = this.fuelBurnTime > 0 ? this.fuelCurrentFerment : peekFuelFerment();
+        int fermented = Math.min(Math.max(this.fermentationTime, 0), Math.max(fermentPerCycle, 0));
         long fermentedDroplets = FluidUnits.mbToDroplets(fermented);
 
         boolean hasRecipe = this.currentRecipe != null;
-        boolean hasFuel = this.fuelBurnTime > 0;
+        boolean hasFuel = this.fuelBurnTime > 0 || canLoadFuel;
         boolean hasResource = this.fermentationTime > 0 || !getItem(SLOT_RESOURCE).isEmpty();
         boolean hasFluidResource = true;
         boolean hasFluidSpace = true;
@@ -258,6 +260,19 @@ public class TileFermenter extends TilePowered implements WorldlyContainer, IRen
         if (this.currentRecipe == null) {
             return false;
         }
+        if (!this.resourceClaimed) {
+            if (getItem(SLOT_RESOURCE).isEmpty()) {
+                this.currentRecipe = null;
+                this.fermentationTime = 0;
+                this.fermentationTotalTime = 0;
+                return false;
+            }
+            removeItem(SLOT_RESOURCE, 1);
+            this.resourceClaimed = true;
+        }
+        if (!loadFuelIfNeeded()) {
+            return false;
+        }
 
         int fermented = Math.min(this.fermentationTime, this.fuelCurrentFerment);
         if (fermented <= 0) {
@@ -291,6 +306,7 @@ public class TileFermenter extends TilePowered implements WorldlyContainer, IRen
 
         this.currentRecipe = null;
         this.fermentationTotalTime = 0;
+        this.resourceClaimed = false;
         return true;
     }
 
@@ -304,49 +320,72 @@ public class TileFermenter extends TilePowered implements WorldlyContainer, IRen
         FluidVariant fluid = resourceTank.getResource();
         long fluidAmount = resourceTank.getAmount();
 
-        if (!fluid.isBlank() && fluidAmount > 0 && !resource.isEmpty()) {
+        IFermenterRecipe matching = null;
+        if (!fluid.isBlank() && fluidAmount > 0 && (!resource.isEmpty() || this.fermentationTime > 0)) {
             if (getLevel() instanceof ServerLevel serverLevel) {
-                this.currentRecipe = RecipeUtils.getFermenterRecipe(serverLevel, resource, fluid, fluidAmount);
+                ItemStack recipeStack = resource.isEmpty() ? ItemStack.EMPTY : resource;
+                if (!recipeStack.isEmpty()) {
+                    matching = RecipeUtils.getFermenterRecipe(serverLevel, recipeStack, fluid, fluidAmount);
+                }
             }
         }
 
-        if (this.currentRecipe != null) {
-            this.fermentationTotalTime = this.fermentationTime = this.currentRecipe.getFermentationValue();
-            this.currentResourceModifier = determineResourceMod(resource);
-            removeItem(SLOT_RESOURCE, 1);
-        } else {
+        if (matching != null) {
+            this.currentRecipe = matching;
+            if (this.fermentationTime <= 0) {
+                this.fermentationTotalTime = this.fermentationTime = matching.getFermentationValue();
+                this.currentResourceModifier = determineResourceMod(resource);
+                this.resourceClaimed = false;
+            } else {
+                this.resourceClaimed = true;
+            }
+        } else if (this.fermentationTime <= 0) {
             this.fermentationTotalTime = this.fermentationTime = 0;
+            this.resourceClaimed = false;
         }
     }
 
-    private void checkFuel() {
+    private boolean canLoadFuel() {
         if (this.fuelBurnTime > 0) {
-            return;
+            return true;
+        }
+        ItemStack fuel = getItem(SLOT_FUEL);
+        return !fuel.isEmpty() && findFermenterFuel(fuel) != null;
+    }
+
+    private int peekFuelFerment() {
+        ItemStack fuel = getItem(SLOT_FUEL);
+        if (fuel.isEmpty()) {
+            return 0;
+        }
+        FermenterFuel fermenterFuel = findFermenterFuel(fuel);
+        return fermenterFuel == null ? 0 : fermenterFuel.fermentPerCycle();
+    }
+
+    private boolean loadFuelIfNeeded() {
+        if (this.fuelBurnTime > 0) {
+            return true;
         }
 
         ItemStack fuel = getItem(SLOT_FUEL);
         if (fuel.isEmpty()) {
-            return;
+            return false;
         }
 
         FermenterFuel fermenterFuel = findFermenterFuel(fuel);
         if (fermenterFuel == null) {
-            return;
+            return false;
         }
 
         this.fuelBurnTime = this.fuelTotalTime = fermenterFuel.burnDuration();
         this.fuelCurrentFerment = fermenterFuel.fermentPerCycle();
         removeItem(SLOT_FUEL, 1);
+        return true;
     }
 
     @Nullable
     private static FermenterFuel findFermenterFuel(ItemStack stack) {
-        for (var entry : FuelManager.fermenterFuel.entrySet()) {
-            if (ItemStack.isSameItem(entry.getKey(), stack)) {
-                return entry.getValue();
-            }
-        }
-        return null;
+        return FuelManager.getFermenterFuel(stack);
     }
 
     private static float determineResourceMod(ItemStack stack) {
@@ -471,6 +510,7 @@ public class TileFermenter extends TilePowered implements WorldlyContainer, IRen
         ContainerHelper.loadAllItems(input, items);
         this.tanks.readValue(input.childOrEmpty("Tanks"));
         this.currentRecipe = null;
+        this.resourceClaimed = this.fermentationTime > 0;
     }
 
     @Nullable

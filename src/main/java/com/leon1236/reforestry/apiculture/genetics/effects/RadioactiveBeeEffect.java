@@ -40,7 +40,7 @@ public class RadioactiveBeeEffect extends ThrottledBeeEffect {
 		List<LivingEntity> entities = ThrottledBeeEffect.getEntitiesInRange(genome, housing, LivingEntity.class);
 		for (LivingEntity entity : entities) {
 			int damage = 8;
-			int count = BeeManager.armorApiaristHelper.wearsItems(entity, this, true);
+			int count = BeeManager.getArmorApiaristHelper().wearsItems(entity, this, true);
 			damage -= count * 2;
 			if (damage <= 0) {
 				continue;

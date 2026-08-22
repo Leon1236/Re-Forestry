@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "reforestry:dye_red",
+    "reforestry:dye_yellow",
+    "reforestry:dye_blue",
+    "reforestry:dye_green",
+    "reforestry:dye_white",
+    "reforestry:dye_black",
+    "reforestry:dye_brown"
+  ]
+}

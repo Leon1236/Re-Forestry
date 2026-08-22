@@ -8,7 +8,7 @@ import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
 import net.minecraft.world.level.material.Fluid;
 
 public final class CarpenterInputFluids {
-    private static volatile Predicate<FluidVariant> predicate = variant -> true;
+    private static volatile Predicate<FluidVariant> predicate = variant -> false;
 
     private CarpenterInputFluids() {
     }

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "c:gears/bronze"
+    },
+    "H": {
+      "item": "reforestry:genetics_processor"
+    },
+    "M": {
+      "item": "reforestry:power_module"
+    },
+    "S": {
+      "item": "reforestry:sturdy_machine"
+    }
+  },
+  "pattern": [
+    "GHG",
+    "MSM",
+    "GHG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:replicator"
+  }
+}

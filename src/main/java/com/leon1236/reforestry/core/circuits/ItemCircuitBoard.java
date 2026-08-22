@@ -33,7 +33,7 @@ public class ItemCircuitBoard extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display,
             Consumer<Component> tooltip, TooltipFlag flag) {
-        ICircuitBoard circuitBoard = IForestryApi.INSTANCE.getCircuitManager().getCircuitBoard(stack);
+        ICircuitBoard circuitBoard = IForestryApi.get().getCircuitManager().getCircuitBoard(stack);
         if (circuitBoard != null) {
             List<Component> lines = new ArrayList<>();
             circuitBoard.addTooltip(lines);

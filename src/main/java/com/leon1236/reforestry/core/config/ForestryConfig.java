@@ -17,6 +17,14 @@ public final class ForestryConfig {
     private static int charcoalAmountBase = 8;
     private static int charcoalWallCheckRange = 16;
     private static boolean enableBackpackResupply = true;
+    private static boolean pollinateVanillaLeaves = true;
+    private static double escritoireBountyMultiplier = 1.0;
+    private static int multiblockFarmSize = 2;
+    private static boolean squareMultiblockFarms = false;
+    private static int legacyFarmsPlanterRings = 4;
+    private static boolean legacyFarmsUseRings = true;
+    private static int legacyFarmsRingSize = 4;
+    private static boolean disableButterflySpawning = false;
 
     private ForestryConfig() {
     }
@@ -37,6 +45,38 @@ public final class ForestryConfig {
         return enableBackpackResupply;
     }
 
+    public static boolean pollinateVanillaLeaves() {
+        return pollinateVanillaLeaves;
+    }
+
+    public static double escritoireBountyMultiplier() {
+        return escritoireBountyMultiplier;
+    }
+
+    public static int multiblockFarmSize() {
+        return multiblockFarmSize;
+    }
+
+    public static boolean squareMultiblockFarms() {
+        return squareMultiblockFarms;
+    }
+
+    public static int legacyFarmsPlanterRings() {
+        return legacyFarmsPlanterRings;
+    }
+
+    public static boolean legacyFarmsUseRings() {
+        return legacyFarmsUseRings;
+    }
+
+    public static int legacyFarmsRingSize() {
+        return legacyFarmsRingSize;
+    }
+
+    public static boolean disableButterflySpawning() {
+        return disableButterflySpawning;
+    }
+
     public static void init() {
         Map<String, String> existing = read();
         write(existing);
@@ -54,6 +94,35 @@ public final class ForestryConfig {
             charcoalWallCheckRange = 1;
         }
         enableBackpackResupply = parseBoolean(loaded.get("storage.enable_backpack_resupply"), true);
+        pollinateVanillaLeaves = parseBoolean(loaded.get("bees.pollinate_vanilla_leaves"), true);
+        escritoireBountyMultiplier = parseDouble(loaded.get("genetics.escritoire_bounty_multiplier"), 1.0);
+        if (escritoireBountyMultiplier < 0.0) {
+            escritoireBountyMultiplier = 0.0;
+        }
+        multiblockFarmSize = parseInt(loaded.get("farms.multiblock_farm_size"), 2);
+        if (multiblockFarmSize < 1) {
+            multiblockFarmSize = 1;
+        }
+        if (multiblockFarmSize > 10) {
+            multiblockFarmSize = 10;
+        }
+        squareMultiblockFarms = parseBoolean(loaded.get("farms.square_multiblock_farms"), false);
+        legacyFarmsPlanterRings = parseInt(loaded.get("farms.legacy_farms_planter_rings"), 4);
+        if (legacyFarmsPlanterRings < 1) {
+            legacyFarmsPlanterRings = 1;
+        }
+        if (legacyFarmsPlanterRings > 10) {
+            legacyFarmsPlanterRings = 10;
+        }
+        legacyFarmsUseRings = parseBoolean(loaded.get("farms.legacy_farms_use_rings"), true);
+        legacyFarmsRingSize = parseInt(loaded.get("farms.legacy_farms_ring_size"), 4);
+        if (legacyFarmsRingSize < 1) {
+            legacyFarmsRingSize = 1;
+        }
+        if (legacyFarmsRingSize > 10) {
+            legacyFarmsRingSize = 10;
+        }
+        disableButterflySpawning = parseBoolean(loaded.get("lepidopterology.disable_butterfly_spawning"), false);
     }
 
     private static void write(Map<String, String> existing) {
@@ -87,6 +156,54 @@ public final class ForestryConfig {
                 writer.newLine();
                 String resupplyValue = existing.getOrDefault("storage.enable_backpack_resupply", "true");
                 writer.write("storage.enable_backpack_resupply=" + resupplyValue);
+                writer.newLine();
+                writer.newLine();
+                writer.write("# Whether bees and player-held pollen can convert vanilla / default Forestry leaves into genetic leaves.");
+                writer.newLine();
+                String pollinateValue = existing.getOrDefault("bees.pollinate_vanilla_leaves", "true");
+                writer.write("bees.pollinate_vanilla_leaves=" + pollinateValue);
+                writer.newLine();
+                writer.newLine();
+                writer.write("# Multiplies bee product/specialty chance from winning the escritoire game (not mutation notes).");
+                writer.newLine();
+                String bountyValue = existing.getOrDefault("genetics.escritoire_bounty_multiplier", "1.0");
+                writer.write("genetics.escritoire_bounty_multiplier=" + bountyValue);
+                writer.newLine();
+                writer.newLine();
+                writer.write("# Farmland extent multiplier for assembled multiblock farms (CE multiFarmSize). Range 1-10.");
+                writer.newLine();
+                String farmSizeValue = existing.getOrDefault("farms.multiblock_farm_size", "2");
+                writer.write("farms.multiblock_farm_size=" + farmSizeValue);
+                writer.newLine();
+                writer.newLine();
+                writer.write("# When true, multiblock farms use square farmland instead of the default diamond shape.");
+                writer.newLine();
+                String squareFarmsValue = existing.getOrDefault("farms.square_multiblock_farms", "false");
+                writer.write("farms.square_multiblock_farms=" + squareFarmsValue);
+                writer.newLine();
+                writer.newLine();
+                writer.write("# Size of the farmland used by single-block planters (CE legacy_farms_planter_rings). Range 1-10.");
+                writer.newLine();
+                String planterRingsValue = existing.getOrDefault("farms.legacy_farms_planter_rings", "4");
+                writer.write("farms.legacy_farms_planter_rings=" + planterRingsValue);
+                writer.newLine();
+                writer.newLine();
+                writer.write("# When true, planters use a ring layout. Ring farmland is always one block smaller.");
+                writer.newLine();
+                String useRingsValue = existing.getOrDefault("farms.legacy_farms_use_rings", "true");
+                writer.write("farms.legacy_farms_use_rings=" + useRingsValue);
+                writer.newLine();
+                writer.newLine();
+                writer.write("# Inner ring size for the planter ring layout (CE legacy_farms_ring_size). Range 1-10.");
+                writer.newLine();
+                String ringSizeValue = existing.getOrDefault("farms.legacy_farms_ring_size", "4");
+                writer.write("farms.legacy_farms_ring_size=" + ringSizeValue);
+                writer.newLine();
+                writer.newLine();
+                writer.write("# When true, butterflies never spawn from Forestry leaves.");
+                writer.newLine();
+                String butterflySpawn = existing.getOrDefault("lepidopterology.disable_butterfly_spawning", "false");
+                writer.write("lepidopterology.disable_butterfly_spawning=" + butterflySpawn);
                 writer.newLine();
             }
         } catch (IOException e) {

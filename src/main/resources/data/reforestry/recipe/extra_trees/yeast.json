@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": "minecraft:bread",
+    "m": "minecraft:brown_mushroom"
+  },
+  "pattern": [
+    " m ",
+    "mbm"
+  ],
+  "result": {
+    "id": "reforestry:yeast",
+    "count": 8
+  }
+}

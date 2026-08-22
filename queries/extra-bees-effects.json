@@ -1,0 +1,232 @@
+{
+  "source_class": "binnie.extrabees.genetics.effect.ExtraBeesEffect",
+  "count": 25,
+  "effects": [
+    {
+      "enum": "ECTOPLASM",
+      "binnie_uid": "extrabees.effect.ectoplasm",
+      "reforestry_id": "reforestry:bee_effect_ectoplasm",
+      "collision": false,
+      "dominant": true,
+      "combinable": false,
+      "fx": null
+    },
+    {
+      "enum": "ACID",
+      "binnie_uid": "extrabees.effect.acid",
+      "reforestry_id": "reforestry:bee_effect_acid",
+      "collision": false,
+      "dominant": true,
+      "combinable": false,
+      "fx": null
+    },
+    {
+      "enum": "SPAWN_ZOMBIE",
+      "binnie_uid": "extrabees.effect.spawn_zombie",
+      "reforestry_id": "reforestry:bee_effect_spawn_zombie",
+      "collision": false,
+      "dominant": true,
+      "combinable": false,
+      "fx": null
+    },
+    {
+      "enum": "SPAWN_SKELETON",
+      "binnie_uid": "extrabees.effect.spawn_skeleton",
+      "reforestry_id": "reforestry:bee_effect_spawn_skeleton",
+      "collision": false,
+      "dominant": true,
+      "combinable": false,
+      "fx": null
+    },
+    {
+      "enum": "SPAWN_CREEPER",
+      "binnie_uid": "extrabees.effect.spawn_creeper",
+      "reforestry_id": "reforestry:bee_effect_spawn_creeper",
+      "collision": false,
+      "dominant": true,
+      "combinable": false,
+      "fx": null
+    },
+    {
+      "enum": "LIGHTNING",
+      "binnie_uid": "extrabees.effect.lightning",
+      "reforestry_id": "reforestry:bee_effect_lightning",
+      "collision": false,
+      "dominant": true,
+      "combinable": false,
+      "fx": "particles/lightning"
+    },
+    {
+      "enum": "RADIOACTIVE",
+      "binnie_uid": "extrabees.effect.radioactive",
+      "reforestry_id": "reforestry:bee_effect_eb_radioactive",
+      "collision": true,
+      "collides_with": "reforestry:bee_effect_radioactive",
+      "dominant": true,
+      "combinable": false,
+      "fx": "particles/radioactive"
+    },
+    {
+      "enum": "METEOR",
+      "binnie_uid": "extrabees.effect.meteor",
+      "reforestry_id": "reforestry:bee_effect_meteor",
+      "collision": false,
+      "dominant": true,
+      "combinable": false,
+      "fx": "particles/meteor"
+    },
+    {
+      "enum": "HUNGER",
+      "binnie_uid": "extrabees.effect.hunger",
+      "reforestry_id": "reforestry:bee_effect_hunger",
+      "collision": false,
+      "dominant": true,
+      "combinable": false,
+      "fx": null
+    },
+    {
+      "enum": "FOOD",
+      "binnie_uid": "extrabees.effect.food",
+      "reforestry_id": "reforestry:bee_effect_food",
+      "collision": false,
+      "dominant": true,
+      "combinable": false,
+      "fx": "particles/food"
+    },
+    {
+      "enum": "BLINDNESS",
+      "binnie_uid": "extrabees.effect.blindness",
+      "reforestry_id": "reforestry:bee_effect_blindness",
+      "collision": false,
+      "dominant": true,
+      "combinable": false,
+      "fx": "particles/blindness"
+    },
+    {
+      "enum": "CONFUSION",
+      "binnie_uid": "extrabees.effect.confusion",
+      "reforestry_id": "reforestry:bee_effect_confusion",
+      "collision": false,
+      "dominant": true,
+      "combinable": false,
+      "fx": null
+    },
+    {
+      "enum": "FIREWORKS",
+      "binnie_uid": "extrabees.effect.fireworks",
+      "reforestry_id": "reforestry:bee_effect_fireworks",
+      "collision": false,
+      "dominant": true,
+      "combinable": false,
+      "fx": null
+    },
+    {
+      "enum": "FESTIVAL",
+      "binnie_uid": "extrabees.effect.festival",
+      "reforestry_id": "reforestry:bee_effect_festival",
+      "collision": false,
+      "dominant": true,
+      "combinable": false,
+      "fx": null
+    },
+    {
+      "enum": "BIRTHDAY",
+      "binnie_uid": "extrabees.effect.birthday",
+      "reforestry_id": "reforestry:bee_effect_birthday",
+      "collision": false,
+      "dominant": true,
+      "combinable": false,
+      "fx": null
+    },
+    {
+      "enum": "TELEPORT",
+      "binnie_uid": "extrabees.effect.teleport",
+      "reforestry_id": "reforestry:bee_effect_teleport",
+      "collision": false,
+      "dominant": true,
+      "combinable": false,
+      "fx": "particles/gravity"
+    },
+    {
+      "enum": "GRAVITY",
+      "binnie_uid": "extrabees.effect.gravity",
+      "reforestry_id": "reforestry:bee_effect_gravity",
+      "collision": false,
+      "dominant": true,
+      "combinable": false,
+      "fx": "particles/gravity"
+    },
+    {
+      "enum": "THIEF",
+      "binnie_uid": "extrabees.effect.thief",
+      "reforestry_id": "reforestry:bee_effect_thief",
+      "collision": false,
+      "dominant": true,
+      "combinable": false,
+      "fx": "particles/gravity"
+    },
+    {
+      "enum": "WITHER",
+      "binnie_uid": "extrabees.effect.wither",
+      "reforestry_id": "reforestry:bee_effect_wither",
+      "collision": false,
+      "dominant": true,
+      "combinable": false,
+      "fx": "particles/wither"
+    },
+    {
+      "enum": "WATER",
+      "binnie_uid": "extrabees.effect.water",
+      "reforestry_id": "reforestry:bee_effect_water",
+      "collision": false,
+      "dominant": true,
+      "combinable": false,
+      "fx": "particles/water"
+    },
+    {
+      "enum": "SLOW",
+      "binnie_uid": "extrabees.effect.slow",
+      "reforestry_id": "reforestry:bee_effect_slow",
+      "collision": false,
+      "dominant": true,
+      "combinable": false,
+      "fx": null
+    },
+    {
+      "enum": "BONEMEAL_SAPLING",
+      "binnie_uid": "extrabees.effect.bonemeal_sapling",
+      "reforestry_id": "reforestry:bee_effect_bonemeal_sapling",
+      "collision": false,
+      "dominant": true,
+      "combinable": false,
+      "fx": null
+    },
+    {
+      "enum": "BONEMEAL_FRUIT",
+      "binnie_uid": "extrabees.effect.bonemeal_fruit",
+      "reforestry_id": "reforestry:bee_effect_bonemeal_fruit",
+      "collision": false,
+      "dominant": true,
+      "combinable": false,
+      "fx": null
+    },
+    {
+      "enum": "BONEMEAL_MUSHROOM",
+      "binnie_uid": "extrabees.effect.bonemeal_mushroom",
+      "reforestry_id": "reforestry:bee_effect_bonemeal_mushroom",
+      "collision": false,
+      "dominant": true,
+      "combinable": false,
+      "fx": null
+    },
+    {
+      "enum": "POWER",
+      "binnie_uid": "extrabees.effect.power",
+      "reforestry_id": "reforestry:bee_effect_power",
+      "collision": false,
+      "dominant": true,
+      "combinable": false,
+      "fx": null
+    }
+  ]
+}

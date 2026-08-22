@@ -1,0 +1,428 @@
+{
+  "source_class": "binnie.extratrees.items.Food",
+  "count": 60,
+  "foods": [
+    {
+      "enum": "CRABAPPLE",
+      "hunger": 2,
+      "binnie_model": "crabapple",
+      "reforestry_id": "reforestry:crabapple"
+    },
+    {
+      "enum": "ORANGE",
+      "hunger": 4,
+      "binnie_model": "orange",
+      "reforestry_id": "reforestry:orange"
+    },
+    {
+      "enum": "KUMQUAT",
+      "hunger": 2,
+      "binnie_model": "kumquat",
+      "reforestry_id": "reforestry:kumquat"
+    },
+    {
+      "enum": "LIME",
+      "hunger": 2,
+      "binnie_model": "lime",
+      "reforestry_id": "reforestry:lime"
+    },
+    {
+      "enum": "WILD_CHERRY",
+      "hunger": 2,
+      "binnie_model": "wild_cherry",
+      "reforestry_id": "reforestry:wild_cherry"
+    },
+    {
+      "enum": "SOUR_CHERRY",
+      "hunger": 2,
+      "binnie_model": "sour_cherry",
+      "reforestry_id": "reforestry:sour_cherry"
+    },
+    {
+      "enum": "BLACK_CHERRY",
+      "hunger": 2,
+      "binnie_model": "black_cherry",
+      "reforestry_id": "reforestry:black_cherry"
+    },
+    {
+      "enum": "Blackthorn",
+      "hunger": 3,
+      "binnie_model": "blackthorn",
+      "reforestry_id": "reforestry:blackthorn"
+    },
+    {
+      "enum": "CHERRY_PLUM",
+      "hunger": 3,
+      "binnie_model": "cherry_plum",
+      "reforestry_id": "reforestry:cherry_plum"
+    },
+    {
+      "enum": "ALMOND",
+      "hunger": 1,
+      "binnie_model": "almond",
+      "reforestry_id": "reforestry:almond"
+    },
+    {
+      "enum": "APRICOT",
+      "hunger": 4,
+      "binnie_model": "apricot",
+      "reforestry_id": "reforestry:apricot"
+    },
+    {
+      "enum": "GRAPEFRUIT",
+      "hunger": 4,
+      "binnie_model": "grapefruit",
+      "reforestry_id": "reforestry:grapefruit"
+    },
+    {
+      "enum": "PEACH",
+      "hunger": 4,
+      "binnie_model": "peach",
+      "reforestry_id": "reforestry:peach"
+    },
+    {
+      "enum": "SATSUMA",
+      "hunger": 3,
+      "binnie_model": "satsuma",
+      "reforestry_id": "reforestry:satsuma"
+    },
+    {
+      "enum": "BUDDHA_HAND",
+      "hunger": 3,
+      "binnie_model": "buddha_hand",
+      "reforestry_id": "reforestry:buddha_hand"
+    },
+    {
+      "enum": "CITRON",
+      "hunger": 3,
+      "binnie_model": "citron",
+      "reforestry_id": "reforestry:citron"
+    },
+    {
+      "enum": "FINGER_LIME",
+      "hunger": 3,
+      "binnie_model": "finger_lime",
+      "reforestry_id": "reforestry:finger_lime"
+    },
+    {
+      "enum": "KEY_LIME",
+      "hunger": 2,
+      "binnie_model": "key_lime",
+      "reforestry_id": "reforestry:key_lime"
+    },
+    {
+      "enum": "MANDERIN",
+      "hunger": 3,
+      "binnie_model": "manderin",
+      "reforestry_id": "reforestry:manderin"
+    },
+    {
+      "enum": "NECTARINE",
+      "hunger": 3,
+      "binnie_model": "nectarine",
+      "reforestry_id": "reforestry:nectarine"
+    },
+    {
+      "enum": "POMELO",
+      "hunger": 3,
+      "binnie_model": "pomelo",
+      "reforestry_id": "reforestry:pomelo"
+    },
+    {
+      "enum": "TANGERINE",
+      "hunger": 3,
+      "binnie_model": "tangerine",
+      "reforestry_id": "reforestry:tangerine"
+    },
+    {
+      "enum": "PEAR",
+      "hunger": 4,
+      "binnie_model": "pear",
+      "reforestry_id": "reforestry:pear"
+    },
+    {
+      "enum": "SAND_PEAR",
+      "hunger": 2,
+      "binnie_model": "sand_pear",
+      "reforestry_id": "reforestry:sand_pear"
+    },
+    {
+      "enum": "HAZELNUT",
+      "hunger": 2,
+      "binnie_model": "hazelnut",
+      "reforestry_id": "reforestry:hazelnut"
+    },
+    {
+      "enum": "BUTTERNUT",
+      "hunger": 1,
+      "binnie_model": "butternut",
+      "reforestry_id": "reforestry:butternut"
+    },
+    {
+      "enum": "BEECHNUT",
+      "hunger": 0,
+      "binnie_model": "beechnut",
+      "reforestry_id": "reforestry:beechnut"
+    },
+    {
+      "enum": "PECAN",
+      "hunger": 0,
+      "binnie_model": "pecan",
+      "reforestry_id": "reforestry:pecan"
+    },
+    {
+      "enum": "BANANA",
+      "hunger": 4,
+      "binnie_model": "banana",
+      "reforestry_id": "reforestry:banana"
+    },
+    {
+      "enum": "RED_BANANA",
+      "hunger": 4,
+      "binnie_model": "red_banana",
+      "reforestry_id": "reforestry:red_banana"
+    },
+    {
+      "enum": "PLANTAIN",
+      "hunger": 2,
+      "binnie_model": "plantain",
+      "reforestry_id": "reforestry:plantain"
+    },
+    {
+      "enum": "BRAZIL_NUT",
+      "hunger": 0,
+      "binnie_model": "brazil_nut",
+      "reforestry_id": "reforestry:brazil_nut"
+    },
+    {
+      "enum": "FIG",
+      "hunger": 2,
+      "binnie_model": "fig",
+      "reforestry_id": "reforestry:fig"
+    },
+    {
+      "enum": "ACORN",
+      "hunger": 0,
+      "binnie_model": "acorn",
+      "reforestry_id": "reforestry:acorn"
+    },
+    {
+      "enum": "ELDERBERRY",
+      "hunger": 1,
+      "binnie_model": "elderberry",
+      "reforestry_id": "reforestry:elderberry"
+    },
+    {
+      "enum": "OLIVE",
+      "hunger": 1,
+      "binnie_model": "olive",
+      "reforestry_id": "reforestry:olive"
+    },
+    {
+      "enum": "GINGKO_NUT",
+      "hunger": 1,
+      "binnie_model": "gingko_nut",
+      "reforestry_id": "reforestry:gingko_nut"
+    },
+    {
+      "enum": "COFFEE",
+      "hunger": 0,
+      "binnie_model": "coffee",
+      "reforestry_id": "reforestry:coffee"
+    },
+    {
+      "enum": "OSANGE_ORANGE",
+      "hunger": 1,
+      "binnie_model": "osange_orange",
+      "reforestry_id": "reforestry:osange_orange"
+    },
+    {
+      "enum": "CLOVE",
+      "hunger": 0,
+      "binnie_model": "clove",
+      "reforestry_id": "reforestry:clove"
+    },
+    {
+      "enum": "PAPAYIMAR",
+      "hunger": 8,
+      "binnie_model": "papayimar",
+      "reforestry_id": "reforestry:papayimar"
+    },
+    {
+      "enum": "BLACKCURRANT",
+      "hunger": 2,
+      "binnie_model": "blackcurrant",
+      "reforestry_id": "reforestry:blackcurrant"
+    },
+    {
+      "enum": "REDCURRANT",
+      "hunger": 2,
+      "binnie_model": "redcurrant",
+      "reforestry_id": "reforestry:redcurrant"
+    },
+    {
+      "enum": "BLACKBERRY",
+      "hunger": 2,
+      "binnie_model": "blackberry",
+      "reforestry_id": "reforestry:blackberry"
+    },
+    {
+      "enum": "RASPBERRY",
+      "hunger": 2,
+      "binnie_model": "raspberry",
+      "reforestry_id": "reforestry:raspberry"
+    },
+    {
+      "enum": "BLUEBERRY",
+      "hunger": 2,
+      "binnie_model": "blueberry",
+      "reforestry_id": "reforestry:blueberry"
+    },
+    {
+      "enum": "CRANBERRY",
+      "hunger": 2,
+      "binnie_model": "cranberry",
+      "reforestry_id": "reforestry:cranberry"
+    },
+    {
+      "enum": "JUNIPER",
+      "hunger": 0,
+      "binnie_model": "juniper",
+      "reforestry_id": "reforestry:juniper"
+    },
+    {
+      "enum": "GOOSEBERRY",
+      "hunger": 2,
+      "binnie_model": "gooseberry",
+      "reforestry_id": "reforestry:gooseberry"
+    },
+    {
+      "enum": "GOLDEN_RASPBERRY",
+      "hunger": 2,
+      "binnie_model": "golden_raspberry",
+      "reforestry_id": "reforestry:golden_raspberry"
+    },
+    {
+      "enum": "COCONUT",
+      "hunger": 2,
+      "binnie_model": "coconut",
+      "reforestry_id": "reforestry:coconut"
+    },
+    {
+      "enum": "CASHEW",
+      "hunger": 0,
+      "binnie_model": "cashew",
+      "reforestry_id": "reforestry:cashew"
+    },
+    {
+      "enum": "AVOCADO",
+      "hunger": 2,
+      "binnie_model": "avocado",
+      "reforestry_id": "reforestry:avocado"
+    },
+    {
+      "enum": "NUTMEG",
+      "hunger": 0,
+      "binnie_model": "nutmeg",
+      "reforestry_id": "reforestry:nutmeg"
+    },
+    {
+      "enum": "ALLSPICE",
+      "hunger": 0,
+      "binnie_model": "allspice",
+      "reforestry_id": "reforestry:allspice"
+    },
+    {
+      "enum": "CHILLI",
+      "hunger": 2,
+      "binnie_model": "chilli",
+      "reforestry_id": "reforestry:chilli"
+    },
+    {
+      "enum": "STAR_ANISE",
+      "hunger": 0,
+      "binnie_model": "star_anise",
+      "reforestry_id": "reforestry:star_anise"
+    },
+    {
+      "enum": "MANGO",
+      "hunger": 4,
+      "binnie_model": "mango",
+      "reforestry_id": "reforestry:mango"
+    },
+    {
+      "enum": "STARFRUIT",
+      "hunger": 2,
+      "binnie_model": "starfruit",
+      "reforestry_id": "reforestry:starfruit"
+    },
+    {
+      "enum": "CANDLENUT",
+      "hunger": 0,
+      "binnie_model": "candlenut",
+      "reforestry_id": "reforestry:candlenut"
+    }
+  ],
+  "misc_items": [
+    {
+      "enum": "SAWDUST",
+      "binnie_name": "sawdust",
+      "reforestry_id": "reforestry:sawdust"
+    },
+    {
+      "enum": "Bark",
+      "binnie_name": "bark",
+      "reforestry_id": "reforestry:bark"
+    },
+    {
+      "enum": "PROVEN_GEAR",
+      "binnie_name": "proven_gear",
+      "reforestry_id": "reforestry:proven_gear"
+    },
+    {
+      "enum": "WOOD_WAX",
+      "binnie_name": "wood_wax",
+      "reforestry_id": "reforestry:wood_wax"
+    },
+    {
+      "enum": "YEAST",
+      "binnie_name": "yeast",
+      "reforestry_id": "reforestry:yeast"
+    },
+    {
+      "enum": "LAGER_YEAST",
+      "binnie_name": "yeast_lager",
+      "reforestry_id": "reforestry:yeast_lager"
+    },
+    {
+      "enum": "GRAIN_WHEAT",
+      "binnie_name": "grain_wheat",
+      "reforestry_id": "reforestry:grain_wheat"
+    },
+    {
+      "enum": "GRAIN_BARLEY",
+      "binnie_name": "grain_barley",
+      "reforestry_id": "reforestry:grain_barley"
+    },
+    {
+      "enum": "GRAIN_RYE",
+      "binnie_name": "grain_rye",
+      "reforestry_id": "reforestry:grain_rye"
+    },
+    {
+      "enum": "GRAIN_CORN",
+      "binnie_name": "grain_corn",
+      "reforestry_id": "reforestry:grain_corn"
+    },
+    {
+      "enum": "GRAIN_ROASTED",
+      "binnie_name": "grain_roasted",
+      "reforestry_id": "reforestry:grain_roasted"
+    },
+    {
+      "enum": "GLASS_FITTING",
+      "binnie_name": "glass_fitting",
+      "reforestry_id": "reforestry:glass_fitting"
+    }
+  ]
+}

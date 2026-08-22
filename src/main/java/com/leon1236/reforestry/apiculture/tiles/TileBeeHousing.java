@@ -2,6 +2,7 @@ package com.leon1236.reforestry.apiculture.tiles;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -13,6 +14,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.UUIDUtil;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -75,11 +77,13 @@ public class TileBeeHousing extends BlockEntity implements WorldlyContainer, IBe
 
     private final NonNullList<ItemStack> items = NonNullList.withSize(SLOT_COUNT, ItemStack.EMPTY);
     private final IBeekeepingLogic beeLogic = new BeekeepingLogic(this);
-    private final IErrorLogic errorLogic = IForestryApi.INSTANCE.getErrorManager().createErrorLogic();
+    private final IErrorLogic errorLogic = IForestryApi.get().getErrorManager().createErrorLogic();
     private final IBeeListener apiaryBeeListener = new ApiaryBeeListener(this);
     private final String translationKey;
     private final boolean hasFrames;
-    private IClimateProvider climate = IForestryApi.INSTANCE.getClimateManager().createDummyClimateProvider();
+    private IClimateProvider climate = IForestryApi.get().getClimateManager().createDummyClimateProvider();
+    @Nullable
+    private GameProfile owner;
     private int workProgressPercent;
     private final int[] syncedErrorIds = new int[ERROR_SLOT_COUNT];
     private int syncedErrorCount;
@@ -196,7 +200,7 @@ public class TileBeeHousing extends BlockEntity implements WorldlyContainer, IBe
     @Override
     public void setLevel(Level level) {
         super.setLevel(level);
-        climate = IForestryApi.INSTANCE.getClimateManager().createClimateProvider(level, getBlockPos());
+        climate = IForestryApi.get().getClimateManager().createClimateProvider(level, getBlockPos());
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, TileBeeHousing tile) {
@@ -206,7 +210,7 @@ public class TileBeeHousing extends BlockEntity implements WorldlyContainer, IBe
         tile.workProgressPercent = tile.beeLogic.getWorkProgressPercent();
         tile.syncErrors();
         if ((level.getGameTime() & 63L) == 0L) {
-            tile.climate = IForestryApi.INSTANCE.getClimateManager().createClimateProvider(level, pos);
+            tile.climate = IForestryApi.get().getClimateManager().createClimateProvider(level, pos);
         }
     }
 
@@ -216,7 +220,7 @@ public class TileBeeHousing extends BlockEntity implements WorldlyContainer, IBe
             if (syncedErrorCount >= ERROR_SLOT_COUNT) {
                 break;
             }
-            short id = IForestryApi.INSTANCE.getErrorManager().getNumericId(error);
+            short id = IForestryApi.get().getErrorManager().getNumericId(error);
             syncedErrorIds[syncedErrorCount++] = id;
         }
         for (int i = syncedErrorCount; i < ERROR_SLOT_COUNT; i++) {
@@ -386,7 +390,12 @@ public class TileBeeHousing extends BlockEntity implements WorldlyContainer, IBe
     @Nullable
     @Override
     public GameProfile getOwner() {
-        return null;
+        return this.owner;
+    }
+
+    public void setOwner(GameProfile owner) {
+        this.owner = owner;
+        setChanged();
     }
 
     @Override
@@ -527,6 +536,12 @@ public class TileBeeHousing extends BlockEntity implements WorldlyContainer, IBe
     protected void saveAdditional(ValueOutput output) {
         super.saveAdditional(output);
         ContainerHelper.saveAllItems(output, items);
+        if (this.owner != null) {
+            if (this.owner.id() != null) {
+                output.store("owner_uuid", UUIDUtil.CODEC, this.owner.id());
+            }
+            output.putString("owner_name", this.owner.name());
+        }
     }
 
     @Override
@@ -534,6 +549,10 @@ public class TileBeeHousing extends BlockEntity implements WorldlyContainer, IBe
         super.loadAdditional(input);
         items.clear();
         ContainerHelper.loadAllItems(input, items);
+        input.getString("owner_name").ifPresent(name -> {
+            UUID id = input.read("owner_uuid", UUIDUtil.CODEC).orElse(null);
+            this.owner = new GameProfile(id, name);
+        });
     }
 
     @Override

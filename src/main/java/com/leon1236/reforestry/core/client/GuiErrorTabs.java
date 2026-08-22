@@ -42,7 +42,7 @@ public final class GuiErrorTabs {
 		int count = Math.min(errorCount.getAsInt(), maxErrors);
 		int y = topPos + START_Y;
 		for (int i = 0; i < count; i++) {
-			IError error = IForestryApi.INSTANCE.getErrorManager().getError(errorIdAt.apply(i));
+			IError error = IForestryApi.get().getErrorManager().getError(errorIdAt.apply(i));
 			if (error == null) {
 				continue;
 			}

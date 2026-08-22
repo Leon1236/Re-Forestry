@@ -1,0 +1,23 @@
+{
+  "values": [
+    "#minecraft:sand",
+    "minecraft:gravel",
+    "minecraft:clay",
+    "#minecraft:dirt",
+    "#minecraft:base_stone_overworld",
+    "#minecraft:base_stone_nether",
+    "#minecraft:stone_ore_replaceables",
+    "minecraft:cobblestone",
+    "minecraft:mossy_cobblestone",
+    "minecraft:sandstone",
+    "minecraft:red_sandstone",
+    "minecraft:smooth_sandstone",
+    "minecraft:smooth_red_sandstone",
+    "minecraft:cut_sandstone",
+    "minecraft:cut_red_sandstone",
+    "minecraft:chiseled_sandstone",
+    "minecraft:chiseled_red_sandstone",
+    "minecraft:end_stone",
+    "#minecraft:terracotta"
+  ]
+}

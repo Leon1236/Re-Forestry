@@ -2,6 +2,6 @@
   "name": "for.gui.book.patchouli.category.beekeeping.alveary.title",
   "parent": "reforestry:beekeeping",
   "description": "for.gui.book.patchouli.category.beekeeping.alveary.desc",
-  "icon": "reforestry:alveary_plain",
+  "icon": "reforestry:alveary_block",
   "sortnum": 0
 }

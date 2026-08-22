@@ -80,6 +80,10 @@ public final class ReforestryBiomeTags {
                 TagKey.create(Registries.BLOCK, ReForestry.id("hive_grounds/nether_extra_replaceable"));
         public static final TagKey<Block> SWARM_BEE_GROUND =
                 TagKey.create(Registries.BLOCK, ReForestry.id("hive_grounds/swarm"));
+        public static final TagKey<Block> WATER_HIVE_BELOW =
+                TagKey.create(Registries.BLOCK, ReForestry.id("hive_grounds/water_below"));
+        public static final TagKey<Block> MARBLE_HIVE_BLOCKS =
+                TagKey.create(Registries.BLOCK, ReForestry.id("hive_grounds/marble"));
 
         public static final TagKey<Block> PALM_LOGS =
                 TagKey.create(Registries.BLOCK, ReForestry.id("palm_logs"));

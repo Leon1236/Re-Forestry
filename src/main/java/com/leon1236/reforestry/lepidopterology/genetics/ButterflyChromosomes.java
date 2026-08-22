@@ -2,10 +2,13 @@ package com.leon1236.reforestry.lepidopterology.genetics;
 
 import java.util.List;
 
+import net.minecraft.world.item.Items;
+
 import com.google.common.collect.ImmutableMap;
 
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.api.apiculture.IFlowerType;
+import com.leon1236.reforestry.api.core.Product;
 import com.leon1236.reforestry.api.core.ToleranceType;
 import com.leon1236.reforestry.api.genetics.IKaryotype;
 import com.leon1236.reforestry.api.genetics.alleles.IBooleanAllele;
@@ -22,8 +25,10 @@ import com.leon1236.reforestry.api.lepidopterology.genetics.IButterflySpecies;
 import com.leon1236.reforestry.apiculture.genetics.BeeChromosomes;
 import com.leon1236.reforestry.apiculture.genetics.FlowerType;
 import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
+import com.leon1236.reforestry.core.features.CoreItems;
 import com.leon1236.reforestry.core.genetics.ForestryAlleles;
 import com.leon1236.reforestry.core.genetics.alleles.AlleleManager;
+import com.leon1236.reforestry.core.items.EnumCraftingMaterial;
 
 public final class ButterflyChromosomes {
 	public static final IRegistryChromosome<IButterflySpecies> SPECIES = AlleleManager.INSTANCE.registryChromosome(ReForestry.id("butterfly_species"));
@@ -44,8 +49,15 @@ public final class ButterflyChromosomes {
 	public static final IRegistryChromosome<IButterflyCocoon> COCOON = AlleleManager.INSTANCE.registryChromosome(ReForestry.id("cocoon"));
 
 	public static final DummyButterflyEffect NONE_EFFECT = new DummyButterflyEffect(ForestryButterflyEffects.NONE, true);
-	public static final DummyCocoon DEFAULT_COCOON = new DummyCocoon(ForestryCocoons.DEFAULT, true, List.of());
-	public static final DummyCocoon SILK_COCOON = new DummyCocoon(ForestryCocoons.SILK, true, List.of());
+	public static final DummyCocoon DEFAULT_COCOON = new DummyCocoon(ForestryCocoons.DEFAULT, true, List.of(
+			Product.of(Items.STRING, 2, 1f),
+			Product.of(Items.STRING, 1, 0.75f),
+			Product.of(Items.STRING, 3, 0.25f)
+	));
+	public static final DummyCocoon SILK_COCOON = new DummyCocoon(ForestryCocoons.SILK, true, List.of(
+			Product.of(CoreItems.CRAFTING_MATERIALS.item(EnumCraftingMaterial.SILK_WISP), 3, 0.75f),
+			Product.of(CoreItems.CRAFTING_MATERIALS.item(EnumCraftingMaterial.SILK_WISP), 2, 0.25f)
+	));
 
 	public static final IKaryotype KARYOTYPE;
 

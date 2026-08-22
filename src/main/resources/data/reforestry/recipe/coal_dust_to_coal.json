@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "reforestry:coal_dust",
+    "reforestry:coal_dust",
+    "reforestry:coal_dust",
+    "reforestry:coal_dust"
+  ],
+  "result": {
+    "id": "minecraft:coal",
+    "count": 1
+  }
+}

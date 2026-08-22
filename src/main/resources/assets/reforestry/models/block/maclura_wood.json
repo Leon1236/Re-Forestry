@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "reforestry:block/maclura_log",
+    "side": "reforestry:block/maclura_log"
+  }
+}

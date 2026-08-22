@@ -24,4 +24,12 @@ public class ScreenBackpack extends AbstractContainerScreen<ContainerBackpack> {
 		Identifier texture = this.menu.getSize() == ContainerBackpack.Size.T2 ? TEXTURE_T2 : TEXTURE_DEFAULT;
 		guiGraphics.blit(RenderPipelines.GUI_TEXTURED, texture, leftPos, topPos, 0.0f, 0.0f, imageWidth, imageHeight, 256, 256);
 	}
+
+	@Override
+	protected void extractLabels(GuiGraphicsExtractor graphics, int mouseX, int mouseY) {
+		if (this.menu.getSize() != ContainerBackpack.Size.T2) {
+			graphics.text(this.font, this.title, this.titleLabelX, this.titleLabelY, -12566464, false);
+		}
+		graphics.text(this.font, this.playerInventoryTitle, this.inventoryLabelX, this.inventoryLabelY, -12566464, false);
+	}
 }

@@ -1,0 +1,1763 @@
+{
+  "source_class": "binnie.extratrees.genetics.AlleleETFruitDefinition",
+  "count": 59,
+  "new_count": 54,
+  "reuse_count": 5,
+  "commented_skipped": [
+    {
+      "enum": "Papayimar",
+      "reason": "commented out of AlleleETFruitDefinition; Food.PAPAYIMAR still exists"
+    }
+  ],
+  "fruits": [
+    {
+      "enum": "Blackthorn",
+      "binnie_name": "blackthorn",
+      "binnie_uid": "extratrees.fruit.blackthorn",
+      "path": "fruit_blackthorn",
+      "reforestry_id": "reforestry:fruit_blackthorn",
+      "kind": "ripening",
+      "family": "PRUNES",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x6d8f1e",
+        "ripe": "0xde2f69",
+        "sprite": "SMALL"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "Blackthorn",
+            "count": 1,
+            "reforestry_id": "reforestry:blackthorn"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "CherryPlum",
+      "binnie_name": "cherry_plum",
+      "binnie_uid": "extratrees.fruit.cherry_plum",
+      "path": "fruit_cherry_plum",
+      "reforestry_id": "reforestry:fruit_cherry_plum",
+      "kind": "ripening",
+      "family": "PRUNES",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x6d8f1e",
+        "ripe": "0xe81c4b",
+        "sprite": "SMALL"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "CHERRY_PLUM",
+            "count": 1,
+            "reforestry_id": "reforestry:cherry_plum"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Peach",
+      "binnie_name": "peach",
+      "binnie_uid": "extratrees.fruit.peach",
+      "path": "fruit_peach",
+      "reforestry_id": "reforestry:fruit_peach",
+      "kind": "ripening",
+      "family": "PRUNES",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x6d8f1e",
+        "ripe": "0xfaa023",
+        "sprite": "AVERAGE"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "PEACH",
+            "count": 1,
+            "reforestry_id": "reforestry:peach"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Nectarine",
+      "binnie_name": "nectarine",
+      "binnie_uid": "extratrees.fruit.nectarine",
+      "path": "fruit_nectarine",
+      "reforestry_id": "reforestry:fruit_nectarine",
+      "kind": "ripening",
+      "family": "PRUNES",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x6d8f1e",
+        "ripe": "0xfa5523",
+        "sprite": "AVERAGE"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "NECTARINE",
+            "count": 1,
+            "reforestry_id": "reforestry:nectarine"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Apricot",
+      "binnie_name": "apricot",
+      "binnie_uid": "extratrees.fruit.apricot",
+      "path": "fruit_apricot",
+      "reforestry_id": "reforestry:fruit_apricot",
+      "kind": "ripening",
+      "family": "PRUNES",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x6d8f1e",
+        "ripe": "0xfacf23",
+        "sprite": "AVERAGE"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "APRICOT",
+            "count": 1,
+            "reforestry_id": "reforestry:apricot"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Almond",
+      "binnie_name": "almond",
+      "binnie_uid": "extratrees.fruit.almond",
+      "path": "fruit_almond",
+      "reforestry_id": "reforestry:fruit_almond",
+      "kind": "ripening",
+      "family": "PRUNES",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x6d8f1e",
+        "ripe": "0x8ee376",
+        "sprite": "SMALL"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "ALMOND",
+            "count": 1,
+            "reforestry_id": "reforestry:almond"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "WildCherry",
+      "binnie_name": "wild_cherry",
+      "binnie_uid": "extratrees.fruit.wild_cherry",
+      "path": "fruit_wild_cherry",
+      "reforestry_id": "reforestry:fruit_wild_cherry",
+      "kind": "ripening",
+      "family": "PRUNES",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x6d8f1e",
+        "ripe": "0xff0000",
+        "sprite": "TINY"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "WILD_CHERRY",
+            "count": 1,
+            "reforestry_id": "reforestry:wild_cherry"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "SourCherry",
+      "binnie_name": "sour_cherry",
+      "binnie_uid": "extratrees.fruit.sour_cherry",
+      "path": "fruit_sour_cherry",
+      "reforestry_id": "reforestry:fruit_sour_cherry",
+      "kind": "ripening",
+      "family": "PRUNES",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x6d8f1e",
+        "ripe": "0x9c092b",
+        "sprite": "TINY"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "SOUR_CHERRY",
+            "count": 1,
+            "reforestry_id": "reforestry:sour_cherry"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "BlackCherry",
+      "binnie_name": "black_cherry",
+      "binnie_uid": "extratrees.fruit.black_cherry",
+      "path": "fruit_black_cherry",
+      "reforestry_id": "reforestry:fruit_black_cherry",
+      "kind": "ripening",
+      "family": "PRUNES",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x6d8f1e",
+        "ripe": "0x4a0a19",
+        "sprite": "TINY"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "BLACK_CHERRY",
+            "count": 1,
+            "reforestry_id": "reforestry:black_cherry"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Fig",
+      "binnie_name": "fig",
+      "binnie_uid": "extratrees.fruit.fig",
+      "path": "fruit_fig",
+      "reforestry_id": "reforestry:fruit_fig",
+      "kind": "ripening",
+      "family": "PRUNES",
+      "ripening": {
+        "time": 9,
+        "unripe": "0xd8b162",
+        "ripe": "0x6c3f46",
+        "sprite": "SMALL"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "FIG",
+            "count": 1,
+            "reforestry_id": "reforestry:fig"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Elderberry",
+      "binnie_name": "elderberry",
+      "binnie_uid": "extratrees.fruit.elderberry",
+      "path": "fruit_elderberry",
+      "reforestry_id": "reforestry:fruit_elderberry",
+      "kind": "ripening",
+      "family": "PRUNES",
+      "ripening": {
+        "time": 9,
+        "unripe": "0x71975d",
+        "ripe": "0x515b43",
+        "sprite": "TINY"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "ELDERBERRY",
+            "count": 1,
+            "reforestry_id": "reforestry:elderberry"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Olive",
+      "binnie_name": "olive",
+      "binnie_uid": "extratrees.fruit.olive",
+      "path": "fruit_olive",
+      "reforestry_id": "reforestry:fruit_olive",
+      "kind": "ripening",
+      "family": "PRUNES",
+      "ripening": {
+        "time": 9,
+        "unripe": "0x879e35",
+        "ripe": "0x62572a",
+        "sprite": "SMALL"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "OLIVE",
+            "count": 1,
+            "reforestry_id": "reforestry:olive"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": true,
+      "reuse": "reforestry:fruit_olive",
+      "register": false
+    },
+    {
+      "enum": "Orange",
+      "binnie_name": "orange",
+      "binnie_uid": "extratrees.fruit.orange",
+      "path": "fruit_orange",
+      "reforestry_id": "reforestry:fruit_orange",
+      "kind": "ripening",
+      "family": "CITRUS",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x37f043",
+        "ripe": "0xff940a",
+        "sprite": "AVERAGE"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "ORANGE",
+            "count": 1,
+            "reforestry_id": "reforestry:orange"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": true,
+      "reuse": "reforestry:fruit_orange",
+      "register": false
+    },
+    {
+      "enum": "Manderin",
+      "binnie_name": "manderin",
+      "binnie_uid": "extratrees.fruit.manderin",
+      "path": "fruit_manderin",
+      "reforestry_id": "reforestry:fruit_manderin",
+      "kind": "ripening",
+      "family": "CITRUS",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x37f043",
+        "ripe": "0xff940a",
+        "sprite": "AVERAGE"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "MANDERIN",
+            "count": 1,
+            "reforestry_id": "reforestry:manderin"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Tangerine",
+      "binnie_name": "tangerine",
+      "binnie_uid": "extratrees.fruit.tangerine",
+      "path": "fruit_tangerine",
+      "reforestry_id": "reforestry:fruit_tangerine",
+      "kind": "ripening",
+      "family": "CITRUS",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x37f043",
+        "ripe": "0xff940a",
+        "sprite": "AVERAGE"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "TANGERINE",
+            "count": 1,
+            "reforestry_id": "reforestry:tangerine"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Satsuma",
+      "binnie_name": "satsuma",
+      "binnie_uid": "extratrees.fruit.satsuma",
+      "path": "fruit_satsuma",
+      "reforestry_id": "reforestry:fruit_satsuma",
+      "kind": "ripening",
+      "family": "CITRUS",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x37f043",
+        "ripe": "0xff940a",
+        "sprite": "AVERAGE"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "SATSUMA",
+            "count": 1,
+            "reforestry_id": "reforestry:satsuma"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "KeyLime",
+      "binnie_name": "key_lime",
+      "binnie_uid": "extratrees.fruit.key_lime",
+      "path": "fruit_key_lime",
+      "reforestry_id": "reforestry:fruit_key_lime",
+      "kind": "ripening",
+      "family": "CITRUS",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x37f043",
+        "ripe": "0x9bff44",
+        "sprite": "SMALL"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "KEY_LIME",
+            "count": 1,
+            "reforestry_id": "reforestry:key_lime"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Lime",
+      "binnie_name": "lime",
+      "binnie_uid": "extratrees.fruit.lime",
+      "path": "fruit_lime",
+      "reforestry_id": "reforestry:fruit_lime",
+      "kind": "ripening",
+      "family": "CITRUS",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x37f043",
+        "ripe": "0x9bff44",
+        "sprite": "AVERAGE"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "LIME",
+            "count": 1,
+            "reforestry_id": "reforestry:lime"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "FingerLime",
+      "binnie_name": "finger_lime",
+      "binnie_uid": "extratrees.fruit.finger_lime",
+      "path": "fruit_finger_lime",
+      "reforestry_id": "reforestry:fruit_finger_lime",
+      "kind": "ripening",
+      "family": "CITRUS",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x37f043",
+        "ripe": "0xaa3b38",
+        "sprite": "SMALL"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "FINGER_LIME",
+            "count": 1,
+            "reforestry_id": "reforestry:finger_lime"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Pomelo",
+      "binnie_name": "pomelo",
+      "binnie_uid": "extratrees.fruit.pomelo",
+      "path": "fruit_pomelo",
+      "reforestry_id": "reforestry:fruit_pomelo",
+      "kind": "ripening",
+      "family": "CITRUS",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x37f043",
+        "ripe": "0x5cd34a",
+        "sprite": "LARGER"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "POMELO",
+            "count": 1,
+            "reforestry_id": "reforestry:pomelo"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Grapefruit",
+      "binnie_name": "grapefruit",
+      "binnie_uid": "extratrees.fruit.grapefruit",
+      "path": "fruit_grapefruit",
+      "reforestry_id": "reforestry:fruit_grapefruit",
+      "kind": "ripening",
+      "family": "CITRUS",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x37f043",
+        "ripe": "0xff940a",
+        "sprite": "LARGE"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "GRAPEFRUIT",
+            "count": 1,
+            "reforestry_id": "reforestry:grapefruit"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Kumquat",
+      "binnie_name": "kumquat",
+      "binnie_uid": "extratrees.fruit.kumquat",
+      "path": "fruit_kumquat",
+      "reforestry_id": "reforestry:fruit_kumquat",
+      "kind": "ripening",
+      "family": "CITRUS",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x37f043",
+        "ripe": "0xff940a",
+        "sprite": "SMALL"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "KUMQUAT",
+            "count": 1,
+            "reforestry_id": "reforestry:kumquat"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Citron",
+      "binnie_name": "citron",
+      "binnie_uid": "extratrees.fruit.citron",
+      "path": "fruit_citron",
+      "reforestry_id": "reforestry:fruit_citron",
+      "kind": "ripening",
+      "family": "CITRUS",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x37f043",
+        "ripe": "0xffec60",
+        "sprite": "LARGE"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "CITRON",
+            "count": 1,
+            "reforestry_id": "reforestry:citron"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "BuddhaHand",
+      "binnie_name": "buddha_hand",
+      "binnie_uid": "extratrees.fruit.buddha_hand",
+      "path": "fruit_buddha_hand",
+      "reforestry_id": "reforestry:fruit_buddha_hand",
+      "kind": "ripening",
+      "family": "CITRUS",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x37f043",
+        "ripe": "0xffec60",
+        "sprite": "LARGE"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "BUDDHA_HAND",
+            "count": 1,
+            "reforestry_id": "reforestry:buddha_hand"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Apple",
+      "binnie_name": "apple",
+      "binnie_uid": "extratrees.fruit.apple",
+      "path": "fruit_apple",
+      "reforestry_id": "reforestry:fruit_apple",
+      "kind": "ripening",
+      "family": "POMES",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x78c953",
+        "ripe": "0xf71616",
+        "sprite": "AVERAGE"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "minecraft",
+            "item": "minecraft:apple",
+            "count": 1
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": true,
+      "reuse": "reforestry:fruit_apple",
+      "register": false
+    },
+    {
+      "enum": "Crabapple",
+      "binnie_name": "crabapple",
+      "binnie_uid": "extratrees.fruit.crabapple",
+      "path": "fruit_crabapple",
+      "reforestry_id": "reforestry:fruit_crabapple",
+      "kind": "ripening",
+      "family": "POMES",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x78c953",
+        "ripe": "0xffbd4c",
+        "sprite": "AVERAGE"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "CRABAPPLE",
+            "count": 1,
+            "reforestry_id": "reforestry:crabapple"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Mango",
+      "binnie_name": "mango",
+      "binnie_uid": "extratrees.fruit.mango",
+      "path": "fruit_mango",
+      "reforestry_id": "reforestry:fruit_mango",
+      "kind": "ripening",
+      "family": "POMES",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x658c15",
+        "ripe": "0xf2a636",
+        "sprite": "AVERAGE"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "MANGO",
+            "count": 1,
+            "reforestry_id": "reforestry:mango"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Pear",
+      "binnie_name": "pear",
+      "binnie_uid": "extratrees.fruit.pear",
+      "path": "fruit_pear",
+      "reforestry_id": "reforestry:fruit_pear",
+      "kind": "ripening",
+      "family": "POMES",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x9f8f51",
+        "ripe": "0x9fd551",
+        "sprite": "PEAR"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "PEAR",
+            "count": 1,
+            "reforestry_id": "reforestry:pear"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": true,
+      "reuse": "reforestry:fruit_pear",
+      "register": false
+    },
+    {
+      "enum": "OsangeOrange",
+      "binnie_name": "osange_orange",
+      "binnie_uid": "extratrees.fruit.osange_orange",
+      "path": "fruit_osange_orange",
+      "reforestry_id": "reforestry:fruit_osange_orange",
+      "kind": "ripening",
+      "family": "POMES",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x979752",
+        "ripe": "0xa2bf27",
+        "sprite": "LARGER"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "OSANGE_ORANGE",
+            "count": 1,
+            "reforestry_id": "reforestry:osange_orange"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Banana",
+      "binnie_name": "banana",
+      "binnie_uid": "extratrees.fruit.banana",
+      "path": "fruit_banana",
+      "reforestry_id": "reforestry:fruit_banana",
+      "kind": "pod",
+      "family": "JUNGLE",
+      "ripening": null,
+      "pod": "BANANA",
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "BANANA",
+            "count": 2,
+            "reforestry_id": "reforestry:banana"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "RedBanana",
+      "binnie_name": "red_banana",
+      "binnie_uid": "extratrees.fruit.red_banana",
+      "path": "fruit_red_banana",
+      "reforestry_id": "reforestry:fruit_red_banana",
+      "kind": "pod",
+      "family": "JUNGLE",
+      "ripening": null,
+      "pod": "RED_BANANA",
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "RED_BANANA",
+            "count": 2,
+            "reforestry_id": "reforestry:red_banana"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Plantain",
+      "binnie_name": "platain",
+      "binnie_uid": "extratrees.fruit.platain",
+      "path": "fruit_plantain",
+      "reforestry_id": "reforestry:fruit_plantain",
+      "kind": "pod",
+      "family": "JUNGLE",
+      "ripening": null,
+      "pod": "PLANTAIN",
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "PLANTAIN",
+            "count": 2,
+            "reforestry_id": "reforestry:plantain"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Coffee",
+      "binnie_name": "coffee",
+      "binnie_uid": "extratrees.fruit.coffee",
+      "path": "fruit_coffee",
+      "reforestry_id": "reforestry:fruit_coffee",
+      "kind": "ripening",
+      "family": "JUNGLE",
+      "ripening": {
+        "time": 8,
+        "unripe": "0x716d1d",
+        "ripe": "0xf84f66",
+        "sprite": "TINY"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "COFFEE",
+            "count": 1,
+            "reforestry_id": "reforestry:coffee"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Coconut",
+      "binnie_name": "coconut",
+      "binnie_uid": "extratrees.fruit.coconut",
+      "path": "fruit_coconut",
+      "reforestry_id": "reforestry:fruit_coconut",
+      "kind": "pod",
+      "family": "JUNGLE",
+      "ripening": null,
+      "pod": "COCONUT",
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "COCONUT",
+            "count": 1,
+            "reforestry_id": "reforestry:coconut"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": true,
+      "reuse": "reforestry:fruit_coconut",
+      "register": false
+    },
+    {
+      "enum": "Cashew",
+      "binnie_name": "cashew",
+      "binnie_uid": "extratrees.fruit.cashew",
+      "path": "fruit_cashew",
+      "reforestry_id": "reforestry:fruit_cashew",
+      "kind": "ripening",
+      "family": "JUNGLE",
+      "ripening": {
+        "time": 8,
+        "unripe": "0xc4851c",
+        "ripe": "0xe94b17",
+        "sprite": "AVERAGE"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "CASHEW",
+            "count": 1,
+            "reforestry_id": "reforestry:cashew"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Avocado",
+      "binnie_name": "avocado",
+      "binnie_uid": "extratrees.fruit.avocado",
+      "path": "fruit_avocado",
+      "reforestry_id": "reforestry:fruit_avocado",
+      "kind": "ripening",
+      "family": "JUNGLE",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x9cbe72",
+        "ripe": "0x211f10",
+        "sprite": "PEAR"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "AVOCADO",
+            "count": 1,
+            "reforestry_id": "reforestry:avocado"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Nutmeg",
+      "binnie_name": "nutmeg",
+      "binnie_uid": "extratrees.fruit.nutmeg",
+      "path": "fruit_nutmeg",
+      "reforestry_id": "reforestry:fruit_nutmeg",
+      "kind": "ripening",
+      "family": "JUNGLE",
+      "ripening": {
+        "time": 9,
+        "unripe": "0xe2c32d",
+        "ripe": "0xac8355",
+        "sprite": "TINY"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "NUTMEG",
+            "count": 1,
+            "reforestry_id": "reforestry:nutmeg"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Allspice",
+      "binnie_name": "allspice",
+      "binnie_uid": "extratrees.fruit.allspice",
+      "path": "fruit_allspice",
+      "reforestry_id": "reforestry:fruit_allspice",
+      "kind": "ripening",
+      "family": "JUNGLE",
+      "ripening": {
+        "time": 9,
+        "unripe": "0xe7a47a",
+        "ripe": "0x714636",
+        "sprite": "TINY"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "ALLSPICE",
+            "count": 1,
+            "reforestry_id": "reforestry:allspice"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Chilli",
+      "binnie_name": "chilli",
+      "binnie_uid": "extratrees.fruit.chilli",
+      "path": "fruit_chilli",
+      "reforestry_id": "reforestry:fruit_chilli",
+      "kind": "ripening",
+      "family": "JUNGLE",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x716265",
+        "ripe": "0xe71832",
+        "sprite": "SMALL"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "CHILLI",
+            "count": 1,
+            "reforestry_id": "reforestry:chilli"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "StarAnise",
+      "binnie_name": "star_anise",
+      "binnie_uid": "extratrees.fruit.star_anise",
+      "path": "fruit_star_anise",
+      "reforestry_id": "reforestry:fruit_star_anise",
+      "kind": "ripening",
+      "family": "JUNGLE",
+      "ripening": {
+        "time": 8,
+        "unripe": "0x85442e",
+        "ripe": "0xd45c05",
+        "sprite": "TINY"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "STAR_ANISE",
+            "count": 1,
+            "reforestry_id": "reforestry:star_anise"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Starfruit",
+      "binnie_name": "starfruit",
+      "binnie_uid": "extratrees.fruit.starfruit",
+      "path": "fruit_starfruit",
+      "reforestry_id": "reforestry:fruit_starfruit",
+      "kind": "ripening",
+      "family": "JUNGLE",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x95c20d",
+        "ripe": "0xe5d22e",
+        "sprite": "AVERAGE"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "STARFRUIT",
+            "count": 1,
+            "reforestry_id": "reforestry:starfruit"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Candlenut",
+      "binnie_name": "candlenut",
+      "binnie_uid": "extratrees.fruit.candlenut",
+      "path": "fruit_candlenut",
+      "reforestry_id": "reforestry:fruit_candlenut",
+      "kind": "ripening",
+      "family": "JUNGLE",
+      "ripening": {
+        "time": 8,
+        "unripe": "0x7da873",
+        "ripe": "0xdecab2",
+        "sprite": "SMALL"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "CANDLENUT",
+            "count": 1,
+            "reforestry_id": "reforestry:candlenut"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Hazelnut",
+      "binnie_name": "hazelnut",
+      "binnie_uid": "extratrees.fruit.hazelnut",
+      "path": "fruit_hazelnut",
+      "reforestry_id": "reforestry:fruit_hazelnut",
+      "kind": "ripening",
+      "family": "NUX",
+      "ripening": {
+        "time": 7,
+        "unripe": "0x7d791e",
+        "ripe": "0xdcb276",
+        "sprite": "SMALL"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "HAZELNUT",
+            "count": 1,
+            "reforestry_id": "reforestry:hazelnut"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Butternut",
+      "binnie_name": "butternut",
+      "binnie_uid": "extratrees.fruit.butternut",
+      "path": "fruit_butternut",
+      "reforestry_id": "reforestry:fruit_butternut",
+      "kind": "ripening",
+      "family": "NUX",
+      "ripening": {
+        "time": 7,
+        "unripe": "0xb2b750",
+        "ripe": "0xf5b462",
+        "sprite": "SMALL"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "BUTTERNUT",
+            "count": 1,
+            "reforestry_id": "reforestry:butternut"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Beechnut",
+      "binnie_name": "beechnut",
+      "binnie_uid": "extratrees.fruit.beechnut",
+      "path": "fruit_beechnut",
+      "reforestry_id": "reforestry:fruit_beechnut",
+      "kind": "ripening",
+      "family": "NUX",
+      "ripening": {
+        "time": 8,
+        "unripe": "0xdbbe7c",
+        "ripe": "0x5f3e35",
+        "sprite": "TINY"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "BEECHNUT",
+            "count": 1,
+            "reforestry_id": "reforestry:beechnut"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Pecan",
+      "binnie_name": "pecan",
+      "binnie_uid": "extratrees.fruit.pecan",
+      "path": "fruit_pecan",
+      "reforestry_id": "reforestry:fruit_pecan",
+      "kind": "ripening",
+      "family": "NUX",
+      "ripening": {
+        "time": 8,
+        "unripe": "0xa2ac4c",
+        "ripe": "0xf0cf89",
+        "sprite": "SMALL"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "PECAN",
+            "count": 1,
+            "reforestry_id": "reforestry:pecan"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "BrazilNut",
+      "binnie_name": "brazil_nut",
+      "binnie_uid": "extratrees.fruit.brazil_nut",
+      "path": "fruit_brazil_nut",
+      "reforestry_id": "reforestry:fruit_brazil_nut",
+      "kind": "ripening",
+      "family": "NUX",
+      "ripening": {
+        "time": 10,
+        "unripe": "0x59a769",
+        "ripe": "0x965530",
+        "sprite": "LARGE"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "BRAZIL_NUT",
+            "count": 4,
+            "reforestry_id": "reforestry:brazil_nut"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Acorn",
+      "binnie_name": "acorn",
+      "binnie_uid": "extratrees.fruit.acorn",
+      "path": "fruit_acorn",
+      "reforestry_id": "reforestry:fruit_acorn",
+      "kind": "ripening",
+      "family": "NUX",
+      "ripening": {
+        "time": 6,
+        "unripe": "0x72b226",
+        "ripe": "0xad6a1d",
+        "sprite": "TINY"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "ACORN",
+            "count": 1,
+            "reforestry_id": "reforestry:acorn"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "GingkoNut",
+      "binnie_name": "gingko_nut",
+      "binnie_uid": "extratrees.fruit.gingko_nut",
+      "path": "fruit_gingko_nut",
+      "reforestry_id": "reforestry:fruit_gingko_nut",
+      "kind": "ripening",
+      "family": "NUX",
+      "ripening": {
+        "time": 7,
+        "unripe": "0x8c975b",
+        "ripe": "0xe5daad",
+        "sprite": "TINY"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "GINGKO_NUT",
+            "count": 1,
+            "reforestry_id": "reforestry:gingko_nut"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Clove",
+      "binnie_name": "clove",
+      "binnie_uid": "extratrees.fruit.clove",
+      "path": "fruit_clove",
+      "reforestry_id": "reforestry:fruit_clove",
+      "kind": "ripening",
+      "family": "NUX",
+      "ripening": {
+        "time": 9,
+        "unripe": "0x687c2c",
+        "ripe": "0xab4445",
+        "sprite": "TINY"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "CLOVE",
+            "count": 1,
+            "reforestry_id": "reforestry:clove"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Blackcurrant",
+      "binnie_name": "blackcurrant",
+      "binnie_uid": "extratrees.fruit.blackcurrant",
+      "path": "fruit_blackcurrant",
+      "reforestry_id": "reforestry:fruit_blackcurrant",
+      "kind": "ripening",
+      "family": "BERRY",
+      "ripening": {
+        "time": 8,
+        "unripe": "0x8f8c53",
+        "ripe": "0x4b4e53",
+        "sprite": "TINY"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "BLACKCURRANT",
+            "count": 2,
+            "reforestry_id": "reforestry:blackcurrant"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Redcurrant",
+      "binnie_name": "redcurrant",
+      "binnie_uid": "extratrees.fruit.redcurrant",
+      "path": "fruit_redcurrant",
+      "reforestry_id": "reforestry:fruit_redcurrant",
+      "kind": "ripening",
+      "family": "BERRY",
+      "ripening": {
+        "time": 8,
+        "unripe": "0xc6800e",
+        "ripe": "0xe61e0e",
+        "sprite": "TINY"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "REDCURRANT",
+            "count": 2,
+            "reforestry_id": "reforestry:redcurrant"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Blackberry",
+      "binnie_name": "blackberry",
+      "binnie_uid": "extratrees.fruit.blackberry",
+      "path": "fruit_blackberry",
+      "reforestry_id": "reforestry:fruit_blackberry",
+      "kind": "ripening",
+      "family": "BERRY",
+      "ripening": {
+        "time": 8,
+        "unripe": "0x8f6d71",
+        "ripe": "0x494371",
+        "sprite": "TINY"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "BLACKBERRY",
+            "count": 2,
+            "reforestry_id": "reforestry:blackberry"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Raspberry",
+      "binnie_name": "raspberry",
+      "binnie_uid": "extratrees.fruit.raspberry",
+      "path": "fruit_raspberry",
+      "reforestry_id": "reforestry:fruit_raspberry",
+      "kind": "ripening",
+      "family": "BERRY",
+      "ripening": {
+        "time": 8,
+        "unripe": "0xecd1c5",
+        "ripe": "0xdd6971",
+        "sprite": "TINY"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "RASPBERRY",
+            "count": 2,
+            "reforestry_id": "reforestry:raspberry"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Blueberry",
+      "binnie_name": "blueberry",
+      "binnie_uid": "extratrees.fruit.blueberry",
+      "path": "fruit_blueberry",
+      "reforestry_id": "reforestry:fruit_blueberry",
+      "kind": "ripening",
+      "family": "BERRY",
+      "ripening": {
+        "time": 8,
+        "unripe": "0x9bb297",
+        "ripe": "0x6093be",
+        "sprite": "TINY"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "BLUEBERRY",
+            "count": 2,
+            "reforestry_id": "reforestry:blueberry"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Cranberry",
+      "binnie_name": "cranberry",
+      "binnie_uid": "extratrees.fruit.cranberry",
+      "path": "fruit_cranberry",
+      "reforestry_id": "reforestry:fruit_cranberry",
+      "kind": "ripening",
+      "family": "BERRY",
+      "ripening": {
+        "time": 8,
+        "unripe": "0xbaa730",
+        "ripe": "0xde1a30",
+        "sprite": "TINY"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "CRANBERRY",
+            "count": 2,
+            "reforestry_id": "reforestry:cranberry"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Juniper",
+      "binnie_name": "juniper",
+      "binnie_uid": "extratrees.fruit.juniper",
+      "path": "fruit_juniper",
+      "reforestry_id": "reforestry:fruit_juniper",
+      "kind": "ripening",
+      "family": "BERRY",
+      "ripening": {
+        "time": 8,
+        "unripe": "0x9b8c72",
+        "ripe": "0x606372",
+        "sprite": "TINY"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "JUNIPER",
+            "count": 2,
+            "reforestry_id": "reforestry:juniper"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "Gooseberry",
+      "binnie_name": "gooseberry",
+      "binnie_uid": "extratrees.fruit.gooseberry",
+      "path": "fruit_gooseberry",
+      "reforestry_id": "reforestry:fruit_gooseberry",
+      "kind": "ripening",
+      "family": "BERRY",
+      "ripening": {
+        "time": 8,
+        "unripe": "0xb99f50",
+        "ripe": "0xb9cf50",
+        "sprite": "TINY"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "GOOSEBERRY",
+            "count": 2,
+            "reforestry_id": "reforestry:gooseberry"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    },
+    {
+      "enum": "GoldenRaspberry",
+      "binnie_name": "golden_raspberry",
+      "binnie_uid": "extratrees.fruit.golden_raspberry",
+      "path": "fruit_golden_raspberry",
+      "reforestry_id": "reforestry:fruit_golden_raspberry",
+      "kind": "ripening",
+      "family": "BERRY",
+      "ripening": {
+        "time": 8,
+        "unripe": "0xbeb03b",
+        "ripe": "0xf3b03b",
+        "sprite": "TINY"
+      },
+      "pod": null,
+      "products": [
+        {
+          "item": {
+            "kind": "et_food",
+            "enum": "GOLDEN_RASPBERRY",
+            "count": 2,
+            "reforestry_id": "reforestry:golden_raspberry"
+          },
+          "chance": 1.0
+        }
+      ],
+      "default_fruits_reuse": false,
+      "reuse": null,
+      "register": true
+    }
+  ]
+}

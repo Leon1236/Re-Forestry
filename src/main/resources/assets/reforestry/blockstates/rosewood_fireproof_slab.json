@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/rosewood_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/rosewood_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/rosewood_slab_top"
+    }
+  }
+}

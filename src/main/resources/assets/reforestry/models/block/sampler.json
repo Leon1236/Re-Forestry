@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "reforestry:block/sampler_bottom",
+    "side": "reforestry:block/sampler_side",
+    "top": "reforestry:block/sampler_top"
+  }
+}

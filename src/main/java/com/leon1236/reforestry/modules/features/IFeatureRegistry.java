@@ -42,6 +42,13 @@ public interface IFeatureRegistry {
         return new FeatureBlockGroup.Builder<B, S>(getModuleId(), constructor).types(types);
     }
 
+    default <B extends Block, R extends IBlockSubtype, C extends IBlockSubtype> FeatureBlockTable.Builder<B, R, C> blockTable(
+            FeatureBlockTable.BlockFactory<B, R, C> constructor, R[] rowTypes, C[] columnTypes) {
+        return new FeatureBlockTable.Builder<B, R, C>(getModuleId(), constructor)
+                .rowTypes(rowTypes)
+                .columnTypes(columnTypes);
+    }
+
     default <I extends Item, S extends IItemSubtype> FeatureItemGroup.Builder<I, S> itemGroup(
             BiFunction<S, Item.Properties, I> constructor, S[] types) {
         return new FeatureItemGroup.Builder<I, S>(getModuleId(), constructor).types(types);

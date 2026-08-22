@@ -1,0 +1,19 @@
+{
+  "type": "reforestry:centrifuge",
+  "input": "reforestry:bee_comb_ic2energy",
+  "time": 20,
+  "products": [
+    {
+      "item": "reforestry:beeswax",
+      "chance": 0.8
+    },
+    {
+      "item": "minecraft:redstone",
+      "chance": 0.75
+    },
+    {
+      "item": "reforestry:honey_drop_energy",
+      "chance": 1.0
+    }
+  ]
+}

@@ -16,14 +16,13 @@ public class FeatureOlive extends FeatureTree {
 	protected void generateLeaves(IGenome genome, LevelAccessor level, RandomSource rand, TreeBlockTypeLeaf leaf, TreeContour contour, BlockPos startPos) {
 		float radius = 2 + (int) (this.girth / 2f);
 
-		// Main Canopy
 		FeatureHelper.generateEllipsoid(level, startPos.offset(this.girth / 2, this.height, this.girth / 2), radius, 1, radius, 1.75f, leaf, FeatureHelper.EnumReplaceMode.SOFT, contour);
 
 		int leafSpawn = this.height - 1;
 		int i = 0;
 
 		while (leafSpawn >= 2) {
-			int gMod = Math.round(this.girth / 2f); //omg garry's modification reference????
+			int gMod = Math.round(this.girth / 2f);
 
 			int randX = rand.nextIntBetweenInclusive(-gMod, gMod);
 			int randZ = rand.nextIntBetweenInclusive(-gMod, gMod);

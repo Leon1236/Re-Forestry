@@ -1,0 +1,7 @@
+{
+  "type": "reforestry:protein",
+  "amount": 250,
+  "ingredient": {
+    "item": "minecraft:pufferfish"
+  }
+}

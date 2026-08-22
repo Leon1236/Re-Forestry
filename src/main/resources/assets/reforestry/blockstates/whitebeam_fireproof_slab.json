@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/whitebeam_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/whitebeam_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/whitebeam_slab_top"
+    }
+  }
+}

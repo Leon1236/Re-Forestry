@@ -15,26 +15,42 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
 import com.leon1236.reforestry.api.core.ISpectacleBlock;
+import com.leon1236.reforestry.api.core.HumidityType;
+import com.leon1236.reforestry.api.core.TemperatureType;
+import com.leon1236.reforestry.api.core.genetics.IFruitBearer;
 import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
 import com.leon1236.reforestry.api.genetics.IBreedingTracker;
 import com.leon1236.reforestry.api.genetics.IGenome;
+import com.leon1236.reforestry.api.genetics.IIndividual;
+import com.leon1236.reforestry.api.lepidopterology.IButterflyNursery;
+import com.leon1236.reforestry.api.lepidopterology.genetics.IButterfly;
 import com.leon1236.reforestry.core.genetics.root.BreedingTrackerManager;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureTiles;
 import com.leon1236.reforestry.api.arboriculture.genetics.IFruit;
 import com.leon1236.reforestry.arboriculture.genetics.ITreeSpecies;
+import com.leon1236.reforestry.arboriculture.genetics.Tree;
 import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
 import com.leon1236.reforestry.arboriculture.genetics.TreeMating;
+import com.leon1236.reforestry.core.climate.ClimateProvider;
 import com.leon1236.reforestry.core.genetics.mutations.Mutation;
+import com.leon1236.reforestry.lepidopterology.genetics.Butterfly;
+import com.leon1236.reforestry.lepidopterology.genetics.ButterflyChromosomes;
+import com.leon1236.reforestry.lepidopterology.genetics.ButterflySpeciesType;
 
-public class TileLeaves extends TileTreeContainer implements ISpectacleBlock {
+public class TileLeaves extends TileTreeContainer implements ISpectacleBlock, IFruitBearer, IButterflyNursery {
     private static final String NBT_MATE_GENOME = "MateGenome";
     private static final String NBT_RIPENING_TIME = "RipeningTime";
     private static final String NBT_IS_FRUIT_LEAF = "IsFruitLeaf";
+    private static final String NBT_CATERPILLAR = "Caterpillar";
+    private static final String NBT_MATURATION_TIME = "CATMAT";
 
     @Nullable
     private IGenome mateGenome;
     private boolean isFruitLeaf;
     private int ripeningTime;
+    @Nullable
+    private IButterfly caterpillar;
+    private int maturationTime;
 
     public TileLeaves(BlockPos pos, BlockState state) {
         super(ArboricultureTiles.LEAVES.type(), pos, state);
@@ -86,6 +102,10 @@ public class TileLeaves extends TileTreeContainer implements ISpectacleBlock {
         }
         output.putInt(NBT_RIPENING_TIME, ripeningTime);
         output.putBoolean(NBT_IS_FRUIT_LEAF, isFruitLeaf);
+        if (caterpillar instanceof Butterfly butterfly) {
+            output.store(NBT_CATERPILLAR, Butterfly.CODEC, butterfly);
+        }
+        output.putInt(NBT_MATURATION_TIME, maturationTime);
     }
 
     @Override
@@ -94,6 +114,8 @@ public class TileLeaves extends TileTreeContainer implements ISpectacleBlock {
         mateGenome = input.read(NBT_MATE_GENOME, TreeChromosomes.KARYOTYPE.genomeCodec()).orElse(null);
         ripeningTime = input.getIntOr(NBT_RIPENING_TIME, 0);
         isFruitLeaf = input.getBooleanOr(NBT_IS_FRUIT_LEAF, false);
+        caterpillar = input.read(NBT_CATERPILLAR, Butterfly.CODEC).map(IButterfly.class::cast).orElse(null);
+        maturationTime = input.getIntOr(NBT_MATURATION_TIME, 0);
     }
 
     private void rollFruitLeaf() {
@@ -121,6 +143,7 @@ public class TileLeaves extends TileTreeContainer implements ISpectacleBlock {
                 markUpdated();
             }
         }
+        matureCaterpillar();
     }
 
     private int getRipeningPeriod() {
@@ -128,10 +151,12 @@ public class TileLeaves extends TileTreeContainer implements ISpectacleBlock {
         return genome == null ? Integer.MAX_VALUE : genome.getActiveAllele(TreeChromosomes.FRUIT).value().getRipeningPeriod();
     }
 
+    @Override
     public boolean hasFruit() {
         return isFruitLeaf;
     }
 
+    @Override
     public float getRipeness() {
         int period = getRipeningPeriod();
         if (period <= 0) {
@@ -141,6 +166,11 @@ public class TileLeaves extends TileTreeContainer implements ISpectacleBlock {
     }
 
     public List<ItemStack> pickFruit() {
+        return pickFruit(ItemStack.EMPTY);
+    }
+
+    @Override
+    public List<ItemStack> pickFruit(ItemStack tool) {
         IGenome genome = getGenome();
         if (genome == null || !hasFruit() || level == null) {
             return List.of();
@@ -149,6 +179,18 @@ public class TileLeaves extends TileTreeContainer implements ISpectacleBlock {
         ripeningTime = 0;
         markUpdated();
         return stacks;
+    }
+
+    @Override
+    public void addRipeness(float add) {
+        int period = getRipeningPeriod();
+        if (period <= 0) {
+            ripeningTime = 0;
+            markUpdated();
+            return;
+        }
+        ripeningTime = Math.min(period, ripeningTime + Math.round(add * period));
+        markUpdated();
     }
 
     public IGenome resolveSaplingGenome(RandomSource random) {
@@ -182,5 +224,72 @@ public class TileLeaves extends TileTreeContainer implements ISpectacleBlock {
         IBreedingTracker tracker = BreedingTrackerManager.INSTANCE.getTracker(
                 ForestrySpeciesTypes.TREE, level, null);
         tracker.registerBirth(species.id());
+    }
+
+    private void matureCaterpillar() {
+        if (this.caterpillar == null || this.level == null) {
+            return;
+        }
+        this.maturationTime++;
+        IGenome caterpillarGenome = this.caterpillar.getGenome();
+        int lifespan = caterpillarGenome.getActiveAllele(ButterflyChromosomes.LIFESPAN).value();
+        int fertility = Math.max(1, caterpillarGenome.getActiveAllele(ButterflyChromosomes.FERTILITY).value());
+        int caterpillarMatureTime = Math.round((float) lifespan / (fertility * 2));
+        if (this.maturationTime >= caterpillarMatureTime) {
+            ButterflySpeciesType.INSTANCE.plantCocoon(this.level, this.worldPosition, this.caterpillar, 0, false);
+            setCaterpillar(null);
+        }
+    }
+
+    @Override
+    public BlockPos getCoordinates() {
+        return getBlockPos();
+    }
+
+    @Override
+    @Nullable
+    public Level getWorldObj() {
+        return this.level;
+    }
+
+    @Override
+    public TemperatureType temperature() {
+        if (this.level == null) {
+            return TemperatureType.NORMAL;
+        }
+        return new ClimateProvider(this.level, this.worldPosition).temperature();
+    }
+
+    @Override
+    public HumidityType humidity() {
+        if (this.level == null) {
+            return HumidityType.NORMAL;
+        }
+        return new ClimateProvider(this.level, this.worldPosition).humidity();
+    }
+
+    @Override
+    @Nullable
+    public IButterfly getCaterpillar() {
+        return this.caterpillar;
+    }
+
+    @Override
+    @Nullable
+    public IIndividual getNanny() {
+        IGenome genome = getGenome();
+        return genome == null ? null : new Tree(genome);
+    }
+
+    @Override
+    public void setCaterpillar(@Nullable IButterfly caterpillar) {
+        this.maturationTime = 0;
+        this.caterpillar = caterpillar;
+        markUpdated();
+    }
+
+    @Override
+    public boolean canNurse(IButterfly caterpillar) {
+        return getGenome() != null && this.caterpillar == null;
     }
 }

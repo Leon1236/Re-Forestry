@@ -12,6 +12,7 @@ import com.leon1236.reforestry.api.client.plugin.IClientHelper;
 import com.leon1236.reforestry.api.client.plugin.IClientRegistration;
 import com.leon1236.reforestry.api.genetics.ILifeStage;
 import com.leon1236.reforestry.core.client.genetics.GeneticClientManager;
+import com.leon1236.reforestry.lepidopterology.client.ButterflyClientManager;
 
 public final class ClientRegistrationImpl implements IClientRegistration {
 	private final Map<ILifeStage, Identifier> defaultBeeModels = new HashMap<>();
@@ -48,6 +49,7 @@ public final class ClientRegistrationImpl implements IClientRegistration {
 
 	@Override
 	public void setButterflySprites(Identifier speciesId, Identifier itemTexture, Identifier entityTexture) {
+		ButterflyClientManager.INSTANCE.setSprites(speciesId, itemTexture, entityTexture);
 	}
 
 	@Override

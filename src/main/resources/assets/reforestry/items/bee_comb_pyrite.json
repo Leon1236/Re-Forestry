@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/bee_comb_pyrite",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -1857735
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -13224652
+      }
+    ]
+  }
+}

@@ -1,5 +1,7 @@
 package com.leon1236.reforestry.api.plugin;
 
+import java.util.function.Consumer;
+
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
@@ -15,6 +17,8 @@ public interface IArboricultureRegistration {
 	default ITreeSpeciesBuilder registerSpecies(Identifier id, String genus, String species, boolean dominant, TextColor escritoireColor, IWoodType woodType) {
 		return registerSpecies(id, genus, species, dominant, escritoireColor.getValue(), woodType);
 	}
+
+	void modifySpecies(Identifier id, Consumer<ITreeSpeciesBuilder> action);
 
 	void registerFruit(Identifier id, IFruit fruit);
 

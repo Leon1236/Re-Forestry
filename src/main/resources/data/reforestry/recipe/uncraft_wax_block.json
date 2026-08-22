@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "reforestry:wax_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "reforestry:beeswax"
+  }
+}

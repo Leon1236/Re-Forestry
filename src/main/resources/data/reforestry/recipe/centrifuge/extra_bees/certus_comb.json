@@ -1,0 +1,15 @@
+{
+  "type": "reforestry:centrifuge",
+  "input": "reforestry:bee_comb_certus",
+  "time": 20,
+  "products": [
+    {
+      "item": "reforestry:honey_drop",
+      "chance": 0.25
+    },
+    {
+      "item": "minecraft:quartz",
+      "chance": 0.25
+    }
+  ]
+}

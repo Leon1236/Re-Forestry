@@ -23,23 +23,9 @@ import net.minecraft.world.phys.shapes.DiscreteVoxelShape;
 import org.jetbrains.annotations.Nullable;
 import java.util.*;
 
-/**
- * Base logic for tree generation. Tree generation generally follows these steps:
- * <ol>
- *     <li>Calculate the girth and height based on species, genome, and random variation.</li>
- *     <li>Check if there are enough saplings to grow the tree and if the trunk has enough room to grow.</li>
- *     <li>Remove the saplings.</li>
- *     <li>Generate the trunk and branches. Keep track of the "branch end" positions for leaf placement.</li>
- *     <li>Generate leaves at the branch positions.</li>
- *     <li>If the tree has pod fruit, generate fruit pods as well.</li>
- *     <li>Update distance states for all leaves after generation.</li>
- *     <li>Calls updateShape on all leaf blocks, which handles decay and waterlogged behavior.</li>
- * </ol>
- */
 public abstract class FeatureArboriculture extends FeatureBase {
 	protected static final int minPodHeight = 3;
 
-	// skips performance-heavy checks during world generation or sapling generation
 	public static final ThreadLocal<Boolean> SKIP_EXTENDED_CHECKS = ThreadLocal.withInitial(() -> false);
 
 	protected final ITreeGenData tree;
@@ -58,41 +44,35 @@ public abstract class FeatureArboriculture extends FeatureBase {
 		TreeBlockTypeLeaf leaf = new TreeBlockTypeLeaf(this.tree, genome);
 		TreeBlockTypeLog wood = new TreeBlockTypeLog(this.tree, genome);
 
-		// Calculate height and girth
 		preGenerate(genome, level, rand, pos);
 
-		// Determine valid growth position if any, or skip all checks if forced is true
 		BlockPos genPos;
 		if (forced) {
 			genPos = pos;
 		} else {
-			// Default implementation is in TreeGrowthHelper.getGrowthPos, but can be overridden in TreeSpecies
+
 			genPos = getValidGrowthPos(level, pos);
 		}
 
-		// If a valid growth position was found
 		if (genPos != null) {
-			// Remove all saplings
+
 			clearSaplings(level, genPos);
 
-			// The positions of branch ends, as well as the positions of the first block placed in each log level.
 			ArrayList<BlockPos> branchEnds = new ArrayList<>();
 			ArrayList<BlockPos> logOrigins = new ArrayList<>();
 
-			// Generate a trunk and a list of branch end positions. Store those branch ends in a contour
 			generateTrunk(level, logOrigins, branchEnds, rand, wood, genPos);
 			branchEnds.sort(VecUtil.TOP_DOWN_COMPARATOR);
 			logOrigins.sort(VecUtil.TOP_DOWN_COMPARATOR);
 			TreeContour.Impl contour = new TreeContour.Impl(branchEnds, logOrigins);
 
-			// Generate leaves and pods
 			generateLeaves(genome, level, rand, leaf, contour, genPos);
 			generateExtras(genome, level, rand, genPos, contour);
 
 			if (contour.boundingBox != null) {
-				// Correctly update the leaf distance states on the leaf blocks
+
 				DiscreteVoxelShape voxelshapepart = updateLeaves(level, contour);
-				// Call updateShape method on all blocks on the edge of the tree's bounding box
+
 				SKIP_EXTENDED_CHECKS.set(true);
 				StructureTemplate.updateShapeAtEdge(level, 3, voxelshapepart, contour.boundingBox.minX(), contour.boundingBox.minY(), contour.boundingBox.minZ());
 				SKIP_EXTENDED_CHECKS.set(false);
@@ -103,22 +83,27 @@ public abstract class FeatureArboriculture extends FeatureBase {
 		return false;
 	}
 
-	/**
-	 * Used by {@link FeatureTree} to set fields such as height and girth before generating anything in the world.
-	 */
 	public void preGenerate(IGenome genome, LevelAccessor level, RandomSource rand, BlockPos startPos) {
 	}
 
-	/**
-	 * Copied vanilla logic from TreeFeature#updateLeaves
-	 */
 	private static DiscreteVoxelShape updateLeaves(LevelAccessor level, TreeContour.Impl contour) {
 		BoundingBox pBox = contour.boundingBox;
+		for (BlockPos trunk : contour.trunkOrigins) {
+			pBox = BoundingBox.encapsulating(pBox, new BoundingBox(trunk));
+		}
+		contour.boundingBox = pBox;
 		DiscreteVoxelShape discretevoxelshape = new BitSetDiscreteVoxelShape(pBox.getXSpan(), pBox.getYSpan(), pBox.getZSpan());
 		ArrayList<HashSet<BlockPos>> list = new ArrayList<>();
 
 		for (int j = 0; j < 7; ++j) {
 			list.add(new HashSet<>());
+		}
+
+		for (BlockPos trunk : contour.trunkOrigins) {
+			if (pBox.isInside(trunk)) {
+				list.get(0).add(trunk.immutable());
+				discretevoxelshape.fill(trunk.getX() - pBox.minX(), trunk.getY() - pBox.minY(), trunk.getZ() - pBox.minZ());
+			}
 		}
 
 		for (BlockPos blockpos : contour.leavePositions) {
@@ -177,9 +162,6 @@ public abstract class FeatureArboriculture extends FeatureBase {
 		level.setBlock(pos, state, Block.UPDATE_NEIGHBORS | Block.UPDATE_CLIENTS | Block.UPDATE_KNOWN_SHAPE);
 	}
 
-	/**
-	 * Generate the tree's trunk.
-	 */
 	protected abstract void generateTrunk(LevelAccessor level, List<BlockPos> logOrigins, List<BlockPos> branchCoords, RandomSource rand, TreeBlockTypeLog wood, BlockPos startPos);
 
 	protected abstract void generateLeaves(IGenome genome, LevelAccessor level, RandomSource rand, TreeBlockTypeLeaf leaf, TreeContour contour, BlockPos startPos);
@@ -189,11 +171,8 @@ public abstract class FeatureArboriculture extends FeatureBase {
 	@Nullable
 	public abstract BlockPos getValidGrowthPos(LevelAccessor level, BlockPos pos);
 
-	/**
-	 * Removes all saplings before generating the trunk.
-	 */
 	public void clearSaplings(LevelAccessor level, BlockPos genPos) {
-		int treeGirth = this.tree.getGirth(this.tree.getDefaultGenome());
+		int treeGirth = getClearGirth();
 		for (int x = 0; x < treeGirth; x++) {
 			for (int z = 0; z < treeGirth; z++) {
 				BlockPos saplingPos = genPos.offset(x, 0, z);
@@ -202,5 +181,9 @@ public abstract class FeatureArboriculture extends FeatureBase {
 				}
 			}
 		}
+	}
+
+	protected int getClearGirth() {
+		return this.tree.getGirth(this.tree.getDefaultGenome());
 	}
 }

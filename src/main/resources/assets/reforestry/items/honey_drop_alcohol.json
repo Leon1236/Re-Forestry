@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/honey_drop_alcohol",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -2365363
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -5904307
+      }
+    ]
+  }
+}

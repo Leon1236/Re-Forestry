@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/et_ash_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/et_ash_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/et_ash_slab_top"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "block.reforestry.bee_chest": "Apiarist's Chest",
+  "block.reforestry.tree_chest": "Arborist's Chest",
+  "block.reforestry.butterfly_chest": "Lepidopterist's Chest",
+  "block.reforestry.analyzer": "Analyzer",
+  "block.reforestry.escritoire": "Escritoire",
+  "for.gui.page": "Page",
+  "for.gui.unknown": "Unknown",
+  "for.gui.empty": "Empty",
+  "for.jei.description.analyzer": "Block version of the Portable Genetic Analyzer. Requires power and liquid honey.",
+  "for.gui.book.patchouli.entry.core.analyzer": "Analyzer",
+  "for.gui.book.patchouli.entry.core.analyzer1": "A stationary version of the various hand-held analyzers. Any bees, trees or butterflies placed in the left hand slots will be analyzed and placed in the slots on the bottom right."
+}

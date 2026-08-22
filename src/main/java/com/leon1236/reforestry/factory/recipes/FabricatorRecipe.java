@@ -23,7 +23,7 @@ import net.minecraft.world.level.Level;
 
 import com.leon1236.reforestry.api.recipes.IFabricatorRecipe;
 import com.leon1236.reforestry.core.recipes.CraftingInputHelper;
-import com.leon1236.reforestry.core.recipes.LegacyIngredientCodec;
+import com.leon1236.reforestry.api.recipes.LegacyIngredientCodec;
 import com.leon1236.reforestry.core.recipes.RecipeFluidAmount;
 import com.leon1236.reforestry.factory.features.FactoryRecipeTypes;
 

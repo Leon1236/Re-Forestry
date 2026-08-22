@@ -15,14 +15,13 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 
 import com.leon1236.reforestry.api.arboriculture.IWoodType;
 import com.leon1236.reforestry.api.arboriculture.WoodBlockKind;
-import com.leon1236.reforestry.arboriculture.ForestryWoodType;
 import com.leon1236.reforestry.arboriculture.IWoodTyped;
 import com.leon1236.reforestry.arboriculture.features.ArboricultureTiles;
 
 public class BlockForestryWallSign extends WallSignBlock implements IWoodTyped {
-    private final ForestryWoodType woodType;
+    private final IWoodType woodType;
 
-    public BlockForestryWallSign(ForestryWoodType woodType, BlockBehaviour.Properties properties) {
+    public BlockForestryWallSign(IWoodType woodType, BlockBehaviour.Properties properties) {
         super(woodType.getVanillaWoodType(), properties.forceSolidOn().instrument(NoteBlockInstrument.BASS)
                 .noCollision().strength(1.0F).ignitedByLava());
         this.woodType = woodType;

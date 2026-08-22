@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "reforestry:frame_impregnated",
+    "minecraft:soul_sand"
+  ],
+  "result": {
+    "id": "reforestry:hive_frame_soul"
+  }
+}

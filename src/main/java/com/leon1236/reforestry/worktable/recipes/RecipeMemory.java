@@ -47,6 +47,12 @@ public class RecipeMemory {
 		}
 
 		MemorizedRecipe oldest = getOldestUnlockedRecipe();
+		if (oldest == null) {
+			oldest = getOldestRecipe();
+			if (oldest != null && oldest.isLocked()) {
+				oldest.toggleLock();
+			}
+		}
 		if (oldest != null) {
 			this.memorizedRecipes.remove(oldest);
 			this.memorizedRecipes.add(recipe);
@@ -69,6 +75,17 @@ public class RecipeMemory {
 				continue;
 			}
 			if (!existing.isLocked()) {
+				oldest = existing;
+			}
+		}
+		return oldest;
+	}
+
+	@Nullable
+	private MemorizedRecipe getOldestRecipe() {
+		MemorizedRecipe oldest = null;
+		for (MemorizedRecipe existing : this.memorizedRecipes) {
+			if (oldest == null || existing.getLastUsed() < oldest.getLastUsed()) {
 				oldest = existing;
 			}
 		}

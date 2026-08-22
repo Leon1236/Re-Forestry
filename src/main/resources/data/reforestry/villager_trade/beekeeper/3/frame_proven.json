@@ -1,0 +1,24 @@
+{
+  "wants": {
+    "id": "minecraft:emerald",
+    "count": {
+      "type": "minecraft:uniform",
+      "min": 1,
+      "max": 6
+    }
+  },
+  "gives": "reforestry:frame_proven",
+  "max_uses": 8,
+  "xp": 10,
+  "reputation_discount": 0.05,
+  "given_item_modifiers": [
+    {
+      "function": "minecraft:set_count",
+      "count": {
+        "type": "minecraft:uniform",
+        "min": 1,
+        "max": 2
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "type": "reforestry:mutagen",
+  "amount": 800,
+  "ingredient": {
+    "item": "minecraft:glowstone"
+  }
+}

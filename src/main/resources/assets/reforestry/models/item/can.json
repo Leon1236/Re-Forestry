@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "reforestry:item/liquids/can.bottle"
+    "layer0": "reforestry:item/liquids/can.bottle",
+    "layer1": "reforestry:item/liquids/can.contents"
   }
 }

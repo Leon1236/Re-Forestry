@@ -18,7 +18,7 @@ public class FeatureBalsa extends FeatureTree {
 
 		int leafRadius = (this.girth / 2) + 1;
 
-		float heightMult = (this.height / 6f); //Taller trees have a longer canopy
+		float heightMult = (this.height / 6f);
 
 		int leafSpawn = this.height + 1;
 

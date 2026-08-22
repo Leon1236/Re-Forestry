@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "c:gears/bronze"
+    },
+    "H": {
+      "tag": "c:gems/quartz"
+    },
+    "M": {
+      "item": "reforestry:power_module"
+    },
+    "P": {
+      "item": "reforestry:genetics_processor"
+    },
+    "S": {
+      "item": "reforestry:mutatron"
+    }
+  },
+  "pattern": [
+    "GHG",
+    "PSP",
+    "GMG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:advanced_mutatron"
+  }
+}

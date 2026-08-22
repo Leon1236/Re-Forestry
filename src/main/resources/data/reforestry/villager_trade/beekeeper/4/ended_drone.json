@@ -1,0 +1,27 @@
+{
+  "wants": {
+    "id": "reforestry:bee_drone_ge",
+    "count": 1
+  },
+  "additional_wants": {
+    "id": "minecraft:ender_eye",
+    "count": {
+      "type": "minecraft:uniform",
+      "min": 12,
+      "max": 16
+    }
+  },
+  "gives": "reforestry:bee_drone_ge",
+  "max_uses": 8,
+  "xp": 15,
+  "reputation_discount": 0.05,
+  "given_item_modifiers": [
+    {
+      "function": "reforestry:set_bee_species_genome",
+      "species": "reforestry:bee_ended",
+      "stage": "drone",
+      "min_count": 1,
+      "max_count": 1
+    }
+  ]
+}

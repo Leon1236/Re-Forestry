@@ -2,6 +2,7 @@ package com.leon1236.reforestry.apiculture.blocks;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Supplier;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -35,23 +36,30 @@ import com.leon1236.reforestry.api.apiculture.hives.IHiveDrop;
 import com.leon1236.reforestry.api.apiculture.hives.IHiveTile;
 import com.leon1236.reforestry.api.core.ReforestryBiomeTags;
 import com.leon1236.reforestry.api.genetics.IGenome;
-import com.leon1236.reforestry.apiculture.features.ApicultureDataComponents;
+import com.leon1236.reforestry.apiculture.BeeStackHelper;
 import com.leon1236.reforestry.apiculture.features.ApicultureItems;
 import com.leon1236.reforestry.apiculture.features.ApicultureTiles;
 import com.leon1236.reforestry.apiculture.tiles.TileHive;
 
 public class BlockBeeHive extends BaseEntityBlock {
     private final Identifier speciesId;
+    private final Supplier<BlockEntityType<TileHive>> hiveType;
     private final MapCodec<BlockBeeHive> codec;
 
     public BlockBeeHive(BlockHiveType type, BlockBehaviour.Properties properties) {
-        this(type.getSpeciesId(), properties);
+        this(type.getSpeciesId(), properties, () -> ApicultureTiles.HIVE.type());
     }
 
     public BlockBeeHive(Identifier speciesId, BlockBehaviour.Properties properties) {
+        this(speciesId, properties, () -> ApicultureTiles.HIVE.type());
+    }
+
+    public BlockBeeHive(Identifier speciesId, BlockBehaviour.Properties properties,
+            Supplier<BlockEntityType<TileHive>> hiveType) {
         super(properties);
         this.speciesId = speciesId;
-        this.codec = simpleCodec(props -> new BlockBeeHive(speciesId, props));
+        this.hiveType = hiveType;
+        this.codec = simpleCodec(props -> new BlockBeeHive(speciesId, props, hiveType));
     }
 
     @Override
@@ -66,14 +74,14 @@ public class BlockBeeHive extends BaseEntityBlock {
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new TileHive(pos, state);
+        return new TileHive(hiveType.get(), pos, state);
     }
 
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state,
             BlockEntityType<T> type) {
-        return createTickerHelper(type, ApicultureTiles.HIVE.type(), TileHive::tick);
+        return createTickerHelper(type, hiveType.get(), TileHive::tick);
     }
 
     @Override
@@ -120,7 +128,7 @@ public class BlockBeeHive extends BaseEntityBlock {
     private List<ItemStack> getHiveDrops(ServerLevel level, BlockPos pos, int fortune) {
         List<ItemStack> drops = new ArrayList<>();
         RandomSource random = level.getRandom();
-        List<IHiveDrop> hiveDrops = IForestryApi.INSTANCE.getHiveManager().getDrops(speciesId);
+        List<IHiveDrop> hiveDrops = IForestryApi.get().getHiveManager().getDrops(speciesId);
         if (hiveDrops.isEmpty()) {
             return drops;
         }
@@ -133,9 +141,9 @@ public class BlockBeeHive extends BaseEntityBlock {
             for (IHiveDrop drop : shuffled) {
                 if (random.nextDouble() < drop.getChance(level, pos, fortune)) {
                     IGenome genome = drop.createGenome(level, pos);
-                    ItemStack princess = new ItemStack(ApicultureItems.BEE_PRINCESS.item());
-                    princess.set(ApicultureDataComponents.BEE_GENOME.type(), genome);
-                    drops.add(princess);
+                    boolean ignoble = random.nextFloat() < drop.getIgnobleChance(level, pos, fortune);
+                    drops.add(BeeStackHelper.createBeeStack(
+                            ApicultureItems.BEE_PRINCESS.item(), genome, !ignoble, 0));
                     hasPrincess = true;
                     break;
                 }
@@ -146,9 +154,8 @@ public class BlockBeeHive extends BaseEntityBlock {
             for (IHiveDrop drop : shuffled) {
                 if (random.nextDouble() < drop.getChance(level, pos, fortune)) {
                     IGenome genome = drop.createGenome(level, pos);
-                    ItemStack drone = new ItemStack(ApicultureItems.BEE_DRONE.item());
-                    drone.set(ApicultureDataComponents.BEE_GENOME.type(), genome);
-                    drops.add(drone);
+                    drops.add(BeeStackHelper.createBeeStack(
+                            ApicultureItems.BEE_DRONE.item(), genome, true, 0));
                     break;
                 }
             }

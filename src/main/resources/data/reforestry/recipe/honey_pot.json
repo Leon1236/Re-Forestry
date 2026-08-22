@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "reforestry:honey_drop",
+    "X": "reforestry:capsule"
+  },
+  "pattern": [
+    "# #",
+    " X ",
+    "# #"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:honey_pot"
+  }
+}

@@ -5,7 +5,7 @@
   "key": {
     "#": "#c:ingots/gold",
     "I": "#c:ingots/iron",
-    "X": "reforestry:alveary_plain"
+    "X": "reforestry:alveary_block"
   },
   "pattern": [
     "I I",

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "reforestry:arboretum_manual"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:arboretum_managed"
+  }
+}

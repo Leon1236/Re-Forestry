@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/bee_comb_venomous",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -52225
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -8578947
+      }
+    ]
+  }
+}

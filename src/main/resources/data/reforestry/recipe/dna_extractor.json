@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "reforestry:genetics_processor"
+    },
+    "G": {
+      "tag": "c:gears/bronze"
+    },
+    "H": {
+      "item": "minecraft:hopper"
+    },
+    "P": {
+      "item": "reforestry:power_module"
+    },
+    "S": {
+      "item": "reforestry:sturdy_machine"
+    }
+  },
+  "pattern": [
+    "GHG",
+    "DSD",
+    "GPG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:dna_extractor"
+  }
+}

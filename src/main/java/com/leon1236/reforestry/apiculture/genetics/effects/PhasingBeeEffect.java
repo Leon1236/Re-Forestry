@@ -35,7 +35,7 @@ public class PhasingBeeEffect extends ThrottledBeeEffect {
 		List<LivingEntity> list = getEntitiesInRange(genome, housing, LivingEntity.class);
 
 		for (LivingEntity entity : list) {
-			int count = BeeManager.armorApiaristHelper.wearsItems(entity, this, true);
+			int count = BeeManager.getArmorApiaristHelper().wearsItems(entity, this, true);
 			if (count >= 4) {
 				continue;
 			}

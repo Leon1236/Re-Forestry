@@ -61,25 +61,27 @@ public final class BeeCanWork {
         }
 
         IBeeSpecies species = genome.getActiveAllele(BeeChromosomes.SPECIES).value();
-        TemperatureType actualTemperature = housing.temperature();
-        TemperatureType beeBaseTemperature = species.getTemperature();
-        ToleranceType beeToleranceTemperature = genome.getActiveAllele(BeeChromosomes.TEMPERATURE_TOLERANCE).value();
-        if (!ClimateHelper.isWithinLimits(actualTemperature, beeBaseTemperature, beeToleranceTemperature)) {
-            if (beeBaseTemperature.ordinal() > actualTemperature.ordinal()) {
-                errorStates.add(ForestryError.TOO_COLD);
-            } else {
-                errorStates.add(ForestryError.TOO_HOT);
+        if (!new BeeHousingModifier(housing).isClimateFullyTolerant()) {
+            TemperatureType actualTemperature = housing.temperature();
+            TemperatureType beeBaseTemperature = species.getTemperature();
+            ToleranceType beeToleranceTemperature = genome.getActiveAllele(BeeChromosomes.TEMPERATURE_TOLERANCE).value();
+            if (!ClimateHelper.isWithinLimits(actualTemperature, beeBaseTemperature, beeToleranceTemperature)) {
+                if (beeBaseTemperature.ordinal() > actualTemperature.ordinal()) {
+                    errorStates.add(ForestryError.TOO_COLD);
+                } else {
+                    errorStates.add(ForestryError.TOO_HOT);
+                }
             }
-        }
 
-        HumidityType actualHumidity = housing.humidity();
-        HumidityType beeBaseHumidity = species.getHumidity();
-        ToleranceType beeToleranceHumidity = genome.getActiveAllele(BeeChromosomes.HUMIDITY_TOLERANCE).value();
-        if (!ClimateHelper.isWithinLimits(actualHumidity, beeBaseHumidity, beeToleranceHumidity)) {
-            if (beeBaseHumidity.ordinal() > actualHumidity.ordinal()) {
-                errorStates.add(ForestryError.TOO_ARID);
-            } else {
-                errorStates.add(ForestryError.TOO_HUMID);
+            HumidityType actualHumidity = housing.humidity();
+            HumidityType beeBaseHumidity = species.getHumidity();
+            ToleranceType beeToleranceHumidity = genome.getActiveAllele(BeeChromosomes.HUMIDITY_TOLERANCE).value();
+            if (!ClimateHelper.isWithinLimits(actualHumidity, beeBaseHumidity, beeToleranceHumidity)) {
+                if (beeBaseHumidity.ordinal() > actualHumidity.ordinal()) {
+                    errorStates.add(ForestryError.TOO_ARID);
+                } else {
+                    errorStates.add(ForestryError.TOO_HUMID);
+                }
             }
         }
 

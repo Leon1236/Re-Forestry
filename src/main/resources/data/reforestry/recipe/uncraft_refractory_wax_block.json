@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "reforestry:wax_block_refractory"
+  ],
+  "result": {
+    "count": 9,
+    "id": "reforestry:refractory_wax"
+  }
+}

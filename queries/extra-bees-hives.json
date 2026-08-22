@@ -1,0 +1,132 @@
+{
+  "source_class": "binnie.extrabees.blocks.type.EnumHiveType",
+  "worldgen_class": "binnie.extrabees.worldgen.BinnieHiveDescription",
+  "count": 4,
+  "hives": [
+    {
+      "enum": "WATER",
+      "binnie_block": "extrabees:hive",
+      "binnie_meta": 0,
+      "reforestry_id": "reforestry:beehive_water",
+      "collision": false,
+      "species_enum": "WATER",
+      "species_reforestry_id": "reforestry:bee_water",
+      "config_rate": 2.0,
+      "chance_multiplier": 1.0,
+      "gen_chance": 2.0,
+      "worldgen_class": "WorldGenHiveWater",
+      "placement": "in water above sand/clay/ground/rock",
+      "nether_biome_only": false,
+      "drops": [
+        {
+          "source": "ExtraBeeDefinition",
+          "enum": "WATER",
+          "reforestry_id": "reforestry:bee_water",
+          "chance": 0.8,
+          "ignoble_share": 0.5
+        },
+        {
+          "source": "BeeDefinition",
+          "enum": "VALIANT",
+          "reforestry_id": "reforestry:bee_valiant",
+          "chance": 0.03,
+          "ignoble_share": 0.5
+        }
+      ]
+    },
+    {
+      "enum": "ROCK",
+      "binnie_block": "extrabees:hive",
+      "binnie_meta": 1,
+      "reforestry_id": "reforestry:beehive_rock",
+      "collision": false,
+      "species_enum": "ROCK",
+      "species_reforestry_id": "reforestry:bee_rock",
+      "config_rate": 2.0,
+      "chance_multiplier": 3.0,
+      "gen_chance": 6.0,
+      "worldgen_class": "WorldGenHiveRock",
+      "placement": "replaceable stone with air on one horizontal side",
+      "nether_biome_only": false,
+      "drops": [
+        {
+          "source": "ExtraBeeDefinition",
+          "enum": "ROCK",
+          "reforestry_id": "reforestry:bee_rock",
+          "chance": 0.8,
+          "ignoble_share": 0.5
+        },
+        {
+          "source": "BeeDefinition",
+          "enum": "VALIANT",
+          "reforestry_id": "reforestry:bee_valiant",
+          "chance": 0.03,
+          "ignoble_share": 0.5
+        }
+      ]
+    },
+    {
+      "enum": "NETHER",
+      "binnie_block": "extrabees:hive",
+      "binnie_meta": 2,
+      "reforestry_id": "reforestry:beehive_eb_nether",
+      "collision": true,
+      "species_enum": "BASALT",
+      "species_reforestry_id": "reforestry:bee_basalt",
+      "config_rate": 2.0,
+      "chance_multiplier": 3.0,
+      "gen_chance": 6.0,
+      "worldgen_class": "WorldGenHiveNether",
+      "placement": "netherrack wall in nether biomes",
+      "nether_biome_only": true,
+      "drops": [
+        {
+          "source": "ExtraBeeDefinition",
+          "enum": "BASALT",
+          "reforestry_id": "reforestry:bee_basalt",
+          "chance": 0.8,
+          "ignoble_share": 0.5
+        },
+        {
+          "source": "BeeDefinition",
+          "enum": "VALIANT",
+          "reforestry_id": "reforestry:bee_valiant",
+          "chance": 0.03,
+          "ignoble_share": 0.5
+        }
+      ],
+      "collides_with": "reforestry:beehive_nether"
+    },
+    {
+      "enum": "MARBLE",
+      "binnie_block": "extrabees:hive",
+      "binnie_meta": 3,
+      "reforestry_id": "reforestry:beehive_marble",
+      "collision": false,
+      "species_enum": "MARBLE",
+      "species_reforestry_id": "reforestry:bee_marble",
+      "config_rate": 2.0,
+      "chance_multiplier": 10.0,
+      "gen_chance": 20.0,
+      "worldgen_class": "WorldGenHiveMarble",
+      "placement": "ore:stoneMarble with at least one non-marble face",
+      "nether_biome_only": false,
+      "drops": [
+        {
+          "source": "ExtraBeeDefinition",
+          "enum": "MARBLE",
+          "reforestry_id": "reforestry:bee_marble",
+          "chance": 0.8,
+          "ignoble_share": 0.5
+        },
+        {
+          "source": "BeeDefinition",
+          "enum": "VALIANT",
+          "reforestry_id": "reforestry:bee_valiant",
+          "chance": 0.03,
+          "ignoble_share": 0.5
+        }
+      ]
+    }
+  ]
+}

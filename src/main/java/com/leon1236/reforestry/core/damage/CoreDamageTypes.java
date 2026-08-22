@@ -10,6 +10,7 @@ import com.leon1236.reforestry.ReForestry;
 
 public final class CoreDamageTypes {
     public static final ResourceKey<DamageType> HIVE = ResourceKey.create(Registries.DAMAGE_TYPE, ReForestry.id("hive"));
+    public static final ResourceKey<DamageType> CLOCKWORK = ResourceKey.create(Registries.DAMAGE_TYPE, ReForestry.id("clockwork"));
     public static final ResourceKey<DamageType> AGGRESSIVE = ResourceKey.create(Registries.DAMAGE_TYPE, ReForestry.id("aggressive"));
     public static final ResourceKey<DamageType> HEROIC = ResourceKey.create(Registries.DAMAGE_TYPE, ReForestry.id("heroic"));
     public static final ResourceKey<DamageType> MISANTHROPE = ResourceKey.create(Registries.DAMAGE_TYPE, ReForestry.id("misanthrope"));

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "reforestry:block/maclura_planks",
+    "side": "reforestry:block/maclura_planks",
+    "top": "reforestry:block/maclura_planks"
+  }
+}

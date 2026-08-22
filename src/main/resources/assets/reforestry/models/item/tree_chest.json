@@ -1,3 +1,6 @@
 {
-  "parent": "reforestry:block/tree_chest"
+  "parent": "reforestry:item/factory_tesr",
+  "textures": {
+    "particle": "reforestry:block/arb_chest.0"
+  }
 }

@@ -1,8 +1,13 @@
 package com.leon1236.reforestry.apiculture.features;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
 
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 
@@ -13,6 +18,7 @@ import com.leon1236.reforestry.apiculture.blocks.BlockBeeHive;
 import com.leon1236.reforestry.apiculture.blocks.BlockBeeHousing;
 import com.leon1236.reforestry.apiculture.blocks.BlockHiveType;
 import com.leon1236.reforestry.apiculture.blocks.BlockHoneyComb;
+import com.leon1236.reforestry.apiculture.blocks.BlockWax;
 import com.leon1236.reforestry.apiculture.items.EnumHoneyComb;
 import com.leon1236.reforestry.apiculture.items.ItemBlockAlveary;
 import com.leon1236.reforestry.modules.features.FeatureBlock;
@@ -51,6 +57,14 @@ public class ApicultureBlocks {
                     .identifier("block_bee_comb")
                     .create();
 
+    public static final FeatureBlock<BlockWax> WAX_BLOCK = REGISTRY.block("wax_block",
+            properties -> new BlockWax(waxProperties("wax_block", MapColor.COLOR_YELLOW, true)),
+            BlockItem::new);
+
+    public static final FeatureBlock<BlockWax> REFRACTORY_WAX_BLOCK = REGISTRY.block("wax_block_refractory",
+            properties -> new BlockWax(waxProperties("wax_block_refractory", MapColor.COLOR_RED, false)),
+            BlockItem::new);
+
     private static BlockBehaviour.Properties housingProperties(BlockBehaviour.Properties properties) {
         return properties.strength(2.5F).sound(SoundType.WOOD);
     }
@@ -67,9 +81,25 @@ public class ApicultureBlocks {
         return properties.sound(SoundType.CORAL_BLOCK).strength(1F);
     }
 
+    private static ResourceKey<Block> key(String name) {
+        return ResourceKey.create(Registries.BLOCK, ReForestry.id(name));
+    }
+
+    private static BlockBehaviour.Properties waxProperties(String name, MapColor color, boolean ignitedByLava) {
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.ofFullCopy(Blocks.HONEYCOMB_BLOCK)
+                .sound(SoundType.HONEY_BLOCK)
+                .mapColor(color)
+                .setId(key(name));
+        if (ignitedByLava) {
+            properties = properties.ignitedByLava();
+        }
+        return properties;
+    }
+
     public static void init() {
         for (var feature : BEEHIVE.getAll().values()) {
             FlammableBlockRegistry.getDefaultInstance().add(feature.block(), 5, 5);
         }
+        FlammableBlockRegistry.getDefaultInstance().add(WAX_BLOCK.block(), 45, 45);
     }
 }

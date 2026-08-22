@@ -1,12 +1,14 @@
 package com.leon1236.reforestry.core;
 
 import com.leon1236.reforestry.api.IForestryApi;
+import com.leon1236.reforestry.api.agriculture.IFarmingManager;
 import com.leon1236.reforestry.api.apiculture.hives.IHiveManager;
 import com.leon1236.reforestry.api.climate.IClimateManager;
 import com.leon1236.reforestry.api.core.IErrorManager;
 import com.leon1236.reforestry.api.genetics.IAlleleManager;
 import com.leon1236.reforestry.api.genetics.IFlowerTypeManager;
 import com.leon1236.reforestry.api.genetics.IGeneticManager;
+import com.leon1236.reforestry.api.genetics.filter.IFilterManager;
 import com.leon1236.reforestry.api.genetics.pollen.IPollenManager;
 import com.leon1236.reforestry.api.modules.IModuleManager;
 import com.leon1236.reforestry.api.arboriculture.ITreeManager;
@@ -23,23 +25,31 @@ import com.leon1236.reforestry.core.genetics.alleles.AlleleManager;
 import com.leon1236.reforestry.core.genetics.pollen.PollenManager;
 import com.leon1236.reforestry.modules.ModuleManager;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
 
 public final class ForestryApiImpl implements IForestryApi {
-    private static final ForestryApiImpl INSTANCE = new ForestryApiImpl();
+    private static final ForestryApiImpl INSTANCE;
+
+    static {
+        INSTANCE = new ForestryApiImpl();
+        IForestryApi.setInstance(INSTANCE);
+    }
 
     private final ForestryClimateManager climateManager = new ForestryClimateManager();
     private final ErrorManager errorManager = new ErrorManager();
-    private IHiveManager hiveManager = new HiveManager(ImmutableMap.of());
+    private IHiveManager hiveManager = new HiveManager(ImmutableMap.of(), ImmutableList.of(), ImmutableList.of());
     private ICircuitManager circuitManager = new CircuitManager(ImmutableMultimap.of(), ImmutableMap.of(), ImmutableMap.of());
+    private IFilterManager filterManager;
+    private IFarmingManager farmingManager = FakeFarmingManager.INSTANCE;
     private ITreeManager treeManager = new TreeManager(ImmutableMap.of(), new CharcoalManager());
     private final GeneticManager geneticManager = new GeneticManager();
 
     private ForestryApiImpl() {
     }
 
-    public static IForestryApi get() {
+    public static ForestryApiImpl get() {
         return INSTANCE;
     }
 
@@ -53,6 +63,14 @@ public final class ForestryApiImpl implements IForestryApi {
 
     public void setCircuitManager(ICircuitManager circuitManager) {
         this.circuitManager = circuitManager;
+    }
+
+    public void setFilterManager(IFilterManager filterManager) {
+        this.filterManager = filterManager;
+    }
+
+    public void setFarmingManager(IFarmingManager farmingManager) {
+        this.farmingManager = farmingManager;
     }
 
     public void setTreeManager(ITreeManager treeManager) {
@@ -87,6 +105,20 @@ public final class ForestryApiImpl implements IForestryApi {
     @Override
     public ICircuitManager getCircuitManager() {
         return circuitManager;
+    }
+
+    @Override
+    public IFilterManager getFilterManager() {
+        IFilterManager manager = this.filterManager;
+        if (manager == null) {
+            throw new IllegalStateException("IFilterManager not initialized yet. Wait until the sorting module has loaded");
+        }
+        return manager;
+    }
+
+    @Override
+    public IFarmingManager getFarmingManager() {
+        return this.farmingManager;
     }
 
     @Override

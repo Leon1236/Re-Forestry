@@ -49,7 +49,7 @@ public class FeatureTeak extends FeatureTree {
 		}
 
 		for (BlockPos branchEnd : contour.getBranchEnds()) {
-			//float lRadius = (rand.nextFloat() * 0.5f) + 1.25f;
+
 			FeatureHelper.generateEllipsoid(level, branchEnd.offset(0, 1, 0), 1, 1.5f, 1, 1.25f, leaf, FeatureHelper.EnumReplaceMode.SOFT, contour);
 			FeatureHelper.generateEllipsoid(level, branchEnd.offset(0, 0, 0), 2, 1.5f, 2, 1.75f, leaf, FeatureHelper.EnumReplaceMode.SOFT, contour);
 		}

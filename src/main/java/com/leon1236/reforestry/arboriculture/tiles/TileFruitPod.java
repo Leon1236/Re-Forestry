@@ -18,6 +18,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
+import com.leon1236.reforestry.api.core.genetics.IFruitBearer;
 import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.api.genetics.alleles.IAllele;
 import com.leon1236.reforestry.api.genetics.alleles.IValueAllele;
@@ -30,7 +31,7 @@ import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
 import com.leon1236.reforestry.core.genetics.alleles.AlleleManager;
 import com.leon1236.reforestry.core.utils.BlockUtil;
 
-public class TileFruitPod extends BlockEntity {
+public class TileFruitPod extends BlockEntity implements IFruitBearer {
     private static final short MAX_MATURITY = 2;
 
     private static final String NBT_MATURITY = "MT";
@@ -90,12 +91,7 @@ public class TileFruitPod extends BlockEntity {
         if (allele instanceof IValueAllele<?> valueAllele && valueAllele.value() instanceof IFruit resolved) {
             return resolved;
         }
-        for (IFruit candidate : DefaultFruits.ALL) {
-            if (candidate.id().equals(id)) {
-                return candidate;
-            }
-        }
-        return null;
+        return TreeChromosomes.FRUIT.getSafe(id).orElse(null);
     }
 
     public void onBlockTick(RandomSource rand) {
@@ -137,7 +133,16 @@ public class TileFruitPod extends BlockEntity {
         return this.fruit.getFruits(this.genome, this.level, this.maturity);
     }
 
+    public boolean hasFruit() {
+        return this.fruit != null;
+    }
+
     public List<ItemStack> pickFruit() {
+        return pickFruit(ItemStack.EMPTY);
+    }
+
+    @Override
+    public List<ItemStack> pickFruit(ItemStack tool) {
         List<ItemStack> fruits = getDrops();
         this.maturity = 0;
         if (this.level != null) {

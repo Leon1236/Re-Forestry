@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/bee_comb_oil",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -13882570
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -16382456
+      }
+    ]
+  }
+}

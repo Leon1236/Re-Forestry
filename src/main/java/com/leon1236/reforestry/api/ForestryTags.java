@@ -3,6 +3,7 @@ package com.leon1236.reforestry.api;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 
 import com.leon1236.reforestry.ReForestry;
 
@@ -32,11 +33,25 @@ public final class ForestryTags {
 		public static final TagKey<Item> BREWER_ALLOW = itemTag("backpack/allow/brewer");
 		public static final TagKey<Item> BREWER_REJECT = itemTag("backpack/reject/brewer");
 
+		public static final TagKey<Item> VILLAGE_COMBS = itemTag("village_combs");
+
 		private Items() {
+		}
+	}
+
+	public static final class Blocks {
+		public static final TagKey<Block> VALID_FARM_BASE = blockTag("valid_farm_base");
+		public static final TagKey<Block> TREE_SAPLINGS = blockTag("tree_saplings");
+
+		private Blocks() {
 		}
 	}
 
 	public static TagKey<Item> itemTag(String name) {
 		return TagKey.create(Registries.ITEM, ReForestry.id(name));
+	}
+
+	public static TagKey<Block> blockTag(String name) {
+		return TagKey.create(Registries.BLOCK, ReForestry.id(name));
 	}
 }

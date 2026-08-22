@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "reforestry:grain_wheat",
+  "result": {
+    "id": "reforestry:grain_roasted"
+  },
+  "experience": 0.0,
+  "cookingtime": 200
+}

@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "reforestry:block/fluid_mutagen"
+    },
+    "level=1": {
+      "model": "reforestry:block/fluid_mutagen"
+    },
+    "level=2": {
+      "model": "reforestry:block/fluid_mutagen"
+    },
+    "level=3": {
+      "model": "reforestry:block/fluid_mutagen"
+    },
+    "level=4": {
+      "model": "reforestry:block/fluid_mutagen"
+    },
+    "level=5": {
+      "model": "reforestry:block/fluid_mutagen"
+    },
+    "level=6": {
+      "model": "reforestry:block/fluid_mutagen"
+    },
+    "level=7": {
+      "model": "reforestry:block/fluid_mutagen"
+    },
+    "level=8": {
+      "model": "reforestry:block/fluid_mutagen"
+    },
+    "level=9": {
+      "model": "reforestry:block/fluid_mutagen"
+    },
+    "level=10": {
+      "model": "reforestry:block/fluid_mutagen"
+    },
+    "level=11": {
+      "model": "reforestry:block/fluid_mutagen"
+    },
+    "level=12": {
+      "model": "reforestry:block/fluid_mutagen"
+    },
+    "level=13": {
+      "model": "reforestry:block/fluid_mutagen"
+    },
+    "level=14": {
+      "model": "reforestry:block/fluid_mutagen"
+    },
+    "level=15": {
+      "model": "reforestry:block/fluid_mutagen"
+    }
+  }
+}

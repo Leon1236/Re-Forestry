@@ -17,6 +17,6 @@ public final class MutationConditionCaveDwelling implements IMutationCondition {
 
     @Override
     public Component getDescription() {
-        return Component.translatable("mutation.condition.reforestry.cave_dwelling");
+        return Component.translatable("for.mutation.condition.underground");
     }
 }

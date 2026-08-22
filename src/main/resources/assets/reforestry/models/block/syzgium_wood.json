@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "reforestry:block/syzgium_log",
+    "side": "reforestry:block/syzgium_log"
+  }
+}

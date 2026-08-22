@@ -13,13 +13,13 @@ public final class SocketHelper {
         if (!(socketable instanceof MachineSocketState machineSocket)) {
             return;
         }
-        if (!stack.isEmpty() && !IForestryApi.INSTANCE.getCircuitManager().isCircuitBoard(stack)) {
+        if (!stack.isEmpty() && !IForestryApi.get().getCircuitManager().isCircuitBoard(stack)) {
             return;
         }
 
         ItemStack existing = machineSocket.getSocket(slot);
         if (!existing.isEmpty()) {
-            ICircuitBoard oldBoard = IForestryApi.INSTANCE.getCircuitManager().getCircuitBoard(existing);
+            ICircuitBoard oldBoard = IForestryApi.get().getCircuitManager().getCircuitBoard(existing);
             if (oldBoard != null) {
                 oldBoard.onRemoval(socketable);
             }
@@ -29,7 +29,7 @@ public final class SocketHelper {
         machineSocket.storeSocket(placed);
 
         if (!placed.isEmpty()) {
-            ICircuitBoard newBoard = IForestryApi.INSTANCE.getCircuitManager().getCircuitBoard(placed);
+            ICircuitBoard newBoard = IForestryApi.get().getCircuitManager().getCircuitBoard(placed);
             if (newBoard != null) {
                 newBoard.onInsertion(socketable);
             }
@@ -40,7 +40,7 @@ public final class SocketHelper {
         for (int slot = 0; slot < socketable.getSocketCount(); slot++) {
             ItemStack chip = socketable.getSocket(slot);
             if (!chip.isEmpty()) {
-                ICircuitBoard board = IForestryApi.INSTANCE.getCircuitManager().getCircuitBoard(chip);
+                ICircuitBoard board = IForestryApi.get().getCircuitManager().getCircuitBoard(chip);
                 if (board != null) {
                     board.onLoad(socketable);
                 }

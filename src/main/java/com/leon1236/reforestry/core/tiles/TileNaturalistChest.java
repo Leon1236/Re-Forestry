@@ -6,8 +6,13 @@ import net.fabricmc.fabric.api.menu.v1.ExtendedMenuProvider;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -33,11 +38,14 @@ import com.leon1236.reforestry.core.gui.NaturalistInventoryLayout;
 
 public abstract class TileNaturalistChest extends TileBase implements WorldlyContainer {
 	public static final int SLOT_COUNT = NaturalistInventoryLayout.MAX_PAGE * NaturalistInventoryLayout.SLOTS_PER_PAGE;
+	private static final float LID_ANGLE_STEP = 0.1F;
 
 	private final NonNullList<ItemStack> items = NonNullList.withSize(SLOT_COUNT, ItemStack.EMPTY);
 	private final Identifier speciesTypeId;
 	private int numPlayersUsing;
 	private boolean flippingPage;
+	private float lidAngle;
+	private float prevLidAngle;
 
 	protected TileNaturalistChest(BlockEntityType<?> type, BlockPos pos, BlockState state, Identifier speciesTypeId) {
 		super(type, pos, state);
@@ -85,6 +93,7 @@ public abstract class TileNaturalistChest extends TileBase implements WorldlyCon
 			playLidSound(level, true);
 		}
 		this.numPlayersUsing++;
+		syncToClient();
 	}
 
 	private void decreaseNumPlayersUsing() {
@@ -96,6 +105,47 @@ public abstract class TileNaturalistChest extends TileBase implements WorldlyCon
 		if (this.numPlayersUsing == 0 && level != null) {
 			playLidSound(level, false);
 		}
+		syncToClient();
+	}
+
+	public static void clientTick(Level level, BlockPos pos, BlockState state, TileNaturalistChest tile) {
+		tile.prevLidAngle = tile.lidAngle;
+		if (tile.numPlayersUsing == 0 && tile.lidAngle > 0.0F || tile.numPlayersUsing > 0 && tile.lidAngle < 1.0F) {
+			if (tile.numPlayersUsing > 0) {
+				tile.lidAngle += LID_ANGLE_STEP;
+			} else {
+				tile.lidAngle -= LID_ANGLE_STEP;
+			}
+			tile.lidAngle = Math.max(Math.min(tile.lidAngle, 1.0F), 0.0F);
+		}
+	}
+
+	public float getLidAngle() {
+		return this.lidAngle;
+	}
+
+	public float getPrevLidAngle() {
+		return this.prevLidAngle;
+	}
+
+	private void syncToClient() {
+		setChanged();
+		Level level = getLevel();
+		if (level != null && !level.isClientSide() && level.isLoaded(this.worldPosition)) {
+			level.sendBlockUpdated(this.worldPosition, getBlockState(), getBlockState(), 3);
+		}
+	}
+
+	@Override
+	public Packet<ClientGamePacketListener> getUpdatePacket() {
+		return ClientboundBlockEntityDataPacket.create(this);
+	}
+
+	@Override
+	public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+		CompoundTag tag = new CompoundTag();
+		tag.putInt("PlayersUsing", this.numPlayersUsing);
+		return tag;
 	}
 
 	private void playLidSound(Level level, boolean open) {
@@ -192,6 +242,7 @@ public abstract class TileNaturalistChest extends TileBase implements WorldlyCon
 		super.loadAdditional(input);
 		items.clear();
 		ContainerHelper.loadAllItems(input, items);
+		this.numPlayersUsing = input.getIntOr("PlayersUsing", this.numPlayersUsing);
 	}
 
 	@Nullable

@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "reforestry:block/fluid_sap"
+    },
+    "level=1": {
+      "model": "reforestry:block/fluid_sap"
+    },
+    "level=2": {
+      "model": "reforestry:block/fluid_sap"
+    },
+    "level=3": {
+      "model": "reforestry:block/fluid_sap"
+    },
+    "level=4": {
+      "model": "reforestry:block/fluid_sap"
+    },
+    "level=5": {
+      "model": "reforestry:block/fluid_sap"
+    },
+    "level=6": {
+      "model": "reforestry:block/fluid_sap"
+    },
+    "level=7": {
+      "model": "reforestry:block/fluid_sap"
+    },
+    "level=8": {
+      "model": "reforestry:block/fluid_sap"
+    },
+    "level=9": {
+      "model": "reforestry:block/fluid_sap"
+    },
+    "level=10": {
+      "model": "reforestry:block/fluid_sap"
+    },
+    "level=11": {
+      "model": "reforestry:block/fluid_sap"
+    },
+    "level=12": {
+      "model": "reforestry:block/fluid_sap"
+    },
+    "level=13": {
+      "model": "reforestry:block/fluid_sap"
+    },
+    "level=14": {
+      "model": "reforestry:block/fluid_sap"
+    },
+    "level=15": {
+      "model": "reforestry:block/fluid_sap"
+    }
+  }
+}

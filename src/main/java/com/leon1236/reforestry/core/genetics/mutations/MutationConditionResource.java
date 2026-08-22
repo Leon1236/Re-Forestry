@@ -33,6 +33,9 @@ public final class MutationConditionResource implements IMutationCondition {
 
     @Override
     public Component getDescription() {
-        return Component.translatable("mutation.condition.reforestry.resource");
+        if (accepted.isEmpty()) {
+            return Component.empty();
+        }
+        return Component.translatable("for.mutation.condition.resource", accepted.get(0).getBlock().getName());
     }
 }

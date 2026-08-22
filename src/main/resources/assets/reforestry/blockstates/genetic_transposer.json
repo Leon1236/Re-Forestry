@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "reforestry:block/genetic_transposer" },
+    "facing=south": { "model": "reforestry:block/genetic_transposer", "y": 180 },
+    "facing=west": { "model": "reforestry:block/genetic_transposer", "y": 270 },
+    "facing=east": { "model": "reforestry:block/genetic_transposer", "y": 90 }
+  }
+}

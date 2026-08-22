@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "reforestry:block/pink_ivory_planks",
+    "side": "reforestry:block/pink_ivory_planks",
+    "top": "reforestry:block/pink_ivory_planks"
+  }
+}

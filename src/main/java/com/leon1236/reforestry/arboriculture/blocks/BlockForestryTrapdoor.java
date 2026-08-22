@@ -7,13 +7,12 @@ import net.minecraft.world.level.material.MapColor;
 
 import com.leon1236.reforestry.api.arboriculture.IWoodType;
 import com.leon1236.reforestry.api.arboriculture.WoodBlockKind;
-import com.leon1236.reforestry.arboriculture.ForestryWoodType;
 import com.leon1236.reforestry.arboriculture.IWoodTyped;
 
 public class BlockForestryTrapdoor extends TrapDoorBlock implements IWoodTyped {
-    private final ForestryWoodType woodType;
+    private final IWoodType woodType;
 
-    public BlockForestryTrapdoor(ForestryWoodType woodType, BlockBehaviour.Properties properties) {
+    public BlockForestryTrapdoor(IWoodType woodType, BlockBehaviour.Properties properties) {
         super(woodType.getBlockSetType(), properties.mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS)
                 .strength(3f).noOcclusion().ignitedByLava());
         this.woodType = woodType;

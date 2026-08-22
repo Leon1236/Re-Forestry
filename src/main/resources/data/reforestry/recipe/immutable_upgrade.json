@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "reforestry:upgrade_frame"
+    },
+    "G": {
+      "tag": "c:gears/bronze"
+    },
+    "P": {
+      "item": "reforestry:genetics_processor"
+    },
+    "R": {
+      "tag": "c:dusts/redstone"
+    },
+    "X": {
+      "item": "minecraft:redstone_torch"
+    }
+  },
+  "pattern": [
+    "RPR",
+    "RFR",
+    "GXG"
+  ],
+  "result": {
+    "id": "reforestry:immutable_upgrade"
+  }
+}

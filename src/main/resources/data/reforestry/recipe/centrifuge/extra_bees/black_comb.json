@@ -1,0 +1,19 @@
+{
+  "type": "reforestry:centrifuge",
+  "input": "reforestry:bee_comb_black",
+  "time": 20,
+  "products": [
+    {
+      "item": "reforestry:honey_drop",
+      "chance": 0.8
+    },
+    {
+      "item": "reforestry:beeswax",
+      "chance": 0.8
+    },
+    {
+      "item": "reforestry:honey_drop_black",
+      "chance": 1.0
+    }
+  ]
+}

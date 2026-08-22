@@ -36,6 +36,7 @@ import com.leon1236.reforestry.core.genetics.GeneticItemHelper;
 import com.leon1236.reforestry.core.genetics.TaxonManager;
 import com.leon1236.reforestry.core.genetics.loot.ResearchNoteLoot;
 import com.leon1236.reforestry.core.multiblock.MultiblockEventHandler;
+import com.leon1236.reforestry.core.network.PacketRegistry;
 import com.leon1236.reforestry.core.plugin.PluginManager;
 
 @ForestryModule(name = "Core", description = "Shared foundation the other modules build on.")
@@ -67,8 +68,9 @@ public class ModuleCore implements IForestryModule {
         FluidsItems.init();
         CoreTiles.init();
         CoreCreativeTabs.init();
-        BeeManager.armorApiaristHelper = new ArmorApiaristHelper();
+        BeeManager.setArmorApiaristHelper(new ArmorApiaristHelper());
         MultiblockEventHandler.register();
+        PacketRegistry.init();
         registerClimateReloadHooks();
         ResourceLoader.get(PackType.SERVER_DATA).registerReloadListener(ReForestry.id("taxa"), new TaxonManager());
         PluginManager.runGeneticsRegistration();
@@ -81,7 +83,7 @@ public class ModuleCore implements IForestryModule {
     }
 
     private static void registerErrors() {
-        ErrorManager errorManager = (ErrorManager) IForestryApi.INSTANCE.getErrorManager();
+        ErrorManager errorManager = (ErrorManager) IForestryApi.get().getErrorManager();
         for (ForestryError error : ForestryError.values()) {
             errorManager.register(error);
         }
@@ -106,7 +108,7 @@ public class ModuleCore implements IForestryModule {
     }
 
     private static void reloadBiomes(net.minecraft.core.Registry<net.minecraft.world.level.biome.Biome> registry) {
-        ForestryClimateManager climateManager = ((ForestryApiImpl) IForestryApi.INSTANCE).getForestryClimateManager();
+        ForestryClimateManager climateManager = ForestryApiImpl.get().getForestryClimateManager();
         climateManager.onBiomesReloaded(registry);
         TreeDecorator.clearBiomeCache();
     }

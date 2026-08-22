@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "#reforestry:fireproof_cinnamon_logs"
+  ],
+  "result": {
+    "count": 4,
+    "id": "reforestry:jungle_fireproof_planks"
+  }
+}

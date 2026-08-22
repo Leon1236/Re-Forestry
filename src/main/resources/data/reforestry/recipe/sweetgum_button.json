@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    "reforestry:sweetgum_planks"
+  ],
+  "result": {
+    "id": "reforestry:sweetgum_button"
+  }
+}

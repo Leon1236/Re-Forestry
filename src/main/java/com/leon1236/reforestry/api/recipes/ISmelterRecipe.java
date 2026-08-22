@@ -4,14 +4,12 @@ import java.util.List;
 
 import net.minecraft.world.item.ItemStack;
 
-import com.leon1236.reforestry.core.recipes.IngredientStack;
-
 public interface ISmelterRecipe extends IForestryRecipe {
-    int getProcessingTime();
+	int getProcessingTime();
 
-    List<IngredientStack> getInputs();
+	List<IngredientStack> getInputs();
 
-    ItemStack getOutput();
+	ItemStack getOutput();
 
-    boolean matches(int processingTime, List<IngredientStack> inputs, IngredientStack output);
+	boolean matches(int processingTime, List<IngredientStack> inputs, IngredientStack output);
 }

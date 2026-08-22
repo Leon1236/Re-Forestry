@@ -115,6 +115,7 @@ public class FactoryJeiPlugin implements IModPlugin {
 	@Override
 	public void registerRecipeTransferHandlers(IRecipeTransferRegistration registry) {
 		registry.addRecipeTransferHandler(new CarpenterRecipeTransferHandler(), ReforestryJeiRecipeTypes.CARPENTER);
+		registry.addRecipeTransferHandler(new FabricatorRecipeTransferHandler(), ReforestryJeiRecipeTypes.FABRICATOR);
 	}
 
 	@Override
@@ -134,8 +135,8 @@ public class FactoryJeiPlugin implements IModPlugin {
 	}
 
 	private static List<RainSubstrate> rainmakerRecipes() {
-		Map<ItemStack, RainSubstrate> substrates = FuelManager.rainSubstrate;
-		if (substrates == null || substrates.isEmpty()) {
+		var substrates = FuelManager.getRainSubstrates();
+		if (substrates.isEmpty()) {
 			return List.of();
 		}
 		return substrates.values().stream()

@@ -21,11 +21,15 @@ public abstract class ContainerMachine<T extends TileBase> extends AbstractConta
     private final SimpleContainerData accessData = new SimpleContainerData(Direction.values().length);
 
     protected ContainerMachine(MenuType<?> menuType, int containerId, Inventory playerInventory, T tile, int inventoryY) {
+        this(menuType, containerId, playerInventory, tile, 8, inventoryY);
+    }
+
+    protected ContainerMachine(MenuType<?> menuType, int containerId, Inventory playerInventory, T tile, int inventoryX, int inventoryY) {
         super(menuType, containerId);
         this.tile = tile;
         addMachineSlots(tile);
         this.machineSlotCount = slots.size();
-        addStandardInventorySlots(playerInventory, 8, inventoryY);
+        addStandardInventorySlots(playerInventory, inventoryX, inventoryY);
         addDataSlots(this.accessData);
         syncAccessFromTile();
     }

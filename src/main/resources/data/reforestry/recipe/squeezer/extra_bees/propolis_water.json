@@ -1,0 +1,18 @@
+{
+  "type": "reforestry:squeezer",
+  "time": 20,
+  "resources": [
+    {
+      "item": "reforestry:propolis_water"
+    }
+  ],
+  "output": {
+    "fluid": "minecraft:water",
+    "amount": 500
+  },
+  "remnant": {
+    "item": "minecraft:air",
+    "count": 0
+  },
+  "chance": 0.0
+}

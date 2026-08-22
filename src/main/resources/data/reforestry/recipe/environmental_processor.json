@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "tag": "c:gems/diamond"
+    },
+    "P": {
+      "tag": "c:ingots/gold"
+    },
+    "Q": {
+      "tag": "c:gems/lapis"
+    }
+  },
+  "pattern": [
+    "DQD",
+    "QPQ",
+    "DQD"
+  ],
+  "result": {
+    "id": "reforestry:environmental_processor"
+  }
+}

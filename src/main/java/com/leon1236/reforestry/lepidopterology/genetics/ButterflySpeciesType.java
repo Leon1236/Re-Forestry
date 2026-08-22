@@ -14,13 +14,25 @@ import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+
+import com.leon1236.reforestry.lepidopterology.blocks.BlockCocoon;
+import com.leon1236.reforestry.lepidopterology.entities.ButterflyNurseryHelper;
+import com.leon1236.reforestry.lepidopterology.entities.EntityButterfly;
+import com.leon1236.reforestry.lepidopterology.features.LepidopterologyBlocks;
+import com.leon1236.reforestry.lepidopterology.features.LepidopterologyEntities;
+import com.leon1236.reforestry.lepidopterology.tiles.TileCocoon;
 
 import com.leon1236.reforestry.api.genetics.ForestrySpeciesTypes;
 import com.leon1236.reforestry.api.genetics.IBreedingTracker;
 import com.leon1236.reforestry.api.genetics.IIndividual;
+import com.leon1236.reforestry.api.genetics.capability.IIndividualHandlerItem;
 import com.leon1236.reforestry.api.lepidopterology.ForestryButterflySpecies;
 import com.leon1236.reforestry.api.lepidopterology.IButterflyCocoon;
 import com.leon1236.reforestry.api.lepidopterology.IButterflyEffect;
+import com.leon1236.reforestry.api.lepidopterology.IButterflyNursery;
 import com.leon1236.reforestry.api.lepidopterology.ILepidopteristTracker;
 import com.leon1236.reforestry.api.lepidopterology.genetics.ButterflyLifeStage;
 import com.leon1236.reforestry.api.lepidopterology.genetics.IButterfly;
@@ -35,7 +47,7 @@ public final class ButterflySpeciesType extends SpeciesType<IButterflySpecies, I
 
 	private ButterflySpeciesType() {
 		super(ForestrySpeciesTypes.BUTTERFLY, ButterflyChromosomes.KARYOTYPE, ButterflyLifeStage.BUTTERFLY,
-				ForestryButterflySpecies.CABBAGE_WHITE, List.of(ButterflyLifeStage.values()));
+				ForestryButterflySpecies.MONARCH, List.of(ButterflyLifeStage.values()));
 	}
 
 	@Override
@@ -55,9 +67,7 @@ public final class ButterflySpeciesType extends SpeciesType<IButterflySpecies, I
 
 	@Override
 	public ImmutableMap<Identifier, IButterflySpecies> handleSpeciesRegistration(List<IForestryPlugin> plugins) {
-		ImmutableMap<Identifier, IButterflySpecies> empty = ImmutableMap.of();
-		onSpeciesRegistered(empty);
-		return empty;
+		return ImmutableMap.copyOf(LepidopterologyGenetics.getSpeciesById());
 	}
 
 	@Override
@@ -98,18 +108,88 @@ public final class ButterflySpeciesType extends SpeciesType<IButterflySpecies, I
 	@Override
 	@Nullable
 	public PathfinderMob spawnButterflyInWorld(Level level, IButterfly butterfly, double x, double y, double z) {
-		return null;
+		EntityButterfly entity = EntityButterfly.create(
+				LepidopterologyEntities.BUTTERFLY.entityType(),
+				level,
+				butterfly,
+				BlockPos.containing(x, y, z));
+		entity.setPos(x, y, z);
+		if (!level.addFreshEntity(entity)) {
+			return null;
+		}
+		return entity;
 	}
 
 	@Override
 	@Nullable
-	public BlockPos plantCocoon(LevelAccessor level, BlockPos pos, IButterfly caterpillar, int age, boolean createNursery) {
+	public BlockPos plantCocoon(LevelAccessor level, BlockPos coordinates, IButterfly caterpillar, int age,
+			boolean createNursery) {
+		if (caterpillar == null) {
+			return null;
+		}
+
+		BlockPos pos = getValidCocoonPos(level, coordinates, createNursery);
+		if (pos == null) {
+			return null;
+		}
+		int clampedAge = Math.max(0, Math.min(2, age));
+		BlockState state = LepidopterologyBlocks.COCOON.block().defaultBlockState().setValue(BlockCocoon.AGE, clampedAge);
+		boolean placed = level.setBlock(pos, state, Block.UPDATE_CLIENTS | Block.UPDATE_KNOWN_SHAPE);
+		if (!placed) {
+			return null;
+		}
+
+		if (!(level.getBlockState(pos).getBlock() instanceof BlockCocoon)) {
+			return null;
+		}
+
+		if (!(level.getBlockEntity(pos) instanceof TileCocoon cocoon)) {
+			level.setBlock(pos, Blocks.AIR.defaultBlockState(), 18);
+			return null;
+		}
+
+		cocoon.setCaterpillar(caterpillar);
+		return pos;
+	}
+
+	@Nullable
+	private static BlockPos getValidCocoonPos(LevelAccessor world, BlockPos pos, boolean createNursery) {
+		if (isPositionValid(world, pos.below(), createNursery)) {
+			return pos.below();
+		}
+		for (int tries = 0; tries < 3; tries++) {
+			for (int y = 1; y < world.getRandom().nextInt(5); y++) {
+				BlockPos coordinate = pos.offset(world.getRandom().nextInt(6) - 3, -y, world.getRandom().nextInt(6) - 3);
+				if (isPositionValid(world, coordinate, createNursery)) {
+					return coordinate;
+				}
+			}
+		}
 		return null;
+	}
+
+	private static boolean isPositionValid(LevelAccessor world, BlockPos pos, boolean createNursery) {
+		if (world instanceof Level loadedLevel && !loadedLevel.isLoaded(pos)) {
+			return false;
+		}
+		BlockState blockState = world.getBlockState(pos);
+		if (blockState.canBeReplaced()) {
+			BlockPos nurseryPos = pos.above();
+			if (ButterflyNurseryHelper.getNursery(world, nurseryPos) != null) {
+				return true;
+			}
+			if (createNursery && ButterflyNurseryHelper.canCreateNursery(world, nurseryPos)) {
+				IButterflyNursery nursery =
+						ButterflyNurseryHelper.getOrCreateNursery(world, nurseryPos, false);
+				return nursery != null && nursery.getCaterpillar() == null;
+			}
+		}
+		return false;
 	}
 
 	@Override
 	public boolean isMated(ItemStack stack) {
-		return false;
+		return IIndividualHandlerItem.filter(stack, individual -> individual instanceof IButterfly butterfly && butterfly.getMate() != null);
 	}
 
 	private static final class LepidopteristTracker extends BreedingTracker implements ILepidopteristTracker {

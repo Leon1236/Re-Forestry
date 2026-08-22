@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "#reforestry:fireproof_locust_logs"
+  ],
+  "result": {
+    "count": 4,
+    "id": "reforestry:locust_fireproof_planks"
+  }
+}

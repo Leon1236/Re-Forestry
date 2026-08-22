@@ -1,0 +1,5074 @@
+{
+  "source": "src/main/java/com/leon1236/reforestry/apiculture/genetics/DefaultBeeSpecies.java",
+  "species_count": 69,
+  "mutation_count": 114,
+  "source_species": [
+    "reforestry:bee_aquatic",
+    "reforestry:bee_embittered",
+    "reforestry:bee_ended",
+    "reforestry:bee_forest",
+    "reforestry:bee_lush",
+    "reforestry:bee_marshy",
+    "reforestry:bee_meadows",
+    "reforestry:bee_modest",
+    "reforestry:bee_monastic",
+    "reforestry:bee_pirate",
+    "reforestry:bee_relic",
+    "reforestry:bee_savanna",
+    "reforestry:bee_shulking",
+    "reforestry:bee_steadfast",
+    "reforestry:bee_tropical",
+    "reforestry:bee_valiant",
+    "reforestry:bee_vanilla",
+    "reforestry:bee_wintry",
+    "reforestry:bee_zombified"
+  ],
+  "unreachable_species": [],
+  "species": [
+    {
+      "id": "reforestry:bee_forest",
+      "short": "bee_forest",
+      "genus": "apis",
+      "species": "nigrocincta",
+      "dominant": true,
+      "outline_color": "0x19d0ec",
+      "secret": false,
+      "has_mutations": false
+    },
+    {
+      "id": "reforestry:bee_meadows",
+      "short": "bee_meadows",
+      "genus": "apis",
+      "species": "florea",
+      "dominant": true,
+      "outline_color": "0xef131e",
+      "secret": false,
+      "has_mutations": false
+    },
+    {
+      "id": "reforestry:bee_common",
+      "short": "bee_common",
+      "genus": "apis",
+      "species": "cerana",
+      "dominant": true,
+      "outline_color": "0xb2b2b2",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_cultivated",
+      "short": "bee_cultivated",
+      "genus": "apis",
+      "species": "mellifera",
+      "dominant": true,
+      "outline_color": "0x5734ec",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_noble",
+      "short": "bee_noble",
+      "genus": "probapis",
+      "species": "nobilis",
+      "dominant": false,
+      "outline_color": "0xec9a19",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_majestic",
+      "short": "bee_majestic",
+      "genus": "probapis",
+      "species": "regalis",
+      "dominant": true,
+      "outline_color": "0x7f0000",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_imperial",
+      "short": "bee_imperial",
+      "genus": "probapis",
+      "species": "imperatorius",
+      "dominant": false,
+      "outline_color": "0xa3e02f",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_diligent",
+      "short": "bee_diligent",
+      "genus": "industrapis",
+      "species": "sedulus",
+      "dominant": false,
+      "outline_color": "0xc219ec",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_unweary",
+      "short": "bee_unweary",
+      "genus": "industrapis",
+      "species": "assiduus",
+      "dominant": true,
+      "outline_color": "0x19ec5a",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_industrious",
+      "short": "bee_industrious",
+      "genus": "industrapis",
+      "species": "industria",
+      "dominant": false,
+      "outline_color": "0xffffff",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_sinister",
+      "short": "bee_sinister",
+      "genus": "diapis",
+      "species": "caecus",
+      "dominant": false,
+      "outline_color": "0xb3d5e4",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_fiendish",
+      "short": "bee_fiendish",
+      "genus": "diapis",
+      "species": "diabolus",
+      "dominant": true,
+      "outline_color": "0xd7bee5",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_demonic",
+      "short": "bee_demonic",
+      "genus": "diapis",
+      "species": "draco",
+      "dominant": false,
+      "outline_color": "0xf4e400",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_modest",
+      "short": "bee_modest",
+      "genus": "modapis",
+      "species": "modicus",
+      "dominant": false,
+      "outline_color": "0xc5be86",
+      "secret": false,
+      "has_mutations": false
+    },
+    {
+      "id": "reforestry:bee_frugal",
+      "short": "bee_frugal",
+      "genus": "modapis",
+      "species": "permodestus",
+      "dominant": true,
+      "outline_color": "0xe8dcb1",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_austere",
+      "short": "bee_austere",
+      "genus": "modapis",
+      "species": "correpere",
+      "dominant": false,
+      "outline_color": "0xfffac2",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_tropical",
+      "short": "bee_tropical",
+      "genus": "caldapis",
+      "species": "mendelia",
+      "dominant": false,
+      "outline_color": "0x378020",
+      "secret": false,
+      "has_mutations": false
+    },
+    {
+      "id": "reforestry:bee_exotic",
+      "short": "bee_exotic",
+      "genus": "caldapis",
+      "species": "darwini",
+      "dominant": true,
+      "outline_color": "0x304903",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_edenic",
+      "short": "bee_edenic",
+      "genus": "caldapis",
+      "species": "humboldti",
+      "dominant": false,
+      "outline_color": "0x393d0d",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_monastic",
+      "short": "bee_monastic",
+      "genus": "monapis",
+      "species": "monachus",
+      "dominant": false,
+      "outline_color": "0x42371c",
+      "secret": false,
+      "has_mutations": false
+    },
+    {
+      "id": "reforestry:bee_secluded",
+      "short": "bee_secluded",
+      "genus": "monapis",
+      "species": "contractus",
+      "dominant": true,
+      "outline_color": "0x7b6634",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_hermitic",
+      "short": "bee_hermitic",
+      "genus": "monapis",
+      "species": "anachoreta",
+      "dominant": false,
+      "outline_color": "0xffd46c",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_shulking",
+      "short": "bee_shulking",
+      "genus": "finapis",
+      "species": "shurukui",
+      "dominant": false,
+      "outline_color": "0x896d74",
+      "secret": false,
+      "has_mutations": false
+    },
+    {
+      "id": "reforestry:bee_ended",
+      "short": "bee_ended",
+      "genus": "finapis",
+      "species": "mikui",
+      "dominant": false,
+      "outline_color": "0xe079fa",
+      "secret": false,
+      "has_mutations": false
+    },
+    {
+      "id": "reforestry:bee_spectral",
+      "short": "bee_spectral",
+      "genus": "finapis",
+      "species": "idolum",
+      "dominant": true,
+      "outline_color": "0xa98bed",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_phantasmal",
+      "short": "bee_phantasmal",
+      "genus": "finapis",
+      "species": "lemur",
+      "dominant": false,
+      "outline_color": "0xcc00fa",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_wintry",
+      "short": "bee_wintry",
+      "genus": "coagapis",
+      "species": "brumalis",
+      "dominant": false,
+      "outline_color": "0xa0ffc8",
+      "secret": false,
+      "has_mutations": false
+    },
+    {
+      "id": "reforestry:bee_icy",
+      "short": "bee_icy",
+      "genus": "coagapis",
+      "species": "coagulis",
+      "dominant": true,
+      "outline_color": "0xa0ffff",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_glacial",
+      "short": "bee_glacial",
+      "genus": "coagapis",
+      "species": "glacialis",
+      "dominant": false,
+      "outline_color": "0xefffff",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_marshy",
+      "short": "bee_marshy",
+      "genus": "paludapis",
+      "species": "adorasti",
+      "dominant": true,
+      "outline_color": "0x546626",
+      "secret": false,
+      "has_mutations": false
+    },
+    {
+      "id": "reforestry:bee_miry",
+      "short": "bee_miry",
+      "genus": "paludapis",
+      "species": "humidium",
+      "dominant": true,
+      "outline_color": "0x92af42",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_boggy",
+      "short": "bee_boggy",
+      "genus": "paludapis",
+      "species": "paluster",
+      "dominant": true,
+      "outline_color": "0x698948",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_savanna",
+      "short": "bee_savanna",
+      "genus": "afrapis",
+      "species": "scutellata",
+      "dominant": true,
+      "outline_color": "0xb04e0f",
+      "secret": false,
+      "has_mutations": false
+    },
+    {
+      "id": "reforestry:bee_argil",
+      "short": "bee_argil",
+      "genus": "afrapis",
+      "species": "argillata",
+      "dominant": true,
+      "outline_color": "0x96afd2",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_pride",
+      "short": "bee_pride",
+      "genus": "afrapis",
+      "species": "rafikii",
+      "dominant": true,
+      "outline_color": "0x650021",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_vindictive",
+      "short": "bee_vindictive",
+      "genus": "punapis",
+      "species": "ultio",
+      "dominant": true,
+      "outline_color": "0xeafff3",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_vengeful",
+      "short": "bee_vengeful",
+      "genus": "punapis",
+      "species": "punire",
+      "dominant": true,
+      "outline_color": "0xc2de00",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_avenging",
+      "short": "bee_avenging",
+      "genus": "punapis",
+      "species": "hostimentum",
+      "dominant": true,
+      "outline_color": "0xddff00",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_steadfast",
+      "short": "bee_steadfast",
+      "genus": "herapis",
+      "species": "legio",
+      "dominant": false,
+      "outline_color": "0x4d2b15",
+      "secret": false,
+      "has_mutations": false
+    },
+    {
+      "id": "reforestry:bee_valiant",
+      "short": "bee_valiant",
+      "genus": "herapis",
+      "species": "centurio",
+      "dominant": true,
+      "outline_color": "0x626bdd",
+      "secret": false,
+      "has_mutations": false
+    },
+    {
+      "id": "reforestry:bee_heroic",
+      "short": "bee_heroic",
+      "genus": "herapis",
+      "species": "kraphti",
+      "dominant": false,
+      "outline_color": "0xb3d5e4",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_lush",
+      "short": "bee_lush",
+      "genus": "troglobites",
+      "species": "atvatabari",
+      "dominant": true,
+      "outline_color": "0x70922d",
+      "secret": false,
+      "has_mutations": false
+    },
+    {
+      "id": "reforestry:bee_verdant",
+      "short": "bee_verdant",
+      "genus": "troglobites",
+      "species": "lidenbrocki",
+      "dominant": true,
+      "outline_color": "0x1c5b3a",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_luxuriant",
+      "short": "bee_luxuriant",
+      "genus": "troglobites",
+      "species": "verni",
+      "dominant": false,
+      "outline_color": "0xeb8931",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_kleptoplastic",
+      "short": "bee_kleptoplastic",
+      "genus": "phytapis",
+      "species": "vitaraptor",
+      "dominant": false,
+      "outline_color": "0xffc987",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_photosynthetic",
+      "short": "bee_photosynthetic",
+      "genus": "phytapis",
+      "species": "phytomimus",
+      "dominant": true,
+      "outline_color": "0xb6c9ff",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_autotrophic",
+      "short": "bee_autotrophic",
+      "genus": "phytapis",
+      "species": "solaris",
+      "dominant": false,
+      "outline_color": "0xfff5ec",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_aquatic",
+      "short": "bee_aquatic",
+      "genus": "spongiforma",
+      "species": "squarepantsii",
+      "dominant": true,
+      "outline_color": "0x3f76e4",
+      "secret": false,
+      "has_mutations": false
+    },
+    {
+      "id": "reforestry:bee_pirate",
+      "short": "bee_pirate",
+      "genus": "spongiforma",
+      "species": "pirata",
+      "dominant": true,
+      "outline_color": "0x3f605b",
+      "secret": false,
+      "has_mutations": false
+    },
+    {
+      "id": "reforestry:bee_prismatic",
+      "short": "bee_prismatic",
+      "genus": "spongiforma",
+      "species": "orichalcus",
+      "dominant": false,
+      "outline_color": "0x539882",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_abyssal",
+      "short": "bee_abyssal",
+      "genus": "spongiforma",
+      "species": "stygii",
+      "dominant": false,
+      "outline_color": "0x050533",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_embittered",
+      "short": "bee_embittered",
+      "genus": "irata",
+      "species": "irata",
+      "dominant": true,
+      "outline_color": "0x894344",
+      "secret": false,
+      "has_mutations": false
+    },
+    {
+      "id": "reforestry:bee_spiteful",
+      "short": "bee_spiteful",
+      "genus": "irata",
+      "species": "invida",
+      "dominant": false,
+      "outline_color": "0xfeac6d",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_seething",
+      "short": "bee_seething",
+      "genus": "irata",
+      "species": "sulphuri",
+      "dominant": false,
+      "outline_color": "0xff8f00",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_warped",
+      "short": "bee_warped",
+      "genus": "irata",
+      "species": "corrumpata",
+      "dominant": true,
+      "outline_color": "0x14b485",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_zombified",
+      "short": "bee_zombified",
+      "genus": "abominatio",
+      "species": "inmortui",
+      "dominant": true,
+      "outline_color": "0x698e45",
+      "secret": false,
+      "has_mutations": false
+    },
+    {
+      "id": "reforestry:bee_sculk",
+      "short": "bee_sculk",
+      "genus": "abominatio",
+      "species": "alieni",
+      "dominant": true,
+      "outline_color": "0xd1d6b6",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_rural",
+      "short": "bee_rural",
+      "genus": "rustapis",
+      "species": "rustico",
+      "dominant": false,
+      "outline_color": "0xfeff8f",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_farmerly",
+      "short": "bee_farmerly",
+      "genus": "rustapis",
+      "species": "arator",
+      "dominant": true,
+      "outline_color": "0xd39728",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_agrarian",
+      "short": "bee_agrarian",
+      "genus": "rustapis",
+      "species": "agrarius",
+      "dominant": true,
+      "outline_color": "0xffca75",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_primeval",
+      "short": "bee_primeval",
+      "genus": "reliquia",
+      "species": "antiqua",
+      "dominant": true,
+      "outline_color": "0x653f33",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_anachrone",
+      "short": "bee_anachrone",
+      "genus": "reliquia",
+      "species": "tempuraptor",
+      "dominant": false,
+      "outline_color": "0x55ffff",
+      "secret": false,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_relic",
+      "short": "bee_relic",
+      "genus": "reliquia",
+      "species": "elizabethii",
+      "dominant": false,
+      "outline_color": "0xff55ff",
+      "secret": false,
+      "has_mutations": false
+    },
+    {
+      "id": "reforestry:bee_vanilla",
+      "short": "bee_vanilla",
+      "genus": "bombus",
+      "species": "dinnerbonei",
+      "dominant": false,
+      "outline_color": "0xedc343",
+      "secret": false,
+      "has_mutations": false
+    },
+    {
+      "id": "reforestry:bee_leporine",
+      "short": "bee_leporine",
+      "genus": "festapis",
+      "species": "lepus",
+      "dominant": false,
+      "outline_color": "0xfeff8f",
+      "secret": true,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_merry",
+      "short": "bee_merry",
+      "genus": "festapis",
+      "species": "feliciter",
+      "dominant": false,
+      "outline_color": "0xffffff",
+      "secret": true,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_tipsy",
+      "short": "bee_tipsy",
+      "genus": "festapis",
+      "species": "ebrius",
+      "dominant": false,
+      "outline_color": "0xffffff",
+      "secret": true,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_tricky",
+      "short": "bee_tricky",
+      "genus": "festapis",
+      "species": "libita",
+      "dominant": false,
+      "outline_color": "0x49413b",
+      "secret": true,
+      "has_mutations": true
+    },
+    {
+      "id": "reforestry:bee_patriotic",
+      "short": "bee_patriotic",
+      "genus": "festapis",
+      "species": "americanus",
+      "dominant": true,
+      "outline_color": "0x0a3161",
+      "secret": true,
+      "has_mutations": true
+    }
+  ],
+  "mutations": [
+    {
+      "parent_a": "reforestry:bee_forest",
+      "parent_b": "reforestry:bee_marshy",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_forest",
+      "parent_b": "reforestry:bee_meadows",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_forest",
+      "parent_b": "reforestry:bee_modest",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_forest",
+      "parent_b": "reforestry:bee_savanna",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_forest",
+      "parent_b": "reforestry:bee_tropical",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_forest",
+      "parent_b": "reforestry:bee_valiant",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_forest",
+      "parent_b": "reforestry:bee_wintry",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_forest",
+      "parent_b": "reforestry:bee_lush",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_forest",
+      "parent_b": "reforestry:bee_aquatic",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_marshy",
+      "parent_b": "reforestry:bee_meadows",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_marshy",
+      "parent_b": "reforestry:bee_modest",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_marshy",
+      "parent_b": "reforestry:bee_savanna",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_marshy",
+      "parent_b": "reforestry:bee_tropical",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_marshy",
+      "parent_b": "reforestry:bee_valiant",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_marshy",
+      "parent_b": "reforestry:bee_wintry",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_marshy",
+      "parent_b": "reforestry:bee_lush",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_marshy",
+      "parent_b": "reforestry:bee_aquatic",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_meadows",
+      "parent_b": "reforestry:bee_modest",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_meadows",
+      "parent_b": "reforestry:bee_savanna",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_meadows",
+      "parent_b": "reforestry:bee_tropical",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_meadows",
+      "parent_b": "reforestry:bee_valiant",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_meadows",
+      "parent_b": "reforestry:bee_wintry",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_meadows",
+      "parent_b": "reforestry:bee_lush",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_meadows",
+      "parent_b": "reforestry:bee_aquatic",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_modest",
+      "parent_b": "reforestry:bee_savanna",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_modest",
+      "parent_b": "reforestry:bee_tropical",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_modest",
+      "parent_b": "reforestry:bee_valiant",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_modest",
+      "parent_b": "reforestry:bee_wintry",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_modest",
+      "parent_b": "reforestry:bee_lush",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_modest",
+      "parent_b": "reforestry:bee_aquatic",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_savanna",
+      "parent_b": "reforestry:bee_tropical",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_savanna",
+      "parent_b": "reforestry:bee_valiant",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_savanna",
+      "parent_b": "reforestry:bee_wintry",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_savanna",
+      "parent_b": "reforestry:bee_lush",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_savanna",
+      "parent_b": "reforestry:bee_aquatic",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_tropical",
+      "parent_b": "reforestry:bee_valiant",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_tropical",
+      "parent_b": "reforestry:bee_wintry",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_tropical",
+      "parent_b": "reforestry:bee_lush",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_tropical",
+      "parent_b": "reforestry:bee_aquatic",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_valiant",
+      "parent_b": "reforestry:bee_wintry",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_valiant",
+      "parent_b": "reforestry:bee_lush",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_valiant",
+      "parent_b": "reforestry:bee_aquatic",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_wintry",
+      "parent_b": "reforestry:bee_lush",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_wintry",
+      "parent_b": "reforestry:bee_aquatic",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_lush",
+      "parent_b": "reforestry:bee_aquatic",
+      "result": "reforestry:bee_common",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_common",
+      "parent_b": "reforestry:bee_forest",
+      "result": "reforestry:bee_cultivated",
+      "chance_percent": 12.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_common",
+      "parent_b": "reforestry:bee_marshy",
+      "result": "reforestry:bee_cultivated",
+      "chance_percent": 12.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_common",
+      "parent_b": "reforestry:bee_meadows",
+      "result": "reforestry:bee_cultivated",
+      "chance_percent": 12.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_common",
+      "parent_b": "reforestry:bee_modest",
+      "result": "reforestry:bee_cultivated",
+      "chance_percent": 12.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_common",
+      "parent_b": "reforestry:bee_savanna",
+      "result": "reforestry:bee_cultivated",
+      "chance_percent": 12.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_common",
+      "parent_b": "reforestry:bee_tropical",
+      "result": "reforestry:bee_cultivated",
+      "chance_percent": 12.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_common",
+      "parent_b": "reforestry:bee_valiant",
+      "result": "reforestry:bee_cultivated",
+      "chance_percent": 12.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_common",
+      "parent_b": "reforestry:bee_wintry",
+      "result": "reforestry:bee_cultivated",
+      "chance_percent": 12.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_common",
+      "parent_b": "reforestry:bee_lush",
+      "result": "reforestry:bee_cultivated",
+      "chance_percent": 12.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_common",
+      "parent_b": "reforestry:bee_aquatic",
+      "result": "reforestry:bee_cultivated",
+      "chance_percent": 12.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_common",
+      "parent_b": "reforestry:bee_cultivated",
+      "result": "reforestry:bee_noble",
+      "chance_percent": 10.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_noble",
+      "parent_b": "reforestry:bee_cultivated",
+      "result": "reforestry:bee_majestic",
+      "chance_percent": 8.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_noble",
+      "parent_b": "reforestry:bee_majestic",
+      "result": "reforestry:bee_imperial",
+      "chance_percent": 8.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_common",
+      "parent_b": "reforestry:bee_cultivated",
+      "result": "reforestry:bee_diligent",
+      "chance_percent": 10.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_diligent",
+      "parent_b": "reforestry:bee_cultivated",
+      "result": "reforestry:bee_unweary",
+      "chance_percent": 8.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_diligent",
+      "parent_b": "reforestry:bee_unweary",
+      "result": "reforestry:bee_industrious",
+      "chance_percent": 8.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_cultivated",
+      "parent_b": "reforestry:bee_modest",
+      "result": "reforestry:bee_sinister",
+      "chance_percent": 60.0,
+      "conditions": [
+        {
+          "type": "biome",
+          "tag": "BiomeTags.IS_NETHER"
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_cultivated",
+      "parent_b": "reforestry:bee_tropical",
+      "result": "reforestry:bee_sinister",
+      "chance_percent": 60.0,
+      "conditions": [
+        {
+          "type": "biome",
+          "tag": "BiomeTags.IS_NETHER"
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_sinister",
+      "parent_b": "reforestry:bee_cultivated",
+      "result": "reforestry:bee_fiendish",
+      "chance_percent": 40.0,
+      "conditions": [
+        {
+          "type": "biome",
+          "tag": "BiomeTags.IS_NETHER"
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_sinister",
+      "parent_b": "reforestry:bee_modest",
+      "result": "reforestry:bee_fiendish",
+      "chance_percent": 40.0,
+      "conditions": [
+        {
+          "type": "biome",
+          "tag": "BiomeTags.IS_NETHER"
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_sinister",
+      "parent_b": "reforestry:bee_tropical",
+      "result": "reforestry:bee_fiendish",
+      "chance_percent": 40.0,
+      "conditions": [
+        {
+          "type": "biome",
+          "tag": "BiomeTags.IS_NETHER"
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_sinister",
+      "parent_b": "reforestry:bee_fiendish",
+      "result": "reforestry:bee_demonic",
+      "chance_percent": 25.0,
+      "conditions": [
+        {
+          "type": "biome",
+          "tag": "BiomeTags.IS_NETHER"
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_modest",
+      "parent_b": "reforestry:bee_sinister",
+      "result": "reforestry:bee_frugal",
+      "chance_percent": 16.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_modest",
+      "parent_b": "reforestry:bee_fiendish",
+      "result": "reforestry:bee_frugal",
+      "chance_percent": 10.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_modest",
+      "parent_b": "reforestry:bee_frugal",
+      "result": "reforestry:bee_austere",
+      "chance_percent": 8.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_austere",
+      "parent_b": "reforestry:bee_tropical",
+      "result": "reforestry:bee_exotic",
+      "chance_percent": 12.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_exotic",
+      "parent_b": "reforestry:bee_tropical",
+      "result": "reforestry:bee_edenic",
+      "chance_percent": 8.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_monastic",
+      "parent_b": "reforestry:bee_austere",
+      "result": "reforestry:bee_secluded",
+      "chance_percent": 12.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_monastic",
+      "parent_b": "reforestry:bee_secluded",
+      "result": "reforestry:bee_hermitic",
+      "chance_percent": 8.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_hermitic",
+      "parent_b": "reforestry:bee_ended",
+      "result": "reforestry:bee_spectral",
+      "chance_percent": 4.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_spectral",
+      "parent_b": "reforestry:bee_ended",
+      "result": "reforestry:bee_phantasmal",
+      "chance_percent": 2.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_industrious",
+      "parent_b": "reforestry:bee_wintry",
+      "result": "reforestry:bee_icy",
+      "chance_percent": 12.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_icy",
+      "parent_b": "reforestry:bee_wintry",
+      "result": "reforestry:bee_glacial",
+      "chance_percent": 8.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_marshy",
+      "parent_b": "reforestry:bee_noble",
+      "result": "reforestry:bee_miry",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_marshy",
+      "parent_b": "reforestry:bee_miry",
+      "result": "reforestry:bee_boggy",
+      "chance_percent": 9.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_savanna",
+      "parent_b": "reforestry:bee_diligent",
+      "result": "reforestry:bee_argil",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_savanna",
+      "parent_b": "reforestry:bee_argil",
+      "result": "reforestry:bee_pride",
+      "chance_percent": 9.0,
+      "conditions": [
+        {
+          "type": "biome",
+          "tag": "ReforestryBiomeTags.SHATTERED_SAVANNA"
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_savanna",
+      "parent_b": "reforestry:bee_common",
+      "result": "reforestry:bee_vindictive",
+      "chance_percent": 12.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_vindictive",
+      "parent_b": "reforestry:bee_cultivated",
+      "result": "reforestry:bee_vengeful",
+      "chance_percent": 8.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_vindictive",
+      "parent_b": "reforestry:bee_vengeful",
+      "result": "reforestry:bee_avenging",
+      "chance_percent": 4.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_steadfast",
+      "parent_b": "reforestry:bee_valiant",
+      "result": "reforestry:bee_heroic",
+      "chance_percent": 6.0,
+      "conditions": [
+        {
+          "type": "biome",
+          "tag": "BiomeTags.IS_FOREST"
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_lush",
+      "parent_b": "reforestry:bee_valiant",
+      "result": "reforestry:bee_verdant",
+      "chance_percent": 10.0,
+      "conditions": [
+        {
+          "type": "cave_dwelling"
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_lush",
+      "parent_b": "reforestry:bee_verdant",
+      "result": "reforestry:bee_luxuriant",
+      "chance_percent": 8.0,
+      "conditions": [
+        {
+          "type": "cave_dwelling"
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_luxuriant",
+      "parent_b": "reforestry:bee_monastic",
+      "result": "reforestry:bee_kleptoplastic",
+      "chance_percent": 12.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_kleptoplastic",
+      "parent_b": "reforestry:bee_luxuriant",
+      "result": "reforestry:bee_photosynthetic",
+      "chance_percent": 8.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_kleptoplastic",
+      "parent_b": "reforestry:bee_monastic",
+      "result": "reforestry:bee_photosynthetic",
+      "chance_percent": 8.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_kleptoplastic",
+      "parent_b": "reforestry:bee_photosynthetic",
+      "result": "reforestry:bee_autotrophic",
+      "chance_percent": 4.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_aquatic",
+      "parent_b": "reforestry:bee_pirate",
+      "result": "reforestry:bee_prismatic",
+      "chance_percent": 8.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_pirate",
+      "parent_b": "reforestry:bee_ended",
+      "result": "reforestry:bee_abyssal",
+      "chance_percent": 40.0,
+      "conditions": [
+        {
+          "type": "cave_dwelling"
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_aquatic",
+      "parent_b": "reforestry:bee_ended",
+      "result": "reforestry:bee_abyssal",
+      "chance_percent": 40.0,
+      "conditions": [
+        {
+          "type": "cave_dwelling"
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_pirate",
+      "parent_b": "reforestry:bee_shulking",
+      "result": "reforestry:bee_abyssal",
+      "chance_percent": 60.0,
+      "conditions": [
+        {
+          "type": "cave_dwelling"
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_aquatic",
+      "parent_b": "reforestry:bee_shulking",
+      "result": "reforestry:bee_abyssal",
+      "chance_percent": 60.0,
+      "conditions": [
+        {
+          "type": "cave_dwelling"
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_embittered",
+      "parent_b": "reforestry:bee_fiendish",
+      "result": "reforestry:bee_spiteful",
+      "chance_percent": 12.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_spiteful",
+      "parent_b": "reforestry:bee_embittered",
+      "result": "reforestry:bee_seething",
+      "chance_percent": 8.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_embittered",
+      "parent_b": "reforestry:bee_ended",
+      "result": "reforestry:bee_warped",
+      "chance_percent": 40.0,
+      "conditions": [
+        {
+          "type": "biome",
+          "tag": "ReforestryBiomeTags.WARPED_FOREST"
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_spiteful",
+      "parent_b": "reforestry:bee_ended",
+      "result": "reforestry:bee_warped",
+      "chance_percent": 40.0,
+      "conditions": [
+        {
+          "type": "biome",
+          "tag": "ReforestryBiomeTags.WARPED_FOREST"
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_embittered",
+      "parent_b": "reforestry:bee_shulking",
+      "result": "reforestry:bee_warped",
+      "chance_percent": 40.0,
+      "conditions": [
+        {
+          "type": "biome",
+          "tag": "ReforestryBiomeTags.WARPED_FOREST"
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_spiteful",
+      "parent_b": "reforestry:bee_shulking",
+      "result": "reforestry:bee_warped",
+      "chance_percent": 40.0,
+      "conditions": [
+        {
+          "type": "biome",
+          "tag": "ReforestryBiomeTags.WARPED_FOREST"
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_abyssal",
+      "parent_b": "reforestry:bee_hermitic",
+      "result": "reforestry:bee_sculk",
+      "chance_percent": 6.0,
+      "conditions": [
+        {
+          "type": "biome",
+          "tag": "ReforestryBiomeTags.DEEP_DARK"
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_meadows",
+      "parent_b": "reforestry:bee_diligent",
+      "result": "reforestry:bee_rural",
+      "chance_percent": 12.0,
+      "conditions": [
+        {
+          "type": "biome",
+          "tag": "ConventionalBiomeTags.IS_PLAINS"
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_rural",
+      "parent_b": "reforestry:bee_unweary",
+      "result": "reforestry:bee_farmerly",
+      "chance_percent": 10.0,
+      "conditions": [
+        {
+          "type": "biome",
+          "tag": "ConventionalBiomeTags.IS_PLAINS"
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_farmerly",
+      "parent_b": "reforestry:bee_industrious",
+      "result": "reforestry:bee_agrarian",
+      "chance_percent": 6.0,
+      "conditions": [
+        {
+          "type": "biome",
+          "tag": "ConventionalBiomeTags.IS_PLAINS"
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_anachrone",
+      "parent_b": "reforestry:bee_steadfast",
+      "result": "reforestry:bee_primeval",
+      "chance_percent": 15.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_relic",
+      "parent_b": "reforestry:bee_steadfast",
+      "result": "reforestry:bee_anachrone",
+      "chance_percent": 10.0,
+      "conditions": []
+    },
+    {
+      "parent_a": "reforestry:bee_meadows",
+      "parent_b": "reforestry:bee_forest",
+      "result": "reforestry:bee_leporine",
+      "chance_percent": 10.0,
+      "conditions": [
+        {
+          "type": "date_range",
+          "start_month": 3,
+          "start_day": 29,
+          "end_month": 4,
+          "end_day": 15
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_wintry",
+      "parent_b": "reforestry:bee_forest",
+      "result": "reforestry:bee_merry",
+      "chance_percent": 10.0,
+      "conditions": [
+        {
+          "type": "date_range",
+          "start_month": 12,
+          "start_day": 21,
+          "end_month": 12,
+          "end_day": 27
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_wintry",
+      "parent_b": "reforestry:bee_meadows",
+      "result": "reforestry:bee_tipsy",
+      "chance_percent": 10.0,
+      "conditions": [
+        {
+          "type": "date_range",
+          "start_month": 12,
+          "start_day": 27,
+          "end_month": 1,
+          "end_day": 2
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_sinister",
+      "parent_b": "reforestry:bee_common",
+      "result": "reforestry:bee_tricky",
+      "chance_percent": 10.0,
+      "conditions": [
+        {
+          "type": "date_range",
+          "start_month": 10,
+          "start_day": 15,
+          "end_month": 11,
+          "end_day": 3
+        }
+      ]
+    },
+    {
+      "parent_a": "reforestry:bee_rural",
+      "parent_b": "reforestry:bee_noble",
+      "result": "reforestry:bee_patriotic",
+      "chance_percent": 15.0,
+      "conditions": [
+        {
+          "type": "date_range",
+          "start_month": 7,
+          "start_day": 1,
+          "end_month": 7,
+          "end_day": 17
+        }
+      ]
+    }
+  ],
+  "paths": {
+    "reforestry:bee_abyssal": {
+      "depth": 1,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_pirate",
+            "bee_shulking"
+          ],
+          "result": "bee_abyssal",
+          "chance": 60.0,
+          "conditions": [
+            "cave dwelling"
+          ]
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_pirate",
+            "bee_ended"
+          ],
+          "chance": 40.0,
+          "conditions": [
+            "cave dwelling"
+          ]
+        },
+        {
+          "parents": [
+            "bee_aquatic",
+            "bee_ended"
+          ],
+          "chance": 40.0,
+          "conditions": [
+            "cave dwelling"
+          ]
+        },
+        {
+          "parents": [
+            "bee_pirate",
+            "bee_shulking"
+          ],
+          "chance": 60.0,
+          "conditions": [
+            "cave dwelling"
+          ]
+        },
+        {
+          "parents": [
+            "bee_aquatic",
+            "bee_shulking"
+          ],
+          "chance": 60.0,
+          "conditions": [
+            "cave dwelling"
+          ]
+        }
+      ]
+    },
+    "reforestry:bee_agrarian": {
+      "depth": 8,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_cultivated"
+          ],
+          "result": "bee_diligent",
+          "chance": 10.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_meadows",
+            "bee_diligent"
+          ],
+          "result": "bee_rural",
+          "chance": 12.0,
+          "conditions": [
+            "biome:ConventionalBiomeTags.IS_PLAINS"
+          ]
+        },
+        {
+          "parents": [
+            "bee_diligent",
+            "bee_cultivated"
+          ],
+          "result": "bee_unweary",
+          "chance": 8.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_rural",
+            "bee_unweary"
+          ],
+          "result": "bee_farmerly",
+          "chance": 10.0,
+          "conditions": [
+            "biome:ConventionalBiomeTags.IS_PLAINS"
+          ]
+        },
+        {
+          "parents": [
+            "bee_diligent",
+            "bee_unweary"
+          ],
+          "result": "bee_industrious",
+          "chance": 8.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_farmerly",
+            "bee_industrious"
+          ],
+          "result": "bee_agrarian",
+          "chance": 6.0,
+          "conditions": [
+            "biome:ConventionalBiomeTags.IS_PLAINS"
+          ]
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_farmerly",
+            "bee_industrious"
+          ],
+          "chance": 6.0,
+          "conditions": [
+            "biome:ConventionalBiomeTags.IS_PLAINS"
+          ]
+        }
+      ]
+    },
+    "reforestry:bee_anachrone": {
+      "depth": 1,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_relic",
+            "bee_steadfast"
+          ],
+          "result": "bee_anachrone",
+          "chance": 10.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_relic",
+            "bee_steadfast"
+          ],
+          "chance": 10.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_aquatic": {
+      "depth": 0,
+      "source": true,
+      "steps": []
+    },
+    "reforestry:bee_argil": {
+      "depth": 4,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_cultivated"
+          ],
+          "result": "bee_diligent",
+          "chance": 10.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_savanna",
+            "bee_diligent"
+          ],
+          "result": "bee_argil",
+          "chance": 15.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_savanna",
+            "bee_diligent"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_austere": {
+      "depth": 5,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_cultivated",
+            "bee_modest"
+          ],
+          "result": "bee_sinister",
+          "chance": 60.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        },
+        {
+          "parents": [
+            "bee_modest",
+            "bee_sinister"
+          ],
+          "result": "bee_frugal",
+          "chance": 16.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_modest",
+            "bee_frugal"
+          ],
+          "result": "bee_austere",
+          "chance": 8.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_modest",
+            "bee_frugal"
+          ],
+          "chance": 8.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_autotrophic": {
+      "depth": 5,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_lush",
+            "bee_valiant"
+          ],
+          "result": "bee_verdant",
+          "chance": 10.0,
+          "conditions": [
+            "cave dwelling"
+          ]
+        },
+        {
+          "parents": [
+            "bee_lush",
+            "bee_verdant"
+          ],
+          "result": "bee_luxuriant",
+          "chance": 8.0,
+          "conditions": [
+            "cave dwelling"
+          ]
+        },
+        {
+          "parents": [
+            "bee_luxuriant",
+            "bee_monastic"
+          ],
+          "result": "bee_kleptoplastic",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_kleptoplastic",
+            "bee_luxuriant"
+          ],
+          "result": "bee_photosynthetic",
+          "chance": 8.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_kleptoplastic",
+            "bee_photosynthetic"
+          ],
+          "result": "bee_autotrophic",
+          "chance": 4.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_kleptoplastic",
+            "bee_photosynthetic"
+          ],
+          "chance": 4.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_avenging": {
+      "depth": 5,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_savanna",
+            "bee_common"
+          ],
+          "result": "bee_vindictive",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_vindictive",
+            "bee_cultivated"
+          ],
+          "result": "bee_vengeful",
+          "chance": 8.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_vindictive",
+            "bee_vengeful"
+          ],
+          "result": "bee_avenging",
+          "chance": 4.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_vindictive",
+            "bee_vengeful"
+          ],
+          "chance": 4.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_boggy": {
+      "depth": 5,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_cultivated"
+          ],
+          "result": "bee_noble",
+          "chance": 10.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_marshy",
+            "bee_noble"
+          ],
+          "result": "bee_miry",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_marshy",
+            "bee_miry"
+          ],
+          "result": "bee_boggy",
+          "chance": 9.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_marshy",
+            "bee_miry"
+          ],
+          "chance": 9.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_common": {
+      "depth": 1,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_forest",
+            "bee_meadows"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_forest",
+            "bee_modest"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_forest",
+            "bee_savanna"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_forest",
+            "bee_tropical"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_forest",
+            "bee_valiant"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_forest",
+            "bee_wintry"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_forest",
+            "bee_lush"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_forest",
+            "bee_aquatic"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_marshy",
+            "bee_meadows"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_marshy",
+            "bee_modest"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_marshy",
+            "bee_savanna"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_marshy",
+            "bee_tropical"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_marshy",
+            "bee_valiant"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_marshy",
+            "bee_wintry"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_marshy",
+            "bee_lush"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_marshy",
+            "bee_aquatic"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_meadows",
+            "bee_modest"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_meadows",
+            "bee_savanna"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_meadows",
+            "bee_tropical"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_meadows",
+            "bee_valiant"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_meadows",
+            "bee_wintry"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_meadows",
+            "bee_lush"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_meadows",
+            "bee_aquatic"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_modest",
+            "bee_savanna"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_modest",
+            "bee_tropical"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_modest",
+            "bee_valiant"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_modest",
+            "bee_wintry"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_modest",
+            "bee_lush"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_modest",
+            "bee_aquatic"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_savanna",
+            "bee_tropical"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_savanna",
+            "bee_valiant"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_savanna",
+            "bee_wintry"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_savanna",
+            "bee_lush"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_savanna",
+            "bee_aquatic"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_tropical",
+            "bee_valiant"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_tropical",
+            "bee_wintry"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_tropical",
+            "bee_lush"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_tropical",
+            "bee_aquatic"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_valiant",
+            "bee_wintry"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_valiant",
+            "bee_lush"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_valiant",
+            "bee_aquatic"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_wintry",
+            "bee_lush"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_wintry",
+            "bee_aquatic"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_lush",
+            "bee_aquatic"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_cultivated": {
+      "depth": 2,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_marshy"
+          ],
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_meadows"
+          ],
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_modest"
+          ],
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_savanna"
+          ],
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_tropical"
+          ],
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_valiant"
+          ],
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_wintry"
+          ],
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_lush"
+          ],
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_aquatic"
+          ],
+          "chance": 12.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_demonic": {
+      "depth": 5,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_cultivated",
+            "bee_modest"
+          ],
+          "result": "bee_sinister",
+          "chance": 60.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        },
+        {
+          "parents": [
+            "bee_sinister",
+            "bee_cultivated"
+          ],
+          "result": "bee_fiendish",
+          "chance": 40.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        },
+        {
+          "parents": [
+            "bee_sinister",
+            "bee_fiendish"
+          ],
+          "result": "bee_demonic",
+          "chance": 25.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_sinister",
+            "bee_fiendish"
+          ],
+          "chance": 25.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        }
+      ]
+    },
+    "reforestry:bee_diligent": {
+      "depth": 3,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_cultivated"
+          ],
+          "result": "bee_diligent",
+          "chance": 10.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_common",
+            "bee_cultivated"
+          ],
+          "chance": 10.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_edenic": {
+      "depth": 7,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_cultivated",
+            "bee_modest"
+          ],
+          "result": "bee_sinister",
+          "chance": 60.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        },
+        {
+          "parents": [
+            "bee_modest",
+            "bee_sinister"
+          ],
+          "result": "bee_frugal",
+          "chance": 16.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_modest",
+            "bee_frugal"
+          ],
+          "result": "bee_austere",
+          "chance": 8.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_austere",
+            "bee_tropical"
+          ],
+          "result": "bee_exotic",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_exotic",
+            "bee_tropical"
+          ],
+          "result": "bee_edenic",
+          "chance": 8.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_exotic",
+            "bee_tropical"
+          ],
+          "chance": 8.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_embittered": {
+      "depth": 0,
+      "source": true,
+      "steps": []
+    },
+    "reforestry:bee_ended": {
+      "depth": 0,
+      "source": true,
+      "steps": []
+    },
+    "reforestry:bee_exotic": {
+      "depth": 6,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_cultivated",
+            "bee_modest"
+          ],
+          "result": "bee_sinister",
+          "chance": 60.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        },
+        {
+          "parents": [
+            "bee_modest",
+            "bee_sinister"
+          ],
+          "result": "bee_frugal",
+          "chance": 16.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_modest",
+            "bee_frugal"
+          ],
+          "result": "bee_austere",
+          "chance": 8.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_austere",
+            "bee_tropical"
+          ],
+          "result": "bee_exotic",
+          "chance": 12.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_austere",
+            "bee_tropical"
+          ],
+          "chance": 12.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_farmerly": {
+      "depth": 6,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_cultivated"
+          ],
+          "result": "bee_diligent",
+          "chance": 10.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_meadows",
+            "bee_diligent"
+          ],
+          "result": "bee_rural",
+          "chance": 12.0,
+          "conditions": [
+            "biome:ConventionalBiomeTags.IS_PLAINS"
+          ]
+        },
+        {
+          "parents": [
+            "bee_diligent",
+            "bee_cultivated"
+          ],
+          "result": "bee_unweary",
+          "chance": 8.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_rural",
+            "bee_unweary"
+          ],
+          "result": "bee_farmerly",
+          "chance": 10.0,
+          "conditions": [
+            "biome:ConventionalBiomeTags.IS_PLAINS"
+          ]
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_rural",
+            "bee_unweary"
+          ],
+          "chance": 10.0,
+          "conditions": [
+            "biome:ConventionalBiomeTags.IS_PLAINS"
+          ]
+        }
+      ]
+    },
+    "reforestry:bee_fiendish": {
+      "depth": 4,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_cultivated",
+            "bee_modest"
+          ],
+          "result": "bee_sinister",
+          "chance": 60.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        },
+        {
+          "parents": [
+            "bee_sinister",
+            "bee_cultivated"
+          ],
+          "result": "bee_fiendish",
+          "chance": 40.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_sinister",
+            "bee_cultivated"
+          ],
+          "chance": 40.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        },
+        {
+          "parents": [
+            "bee_sinister",
+            "bee_modest"
+          ],
+          "chance": 40.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        },
+        {
+          "parents": [
+            "bee_sinister",
+            "bee_tropical"
+          ],
+          "chance": 40.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        }
+      ]
+    },
+    "reforestry:bee_forest": {
+      "depth": 0,
+      "source": true,
+      "steps": []
+    },
+    "reforestry:bee_frugal": {
+      "depth": 4,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_cultivated",
+            "bee_modest"
+          ],
+          "result": "bee_sinister",
+          "chance": 60.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        },
+        {
+          "parents": [
+            "bee_modest",
+            "bee_sinister"
+          ],
+          "result": "bee_frugal",
+          "chance": 16.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_modest",
+            "bee_sinister"
+          ],
+          "chance": 16.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_modest",
+            "bee_fiendish"
+          ],
+          "chance": 10.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_glacial": {
+      "depth": 7,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_cultivated"
+          ],
+          "result": "bee_diligent",
+          "chance": 10.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_diligent",
+            "bee_cultivated"
+          ],
+          "result": "bee_unweary",
+          "chance": 8.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_diligent",
+            "bee_unweary"
+          ],
+          "result": "bee_industrious",
+          "chance": 8.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_industrious",
+            "bee_wintry"
+          ],
+          "result": "bee_icy",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_icy",
+            "bee_wintry"
+          ],
+          "result": "bee_glacial",
+          "chance": 8.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_icy",
+            "bee_wintry"
+          ],
+          "chance": 8.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_hermitic": {
+      "depth": 7,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_cultivated",
+            "bee_modest"
+          ],
+          "result": "bee_sinister",
+          "chance": 60.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        },
+        {
+          "parents": [
+            "bee_modest",
+            "bee_sinister"
+          ],
+          "result": "bee_frugal",
+          "chance": 16.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_modest",
+            "bee_frugal"
+          ],
+          "result": "bee_austere",
+          "chance": 8.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_monastic",
+            "bee_austere"
+          ],
+          "result": "bee_secluded",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_monastic",
+            "bee_secluded"
+          ],
+          "result": "bee_hermitic",
+          "chance": 8.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_monastic",
+            "bee_secluded"
+          ],
+          "chance": 8.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_heroic": {
+      "depth": 1,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_steadfast",
+            "bee_valiant"
+          ],
+          "result": "bee_heroic",
+          "chance": 6.0,
+          "conditions": [
+            "biome:BiomeTags.IS_FOREST"
+          ]
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_steadfast",
+            "bee_valiant"
+          ],
+          "chance": 6.0,
+          "conditions": [
+            "biome:BiomeTags.IS_FOREST"
+          ]
+        }
+      ]
+    },
+    "reforestry:bee_icy": {
+      "depth": 6,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_cultivated"
+          ],
+          "result": "bee_diligent",
+          "chance": 10.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_diligent",
+            "bee_cultivated"
+          ],
+          "result": "bee_unweary",
+          "chance": 8.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_diligent",
+            "bee_unweary"
+          ],
+          "result": "bee_industrious",
+          "chance": 8.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_industrious",
+            "bee_wintry"
+          ],
+          "result": "bee_icy",
+          "chance": 12.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_industrious",
+            "bee_wintry"
+          ],
+          "chance": 12.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_imperial": {
+      "depth": 5,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_cultivated"
+          ],
+          "result": "bee_noble",
+          "chance": 10.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_noble",
+            "bee_cultivated"
+          ],
+          "result": "bee_majestic",
+          "chance": 8.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_noble",
+            "bee_majestic"
+          ],
+          "result": "bee_imperial",
+          "chance": 8.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_noble",
+            "bee_majestic"
+          ],
+          "chance": 8.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_industrious": {
+      "depth": 5,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_cultivated"
+          ],
+          "result": "bee_diligent",
+          "chance": 10.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_diligent",
+            "bee_cultivated"
+          ],
+          "result": "bee_unweary",
+          "chance": 8.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_diligent",
+            "bee_unweary"
+          ],
+          "result": "bee_industrious",
+          "chance": 8.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_diligent",
+            "bee_unweary"
+          ],
+          "chance": 8.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_kleptoplastic": {
+      "depth": 3,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_lush",
+            "bee_valiant"
+          ],
+          "result": "bee_verdant",
+          "chance": 10.0,
+          "conditions": [
+            "cave dwelling"
+          ]
+        },
+        {
+          "parents": [
+            "bee_lush",
+            "bee_verdant"
+          ],
+          "result": "bee_luxuriant",
+          "chance": 8.0,
+          "conditions": [
+            "cave dwelling"
+          ]
+        },
+        {
+          "parents": [
+            "bee_luxuriant",
+            "bee_monastic"
+          ],
+          "result": "bee_kleptoplastic",
+          "chance": 12.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_luxuriant",
+            "bee_monastic"
+          ],
+          "chance": 12.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_leporine": {
+      "depth": 1,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_meadows",
+            "bee_forest"
+          ],
+          "result": "bee_leporine",
+          "chance": 10.0,
+          "conditions": [
+            "date 3/29\u20134/15"
+          ]
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_meadows",
+            "bee_forest"
+          ],
+          "chance": 10.0,
+          "conditions": [
+            "date 3/29\u20134/15"
+          ]
+        }
+      ]
+    },
+    "reforestry:bee_lush": {
+      "depth": 0,
+      "source": true,
+      "steps": []
+    },
+    "reforestry:bee_luxuriant": {
+      "depth": 2,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_lush",
+            "bee_valiant"
+          ],
+          "result": "bee_verdant",
+          "chance": 10.0,
+          "conditions": [
+            "cave dwelling"
+          ]
+        },
+        {
+          "parents": [
+            "bee_lush",
+            "bee_verdant"
+          ],
+          "result": "bee_luxuriant",
+          "chance": 8.0,
+          "conditions": [
+            "cave dwelling"
+          ]
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_lush",
+            "bee_verdant"
+          ],
+          "chance": 8.0,
+          "conditions": [
+            "cave dwelling"
+          ]
+        }
+      ]
+    },
+    "reforestry:bee_majestic": {
+      "depth": 4,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_cultivated"
+          ],
+          "result": "bee_noble",
+          "chance": 10.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_noble",
+            "bee_cultivated"
+          ],
+          "result": "bee_majestic",
+          "chance": 8.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_noble",
+            "bee_cultivated"
+          ],
+          "chance": 8.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_marshy": {
+      "depth": 0,
+      "source": true,
+      "steps": []
+    },
+    "reforestry:bee_meadows": {
+      "depth": 0,
+      "source": true,
+      "steps": []
+    },
+    "reforestry:bee_merry": {
+      "depth": 1,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_wintry",
+            "bee_forest"
+          ],
+          "result": "bee_merry",
+          "chance": 10.0,
+          "conditions": [
+            "date 12/21\u201312/27"
+          ]
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_wintry",
+            "bee_forest"
+          ],
+          "chance": 10.0,
+          "conditions": [
+            "date 12/21\u201312/27"
+          ]
+        }
+      ]
+    },
+    "reforestry:bee_miry": {
+      "depth": 4,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_cultivated"
+          ],
+          "result": "bee_noble",
+          "chance": 10.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_marshy",
+            "bee_noble"
+          ],
+          "result": "bee_miry",
+          "chance": 15.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_marshy",
+            "bee_noble"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_modest": {
+      "depth": 0,
+      "source": true,
+      "steps": []
+    },
+    "reforestry:bee_monastic": {
+      "depth": 0,
+      "source": true,
+      "steps": []
+    },
+    "reforestry:bee_noble": {
+      "depth": 3,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_cultivated"
+          ],
+          "result": "bee_noble",
+          "chance": 10.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_common",
+            "bee_cultivated"
+          ],
+          "chance": 10.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_patriotic": {
+      "depth": 6,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_cultivated"
+          ],
+          "result": "bee_diligent",
+          "chance": 10.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_meadows",
+            "bee_diligent"
+          ],
+          "result": "bee_rural",
+          "chance": 12.0,
+          "conditions": [
+            "biome:ConventionalBiomeTags.IS_PLAINS"
+          ]
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_cultivated"
+          ],
+          "result": "bee_noble",
+          "chance": 10.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_rural",
+            "bee_noble"
+          ],
+          "result": "bee_patriotic",
+          "chance": 15.0,
+          "conditions": [
+            "date 7/1\u20137/17"
+          ]
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_rural",
+            "bee_noble"
+          ],
+          "chance": 15.0,
+          "conditions": [
+            "date 7/1\u20137/17"
+          ]
+        }
+      ]
+    },
+    "reforestry:bee_phantasmal": {
+      "depth": 9,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_cultivated",
+            "bee_modest"
+          ],
+          "result": "bee_sinister",
+          "chance": 60.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        },
+        {
+          "parents": [
+            "bee_modest",
+            "bee_sinister"
+          ],
+          "result": "bee_frugal",
+          "chance": 16.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_modest",
+            "bee_frugal"
+          ],
+          "result": "bee_austere",
+          "chance": 8.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_monastic",
+            "bee_austere"
+          ],
+          "result": "bee_secluded",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_monastic",
+            "bee_secluded"
+          ],
+          "result": "bee_hermitic",
+          "chance": 8.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_hermitic",
+            "bee_ended"
+          ],
+          "result": "bee_spectral",
+          "chance": 4.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_spectral",
+            "bee_ended"
+          ],
+          "result": "bee_phantasmal",
+          "chance": 2.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_spectral",
+            "bee_ended"
+          ],
+          "chance": 2.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_photosynthetic": {
+      "depth": 4,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_lush",
+            "bee_valiant"
+          ],
+          "result": "bee_verdant",
+          "chance": 10.0,
+          "conditions": [
+            "cave dwelling"
+          ]
+        },
+        {
+          "parents": [
+            "bee_lush",
+            "bee_verdant"
+          ],
+          "result": "bee_luxuriant",
+          "chance": 8.0,
+          "conditions": [
+            "cave dwelling"
+          ]
+        },
+        {
+          "parents": [
+            "bee_luxuriant",
+            "bee_monastic"
+          ],
+          "result": "bee_kleptoplastic",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_kleptoplastic",
+            "bee_luxuriant"
+          ],
+          "result": "bee_photosynthetic",
+          "chance": 8.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_kleptoplastic",
+            "bee_luxuriant"
+          ],
+          "chance": 8.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_kleptoplastic",
+            "bee_monastic"
+          ],
+          "chance": 8.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_pirate": {
+      "depth": 0,
+      "source": true,
+      "steps": []
+    },
+    "reforestry:bee_pride": {
+      "depth": 5,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_cultivated"
+          ],
+          "result": "bee_diligent",
+          "chance": 10.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_savanna",
+            "bee_diligent"
+          ],
+          "result": "bee_argil",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_savanna",
+            "bee_argil"
+          ],
+          "result": "bee_pride",
+          "chance": 9.0,
+          "conditions": [
+            "biome:ReforestryBiomeTags.SHATTERED_SAVANNA"
+          ]
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_savanna",
+            "bee_argil"
+          ],
+          "chance": 9.0,
+          "conditions": [
+            "biome:ReforestryBiomeTags.SHATTERED_SAVANNA"
+          ]
+        }
+      ]
+    },
+    "reforestry:bee_primeval": {
+      "depth": 2,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_relic",
+            "bee_steadfast"
+          ],
+          "result": "bee_anachrone",
+          "chance": 10.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_anachrone",
+            "bee_steadfast"
+          ],
+          "result": "bee_primeval",
+          "chance": 15.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_anachrone",
+            "bee_steadfast"
+          ],
+          "chance": 15.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_prismatic": {
+      "depth": 1,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_aquatic",
+            "bee_pirate"
+          ],
+          "result": "bee_prismatic",
+          "chance": 8.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_aquatic",
+            "bee_pirate"
+          ],
+          "chance": 8.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_relic": {
+      "depth": 0,
+      "source": true,
+      "steps": []
+    },
+    "reforestry:bee_rural": {
+      "depth": 4,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_cultivated"
+          ],
+          "result": "bee_diligent",
+          "chance": 10.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_meadows",
+            "bee_diligent"
+          ],
+          "result": "bee_rural",
+          "chance": 12.0,
+          "conditions": [
+            "biome:ConventionalBiomeTags.IS_PLAINS"
+          ]
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_meadows",
+            "bee_diligent"
+          ],
+          "chance": 12.0,
+          "conditions": [
+            "biome:ConventionalBiomeTags.IS_PLAINS"
+          ]
+        }
+      ]
+    },
+    "reforestry:bee_savanna": {
+      "depth": 0,
+      "source": true,
+      "steps": []
+    },
+    "reforestry:bee_sculk": {
+      "depth": 9,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_pirate",
+            "bee_shulking"
+          ],
+          "result": "bee_abyssal",
+          "chance": 60.0,
+          "conditions": [
+            "cave dwelling"
+          ]
+        },
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_cultivated",
+            "bee_modest"
+          ],
+          "result": "bee_sinister",
+          "chance": 60.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        },
+        {
+          "parents": [
+            "bee_modest",
+            "bee_sinister"
+          ],
+          "result": "bee_frugal",
+          "chance": 16.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_modest",
+            "bee_frugal"
+          ],
+          "result": "bee_austere",
+          "chance": 8.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_monastic",
+            "bee_austere"
+          ],
+          "result": "bee_secluded",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_monastic",
+            "bee_secluded"
+          ],
+          "result": "bee_hermitic",
+          "chance": 8.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_abyssal",
+            "bee_hermitic"
+          ],
+          "result": "bee_sculk",
+          "chance": 6.0,
+          "conditions": [
+            "biome:ReforestryBiomeTags.DEEP_DARK"
+          ]
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_abyssal",
+            "bee_hermitic"
+          ],
+          "chance": 6.0,
+          "conditions": [
+            "biome:ReforestryBiomeTags.DEEP_DARK"
+          ]
+        }
+      ]
+    },
+    "reforestry:bee_secluded": {
+      "depth": 6,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_cultivated",
+            "bee_modest"
+          ],
+          "result": "bee_sinister",
+          "chance": 60.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        },
+        {
+          "parents": [
+            "bee_modest",
+            "bee_sinister"
+          ],
+          "result": "bee_frugal",
+          "chance": 16.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_modest",
+            "bee_frugal"
+          ],
+          "result": "bee_austere",
+          "chance": 8.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_monastic",
+            "bee_austere"
+          ],
+          "result": "bee_secluded",
+          "chance": 12.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_monastic",
+            "bee_austere"
+          ],
+          "chance": 12.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_seething": {
+      "depth": 6,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_cultivated",
+            "bee_modest"
+          ],
+          "result": "bee_sinister",
+          "chance": 60.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        },
+        {
+          "parents": [
+            "bee_sinister",
+            "bee_cultivated"
+          ],
+          "result": "bee_fiendish",
+          "chance": 40.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        },
+        {
+          "parents": [
+            "bee_embittered",
+            "bee_fiendish"
+          ],
+          "result": "bee_spiteful",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_spiteful",
+            "bee_embittered"
+          ],
+          "result": "bee_seething",
+          "chance": 8.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_spiteful",
+            "bee_embittered"
+          ],
+          "chance": 8.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_shulking": {
+      "depth": 0,
+      "source": true,
+      "steps": []
+    },
+    "reforestry:bee_sinister": {
+      "depth": 3,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_cultivated",
+            "bee_modest"
+          ],
+          "result": "bee_sinister",
+          "chance": 60.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_cultivated",
+            "bee_modest"
+          ],
+          "chance": 60.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        },
+        {
+          "parents": [
+            "bee_cultivated",
+            "bee_tropical"
+          ],
+          "chance": 60.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        }
+      ]
+    },
+    "reforestry:bee_spectral": {
+      "depth": 8,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_cultivated",
+            "bee_modest"
+          ],
+          "result": "bee_sinister",
+          "chance": 60.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        },
+        {
+          "parents": [
+            "bee_modest",
+            "bee_sinister"
+          ],
+          "result": "bee_frugal",
+          "chance": 16.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_modest",
+            "bee_frugal"
+          ],
+          "result": "bee_austere",
+          "chance": 8.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_monastic",
+            "bee_austere"
+          ],
+          "result": "bee_secluded",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_monastic",
+            "bee_secluded"
+          ],
+          "result": "bee_hermitic",
+          "chance": 8.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_hermitic",
+            "bee_ended"
+          ],
+          "result": "bee_spectral",
+          "chance": 4.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_hermitic",
+            "bee_ended"
+          ],
+          "chance": 4.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_spiteful": {
+      "depth": 5,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_cultivated",
+            "bee_modest"
+          ],
+          "result": "bee_sinister",
+          "chance": 60.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        },
+        {
+          "parents": [
+            "bee_sinister",
+            "bee_cultivated"
+          ],
+          "result": "bee_fiendish",
+          "chance": 40.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        },
+        {
+          "parents": [
+            "bee_embittered",
+            "bee_fiendish"
+          ],
+          "result": "bee_spiteful",
+          "chance": 12.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_embittered",
+            "bee_fiendish"
+          ],
+          "chance": 12.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_steadfast": {
+      "depth": 0,
+      "source": true,
+      "steps": []
+    },
+    "reforestry:bee_tipsy": {
+      "depth": 1,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_wintry",
+            "bee_meadows"
+          ],
+          "result": "bee_tipsy",
+          "chance": 10.0,
+          "conditions": [
+            "date 12/27\u20131/2"
+          ]
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_wintry",
+            "bee_meadows"
+          ],
+          "chance": 10.0,
+          "conditions": [
+            "date 12/27\u20131/2"
+          ]
+        }
+      ]
+    },
+    "reforestry:bee_tricky": {
+      "depth": 4,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_cultivated",
+            "bee_modest"
+          ],
+          "result": "bee_sinister",
+          "chance": 60.0,
+          "conditions": [
+            "biome:BiomeTags.IS_NETHER"
+          ]
+        },
+        {
+          "parents": [
+            "bee_sinister",
+            "bee_common"
+          ],
+          "result": "bee_tricky",
+          "chance": 10.0,
+          "conditions": [
+            "date 10/15\u201311/3"
+          ]
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_sinister",
+            "bee_common"
+          ],
+          "chance": 10.0,
+          "conditions": [
+            "date 10/15\u201311/3"
+          ]
+        }
+      ]
+    },
+    "reforestry:bee_tropical": {
+      "depth": 0,
+      "source": true,
+      "steps": []
+    },
+    "reforestry:bee_unweary": {
+      "depth": 4,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_cultivated"
+          ],
+          "result": "bee_diligent",
+          "chance": 10.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_diligent",
+            "bee_cultivated"
+          ],
+          "result": "bee_unweary",
+          "chance": 8.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_diligent",
+            "bee_cultivated"
+          ],
+          "chance": 8.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_valiant": {
+      "depth": 0,
+      "source": true,
+      "steps": []
+    },
+    "reforestry:bee_vanilla": {
+      "depth": 0,
+      "source": true,
+      "steps": []
+    },
+    "reforestry:bee_vengeful": {
+      "depth": 4,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_savanna",
+            "bee_common"
+          ],
+          "result": "bee_vindictive",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_common",
+            "bee_forest"
+          ],
+          "result": "bee_cultivated",
+          "chance": 12.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_vindictive",
+            "bee_cultivated"
+          ],
+          "result": "bee_vengeful",
+          "chance": 8.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_vindictive",
+            "bee_cultivated"
+          ],
+          "chance": 8.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_verdant": {
+      "depth": 1,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_lush",
+            "bee_valiant"
+          ],
+          "result": "bee_verdant",
+          "chance": 10.0,
+          "conditions": [
+            "cave dwelling"
+          ]
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_lush",
+            "bee_valiant"
+          ],
+          "chance": 10.0,
+          "conditions": [
+            "cave dwelling"
+          ]
+        }
+      ]
+    },
+    "reforestry:bee_vindictive": {
+      "depth": 2,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_forest",
+            "bee_marshy"
+          ],
+          "result": "bee_common",
+          "chance": 15.0,
+          "conditions": []
+        },
+        {
+          "parents": [
+            "bee_savanna",
+            "bee_common"
+          ],
+          "result": "bee_vindictive",
+          "chance": 12.0,
+          "conditions": []
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_savanna",
+            "bee_common"
+          ],
+          "chance": 12.0,
+          "conditions": []
+        }
+      ]
+    },
+    "reforestry:bee_warped": {
+      "depth": 1,
+      "source": false,
+      "steps": [
+        {
+          "parents": [
+            "bee_embittered",
+            "bee_ended"
+          ],
+          "result": "bee_warped",
+          "chance": 40.0,
+          "conditions": [
+            "biome:ReforestryBiomeTags.WARPED_FOREST"
+          ]
+        }
+      ],
+      "recipes": [
+        {
+          "parents": [
+            "bee_embittered",
+            "bee_ended"
+          ],
+          "chance": 40.0,
+          "conditions": [
+            "biome:ReforestryBiomeTags.WARPED_FOREST"
+          ]
+        },
+        {
+          "parents": [
+            "bee_spiteful",
+            "bee_ended"
+          ],
+          "chance": 40.0,
+          "conditions": [
+            "biome:ReforestryBiomeTags.WARPED_FOREST"
+          ]
+        },
+        {
+          "parents": [
+            "bee_embittered",
+            "bee_shulking"
+          ],
+          "chance": 40.0,
+          "conditions": [
+            "biome:ReforestryBiomeTags.WARPED_FOREST"
+          ]
+        },
+        {
+          "parents": [
+            "bee_spiteful",
+            "bee_shulking"
+          ],
+          "chance": 40.0,
+          "conditions": [
+            "biome:ReforestryBiomeTags.WARPED_FOREST"
+          ]
+        }
+      ]
+    },
+    "reforestry:bee_wintry": {
+      "depth": 0,
+      "source": true,
+      "steps": []
+    },
+    "reforestry:bee_zombified": {
+      "depth": 0,
+      "source": true,
+      "steps": []
+    }
+  }
+}

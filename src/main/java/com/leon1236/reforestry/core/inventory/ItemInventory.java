@@ -15,7 +15,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemContainerContents;
 
-public abstract class ItemInventory implements Container {
+import com.leon1236.reforestry.api.core.IFilterSlotDelegate;
+
+public abstract class ItemInventory implements Container, IFilterSlotDelegate {
 	protected final Player player;
 	@Nullable
 	private final InteractionHand hand;
@@ -153,7 +155,13 @@ public abstract class ItemInventory implements Container {
 		return canSlotAccept(slot, stack);
 	}
 
+	@Override
 	public boolean canSlotAccept(int slot, ItemStack stack) {
 		return true;
+	}
+
+	@Override
+	public boolean isLocked(int slotIndex) {
+		return false;
 	}
 }

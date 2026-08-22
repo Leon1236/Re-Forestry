@@ -193,6 +193,15 @@ public class TileWorktable extends TileBase implements WorldlyContainer, ICrafte
 		setChangedAndSync();
 	}
 
+	public void applyGhostCrafting(List<ItemStack> stacks) {
+		for (int slot = 0; slot < this.craftingDisplay.getContainerSize(); slot++) {
+			ItemStack stack = slot < stacks.size() ? stacks.get(slot) : ItemStack.EMPTY;
+			this.craftingDisplay.setItem(slot, stack.isEmpty() ? ItemStack.EMPTY : stack.copyWithCount(1));
+		}
+		updateCurrentRecipeFromDisplay();
+		setChangedAndSync();
+	}
+
 	public void updateCurrentRecipeFromDisplay() {
 		setCurrentRecipe(this.craftingDisplay);
 	}
@@ -259,6 +268,10 @@ public class TileWorktable extends TileBase implements WorldlyContainer, ICrafte
 		NonNullList<ItemStack> craftItems = InventoryUtil.getStacks(this.craftingDisplay);
 		ContainerHelper.saveAllItems(output.child("CraftItems"), craftItems);
 		this.memory.save(output);
+		output.putBoolean("HasCurrentRecipe", this.currentRecipe != null);
+		if (this.currentRecipe != null) {
+			this.currentRecipe.save(output.child("CurrentRecipe"));
+		}
 	}
 
 	@Override
@@ -273,6 +286,13 @@ public class TileWorktable extends TileBase implements WorldlyContainer, ICrafte
 		}
 		this.memory = new RecipeMemory();
 		this.memory.load(input);
+		if (input.getBooleanOr("HasCurrentRecipe", false)) {
+			MemorizedRecipe loaded = new MemorizedRecipe();
+			loaded.load(input.childOrEmpty("CurrentRecipe"));
+			setCurrentRecipe(loaded);
+		} else {
+			this.currentRecipe = null;
+		}
 	}
 
 	@Override

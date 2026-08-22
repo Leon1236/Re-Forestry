@@ -39,7 +39,6 @@ public class FeatureBaobab extends FeatureTree {
 		FeatureHelper.generateCylinderFromTreeStartPos(level, leaf, startPos.offset(0, leafSpawn--, 0), this.girth, 1.5f + this.girth, 1, FeatureHelper.EnumReplaceMode.SOFT, contour);
 		FeatureHelper.generateCylinderFromTreeStartPos(level, leaf, startPos.offset(0, leafSpawn, 0), this.girth, 1f + this.girth, 1, FeatureHelper.EnumReplaceMode.SOFT, contour);
 
-		// Add tree top
 		for (int times = 0; times < this.height / 2; times++) {
 			int h = this.height - 1 + rand.nextInt(4);
 			if (rand.nextBoolean() && h < this.height / 2) {
@@ -57,7 +56,6 @@ public class FeatureBaobab extends FeatureTree {
 			FeatureHelper.generateSphere(level, center, radius, leaf, FeatureHelper.EnumReplaceMode.AIR, contour);
 		}
 
-		// Add some smaller twigs below for flavour
 		for (int times = 0; times < this.height / 4; times++) {
 			int delim = modifyByHeight(level, 6, 0, this.height);
 			int h = delim + (delim < this.height ? rand.nextInt(this.height - delim) : 0);

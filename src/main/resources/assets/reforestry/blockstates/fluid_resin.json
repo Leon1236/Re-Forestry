@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "reforestry:block/fluid_resin"
+    },
+    "level=1": {
+      "model": "reforestry:block/fluid_resin"
+    },
+    "level=2": {
+      "model": "reforestry:block/fluid_resin"
+    },
+    "level=3": {
+      "model": "reforestry:block/fluid_resin"
+    },
+    "level=4": {
+      "model": "reforestry:block/fluid_resin"
+    },
+    "level=5": {
+      "model": "reforestry:block/fluid_resin"
+    },
+    "level=6": {
+      "model": "reforestry:block/fluid_resin"
+    },
+    "level=7": {
+      "model": "reforestry:block/fluid_resin"
+    },
+    "level=8": {
+      "model": "reforestry:block/fluid_resin"
+    },
+    "level=9": {
+      "model": "reforestry:block/fluid_resin"
+    },
+    "level=10": {
+      "model": "reforestry:block/fluid_resin"
+    },
+    "level=11": {
+      "model": "reforestry:block/fluid_resin"
+    },
+    "level=12": {
+      "model": "reforestry:block/fluid_resin"
+    },
+    "level=13": {
+      "model": "reforestry:block/fluid_resin"
+    },
+    "level=14": {
+      "model": "reforestry:block/fluid_resin"
+    },
+    "level=15": {
+      "model": "reforestry:block/fluid_resin"
+    }
+  }
+}

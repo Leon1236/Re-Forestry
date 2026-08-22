@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "reforestry:fruit_olive"
+    "reforestry:fruit_olive",
+    "reforestry:olive"
   ]
 }

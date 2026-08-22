@@ -8,7 +8,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 
-import com.leon1236.reforestry.core.recipes.LegacyIngredientCodec;
+import com.leon1236.reforestry.api.recipes.LegacyIngredientCodec;
 import com.leon1236.reforestry.core.recipes.RecipeItemAmount;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;

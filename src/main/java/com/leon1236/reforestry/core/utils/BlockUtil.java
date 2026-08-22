@@ -10,6 +10,9 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
@@ -18,6 +21,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.Vec3;
+
+import java.util.List;
 
 public final class BlockUtil {
     private BlockUtil() {
@@ -84,5 +89,34 @@ public final class BlockUtil {
     public static BlockPos getPos(LootParams.Builder context) {
         Vec3 origin = context.getOptionalParameter(LootContextParams.ORIGIN);
         return origin != null ? BlockPos.containing(origin) : BlockPos.ZERO;
+    }
+
+    public static List<ItemStack> getBlockDrops(LevelAccessor level, BlockPos pos) {
+        return Block.getDrops(level.getBlockState(pos), (ServerLevel) level, pos, level.getBlockEntity(pos));
+    }
+
+    public static boolean isBreakableBlock(Level world, BlockPos pos) {
+        return isBreakableBlock(world.getBlockState(pos), world, pos);
+    }
+
+    public static boolean isBreakableBlock(BlockState blockState, Level world, BlockPos pos) {
+        return blockState.getDestroySpeed(world, pos) >= 0.0F;
+    }
+
+    public static boolean isReplaceableBlock(BlockState blockState, Level world, BlockPos pos) {
+        return world.getBlockState(pos).canBeReplaced();
+    }
+
+    public static boolean setBlockWithPlaceSound(Level level, BlockPos pos, BlockState state) {
+        if (level.setBlockAndUpdate(pos, state)) {
+            sendPlaceSound(level, pos, state);
+            return true;
+        }
+        return false;
+    }
+
+    public static void sendPlaceSound(Level level, BlockPos pos, BlockState state) {
+        var soundType = state.getSoundType();
+        level.playSound(null, pos, soundType.getPlaceSound(), SoundSource.BLOCKS, (soundType.volume + 1.0f) / 2.0f, soundType.pitch * 0.8f);
     }
 }

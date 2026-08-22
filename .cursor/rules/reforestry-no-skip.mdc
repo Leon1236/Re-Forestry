@@ -1,0 +1,18 @@
+---
+description: Never skip a fix that can be done in this codebase
+alwaysApply: true
+---
+
+# Do not skip fixable work
+
+If a review, DoD row, or CE parity gap **can be fixed in Re-Forestry** (Java, assets, lang, recipes, tags, docs), **fix it in the same pass**. Do not park it as “nice”, “later”, or “out of this stage” when the code and ids already exist.
+
+**May skip only when the thing cannot exist yet**, and then write one sentence in `queries/` with the reason:
+
+- The output item/block/fluid is not registered
+- Minecraft 26.2 has no replacement API (example: `onCaughtFire`)
+- It belongs to a later **unstarted** module (Extra Bees, farming, mail) whose types are not in the tree
+
+**Not a valid skip:** untranslated lang when the CE key already exists; missing tooltip/italic; command UX; recipe-type ids; API methods CE already has (`addSpecialty(IProduct)`); “the player might not notice”.
+
+Should-fix and Nice from a review are work, not notes. Implement them unless they hit a skip rule above.

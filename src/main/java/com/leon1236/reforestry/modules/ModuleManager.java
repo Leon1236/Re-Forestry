@@ -22,6 +22,7 @@ public final class ModuleManager implements IModuleManager {
     public static final ModuleManager INSTANCE = new ModuleManager();
 
     private final LinkedHashMap<Identifier, IForestryModule> loadedModules = new LinkedHashMap<>();
+    private final Set<Identifier> enabledModuleIds = new LinkedHashSet<>();
 
     private ModuleManager() {
     }
@@ -83,10 +84,24 @@ public final class ModuleManager implements IModuleManager {
             }
         } while (changed);
 
+        if (!remaining.isEmpty()) {
+            for (IForestryModule module : remaining) {
+                ReForestry.LOGGER.warn(
+                        "Module {} dropped due to circular or unsatisfied dependencies: {}",
+                        module.getId(),
+                        module.getModuleDependencies());
+            }
+        }
+
+        enabledModuleIds.clear();
+        for (IForestryModule module : loadOrder) {
+            enabledModuleIds.add(module.getId());
+        }
+
         for (IForestryModule module : loadOrder) {
             ReForestry.LOGGER.info("Loading reforestry module: {}", module.getId());
-            module.init();
             loadedModules.put(module.getId(), module);
+            module.init();
         }
     }
 
@@ -98,5 +113,10 @@ public final class ModuleManager implements IModuleManager {
     @Override
     public boolean isModuleLoaded(Identifier id) {
         return loadedModules.containsKey(id);
+    }
+
+    @Override
+    public boolean isModuleEnabled(Identifier id) {
+        return enabledModuleIds.contains(id);
     }
 }

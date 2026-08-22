@@ -25,7 +25,7 @@ public class MisanthropeBeeEffect extends ThrottledBeeEffect {
         List<Player> players = ThrottledBeeEffect.getEntitiesInRange(genome, housing, Player.class);
         for (Player player : players) {
             int damage = 4;
-            int count = BeeManager.armorApiaristHelper.wearsItems(player, this, true);
+            int count = BeeManager.getArmorApiaristHelper().wearsItems(player, this, true);
             damage -= count;
             if (damage <= 0) {
                 continue;

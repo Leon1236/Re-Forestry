@@ -26,7 +26,6 @@ import com.leon1236.reforestry.factory.recipes.FabricatorRecipe;
 import com.leon1236.reforestry.factory.recipes.FabricatorSmeltingRecipe;
 import com.leon1236.reforestry.factory.recipes.FermenterRecipe;
 import com.leon1236.reforestry.factory.recipes.HygroregulatorFallbackRecipes;
-import com.leon1236.reforestry.factory.recipes.HygroregulatorRecipe;
 import com.leon1236.reforestry.factory.recipes.MoistenerRecipe;
 import com.leon1236.reforestry.core.fluids.FluidContainerHelper;
 import com.leon1236.reforestry.core.inventory.InventoryUtil;
@@ -141,7 +140,7 @@ public final class RecipeUtils {
     public static IHygroregulatorRecipe getHygroregulatorRecipe(ServerLevel level, FluidVariant variant, long amount) {
         if (!variant.isBlank() && amount > 0) {
             for (RecipeHolder<?> holder : level.recipeAccess().getRecipes()) {
-                if (holder.value() instanceof HygroregulatorRecipe recipe && recipe.matches(variant, amount)) {
+                if (holder.value() instanceof IHygroregulatorRecipe recipe && recipe.matches(variant, amount)) {
                     return recipe;
                 }
             }

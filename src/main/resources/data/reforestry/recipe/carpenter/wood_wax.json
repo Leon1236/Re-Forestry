@@ -1,0 +1,23 @@
+{
+  "type": "reforestry:carpenter",
+  "time": 25,
+  "recipe": {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "key": {
+      "x": "reforestry:beeswax"
+    },
+    "pattern": [
+      "x"
+    ],
+    "result": {
+      "id": "reforestry:wood_wax",
+      "count": 4
+    },
+    "show_notification": true
+  },
+  "liquid": {
+    "fluid": "reforestry:turpentine",
+    "amount": 50
+  }
+}

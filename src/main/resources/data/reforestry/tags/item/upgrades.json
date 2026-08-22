@@ -1,0 +1,27 @@
+{
+  "values": [
+    "reforestry:automation_upgrade",
+    "reforestry:heater_upgrade",
+    "reforestry:cooler_upgrade",
+    "reforestry:humidifier_upgrade",
+    "reforestry:dryer_upgrade",
+    "reforestry:pollination_upgrade",
+    "reforestry:scrubber_upgrade",
+    "reforestry:nether_upgrade",
+    "reforestry:lifespan_upgrade",
+    "reforestry:lighting_upgrade",
+    "reforestry:productivity_upgrade",
+    "reforestry:weatherproof_upgrade",
+    "reforestry:sieve_upgrade",
+    "reforestry:sky_upgrade",
+    "reforestry:stabilizer_upgrade",
+    "reforestry:territory_upgrade",
+    "reforestry:immutable_upgrade",
+    "reforestry:mutation_elite_upgrade",
+    "reforestry:activity_simulator_elite_upgrade",
+    "reforestry:productivity_elite_upgrade",
+    "reforestry:territory_elite_upgrade",
+    "reforestry:youth_elite_upgrade",
+    "reforestry:fertility_elite_upgrade"
+  ]
+}

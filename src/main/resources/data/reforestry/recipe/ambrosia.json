@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "reforestry:honeydew",
+    "X": "reforestry:royal_jelly",
+    "Y": "reforestry:capsule"
+  },
+  "pattern": [
+    "#Y#",
+    "XXX",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:ambrosia"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "c:gears/bronze"
+    },
+    "H": {
+      "item": "reforestry:genetics_processor"
+    },
+    "M": {
+      "item": "reforestry:power_module"
+    },
+    "R": {
+      "item": "reforestry:receptacle"
+    },
+    "S": {
+      "item": "reforestry:sturdy_machine"
+    }
+  },
+  "pattern": [
+    "GHG",
+    "RSR",
+    "GMG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:imprinter"
+  }
+}

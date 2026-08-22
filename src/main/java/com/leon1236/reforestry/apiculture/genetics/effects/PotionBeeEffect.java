@@ -55,7 +55,7 @@ public class PotionBeeEffect extends ThrottledBeeEffect {
 
             int dur = this.duration;
             if (this.potion.value().getCategory() == MobEffectCategory.HARMFUL) {
-                int count = BeeManager.armorApiaristHelper.wearsItems(entity, this, true);
+                int count = BeeManager.getArmorApiaristHelper().wearsItems(entity, this, true);
                 if (count >= 4) {
                     continue;
                 } else if (count == 3) {

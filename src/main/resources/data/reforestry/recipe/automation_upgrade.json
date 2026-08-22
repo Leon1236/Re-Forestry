@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:comparator"
+    },
+    "F": {
+      "item": "reforestry:upgrade_frame"
+    },
+    "G": {
+      "tag": "c:gears/bronze"
+    },
+    "R": {
+      "tag": "c:dusts/redstone"
+    }
+  },
+  "pattern": [
+    " G ",
+    "RFR",
+    " C "
+  ],
+  "result": {
+    "id": "reforestry:automation_upgrade"
+  }
+}

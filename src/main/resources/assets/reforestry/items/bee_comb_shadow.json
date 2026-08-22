@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "reforestry:item/bee_comb_shadow",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -13232075
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -16777216
+      }
+    ]
+  }
+}

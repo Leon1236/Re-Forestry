@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reforestry:block/hawthorn_slab"
+    },
+    "type=double": {
+      "model": "reforestry:block/hawthorn_planks"
+    },
+    "type=top": {
+      "model": "reforestry:block/hawthorn_slab_top"
+    }
+  }
+}

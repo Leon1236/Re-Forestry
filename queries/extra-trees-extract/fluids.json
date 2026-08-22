@@ -1,0 +1,967 @@
+{
+  "juice_class": "binnie.extratrees.liquid.Juice",
+  "alcohol_class": "binnie.extratrees.liquid.Alcohol",
+  "liqueur_class": "binnie.extratrees.liquid.Liqueur",
+  "spirit_class": "binnie.extratrees.liquid.Spirit",
+  "misc_class": "binnie.extratrees.liquid.MiscFluid",
+  "extra_class": "binnie.extratrees.items.ExtraTreeLiquid",
+  "counts": {
+    "juice": 19,
+    "alcohol": 29,
+    "liqueur": 17,
+    "spirit": 27,
+    "misc": 8,
+    "tree_liquid": 4
+  },
+  "juices": [
+    {
+      "enum": "Apple",
+      "group": "juice",
+      "binnie_ident": "juice.apple",
+      "color": "0xffca32",
+      "reforestry_id": "reforestry:juice_apple",
+      "transparency": 0.7,
+      "squeezing": "Apple",
+      "ore_food": "Apple"
+    },
+    {
+      "enum": "Apricot",
+      "group": "juice",
+      "binnie_ident": "juice.apricot",
+      "color": "0xffb51e",
+      "reforestry_id": "reforestry:juice_apricot",
+      "transparency": 0.6,
+      "squeezing": "Apricot",
+      "ore_food": "Apricot"
+    },
+    {
+      "enum": "Banana",
+      "group": "juice",
+      "binnie_ident": "juice.banana",
+      "color": "0xe9d483",
+      "reforestry_id": "reforestry:juice_banana",
+      "transparency": 0.6,
+      "squeezing": "Banana",
+      "ore_food": "Banana"
+    },
+    {
+      "enum": "Cherry",
+      "group": "juice",
+      "binnie_ident": "juice.cherry",
+      "color": "0xc70b1f",
+      "reforestry_id": "reforestry:juice_cherry",
+      "transparency": 0.6,
+      "squeezing": "Cherry",
+      "ore_food": "Cherry"
+    },
+    {
+      "enum": "Elderberry",
+      "group": "juice",
+      "binnie_ident": "juice.elderberry",
+      "color": "0x402629",
+      "reforestry_id": "reforestry:juice_elderberry",
+      "transparency": 0.6,
+      "squeezing": "Elderberry",
+      "ore_food": "Elderberry"
+    },
+    {
+      "enum": "Lemon",
+      "group": "juice",
+      "binnie_ident": "juice.lemon",
+      "color": "0xdeda52",
+      "reforestry_id": "reforestry:juice_lemon",
+      "transparency": 0.7,
+      "squeezing": "Lemon",
+      "ore_food": "Lemon"
+    },
+    {
+      "enum": "Lime",
+      "group": "juice",
+      "binnie_ident": "juice.lime",
+      "color": "0xb9ce6f",
+      "reforestry_id": "reforestry:juice_lime",
+      "transparency": 0.6,
+      "squeezing": "Lime",
+      "ore_food": "Lime"
+    },
+    {
+      "enum": "Orange",
+      "group": "juice",
+      "binnie_ident": "juice.orange",
+      "color": "0xf9a22f",
+      "reforestry_id": "reforestry:juice_orange",
+      "transparency": 0.8,
+      "squeezing": "Orange",
+      "ore_food": "Orange"
+    },
+    {
+      "enum": "Peach",
+      "group": "juice",
+      "binnie_ident": "juice.peach",
+      "color": "0xfac55d",
+      "reforestry_id": "reforestry:juice_peach",
+      "transparency": 0.7,
+      "squeezing": "Peach",
+      "ore_food": "Peach"
+    },
+    {
+      "enum": "Plum",
+      "group": "juice",
+      "binnie_ident": "juice.plum",
+      "color": "0xa11f11",
+      "reforestry_id": "reforestry:juice_plum",
+      "transparency": 0.7,
+      "squeezing": "Plum",
+      "ore_food": "Plum"
+    },
+    {
+      "enum": "Carrot",
+      "group": "juice",
+      "binnie_ident": "juice.carrot",
+      "color": "0xfb8e17",
+      "reforestry_id": "reforestry:juice_carrot",
+      "transparency": 0.7,
+      "squeezing": "Carrot",
+      "ore_food": "Carrot"
+    },
+    {
+      "enum": "Tomato",
+      "group": "juice",
+      "binnie_ident": "juice.tomato",
+      "color": "0xc2442e",
+      "reforestry_id": "reforestry:juice_tomato",
+      "transparency": 0.7,
+      "squeezing": "Tomato",
+      "ore_food": "Tomato"
+    },
+    {
+      "enum": "Cranberry",
+      "group": "juice",
+      "binnie_ident": "juice.cranberry",
+      "color": "0xc52735",
+      "reforestry_id": "reforestry:juice_cranberry",
+      "transparency": 0.7,
+      "squeezing": "Cranberry",
+      "ore_food": "Cranberry"
+    },
+    {
+      "enum": "Grapefruit",
+      "group": "juice",
+      "binnie_ident": "juice.grapefruit",
+      "color": "0xf29255",
+      "reforestry_id": "reforestry:juice_grapefruit",
+      "transparency": 0.6,
+      "squeezing": "Grapefruit",
+      "ore_food": "Grapefruit"
+    },
+    {
+      "enum": "Olive",
+      "group": "juice",
+      "binnie_ident": "juice.olive",
+      "color": "0xf4c900",
+      "reforestry_id": "reforestry:juice_olive",
+      "transparency": 0.6,
+      "squeezing": "Olive",
+      "ore_food": "Olive"
+    },
+    {
+      "enum": "Pineapple",
+      "group": "juice",
+      "binnie_ident": "juice.pineapple",
+      "color": "0xe7c547",
+      "reforestry_id": "reforestry:juice_pineapple",
+      "transparency": 0.6,
+      "squeezing": "Pineapple",
+      "ore_food": "Pineapple"
+    },
+    {
+      "enum": "Pear",
+      "group": "juice",
+      "binnie_ident": "juice.pear",
+      "color": "0xd8bf65",
+      "reforestry_id": "reforestry:juice_pear",
+      "transparency": 0.6,
+      "squeezing": "Pear",
+      "ore_food": "Pear"
+    },
+    {
+      "enum": "WhiteGrape",
+      "group": "juice",
+      "binnie_ident": "juice.white.grape",
+      "color": "0xfbe379",
+      "reforestry_id": "reforestry:juice_white_grape",
+      "transparency": 0.6,
+      "squeezing": "WhiteGrape",
+      "ore_food": "Grape"
+    },
+    {
+      "enum": "RedGrape",
+      "group": "juice",
+      "binnie_ident": "juice.red.grape",
+      "color": "0x952934",
+      "reforestry_id": "reforestry:juice_red_grape",
+      "transparency": 0.6,
+      "squeezing": "RedGrape",
+      "ore_food": "Grape"
+    }
+  ],
+  "alcohols": [
+    {
+      "enum": "Apple",
+      "group": "alcohol",
+      "binnie_ident": "cider.apple",
+      "color": "0xfabe3c",
+      "reforestry_id": "reforestry:cider_apple",
+      "transparency": 0.3,
+      "abv": 0.05
+    },
+    {
+      "enum": "Apricot",
+      "group": "alcohol",
+      "binnie_ident": "wine.apricot",
+      "color": "0xf0cf36",
+      "reforestry_id": "reforestry:wine_apricot",
+      "transparency": 0.3,
+      "abv": 0.1
+    },
+    {
+      "enum": "Banana",
+      "group": "alcohol",
+      "binnie_ident": "wine.banana",
+      "color": "0xe4c84d",
+      "reforestry_id": "reforestry:wine_banana",
+      "transparency": 0.3,
+      "abv": 0.1
+    },
+    {
+      "enum": "Cherry",
+      "group": "alcohol",
+      "binnie_ident": "wine.cherry",
+      "color": "0xab0416",
+      "reforestry_id": "reforestry:wine_cherry",
+      "transparency": 0.3,
+      "abv": 0.1
+    },
+    {
+      "enum": "Elderberry",
+      "group": "alcohol",
+      "binnie_ident": "wine.elderberry",
+      "color": "0x950001",
+      "reforestry_id": "reforestry:wine_elderberry",
+      "transparency": 0.3,
+      "abv": 0.1
+    },
+    {
+      "enum": "Peach",
+      "group": "alcohol",
+      "binnie_ident": "cider.peach",
+      "color": "0xea661b",
+      "reforestry_id": "reforestry:cider_peach",
+      "transparency": 0.3,
+      "abv": 0.05
+    },
+    {
+      "enum": "Pear",
+      "group": "alcohol",
+      "binnie_ident": "ciderpear",
+      "color": "0xe5d067",
+      "reforestry_id": "reforestry:ciderpear",
+      "transparency": 0.3,
+      "abv": 0.05
+    },
+    {
+      "enum": "Plum",
+      "group": "alcohol",
+      "binnie_ident": "wine.plum",
+      "color": "0xb81408",
+      "reforestry_id": "reforestry:wine_plum",
+      "transparency": 0.3,
+      "abv": 0.1
+    },
+    {
+      "enum": "Carrot",
+      "group": "alcohol",
+      "binnie_ident": "wine.carrot",
+      "color": "0xf77d02",
+      "reforestry_id": "reforestry:wine_carrot",
+      "transparency": 0.3,
+      "abv": 0.1
+    },
+    {
+      "enum": "WhiteWine",
+      "group": "alcohol",
+      "binnie_ident": "wine.white",
+      "color": "0xedda95",
+      "reforestry_id": "reforestry:wine_white",
+      "transparency": 0.1,
+      "abv": 0.1
+    },
+    {
+      "enum": "RedWine",
+      "group": "alcohol",
+      "binnie_ident": "wine.red",
+      "color": "0x750b0b",
+      "reforestry_id": "reforestry:wine_red",
+      "transparency": 0.2,
+      "abv": 0.1
+    },
+    {
+      "enum": "SparklingWine",
+      "group": "alcohol",
+      "binnie_ident": "wine.sparkling",
+      "color": "0xfef7be",
+      "reforestry_id": "reforestry:wine_sparkling",
+      "transparency": 0.1,
+      "abv": 0.1
+    },
+    {
+      "enum": "Agave",
+      "group": "alcohol",
+      "binnie_ident": "wine.agave",
+      "color": "0xd4ae64",
+      "reforestry_id": "reforestry:wine_agave",
+      "transparency": 0.2,
+      "abv": 0.1
+    },
+    {
+      "enum": "Potato",
+      "group": "alcohol",
+      "binnie_ident": "fermented.potatoes",
+      "color": "0xb78950",
+      "reforestry_id": "reforestry:fermented_potatoes",
+      "transparency": 0.8,
+      "abv": 0.1
+    },
+    {
+      "enum": "Citrus",
+      "group": "alcohol",
+      "binnie_ident": "wine.citrus",
+      "color": "0xffff00",
+      "reforestry_id": "reforestry:wine_citrus",
+      "transparency": 0.2,
+      "abv": 0.1
+    },
+    {
+      "enum": "Cranberry",
+      "group": "alcohol",
+      "binnie_ident": "wine.cranberry",
+      "color": "0xb10002",
+      "reforestry_id": "reforestry:wine_cranberry",
+      "transparency": 0.2,
+      "abv": 0.1
+    },
+    {
+      "enum": "Pineapple",
+      "group": "alcohol",
+      "binnie_ident": "wine.pineapple",
+      "color": "0xe0ac36",
+      "reforestry_id": "reforestry:wine_pineapple",
+      "transparency": 0.2,
+      "abv": 0.1
+    },
+    {
+      "enum": "Tomato",
+      "group": "alcohol",
+      "binnie_ident": "wine.tomato",
+      "color": "0xbe1a19",
+      "reforestry_id": "reforestry:wine_tomato",
+      "transparency": 0.2,
+      "abv": 0.1
+    },
+    {
+      "enum": "Fruit",
+      "group": "alcohol",
+      "binnie_ident": "juice",
+      "color": "0xfabe3c",
+      "reforestry_id": "reforestry:juice",
+      "transparency": 0.2,
+      "abv": 0.1
+    },
+    {
+      "enum": "Ale",
+      "group": "alcohol",
+      "binnie_ident": "beer.ale",
+      "color": "0xc63a21",
+      "reforestry_id": "reforestry:beer_ale",
+      "transparency": 0.7,
+      "abv": 0.05
+    },
+    {
+      "enum": "Lager",
+      "group": "alcohol",
+      "binnie_ident": "beer.lager",
+      "color": "0xe97c05",
+      "reforestry_id": "reforestry:beer_lager",
+      "transparency": 0.7,
+      "abv": 0.05
+    },
+    {
+      "enum": "WheatBeer",
+      "group": "alcohol",
+      "binnie_ident": "beer.wheat",
+      "color": "0xdb6e08",
+      "reforestry_id": "reforestry:beer_wheat",
+      "transparency": 0.7,
+      "abv": 0.05
+    },
+    {
+      "enum": "RyeBeer",
+      "group": "alcohol",
+      "binnie_ident": "beer.rye",
+      "color": "0xa55827",
+      "reforestry_id": "reforestry:beer_rye",
+      "transparency": 0.7,
+      "abv": 0.05
+    },
+    {
+      "enum": "CornBeer",
+      "group": "alcohol",
+      "binnie_ident": "beer.corn",
+      "color": "0xcca424",
+      "reforestry_id": "reforestry:beer_corn",
+      "transparency": 0.7,
+      "abv": 0.05
+    },
+    {
+      "enum": "Stout",
+      "group": "alcohol",
+      "binnie_ident": "beer.stout",
+      "color": "0x592901",
+      "reforestry_id": "reforestry:beer_stout",
+      "transparency": 0.8,
+      "abv": 0.05
+    },
+    {
+      "enum": "Barley",
+      "group": "alcohol",
+      "binnie_ident": "mash.grain",
+      "color": "0xc63a21",
+      "reforestry_id": "reforestry:mash_grain",
+      "transparency": 0.9,
+      "abv": 0.05
+    },
+    {
+      "enum": "Wheat",
+      "group": "alcohol",
+      "binnie_ident": "mash.wheat",
+      "color": "0xc63a21",
+      "reforestry_id": "reforestry:mash_wheat",
+      "transparency": 0.9,
+      "abv": 0.05
+    },
+    {
+      "enum": "Rye",
+      "group": "alcohol",
+      "binnie_ident": "mash.rye",
+      "color": "0xa55827",
+      "reforestry_id": "reforestry:mash_rye",
+      "transparency": 0.9,
+      "abv": 0.05
+    },
+    {
+      "enum": "Corn",
+      "group": "alcohol",
+      "binnie_ident": "mash.corn",
+      "color": "0xcca424",
+      "reforestry_id": "reforestry:mash_corn",
+      "transparency": 0.9,
+      "abv": 0.05
+    }
+  ],
+  "liqueurs": [
+    {
+      "enum": "Almond",
+      "group": "liqueur",
+      "binnie_ident": "liqueur.almond",
+      "color": "0xe45d2f",
+      "reforestry_id": "reforestry:liqueur_almond",
+      "transparency": 0.3,
+      "abv": 0.2
+    },
+    {
+      "enum": "Orange",
+      "group": "liqueur",
+      "binnie_ident": "liqueur.orange",
+      "color": "0xf98900",
+      "reforestry_id": "reforestry:liqueur_orange",
+      "transparency": 0.4,
+      "abv": 0.2
+    },
+    {
+      "enum": "Banana",
+      "group": "liqueur",
+      "binnie_ident": "liqueur.banana",
+      "color": "0xf8c200",
+      "reforestry_id": "reforestry:liqueur_banana",
+      "transparency": 0.5,
+      "abv": 0.2
+    },
+    {
+      "enum": "Chocolate",
+      "group": "liqueur",
+      "binnie_ident": "liqueur.chocolate",
+      "color": "0xc14b20",
+      "reforestry_id": "reforestry:liqueur_chocolate",
+      "transparency": 0.3,
+      "abv": 0.2
+    },
+    {
+      "enum": "Mint",
+      "group": "liqueur",
+      "binnie_ident": "liqueur.mint",
+      "color": "0x29c67c",
+      "reforestry_id": "reforestry:liqueur_mint",
+      "transparency": 0.4,
+      "abv": 0.2
+    },
+    {
+      "enum": "Hazelnut",
+      "group": "liqueur",
+      "binnie_ident": "liqueur.hazelnut",
+      "color": "0xed982b",
+      "reforestry_id": "reforestry:liqueur_hazelnut",
+      "transparency": 0.3,
+      "abv": 0.2
+    },
+    {
+      "enum": "Cinnamon",
+      "group": "liqueur",
+      "binnie_ident": "liqueur.cinnamon",
+      "color": "0xe55000",
+      "reforestry_id": "reforestry:liqueur_cinnamon",
+      "transparency": 0.3,
+      "abv": 0.2
+    },
+    {
+      "enum": "Coffee",
+      "group": "liqueur",
+      "binnie_ident": "liqueur.coffee",
+      "color": "0x964319",
+      "reforestry_id": "reforestry:liqueur_coffee",
+      "transparency": 0.4,
+      "abv": 0.2
+    },
+    {
+      "enum": "Melon",
+      "group": "liqueur",
+      "binnie_ident": "liqueur.melon",
+      "color": "0xb0c231",
+      "reforestry_id": "reforestry:liqueur_melon",
+      "transparency": 0.4,
+      "abv": 0.2
+    },
+    {
+      "enum": "Anise",
+      "group": "liqueur",
+      "binnie_ident": "liqueur.anise",
+      "color": "0xdae1e9",
+      "reforestry_id": "reforestry:liqueur_anise",
+      "transparency": 0.3,
+      "abv": 0.2
+    },
+    {
+      "enum": "Peach",
+      "group": "liqueur",
+      "binnie_ident": "liqueur.peach",
+      "color": "0xfe9560",
+      "reforestry_id": "reforestry:liqueur_peach",
+      "transparency": 0.4,
+      "abv": 0.2
+    },
+    {
+      "enum": "Lemon",
+      "group": "liqueur",
+      "binnie_ident": "liqueur.lemon",
+      "color": "0xf8e46d",
+      "reforestry_id": "reforestry:liqueur_lemon",
+      "transparency": 0.4,
+      "abv": 0.2
+    },
+    {
+      "enum": "Herbal",
+      "group": "liqueur",
+      "binnie_ident": "liqueur.herbal",
+      "color": "0xfed501",
+      "reforestry_id": "reforestry:liqueur_herbal",
+      "transparency": 0.3,
+      "abv": 0.2
+    },
+    {
+      "enum": "Cherry",
+      "group": "liqueur",
+      "binnie_ident": "liqueur.cherry",
+      "color": "0xd71901",
+      "reforestry_id": "reforestry:liqueur_cherry",
+      "transparency": 0.5,
+      "abv": 0.2
+    },
+    {
+      "enum": "Blackcurrant",
+      "group": "liqueur",
+      "binnie_ident": "liqueur.blackcurrant",
+      "color": "0x6a3d6d",
+      "reforestry_id": "reforestry:liqueur_blackcurrant",
+      "transparency": 0.5,
+      "abv": 0.2
+    },
+    {
+      "enum": "Blackberry",
+      "group": "liqueur",
+      "binnie_ident": "liqueur.blackberry",
+      "color": "0x68554d",
+      "reforestry_id": "reforestry:liqueur_blackberry",
+      "transparency": 0.5,
+      "abv": 0.2
+    },
+    {
+      "enum": "Raspberry",
+      "group": "liqueur",
+      "binnie_ident": "liqueur.raspberry",
+      "color": "0x9b0300",
+      "reforestry_id": "reforestry:liqueur_raspberry",
+      "transparency": 0.5,
+      "abv": 0.2
+    }
+  ],
+  "spirits": [
+    {
+      "enum": "NeutralSpirit",
+      "group": "spirit",
+      "binnie_ident": "spirit.neutral",
+      "color": "0xffffff",
+      "reforestry_id": "reforestry:spirit_neutral",
+      "transparency": 0.05,
+      "abv": 0.8
+    },
+    {
+      "enum": "Vodka",
+      "group": "spirit",
+      "binnie_ident": "vodka",
+      "color": "0xf4f5f7",
+      "reforestry_id": "reforestry:vodka",
+      "transparency": 0.05,
+      "abv": 0.4
+    },
+    {
+      "enum": "WhiteRum",
+      "group": "spirit",
+      "binnie_ident": "rum.white",
+      "color": "0xe6e5e4",
+      "reforestry_id": "reforestry:rum_white",
+      "transparency": 0.05,
+      "abv": 0.4
+    },
+    {
+      "enum": "DarkRum",
+      "group": "spirit",
+      "binnie_ident": "rum.dark",
+      "color": "0xa82200",
+      "reforestry_id": "reforestry:rum_dark",
+      "transparency": 0.4,
+      "abv": 0.4
+    },
+    {
+      "enum": "Whiskey",
+      "group": "spirit",
+      "binnie_ident": "whiskey",
+      "color": "0xcf6f00",
+      "reforestry_id": "reforestry:whiskey",
+      "transparency": 0.2,
+      "abv": 0.4
+    },
+    {
+      "enum": "CornWhiskey",
+      "group": "spirit",
+      "binnie_ident": "whiskey.corn",
+      "color": "0x961201",
+      "reforestry_id": "reforestry:whiskey_corn",
+      "transparency": 0.2,
+      "abv": 0.4
+    },
+    {
+      "enum": "RyeWhiskey",
+      "group": "spirit",
+      "binnie_ident": "whiskey.rye",
+      "color": "0xf57328",
+      "reforestry_id": "reforestry:whiskey_rye",
+      "transparency": 0.2,
+      "abv": 0.4
+    },
+    {
+      "enum": "WheatWhiskey",
+      "group": "spirit",
+      "binnie_ident": "whiskey.wheat",
+      "color": "0xe48612",
+      "reforestry_id": "reforestry:whiskey_wheat",
+      "transparency": 0.2,
+      "abv": 0.4
+    },
+    {
+      "enum": "FortifiedWine",
+      "group": "spirit",
+      "binnie_ident": "wine.fortified",
+      "color": "0xed921f",
+      "reforestry_id": "reforestry:wine_fortified",
+      "transparency": 0.2,
+      "abv": 0.2
+    },
+    {
+      "enum": "Tequila",
+      "group": "spirit",
+      "binnie_ident": "tequila",
+      "color": "0xf5e9c0",
+      "reforestry_id": "reforestry:tequila",
+      "transparency": 0.05,
+      "abv": 0.4
+    },
+    {
+      "enum": "Brandy",
+      "group": "spirit",
+      "binnie_ident": "brandy.grape",
+      "color": "0xf79f20",
+      "reforestry_id": "reforestry:brandy_grape",
+      "transparency": 0.2,
+      "abv": 0.4
+    },
+    {
+      "enum": "AppleBrandy",
+      "group": "spirit",
+      "binnie_ident": "brandy.apple",
+      "color": "0xe4aa3e",
+      "reforestry_id": "reforestry:brandy_apple",
+      "transparency": 0.2,
+      "abv": 0.4
+    },
+    {
+      "enum": "PearBrandy",
+      "group": "spirit",
+      "binnie_ident": "brandy.pear",
+      "color": "0xfec633",
+      "reforestry_id": "reforestry:brandy_pear",
+      "transparency": 0.2,
+      "abv": 0.4
+    },
+    {
+      "enum": "ApricotBrandy",
+      "group": "spirit",
+      "binnie_ident": "brandy.apricot",
+      "color": "0xcb7f43",
+      "reforestry_id": "reforestry:brandy_apricot",
+      "transparency": 0.2,
+      "abv": 0.4
+    },
+    {
+      "enum": "PlumBrandy",
+      "group": "spirit",
+      "binnie_ident": "brandy.plum",
+      "color": "0x912311",
+      "reforestry_id": "reforestry:brandy_plum",
+      "transparency": 0.2,
+      "abv": 0.4
+    },
+    {
+      "enum": "CherryBrandy",
+      "group": "spirit",
+      "binnie_ident": "brandy.cherry",
+      "color": "0x830b1e",
+      "reforestry_id": "reforestry:brandy_cherry",
+      "transparency": 0.2,
+      "abv": 0.4
+    },
+    {
+      "enum": "ElderberryBrandy",
+      "group": "spirit",
+      "binnie_ident": "brandy.elderberry",
+      "color": "0xbe2b47",
+      "reforestry_id": "reforestry:brandy_elderberry",
+      "transparency": 0.2,
+      "abv": 0.4
+    },
+    {
+      "enum": "CitrusBrandy",
+      "group": "spirit",
+      "binnie_ident": "brandy.citrus",
+      "color": "0xcb7f43",
+      "reforestry_id": "reforestry:brandy_citrus",
+      "transparency": 0.2,
+      "abv": 0.4
+    },
+    {
+      "enum": "FruitBrandy",
+      "group": "spirit",
+      "binnie_ident": "brandy.fruit",
+      "color": "0xe4aa3e",
+      "reforestry_id": "reforestry:brandy_fruit",
+      "transparency": 0.2,
+      "abv": 0.4
+    },
+    {
+      "enum": "Cachaca",
+      "group": "spirit",
+      "binnie_ident": "spirit.sugarcane",
+      "color": "0xe9f0cf",
+      "reforestry_id": "reforestry:spirit_sugarcane",
+      "transparency": 0.1,
+      "abv": 0.4
+    },
+    {
+      "enum": "Gin",
+      "group": "spirit",
+      "binnie_ident": "spirit.gin",
+      "color": "0xf6f6f6",
+      "reforestry_id": "reforestry:spirit_gin",
+      "transparency": 0.05,
+      "abv": 0.4
+    },
+    {
+      "enum": "AppleLiquor",
+      "group": "spirit",
+      "binnie_ident": "liquor.apple",
+      "color": "0xcccccc",
+      "reforestry_id": "reforestry:liquor_apple",
+      "transparency": 0.05,
+      "abv": 0.4
+    },
+    {
+      "enum": "PearLiquor",
+      "group": "spirit",
+      "binnie_ident": "liquor.pear",
+      "color": "0xcccccc",
+      "reforestry_id": "reforestry:liquor_pear",
+      "transparency": 0.05,
+      "abv": 0.4
+    },
+    {
+      "enum": "CherryLiquor",
+      "group": "spirit",
+      "binnie_ident": "liquor.cherry",
+      "color": "0xcccccc",
+      "reforestry_id": "reforestry:liquor_cherry",
+      "transparency": 0.05,
+      "abv": 0.4
+    },
+    {
+      "enum": "ElderberryLiquor",
+      "group": "spirit",
+      "binnie_ident": "liquor.elderberry",
+      "color": "0xcccccc",
+      "reforestry_id": "reforestry:liquor_elderberry",
+      "transparency": 0.05,
+      "abv": 0.4
+    },
+    {
+      "enum": "ApricotLiquor",
+      "group": "spirit",
+      "binnie_ident": "liquor.apricot",
+      "color": "0xcccccc",
+      "reforestry_id": "reforestry:liquor_apricot",
+      "transparency": 0.05,
+      "abv": 0.4
+    },
+    {
+      "enum": "FruitLiquor",
+      "group": "spirit",
+      "binnie_ident": "liquor.fruit",
+      "color": "0xcccccc",
+      "reforestry_id": "reforestry:liquor_fruit",
+      "transparency": 0.05,
+      "abv": 0.4
+    }
+  ],
+  "misc": [
+    {
+      "enum": "CarbonatedWater",
+      "group": "misc",
+      "binnie_ident": "water.carbonated",
+      "color": "0xccccff",
+      "reforestry_id": "reforestry:water_carbonated",
+      "transparency": 0.10000000149011612
+    },
+    {
+      "enum": "TonicWater",
+      "group": "misc",
+      "binnie_ident": "water.tonic",
+      "color": "0xccccff",
+      "reforestry_id": "reforestry:water_tonic",
+      "transparency": 0.10000000149011612
+    },
+    {
+      "enum": "Cream",
+      "group": "misc",
+      "binnie_ident": "cream",
+      "color": "0xeaeade",
+      "reforestry_id": "reforestry:cream",
+      "transparency": 2.0
+    },
+    {
+      "enum": "GingerAle",
+      "group": "misc",
+      "binnie_ident": "gingerAle",
+      "color": "0xffffff",
+      "reforestry_id": "reforestry:gingerAle",
+      "transparency": 0.6000000238418579
+    },
+    {
+      "enum": "Coffee",
+      "group": "misc",
+      "binnie_ident": "coffee",
+      "color": "0x5a3105",
+      "reforestry_id": "reforestry:coffee",
+      "transparency": 0.30000001192092896
+    },
+    {
+      "enum": "SugarSyrup",
+      "group": "misc",
+      "binnie_ident": "syrup.simple",
+      "color": "0xf5f8f1",
+      "reforestry_id": "reforestry:syrup_simple",
+      "transparency": 0.10000000149011612
+    },
+    {
+      "enum": "AgaveNectar",
+      "group": "misc",
+      "binnie_ident": "syrup.agave",
+      "color": "0xcf7e25",
+      "reforestry_id": "reforestry:syrup_agave",
+      "transparency": 0.699999988079071
+    },
+    {
+      "enum": "GrenadineSyrup",
+      "group": "misc",
+      "binnie_ident": "syrup.grenadine",
+      "color": "0xf44965",
+      "reforestry_id": "reforestry:syrup_grenadine",
+      "transparency": 0.800000011920929
+    }
+  ],
+  "tree_liquids": [
+    {
+      "enum": "Sap",
+      "group": "tree_liquid",
+      "binnie_ident": "sap",
+      "color": "0xbe7542",
+      "reforestry_id": "reforestry:sap"
+    },
+    {
+      "enum": "Resin",
+      "group": "tree_liquid",
+      "binnie_ident": "resin",
+      "color": "0xc96800",
+      "reforestry_id": "reforestry:resin"
+    },
+    {
+      "enum": "Latex",
+      "group": "tree_liquid",
+      "binnie_ident": "latex",
+      "color": "0xd8dbc9",
+      "reforestry_id": "reforestry:latex"
+    },
+    {
+      "enum": "Turpentine",
+      "group": "tree_liquid",
+      "binnie_ident": "turpentine",
+      "color": "0x79533a",
+      "reforestry_id": "reforestry:turpentine"
+    }
+  ]
+}

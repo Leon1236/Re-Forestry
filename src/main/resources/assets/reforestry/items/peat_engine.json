@@ -1,0 +1,10 @@
+{
+  "model": {
+    "type": "minecraft:special",
+    "base": "reforestry:item/peat_engine",
+    "model": {
+      "type": "reforestry:engine",
+      "texture": "engine_copper_"
+    }
+  }
+}

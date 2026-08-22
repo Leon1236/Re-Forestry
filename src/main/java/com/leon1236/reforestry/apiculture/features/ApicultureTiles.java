@@ -55,11 +55,11 @@ public class ApicultureTiles {
                     ApicultureBlocks.ALVEARY.get(BlockAlvearyType.HEATER).block());
 
     public static final FeatureBlockEntityType<TileAlvearyHygroregulator> ALVEARY_HYGRO =
-            REGISTRY.blockEntityType("alveary_hygro", TileAlvearyHygroregulator::new,
+            REGISTRY.blockEntityType("alveary_hygroregulator", TileAlvearyHygroregulator::new,
                     ApicultureBlocks.ALVEARY.get(BlockAlvearyType.HYGRO).block());
 
     public static final FeatureBlockEntityType<TileAlvearyStabiliser> ALVEARY_STABILISER =
-            REGISTRY.blockEntityType("alveary_stabiliser", TileAlvearyStabiliser::new,
+            REGISTRY.blockEntityType("alveary_stabilizer", TileAlvearyStabiliser::new,
                     ApicultureBlocks.ALVEARY.get(BlockAlvearyType.STABILISER).block());
 
     public static final FeatureBlockEntityType<TileAlvearySieve> ALVEARY_SIEVE =
@@ -81,6 +81,9 @@ public class ApicultureTiles {
     public static void init() {
         InventoryHelper.registerSided(APIARY.type());
         InventoryHelper.registerSided(ALVEARY.type());
+        InventoryHelper.registerSided(ALVEARY_SWARMER.type());
+        InventoryHelper.registerSided(ALVEARY_HYGRO.type());
+        InventoryHelper.registerSided(ALVEARY_SIEVE.type());
         EnergyStorage.SIDED.registerForBlockEntity((tile, direction) -> tile.getEnergyStorage(), ALVEARY_FAN.type());
         EnergyStorage.SIDED.registerForBlockEntity((tile, direction) -> tile.getEnergyStorage(), ALVEARY_HEATER.type());
         FluidStorage.SIDED.registerForBlockEntity((tile, direction) -> tile.getTank(), ALVEARY_HYGRO.type());

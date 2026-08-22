@@ -190,7 +190,7 @@ public class TileFabricator extends TilePowered implements WorldlyContainer {
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, TileFabricator tile) {
         tile.tickSmelting();
-        tile.doWork();
+        tile.doWork(true);
         tile.syncErrors();
     }
 
@@ -333,11 +333,20 @@ public class TileFabricator extends TilePowered implements WorldlyContainer {
             return;
         }
 
+        ItemStack[] inventoryBackup = new ItemStack[SLOT_INVENTORY_COUNT];
+        for (int i = 0; i < SLOT_INVENTORY_COUNT; i++) {
+            inventoryBackup[i] = getItem(SLOT_INVENTORY_1 + i).copy();
+        }
+
+        if (!removeFromInventory(recipe, true)) {
+            return;
+        }
+
         try (Transaction transaction = Transaction.openOuter()) {
             if (moltenTank.extract(requiredFluid, requiredAmount, transaction) != requiredAmount) {
-                return;
-            }
-            if (!removeFromInventory(recipe, true)) {
+                for (int i = 0; i < SLOT_INVENTORY_COUNT; i++) {
+                    setItem(SLOT_INVENTORY_1 + i, inventoryBackup[i]);
+                }
                 return;
             }
             transaction.commit();
@@ -369,7 +378,7 @@ public class TileFabricator extends TilePowered implements WorldlyContainer {
             if (syncedErrorCount >= ERROR_SLOT_COUNT) {
                 break;
             }
-            short id = IForestryApi.INSTANCE.getErrorManager().getNumericId(error);
+            short id = IForestryApi.get().getErrorManager().getNumericId(error);
             syncedErrorIds[syncedErrorCount++] = id;
         }
         for (int i = syncedErrorCount; i < ERROR_SLOT_COUNT; i++) {
@@ -404,7 +413,7 @@ public class TileFabricator extends TilePowered implements WorldlyContainer {
         errorLogic.setCondition(!hasLiquidResources, ForestryError.NO_RESOURCE_LIQUID);
         errorLogic.setCondition(!hasResources, ForestryError.NO_RESOURCE_INVENTORY);
 
-        return hasRecipe;
+        return hasRecipe && hasResources && hasLiquidResources;
     }
 
     @Override

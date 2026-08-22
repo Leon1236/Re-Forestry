@@ -1,8 +1,10 @@
 package com.leon1236.reforestry.apiculture;
 
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
+import com.leon1236.reforestry.api.genetics.IGenome;
 import com.leon1236.reforestry.apiculture.features.ApicultureDataComponents;
 
 public final class BeeStackHelper {
@@ -40,5 +42,13 @@ public final class BeeStackHelper {
 
     public static boolean checkIgnobleDecay(RandomSource random, int generation, float modifier) {
         return (generation > 96 + random.nextInt(6) + random.nextInt(6)) && (random.nextFloat() < 0.02f * modifier);
+    }
+
+    public static ItemStack createBeeStack(Item item, IGenome genome, boolean pristine, int generation) {
+        ItemStack stack = new ItemStack(item);
+        stack.set(ApicultureDataComponents.BEE_GENOME.type(), genome);
+        setPristine(stack, pristine);
+        setGeneration(stack, generation);
+        return stack;
     }
 }

@@ -115,7 +115,7 @@ public class TileCarpenter extends TilePowered implements WorldlyContainer, IRen
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, TileCarpenter tile) {
-        tile.doWork();
+        tile.doWork(true);
         if (tile.updateOnInterval(20)) {
             FluidContainerHelper.drainIntoTank(tile, SLOT_CAN_INPUT, tile.getResourceTank());
             tile.stowEmptyCanInput();
@@ -192,7 +192,7 @@ public class TileCarpenter extends TilePowered implements WorldlyContainer, IRen
             if (syncedErrorCount >= ERROR_SLOT_COUNT) {
                 break;
             }
-            short id = IForestryApi.INSTANCE.getErrorManager().getNumericId(error);
+            short id = IForestryApi.get().getErrorManager().getNumericId(error);
             syncedErrorIds[syncedErrorCount++] = id;
         }
         for (int i = syncedErrorCount; i < ERROR_SLOT_COUNT; i++) {

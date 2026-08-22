@@ -30,6 +30,10 @@ public final class MutationConditionDateRange implements IMutationCondition {
 
     @Override
     public Component getDescription() {
-        return Component.translatable("mutation.condition.reforestry.date_range");
+        return Component.translatable("for.mutation.condition.date", monthDay(start), monthDay(end));
+    }
+
+    private static Component monthDay(MonthDay value) {
+        return Component.translatable("reforestry.date.month." + value.getMonthValue(), value.getDayOfMonth());
     }
 }

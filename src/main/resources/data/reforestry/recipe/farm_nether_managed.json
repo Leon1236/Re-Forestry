@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "reforestry:circuit_board_basic"
+    },
+    "C": {
+      "item": "reforestry:flexible_casing"
+    },
+    "G": {
+      "tag": "c:glass_blocks/colorless"
+    },
+    "T": {
+      "item": "reforestry:electron_tube_blaze"
+    }
+  },
+  "pattern": [
+    "GTG",
+    "TCT",
+    "GBG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:farm_nether_managed"
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "source_class": "binnie.extratrees.genetics.ButterflySpecies",
+  "count": 22,
+  "mutations": [],
+  "mutation_count": 0,
+  "note": "registerMutations() is empty; no Binnie moth mutations",
+  "moths": [
+    {
+      "enum": "White_Admiral",
+      "display": "White Admiral",
+      "scientific": "Limenitis camilla",
+      "genus": "Limenitis",
+      "binomial": "camilla",
+      "color": "0xfafafa",
+      "binnie_uid": "extrabutterflies.species.whiteadmiral",
+      "texture": "butterflies/white_admiral",
+      "reforestry_id": "reforestry:moth_white_admiral"
+    },
+    {
+      "enum": "Purple_Emperor",
+      "display": "Purple Emperor",
+      "scientific": "Apatura iris",
+      "genus": "Apatura",
+      "binomial": "iris",
+      "color": "0x4232c6",
+      "binnie_uid": "extrabutterflies.species.purpleemperor",
+      "texture": "butterflies/purple_emperor",
+      "reforestry_id": "reforestry:moth_purple_emperor"
+    },
+    {
+      "enum": "Red_Admiral",
+      "display": "Red Admiral",
+      "scientific": "Vanessa atalanta",
+      "genus": "Vanessa",
+      "binomial": "atalanta",
+      "color": "0xe66f44",
+      "binnie_uid": "extrabutterflies.species.redadmiral",
+      "texture": "butterflies/red_admiral",
+      "reforestry_id": "reforestry:moth_red_admiral"
+    },
+    {
+      "enum": "Painted_Lady",
+      "display": "Painted Lady",
+      "scientific": "Vanessa cardui",
+      "genus": "Vanessa",
+      "binomial": "cardui",
+      "color": "0xeda048",
+      "binnie_uid": "extrabutterflies.species.paintedlady",
+      "texture": "butterflies/painted_lady",
+      "reforestry_id": "reforestry:moth_painted_lady"
+    },
+    {
+      "enum": "Small_Tortoiseshell",
+      "display": "Small Tortoiseshell",
+      "scientific": "Aglais urticae",
+      "genus": "Aglais",
+      "binomial": "urticae",
+      "color": "0xea750b",
+      "binnie_uid": "extrabutterflies.species.smalltortoiseshell",
+      "texture": "butterflies/small_tortoiseshell",
+      "reforestry_id": "reforestry:moth_small_tortoiseshell"
+    },
+    {
+      "enum": "Camberwell_Beauty",
+      "display": "Camberwell Beauty",
+      "scientific": "Aglais antiopa",
+      "genus": "Aglais",
+      "binomial": "antiopa",
+      "color": "0x95a2cc",
+      "binnie_uid": "extrabutterflies.species.camberwellbeauty",
+      "texture": "butterflies/camberwell_beauty",
+      "reforestry_id": "reforestry:moth_camberwell_beauty"
+    },
+    {
+      "enum": "Peacock",
+      "display": "Peacock",
+      "scientific": "Inachis io",
+      "genus": "Inachis",
+      "binomial": "io",
+      "color": "0xd33802",
+      "binnie_uid": "extrabutterflies.species.peacock",
+      "texture": "butterflies/peacock",
+      "reforestry_id": "reforestry:moth_peacock"
+    },
+    {
+      "enum": "Wall",
+      "display": "Wall",
+      "scientific": "Lasiommata megera",
+      "genus": "Lasiommata",
+      "binomial": "megera",
+      "color": "0xefae1e",
+      "binnie_uid": "extrabutterflies.species.wall",
+      "texture": "butterflies/wall",
+      "reforestry_id": "reforestry:moth_wall"
+    },
+    {
+      "enum": "Crimson_Rose",
+      "display": "Crimson Rose",
+      "scientific": "Atrophaneura hector",
+      "genus": "Atrophaneura",
+      "binomial": "hector",
+      "color": "0xff627b",
+      "binnie_uid": "extrabutterflies.species.crimsonrose",
+      "texture": "butterflies/crimson_rose",
+      "reforestry_id": "reforestry:moth_crimson_rose"
+    },
+    {
+      "enum": "Kaiser_I_Hind",
+      "display": "Kaiser-i-Hind",
+      "scientific": "Teinopalpus imperialis",
+      "genus": "Teinopalpus",
+      "binomial": "imperialis",
+      "color": "0x77a040",
+      "binnie_uid": "extrabutterflies.species.kaiserihind",
+      "texture": "butterflies/kaiser_i_hind",
+      "reforestry_id": "reforestry:moth_kaiser_i_hind"
+    },
+    {
+      "enum": "Golden_Birdwing",
+      "display": "Golden Birdwing",
+      "scientific": "Troides aeacus",
+      "genus": "Troides",
+      "binomial": "aeacus",
+      "color": "0xf9dc1e",
+      "binnie_uid": "extrabutterflies.species.goldenbirdwing",
+      "texture": "butterflies/golden_birdwing",
+      "reforestry_id": "reforestry:moth_golden_birdwing"
+    },
+    {
+      "enum": "Marsh_Fritillary",
+      "display": "Marsh Fritillary",
+      "scientific": "Euphydryas aurinia",
+      "genus": "Euphydryas",
+      "binomial": "aurinia",
+      "color": "0xff8c00",
+      "binnie_uid": "extrabutterflies.species.marshfritillary",
+      "texture": "butterflies/marsh_fritillary",
+      "reforestry_id": "reforestry:moth_marsh_fritillary"
+    },
+    {
+      "enum": "Pearl_Bordered_Fritillary",
+      "display": "Pearl-bordered Fritillary",
+      "scientific": "Boloria euphrosyne",
+      "genus": "Boloria",
+      "binomial": "euphrosyne",
+      "color": "0xff8b03",
+      "binnie_uid": "extrabutterflies.species.pearlborderedfritillary",
+      "texture": "butterflies/pearl_bordered_fritillary",
+      "reforestry_id": "reforestry:moth_pearl_bordered_fritillary"
+    },
+    {
+      "enum": "Queen_Of_Spain_Fritillary",
+      "display": "Queen of Spain Fritillary",
+      "scientific": "Issoria lathonia",
+      "genus": "Issoria",
+      "binomial": "lathonia",
+      "color": "0xffd13f",
+      "binnie_uid": "extrabutterflies.species.queenofspainfritillary",
+      "texture": "butterflies/queen_of_spain_fritillary",
+      "reforestry_id": "reforestry:moth_queen_of_spain_fritillary"
+    },
+    {
+      "enum": "Speckled_Wood",
+      "display": "Speckled Wood",
+      "scientific": "Pararge aegeria",
+      "genus": "Pararge",
+      "binomial": "aegeria",
+      "color": "0xf5f88d",
+      "binnie_uid": "extrabutterflies.species.speckledwood",
+      "texture": "butterflies/speckled_wood",
+      "reforestry_id": "reforestry:moth_speckled_wood"
+    },
+    {
+      "enum": "Scotch_Angus",
+      "display": "Scotch Angus",
+      "scientific": "Erebia aethiops",
+      "genus": "Erebia",
+      "binomial": "aethiops",
+      "color": "0xc25423",
+      "binnie_uid": "extrabutterflies.species.scotchangus",
+      "texture": "butterflies/scotch_angus",
+      "reforestry_id": "reforestry:moth_scotch_angus"
+    },
+    {
+      "enum": "Gatekeeper",
+      "display": "Gatekeeper",
+      "scientific": "Pyronia tithonus",
+      "genus": "Pyronia",
+      "binomial": "tithonus",
+      "color": "0xfac32a",
+      "binnie_uid": "extrabutterflies.species.gatekeeper",
+      "texture": "butterflies/gatekeeper",
+      "reforestry_id": "reforestry:moth_gatekeeper"
+    },
+    {
+      "enum": "Meadow_Brown",
+      "display": "Meadow Brown",
+      "scientific": "Maniola jurtina",
+      "genus": "Maniola",
+      "binomial": "jurtina",
+      "color": "0xe39519",
+      "binnie_uid": "extrabutterflies.species.meadowbrown",
+      "texture": "butterflies/meadow_brown",
+      "reforestry_id": "reforestry:moth_meadow_brown"
+    },
+    {
+      "enum": "Small_Heath",
+      "display": "Small Heath",
+      "scientific": "Coenonympha pamphilus",
+      "genus": "Coenonympha",
+      "binomial": "pamphilus",
+      "color": "0xffa632",
+      "binnie_uid": "extrabutterflies.species.smallheath",
+      "texture": "butterflies/small_heath",
+      "reforestry_id": "reforestry:moth_small_heath"
+    },
+    {
+      "enum": "Ringlet",
+      "display": "Ringlet",
+      "scientific": "Aphantopus hyperantus",
+      "genus": "Aphantopus",
+      "binomial": "hyperantus",
+      "color": "0x975d37",
+      "binnie_uid": "extrabutterflies.species.ringlet",
+      "texture": "butterflies/ringlet",
+      "reforestry_id": "reforestry:moth_ringlet"
+    },
+    {
+      "enum": "Monarch",
+      "display": "Monarch",
+      "scientific": "Danaus plexippus",
+      "genus": "Danaus",
+      "binomial": "plexippus",
+      "color": "0xffb206",
+      "binnie_uid": "extrabutterflies.species.monarch",
+      "texture": "butterflies/monarch",
+      "reforestry_id": "reforestry:moth_monarch"
+    },
+    {
+      "enum": "Marbled_White",
+      "display": "Marbled White",
+      "scientific": "Melanargia galathea",
+      "genus": "Melanargia",
+      "binomial": "galathea",
+      "color": "0xececec",
+      "binnie_uid": "extrabutterflies.species.marbledwhite",
+      "texture": "butterflies/marbled_white",
+      "reforestry_id": "reforestry:moth_marbled_white"
+    }
+  ]
+}

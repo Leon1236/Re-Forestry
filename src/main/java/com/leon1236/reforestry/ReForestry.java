@@ -9,12 +9,22 @@ import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.leon1236.reforestry.api.IForestryApi;
 import com.leon1236.reforestry.apiculture.ModuleApiculture;
 import com.leon1236.reforestry.arboriculture.ModuleArboriculture;
+import com.leon1236.reforestry.core.ForestryApiImpl;
 import com.leon1236.reforestry.core.ModuleCore;
 import com.leon1236.reforestry.core.plugin.PluginManager;
+import com.leon1236.reforestry.cultivation.ModuleCultivation;
+import com.leon1236.reforestry.energy.ModuleEnergy;
+import com.leon1236.reforestry.extra_bees.ModuleExtraBees;
+import com.leon1236.reforestry.extratrees.ModuleExtraTrees;
 import com.leon1236.reforestry.factory.ModuleFactory;
+import com.leon1236.reforestry.farming.ModuleFarming;
+import com.leon1236.reforestry.gendustry.ModuleGendustry;
+import com.leon1236.reforestry.lepidopterology.ModuleLepidopterology;
 import com.leon1236.reforestry.modules.ModuleManager;
+import com.leon1236.reforestry.sorting.ModuleSorting;
 import com.leon1236.reforestry.storage.ModuleStorage;
 import com.leon1236.reforestry.worktable.ModuleWorktable;
 
@@ -25,14 +35,22 @@ public class ReForestry implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		LOGGER.info("Hello Fabric world!");
+		IForestryApi.setInstance(ForestryApiImpl.get());
 		ModuleManager.INSTANCE.load(List.of(
 				new ModuleCore(),
 				new ModuleApiculture(),
 				new ModuleArboriculture(),
+				new ModuleLepidopterology(),
 				new ModuleFactory(),
+				new ModuleEnergy(),
 				new ModuleStorage(),
-				new ModuleWorktable()));
+				new ModuleWorktable(),
+				new ModuleSorting(),
+				new ModuleFarming(),
+				new ModuleCultivation(),
+				new ModuleGendustry(),
+				new ModuleExtraBees(),
+				new ModuleExtraTrees()));
 		PluginManager.runPollenRegistration();
 		ModuleStorage.registerOptionalCrates();
 	}

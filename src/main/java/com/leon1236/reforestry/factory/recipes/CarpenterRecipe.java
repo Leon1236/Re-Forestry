@@ -18,7 +18,7 @@ import net.minecraft.world.item.crafting.CraftingInput;
 import net.minecraft.world.item.crafting.CraftingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 
-import com.leon1236.reforestry.core.recipes.LegacyIngredientCodec;
+import com.leon1236.reforestry.api.recipes.LegacyIngredientCodec;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;

@@ -21,7 +21,7 @@ import com.leon1236.reforestry.api.recipes.ISmelterRecipe;
 import com.leon1236.reforestry.core.compat.jei.ForestryRecipeCategory;
 import com.leon1236.reforestry.core.compat.jei.ReforestryJeiRecipeTypes;
 import com.leon1236.reforestry.core.recipes.CraftingPatternHelper;
-import com.leon1236.reforestry.core.recipes.IngredientStack;
+import com.leon1236.reforestry.api.recipes.IngredientStack;
 import com.leon1236.reforestry.factory.blocks.BlockTypeFactoryPlain;
 import com.leon1236.reforestry.factory.client.FactoryGuiTextures;
 import com.leon1236.reforestry.factory.features.FactoryBlocks;

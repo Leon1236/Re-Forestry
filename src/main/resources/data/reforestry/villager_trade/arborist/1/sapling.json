@@ -1,0 +1,18 @@
+{
+  "wants": {
+    "id": "minecraft:emerald",
+    "count": 1
+  },
+  "gives": "reforestry:sapling",
+  "max_uses": 8,
+  "xp": 2,
+  "reputation_discount": 0.0,
+  "given_item_modifiers": [
+    {
+      "function": "reforestry:set_random_tree_genome",
+      "max_complexity": 4,
+      "min_count": 1,
+      "max_count": 3
+    }
+  ]
+}

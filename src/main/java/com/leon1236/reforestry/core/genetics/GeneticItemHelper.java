@@ -24,6 +24,9 @@ import com.leon1236.reforestry.arboriculture.genetics.TreeChromosomes;
 import com.leon1236.reforestry.arboriculture.items.ItemGermlingGE;
 import com.leon1236.reforestry.core.features.CoreDataComponents;
 import com.leon1236.reforestry.core.genetics.root.BreedingTrackerManager;
+import com.leon1236.reforestry.lepidopterology.features.LepidopterologyDataComponents;
+import com.leon1236.reforestry.lepidopterology.genetics.ButterflyChromosomes;
+import com.leon1236.reforestry.lepidopterology.items.ItemButterflyGE;
 
 public final class GeneticItemHelper implements IndividualItems.Access {
 	public static final GeneticItemHelper INSTANCE = new GeneticItemHelper();
@@ -58,6 +61,12 @@ public final class GeneticItemHelper implements IndividualItems.Access {
 				return genome;
 			}
 		}
+		if (stack.getItem() instanceof ItemButterflyGE) {
+			IGenome genome = stack.get(LepidopterologyDataComponents.BUTTERFLY_GENOME.type());
+			if (genome != null) {
+				return genome;
+			}
+		}
 		IIndividual individual = IIndividualHandlerItem.getIndividual(stack);
 		return individual == null ? null : individual.getGenome();
 	}
@@ -75,8 +84,8 @@ public final class GeneticItemHelper implements IndividualItems.Access {
 		if (stack.getItem() instanceof ItemGermlingGE) {
 			return ForestrySpeciesTypes.TREE;
 		}
-		if (IIndividualHandlerItem.isIndividual(stack)) {
-			return ForestrySpeciesTypes.TREE;
+		if (stack.getItem() instanceof ItemButterflyGE) {
+			return ForestrySpeciesTypes.BUTTERFLY;
 		}
 		return null;
 	}
@@ -93,6 +102,9 @@ public final class GeneticItemHelper implements IndividualItems.Access {
 		}
 		if (stack.getItem() instanceof ItemGermlingGE germling) {
 			return germling.lifeStage();
+		}
+		if (stack.getItem() instanceof ItemButterflyGE butterfly) {
+			return butterfly.lifeStage().getSerializedName();
 		}
 		return null;
 	}
@@ -119,11 +131,18 @@ public final class GeneticItemHelper implements IndividualItems.Access {
 		return true;
 	}
 
-	private static Identifier speciesId(IGenome genome, Identifier typeId, boolean active) {
+	@Nullable
+	public static Identifier speciesId(IGenome genome, Identifier typeId, boolean active) {
 		if (typeId.equals(ForestrySpeciesTypes.TREE)) {
 			return alleleSpeciesId(genome, TreeChromosomes.SPECIES, active);
 		}
-		return alleleSpeciesId(genome, BeeChromosomes.SPECIES, active);
+		if (typeId.equals(ForestrySpeciesTypes.BUTTERFLY)) {
+			return alleleSpeciesId(genome, ButterflyChromosomes.SPECIES, active);
+		}
+		if (typeId.equals(ForestrySpeciesTypes.BEE)) {
+			return alleleSpeciesId(genome, BeeChromosomes.SPECIES, active);
+		}
+		return null;
 	}
 
 	private static <V extends IRegistryAlleleValue> Identifier alleleSpeciesId(

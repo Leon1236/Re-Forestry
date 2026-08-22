@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "reforestry:farm_mushroom_managed"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:farm_mushroom_manual"
+  }
+}

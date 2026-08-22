@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "#reforestry:fireproof_pink_ivory_logs"
+  ],
+  "result": {
+    "count": 4,
+    "id": "reforestry:pink_ivory_fireproof_planks"
+  }
+}

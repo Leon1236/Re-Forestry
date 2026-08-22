@@ -63,7 +63,7 @@ public class TileHive extends BlockEntity implements IHiveTile, IActivatable, IB
     private final NonNullList<ItemStack> contained = NonNullList.withSize(2, ItemStack.EMPTY);
     private final HiveBeeHousingInventory inventory = new HiveBeeHousingInventory(this);
     private final WorldgenBeekeepingLogic beeLogic = new WorldgenBeekeepingLogic(this);
-    private final IErrorLogic errorLogic = IForestryApi.INSTANCE.getErrorManager().createErrorLogic();
+    private final IErrorLogic errorLogic = IForestryApi.get().getErrorManager().createErrorLogic();
     private final TickHelper tickHelper = new TickHelper(0);
 
     private boolean active;
@@ -236,10 +236,7 @@ public class TileHive extends BlockEntity implements IHiveTile, IActivatable, IB
         if (damage <= 0) {
             return;
         }
-        int count = 0;
-        if (BeeManager.armorApiaristHelper != null) {
-            count = BeeManager.armorApiaristHelper.wearsItems(entity, null, true);
-        }
+        int count = BeeManager.getArmorApiaristHelper().wearsItems(entity, null, true);
         if (serverLevel.getRandom().nextInt(4) >= count) {
             entity.hurtServer(serverLevel, CoreDamageTypes.source(serverLevel, CoreDamageTypes.HIVE), damage);
         }
@@ -267,12 +264,12 @@ public class TileHive extends BlockEntity implements IHiveTile, IActivatable, IB
 
     @Override
     public TemperatureType temperature() {
-        return IForestryApi.INSTANCE.getClimateManager().getTemperature(getBiome());
+        return IForestryApi.get().getClimateManager().getTemperature(getBiome());
     }
 
     @Override
     public HumidityType humidity() {
-        return IForestryApi.INSTANCE.getClimateManager().getHumidity(getBiome());
+        return IForestryApi.get().getClimateManager().getHumidity(getBiome());
     }
 
     @Override

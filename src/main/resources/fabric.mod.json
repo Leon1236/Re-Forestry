@@ -3,15 +3,15 @@
 	"id": "reforestry",
 	"version": "${version}",
 	"name": "Re-Forestry",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Fabric port of Forestry for Minecraft 26.2 — bees, trees, butterflies, farms, and factory machines.",
 	"authors": [
-		"Me!"
+		"leon1236"
 	],
 	"contact": {
 		"homepage": "https://github.com/Leon1236/Re-Forestry",
 		"sources": "https://github.com/Leon1236/Re-Forestry"
 	},
-	"license": "CC0-1.0",
+	"license": "All Rights Reserved",
 	"icon": "assets/reforestry/icon.png",
 	"environment": "*",
 	"entrypoints": {
@@ -25,11 +25,22 @@
 			"com.leon1236.reforestry.ReForestryDataGenerator"
 		],
 		"reforestry:plugin": [
-			"com.leon1236.reforestry.core.plugin.ReforestryPlugin"
+			"com.leon1236.reforestry.core.plugin.ReforestryPlugin",
+			"com.leon1236.reforestry.farming.plugin.AgricultureForestryPlugin",
+			"com.leon1236.reforestry.gendustry.plugin.GendustryForestryPlugin",
+			"com.leon1236.reforestry.extra_bees.plugin.ExtraBeesForestryPlugin",
+			"com.leon1236.reforestry.extratrees.plugin.ExtraTreesForestryPlugin"
 		],
 		"jei_mod_plugin": [
 			"com.leon1236.reforestry.core.compat.jei.CoreJeiPlugin",
-			"com.leon1236.reforestry.factory.compat.jei.FactoryJeiPlugin"
+			"com.leon1236.reforestry.factory.compat.jei.FactoryJeiPlugin",
+			"com.leon1236.reforestry.apiculture.compat.jei.ApicultureJeiPlugin",
+			"com.leon1236.reforestry.arboriculture.compat.jei.ArboricultureJeiPlugin",
+			"com.leon1236.reforestry.storage.compat.jei.StorageJeiPlugin",
+			"com.leon1236.reforestry.worktable.compat.jei.WorktableJeiPlugin",
+			"com.leon1236.reforestry.farming.compat.jei.FarmingJeiPlugin",
+			"com.leon1236.reforestry.gendustry.compat.jei.GendustryJeiPlugin",
+			"com.leon1236.reforestry.extratrees.compat.jei.ExtraTreesJeiPlugin"
 		]
 	},
 	"mixins": [

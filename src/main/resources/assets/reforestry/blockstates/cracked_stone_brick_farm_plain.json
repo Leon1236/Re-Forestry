@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "band=false": {
+      "model": "reforestry:block/cracked_stone_brick_farm_plain"
+    },
+    "band=true": {
+      "model": "reforestry:block/cracked_stone_brick_farm_plain_band"
+    }
+  }
+}

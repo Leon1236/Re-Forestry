@@ -6,6 +6,7 @@ import com.leon1236.reforestry.core.energy.TileCreativeEnergy;
 import com.leon1236.reforestry.core.energy.TileDebugPowered;
 import com.leon1236.reforestry.core.fluids.FluidHelper;
 import com.leon1236.reforestry.core.inventory.InventoryHelper;
+import com.leon1236.reforestry.core.escritoire.TileEscritoire;
 import com.leon1236.reforestry.core.tiles.TileAnalyzer;
 import com.leon1236.reforestry.core.tiles.TileApiaristChest;
 import com.leon1236.reforestry.core.tiles.TileArboristChest;
@@ -35,6 +36,9 @@ public class CoreTiles {
     public static final FeatureBlockEntityType<TileAnalyzer> ANALYZER =
             REGISTRY.blockEntityType("analyzer", TileAnalyzer::new);
 
+    public static final FeatureBlockEntityType<TileEscritoire> ESCRITOIRE =
+            REGISTRY.blockEntityType("escritoire", TileEscritoire::new);
+
     public static void init() {
         EnergyHelper.registerSided(DEBUG_POWERED.type());
         InventoryHelper.registerSided(BEE_CHEST.type());
@@ -43,5 +47,6 @@ public class CoreTiles {
         EnergyHelper.registerSided(ANALYZER.type());
         InventoryHelper.registerSided(ANALYZER.type());
         FluidHelper.registerSided(ANALYZER.type(), TileAnalyzer::getTankManager);
+        InventoryHelper.registerSided(ESCRITOIRE.type());
     }
 }

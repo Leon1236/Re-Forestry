@@ -1,0 +1,5669 @@
+{
+  "source_class": "binnie.extratrees.genetics.ETTreeDefinition",
+  "count": 97,
+  "register_count": 84,
+  "binomial_skip_count": 9,
+  "id_collision_count": 3,
+  "acorn_oak": {
+    "enum": "AcornOak",
+    "binnie_uid": "acornoak",
+    "genus": "quercus",
+    "binomial": "robur",
+    "path": "tree_acorn_oak",
+    "reforestry_id": "reforestry:tree_acorn_oak",
+    "action": "keep_acorn_oak",
+    "ce_binomial_match": {
+      "match": "exact",
+      "reforestry_id": "reforestry:tree_oak",
+      "path": "tree_oak",
+      "genus": "quercus",
+      "binomial": "robur"
+    },
+    "id_collision": null,
+    "leaf_type": "DECIDUOUS",
+    "leaf_color": "0x66733e",
+    "leaf_pollinated_color": "0x9ea231",
+    "sapling_type": "Default",
+    "wood": {
+      "kind": "forestry_or_vanilla",
+      "enum": "OAK",
+      "path": "oak"
+    },
+    "wood_color": "0x614d30",
+    "worldgen": "WorldGenTree3.AcornOak",
+    "has_fruit_leaves": true,
+    "fruit_families": [
+      "forestry.pomes",
+      "forestry.prunes",
+      "forestry.nuts"
+    ],
+    "genome": [
+      {
+        "chromosome": "FRUITS",
+        "source": "AlleleETFruitDefinition.Acorn.getAllele()",
+        "kind": "et_fruit",
+        "enum": "Acorn",
+        "reforestry_id": "reforestry:fruit_acorn"
+      },
+      {
+        "chromosome": "GIRTH",
+        "source": "ForestryAllele.Int.Int2.getAllele()",
+        "kind": "forestry_allele",
+        "group": "Int",
+        "value": "Int2"
+      },
+      {
+        "chromosome": "HEIGHT",
+        "source": "ForestryAllele.TreeHeight.Large.getAllele()",
+        "kind": "forestry_allele",
+        "group": "TreeHeight",
+        "value": "Large"
+      },
+      {
+        "chromosome": "YIELD",
+        "source": "ForestryAllele.Yield.Low.getAllele()",
+        "kind": "forestry_allele",
+        "group": "Yield",
+        "value": "Low"
+      },
+      {
+        "chromosome": "SAPPINESS",
+        "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+        "kind": "forestry_allele",
+        "group": "Sappiness",
+        "value": "Lower"
+      }
+    ]
+  },
+  "binomial_skips": [
+    {
+      "enum": "SourCherry",
+      "et_binomial": "prunus cerasus",
+      "reuse": "reforestry:tree_hill_cherry",
+      "match": "exact"
+    },
+    {
+      "enum": "Orange",
+      "et_binomial": "citrus sinensis",
+      "reuse": "reforestry:tree_orange",
+      "match": "exact"
+    },
+    {
+      "enum": "Beech",
+      "et_binomial": "fagus sylvatica",
+      "reuse": "reforestry:tree_beech",
+      "match": "exact"
+    },
+    {
+      "enum": "Olive",
+      "et_binomial": "olea europaea",
+      "reuse": "reforestry:tree_olive",
+      "match": "exact"
+    },
+    {
+      "enum": "BalsamFir",
+      "et_binomial": "abies balsamea",
+      "reuse": "reforestry:tree_fir",
+      "match": "exact"
+    },
+    {
+      "enum": "Pear",
+      "et_binomial": "pyrus communis",
+      "reuse": "reforestry:tree_pear",
+      "match": "exact"
+    },
+    {
+      "enum": "Gingko",
+      "et_binomial": "ginkgo biloba",
+      "reuse": "reforestry:tree_ginkgo",
+      "match": "spelling"
+    },
+    {
+      "enum": "MonkeyPuzzle",
+      "et_binomial": "araucaria araucana",
+      "reuse": "reforestry:tree_pewen",
+      "match": "exact"
+    },
+    {
+      "enum": "Coconut",
+      "et_binomial": "cocous nucifera",
+      "reuse": "reforestry:tree_coconut",
+      "match": "spelling"
+    }
+  ],
+  "id_collisions": [
+    {
+      "enum": "Lime",
+      "et_binomial": "citrus latifolia",
+      "remap": "reforestry:tree_et_lime",
+      "collides_with": "reforestry:tree_lime"
+    },
+    {
+      "enum": "Elm",
+      "et_binomial": "ulmus procera",
+      "remap": "reforestry:tree_et_elm",
+      "collides_with": "reforestry:tree_elm"
+    },
+    {
+      "enum": "Fir",
+      "et_binomial": "abies alba",
+      "remap": "reforestry:tree_et_fir",
+      "collides_with": "reforestry:tree_fir"
+    }
+  ],
+  "species": [
+    {
+      "enum": "OrchardApple",
+      "binnie_uid": "orchardapple",
+      "genus": "malus",
+      "binomial": "domestica",
+      "path": "tree_orchard_apple",
+      "reforestry_id": "reforestry:tree_orchard_apple",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x09e67e",
+      "leaf_pollinated_color": "0xff9cf3",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Apple",
+        "path": "apple"
+      },
+      "wood_color": "0x7b7a7b",
+      "worldgen": "WorldGenApple.OrchardApple",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Apple.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Apple",
+          "reforestry_id": "reforestry:fruit_apple"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Higher.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Higher"
+        }
+      ]
+    },
+    {
+      "enum": "SweetCrabapple",
+      "binnie_uid": "sweetcrabapple",
+      "genus": "malus",
+      "binomial": "coronaria",
+      "path": "tree_sweet_crabapple",
+      "reforestry_id": "reforestry:tree_sweet_crabapple",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x7a9953",
+      "leaf_pollinated_color": "0xfc359f",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Apple",
+        "path": "apple"
+      },
+      "wood_color": "0x7b7a7b",
+      "worldgen": "WorldGenApple.SweetCrabapple",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Crabapple.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Crabapple",
+          "reforestry_id": "reforestry:fruit_crabapple"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.High.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "High"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Average"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Fast.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Fast"
+        }
+      ]
+    },
+    {
+      "enum": "FloweringCrabapple",
+      "binnie_uid": "floweringcrabapple",
+      "genus": "malus",
+      "binomial": "hopa",
+      "path": "tree_flowering_crabapple",
+      "reforestry_id": "reforestry:tree_flowering_crabapple",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x7a9953",
+      "leaf_pollinated_color": "0xfc359f",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Apple",
+        "path": "apple"
+      },
+      "wood_color": "0x7b7a7b",
+      "worldgen": "WorldGenApple.FloweringCrabapple",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Crabapple.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Crabapple",
+          "reforestry_id": "reforestry:fruit_crabapple"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Average"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Low"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Fast.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Fast"
+        }
+      ]
+    },
+    {
+      "enum": "PrairieCrabapple",
+      "binnie_uid": "prairiecrabapple",
+      "genus": "malus",
+      "binomial": "ioensis",
+      "path": "tree_prairie_crabapple",
+      "reforestry_id": "reforestry:tree_prairie_crabapple",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x7a9953",
+      "leaf_pollinated_color": "0xfc359f",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Apple",
+        "path": "apple"
+      },
+      "wood_color": "0x7b7a7b",
+      "worldgen": "WorldGenApple.PrairieCrabapple",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Crabapple.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Crabapple",
+          "reforestry_id": "reforestry:fruit_crabapple"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Average"
+        }
+      ]
+    },
+    {
+      "enum": "Blackthorn",
+      "binnie_uid": "blackthorn",
+      "genus": "prunus",
+      "binomial": "spinosa",
+      "path": "tree_blackthorn",
+      "reforestry_id": "reforestry:tree_blackthorn",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x6d8f1e",
+      "leaf_pollinated_color": "0xff87c7",
+      "sapling_type": "Fruit",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "PLUM",
+        "path": "plum"
+      },
+      "wood_color": "0xb68661",
+      "worldgen": "WorldGenPlum",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Blackthorn.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Blackthorn",
+          "reforestry_id": "reforestry:fruit_blackthorn"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Low"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Average"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Fast.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Fast"
+        }
+      ]
+    },
+    {
+      "enum": "CherryPlum",
+      "binnie_uid": "cherryplum",
+      "genus": "prunus",
+      "binomial": "cerasifera",
+      "path": "tree_cherry_plum",
+      "reforestry_id": "reforestry:tree_cherry_plum",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x6d8f1e",
+      "leaf_pollinated_color": "0xff87c7",
+      "sapling_type": "Fruit",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "PLUM",
+        "path": "plum"
+      },
+      "wood_color": "0xb68661",
+      "worldgen": "WorldGenPlum",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.CherryPlum.getAllele()",
+          "kind": "et_fruit",
+          "enum": "CherryPlum",
+          "reforestry_id": "reforestry:fruit_cherry_plum"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Average"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Fast.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Fast"
+        }
+      ]
+    },
+    {
+      "enum": "Peach",
+      "binnie_uid": "peach",
+      "genus": "prunus",
+      "binomial": "persica",
+      "path": "tree_peach",
+      "reforestry_id": "reforestry:tree_peach",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x6d8f1e",
+      "leaf_pollinated_color": "0xff269a",
+      "sapling_type": "Fruit",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "PLUM",
+        "path": "plum"
+      },
+      "wood_color": "0xb68661",
+      "worldgen": "WorldGenPlum",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Peach.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Peach",
+          "reforestry_id": "reforestry:fruit_peach"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Average"
+        }
+      ]
+    },
+    {
+      "enum": "Nectarine",
+      "binnie_uid": "nectarine",
+      "genus": "prunus",
+      "binomial": "nectarina",
+      "path": "tree_nectarine",
+      "reforestry_id": "reforestry:tree_nectarine",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x6d8f1e",
+      "leaf_pollinated_color": "0xff269a",
+      "sapling_type": "Fruit",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "PLUM",
+        "path": "plum"
+      },
+      "wood_color": "0xb68661",
+      "worldgen": "WorldGenPlum",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Nectarine.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Nectarine",
+          "reforestry_id": "reforestry:fruit_nectarine"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Average"
+        }
+      ]
+    },
+    {
+      "enum": "Apricot",
+      "binnie_uid": "apricot",
+      "genus": "prunus",
+      "binomial": "armeniaca",
+      "path": "tree_apricot",
+      "reforestry_id": "reforestry:tree_apricot",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x6d8f1e",
+      "leaf_pollinated_color": "0xf5b8d8",
+      "sapling_type": "Fruit",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "PLUM",
+        "path": "plum"
+      },
+      "wood_color": "0xb68661",
+      "worldgen": "WorldGenPlum",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Apricot.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Apricot",
+          "reforestry_id": "reforestry:fruit_apricot"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Low"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Average"
+        }
+      ]
+    },
+    {
+      "enum": "Almond",
+      "binnie_uid": "almond",
+      "genus": "prunus",
+      "binomial": "amygdalus",
+      "path": "tree_almond",
+      "reforestry_id": "reforestry:tree_almond",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x6d8f1e",
+      "leaf_pollinated_color": "0xf584c0",
+      "sapling_type": "Fruit",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "PLUM",
+        "path": "plum"
+      },
+      "wood_color": "0xb68661",
+      "worldgen": "WorldGenPlum",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Almond.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Almond",
+          "reforestry_id": "reforestry:fruit_almond"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Fast.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Fast"
+        }
+      ]
+    },
+    {
+      "enum": "WildCherry",
+      "binnie_uid": "wildcherry",
+      "genus": "prunus",
+      "binomial": "avium",
+      "path": "tree_wild_cherry",
+      "reforestry_id": "reforestry:tree_wild_cherry",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x6d8f1e",
+      "leaf_pollinated_color": "0xf7ebf6",
+      "sapling_type": "Fruit",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Cherry",
+        "path": "cherry"
+      },
+      "wood_color": "0x716850",
+      "worldgen": "WorldGenPlum",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.WildCherry.getAllele()",
+          "kind": "et_fruit",
+          "enum": "WildCherry",
+          "reforestry_id": "reforestry:fruit_wild_cherry"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Low"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Fast.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Fast"
+        }
+      ]
+    },
+    {
+      "enum": "SourCherry",
+      "binnie_uid": "sourcherry",
+      "genus": "prunus",
+      "binomial": "cerasus",
+      "path": "tree_hill_cherry",
+      "reforestry_id": "reforestry:tree_hill_cherry",
+      "action": "skip_reuse",
+      "ce_binomial_match": {
+        "match": "exact",
+        "reforestry_id": "reforestry:tree_hill_cherry",
+        "path": "tree_hill_cherry",
+        "genus": "prunus",
+        "binomial": "cerasus"
+      },
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x6d8f1e",
+      "leaf_pollinated_color": "0xf7ebf6",
+      "sapling_type": "Fruit",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Cherry",
+        "path": "cherry"
+      },
+      "wood_color": "0x716850",
+      "worldgen": "WorldGenPlum",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.SourCherry.getAllele()",
+          "kind": "et_fruit",
+          "enum": "SourCherry",
+          "reforestry_id": "reforestry:fruit_sour_cherry"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Low"
+        }
+      ]
+    },
+    {
+      "enum": "BlackCherry",
+      "binnie_uid": "blackcherry",
+      "genus": "prunus",
+      "binomial": "serotina",
+      "path": "tree_black_cherry",
+      "reforestry_id": "reforestry:tree_black_cherry",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x6d8f1e",
+      "leaf_pollinated_color": "0xfae1f8",
+      "sapling_type": "Fruit",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Cherry",
+        "path": "cherry"
+      },
+      "wood_color": "0x716850",
+      "worldgen": "WorldGenPlum",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.BlackCherry.getAllele()",
+          "kind": "et_fruit",
+          "enum": "BlackCherry",
+          "reforestry_id": "reforestry:fruit_black_cherry"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Lowest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Lowest"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Fast.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Fast"
+        }
+      ]
+    },
+    {
+      "enum": "Orange",
+      "binnie_uid": "orange",
+      "genus": "citrus",
+      "binomial": "sinensis",
+      "path": "tree_orange",
+      "reforestry_id": "reforestry:tree_orange",
+      "action": "skip_reuse",
+      "ce_binomial_match": {
+        "match": "exact",
+        "reforestry_id": "reforestry:tree_orange",
+        "path": "tree_orange",
+        "genus": "citrus",
+        "binomial": "sinensis"
+      },
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x88af54",
+      "leaf_pollinated_color": "0xa3b850",
+      "sapling_type": "Fruit",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "CITRUS",
+        "path": "citrus"
+      },
+      "wood_color": "0x5b4b39",
+      "worldgen": "WorldGenLemon",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Orange.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Orange",
+          "reforestry_id": "reforestry:fruit_orange"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Average"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Fast.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Fast"
+        }
+      ]
+    },
+    {
+      "enum": "Manderin",
+      "binnie_uid": "manderin",
+      "genus": "citrus",
+      "binomial": "reticulata",
+      "path": "tree_manderin",
+      "reforestry_id": "reforestry:tree_manderin",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x88af54",
+      "leaf_pollinated_color": "0xa3b850",
+      "sapling_type": "Fruit",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "CITRUS",
+        "path": "citrus"
+      },
+      "wood_color": "0x5b4b39",
+      "worldgen": "WorldGenLemon",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Manderin.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Manderin",
+          "reforestry_id": "reforestry:fruit_manderin"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.High.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "High"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Low"
+        }
+      ]
+    },
+    {
+      "enum": "Satsuma",
+      "binnie_uid": "satsuma",
+      "genus": "citrus",
+      "binomial": "unshiu",
+      "path": "tree_satsuma",
+      "reforestry_id": "reforestry:tree_satsuma",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x88af54",
+      "leaf_pollinated_color": "0xa3b850",
+      "sapling_type": "Fruit",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "CITRUS",
+        "path": "citrus"
+      },
+      "wood_color": "0x5b4b39",
+      "worldgen": "WorldGenLemon",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Satsuma.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Satsuma",
+          "reforestry_id": "reforestry:fruit_satsuma"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Low"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Low"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Fast.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Fast"
+        }
+      ]
+    },
+    {
+      "enum": "Tangerine",
+      "binnie_uid": "tangerine",
+      "genus": "citrus",
+      "binomial": "tangerina",
+      "path": "tree_tangerine",
+      "reforestry_id": "reforestry:tree_tangerine",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x88af54",
+      "leaf_pollinated_color": "0xa3b850",
+      "sapling_type": "Fruit",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "CITRUS",
+        "path": "citrus"
+      },
+      "wood_color": "0x5b4b39",
+      "worldgen": "WorldGenLemon",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Tangerine.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Tangerine",
+          "reforestry_id": "reforestry:fruit_tangerine"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Average"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Faster.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Faster"
+        }
+      ]
+    },
+    {
+      "enum": "Lime",
+      "binnie_uid": "lime",
+      "genus": "citrus",
+      "binomial": "latifolia",
+      "path": "tree_et_lime",
+      "reforestry_id": "reforestry:tree_et_lime",
+      "action": "id_collision_remap",
+      "ce_binomial_match": null,
+      "id_collision": {
+        "would_be": "reforestry:tree_lime",
+        "collides_with": "reforestry:tree_lime",
+        "remap": "reforestry:tree_et_lime",
+        "reason": "snake id already used by DefaultTreeSpecies with a different binomial"
+      },
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x88af54",
+      "leaf_pollinated_color": "0xa3b850",
+      "sapling_type": "Fruit",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "CITRUS",
+        "path": "citrus"
+      },
+      "wood_color": "0x5b4b39",
+      "worldgen": "WorldGenLemon",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Lime.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Lime",
+          "reforestry_id": "reforestry:fruit_lime"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Low"
+        }
+      ]
+    },
+    {
+      "enum": "KeyLime",
+      "binnie_uid": "keylime",
+      "genus": "citrus",
+      "binomial": "aurantifolia",
+      "path": "tree_key_lime",
+      "reforestry_id": "reforestry:tree_key_lime",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x88af54",
+      "leaf_pollinated_color": "0xa3b850",
+      "sapling_type": "Fruit",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "CITRUS",
+        "path": "citrus"
+      },
+      "wood_color": "0x5b4b39",
+      "worldgen": "WorldGenLemon",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.KeyLime.getAllele()",
+          "kind": "et_fruit",
+          "enum": "KeyLime",
+          "reforestry_id": "reforestry:fruit_key_lime"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Lowest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Lowest"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Low"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Fast.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Fast"
+        }
+      ]
+    },
+    {
+      "enum": "FingerLime",
+      "binnie_uid": "fingerlime",
+      "genus": "citrus",
+      "binomial": "australasica",
+      "path": "tree_finger_lime",
+      "reforestry_id": "reforestry:tree_finger_lime",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x88af54",
+      "leaf_pollinated_color": "0xa3b850",
+      "sapling_type": "Fruit",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "CITRUS",
+        "path": "citrus"
+      },
+      "wood_color": "0x5b4b39",
+      "worldgen": "WorldGenLemon",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.FingerLime.getAllele()",
+          "kind": "et_fruit",
+          "enum": "FingerLime",
+          "reforestry_id": "reforestry:fruit_finger_lime"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.High.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "High"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Low"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Fast.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Fast"
+        }
+      ]
+    },
+    {
+      "enum": "Pomelo",
+      "binnie_uid": "pomelo",
+      "genus": "citrus",
+      "binomial": "maxima",
+      "path": "tree_pomelo",
+      "reforestry_id": "reforestry:tree_pomelo",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x88af54",
+      "leaf_pollinated_color": "0xa3b850",
+      "sapling_type": "Fruit",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "CITRUS",
+        "path": "citrus"
+      },
+      "wood_color": "0x5b4b39",
+      "worldgen": "WorldGenLemon",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Pomelo.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Pomelo",
+          "reforestry_id": "reforestry:fruit_pomelo"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        }
+      ]
+    },
+    {
+      "enum": "Grapefruit",
+      "binnie_uid": "grapefruit",
+      "genus": "citrus",
+      "binomial": "paradisi",
+      "path": "tree_grapefruit",
+      "reforestry_id": "reforestry:tree_grapefruit",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x88af54",
+      "leaf_pollinated_color": "0xa3b850",
+      "sapling_type": "Fruit",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "CITRUS",
+        "path": "citrus"
+      },
+      "wood_color": "0x5b4b39",
+      "worldgen": "WorldGenLemon",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Grapefruit.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Grapefruit",
+          "reforestry_id": "reforestry:fruit_grapefruit"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Low"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Fast.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Fast"
+        }
+      ]
+    },
+    {
+      "enum": "Kumquat",
+      "binnie_uid": "kumquat",
+      "genus": "citrus",
+      "binomial": "margarita",
+      "path": "tree_kumquat",
+      "reforestry_id": "reforestry:tree_kumquat",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x88af54",
+      "leaf_pollinated_color": "0xa3b850",
+      "sapling_type": "Fruit",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "CITRUS",
+        "path": "citrus"
+      },
+      "wood_color": "0x5b4b39",
+      "worldgen": "WorldGenLemon",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Kumquat.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Kumquat",
+          "reforestry_id": "reforestry:fruit_kumquat"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.High.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "High"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Low"
+        }
+      ]
+    },
+    {
+      "enum": "Citron",
+      "binnie_uid": "citron",
+      "genus": "citrus",
+      "binomial": "medica",
+      "path": "tree_citron",
+      "reforestry_id": "reforestry:tree_citron",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x88af54",
+      "leaf_pollinated_color": "0xa3b850",
+      "sapling_type": "Fruit",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "CITRUS",
+        "path": "citrus"
+      },
+      "wood_color": "0x5b4b39",
+      "worldgen": "WorldGenLemon",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Citron.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Citron",
+          "reforestry_id": "reforestry:fruit_citron"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.High.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "High"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Average"
+        }
+      ]
+    },
+    {
+      "enum": "BuddhaHand",
+      "binnie_uid": "buddhahand",
+      "genus": "citrus",
+      "binomial": "sarcodactylus",
+      "path": "tree_buddha_hand",
+      "reforestry_id": "reforestry:tree_buddha_hand",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x88af54",
+      "leaf_pollinated_color": "0xa3b850",
+      "sapling_type": "Fruit",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "CITRUS",
+        "path": "citrus"
+      },
+      "wood_color": "0x5b4b39",
+      "worldgen": "WorldGenLemon",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.BuddhaHand.getAllele()",
+          "kind": "et_fruit",
+          "enum": "BuddhaHand",
+          "reforestry_id": "reforestry:fruit_buddha_hand"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Low"
+        }
+      ]
+    },
+    {
+      "enum": "Banana",
+      "binnie_uid": "banana",
+      "genus": "musa",
+      "binomial": "sinensis",
+      "path": "tree_banana",
+      "reforestry_id": "reforestry:tree_banana",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "PALM",
+      "leaf_color": "0xa1cd8e",
+      "leaf_pollinated_color": "0x44e500",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Banana",
+        "path": "banana"
+      },
+      "wood_color": "0x85924f",
+      "worldgen": "WorldGenBanana",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.nuts",
+        "forestry.jungle"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Banana.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Banana",
+          "reforestry_id": "reforestry:fruit_banana"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Low"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Low"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Fast.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Fast"
+        }
+      ]
+    },
+    {
+      "enum": "RedBanana",
+      "binnie_uid": "redbanana",
+      "genus": "musa",
+      "binomial": "rubra",
+      "path": "tree_red_banana",
+      "reforestry_id": "reforestry:tree_red_banana",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "PALM",
+      "leaf_color": "0xa1cd8e",
+      "leaf_pollinated_color": "0x44e500",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Banana",
+        "path": "banana"
+      },
+      "wood_color": "0x85924f",
+      "worldgen": "WorldGenBanana",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.nuts",
+        "forestry.jungle"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.RedBanana.getAllele()",
+          "kind": "et_fruit",
+          "enum": "RedBanana",
+          "reforestry_id": "reforestry:fruit_red_banana"
+        }
+      ]
+    },
+    {
+      "enum": "Plantain",
+      "binnie_uid": "plantain",
+      "genus": "musa",
+      "binomial": "paradisiaca",
+      "path": "tree_plantain",
+      "reforestry_id": "reforestry:tree_plantain",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "PALM",
+      "leaf_color": "0xa1cd8e",
+      "leaf_pollinated_color": "0x44e500",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Banana",
+        "path": "banana"
+      },
+      "wood_color": "0x85924f",
+      "worldgen": "WorldGenBanana",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.nuts",
+        "forestry.jungle"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Plantain.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Plantain",
+          "reforestry_id": "reforestry:fruit_plantain"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Average"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Lower"
+        }
+      ]
+    },
+    {
+      "enum": "Butternut",
+      "binnie_uid": "butternut",
+      "genus": "juglans",
+      "binomial": "cinerea",
+      "path": "tree_butternut",
+      "reforestry_id": "reforestry:tree_butternut",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x82b58c",
+      "leaf_pollinated_color": "0x82dd8c",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Butternut",
+        "path": "butternut"
+      },
+      "wood_color": "0xb7ada0",
+      "worldgen": "WorldGenWalnut.Butternut",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "forestry.nuts",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Butternut.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Butternut",
+          "reforestry_id": "reforestry:fruit_butternut"
+        },
+        {
+          "chromosome": "GIRTH",
+          "source": "ForestryAllele.Int.Int2.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Int",
+          "value": "Int2"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smaller.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smaller"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Low"
+        }
+      ]
+    },
+    {
+      "enum": "Rowan",
+      "binnie_uid": "rowan",
+      "genus": "sorbus",
+      "binomial": "aucuparia",
+      "path": "tree_rowan",
+      "reforestry_id": "reforestry:tree_rowan",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x9ec79b",
+      "leaf_pollinated_color": "0x9ee8b2",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Rowan",
+        "path": "rowan"
+      },
+      "wood_color": "0xb6b09b",
+      "worldgen": "WorldGenSorbus.Rowan",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.nuts",
+        "extratrees.berry"
+      ],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Larger.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Larger"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        }
+      ]
+    },
+    {
+      "enum": "Hemlock",
+      "binnie_uid": "hemlock",
+      "genus": "tsuga",
+      "binomial": "heterophylla",
+      "path": "tree_hemlock",
+      "reforestry_id": "reforestry:tree_hemlock",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "CONIFERS",
+      "leaf_color": "0x5cac72",
+      "leaf_pollinated_color": "0x5cd172",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Hemlock",
+        "path": "hemlock"
+      },
+      "wood_color": "0xada39b",
+      "worldgen": "WorldGenConifer.WesternHemlock",
+      "has_fruit_leaves": false,
+      "fruit_families": [],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Average"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Slower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Slower"
+        },
+        {
+          "chromosome": "GIRTH",
+          "source": "ForestryAllele.Int.Int2.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Int",
+          "value": "Int2"
+        }
+      ]
+    },
+    {
+      "enum": "Ash",
+      "binnie_uid": "ash",
+      "genus": "fraxinus",
+      "binomial": "excelsior",
+      "path": "tree_ash",
+      "reforestry_id": "reforestry:tree_ash",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x488e2b",
+      "leaf_pollinated_color": "0x48e42b",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Ash",
+        "path": "ash"
+      },
+      "wood_color": "0x898982",
+      "worldgen": "WorldGenAsh.CommonAsh",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "forestry.nuts",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        }
+      ]
+    },
+    {
+      "enum": "Alder",
+      "binnie_uid": "alder",
+      "genus": "alnus",
+      "binomial": "glutinosa",
+      "path": "tree_alder",
+      "reforestry_id": "reforestry:tree_alder",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x698a33",
+      "leaf_pollinated_color": "0x69ae33",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Alder",
+        "path": "alder"
+      },
+      "wood_color": "0xc6c0b8",
+      "worldgen": "WorldGenAlder.CommonAlder",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        }
+      ]
+    },
+    {
+      "enum": "Beech",
+      "binnie_uid": "beech",
+      "genus": "fagus",
+      "binomial": "sylvatica",
+      "path": "tree_beech",
+      "reforestry_id": "reforestry:tree_beech",
+      "action": "skip_reuse",
+      "ce_binomial_match": {
+        "match": "exact",
+        "reforestry_id": "reforestry:tree_beech",
+        "path": "tree_beech",
+        "genus": "fagus",
+        "binomial": "sylvatica"
+      },
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x83a04c",
+      "leaf_pollinated_color": "0x83c64c",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Beech",
+        "path": "beech"
+      },
+      "wood_color": "0xb2917e",
+      "worldgen": "WorldGenBeech.CommonBeech",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.prunes",
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Beechnut.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Beechnut",
+          "reforestry_id": "reforestry:fruit_beechnut"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Average"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Lower"
+        }
+      ]
+    },
+    {
+      "enum": "CopperBeech",
+      "binnie_uid": "copperbeech",
+      "genus": "fagus",
+      "binomial": "purpurea",
+      "path": "tree_copper_beech",
+      "reforestry_id": "reforestry:tree_copper_beech",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x801318",
+      "leaf_pollinated_color": "0xd15b4d",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Beech",
+        "path": "beech"
+      },
+      "wood_color": "0xb2917e",
+      "worldgen": "WorldGenBeech.CopperBeech",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.prunes",
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Beechnut.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Beechnut",
+          "reforestry_id": "reforestry:fruit_beechnut"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Slow.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Slow"
+        }
+      ]
+    },
+    {
+      "enum": "Aspen",
+      "binnie_uid": "aspen",
+      "genus": "populus",
+      "binomial": "tremula",
+      "path": "tree_aspen",
+      "reforestry_id": "reforestry:tree_aspen",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x8acc37",
+      "leaf_pollinated_color": "0x8ae18f",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "POPLAR",
+        "path": "poplar"
+      },
+      "wood_color": "0x8ca687",
+      "worldgen": "WorldGenPoplar.Aspen",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.prunes",
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        }
+      ]
+    },
+    {
+      "enum": "Yew",
+      "binnie_uid": "yew",
+      "genus": "taxus",
+      "binomial": "baccata",
+      "path": "tree_yew",
+      "reforestry_id": "reforestry:tree_yew",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "CONIFERS",
+      "leaf_color": "0x948a4d",
+      "leaf_pollinated_color": "0x94ae4d",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Yew",
+        "path": "yew"
+      },
+      "wood_color": "0xd1bbc1",
+      "worldgen": "WorldGenConifer.Yew",
+      "has_fruit_leaves": false,
+      "fruit_families": [],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Large.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Large"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        }
+      ]
+    },
+    {
+      "enum": "Cypress",
+      "binnie_uid": "cypress",
+      "genus": "chamaecyparis",
+      "binomial": "lawsoniana",
+      "path": "tree_cypress",
+      "reforestry_id": "reforestry:tree_cypress",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "CONIFERS",
+      "leaf_color": "0x89c9a7",
+      "leaf_pollinated_color": "0x89ddc6",
+      "sapling_type": "Poplar",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Cypress",
+        "path": "cypress"
+      },
+      "wood_color": "0x9a8483",
+      "worldgen": "WorldGenConifer.Cypress",
+      "has_fruit_leaves": false,
+      "fruit_families": [],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Larger.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Larger"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Slow.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Slow"
+        }
+      ]
+    },
+    {
+      "enum": "DouglasFir",
+      "binnie_uid": "douglasfir",
+      "genus": "pseudotsuga",
+      "binomial": "menziesii",
+      "path": "tree_douglas_fir",
+      "reforestry_id": "reforestry:tree_douglas_fir",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "CONIFERS",
+      "leaf_color": "0x99b582",
+      "leaf_pollinated_color": "0x99d1aa",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Fir",
+        "path": "fir"
+      },
+      "wood_color": "0x828382",
+      "worldgen": "WorldGenFir.DouglasFir",
+      "has_fruit_leaves": false,
+      "fruit_families": [],
+      "genome": [
+        {
+          "chromosome": "GIRTH",
+          "source": "ForestryAllele.Int.Int2.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Int",
+          "value": "Int2"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Larger.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Larger"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Slower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Slower"
+        }
+      ]
+    },
+    {
+      "enum": "Hazel",
+      "binnie_uid": "hazel",
+      "genus": "Corylus",
+      "binomial": "avellana",
+      "path": "tree_hazel",
+      "reforestry_id": "reforestry:tree_hazel",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x9bb552",
+      "leaf_pollinated_color": "0x9be152",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Hazel",
+        "path": "hazel"
+      },
+      "wood_color": "0xaa986f",
+      "worldgen": "WorldGenTree3.Hazel",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.prunes",
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Hazelnut.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Hazelnut",
+          "reforestry_id": "reforestry:fruit_hazelnut"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Average"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Low"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        }
+      ]
+    },
+    {
+      "enum": "Sycamore",
+      "binnie_uid": "sycamore",
+      "genus": "ficus",
+      "binomial": "sycomorus",
+      "path": "tree_sycamore",
+      "reforestry_id": "reforestry:tree_sycamore",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0xa0a52f",
+      "leaf_pollinated_color": "0xb4d55c",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Fig",
+        "path": "fig"
+      },
+      "wood_color": "0x807357",
+      "worldgen": "WorldGenTree3.Sycamore",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.prunes",
+        "forestry.nuts",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Fig.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Fig",
+          "reforestry_id": "reforestry:fruit_fig"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Lowest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Lowest"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        }
+      ]
+    },
+    {
+      "enum": "Whitebeam",
+      "binnie_uid": "whitebeam",
+      "genus": "sorbus",
+      "binomial": "aria",
+      "path": "tree_whitebeam",
+      "reforestry_id": "reforestry:tree_whitebeam",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0xbace99",
+      "leaf_pollinated_color": "0x72863f",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Whitebeam",
+        "path": "whitebeam"
+      },
+      "wood_color": "0x786a6d",
+      "worldgen": "WorldGenSorbus.Whitebeam",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes"
+      ],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smaller.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smaller"
+        }
+      ]
+    },
+    {
+      "enum": "Hawthorn",
+      "binnie_uid": "hawthorn",
+      "genus": "crataegus",
+      "binomial": "monogyna",
+      "path": "tree_hawthorn",
+      "reforestry_id": "reforestry:tree_hawthorn",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x6ba84a",
+      "leaf_pollinated_color": "0x98b77b",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Hawthorn",
+        "path": "hawthorn"
+      },
+      "wood_color": "0x5f5745",
+      "worldgen": "WorldGenTree3.Hawthorn",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.prunes",
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Average"
+        }
+      ]
+    },
+    {
+      "enum": "Pecan",
+      "binnie_uid": "pecan",
+      "genus": "carya",
+      "binomial": "illinoinensis",
+      "path": "tree_pecan",
+      "reforestry_id": "reforestry:tree_pecan",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x85b674",
+      "leaf_pollinated_color": "0x2c581b",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Hickory",
+        "path": "hickory"
+      },
+      "wood_color": "0x3e3530",
+      "worldgen": "WorldGenTree3.Pecan",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "forestry.nuts",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Pecan.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Pecan",
+          "reforestry_id": "reforestry:fruit_pecan"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Large.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Large"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Slow.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Slow"
+        }
+      ]
+    },
+    {
+      "enum": "Elm",
+      "binnie_uid": "elm",
+      "genus": "ulmus",
+      "binomial": "procera",
+      "path": "tree_et_elm",
+      "reforestry_id": "reforestry:tree_et_elm",
+      "action": "id_collision_remap",
+      "ce_binomial_match": null,
+      "id_collision": {
+        "would_be": "reforestry:tree_elm",
+        "collides_with": "reforestry:tree_elm",
+        "remap": "reforestry:tree_et_elm",
+        "reason": "snake id already used by DefaultTreeSpecies with a different binomial"
+      },
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x7c9048",
+      "leaf_pollinated_color": "0x7cbe48",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Elm",
+        "path": "elm"
+      },
+      "wood_color": "0x848386",
+      "worldgen": "WorldGenTree3.Elm",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes"
+      ],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smaller.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smaller"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Average"
+        }
+      ]
+    },
+    {
+      "enum": "Elder",
+      "binnie_uid": "elder",
+      "genus": "sambucus",
+      "binomial": "nigra",
+      "path": "tree_elder",
+      "reforestry_id": "reforestry:tree_elder",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0xaeb873",
+      "leaf_pollinated_color": "0xe0e7bd",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Elder",
+        "path": "elder"
+      },
+      "wood_color": "0xd8b874",
+      "worldgen": "WorldGenTree3.Elder",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.prunes",
+        "forestry.nuts",
+        "extratrees.berry",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Elderberry.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Elderberry",
+          "reforestry_id": "reforestry:fruit_elderberry"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smaller.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smaller"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Low"
+        }
+      ]
+    },
+    {
+      "enum": "Holly",
+      "binnie_uid": "holly",
+      "genus": "ilex",
+      "binomial": "aquifolium",
+      "path": "tree_holly",
+      "reforestry_id": "reforestry:tree_holly",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x254b4c",
+      "leaf_pollinated_color": "0x6e9284",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Holly",
+        "path": "holly"
+      },
+      "wood_color": "0xb5aa85",
+      "worldgen": "WorldGenHolly.Holly",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Low"
+        }
+      ]
+    },
+    {
+      "enum": "Hornbeam",
+      "binnie_uid": "hornbeam",
+      "genus": "carpinus",
+      "binomial": "betulus",
+      "path": "tree_hornbeam",
+      "reforestry_id": "reforestry:tree_hornbeam",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x96a71b",
+      "leaf_pollinated_color": "0x96dd1b",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Hornbeam",
+        "path": "hornbeam"
+      },
+      "wood_color": "0xa39276",
+      "worldgen": "WorldGenTree3.Hornbeam",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.prunes",
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smaller.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smaller"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Slow.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Slow"
+        }
+      ]
+    },
+    {
+      "enum": "Sallow",
+      "binnie_uid": "sallow",
+      "genus": "salix",
+      "binomial": "caprea",
+      "path": "tree_sallow",
+      "reforestry_id": "reforestry:tree_sallow",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "WILLOW",
+      "leaf_color": "0xaeb323",
+      "leaf_pollinated_color": "0xb7ec25",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "WILLOW",
+        "path": "willow"
+      },
+      "wood_color": "0xa19a95",
+      "worldgen": "WorldGenTree3.Sallow",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Large.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Large"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        }
+      ]
+    },
+    {
+      "enum": "AcornOak",
+      "binnie_uid": "acornoak",
+      "genus": "quercus",
+      "binomial": "robur",
+      "path": "tree_acorn_oak",
+      "reforestry_id": "reforestry:tree_acorn_oak",
+      "action": "keep_acorn_oak",
+      "ce_binomial_match": {
+        "match": "exact",
+        "reforestry_id": "reforestry:tree_oak",
+        "path": "tree_oak",
+        "genus": "quercus",
+        "binomial": "robur"
+      },
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x66733e",
+      "leaf_pollinated_color": "0x9ea231",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "OAK",
+        "path": "oak"
+      },
+      "wood_color": "0x614d30",
+      "worldgen": "WorldGenTree3.AcornOak",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Acorn.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Acorn",
+          "reforestry_id": "reforestry:fruit_acorn"
+        },
+        {
+          "chromosome": "GIRTH",
+          "source": "ForestryAllele.Int.Int2.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Int",
+          "value": "Int2"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Large.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Large"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Low"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        }
+      ]
+    },
+    {
+      "enum": "Fir",
+      "binnie_uid": "fir",
+      "genus": "abies",
+      "binomial": "alba",
+      "path": "tree_et_fir",
+      "reforestry_id": "reforestry:tree_et_fir",
+      "action": "id_collision_remap",
+      "ce_binomial_match": null,
+      "id_collision": {
+        "would_be": "reforestry:tree_fir",
+        "collides_with": "reforestry:tree_fir",
+        "remap": "reforestry:tree_et_fir",
+        "reason": "snake id already used by DefaultTreeSpecies with a different binomial"
+      },
+      "leaf_type": "CONIFERS",
+      "leaf_color": "0x6f7c20",
+      "leaf_pollinated_color": "0x6fd120",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Fir",
+        "path": "fir"
+      },
+      "wood_color": "0x828382",
+      "worldgen": "WorldGenFir.SilverFir",
+      "has_fruit_leaves": false,
+      "fruit_families": [],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Large.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Large"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Slow.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Slow"
+        }
+      ]
+    },
+    {
+      "enum": "Cedar",
+      "binnie_uid": "cedar",
+      "genus": "cedrus",
+      "binomial": "libani",
+      "path": "tree_cedar",
+      "reforestry_id": "reforestry:tree_cedar",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "CONIFERS",
+      "leaf_color": "0x95a370",
+      "leaf_pollinated_color": "0x95e870",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Cedar",
+        "path": "cedar"
+      },
+      "wood_color": "0xad764f",
+      "worldgen": "WorldGenConifer.Cedar",
+      "has_fruit_leaves": false,
+      "fruit_families": [],
+      "genome": [
+        {
+          "chromosome": "GIRTH",
+          "source": "ForestryAllele.Int.Int2.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Int",
+          "value": "Int2"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smaller.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smaller"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Slower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Slower"
+        }
+      ]
+    },
+    {
+      "enum": "Olive",
+      "binnie_uid": "olive",
+      "genus": "olea",
+      "binomial": "europaea",
+      "path": "tree_olive",
+      "reforestry_id": "reforestry:tree_olive",
+      "action": "skip_reuse",
+      "ce_binomial_match": {
+        "match": "exact",
+        "reforestry_id": "reforestry:tree_olive",
+        "path": "tree_olive",
+        "genus": "olea",
+        "binomial": "europaea"
+      },
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x3c4834",
+      "leaf_pollinated_color": "0x3c4834",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Olive",
+        "path": "olive"
+      },
+      "wood_color": "0x7b706a",
+      "worldgen": "WorldGenTree2.Olive",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.prunes",
+        "forestry.nuts",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Olive.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Olive",
+          "reforestry_id": "reforestry:fruit_olive"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Average"
+        }
+      ]
+    },
+    {
+      "enum": "RedMaple",
+      "binnie_uid": "redmaple",
+      "genus": "acer",
+      "binomial": "ubrum",
+      "path": "tree_red_maple",
+      "reforestry_id": "reforestry:tree_red_maple",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "MAPLE",
+      "leaf_color": "0xe82e17",
+      "leaf_pollinated_color": "0xe82e17",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "MAPLE",
+        "path": "maple"
+      },
+      "wood_color": "0x8a8781",
+      "worldgen": "WorldGenMaple.RedMaple",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.High.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "High"
+        }
+      ]
+    },
+    {
+      "enum": "BalsamFir",
+      "binnie_uid": "balsamfir",
+      "genus": "abies",
+      "binomial": "balsamea",
+      "path": "tree_fir",
+      "reforestry_id": "reforestry:tree_fir",
+      "action": "skip_reuse",
+      "ce_binomial_match": {
+        "match": "exact",
+        "reforestry_id": "reforestry:tree_fir",
+        "path": "tree_fir",
+        "genus": "abies",
+        "binomial": "balsamea"
+      },
+      "id_collision": null,
+      "leaf_type": "CONIFERS",
+      "leaf_color": "0x74a07c",
+      "leaf_pollinated_color": "0x74a07c",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Fir",
+        "path": "fir"
+      },
+      "wood_color": "0x828382",
+      "worldgen": "WorldGenFir.BalsamFir",
+      "has_fruit_leaves": false,
+      "fruit_families": [],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Slow.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Slow"
+        }
+      ]
+    },
+    {
+      "enum": "LoblollyPine",
+      "binnie_uid": "loblollypine",
+      "genus": "pinus",
+      "binomial": "taeda",
+      "path": "tree_loblolly_pine",
+      "reforestry_id": "reforestry:tree_loblolly_pine",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "CONIFERS",
+      "leaf_color": "0x6f8a47",
+      "leaf_pollinated_color": "0x6f8a47",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "PINE",
+        "path": "pine"
+      },
+      "wood_color": "0x735649",
+      "worldgen": "WorldGenConifer.LoblollyPine",
+      "has_fruit_leaves": false,
+      "fruit_families": [],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smaller.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smaller"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Slow.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Slow"
+        }
+      ]
+    },
+    {
+      "enum": "Sweetgum",
+      "binnie_uid": "sweetgum",
+      "genus": "liquidambar",
+      "binomial": "styraciflua",
+      "path": "tree_sweetgum",
+      "reforestry_id": "reforestry:tree_sweetgum",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x8b8762",
+      "leaf_pollinated_color": "0x8b8762",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Sweetgum",
+        "path": "sweetgum"
+      },
+      "wood_color": "0xa1a19c",
+      "worldgen": "WorldGenTree2.Sweetgum",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Average"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.High.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "High"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Low"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Average"
+        }
+      ]
+    },
+    {
+      "enum": "Locust",
+      "binnie_uid": "locust",
+      "genus": "robinia",
+      "binomial": "pseudoacacia",
+      "path": "tree_locust",
+      "reforestry_id": "reforestry:tree_locust",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x887300",
+      "leaf_pollinated_color": "0x887300",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Locust",
+        "path": "locust"
+      },
+      "wood_color": "0xadacbc",
+      "worldgen": "WorldGenTree2.Locust",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.prunes",
+        "forestry.nuts",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        }
+      ]
+    },
+    {
+      "enum": "Pear",
+      "binnie_uid": "pear",
+      "genus": "pyrus",
+      "binomial": "communis",
+      "path": "tree_pear",
+      "reforestry_id": "reforestry:tree_pear",
+      "action": "skip_reuse",
+      "ce_binomial_match": {
+        "match": "exact",
+        "reforestry_id": "reforestry:tree_pear",
+        "path": "tree_pear",
+        "genus": "pyrus",
+        "binomial": "communis"
+      },
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x5e8826",
+      "leaf_pollinated_color": "0x5e8826",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Pear",
+        "path": "pear"
+      },
+      "wood_color": "0xa89779",
+      "worldgen": "WorldGenTree2.Pear",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Pear.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Pear",
+          "reforestry_id": "reforestry:fruit_pear"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smaller.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smaller"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.High.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "High"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Fast.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Fast"
+        }
+      ]
+    },
+    {
+      "enum": "OsangeOrange",
+      "binnie_uid": "osangeorange",
+      "genus": "maclura",
+      "binomial": "pomifera",
+      "path": "tree_osange_orange",
+      "reforestry_id": "reforestry:tree_osange_orange",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x687a50",
+      "leaf_pollinated_color": "0x687a50",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Maclura",
+        "path": "maclura"
+      },
+      "wood_color": "0x8b5734",
+      "worldgen": "WorldGenJungle.OsangeOrange",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.pomes",
+        "forestry.prunes",
+        "forestry.jungle",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.OsangeOrange.getAllele()",
+          "kind": "et_fruit",
+          "enum": "OsangeOrange",
+          "reforestry_id": "reforestry:fruit_osange_orange"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Lower"
+        }
+      ]
+    },
+    {
+      "enum": "OldFustic",
+      "binnie_uid": "oldfustic",
+      "genus": "maclura",
+      "binomial": "tinctoria",
+      "path": "tree_old_fustic",
+      "reforestry_id": "reforestry:tree_old_fustic",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x687a50",
+      "leaf_pollinated_color": "0x687a50",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Maclura",
+        "path": "maclura"
+      },
+      "wood_color": "0x8b5734",
+      "worldgen": "WorldGenJungle.OldFustic",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.jungle"
+      ],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smaller.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smaller"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        }
+      ]
+    },
+    {
+      "enum": "Brazilwood",
+      "binnie_uid": "brazilwood",
+      "genus": "caesalpinia",
+      "binomial": "echinata",
+      "path": "tree_brazilwood",
+      "reforestry_id": "reforestry:tree_brazilwood",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x607459",
+      "leaf_pollinated_color": "0x607459",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Brazilwood",
+        "path": "brazilwood"
+      },
+      "wood_color": "0x9e8068",
+      "worldgen": "WorldGenJungle.Brazilwood",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.jungle"
+      ],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smaller.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smaller"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        }
+      ]
+    },
+    {
+      "enum": "Logwood",
+      "binnie_uid": "logwood",
+      "genus": "haematoxylum",
+      "binomial": "campechianum",
+      "path": "tree_logwood",
+      "reforestry_id": "reforestry:tree_logwood",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x889f6b",
+      "leaf_pollinated_color": "0x889f6b",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Logwood",
+        "path": "logwood"
+      },
+      "wood_color": "0xf9e2d2",
+      "worldgen": "WorldGenJungle.Logwood",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.jungle"
+      ],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Average"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        }
+      ]
+    },
+    {
+      "enum": "Rosewood",
+      "binnie_uid": "rosewood",
+      "genus": "dalbergia",
+      "binomial": "latifolia",
+      "path": "tree_rosewood",
+      "reforestry_id": "reforestry:tree_rosewood",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x879b22",
+      "leaf_pollinated_color": "0x879b22",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Rosewood",
+        "path": "rosewood"
+      },
+      "wood_color": "0x998666",
+      "worldgen": "WorldGenJungle.Rosewood",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.jungle"
+      ],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lowest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lowest"
+        }
+      ]
+    },
+    {
+      "enum": "Purpleheart",
+      "binnie_uid": "purpleheart",
+      "genus": "peltogyne",
+      "binomial": "spp",
+      "path": "tree_purpleheart",
+      "reforestry_id": "reforestry:tree_purpleheart",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x778f55",
+      "leaf_pollinated_color": "0x778f55",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Purpleheart",
+        "path": "purpleheart"
+      },
+      "wood_color": "0x9392a2",
+      "worldgen": "WorldGenJungle.Purpleheart",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.jungle"
+      ],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Large.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Large"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        }
+      ]
+    },
+    {
+      "enum": "Iroko",
+      "binnie_uid": "iroko",
+      "genus": "milicia",
+      "binomial": "excelsa",
+      "path": "tree_iroko",
+      "reforestry_id": "reforestry:tree_iroko",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0xafc86c",
+      "leaf_pollinated_color": "0xafc86c",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Iroko",
+        "path": "iroko"
+      },
+      "wood_color": "0x605c5b",
+      "worldgen": "WorldGenTree2.Iroko",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.jungle",
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Average"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        }
+      ]
+    },
+    {
+      "enum": "Gingko",
+      "binnie_uid": "gingko",
+      "genus": "ginkgo",
+      "binomial": "biloba",
+      "path": "tree_ginkgo",
+      "reforestry_id": "reforestry:tree_ginkgo",
+      "action": "skip_reuse",
+      "ce_binomial_match": {
+        "match": "spelling",
+        "et": [
+          "ginkgo",
+          "biloba"
+        ],
+        "ce": [
+          "ginkgo",
+          "bilboa"
+        ],
+        "reforestry_id": "reforestry:tree_ginkgo",
+        "path": "tree_ginkgo",
+        "genus": "ginkgo",
+        "binomial": "bilboa"
+      },
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x719651",
+      "leaf_pollinated_color": "0x719651",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Gingko",
+        "path": "gingko"
+      },
+      "wood_color": "0xadae9c",
+      "worldgen": "WorldGenTree2.Gingko",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.jungle",
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.GingkoNut.getAllele()",
+          "kind": "et_fruit",
+          "enum": "GingkoNut",
+          "reforestry_id": "reforestry:fruit_gingko_nut"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Large.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Large"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Low"
+        }
+      ]
+    },
+    {
+      "enum": "Brazilnut",
+      "binnie_uid": "brazilnut",
+      "genus": "bertholletia",
+      "binomial": "excelsa",
+      "path": "tree_brazilnut",
+      "reforestry_id": "reforestry:tree_brazilnut",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x7c8f7b",
+      "leaf_pollinated_color": "0x7c8f7b",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "JUNGLE",
+        "path": "jungle"
+      },
+      "wood_color": "0x53411a",
+      "worldgen": "WorldGenJungle.BrazilNut",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.jungle",
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.BrazilNut.getAllele()",
+          "kind": "et_fruit",
+          "enum": "BrazilNut",
+          "reforestry_id": "reforestry:fruit_brazil_nut"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Larger.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Larger"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Low"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Low"
+        }
+      ]
+    },
+    {
+      "enum": "RoseGum",
+      "binnie_uid": "rosegum",
+      "genus": "eucalyptus",
+      "binomial": "grandis",
+      "path": "tree_rose_gum",
+      "reforestry_id": "reforestry:tree_rose_gum",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x9ca258",
+      "leaf_pollinated_color": "0x9ca258",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Eucalyptus",
+        "path": "eucalyptus"
+      },
+      "wood_color": "0xeadeda",
+      "worldgen": "WorldGenEucalyptus.RoseGum",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.jungle"
+      ],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Largest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Largest"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Low"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Slowest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Slowest"
+        }
+      ]
+    },
+    {
+      "enum": "SwampGum",
+      "binnie_uid": "swampgum",
+      "genus": "eucalyptus",
+      "binomial": "grandis",
+      "path": "tree_swamp_gum",
+      "reforestry_id": "reforestry:tree_swamp_gum",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0xa2c686",
+      "leaf_pollinated_color": "0xa2c686",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Eucalyptus2",
+        "path": "eucalyptus2"
+      },
+      "wood_color": "0x867e65",
+      "worldgen": "WorldGenEucalyptus.SwampGum",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.jungle"
+      ],
+      "genome": [
+        {
+          "chromosome": "GIRTH",
+          "source": "ForestryAllele.Int.Int2.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Int",
+          "value": "Int2"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Largest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Largest"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Lowest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Lowest"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Slower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Slower"
+        }
+      ]
+    },
+    {
+      "enum": "Box",
+      "binnie_uid": "box",
+      "genus": "boxus",
+      "binomial": "sempervirens",
+      "path": "tree_box",
+      "reforestry_id": "reforestry:tree_box",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x72996d",
+      "leaf_pollinated_color": "0x72996d",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Box",
+        "path": "box"
+      },
+      "wood_color": "0xab6f57",
+      "worldgen": "WorldGenTree2.Box",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.prunes",
+        "forestry.pomes",
+        "forestry.nuts",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smaller.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smaller"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Faster.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Faster"
+        }
+      ]
+    },
+    {
+      "enum": "Clove",
+      "binnie_uid": "clove",
+      "genus": "syzygium",
+      "binomial": "aromaticum",
+      "path": "tree_clove",
+      "reforestry_id": "reforestry:tree_clove",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x7a821f",
+      "leaf_pollinated_color": "0x7a821f",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Syzgium",
+        "path": "syzgium"
+      },
+      "wood_color": "0xab6f57",
+      "worldgen": "WorldGenTree2.Clove",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.jungle",
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Clove.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Clove",
+          "reforestry_id": "reforestry:fruit_clove"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smaller.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smaller"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.High.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "High"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Fast.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Fast"
+        }
+      ]
+    },
+    {
+      "enum": "Coffee",
+      "binnie_uid": "coffee",
+      "genus": "coffea",
+      "binomial": "arabica",
+      "path": "tree_coffee",
+      "reforestry_id": "reforestry:tree_coffee",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x6f9065",
+      "leaf_pollinated_color": "0x6f9065",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "JUNGLE",
+        "path": "jungle"
+      },
+      "wood_color": "0x53411a",
+      "worldgen": "WorldGenJungle.Coffee",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.jungle",
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Coffee.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Coffee",
+          "reforestry_id": "reforestry:fruit_coffee"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Large.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Large"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Average"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Fast.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Fast"
+        }
+      ]
+    },
+    {
+      "enum": "MonkeyPuzzle",
+      "binnie_uid": "monkeypuzzle",
+      "genus": "araucaria",
+      "binomial": "araucana",
+      "path": "tree_pewen",
+      "reforestry_id": "reforestry:tree_pewen",
+      "action": "skip_reuse",
+      "ce_binomial_match": {
+        "match": "exact",
+        "reforestry_id": "reforestry:tree_pewen",
+        "path": "tree_pewen",
+        "genus": "araucaria",
+        "binomial": "araucana"
+      },
+      "id_collision": null,
+      "leaf_type": "CONIFERS",
+      "leaf_color": "0x576158",
+      "leaf_pollinated_color": "0x576158",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "PINE",
+        "path": "pine"
+      },
+      "wood_color": "0x735649",
+      "worldgen": "WorldGenConifer.MonkeyPuzzle",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.jungle",
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "GIRTH",
+          "source": "ForestryAllele.Int.Int2.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Int",
+          "value": "Int2"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Average"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Low"
+        }
+      ]
+    },
+    {
+      "enum": "RainbowGum",
+      "binnie_uid": "rainbowgum",
+      "genus": "eucalyptus",
+      "binomial": "deglupta",
+      "path": "tree_rainbow_gum",
+      "reforestry_id": "reforestry:tree_rainbow_gum",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0xb7f025",
+      "leaf_pollinated_color": "0xb7f025",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Eucalyptus3",
+        "path": "eucalyptus3"
+      },
+      "wood_color": "0x6cb03f",
+      "worldgen": "WorldGenEucalyptus.RainbowGum",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.jungle",
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Lower"
+        }
+      ]
+    },
+    {
+      "enum": "PinkIvory",
+      "binnie_uid": "pinkivory",
+      "genus": "berchemia",
+      "binomial": "zeyheri",
+      "path": "tree_pink_ivory",
+      "reforestry_id": "reforestry:tree_pink_ivory",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x7c9159",
+      "leaf_pollinated_color": "0x7c9159",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "PinkIvory",
+        "path": "pink_ivory"
+      },
+      "wood_color": "0x7f6554",
+      "worldgen": "BinnieWorldGenTree",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.jungle",
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        }
+      ]
+    },
+    {
+      "enum": "Blackcurrant",
+      "binnie_uid": "blackcurrant",
+      "genus": "ribes",
+      "binomial": "nigrum",
+      "path": "tree_blackcurrant",
+      "reforestry_id": "reforestry:tree_blackcurrant",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0xa6da5c",
+      "leaf_pollinated_color": "0xa6da5c",
+      "sapling_type": "Shrub",
+      "wood": {
+        "kind": "shrub_log",
+        "enum": "INSTANCE",
+        "path": "shrub_log"
+      },
+      "wood_color": "0xffffff",
+      "worldgen": "WorldGenShrub.Shrub",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.prunes",
+        "forestry.nuts",
+        "extratrees.berry"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Blackcurrant.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Blackcurrant",
+          "reforestry_id": "reforestry:fruit_blackcurrant"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Faster.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Faster"
+        }
+      ]
+    },
+    {
+      "enum": "Redcurrant",
+      "binnie_uid": "redcurrant",
+      "genus": "ribes",
+      "binomial": "rubrum",
+      "path": "tree_redcurrant",
+      "reforestry_id": "reforestry:tree_redcurrant",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x74ac00",
+      "leaf_pollinated_color": "0x74ac00",
+      "sapling_type": "Shrub",
+      "wood": {
+        "kind": "shrub_log",
+        "enum": "INSTANCE",
+        "path": "shrub_log"
+      },
+      "wood_color": "0xffffff",
+      "worldgen": "WorldGenShrub.Shrub",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.prunes",
+        "forestry.nuts",
+        "extratrees.berry"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Redcurrant.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Redcurrant",
+          "reforestry_id": "reforestry:fruit_redcurrant"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Average"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Low"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Faster.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Faster"
+        }
+      ]
+    },
+    {
+      "enum": "Blackberry",
+      "binnie_uid": "blackberry",
+      "genus": "rubus",
+      "binomial": "fruticosus",
+      "path": "tree_blackberry",
+      "reforestry_id": "reforestry:tree_blackberry",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x92c15b",
+      "leaf_pollinated_color": "0x92c15b",
+      "sapling_type": "Shrub",
+      "wood": {
+        "kind": "shrub_log",
+        "enum": "INSTANCE",
+        "path": "shrub_log"
+      },
+      "wood_color": "0xffffff",
+      "worldgen": "WorldGenShrub.Shrub",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.prunes",
+        "forestry.nuts",
+        "extratrees.berry"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Blackberry.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Blackberry",
+          "reforestry_id": "reforestry:fruit_blackberry"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.High.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "High"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Faster.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Faster"
+        }
+      ]
+    },
+    {
+      "enum": "Raspberry",
+      "binnie_uid": "raspberry",
+      "genus": "rubus",
+      "binomial": "idaeus",
+      "path": "tree_raspberry",
+      "reforestry_id": "reforestry:tree_raspberry",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x83b96e",
+      "leaf_pollinated_color": "0x83b96e",
+      "sapling_type": "Shrub",
+      "wood": {
+        "kind": "shrub_log",
+        "enum": "INSTANCE",
+        "path": "shrub_log"
+      },
+      "wood_color": "0xffffff",
+      "worldgen": "WorldGenShrub.Shrub",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.prunes",
+        "forestry.nuts",
+        "extratrees.berry"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Raspberry.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Raspberry",
+          "reforestry_id": "reforestry:fruit_raspberry"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Faster.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Faster"
+        }
+      ]
+    },
+    {
+      "enum": "Blueberry",
+      "binnie_uid": "blueberry",
+      "genus": "vaccinium",
+      "binomial": "corymbosum",
+      "path": "tree_blueberry",
+      "reforestry_id": "reforestry:tree_blueberry",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x72c750",
+      "leaf_pollinated_color": "0x72c750",
+      "sapling_type": "Shrub",
+      "wood": {
+        "kind": "shrub_log",
+        "enum": "INSTANCE",
+        "path": "shrub_log"
+      },
+      "wood_color": "0xffffff",
+      "worldgen": "WorldGenShrub.Shrub",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.prunes",
+        "forestry.nuts",
+        "extratrees.berry"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Blueberry.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Blueberry",
+          "reforestry_id": "reforestry:fruit_blueberry"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Average"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Low"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Faster.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Faster"
+        }
+      ]
+    },
+    {
+      "enum": "Cranberry",
+      "binnie_uid": "cranberry",
+      "genus": "vaccinium",
+      "binomial": "oxycoccos",
+      "path": "tree_cranberry",
+      "reforestry_id": "reforestry:tree_cranberry",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x96d179",
+      "leaf_pollinated_color": "0x96d179",
+      "sapling_type": "Shrub",
+      "wood": {
+        "kind": "shrub_log",
+        "enum": "INSTANCE",
+        "path": "shrub_log"
+      },
+      "wood_color": "0xffffff",
+      "worldgen": "WorldGenShrub.Shrub",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.prunes",
+        "forestry.nuts",
+        "extratrees.berry"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Cranberry.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Cranberry",
+          "reforestry_id": "reforestry:fruit_cranberry"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Average"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.High.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "High"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Low"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Faster.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Faster"
+        }
+      ]
+    },
+    {
+      "enum": "Juniper",
+      "binnie_uid": "juniper",
+      "genus": "juniperus",
+      "binomial": "communis",
+      "path": "tree_juniper",
+      "reforestry_id": "reforestry:tree_juniper",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "CONIFERS",
+      "leaf_color": "0x90b149",
+      "leaf_pollinated_color": "0x90b149",
+      "sapling_type": "Shrub",
+      "wood": {
+        "kind": "shrub_log",
+        "enum": "INSTANCE",
+        "path": "shrub_log"
+      },
+      "wood_color": "0xffffff",
+      "worldgen": "WorldGenShrub.Shrub",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.prunes",
+        "forestry.nuts",
+        "extratrees.berry"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Juniper.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Juniper",
+          "reforestry_id": "reforestry:fruit_juniper"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Low"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Low"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Faster.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Faster"
+        }
+      ]
+    },
+    {
+      "enum": "Gooseberry",
+      "binnie_uid": "gooseberry",
+      "genus": "ribes",
+      "binomial": "grossularia",
+      "path": "tree_gooseberry",
+      "reforestry_id": "reforestry:tree_gooseberry",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x79bb00",
+      "leaf_pollinated_color": "0x79bb00",
+      "sapling_type": "Shrub",
+      "wood": {
+        "kind": "shrub_log",
+        "enum": "INSTANCE",
+        "path": "shrub_log"
+      },
+      "wood_color": "0xffffff",
+      "worldgen": "WorldGenShrub.Shrub",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.prunes",
+        "forestry.nuts",
+        "extratrees.berry"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Gooseberry.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Gooseberry",
+          "reforestry_id": "reforestry:fruit_gooseberry"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.High.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "High"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.High.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "High"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Faster.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Faster"
+        }
+      ]
+    },
+    {
+      "enum": "GoldenRaspberry",
+      "binnie_uid": "goldenraspberry",
+      "genus": "rubus",
+      "binomial": "occidentalis",
+      "path": "tree_golden_raspberry",
+      "reforestry_id": "reforestry:tree_golden_raspberry",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x83b96e",
+      "leaf_pollinated_color": "0x83b96e",
+      "sapling_type": "Shrub",
+      "wood": {
+        "kind": "shrub_log",
+        "enum": "INSTANCE",
+        "path": "shrub_log"
+      },
+      "wood_color": "0xffffff",
+      "worldgen": "WorldGenShrub.Shrub",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.prunes",
+        "forestry.nuts",
+        "extratrees.berry"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.GoldenRaspberry.getAllele()",
+          "kind": "et_fruit",
+          "enum": "GoldenRaspberry",
+          "reforestry_id": "reforestry:fruit_golden_raspberry"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smaller.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smaller"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Fastest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Fastest"
+        }
+      ]
+    },
+    {
+      "enum": "Cinnamon",
+      "binnie_uid": "cinnamon",
+      "genus": "cinnamomum",
+      "binomial": "cassia",
+      "path": "tree_cinnamon",
+      "reforestry_id": "reforestry:tree_cinnamon",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x738e0b",
+      "leaf_pollinated_color": "0x738e0b",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Cinnamon",
+        "path": "cinnamon"
+      },
+      "wood_color": "0x86583c",
+      "worldgen": "WorldGenLazy.Tree",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.jungle",
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Average"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Fast.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Fast"
+        }
+      ]
+    },
+    {
+      "enum": "Coconut",
+      "binnie_uid": "coconut",
+      "genus": "cocous",
+      "binomial": "nucifera",
+      "path": "tree_coconut",
+      "reforestry_id": "reforestry:tree_coconut",
+      "action": "skip_reuse",
+      "ce_binomial_match": {
+        "match": "spelling",
+        "et": [
+          "cocous",
+          "nucifera"
+        ],
+        "ce": [
+          "cocos",
+          "nucifera"
+        ],
+        "reforestry_id": "reforestry:tree_coconut",
+        "path": "tree_coconut",
+        "genus": "cocos",
+        "binomial": "nucifera"
+      },
+      "id_collision": null,
+      "leaf_type": "PALM",
+      "leaf_color": "0x649923",
+      "leaf_pollinated_color": "0x649923",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "JUNGLE",
+        "path": "jungle"
+      },
+      "wood_color": "0x53411a",
+      "worldgen": "WorldGenPalm.Coconut",
+      "has_fruit_leaves": false,
+      "fruit_families": [
+        "forestry.jungle"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Coconut.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Coconut",
+          "reforestry_id": "reforestry:fruit_coconut"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Small.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Small"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Average"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Fast.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Fast"
+        }
+      ]
+    },
+    {
+      "enum": "Cashew",
+      "binnie_uid": "cashew",
+      "genus": "anacardium",
+      "binomial": "occidentale",
+      "path": "tree_cashew",
+      "reforestry_id": "reforestry:tree_cashew",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0xabb962",
+      "leaf_pollinated_color": "0xabb962",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "JUNGLE",
+        "path": "jungle"
+      },
+      "wood_color": "0x53411a",
+      "worldgen": "WorldGenLazy.Tree",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.jungle",
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Cashew.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Cashew",
+          "reforestry_id": "reforestry:fruit_cashew"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Low"
+        }
+      ]
+    },
+    {
+      "enum": "Avocado",
+      "binnie_uid": "avocado",
+      "genus": "persea",
+      "binomial": "americana",
+      "path": "tree_avocado",
+      "reforestry_id": "reforestry:tree_avocado",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x96a375",
+      "leaf_pollinated_color": "0x96a375",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "JUNGLE",
+        "path": "jungle"
+      },
+      "wood_color": "0x53411a",
+      "worldgen": "WorldGenLazy.Tree",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.prunes",
+        "forestry.jungle",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Avocado.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Avocado",
+          "reforestry_id": "reforestry:fruit_avocado"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Average"
+        }
+      ]
+    },
+    {
+      "enum": "Nutmeg",
+      "binnie_uid": "nutmeg",
+      "genus": "myristica",
+      "binomial": "fragrans",
+      "path": "tree_nutmeg",
+      "reforestry_id": "reforestry:tree_nutmeg",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x488d4c",
+      "leaf_pollinated_color": "0x488d4c",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "JUNGLE",
+        "path": "jungle"
+      },
+      "wood_color": "0x53411a",
+      "worldgen": "WorldGenLazy.Tree",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.jungle",
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Nutmeg.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Nutmeg",
+          "reforestry_id": "reforestry:fruit_nutmeg"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smaller.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smaller"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.High.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "High"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Low"
+        }
+      ]
+    },
+    {
+      "enum": "Allspice",
+      "binnie_uid": "allspice",
+      "genus": "pimenta",
+      "binomial": "dioica",
+      "path": "tree_allspice",
+      "reforestry_id": "reforestry:tree_allspice",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x7c9724",
+      "leaf_pollinated_color": "0x7c9724",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "JUNGLE",
+        "path": "jungle"
+      },
+      "wood_color": "0x53411a",
+      "worldgen": "WorldGenLazy.Tree",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.jungle",
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Allspice.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Allspice",
+          "reforestry_id": "reforestry:fruit_allspice"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.High.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "High"
+        }
+      ]
+    },
+    {
+      "enum": "Chilli",
+      "binnie_uid": "chilli",
+      "genus": "capsicum",
+      "binomial": "annuum",
+      "path": "tree_chilli",
+      "reforestry_id": "reforestry:tree_chilli",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x2a9f01",
+      "leaf_pollinated_color": "0x2a9f01",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "JUNGLE",
+        "path": "jungle"
+      },
+      "wood_color": "0x53411a",
+      "worldgen": "WorldGenLazy.Tree",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.jungle",
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Chilli.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Chilli",
+          "reforestry_id": "reforestry:fruit_chilli"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smaller.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smaller"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Higher.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Higher"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Fast.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Fast"
+        }
+      ]
+    },
+    {
+      "enum": "StarAnise",
+      "binnie_uid": "staranise",
+      "genus": "illicium",
+      "binomial": "verum",
+      "path": "tree_star_anise",
+      "reforestry_id": "reforestry:tree_star_anise",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x7fc409",
+      "leaf_pollinated_color": "0x7fc409",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "JUNGLE",
+        "path": "jungle"
+      },
+      "wood_color": "0x53411a",
+      "worldgen": "WorldGenLazy.Tree",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.jungle",
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.StarAnise.getAllele()",
+          "kind": "et_fruit",
+          "enum": "StarAnise",
+          "reforestry_id": "reforestry:fruit_star_anise"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Average"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.High.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "High"
+        }
+      ]
+    },
+    {
+      "enum": "Mango",
+      "binnie_uid": "mango",
+      "genus": "mangifera",
+      "binomial": "indica",
+      "path": "tree_mango",
+      "reforestry_id": "reforestry:tree_mango",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x87b574",
+      "leaf_pollinated_color": "0x87b574",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "JUNGLE",
+        "path": "jungle"
+      },
+      "wood_color": "0x53411a",
+      "worldgen": "WorldGenTropical.Mango",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.prunes",
+        "forestry.pomes",
+        "forestry.jungle",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Mango.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Mango",
+          "reforestry_id": "reforestry:fruit_mango"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smaller.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smaller"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Low"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Fast.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Fast"
+        }
+      ]
+    },
+    {
+      "enum": "Starfruit",
+      "binnie_uid": "starfruit",
+      "genus": "averrhoa",
+      "binomial": "carambola",
+      "path": "tree_starfruit",
+      "reforestry_id": "reforestry:tree_starfruit",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "JUNGLE",
+      "leaf_color": "0x6da92d",
+      "leaf_pollinated_color": "0x6da92d",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "JUNGLE",
+        "path": "jungle"
+      },
+      "wood_color": "0x53411a",
+      "worldgen": "WorldGenLazy.Tree",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.prunes",
+        "forestry.jungle",
+        "extratrees.citrus"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Starfruit.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Starfruit",
+          "reforestry_id": "reforestry:fruit_starfruit"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Average"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Fast.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Fast"
+        }
+      ]
+    },
+    {
+      "enum": "Candlenut",
+      "binnie_uid": "candlenut",
+      "genus": "aleurites",
+      "binomial": "moluccana",
+      "path": "tree_candlenut",
+      "reforestry_id": "reforestry:tree_candlenut",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x8aa36c",
+      "leaf_pollinated_color": "0x8aa36c",
+      "sapling_type": "Default",
+      "wood": {
+        "kind": "forestry_or_vanilla",
+        "enum": "JUNGLE",
+        "path": "jungle"
+      },
+      "wood_color": "0x53411a",
+      "worldgen": "WorldGenLazy.Tree",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.jungle",
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Candlenut.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Candlenut",
+          "reforestry_id": "reforestry:fruit_candlenut"
+        },
+        {
+          "chromosome": "HEIGHT",
+          "source": "ForestryAllele.TreeHeight.Smallest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "TreeHeight",
+          "value": "Smallest"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Lowest.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Lowest"
+        },
+        {
+          "chromosome": "YIELD",
+          "source": "ForestryAllele.Yield.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Yield",
+          "value": "Low"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Low.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Low"
+        }
+      ]
+    },
+    {
+      "enum": "DwarfHazel",
+      "binnie_uid": "dwarfhazel",
+      "genus": "Corylus",
+      "binomial": "americana",
+      "path": "tree_dwarf_hazel",
+      "reforestry_id": "reforestry:tree_dwarf_hazel",
+      "action": "register",
+      "ce_binomial_match": null,
+      "id_collision": null,
+      "leaf_type": "DECIDUOUS",
+      "leaf_color": "0x9bb552",
+      "leaf_pollinated_color": "0x9be152",
+      "sapling_type": "Shrub",
+      "wood": {
+        "kind": "et_log",
+        "enum": "Hazel",
+        "path": "hazel"
+      },
+      "wood_color": "0xaa986f",
+      "worldgen": "WorldGenShrub.Shrub",
+      "has_fruit_leaves": true,
+      "fruit_families": [
+        "forestry.prunes",
+        "forestry.nuts"
+      ],
+      "genome": [
+        {
+          "chromosome": "FRUITS",
+          "source": "AlleleETFruitDefinition.Hazelnut.getAllele()",
+          "kind": "et_fruit",
+          "enum": "Hazelnut",
+          "reforestry_id": "reforestry:fruit_hazelnut"
+        },
+        {
+          "chromosome": "FERTILITY",
+          "source": "ForestryAllele.Saplings.Average.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Saplings",
+          "value": "Average"
+        },
+        {
+          "chromosome": "SAPPINESS",
+          "source": "ForestryAllele.Sappiness.Lower.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Sappiness",
+          "value": "Lower"
+        },
+        {
+          "chromosome": "MATURATION",
+          "source": "ForestryAllele.Maturation.Faster.getAllele()",
+          "kind": "forestry_allele",
+          "group": "Maturation",
+          "value": "Faster"
+        }
+      ]
+    }
+  ]
+}

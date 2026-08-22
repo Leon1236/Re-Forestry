@@ -1,0 +1,21 @@
+{
+  "wants": {
+    "id": "minecraft:potato",
+    "count": {
+      "type": "minecraft:uniform",
+      "min": 8,
+      "max": 12
+    }
+  },
+  "gives": "reforestry:bee_comb_honey",
+  "max_uses": 8,
+  "xp": 2,
+  "reputation_discount": 0.0,
+  "given_item_modifiers": [
+    {
+      "function": "reforestry:set_random_village_comb",
+      "min_count": 2,
+      "max_count": 4
+    }
+  ]
+}

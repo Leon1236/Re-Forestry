@@ -6,13 +6,12 @@ import net.minecraft.world.level.material.PushReaction;
 
 import com.leon1236.reforestry.api.arboriculture.IWoodType;
 import com.leon1236.reforestry.api.arboriculture.WoodBlockKind;
-import com.leon1236.reforestry.arboriculture.ForestryWoodType;
 import com.leon1236.reforestry.arboriculture.IWoodTyped;
 
 public class BlockForestryButton extends ButtonBlock implements IWoodTyped {
-    private final ForestryWoodType woodType;
+    private final IWoodType woodType;
 
-    public BlockForestryButton(ForestryWoodType woodType, BlockBehaviour.Properties properties) {
+    public BlockForestryButton(IWoodType woodType, BlockBehaviour.Properties properties) {
         super(woodType.getBlockSetType(), 30, properties.noCollision().strength(0.5f).pushReaction(PushReaction.DESTROY));
         this.woodType = woodType;
     }

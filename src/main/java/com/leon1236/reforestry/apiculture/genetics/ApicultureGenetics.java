@@ -73,7 +73,7 @@ public final class ApicultureGenetics {
             }
         }
         BeeSpeciesType.INSTANCE.setMutations(new IdentifierMutationManager(getAllMutations()));
-        ((ForestryApiImpl) ForestryApiImpl.get()).getMutableGeneticManager().registerSpeciesType(BeeSpeciesType.INSTANCE);
+        ForestryApiImpl.get().getMutableGeneticManager().registerSpeciesType(BeeSpeciesType.INSTANCE);
         finalized = true;
     }
 
@@ -117,6 +117,11 @@ public final class ApicultureGenetics {
             throw new IllegalArgumentException("Unknown bee species: " + id);
         }
         return species;
+    }
+
+    @Nullable
+    public static IBeeSpecies getSpeciesSafe(Identifier id) {
+        return speciesById.get(id);
     }
 
     public static IGenome getDefaultGenome(Identifier id) {

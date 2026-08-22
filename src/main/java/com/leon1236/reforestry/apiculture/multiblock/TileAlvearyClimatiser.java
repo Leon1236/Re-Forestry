@@ -60,7 +60,7 @@ public abstract class TileAlvearyClimatiser extends TileAlveary
 	@Override
 	protected void loadAdditional(ValueInput input) {
 		super.loadAdditional(input);
-		this.energyStorage.amount = input.getLongOr("Energy", 0L);
+		this.energyStorage.amount = Math.min(CAPACITY, Math.max(0L, input.getLongOr("Energy", 0L)));
 		this.workingTime = input.getIntOr("Heating", 0);
 	}
 

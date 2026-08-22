@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "reforestry:block/fluid_tequila"
+    },
+    "level=1": {
+      "model": "reforestry:block/fluid_tequila"
+    },
+    "level=2": {
+      "model": "reforestry:block/fluid_tequila"
+    },
+    "level=3": {
+      "model": "reforestry:block/fluid_tequila"
+    },
+    "level=4": {
+      "model": "reforestry:block/fluid_tequila"
+    },
+    "level=5": {
+      "model": "reforestry:block/fluid_tequila"
+    },
+    "level=6": {
+      "model": "reforestry:block/fluid_tequila"
+    },
+    "level=7": {
+      "model": "reforestry:block/fluid_tequila"
+    },
+    "level=8": {
+      "model": "reforestry:block/fluid_tequila"
+    },
+    "level=9": {
+      "model": "reforestry:block/fluid_tequila"
+    },
+    "level=10": {
+      "model": "reforestry:block/fluid_tequila"
+    },
+    "level=11": {
+      "model": "reforestry:block/fluid_tequila"
+    },
+    "level=12": {
+      "model": "reforestry:block/fluid_tequila"
+    },
+    "level=13": {
+      "model": "reforestry:block/fluid_tequila"
+    },
+    "level=14": {
+      "model": "reforestry:block/fluid_tequila"
+    },
+    "level=15": {
+      "model": "reforestry:block/fluid_tequila"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "reforestry:block/mutatron" },
+    "facing=south": { "model": "reforestry:block/mutatron", "y": 180 },
+    "facing=west": { "model": "reforestry:block/mutatron", "y": 270 },
+    "facing=east": { "model": "reforestry:block/mutatron", "y": 90 }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "reforestry:block/fluid_wine_carrot"
+    },
+    "level=1": {
+      "model": "reforestry:block/fluid_wine_carrot"
+    },
+    "level=2": {
+      "model": "reforestry:block/fluid_wine_carrot"
+    },
+    "level=3": {
+      "model": "reforestry:block/fluid_wine_carrot"
+    },
+    "level=4": {
+      "model": "reforestry:block/fluid_wine_carrot"
+    },
+    "level=5": {
+      "model": "reforestry:block/fluid_wine_carrot"
+    },
+    "level=6": {
+      "model": "reforestry:block/fluid_wine_carrot"
+    },
+    "level=7": {
+      "model": "reforestry:block/fluid_wine_carrot"
+    },
+    "level=8": {
+      "model": "reforestry:block/fluid_wine_carrot"
+    },
+    "level=9": {
+      "model": "reforestry:block/fluid_wine_carrot"
+    },
+    "level=10": {
+      "model": "reforestry:block/fluid_wine_carrot"
+    },
+    "level=11": {
+      "model": "reforestry:block/fluid_wine_carrot"
+    },
+    "level=12": {
+      "model": "reforestry:block/fluid_wine_carrot"
+    },
+    "level=13": {
+      "model": "reforestry:block/fluid_wine_carrot"
+    },
+    "level=14": {
+      "model": "reforestry:block/fluid_wine_carrot"
+    },
+    "level=15": {
+      "model": "reforestry:block/fluid_wine_carrot"
+    }
+  }
+}

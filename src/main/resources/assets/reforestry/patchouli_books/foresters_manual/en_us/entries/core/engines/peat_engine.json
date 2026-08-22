@@ -1,11 +1,11 @@
 {
-  "icon": "reforestry:engine_peat",
+  "icon": "reforestry:peat_engine",
   "name": "for.gui.book.patchouli.entry.core.engine.peat",
   "category": "reforestry:engines",
   "pages": [
     {
       "type": "crafting",
-      "recipe": "reforestry:engine_peat",
+      "recipe": "reforestry:peat_engine",
       "text": "for.gui.book.patchouli.entry.core.engine.peat1"
     },
     {

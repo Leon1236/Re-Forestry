@@ -1,0 +1,3856 @@
+{
+  "combs": [
+    {
+      "enum": "BARREN",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xc2bea7",
+      "secondary_color": "0x736c44",
+      "reforestry_id": "reforestry:bee_comb_barren",
+      "products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 1.0,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.5,
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "ROTTEN",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xb1cc89",
+      "secondary_color": "0x3e5221",
+      "reforestry_id": "reforestry:bee_comb_rotten",
+      "products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.2,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.2,
+          "try": false
+        },
+        {
+          "source": "new ItemStack(Items.ROTTEN_FLESH, 1, 0)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "ROTTEN_FLESH",
+          "count": 1,
+          "meta": 0,
+          "item": "minecraft:rotten_flesh",
+          "chance": 0.8,
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "BONE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xdedec1",
+      "secondary_color": "0xc4c4af",
+      "reforestry_id": "reforestry:bee_comb_bone",
+      "products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.2,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.2,
+          "try": false
+        },
+        {
+          "source": "new ItemStack(Items.DYE, 1, 15)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "DYE",
+          "count": 1,
+          "meta": 15,
+          "item": "minecraft:dye",
+          "chance": 0.8,
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "OIL",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x2c2b36",
+      "secondary_color": "0x060608",
+      "reforestry_id": "reforestry:bee_comb_oil",
+      "products": [
+        {
+          "source": "EnumPropolis.OIL",
+          "kind": "extra_bees_propolis",
+          "enum": "OIL",
+          "reforestry_id": "reforestry:propolis_oil",
+          "chance": 0.6,
+          "try": true
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.75,
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "COAL",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x38311e",
+      "secondary_color": "0x9e9478",
+      "reforestry_id": "reforestry:bee_comb_coal",
+      "products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.75,
+          "try": false
+        },
+        {
+          "source": "ExtraBeeItems.COAL_DUST",
+          "kind": "extra_bees_misc",
+          "enum": "COAL_DUST",
+          "reforestry_id": "reforestry:coal_dust",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "FUEL",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xffc400",
+      "secondary_color": "0x9c6f40",
+      "reforestry_id": "reforestry:bee_comb_fuel",
+      "products": [
+        {
+          "source": "EnumPropolis.FUEL",
+          "kind": "extra_bees_propolis",
+          "enum": "FUEL",
+          "reforestry_id": "reforestry:propolis_fuel",
+          "chance": 0.6,
+          "try": true
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.5,
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "WATER",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x79a8c9",
+      "secondary_color": "0x2732cf",
+      "reforestry_id": "reforestry:bee_comb_water",
+      "products": [
+        {
+          "source": "EnumPropolis.WATER",
+          "kind": "extra_bees_propolis",
+          "enum": "WATER",
+          "reforestry_id": "reforestry:propolis_water",
+          "chance": 1.0,
+          "try": true
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.9,
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "MILK",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xd7d9c7",
+      "reforestry_id": "reforestry:bee_comb_milk",
+      "products": [
+        {
+          "source": "EnumHoneyDrop.MILK",
+          "kind": "extra_bees_drop",
+          "enum": "MILK",
+          "reforestry_id": "reforestry:honey_drop_milk",
+          "chance": 1.0,
+          "try": true
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.9,
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "FRUIT",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xdb4f62",
+      "secondary_color": "0x7d2934",
+      "reforestry_id": "reforestry:bee_comb_fruit",
+      "products": [
+        {
+          "source": "EnumHoneyDrop.APPLE",
+          "kind": "extra_bees_drop",
+          "enum": "APPLE",
+          "reforestry_id": "reforestry:honey_drop_apple",
+          "chance": 1.0,
+          "try": true
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.9,
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "SEED",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x71cc6e",
+      "secondary_color": "0x344f33",
+      "reforestry_id": "reforestry:bee_comb_seed",
+      "products": [
+        {
+          "source": "EnumHoneyDrop.SEED",
+          "kind": "extra_bees_drop",
+          "enum": "SEED",
+          "reforestry_id": "reforestry:honey_drop_seed",
+          "chance": 1.0,
+          "try": true
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.9,
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "ALCOHOL",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xded94e",
+      "secondary_color": "0x418521",
+      "reforestry_id": "reforestry:bee_comb_alcohol",
+      "products": [
+        {
+          "source": "EnumHoneyDrop.ALCOHOL",
+          "kind": "extra_bees_drop",
+          "enum": "ALCOHOL",
+          "reforestry_id": "reforestry:honey_drop_alcohol",
+          "chance": 1.0,
+          "try": true
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.9,
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "STONE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xc6c6cc",
+      "secondary_color": "0x8c8c91",
+      "reforestry_id": "reforestry:bee_comb_stone",
+      "products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "REDSTONE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xe61010",
+      "secondary_color": "0xfa9696",
+      "reforestry_id": "reforestry:bee_comb_redstone",
+      "products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "new ItemStack(Items.REDSTONE, 1, 0)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "REDSTONE",
+          "count": 1,
+          "meta": 0,
+          "item": "minecraft:redstone",
+          "chance": 1.0,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.5,
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "RESIN",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xc98a00",
+      "secondary_color": "0xffc74f",
+      "reforestry_id": "reforestry:bee_comb_resin",
+      "products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 1.0,
+          "try": false
+        },
+        {
+          "source": "Utils.getIC2Item(\"itemHarz\")",
+          "kind": "ic2_item",
+          "name": "itemHarz",
+          "chance": 1.0,
+          "try": true
+        },
+        {
+          "source": "Utils.getIC2Item(\"itemHarz\")",
+          "kind": "ic2_item",
+          "name": "itemHarz",
+          "chance": 0.5,
+          "try": true
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "IC2ENERGY",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x20b3c9",
+      "secondary_color": "0xe9f50f",
+      "reforestry_id": "reforestry:bee_comb_ic2energy",
+      "products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "new ItemStack(Items.REDSTONE, 1, 0)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "REDSTONE",
+          "count": 1,
+          "meta": 0,
+          "item": "minecraft:redstone",
+          "chance": 0.75,
+          "try": false
+        },
+        {
+          "source": "EnumHoneyDrop.ENERGY",
+          "kind": "extra_bees_drop",
+          "enum": "ENERGY",
+          "reforestry_id": "reforestry:honey_drop_energy",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "IRON",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xa87058",
+      "secondary_color": "0x363534",
+      "reforestry_id": "reforestry:bee_comb_iron",
+      "products": [
+        {
+          "source": "ExtraBeeItems.IRON_DUST",
+          "kind": "extra_bees_misc",
+          "enum": "IRON_DUST",
+          "reforestry_id": "reforestry:iron_dust",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    },
+    {
+      "enum": "GOLD",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xe6cc0b",
+      "secondary_color": "0x363534",
+      "reforestry_id": "reforestry:bee_comb_gold",
+      "products": [
+        {
+          "source": "ExtraBeeItems.GOLD_DUST",
+          "kind": "extra_bees_misc",
+          "enum": "GOLD_DUST",
+          "reforestry_id": "reforestry:gold_dust",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    },
+    {
+      "enum": "COPPER",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xd16308",
+      "secondary_color": "0x363534",
+      "reforestry_id": "reforestry:bee_comb_copper",
+      "products": [
+        {
+          "source": "ExtraBeeItems.COPPER_DUST",
+          "kind": "extra_bees_misc",
+          "enum": "COPPER_DUST",
+          "reforestry_id": "reforestry:copper_dust",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    },
+    {
+      "enum": "TIN",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xbdb1bd",
+      "secondary_color": "0x363534",
+      "reforestry_id": "reforestry:bee_comb_tin",
+      "products": [
+        {
+          "source": "ExtraBeeItems.TIN_DUST",
+          "kind": "extra_bees_misc",
+          "enum": "TIN_DUST",
+          "reforestry_id": "reforestry:tin_dust",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    },
+    {
+      "enum": "SILVER",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xdbdbdb",
+      "secondary_color": "0x363534",
+      "reforestry_id": "reforestry:bee_comb_silver",
+      "products": [
+        {
+          "source": "ExtraBeeItems.SILVER_DUST",
+          "kind": "extra_bees_misc",
+          "enum": "SILVER_DUST",
+          "reforestry_id": "reforestry:silver_dust",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    },
+    {
+      "enum": "BRONZE",
+      "active": false,
+      "inactive_placeholder": true,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xffffff",
+      "reforestry_id": "reforestry:bee_comb_bronze",
+      "products": [],
+      "copy_products_from": []
+    },
+    {
+      "enum": "URANIUM",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x41ab33",
+      "secondary_color": "0x1eff00",
+      "reforestry_id": "reforestry:bee_comb_uranium",
+      "products": [
+        {
+          "source": "\"dropUranium\"",
+          "kind": "oredict",
+          "ore": "dropUranium",
+          "chance": 0.5,
+          "try": true
+        },
+        {
+          "source": "\"crushedUranium\"",
+          "kind": "oredict",
+          "ore": "crushedUranium",
+          "chance": 0.5,
+          "try": true
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    },
+    {
+      "enum": "CLAY",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xb0c0d6",
+      "secondary_color": "0x6b563a",
+      "reforestry_id": "reforestry:bee_comb_clay",
+      "products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.25,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "new ItemStack(Items.CLAY_BALL)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "CLAY_BALL",
+          "count": 1,
+          "meta": 0,
+          "item": "minecraft:clay_ball",
+          "chance": 0.8,
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "OLD",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xb39664",
+      "secondary_color": "0x453314",
+      "reforestry_id": "reforestry:bee_comb_old",
+      "products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 1.0,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.9,
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "FUNGAL",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x2b9443",
+      "secondary_color": "0x6e654b",
+      "reforestry_id": "reforestry:bee_comb_fungal",
+      "products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.9,
+          "try": false
+        },
+        {
+          "source": "new ItemStack(Blocks.BROWN_MUSHROOM_BLOCK, 1, 0)",
+          "kind": "item_stack",
+          "owner": "Blocks",
+          "field": "BROWN_MUSHROOM_BLOCK",
+          "count": 1,
+          "meta": 0,
+          "item": "minecraft:brown_mushroom_block",
+          "chance": 1.0,
+          "try": false
+        },
+        {
+          "source": "new ItemStack(Blocks.RED_MUSHROOM_BLOCK, 1, 0)",
+          "kind": "item_stack",
+          "owner": "Blocks",
+          "field": "RED_MUSHROOM_BLOCK",
+          "count": 1,
+          "meta": 0,
+          "item": "minecraft:red_mushroom_block",
+          "chance": 0.75,
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "CREOSOTE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xbdaa57",
+      "secondary_color": "0x9c810c",
+      "reforestry_id": "reforestry:bee_comb_creosote",
+      "products": [
+        {
+          "source": "EnumPropolis.CREOSOTE",
+          "kind": "extra_bees_propolis",
+          "enum": "CREOSOTE",
+          "reforestry_id": "reforestry:propolis_creosote",
+          "chance": 0.7,
+          "try": true
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.5,
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "LATEX",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xa8a285",
+      "secondary_color": "0x595541",
+      "reforestry_id": "reforestry:bee_comb_latex",
+      "products": [
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.85,
+          "try": false
+        },
+        {
+          "source": "\"itemRubber\"",
+          "kind": "oredict",
+          "ore": "itemRubber",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "ACIDIC",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x14f73e",
+      "secondary_color": "0x348543",
+      "reforestry_id": "reforestry:bee_comb_acidic",
+      "products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "EnumHoneyDrop.ACID",
+          "kind": "extra_bees_drop",
+          "enum": "ACID",
+          "reforestry_id": "reforestry:honey_drop_acid",
+          "chance": 0.5,
+          "try": true
+        },
+        {
+          "source": "\"dustSulfur\"",
+          "kind": "oredict",
+          "ore": "dustSulfur",
+          "chance": 0.75,
+          "try": true
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "VENOMOUS",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xff33ff",
+      "secondary_color": "0x7d187d",
+      "reforestry_id": "reforestry:bee_comb_venomous",
+      "products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "EnumHoneyDrop.POISON",
+          "kind": "extra_bees_drop",
+          "enum": "POISON",
+          "reforestry_id": "reforestry:honey_drop_poison",
+          "chance": 0.8,
+          "try": true
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "SLIME",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x80d185",
+      "secondary_color": "0x3b473c",
+      "reforestry_id": "reforestry:bee_comb_slime",
+      "products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 1.0,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.75,
+          "try": false
+        },
+        {
+          "source": "new ItemStack(Items.SLIME_BALL, 1, 0)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "SLIME_BALL",
+          "count": 1,
+          "meta": 0,
+          "item": "minecraft:slime_ball",
+          "chance": 0.75,
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "BLAZE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xffcc00",
+      "secondary_color": "0xff6a00",
+      "reforestry_id": "reforestry:bee_comb_blaze",
+      "products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.75,
+          "try": false
+        },
+        {
+          "source": "new ItemStack(Items.BLAZE_POWDER, 1, 0)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "BLAZE_POWDER",
+          "count": 1,
+          "meta": 0,
+          "item": "minecraft:blaze_powder",
+          "chance": 1.0,
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "COFFEE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xb37f4b",
+      "secondary_color": "0x54381d",
+      "reforestry_id": "reforestry:bee_comb_coffee",
+      "products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.9,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.75,
+          "try": false
+        },
+        {
+          "source": "Utils.getIC2Item(\"itemCofeePowder\")",
+          "kind": "ic2_item",
+          "name": "itemCofeePowder",
+          "chance": 0.75,
+          "try": true
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "GLACIAL",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xcbf2f2",
+      "secondary_color": "0x4e8787",
+      "reforestry_id": "reforestry:bee_comb_glacial",
+      "products": [
+        {
+          "source": "EnumHoneyDrop.ICE",
+          "kind": "extra_bees_drop",
+          "enum": "ICE",
+          "reforestry_id": "reforestry:honey_drop_ice",
+          "chance": 0.8,
+          "try": true
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.75,
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "MINT",
+      "active": false,
+      "inactive_placeholder": true,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xffffff",
+      "reforestry_id": "reforestry:bee_comb_mint",
+      "products": [],
+      "copy_products_from": []
+    },
+    {
+      "enum": "CITRUS",
+      "active": false,
+      "inactive_placeholder": true,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xffffff",
+      "reforestry_id": "reforestry:bee_comb_citrus",
+      "products": [],
+      "copy_products_from": []
+    },
+    {
+      "enum": "PEAT",
+      "active": false,
+      "inactive_placeholder": true,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xffffff",
+      "reforestry_id": "reforestry:bee_comb_peat",
+      "products": [],
+      "copy_products_from": []
+    },
+    {
+      "enum": "SHADOW",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x361835",
+      "secondary_color": "0x000000",
+      "reforestry_id": "reforestry:bee_comb_shadow",
+      "products": [
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "\"dustObsidian\"",
+          "kind": "oredict",
+          "ore": "dustObsidian",
+          "chance": 0.75,
+          "try": true
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "LEAD",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x9a809c",
+      "secondary_color": "0x363534",
+      "reforestry_id": "reforestry:bee_comb_lead",
+      "products": [
+        {
+          "source": "ExtraBeeItems.LEAD_DUST",
+          "kind": "extra_bees_misc",
+          "enum": "LEAD_DUST",
+          "reforestry_id": "reforestry:lead_dust",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    },
+    {
+      "enum": "BRASS",
+      "active": false,
+      "inactive_placeholder": true,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xffffff",
+      "reforestry_id": "reforestry:bee_comb_brass",
+      "products": [],
+      "copy_products_from": []
+    },
+    {
+      "enum": "ELECTRUM",
+      "active": false,
+      "inactive_placeholder": true,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xffffff",
+      "reforestry_id": "reforestry:bee_comb_electrum",
+      "products": [],
+      "copy_products_from": []
+    },
+    {
+      "enum": "ZINC",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xedebff",
+      "secondary_color": "0x363534",
+      "reforestry_id": "reforestry:bee_comb_zinc",
+      "products": [
+        {
+          "source": "ExtraBeeItems.ZINC_DUST",
+          "kind": "extra_bees_misc",
+          "enum": "ZINC_DUST",
+          "reforestry_id": "reforestry:zinc_dust",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    },
+    {
+      "enum": "TITANIUM",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xb0aae3",
+      "secondary_color": "0x363534",
+      "reforestry_id": "reforestry:bee_comb_titanium",
+      "products": [
+        {
+          "source": "ExtraBeeItems.TITANIUM_DUST",
+          "kind": "extra_bees_misc",
+          "enum": "TITANIUM_DUST",
+          "reforestry_id": "reforestry:titanium_dust",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    },
+    {
+      "enum": "TUNGSTEN",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x131214",
+      "secondary_color": "0x363534",
+      "reforestry_id": "reforestry:bee_comb_tungsten",
+      "products": [
+        {
+          "source": "ExtraBeeItems.TUNGSTEN_DUST",
+          "kind": "extra_bees_misc",
+          "enum": "TUNGSTEN_DUST",
+          "reforestry_id": "reforestry:tungsten_dust",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    },
+    {
+      "enum": "STEEL",
+      "active": false,
+      "inactive_placeholder": true,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xffffff",
+      "reforestry_id": "reforestry:bee_comb_steel",
+      "products": [],
+      "copy_products_from": []
+    },
+    {
+      "enum": "IRIDIUM",
+      "active": false,
+      "inactive_placeholder": true,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xffffff",
+      "reforestry_id": "reforestry:bee_comb_iridium",
+      "products": [],
+      "copy_products_from": []
+    },
+    {
+      "enum": "PLATINUM",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x9a809c",
+      "secondary_color": "0x363534",
+      "reforestry_id": "reforestry:bee_comb_platinum",
+      "products": [
+        {
+          "source": "ExtraBeeItems.PLATINUM_DUST",
+          "kind": "extra_bees_misc",
+          "enum": "PLATINUM_DUST",
+          "reforestry_id": "reforestry:platinum_dust",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    },
+    {
+      "enum": "LAPIS",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x3d2cdb",
+      "secondary_color": "0x363534",
+      "reforestry_id": "reforestry:bee_comb_lapis",
+      "products": [
+        {
+          "source": "new ItemStack(Items.DYE, 6, 4)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "DYE",
+          "count": 6,
+          "meta": 4,
+          "item": "minecraft:dye",
+          "chance": 1.0,
+          "try": false
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    },
+    {
+      "enum": "SODALITE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x154fed",
+      "secondary_color": "0x363534",
+      "reforestry_id": "reforestry:bee_comb_sodalite",
+      "products": [
+        {
+          "source": "\"dustSmallSodalite\"",
+          "kind": "oredict",
+          "ore": "dustSmallSodalite",
+          "chance": 1.0,
+          "try": true
+        },
+        {
+          "source": "\"dustSmallAluminum\"",
+          "kind": "oredict",
+          "ore": "dustSmallAluminum",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    },
+    {
+      "enum": "PYRITE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xe3a739",
+      "secondary_color": "0x363534",
+      "reforestry_id": "reforestry:bee_comb_pyrite",
+      "products": [
+        {
+          "source": "\"dustSmallPyrite\"",
+          "kind": "oredict",
+          "ore": "dustSmallPyrite",
+          "chance": 1.0,
+          "try": true
+        },
+        {
+          "source": "\"dustSmallIron\"",
+          "kind": "oredict",
+          "ore": "dustSmallIron",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    },
+    {
+      "enum": "BAUXITE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x9c6500",
+      "secondary_color": "0x363534",
+      "reforestry_id": "reforestry:bee_comb_bauxite",
+      "products": [
+        {
+          "source": "\"dustSmallBauxite\"",
+          "kind": "oredict",
+          "ore": "dustSmallBauxite",
+          "chance": 1.0,
+          "try": true
+        },
+        {
+          "source": "\"dustSmallAluminum\"",
+          "kind": "oredict",
+          "ore": "dustSmallAluminum",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    },
+    {
+      "enum": "CINNABAR",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x47320b",
+      "secondary_color": "0x363534",
+      "reforestry_id": "reforestry:bee_comb_cinnabar",
+      "products": [
+        {
+          "source": "\"dustSmallCinnabar\"",
+          "kind": "oredict",
+          "ore": "dustSmallCinnabar",
+          "chance": 1.0,
+          "try": true
+        },
+        {
+          "source": "new ItemStack(Items.REDSTONE)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "REDSTONE",
+          "count": 1,
+          "meta": 0,
+          "item": "minecraft:redstone",
+          "chance": 0.05,
+          "try": false
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    },
+    {
+      "enum": "SPHALERITE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xdbd51d",
+      "secondary_color": "0x363534",
+      "reforestry_id": "reforestry:bee_comb_sphalerite",
+      "products": [
+        {
+          "source": "\"dustSmallSphalerite\"",
+          "kind": "oredict",
+          "ore": "dustSmallSphalerite",
+          "chance": 1.0,
+          "try": true
+        },
+        {
+          "source": "\"dustSmallZinc\"",
+          "kind": "oredict",
+          "ore": "dustSmallZinc",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    },
+    {
+      "enum": "EMERALD",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x1cff03",
+      "secondary_color": "0x363534",
+      "reforestry_id": "reforestry:bee_comb_emerald",
+      "products": [
+        {
+          "source": "ExtraBeeItems.EMERALD_SHARD",
+          "kind": "extra_bees_misc",
+          "enum": "EMERALD_SHARD",
+          "reforestry_id": "reforestry:emerald_shard",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    },
+    {
+      "enum": "RUBY",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xd60000",
+      "secondary_color": "0x363534",
+      "reforestry_id": "reforestry:bee_comb_ruby",
+      "products": [
+        {
+          "source": "ExtraBeeItems.RUBY_SHARD",
+          "kind": "extra_bees_misc",
+          "enum": "RUBY_SHARD",
+          "reforestry_id": "reforestry:ruby_shard",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    },
+    {
+      "enum": "SAPPHIRE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x0a47ff",
+      "secondary_color": "0x363534",
+      "reforestry_id": "reforestry:bee_comb_sapphire",
+      "products": [
+        {
+          "source": "ExtraBeeItems.SAPPHIRE_SHARD",
+          "kind": "extra_bees_misc",
+          "enum": "SAPPHIRE_SHARD",
+          "reforestry_id": "reforestry:sapphire_shard",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    },
+    {
+      "enum": "OLIVINE",
+      "active": false,
+      "inactive_placeholder": true,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xffffff",
+      "reforestry_id": "reforestry:bee_comb_olivine",
+      "products": [],
+      "copy_products_from": []
+    },
+    {
+      "enum": "DIAMOND",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x7fbdfa",
+      "secondary_color": "0x363534",
+      "reforestry_id": "reforestry:bee_comb_diamond",
+      "products": [
+        {
+          "source": "ExtraBeeItems.DIAMOND_SHARD",
+          "kind": "extra_bees_misc",
+          "enum": "DIAMOND_SHARD",
+          "reforestry_id": "reforestry:diamond_shard",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    },
+    {
+      "enum": "RED",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xff0000",
+      "secondary_color": "0xcc4c4c",
+      "reforestry_id": "reforestry:bee_comb_red",
+      "products": [
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "EnumHoneyDrop.RED.get(1)",
+          "kind": "extra_bees_drop",
+          "enum": "RED",
+          "reforestry_id": "reforestry:honey_drop_red",
+          "chance": 1.0,
+          "try": false
+        },
+        {
+          "source": "ExtraBeeItems.RED_DYE.get(1)",
+          "kind": "extra_bees_misc",
+          "enum": "RED_DYE",
+          "reforestry_id": "reforestry:dye_red",
+          "chance": null,
+          "role": "squeezer_remnant",
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "YELLOW",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xffdd00",
+      "secondary_color": "0xe5e533",
+      "reforestry_id": "reforestry:bee_comb_yellow",
+      "products": [
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "EnumHoneyDrop.YELLOW.get(1)",
+          "kind": "extra_bees_drop",
+          "enum": "YELLOW",
+          "reforestry_id": "reforestry:honey_drop_yellow",
+          "chance": 1.0,
+          "try": false
+        },
+        {
+          "source": "ExtraBeeItems.YELLOW_DYE.get(1)",
+          "kind": "extra_bees_misc",
+          "enum": "YELLOW_DYE",
+          "reforestry_id": "reforestry:dye_yellow",
+          "chance": null,
+          "role": "squeezer_remnant",
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "BLUE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x0022ff",
+      "secondary_color": "0x99b2f2",
+      "reforestry_id": "reforestry:bee_comb_blue",
+      "products": [
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "EnumHoneyDrop.BLUE.get(1)",
+          "kind": "extra_bees_drop",
+          "enum": "BLUE",
+          "reforestry_id": "reforestry:honey_drop_blue",
+          "chance": 1.0,
+          "try": false
+        },
+        {
+          "source": "ExtraBeeItems.BLUE_DYE.get(1)",
+          "kind": "extra_bees_misc",
+          "enum": "BLUE_DYE",
+          "reforestry_id": "reforestry:dye_blue",
+          "chance": null,
+          "role": "squeezer_remnant",
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "GREEN",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x009900",
+      "secondary_color": "0x667f33",
+      "reforestry_id": "reforestry:bee_comb_green",
+      "products": [
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "EnumHoneyDrop.GREEN.get(1)",
+          "kind": "extra_bees_drop",
+          "enum": "GREEN",
+          "reforestry_id": "reforestry:honey_drop_green",
+          "chance": 1.0,
+          "try": false
+        },
+        {
+          "source": "ExtraBeeItems.GREEN_DYE.get(1)",
+          "kind": "extra_bees_misc",
+          "enum": "GREEN_DYE",
+          "reforestry_id": "reforestry:dye_green",
+          "chance": null,
+          "role": "squeezer_remnant",
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "BLACK",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x575757",
+      "secondary_color": "0x191919",
+      "reforestry_id": "reforestry:bee_comb_black",
+      "products": [
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "EnumHoneyDrop.BLACK.get(1)",
+          "kind": "extra_bees_drop",
+          "enum": "BLACK",
+          "reforestry_id": "reforestry:honey_drop_black",
+          "chance": 1.0,
+          "try": false
+        },
+        {
+          "source": "ExtraBeeItems.BLACK_DYE.get(1)",
+          "kind": "extra_bees_misc",
+          "enum": "BLACK_DYE",
+          "reforestry_id": "reforestry:dye_black",
+          "chance": null,
+          "role": "squeezer_remnant",
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "WHITE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xd6d6d6",
+      "reforestry_id": "reforestry:bee_comb_white",
+      "products": [
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "EnumHoneyDrop.WHITE.get(1)",
+          "kind": "extra_bees_drop",
+          "enum": "WHITE",
+          "reforestry_id": "reforestry:honey_drop_white",
+          "chance": 1.0,
+          "try": false
+        },
+        {
+          "source": "ExtraBeeItems.WHITE_DYE.get(1)",
+          "kind": "extra_bees_misc",
+          "enum": "WHITE_DYE",
+          "reforestry_id": "reforestry:dye_white",
+          "chance": null,
+          "role": "squeezer_remnant",
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "BROWN",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x5c350f",
+      "secondary_color": "0x7f664c",
+      "reforestry_id": "reforestry:bee_comb_brown",
+      "products": [
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "EnumHoneyDrop.BROWN.get(1)",
+          "kind": "extra_bees_drop",
+          "enum": "BROWN",
+          "reforestry_id": "reforestry:honey_drop_brown",
+          "chance": 1.0,
+          "try": false
+        },
+        {
+          "source": "ExtraBeeItems.BROWN_DYE.get(1)",
+          "kind": "extra_bees_misc",
+          "enum": "BROWN_DYE",
+          "reforestry_id": "reforestry:dye_brown",
+          "chance": null,
+          "role": "squeezer_remnant",
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "ORANGE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xff9d00",
+      "secondary_color": "0xf2b233",
+      "reforestry_id": "reforestry:bee_comb_orange",
+      "products": [
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "EnumHoneyDrop.ORANGE.get(1)",
+          "kind": "extra_bees_drop",
+          "enum": "ORANGE",
+          "reforestry_id": "reforestry:honey_drop_orange",
+          "chance": 1.0,
+          "try": false
+        },
+        {
+          "source": "new ItemStack(Items.DYE, 1, 14)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "DYE",
+          "count": 1,
+          "meta": 14,
+          "item": "minecraft:dye",
+          "chance": null,
+          "role": "squeezer_remnant",
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "CYAN",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x00ffe5",
+      "secondary_color": "0x4c99b2",
+      "reforestry_id": "reforestry:bee_comb_cyan",
+      "products": [
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "EnumHoneyDrop.CYAN.get(1)",
+          "kind": "extra_bees_drop",
+          "enum": "CYAN",
+          "reforestry_id": "reforestry:honey_drop_cyan",
+          "chance": 1.0,
+          "try": false
+        },
+        {
+          "source": "new ItemStack(Items.DYE, 1, 6)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "DYE",
+          "count": 1,
+          "meta": 6,
+          "item": "minecraft:dye",
+          "chance": null,
+          "role": "squeezer_remnant",
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "PURPLE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xae00ff",
+      "secondary_color": "0xb266e5",
+      "reforestry_id": "reforestry:bee_comb_purple",
+      "products": [
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "EnumHoneyDrop.PURPLE.get(1)",
+          "kind": "extra_bees_drop",
+          "enum": "PURPLE",
+          "reforestry_id": "reforestry:honey_drop_purple",
+          "chance": 1.0,
+          "try": false
+        },
+        {
+          "source": "new ItemStack(Items.DYE, 1, 5)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "DYE",
+          "count": 1,
+          "meta": 5,
+          "item": "minecraft:dye",
+          "chance": null,
+          "role": "squeezer_remnant",
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "GRAY",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xbababa",
+      "secondary_color": "0x4c4c4c",
+      "reforestry_id": "reforestry:bee_comb_gray",
+      "products": [
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "EnumHoneyDrop.GRAY.get(1)",
+          "kind": "extra_bees_drop",
+          "enum": "GRAY",
+          "reforestry_id": "reforestry:honey_drop_gray",
+          "chance": 1.0,
+          "try": false
+        },
+        {
+          "source": "new ItemStack(Items.DYE, 1, 8)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "DYE",
+          "count": 1,
+          "meta": 8,
+          "item": "minecraft:dye",
+          "chance": null,
+          "role": "squeezer_remnant",
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "LIGHTBLUE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x009dff",
+      "secondary_color": "0x99b2f2",
+      "reforestry_id": "reforestry:bee_comb_lightblue",
+      "products": [
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "EnumHoneyDrop.LIGHTBLUE.get(1)",
+          "kind": "extra_bees_drop",
+          "enum": "LIGHTBLUE",
+          "reforestry_id": "reforestry:honey_drop_lightblue",
+          "chance": 1.0,
+          "try": false
+        },
+        {
+          "source": "new ItemStack(Items.DYE, 1, 12)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "DYE",
+          "count": 1,
+          "meta": 12,
+          "item": "minecraft:dye",
+          "chance": null,
+          "role": "squeezer_remnant",
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "PINK",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xff80df",
+      "secondary_color": "0xf2b2cc",
+      "reforestry_id": "reforestry:bee_comb_pink",
+      "products": [
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "EnumHoneyDrop.PINK.get(1)",
+          "kind": "extra_bees_drop",
+          "enum": "PINK",
+          "reforestry_id": "reforestry:honey_drop_pink",
+          "chance": 1.0,
+          "try": false
+        },
+        {
+          "source": "new ItemStack(Items.DYE, 1, 9)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "DYE",
+          "count": 1,
+          "meta": 9,
+          "item": "minecraft:dye",
+          "chance": null,
+          "role": "squeezer_remnant",
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "LIMEGREEN",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x00ff08",
+      "secondary_color": "0x7fcc19",
+      "reforestry_id": "reforestry:bee_comb_limegreen",
+      "products": [
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "EnumHoneyDrop.LIMEGREEN.get(1)",
+          "kind": "extra_bees_drop",
+          "enum": "LIMEGREEN",
+          "reforestry_id": "reforestry:honey_drop_limegreen",
+          "chance": 1.0,
+          "try": false
+        },
+        {
+          "source": "new ItemStack(Items.DYE, 1, 10)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "DYE",
+          "count": 1,
+          "meta": 10,
+          "item": "minecraft:dye",
+          "chance": null,
+          "role": "squeezer_remnant",
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "MAGENTA",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xff00cc",
+      "secondary_color": "0xe57fd8",
+      "reforestry_id": "reforestry:bee_comb_magenta",
+      "products": [
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "EnumHoneyDrop.MAGENTA.get(1)",
+          "kind": "extra_bees_drop",
+          "enum": "MAGENTA",
+          "reforestry_id": "reforestry:honey_drop_magenta",
+          "chance": 1.0,
+          "try": false
+        },
+        {
+          "source": "new ItemStack(Items.DYE, 1, 13)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "DYE",
+          "count": 1,
+          "meta": 13,
+          "item": "minecraft:dye",
+          "chance": null,
+          "role": "squeezer_remnant",
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "LIGHTGRAY",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xc9c9c9",
+      "secondary_color": "0x999999",
+      "reforestry_id": "reforestry:bee_comb_lightgray",
+      "products": [
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.8,
+          "try": false
+        },
+        {
+          "source": "EnumHoneyDrop.LIGHTGRAY.get(1)",
+          "kind": "extra_bees_drop",
+          "enum": "LIGHTGRAY",
+          "reforestry_id": "reforestry:honey_drop_lightgray",
+          "chance": 1.0,
+          "try": false
+        },
+        {
+          "source": "new ItemStack(Items.DYE, 1, 7)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "DYE",
+          "count": 1,
+          "meta": 7,
+          "item": "minecraft:dye",
+          "chance": null,
+          "role": "squeezer_remnant",
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "NICKEL",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xffdefc",
+      "secondary_color": "0x363534",
+      "reforestry_id": "reforestry:bee_comb_nickel",
+      "products": [
+        {
+          "source": "ExtraBeeItems.NICKEL_DUST",
+          "kind": "extra_bees_misc",
+          "enum": "NICKEL_DUST",
+          "reforestry_id": "reforestry:nickel_dust",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    },
+    {
+      "enum": "INVAR",
+      "active": false,
+      "inactive_placeholder": true,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xffffff",
+      "reforestry_id": "reforestry:bee_comb_invar",
+      "products": [],
+      "copy_products_from": []
+    },
+    {
+      "enum": "GLOWSTONE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xe0c409",
+      "secondary_color": "0xa69c5e",
+      "reforestry_id": "reforestry:bee_comb_glowstone",
+      "products": [
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        },
+        {
+          "source": "new ItemStack(Items.GLOWSTONE_DUST)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "GLOWSTONE_DUST",
+          "count": 1,
+          "meta": 0,
+          "item": "minecraft:glowstone_dust",
+          "chance": 1.0,
+          "try": false
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "SALTPETER",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xe0c409",
+      "secondary_color": "0xa69c5e",
+      "reforestry_id": "reforestry:bee_comb_saltpeter",
+      "products": [
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        },
+        {
+          "source": "\"dustSaltpeter\"",
+          "kind": "oredict",
+          "ore": "dustSaltpeter",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "PULP",
+      "active": false,
+      "inactive_placeholder": true,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xffffff",
+      "reforestry_id": "reforestry:bee_comb_pulp",
+      "products": [],
+      "copy_products_from": []
+    },
+    {
+      "enum": "MULCH",
+      "active": false,
+      "inactive_placeholder": true,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xffffff",
+      "reforestry_id": "reforestry:bee_comb_mulch",
+      "products": [],
+      "copy_products_from": []
+    },
+    {
+      "enum": "COMPOST",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x6b5e3b",
+      "secondary_color": "0x423308",
+      "reforestry_id": "reforestry:bee_comb_compost",
+      "products": [
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        },
+        {
+          "source": "Mods.Forestry.stack(\"fertilizer_bio\")",
+          "kind": "forestry_item",
+          "binnie_stack": "fertilizer_bio",
+          "reforestry_id": "reforestry:fertilizer_bio",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "SAWDUST",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xf2d37e",
+      "secondary_color": "0xbfaa71",
+      "reforestry_id": "reforestry:bee_comb_sawdust",
+      "products": [
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        },
+        {
+          "source": "\"dustSawdust\"",
+          "kind": "oredict",
+          "ore": "dustSawdust",
+          "chance": 1.0,
+          "try": true
+        },
+        {
+          "source": "\"sawdust\"",
+          "kind": "oredict",
+          "ore": "sawdust",
+          "chance": 1.0,
+          "try": true
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "CERTUS",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x394d63",
+      "secondary_color": "0xc6d0ff",
+      "reforestry_id": "reforestry:bee_comb_certus",
+      "products": [
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        },
+        {
+          "source": "new ItemStack(Items.QUARTZ)",
+          "kind": "item_stack",
+          "owner": "Items",
+          "field": "QUARTZ",
+          "count": 1,
+          "meta": 0,
+          "item": "minecraft:quartz",
+          "chance": 0.25,
+          "try": false
+        },
+        {
+          "source": "\"dustCertusQuartz\"",
+          "kind": "oredict",
+          "ore": "dustCertusQuartz",
+          "chance": 0.2,
+          "try": true
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "ENDERPEARL",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x032620",
+      "secondary_color": "0x349786",
+      "reforestry_id": "reforestry:bee_comb_enderpearl",
+      "products": [
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        },
+        {
+          "source": "\"dustEnderPearl\"",
+          "kind": "oredict",
+          "ore": "dustEnderPearl",
+          "chance": 0.25,
+          "try": true
+        }
+      ],
+      "copy_products_from": []
+    },
+    {
+      "enum": "YELLORIUM",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xd5ed00",
+      "secondary_color": "0x27204d",
+      "reforestry_id": "reforestry:bee_comb_yellorium",
+      "products": [
+        {
+          "source": "ExtraBeeItems.YELLORIUM_DUST",
+          "kind": "extra_bees_misc",
+          "enum": "YELLORIUM_DUST",
+          "reforestry_id": "reforestry:yellorium_dust",
+          "chance": 0.25,
+          "try": true
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    },
+    {
+      "enum": "CYANITE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x0086ed",
+      "secondary_color": "0x27204d",
+      "reforestry_id": "reforestry:bee_comb_cyanite",
+      "products": [
+        {
+          "source": "ExtraBeeItems.CYANITE_DUST",
+          "kind": "extra_bees_misc",
+          "enum": "CYANITE_DUST",
+          "reforestry_id": "reforestry:cyanite_dust",
+          "chance": 0.25,
+          "try": true
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    },
+    {
+      "enum": "BLUTONIUM",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x1b00e6",
+      "secondary_color": "0x27204d",
+      "reforestry_id": "reforestry:bee_comb_blutonium",
+      "products": [
+        {
+          "source": "ExtraBeeItems.BLUTONIUM_DUST",
+          "kind": "extra_bees_misc",
+          "enum": "BLUTONIUM_DUST",
+          "reforestry_id": "reforestry:blutonium_dust",
+          "chance": 0.25,
+          "try": true
+        }
+      ],
+      "copy_products_from": [
+        "STONE"
+      ],
+      "copied_products": [
+        {
+          "source": "beeswax",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:beeswax",
+          "chance": 0.5,
+          "try": false
+        },
+        {
+          "source": "honeyDrop",
+          "kind": "forestry_item",
+          "reforestry_id": "reforestry:honey_drop",
+          "chance": 0.25,
+          "try": false
+        }
+      ]
+    }
+  ],
+  "drops": [
+    {
+      "enum": "ENERGY",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x9c4972",
+      "secondary_color": "0xe37171",
+      "liquid": "",
+      "reforestry_id": "reforestry:honey_drop_energy"
+    },
+    {
+      "enum": "ACID",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x4bb541",
+      "secondary_color": "0x49de3c",
+      "liquid": "acid",
+      "reforestry_id": "reforestry:honey_drop_acid"
+    },
+    {
+      "enum": "POISON",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xd106b9",
+      "secondary_color": "0xff03e2",
+      "liquid": "poison",
+      "reforestry_id": "reforestry:honey_drop_poison"
+    },
+    {
+      "enum": "APPLE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xc75252",
+      "secondary_color": "0xc92a2a",
+      "liquid": "juice",
+      "reforestry_id": "reforestry:honey_drop_apple"
+    },
+    {
+      "enum": "CITRUS",
+      "active": false,
+      "inactive_placeholder": true,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xffffff",
+      "liquid": "",
+      "reforestry_id": "reforestry:honey_drop_citrus"
+    },
+    {
+      "enum": "ICE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xaee8e2",
+      "secondary_color": "0x96fff5",
+      "liquid": "liquidnitrogen",
+      "reforestry_id": "reforestry:honey_drop_ice"
+    },
+    {
+      "enum": "MILK",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xe0e0e0",
+      "secondary_color": "0xffffff",
+      "liquid": "milk",
+      "reforestry_id": "reforestry:honey_drop_milk"
+    },
+    {
+      "enum": "SEED",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x7cc272",
+      "secondary_color": "0xc2bea7",
+      "liquid": "seedoil",
+      "reforestry_id": "reforestry:honey_drop_seed"
+    },
+    {
+      "enum": "ALCOHOL",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xdbe84d",
+      "secondary_color": "0xa5e84d",
+      "liquid": "short.mead",
+      "reforestry_id": "reforestry:honey_drop_alcohol"
+    },
+    {
+      "enum": "FRUIT",
+      "active": false,
+      "inactive_placeholder": true,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xffffff",
+      "liquid": "",
+      "reforestry_id": "reforestry:honey_drop_fruit"
+    },
+    {
+      "enum": "VEGETABLE",
+      "active": false,
+      "inactive_placeholder": true,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xffffff",
+      "liquid": "",
+      "reforestry_id": "reforestry:honey_drop_vegetable"
+    },
+    {
+      "enum": "PUMPKIN",
+      "active": false,
+      "inactive_placeholder": true,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xffffff",
+      "liquid": "",
+      "reforestry_id": "reforestry:honey_drop_pumpkin"
+    },
+    {
+      "enum": "MELON",
+      "active": false,
+      "inactive_placeholder": true,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xffffff",
+      "liquid": "",
+      "reforestry_id": "reforestry:honey_drop_melon"
+    },
+    {
+      "enum": "RED",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xcc4c4c",
+      "secondary_color": "0xff0000",
+      "liquid": "for.honey",
+      "reforestry_id": "reforestry:honey_drop_red"
+    },
+    {
+      "enum": "YELLOW",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xe5e533",
+      "secondary_color": "0xffdd00",
+      "liquid": "for.honey",
+      "reforestry_id": "reforestry:honey_drop_yellow"
+    },
+    {
+      "enum": "BLUE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x99b2f2",
+      "secondary_color": "0x0022ff",
+      "liquid": "for.honey",
+      "reforestry_id": "reforestry:honey_drop_blue"
+    },
+    {
+      "enum": "GREEN",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x667f33",
+      "secondary_color": "0x009900",
+      "liquid": "for.honey",
+      "reforestry_id": "reforestry:honey_drop_green"
+    },
+    {
+      "enum": "BLACK",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x191919",
+      "secondary_color": "0x575757",
+      "liquid": "for.honey",
+      "reforestry_id": "reforestry:honey_drop_black"
+    },
+    {
+      "enum": "WHITE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xd6d6d6",
+      "secondary_color": "0xffffff",
+      "liquid": "for.honey",
+      "reforestry_id": "reforestry:honey_drop_white"
+    },
+    {
+      "enum": "BROWN",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x7f664c",
+      "secondary_color": "0x5c350f",
+      "liquid": "for.honey",
+      "reforestry_id": "reforestry:honey_drop_brown"
+    },
+    {
+      "enum": "ORANGE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xf2b233",
+      "secondary_color": "0xff9d00",
+      "liquid": "for.honey",
+      "reforestry_id": "reforestry:honey_drop_orange"
+    },
+    {
+      "enum": "CYAN",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x4c99b2",
+      "secondary_color": "0x00ffe5",
+      "liquid": "for.honey",
+      "reforestry_id": "reforestry:honey_drop_cyan"
+    },
+    {
+      "enum": "PURPLE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xb266e5",
+      "secondary_color": "0xae00ff",
+      "liquid": "for.honey",
+      "reforestry_id": "reforestry:honey_drop_purple"
+    },
+    {
+      "enum": "GRAY",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x4c4c4c",
+      "secondary_color": "0xbababa",
+      "liquid": "for.honey",
+      "reforestry_id": "reforestry:honey_drop_gray"
+    },
+    {
+      "enum": "LIGHTBLUE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x99b2f2",
+      "secondary_color": "0x009dff",
+      "liquid": "for.honey",
+      "reforestry_id": "reforestry:honey_drop_lightblue"
+    },
+    {
+      "enum": "PINK",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xf2b2cc",
+      "secondary_color": "0xff80df",
+      "liquid": "for.honey",
+      "reforestry_id": "reforestry:honey_drop_pink"
+    },
+    {
+      "enum": "LIMEGREEN",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x7fcc19",
+      "secondary_color": "0x00ff08",
+      "liquid": "for.honey",
+      "reforestry_id": "reforestry:honey_drop_limegreen"
+    },
+    {
+      "enum": "MAGENTA",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xe57fd8",
+      "secondary_color": "0xff00cc",
+      "liquid": "for.honey",
+      "reforestry_id": "reforestry:honey_drop_magenta"
+    },
+    {
+      "enum": "LIGHTGRAY",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x999999",
+      "secondary_color": "0xc9c9c9",
+      "liquid": "for.honey",
+      "reforestry_id": "reforestry:honey_drop_lightgray"
+    }
+  ],
+  "propolis": [
+    {
+      "enum": "WATER",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x24b3c9",
+      "secondary_color": "0xc2bea7",
+      "liquid": "Water",
+      "reforestry_id": "reforestry:propolis_water"
+    },
+    {
+      "enum": "OIL",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x172f33",
+      "secondary_color": "0xc2bea7",
+      "liquid": "oil",
+      "reforestry_id": "reforestry:propolis_oil"
+    },
+    {
+      "enum": "FUEL",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0xa38d12",
+      "secondary_color": "0xc2bea7",
+      "liquid": "fuel",
+      "reforestry_id": "reforestry:propolis_fuel"
+    },
+    {
+      "enum": "MILK",
+      "active": false,
+      "inactive_placeholder": true,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xffffff",
+      "liquid": "",
+      "reforestry_id": "reforestry:propolis_milk"
+    },
+    {
+      "enum": "FRUIT",
+      "active": false,
+      "inactive_placeholder": true,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xffffff",
+      "liquid": "",
+      "reforestry_id": "reforestry:propolis_fruit"
+    },
+    {
+      "enum": "SEED",
+      "active": false,
+      "inactive_placeholder": true,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xffffff",
+      "liquid": "",
+      "reforestry_id": "reforestry:propolis_seed"
+    },
+    {
+      "enum": "ALCOHOL",
+      "active": false,
+      "inactive_placeholder": true,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xffffff",
+      "liquid": "",
+      "reforestry_id": "reforestry:propolis_alcohol"
+    },
+    {
+      "enum": "CREOSOTE",
+      "active": true,
+      "inactive_placeholder": false,
+      "primary_color": "0x877501",
+      "secondary_color": "0xbda613",
+      "liquid": "creosote",
+      "reforestry_id": "reforestry:propolis_creosote"
+    },
+    {
+      "enum": "GLACIAL",
+      "active": false,
+      "inactive_placeholder": true,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xffffff",
+      "liquid": "",
+      "reforestry_id": "reforestry:propolis_glacial"
+    },
+    {
+      "enum": "PEAT",
+      "active": false,
+      "inactive_placeholder": true,
+      "primary_color": "0xffffff",
+      "secondary_color": "0xffffff",
+      "liquid": "",
+      "reforestry_id": "reforestry:propolis_peat"
+    }
+  ],
+  "misc": [
+    {
+      "enum": "SCENTED_GEAR",
+      "lang_key": "extrabees.item.misc.scented_gear",
+      "model_path": "scented_gear",
+      "reforestry_id": "reforestry:scented_gear",
+      "metal": null,
+      "gem": null,
+      "ore_gated": false
+    },
+    {
+      "enum": "DIAMOND_SHARD",
+      "lang_key": "extrabees.item.misc.diamond_shard",
+      "model_path": "diamond_shard",
+      "reforestry_id": "reforestry:diamond_shard",
+      "metal": null,
+      "gem": "Diamond",
+      "ore_gated": true
+    },
+    {
+      "enum": "EMERALD_SHARD",
+      "lang_key": "extrabees.item.misc.emerald_shard",
+      "model_path": "emerald_shard",
+      "reforestry_id": "reforestry:emerald_shard",
+      "metal": null,
+      "gem": "Emerald",
+      "ore_gated": true
+    },
+    {
+      "enum": "RUBY_SHARD",
+      "lang_key": "extrabees.item.misc.ruby_shard",
+      "model_path": "ruby_shard",
+      "reforestry_id": "reforestry:ruby_shard",
+      "metal": null,
+      "gem": "Ruby",
+      "ore_gated": true
+    },
+    {
+      "enum": "SAPPHIRE_SHARD",
+      "lang_key": "extrabees.item.misc.sapphire_shard",
+      "model_path": "sapphire_shard",
+      "reforestry_id": "reforestry:sapphire_shard",
+      "metal": null,
+      "gem": "Sapphire",
+      "ore_gated": true
+    },
+    {
+      "enum": "LAPIS_SHARD",
+      "lang_key": "extrabees.item.misc.lapis_shard",
+      "model_path": "lapis_shard",
+      "reforestry_id": "reforestry:lapis_shard",
+      "metal": null,
+      "gem": null,
+      "ore_gated": false
+    },
+    {
+      "enum": "IRON_DUST",
+      "lang_key": "extrabees.item.misc.iron_dust",
+      "model_path": "iron_dust",
+      "reforestry_id": "reforestry:iron_dust",
+      "metal": "Iron",
+      "gem": null,
+      "ore_gated": true
+    },
+    {
+      "enum": "GOLD_DUST",
+      "lang_key": "extrabees.item.misc.gold_dust",
+      "model_path": "gold_dust",
+      "reforestry_id": "reforestry:gold_dust",
+      "metal": "Gold",
+      "gem": null,
+      "ore_gated": true
+    },
+    {
+      "enum": "SILVER_DUST",
+      "lang_key": "extrabees.item.misc.silver_dust",
+      "model_path": "silver_dust",
+      "reforestry_id": "reforestry:silver_dust",
+      "metal": "Silver",
+      "gem": null,
+      "ore_gated": true
+    },
+    {
+      "enum": "PLATINUM_DUST",
+      "lang_key": "extrabees.item.misc.platinum_dust",
+      "model_path": "platinum_dust",
+      "reforestry_id": "reforestry:platinum_dust",
+      "metal": "Platinum",
+      "gem": null,
+      "ore_gated": true
+    },
+    {
+      "enum": "COPPER_DUST",
+      "lang_key": "extrabees.item.misc.copper_dust",
+      "model_path": "copper_dust",
+      "reforestry_id": "reforestry:copper_dust",
+      "metal": "Copper",
+      "gem": null,
+      "ore_gated": true
+    },
+    {
+      "enum": "TIN_DUST",
+      "lang_key": "extrabees.item.misc.tin_dust",
+      "model_path": "tin_dust",
+      "reforestry_id": "reforestry:tin_dust",
+      "metal": "Tin",
+      "gem": null,
+      "ore_gated": true
+    },
+    {
+      "enum": "NICKEL_DUST",
+      "lang_key": "extrabees.item.misc.nickel_dust",
+      "model_path": "nickel_dust",
+      "reforestry_id": "reforestry:nickel_dust",
+      "metal": "Nickel",
+      "gem": null,
+      "ore_gated": true
+    },
+    {
+      "enum": "LEAD_DUST",
+      "lang_key": "extrabees.item.misc.lead_dust",
+      "model_path": "lead_dust",
+      "reforestry_id": "reforestry:lead_dust",
+      "metal": "Lead",
+      "gem": null,
+      "ore_gated": true
+    },
+    {
+      "enum": "ZINC_DUST",
+      "lang_key": "extrabees.item.misc.zinc_dust",
+      "model_path": "zinc_dust",
+      "reforestry_id": "reforestry:zinc_dust",
+      "metal": "Zinc",
+      "gem": null,
+      "ore_gated": true
+    },
+    {
+      "enum": "TITANIUM_DUST",
+      "lang_key": "extrabees.item.misc.titanium_dust",
+      "model_path": "titanium_dust",
+      "reforestry_id": "reforestry:titanium_dust",
+      "metal": "Titanium",
+      "gem": null,
+      "ore_gated": true
+    },
+    {
+      "enum": "TUNGSTEN_DUST",
+      "lang_key": "extrabees.item.misc.tungsten_dust",
+      "model_path": "tungsten_dust",
+      "reforestry_id": "reforestry:tungsten_dust",
+      "metal": "Tungsten",
+      "gem": null,
+      "ore_gated": true
+    },
+    {
+      "enum": "URANIUM_DUST",
+      "lang_key": "extrabees.item.misc.radioactive_dust",
+      "model_path": "radioactive_dust",
+      "reforestry_id": "reforestry:radioactive_dust",
+      "metal": null,
+      "gem": null,
+      "ore_gated": false
+    },
+    {
+      "enum": "COAL_DUST",
+      "lang_key": "extrabees.item.misc.coal_dust",
+      "model_path": "coal_dust",
+      "reforestry_id": "reforestry:coal_dust",
+      "metal": "Coal",
+      "gem": null,
+      "ore_gated": true
+    },
+    {
+      "enum": "RED_DYE",
+      "lang_key": "extrabees.item.misc.dye_red",
+      "model_path": "dye_red",
+      "reforestry_id": "reforestry:dye_red",
+      "metal": null,
+      "gem": null,
+      "ore_gated": false
+    },
+    {
+      "enum": "YELLOW_DYE",
+      "lang_key": "extrabees.item.misc.dye_yellow",
+      "model_path": "dye_yellow",
+      "reforestry_id": "reforestry:dye_yellow",
+      "metal": null,
+      "gem": null,
+      "ore_gated": false
+    },
+    {
+      "enum": "BLUE_DYE",
+      "lang_key": "extrabees.item.misc.dye_blue",
+      "model_path": "dye_blue",
+      "reforestry_id": "reforestry:dye_blue",
+      "metal": null,
+      "gem": null,
+      "ore_gated": false
+    },
+    {
+      "enum": "GREEN_DYE",
+      "lang_key": "extrabees.item.misc.dye_green",
+      "model_path": "dye_green",
+      "reforestry_id": "reforestry:dye_green",
+      "metal": null,
+      "gem": null,
+      "ore_gated": false
+    },
+    {
+      "enum": "WHITE_DYE",
+      "lang_key": "extrabees.item.misc.dye_white",
+      "model_path": "dye_white",
+      "reforestry_id": "reforestry:dye_white",
+      "metal": null,
+      "gem": null,
+      "ore_gated": false
+    },
+    {
+      "enum": "BLACK_DYE",
+      "lang_key": "extrabees.item.misc.dye_black",
+      "model_path": "dye_black",
+      "reforestry_id": "reforestry:dye_black",
+      "metal": null,
+      "gem": null,
+      "ore_gated": false
+    },
+    {
+      "enum": "BROWN_DYE",
+      "lang_key": "extrabees.item.misc.dye_brown",
+      "model_path": "dye_brown",
+      "reforestry_id": "reforestry:dye_brown",
+      "metal": null,
+      "gem": null,
+      "ore_gated": false
+    },
+    {
+      "enum": "CLAY_DUST",
+      "lang_key": "extrabees.item.misc.clay_dust",
+      "model_path": "clay_dust",
+      "reforestry_id": "reforestry:clay_dust",
+      "metal": null,
+      "gem": null,
+      "ore_gated": false
+    },
+    {
+      "enum": "YELLORIUM_DUST",
+      "lang_key": "extrabees.item.misc.yellorium_dust",
+      "model_path": "yellorium_dust",
+      "reforestry_id": "reforestry:yellorium_dust",
+      "metal": "Yellorium",
+      "gem": null,
+      "ore_gated": true
+    },
+    {
+      "enum": "BLUTONIUM_DUST",
+      "lang_key": "extrabees.item.misc.blutonium_dust",
+      "model_path": "blutonium_dust",
+      "reforestry_id": "reforestry:blutonium_dust",
+      "metal": "Blutonium",
+      "gem": null,
+      "ore_gated": true
+    },
+    {
+      "enum": "CYANITE_DUST",
+      "lang_key": "extrabees.item.misc.cyanite_dust",
+      "model_path": "cyanite_dust",
+      "reforestry_id": "reforestry:cyanite_dust",
+      "metal": "Cyanite",
+      "gem": null,
+      "ore_gated": true
+    }
+  ],
+  "frames": [
+    {
+      "enum": "COCOA",
+      "binnie_registry": "hive_frame.cocoa",
+      "reforestry_id": "reforestry:hive_frame_cocoa",
+      "max_damage": 240,
+      "modifiers": [
+        {
+          "stat": "lifespan",
+          "value": 0.75,
+          "max": 0.25
+        },
+        {
+          "stat": "production",
+          "value": 1.5,
+          "max": 5.0
+        }
+      ]
+    },
+    {
+      "enum": "CAGE",
+      "binnie_registry": "hive_frame.cage",
+      "reforestry_id": "reforestry:hive_frame_cage",
+      "max_damage": 240,
+      "modifiers": [
+        {
+          "stat": "territory",
+          "value": 0.5,
+          "max": 0.1
+        },
+        {
+          "stat": "lifespan",
+          "value": 0.75,
+          "max": 0.5
+        },
+        {
+          "stat": "production",
+          "value": 0.75,
+          "max": 0.5
+        }
+      ]
+    },
+    {
+      "enum": "SOUL",
+      "binnie_registry": "hive_frame.soul",
+      "reforestry_id": "reforestry:hive_frame_soul",
+      "max_damage": 80,
+      "modifiers": [
+        {
+          "stat": "mutation",
+          "value": 1.5,
+          "max": 5.0
+        },
+        {
+          "stat": "lifespan",
+          "value": 0.75,
+          "max": 0.5
+        },
+        {
+          "stat": "production",
+          "value": 0.25,
+          "max": 0.1
+        }
+      ]
+    },
+    {
+      "enum": "CLAY",
+      "binnie_registry": "hive_frame.clay",
+      "reforestry_id": "reforestry:hive_frame_clay",
+      "max_damage": 240,
+      "modifiers": [
+        {
+          "stat": "lifespan",
+          "value": 1.5,
+          "max": 5.0
+        },
+        {
+          "stat": "mutation",
+          "value": 0.5,
+          "max": 0.2
+        },
+        {
+          "stat": "production",
+          "value": 0.75,
+          "max": 0.2
+        }
+      ]
+    },
+    {
+      "enum": "DEBUG",
+      "binnie_registry": "hive_frame.debug",
+      "reforestry_id": "reforestry:hive_frame_debug",
+      "max_damage": 240,
+      "modifiers": [
+        {
+          "stat": "lifespan",
+          "value": 0.0001,
+          "max": 0.0001
+        }
+      ]
+    }
+  ],
+  "industrial_frames": [
+    {
+      "enum": "EMPTY",
+      "display": "Empty",
+      "wear": 5,
+      "power": 0,
+      "modifiers": {},
+      "flags": {
+        "lighted": false,
+        "sunlight": false,
+        "rain": false
+      },
+      "skipped": true,
+      "skip_reason": "Wave 7 skip: industrial frames"
+    },
+    {
+      "enum": "LIGHT",
+      "display": "Glowstone Lighting",
+      "wear": 2,
+      "power": 4,
+      "modifiers": {},
+      "flags": {
+        "lighted": true,
+        "sunlight": false,
+        "rain": false
+      },
+      "skipped": true,
+      "skip_reason": "Wave 7 skip: industrial frames"
+    },
+    {
+      "enum": "RAIN",
+      "display": "Rain Shielding",
+      "wear": 2,
+      "power": 4,
+      "modifiers": {},
+      "flags": {
+        "lighted": false,
+        "sunlight": false,
+        "rain": true
+      },
+      "skipped": true,
+      "skip_reason": "Wave 7 skip: industrial frames"
+    },
+    {
+      "enum": "SUNLIGHT",
+      "display": "Sunlight Simulator",
+      "wear": 4,
+      "power": 8,
+      "modifiers": {},
+      "flags": {
+        "lighted": true,
+        "sunlight": true,
+        "rain": false
+      },
+      "skipped": true,
+      "skip_reason": "Wave 7 skip: industrial frames"
+    },
+    {
+      "enum": "SOUL",
+      "display": "Low Grade Mutagen",
+      "wear": 5,
+      "power": 15,
+      "modifiers": {
+        "mutation": 1.3
+      },
+      "flags": {
+        "lighted": false,
+        "sunlight": false,
+        "rain": false
+      },
+      "skipped": true,
+      "skip_reason": "Wave 7 skip: industrial frames"
+    },
+    {
+      "enum": "URANIUM",
+      "display": "High Grade Mutagen",
+      "wear": 10,
+      "power": 50,
+      "modifiers": {
+        "mutation": 2.0
+      },
+      "flags": {
+        "lighted": false,
+        "sunlight": false,
+        "rain": false
+      },
+      "skipped": true,
+      "skip_reason": "Wave 7 skip: industrial frames"
+    },
+    {
+      "enum": "CAGE",
+      "display": "Meshed Restrainer",
+      "wear": 3,
+      "power": 12,
+      "modifiers": {
+        "territory": 0.4
+      },
+      "flags": {
+        "lighted": false,
+        "sunlight": false,
+        "rain": false
+      },
+      "skipped": true,
+      "skip_reason": "Wave 7 skip: industrial frames"
+    },
+    {
+      "enum": "FREEDOM",
+      "display": "Territory Extension",
+      "wear": 3,
+      "power": 16,
+      "modifiers": {
+        "territory": 1.4
+      },
+      "flags": {
+        "lighted": false,
+        "sunlight": false,
+        "rain": false
+      },
+      "skipped": true,
+      "skip_reason": "Wave 7 skip: industrial frames"
+    },
+    {
+      "enum": "HONEY",
+      "display": "Honey Amplifier",
+      "wear": 4,
+      "power": 12,
+      "modifiers": {
+        "production": 1.4
+      },
+      "flags": {
+        "lighted": false,
+        "sunlight": false,
+        "rain": false
+      },
+      "skipped": true,
+      "skip_reason": "Wave 7 skip: industrial frames"
+    },
+    {
+      "enum": "JELLY",
+      "display": "Gelatin Amplifier",
+      "wear": 8,
+      "power": 36,
+      "modifiers": {
+        "production": 1.8
+      },
+      "flags": {
+        "lighted": false,
+        "sunlight": false,
+        "rain": false
+      },
+      "skipped": true,
+      "skip_reason": "Wave 7 skip: industrial frames"
+    },
+    {
+      "enum": "LEAF",
+      "display": "Pollinator MK I",
+      "wear": 3,
+      "power": 15,
+      "modifiers": {
+        "flowering": 1.4
+      },
+      "flags": {
+        "lighted": false,
+        "sunlight": false,
+        "rain": false
+      },
+      "skipped": true,
+      "skip_reason": "Wave 7 skip: industrial frames"
+    },
+    {
+      "enum": "POLLEN",
+      "display": "Pollinator MK II",
+      "wear": 7,
+      "power": 25,
+      "modifiers": {
+        "flowering": 2.0
+      },
+      "flags": {
+        "lighted": false,
+        "sunlight": false,
+        "rain": false
+      },
+      "skipped": true,
+      "skip_reason": "Wave 7 skip: industrial frames"
+    },
+    {
+      "enum": "CLAY",
+      "display": "Lifespan Extensor",
+      "wear": 2,
+      "power": 10,
+      "modifiers": {
+        "lifespan": 1.4
+      },
+      "flags": {
+        "lighted": false,
+        "sunlight": false,
+        "rain": false
+      },
+      "skipped": true,
+      "skip_reason": "Wave 7 skip: industrial frames"
+    },
+    {
+      "enum": "EMERALD",
+      "display": "Eon Simulator",
+      "wear": 7,
+      "power": 20,
+      "modifiers": {
+        "lifespan": 2.0
+      },
+      "flags": {
+        "lighted": false,
+        "sunlight": false,
+        "rain": false
+      },
+      "skipped": true,
+      "skip_reason": "Wave 7 skip: industrial frames"
+    },
+    {
+      "enum": "NETHER_STAR",
+      "display": "Immortality Gate",
+      "wear": 12,
+      "power": 50,
+      "modifiers": {
+        "lifespan": 20.0
+      },
+      "flags": {
+        "lighted": false,
+        "sunlight": false,
+        "rain": false
+      },
+      "skipped": true,
+      "skip_reason": "Wave 7 skip: industrial frames"
+    },
+    {
+      "enum": "POISON",
+      "display": "Mortality Inhibitor",
+      "wear": 8,
+      "power": 18,
+      "modifiers": {
+        "lifespan": 0.5
+      },
+      "flags": {
+        "lighted": false,
+        "sunlight": false,
+        "rain": false
+      },
+      "skipped": true,
+      "skip_reason": "Wave 7 skip: industrial frames"
+    }
+  ],
+  "alveary": [
+    {
+      "enum": "MUTATOR",
+      "class": "AlvearyMutator",
+      "reforestry_id": "reforestry:alveary_mutator",
+      "binnie_meta": 0
+    },
+    {
+      "enum": "FRAME",
+      "class": "AlvearyFrame",
+      "reforestry_id": "reforestry:alveary_frame",
+      "binnie_meta": 1
+    },
+    {
+      "enum": "RAIN_SHIELD",
+      "class": "AlvearyRainShield",
+      "reforestry_id": "reforestry:alveary_rain_shield",
+      "binnie_meta": 2
+    },
+    {
+      "enum": "LIGHTING",
+      "class": "AlvearyLighting",
+      "reforestry_id": "reforestry:alveary_lighting",
+      "binnie_meta": 3
+    },
+    {
+      "enum": "STIMULATOR",
+      "class": "AlvearyStimulator",
+      "reforestry_id": "reforestry:alveary_stimulator",
+      "binnie_meta": 4
+    },
+    {
+      "enum": "HATCHERY",
+      "class": "AlvearyHatchery",
+      "reforestry_id": "reforestry:alveary_hatchery",
+      "binnie_meta": 5
+    },
+    {
+      "enum": "TRANSMISSION",
+      "class": "AlvearyTransmission",
+      "reforestry_id": "reforestry:alveary_transmission",
+      "binnie_meta": 6
+    }
+  ],
+  "ectoplasm": {
+    "binnie_registry": "extrabees:ectoplasm",
+    "reforestry_id": "reforestry:ectoplasm",
+    "extends": "BlockWeb",
+    "hardness": 0.5,
+    "light_opacity": 1,
+    "drop": "minecraft:slime_ball",
+    "drop_chance": "1/5"
+  },
+  "skipped": {
+    "dictionary": {
+      "binnie_registry": "extrabees:dictionary",
+      "class": "ItemBeeDictionary",
+      "reason": "Wave 7 skip"
+    },
+    "honey_crystal": {
+      "binnie_registry": "extrabees:honey_crystal",
+      "class": "ItemHoneyCrystal",
+      "reason": "Wave 7 skip (IC2)"
+    },
+    "industrial_frames": {
+      "count": 16,
+      "class": "EnumIndustrialFrame",
+      "reason": "Wave 7 skip"
+    },
+    "inactive_combs": [
+      "BRONZE",
+      "MINT",
+      "CITRUS",
+      "PEAT",
+      "BRASS",
+      "ELECTRUM",
+      "STEEL",
+      "IRIDIUM",
+      "OLIVINE",
+      "INVAR",
+      "PULP",
+      "MULCH"
+    ],
+    "alloy_branch": {
+      "enum": "ALLOY",
+      "commented_species": [
+        "INVAR",
+        "BRONZE",
+        "BRASS",
+        "STEEL"
+      ]
+    },
+    "commented_species": [
+      "ELECTRUM",
+      "OLIVINE",
+      "PEAT",
+      "CITRUS",
+      "MINT",
+      "ANGRY",
+      "INVAR",
+      "BRONZE",
+      "BRASS",
+      "STEEL"
+    ]
+  }
+}

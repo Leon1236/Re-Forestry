@@ -2,6 +2,7 @@ package com.leon1236.reforestry.core.plugin;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.function.Consumer;
 
 import com.google.common.collect.ImmutableMap;
 
@@ -27,6 +28,11 @@ public final class ArboricultureRegistrationImpl implements IArboricultureRegist
 	@Override
 	public ITreeSpeciesBuilder registerSpecies(Identifier id, String genus, String species, boolean dominant, int escritoireColor, IWoodType woodType) {
 		return ArboricultureGenetics.registerSpecies(id, genus, species, dominant, escritoireColor, woodType);
+	}
+
+	@Override
+	public void modifySpecies(Identifier id, Consumer<ITreeSpeciesBuilder> action) {
+		ArboricultureGenetics.modifySpecies(id, action);
 	}
 
 	@Override

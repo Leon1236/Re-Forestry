@@ -3,11 +3,11 @@ package com.leon1236.reforestry.apiculture.multiblock;
 import org.jetbrains.annotations.Nullable;
 
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
-import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
 import net.fabricmc.fabric.api.transfer.v1.fluid.base.SingleFluidStorage;
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Container;
@@ -16,20 +16,21 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Fluid;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
 import com.leon1236.reforestry.api.climate.IClimateControlled;
 import com.leon1236.reforestry.api.multiblock.IAlvearyComponent;
 import com.leon1236.reforestry.api.multiblock.IMultiblockComponent;
+import com.leon1236.reforestry.api.predicates.HygroregulatorInputFluids;
 import com.leon1236.reforestry.api.recipes.IHygroregulatorRecipe;
 import com.leon1236.reforestry.apiculture.blocks.BlockAlvearyType;
 import com.leon1236.reforestry.apiculture.gui.ContainerAlvearyHygroregulator;
 import com.leon1236.reforestry.apiculture.inventory.InventoryAlvearyPart;
+import com.leon1236.reforestry.core.fluids.FilteredFluidStorage;
+import com.leon1236.reforestry.core.fluids.FluidContainerHelper;
+import com.leon1236.reforestry.core.inventory.InventoryUtil;
 import com.leon1236.reforestry.core.recipes.RecipeUtils;
 
 public class TileAlvearyHygroregulator extends TileAlveary
@@ -37,7 +38,8 @@ public class TileAlvearyHygroregulator extends TileAlveary
 	public static final int SLOT_INPUT = 0;
 	public static final long TANK_CAPACITY = FluidConstants.BUCKET * 10;
 
-	private final SingleFluidStorage tank = SingleFluidStorage.withFixedCapacity(TANK_CAPACITY, this::setChanged);
+	private final FilteredFluidStorage tank = new FilteredFluidStorage(TANK_CAPACITY, HygroregulatorInputFluids::test,
+			this::setChanged);
 	private final InventoryAlvearyPart inventory = new InventoryAlvearyPart(1, this::setChanged,
 			(slot, stack) -> isFluidContainer(stack));
 
@@ -56,6 +58,21 @@ public class TileAlvearyHygroregulator extends TileAlveary
 	@Override
 	public Container getInternalInventory() {
 		return this.inventory;
+	}
+
+	@Override
+	public int[] getSlotsForFace(Direction direction) {
+		return InventoryUtil.contiguousSlots(this.inventory.getContainerSize());
+	}
+
+	@Override
+	public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction direction) {
+		return this.inventory.canPlaceItem(slot, stack);
+	}
+
+	@Override
+	public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction direction) {
+		return true;
 	}
 
 	@Override
@@ -111,32 +128,12 @@ public class TileAlvearyHygroregulator extends TileAlveary
 	}
 
 	private void drainContainer() {
-		ItemStack stack = this.inventory.getItem(SLOT_INPUT);
-		Fluid fluid = bucketFluid(stack);
-		if (fluid == null) {
-			return;
-		}
-		try (Transaction transaction = Transaction.openOuter()) {
-			if (this.tank.insert(FluidVariant.of(fluid), FluidConstants.BUCKET, transaction) == FluidConstants.BUCKET) {
-				transaction.commit();
-				this.inventory.setItem(SLOT_INPUT, new ItemStack(Items.BUCKET));
-			}
-		}
+		FluidContainerHelper.drainIntoTank(this.inventory, SLOT_INPUT, this.tank);
 	}
 
-	@Nullable
-	private static Fluid bucketFluid(ItemStack stack) {
-		if (stack.is(Items.WATER_BUCKET)) {
-			return Fluids.WATER;
-		}
-		if (stack.is(Items.LAVA_BUCKET)) {
-			return Fluids.LAVA;
-		}
-		return null;
-	}
-
-	private static boolean isFluidContainer(ItemStack stack) {
-		return bucketFluid(stack) != null;
+	private boolean isFluidContainer(ItemStack stack) {
+		return FluidContainerHelper.isFilledContainer(stack)
+				&& FluidContainerHelper.canTankAccept(this.tank, FluidContainerHelper.fluidIn(stack));
 	}
 
 	@Override

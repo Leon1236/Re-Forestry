@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "reforestry:block/fluid_liquor_elderberry"
+    },
+    "level=1": {
+      "model": "reforestry:block/fluid_liquor_elderberry"
+    },
+    "level=2": {
+      "model": "reforestry:block/fluid_liquor_elderberry"
+    },
+    "level=3": {
+      "model": "reforestry:block/fluid_liquor_elderberry"
+    },
+    "level=4": {
+      "model": "reforestry:block/fluid_liquor_elderberry"
+    },
+    "level=5": {
+      "model": "reforestry:block/fluid_liquor_elderberry"
+    },
+    "level=6": {
+      "model": "reforestry:block/fluid_liquor_elderberry"
+    },
+    "level=7": {
+      "model": "reforestry:block/fluid_liquor_elderberry"
+    },
+    "level=8": {
+      "model": "reforestry:block/fluid_liquor_elderberry"
+    },
+    "level=9": {
+      "model": "reforestry:block/fluid_liquor_elderberry"
+    },
+    "level=10": {
+      "model": "reforestry:block/fluid_liquor_elderberry"
+    },
+    "level=11": {
+      "model": "reforestry:block/fluid_liquor_elderberry"
+    },
+    "level=12": {
+      "model": "reforestry:block/fluid_liquor_elderberry"
+    },
+    "level=13": {
+      "model": "reforestry:block/fluid_liquor_elderberry"
+    },
+    "level=14": {
+      "model": "reforestry:block/fluid_liquor_elderberry"
+    },
+    "level=15": {
+      "model": "reforestry:block/fluid_liquor_elderberry"
+    }
+  }
+}

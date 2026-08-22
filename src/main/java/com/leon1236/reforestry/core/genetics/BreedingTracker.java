@@ -4,6 +4,8 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -11,7 +13,12 @@ import com.mojang.authlib.GameProfile;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.StringTag;
 import net.minecraft.resources.Identifier;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.datafix.DataFixTypes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -21,8 +28,14 @@ import net.minecraft.world.level.saveddata.SavedDataType;
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.api.genetics.IBreedingTracker;
 import com.leon1236.reforestry.api.genetics.IMutation;
+import com.leon1236.reforestry.core.network.PacketRegistry;
+import com.leon1236.reforestry.core.network.packets.GenomeTrackerSyncPayload;
 
 public class BreedingTracker extends SavedData implements IBreedingTracker {
+	public static final String TYPE_KEY = "TYPE";
+	public static final String SPECIES_KEY = "SD";
+	public static final String MUTATIONS_KEY = "MD";
+	public static final String RESEARCHED_KEY = "RD";
 	private static final String MUTATION_FORMAT = "%s-%s=%s";
 
 	private final Identifier typeId;
@@ -39,7 +52,7 @@ public class BreedingTracker extends SavedData implements IBreedingTracker {
 		this(typeId, List.of(), List.of(), List.of());
 	}
 
-	private BreedingTracker(Identifier typeId, List<Identifier> discoveredSpecies, List<String> discoveredMutations,
+	protected BreedingTracker(Identifier typeId, List<Identifier> discoveredSpecies, List<String> discoveredMutations,
 			List<String> researchedMutations) {
 		this.typeId = typeId;
 		this.discoveredSpecies.addAll(discoveredSpecies);
@@ -49,17 +62,24 @@ public class BreedingTracker extends SavedData implements IBreedingTracker {
 
 	public static Codec<BreedingTracker> codec(Identifier typeId) {
 		return RecordCodecBuilder.create(instance -> instance.group(
-				Identifier.CODEC.listOf().optionalFieldOf("SD", List.of()).forGetter(tracker -> List.copyOf(tracker.discoveredSpecies)),
-				Codec.STRING.listOf().optionalFieldOf("MD", List.of()).forGetter(tracker -> List.copyOf(tracker.discoveredMutations)),
-				Codec.STRING.listOf().optionalFieldOf("RD", List.of()).forGetter(tracker -> List.copyOf(tracker.researchedMutations))
+				Identifier.CODEC.listOf().optionalFieldOf(SPECIES_KEY, List.of()).forGetter(tracker -> List.copyOf(tracker.discoveredSpecies)),
+				Codec.STRING.listOf().optionalFieldOf(MUTATIONS_KEY, List.of()).forGetter(tracker -> List.copyOf(tracker.discoveredMutations)),
+				Codec.STRING.listOf().optionalFieldOf(RESEARCHED_KEY, List.of()).forGetter(tracker -> List.copyOf(tracker.researchedMutations))
 		).apply(instance, (species, mutations, researched) -> new BreedingTracker(typeId, species, mutations, researched)));
 	}
 
 	public static SavedDataType<BreedingTracker> typeFor(Identifier speciesTypeId, @Nullable GameProfile profile) {
+		return typeFor(speciesTypeId, profile, () -> new BreedingTracker(speciesTypeId), codec(speciesTypeId));
+	}
+
+	public static <T extends BreedingTracker> SavedDataType<T> typeFor(
+			Identifier speciesTypeId,
+			@Nullable GameProfile profile,
+			Supplier<T> constructor,
+			Codec<T> codec) {
 		String playerKey = profile == null || profile.id() == null ? "common" : profile.id().toString();
 		Identifier fileId = ReForestry.id("breeding_tracker/" + speciesTypeId.getPath() + "/" + playerKey);
-		return new SavedDataType<>(fileId, () -> new BreedingTracker(speciesTypeId), codec(speciesTypeId),
-				DataFixTypes.SAVED_DATA_SCOREBOARD);
+		return new SavedDataType<>(fileId, constructor, codec, DataFixTypes.SAVED_DATA_SCOREBOARD);
 	}
 
 	public void setUsername(@Nullable GameProfile username) {
@@ -83,6 +103,90 @@ public class BreedingTracker extends SavedData implements IBreedingTracker {
 
 	@Override
 	public void syncToPlayer(Player player) {
+		if (player instanceof ServerPlayer serverPlayer) {
+			PacketRegistry.sendToPlayer(serverPlayer, new GenomeTrackerSyncPayload(writeNetworkTag(
+					this.discoveredSpecies, this.discoveredMutations, this.researchedMutations)));
+		}
+	}
+
+	protected void sendUpdate(Collection<Identifier> discoveredSpecies, Collection<String> discoveredMutations,
+			Collection<String> researchedMutations) {
+		if (!(this.level instanceof ServerLevel serverLevel) || this.username == null || this.username.id() == null) {
+			return;
+		}
+		ServerPlayer player = serverLevel.getServer().getPlayerList().getPlayer(this.username.id());
+		if (player == null) {
+			return;
+		}
+		PacketRegistry.sendToPlayer(player, new GenomeTrackerSyncPayload(writeNetworkTag(
+				discoveredSpecies, discoveredMutations, researchedMutations)));
+	}
+
+	private CompoundTag writeNetworkTag(Collection<Identifier> discoveredSpecies, Collection<String> discoveredMutations,
+			Collection<String> researchedMutations) {
+		CompoundTag nbt = new CompoundTag();
+		nbt.putString(TYPE_KEY, this.typeId.toString());
+		ListTag speciesList = new ListTag();
+		for (Identifier speciesId : discoveredSpecies) {
+			speciesList.add(StringTag.valueOf(speciesId.toString()));
+		}
+		nbt.put(SPECIES_KEY, speciesList);
+		writeStringList(nbt, MUTATIONS_KEY, discoveredMutations);
+		writeStringList(nbt, RESEARCHED_KEY, researchedMutations);
+		writeUpdateData(nbt);
+		return nbt;
+	}
+
+	public void mergeFromNetwork(CompoundTag nbt) {
+		readIdentifierList(nbt, SPECIES_KEY, this.discoveredSpecies::add);
+		readStringList(nbt, MUTATIONS_KEY, this.discoveredMutations::add);
+		readStringList(nbt, RESEARCHED_KEY, this.researchedMutations::add);
+		readUpdateData(nbt);
+	}
+
+	protected void writeUpdateData(CompoundTag nbt) {
+	}
+
+	protected void readUpdateData(CompoundTag nbt) {
+	}
+
+	protected List<Identifier> encodedSpecies() {
+		return List.copyOf(this.discoveredSpecies);
+	}
+
+	protected List<String> encodedMutations() {
+		return List.copyOf(this.discoveredMutations);
+	}
+
+	protected List<String> encodedResearched() {
+		return List.copyOf(this.researchedMutations);
+	}
+
+	private static void writeStringList(CompoundTag nbt, String key, Iterable<String> values) {
+		ListTag list = new ListTag();
+		for (String value : values) {
+			list.add(StringTag.valueOf(value));
+		}
+		nbt.put(key, list);
+	}
+
+	private static void readStringList(CompoundTag nbt, String key, Consumer<String> values) {
+		ListTag list = nbt.getListOrEmpty(key);
+		for (int i = 0; i < list.size(); i++) {
+			String value = list.getStringOr(i, "");
+			if (!value.isEmpty()) {
+				values.accept(value);
+			}
+		}
+	}
+
+	private static void readIdentifierList(CompoundTag nbt, String key, Consumer<Identifier> values) {
+		readStringList(nbt, key, raw -> {
+			Identifier id = Identifier.tryParse(raw);
+			if (id != null) {
+				values.accept(id);
+			}
+		});
 	}
 
 	@Override
@@ -90,6 +194,7 @@ public class BreedingTracker extends SavedData implements IBreedingTracker {
 		String mutationString = getMutationString(mutation);
 		if (this.discoveredMutations.add(mutationString)) {
 			setDirty();
+			sendUpdate(List.of(), List.of(mutationString), List.of());
 		}
 	}
 
@@ -128,6 +233,7 @@ public class BreedingTracker extends SavedData implements IBreedingTracker {
 	public void registerSpecies(Identifier speciesId) {
 		if (this.discoveredSpecies.add(speciesId)) {
 			setDirty();
+			sendUpdate(List.of(speciesId), List.of(), List.of());
 		}
 	}
 
@@ -137,6 +243,7 @@ public class BreedingTracker extends SavedData implements IBreedingTracker {
 		if (this.researchedMutations.add(mutationString)) {
 			setDirty();
 			registerMutation(mutation);
+			sendUpdate(List.of(), List.of(), List.of(mutationString));
 		}
 	}
 

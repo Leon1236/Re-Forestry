@@ -28,13 +28,12 @@ public class FeatureAcacia extends FeatureTree {
 
 	@Override
 	protected void generateLeaves(IGenome genome, LevelAccessor level, RandomSource rand, TreeBlockTypeLeaf leaf, TreeContour contour, BlockPos startPos) {
-		// Generate the first, larger canopy
+
 		BlockPos pos = contour.getTrunkOrigins().get(0);
 
 		FeatureHelper.generateCylinderFromPos(level, leaf, pos.offset(this.girth / -2, 1, this.girth / -2), 2 + (this.girth / 2), 1, FeatureHelper.EnumReplaceMode.SOFT, contour);
 		FeatureHelper.generateCylinderFromPos(level, leaf, pos.offset(this.girth / -2, 0, this.girth / -2), 3 + (this.girth / 2), 1.5f, 1, FeatureHelper.EnumReplaceMode.SOFT, contour);
 
-		// Generate the second, if there is one
 		if (!contour.getBranchEnds().isEmpty()) {
 			pos = contour.getBranchEnds().get(0);
 

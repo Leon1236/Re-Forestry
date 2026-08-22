@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "reforestry:block/fluid_mash_grain"
+    },
+    "level=1": {
+      "model": "reforestry:block/fluid_mash_grain"
+    },
+    "level=2": {
+      "model": "reforestry:block/fluid_mash_grain"
+    },
+    "level=3": {
+      "model": "reforestry:block/fluid_mash_grain"
+    },
+    "level=4": {
+      "model": "reforestry:block/fluid_mash_grain"
+    },
+    "level=5": {
+      "model": "reforestry:block/fluid_mash_grain"
+    },
+    "level=6": {
+      "model": "reforestry:block/fluid_mash_grain"
+    },
+    "level=7": {
+      "model": "reforestry:block/fluid_mash_grain"
+    },
+    "level=8": {
+      "model": "reforestry:block/fluid_mash_grain"
+    },
+    "level=9": {
+      "model": "reforestry:block/fluid_mash_grain"
+    },
+    "level=10": {
+      "model": "reforestry:block/fluid_mash_grain"
+    },
+    "level=11": {
+      "model": "reforestry:block/fluid_mash_grain"
+    },
+    "level=12": {
+      "model": "reforestry:block/fluid_mash_grain"
+    },
+    "level=13": {
+      "model": "reforestry:block/fluid_mash_grain"
+    },
+    "level=14": {
+      "model": "reforestry:block/fluid_mash_grain"
+    },
+    "level=15": {
+      "model": "reforestry:block/fluid_mash_grain"
+    }
+  }
+}

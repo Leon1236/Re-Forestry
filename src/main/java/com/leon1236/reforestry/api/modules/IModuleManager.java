@@ -8,4 +8,6 @@ public interface IModuleManager {
     Collection<IForestryModule> getLoadedModules();
 
     boolean isModuleLoaded(Identifier id);
+
+    boolean isModuleEnabled(Identifier id);
 }

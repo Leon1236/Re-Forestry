@@ -42,8 +42,8 @@ public class HiveDecorator extends Feature<NoneFeatureConfiguration> {
         }
 
         Holder<Biome> biome = world.getBiome(hivePos);
-        TemperatureType temperature = IForestryApi.INSTANCE.getClimateManager().getTemperature(biome);
-        HumidityType humidity = IForestryApi.INSTANCE.getClimateManager().getHumidity(biome);
+        TemperatureType temperature = IForestryApi.get().getClimateManager().getTemperature(biome);
+        HumidityType humidity = IForestryApi.get().getClimateManager().getHumidity(biome);
         if (!hive.isGoodBiome(biome) || !hive.isGoodTemperature(temperature) || !hive.isGoodHumidity(humidity)) {
             return false;
         }
@@ -74,7 +74,7 @@ public class HiveDecorator extends Feature<NoneFeatureConfiguration> {
         RandomSource rand = context.random();
         BlockPos pos = context.origin();
 
-        ObjectArrayList<IHive> hives = new ObjectArrayList<>(IForestryApi.INSTANCE.getHiveManager().getHives());
+        ObjectArrayList<IHive> hives = new ObjectArrayList<>(IForestryApi.get().getHiveManager().getHives());
         if (hives.isEmpty()) {
             return false;
         }
