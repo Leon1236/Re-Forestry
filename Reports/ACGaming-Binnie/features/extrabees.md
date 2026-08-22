@@ -1,0 +1,419 @@
+# ACGaming-Binnie — extrabees
+
+- Alias: `binnie`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ACGaming-Binnie`
+- Package/path root: `extrabees/src/main/java/binnie/extrabees`
+- Java files scanned: **128**
+- Date: 2026-07-30
+
+## Summary
+Module `extrabees` in `ACGaming-Binnie` is rooted at `extrabees/src/main/java/binnie/extrabees` (128 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `ExtraBees`
+- `BlockEctoplasm`
+- `BlockExtraBeeHives`
+- `package-info`
+- `EnumHiveType`
+- `AlvearySimulatorCircuitType`
+- `BinnieCircuitLayout`
+- `BinnieCircuitSocketType`
+- `StimulatorCircuit`
+- `package-info`
+- `BeeModelProvider`
+- `package-info`
+- `BeeBreedingSystem`
+- `ConditionPerson`
+- `ExtraBeeBranchDefinition`
+- `ExtraBeeDefinition`
+- `ExtraBeeSpecies`
+- `ExtraBeesFlowers`
+- `EntityBeeLightning`
+- `ExtraBeesEffect`
+- `FireworkCreator`
+- `package-info`
+- `AnalystPageBeeProducts`
+- `AnalystPagePlugin`
+- `package-info`
+- `WindowApiaristDatabase`
+- `package-info`
+- `package-info`
+- `package-info`
+- `ControlBiomes`
+- `ControlClimateBar`
+- `ControlProductsBox`
+- `ControlProductsItem`
+- `ExtraBeesGUID`
+- `PageSpeciesClimate`
+- `PageSpeciesGenome`
+- `PageSpeciesProducts`
+- `package-info`
+- `BlockRegister`
+- `ItemRegister`
+- `RecipeRegister`
+- `package-info`
+- `IItemModelProvider`
+- `ItemBeeDictionary`
+- `ItemBeeHive`
+- `ItemHiveFrame`
+- `ItemHoneyComb`
+- `ItemHoneyCrystal`
+- `ItemHoneyDrop`
+- `ItemIndustrialFrame`
+- `ItemMiscProduct`
+- `ItemProduct`
+- `ItemPropolis`
+- `package-info`
+- `EnumHiveFrame`
+- `EnumHoneyComb`
+- `EnumHoneyDrop`
+- `EnumIndustrialFrame`
+- `EnumPropolis`
+- `ExtraBeeItems`
+- `IEBEnumItem`
+- `IEBItemMiscProvider`
+- `package-info`
+- `ExtraBeeMachines`
+- `TileExtraBeeAlveary`
+- `AlvearyFrame`
+- `ComponentFrameModifier`
+- `package-info`
+- `SlotValidatorFrame`
+- `WindowAlvearyFrame`
+- `package-info`
+- `AlvearyHatchery`
+- `ComponentFrameModifier`
+- `package-info`
+- `SlotValidatorLarvae`
+- `WindowAlvearyHatchery`
+- `package-info`
+- `AlvearyLighting`
+- `ComponentLighting`
+- `package-info`
+- … and 48 more
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py binnie "extrabees"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `blocks`
+  - `blocks/type`
+  - `circuit`
+  - `client`
+  - `genetics`
+  - `genetics/effect`
+  - `genetics/gui`
+  - `genetics/gui/analyst`
+  - `genetics/gui/database`
+  - `gui`
+  - `init`
+  - `items`
+  - `items/types`
+  - `machines`
+  - `machines/frame`
+  - `machines/frame/window`
+  - `machines/hatchery`
+  - `machines/hatchery/window`
+  - `machines/lighting`
+  - `machines/mutator`
+  - `machines/mutator/window`
+  - `machines/rainshield`
+  - `machines/stimulator`
+  - `machines/stimulator/window`
+  - `machines/transmission`
+  - `modules`
+  - `proxy`
+  - `utils`
+  - `utils/config`
+  - `worldgen`
+- Declaration skim (first files):
+  - `extrabees/src/main/java/binnie/extrabees/ExtraBees.java`
+    - L1: package binnie.extrabees;
+    - L30: @Mod(
+    - L37: public class ExtraBees extends BlankModuleContainer {
+    - L39: public static final String MODID = "extrabees";
+    - L41: @Mod.Instance(MODID)
+    - L42: public static ExtraBees instance;
+    - L44: @SidedProxy(clientSide = "binnie.extrabees.proxy.ExtraBeesClientProxy", serverSide = "binnie.extrabees.proxy.ExtraBeesCommonProxy")
+    - L45: public static ExtraBeesCommonProxy proxy;
+    - L47: public static IBreedingSystem beeBreedingSystem;
+    - L49: public ExtraBees() {
+    - L54: public static ConfigHandler configHandler;
+    - L56: @Mod.EventHandler
+  - `extrabees/src/main/java/binnie/extrabees/blocks/BlockEctoplasm.java`
+    - L1: package binnie.extrabees.blocks;
+    - L10: public class BlockEctoplasm extends BlockWeb {
+    - L12: public BlockEctoplasm() {
+    - L18: @Override
+    - L19: public int quantityDropped(final Random rand) {
+    - L23: @Override
+    - L24: public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+    - L28: @Override
+    - L29: public String getTranslationKey() {
+  - `extrabees/src/main/java/binnie/extrabees/blocks/BlockExtraBeeHives.java`
+    - L1: package binnie.extrabees.blocks;
+    - L33: public class BlockExtraBeeHives extends Block implements ITileEntityProvider {
+    - L35: public static final PropertyEnum<EnumHiveType> HIVE_TYPE = PropertyEnum.create("type", EnumHiveType.class);
+    - L37: public BlockExtraBeeHives() {
+    - L47: @Override
+    - L48: public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> itemList) {
+    - L54: @Override
+    - L55: public int getMetaFromState(IBlockState state) {
+    - L59: @Override
+    - L60: public int damageDropped(IBlockState state) {
+    - L64: @Override
+    - L65: @Nonnull
+  - `extrabees/src/main/java/binnie/extrabees/blocks/package-info.java`
+    - L1: @ParametersAreNonnullByDefault
+    - L2: @MethodsReturnNonnullByDefault
+    - L3: @FieldsAreNonnullByDefault
+    - L4: package binnie.extrabees.blocks;
+  - `extrabees/src/main/java/binnie/extrabees/blocks/type/EnumHiveType.java`
+    - L1: package binnie.extrabees.blocks.type;
+    - L10: public enum EnumHiveType implements IStringSerializable {
+    - L22: public void addDrops(IHiveDrop... drops) {
+    - L26: public List<IHiveDrop> getDrops() {
+    - L30: public int getMeta() {
+    - L34: public static EnumHiveType getHiveTypeForMeta(int meta) {
+    - L41: @Override
+    - L42: public String getName() {
+  - `extrabees/src/main/java/binnie/extrabees/circuit/AlvearySimulatorCircuitType.java`
+    - L1: package binnie.extrabees.circuit;
+    - L15: public enum AlvearySimulatorCircuitType implements IBeeModifier {
+    - L55: public void createCircuit(final ICircuitLayout layout) {
+    - L79: @Override
+    - L80: public float getTerritoryModifier(@Nonnull final IBeeGenome genome, final float currentModifier) {
+    - L84: @Override
+    - L85: public float getMutationModifier(@Nonnull final IBeeGenome genome, @Nonnull final IBeeGenome mate, final float currentModifier) {
+    - L89: @Override
+    - L90: public float getLifespanModifier(@Nonnull final IBeeGenome genome, @Nullable final IBeeGenome mate, final float currentModifier) {
+    - L94: @Override
+    - L95: public float getProductionModifier(@Nonnull final IBeeGenome genome, final float currentModifier) {
+    - L99: @Override
+  - `extrabees/src/main/java/binnie/extrabees/circuit/BinnieCircuitLayout.java`
+    - L1: package binnie.extrabees.circuit;
+    - L9: public class BinnieCircuitLayout implements ICircuitLayout {
+    - L14: public BinnieCircuitLayout(final String uid, final ICircuitSocketType socketType) {
+    - L20: @Override
+    - L21: public String getUID() {
+    - L25: @Override
+    - L26: public String getName() {
+    - L30: @Override
+    - L31: public String getUsage() {
+    - L35: @Override
+    - L36: public ICircuitSocketType getSocketType() {
+  - `extrabees/src/main/java/binnie/extrabees/circuit/BinnieCircuitSocketType.java`
+    - L1: package binnie.extrabees.circuit;
+    - L5: public enum BinnieCircuitSocketType implements ICircuitSocketType {
+    - L15: @Override
+    - L16: public String getUid() {
+    - L20: @Override
+    - L21: public boolean equals(ICircuitSocketType socketType) {
+  - `extrabees/src/main/java/binnie/extrabees/circuit/StimulatorCircuit.java`
+    - L1: package binnie.extrabees.circuit;
+    - L17: public class StimulatorCircuit implements ICircuit, IBeeModifier {
+    - L23: public StimulatorCircuit(final AlvearySimulatorCircuitType type, final ICircuitLayout layout) {
+    - L32: public int getPowerUsage() {
+    - L36: public void addTooltip(String tt) {
+    - L40: @Override
+    - L41: public float getTerritoryModifier(@Nonnull final IBeeGenome genome, final float currentModifier) {
+    - L45: @Override
+    - L46: public float getMutationModifier(@Nonnull final IBeeGenome genome, @Nonnull final IBeeGenome mate, final float currentModifier) {
+    - L50: @Override
+    - L51: public float getLifespanModifier(@Nonnull final IBeeGenome genome, @Nullable final IBeeGenome mate, final float currentModifier) {
+    - L55: @Override
+  - `extrabees/src/main/java/binnie/extrabees/circuit/package-info.java`
+    - L1: @ParametersAreNonnullByDefault
+    - L2: @MethodsReturnNonnullByDefault
+    - L3: @FieldsAreNonnullByDefault
+    - L4: package binnie.extrabees.circuit;
+  - `extrabees/src/main/java/binnie/extrabees/client/BeeModelProvider.java`
+    - L1: package binnie.extrabees.client;
+    - L17: public class BeeModelProvider implements IBeeModelProvider {
+    - L18: public static final BeeModelProvider instance = new BeeModelProvider();
+    - L20: @SideOnly(Side.CLIENT)
+    - L23: @Override
+    - L24: @SideOnly(Side.CLIENT)
+    - L25: public void registerModels(Item item, IModelManager manager) {
+    - L36: @Override
+    - L37: @SideOnly(Side.CLIENT)
+    - L38: public ModelResourceLocation getModel(EnumBeeType type) {
+    - L42: public ModelResourceLocation getModelLocation(String modID, String identifier) {
+  - `extrabees/src/main/java/binnie/extrabees/client/package-info.java`
+    - L1: @ParametersAreNonnullByDefault
+    - L2: @MethodsReturnNonnullByDefault
+    - L3: @FieldsAreNonnullByDefault
+    - L4: package binnie.extrabees.client;
+
+## Data & assets
+- No strongly name-matched resources under common resource roots; check parent mod resources / datagen providers.
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ACGaming-Binnie` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- enum `EnumHiveType` in `EnumHiveType.java`
+- enum `AlvearySimulatorCircuitType` in `AlvearySimulatorCircuitType.java`
+- enum `BinnieCircuitSocketType` in `BinnieCircuitSocketType.java`
+- enum `ExtraBeeBranchDefinition` in `ExtraBeeBranchDefinition.java`
+- enum `ExtraBeeDefinition` in `ExtraBeeDefinition.java`
+- enum `State` in `ExtraBeeSpecies.java`
+- enum `ExtraBeesFlowers` in `ExtraBeesFlowers.java`
+- enum `ExtraBeesEffect` in `ExtraBeesEffect.java`
+- enum `Shape` in `FireworkCreator.java`
+- key type `AnalystPagePlugin` (`AnalystPagePlugin.java`)
+- enum `ExtraBeesGUID` in `ExtraBeesGUID.java`
+- interface `IItemModelProvider` in `IItemModelProvider.java`
+- enum `VanillaComb` in `ItemHoneyComb.java`
+- enum `EnumHiveFrame` in `EnumHiveFrame.java`
+- enum `EnumHoneyComb` in `EnumHoneyComb.java`
+- enum `EnumHoneyDrop` in `EnumHoneyDrop.java`
+- enum `EnumIndustrialFrame` in `EnumIndustrialFrame.java`
+- enum `EnumPropolis` in `EnumPropolis.java`
+- enum `ExtraBeeItems` in `ExtraBeeItems.java`
+- interface `IEBEnumItem` in `IEBEnumItem.java`
+- interface `IEBItemMiscProvider` in `IEBItemMiscProvider.java`
+- enum `ExtraBeeMachines` in `ExtraBeeMachines.java`
+- key type `ExtraBeesModuleUIDs` (`ExtraBeesModuleUIDs.java`)
+- key type `ModuleAlveary` (`ModuleAlveary.java`)
+- key type `ModuleCore` (`ModuleCore.java`)
+- key type `ModuleFrames` (`ModuleFrames.java`)
+- key type `AlvearyMutationHandler` (`AlvearyMutationHandler.java`)
+- enum `EnumBeeBooleanModifier` in `EnumBeeBooleanModifier.java`
+- enum `EnumBeeModifier` in `EnumBeeModifier.java`
+- key type `ConfigHandler` (`ConfigHandler.java`)
+- interface `IConfigurable` in `IConfigurable.java`
+- enum `BinnieHiveDescription` in `BinnieHiveDescription.java`
+
+## Port relevance to Re-Forestry
+- Data/source to extract for addon modules; not a runtime dependency.
+
+## Source map
+- `extrabees/src/main/java/binnie/extrabees/ExtraBees.java`
+- `extrabees/src/main/java/binnie/extrabees/blocks/BlockEctoplasm.java`
+- `extrabees/src/main/java/binnie/extrabees/blocks/BlockExtraBeeHives.java`
+- `extrabees/src/main/java/binnie/extrabees/blocks/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/blocks/type/EnumHiveType.java`
+- `extrabees/src/main/java/binnie/extrabees/circuit/AlvearySimulatorCircuitType.java`
+- `extrabees/src/main/java/binnie/extrabees/circuit/BinnieCircuitLayout.java`
+- `extrabees/src/main/java/binnie/extrabees/circuit/BinnieCircuitSocketType.java`
+- `extrabees/src/main/java/binnie/extrabees/circuit/StimulatorCircuit.java`
+- `extrabees/src/main/java/binnie/extrabees/circuit/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/client/BeeModelProvider.java`
+- `extrabees/src/main/java/binnie/extrabees/client/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/genetics/BeeBreedingSystem.java`
+- `extrabees/src/main/java/binnie/extrabees/genetics/ConditionPerson.java`
+- `extrabees/src/main/java/binnie/extrabees/genetics/ExtraBeeBranchDefinition.java`
+- `extrabees/src/main/java/binnie/extrabees/genetics/ExtraBeeDefinition.java`
+- `extrabees/src/main/java/binnie/extrabees/genetics/ExtraBeeSpecies.java`
+- `extrabees/src/main/java/binnie/extrabees/genetics/ExtraBeesFlowers.java`
+- `extrabees/src/main/java/binnie/extrabees/genetics/effect/EntityBeeLightning.java`
+- `extrabees/src/main/java/binnie/extrabees/genetics/effect/ExtraBeesEffect.java`
+- `extrabees/src/main/java/binnie/extrabees/genetics/effect/FireworkCreator.java`
+- `extrabees/src/main/java/binnie/extrabees/genetics/effect/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/genetics/gui/analyst/AnalystPageBeeProducts.java`
+- `extrabees/src/main/java/binnie/extrabees/genetics/gui/analyst/AnalystPagePlugin.java`
+- `extrabees/src/main/java/binnie/extrabees/genetics/gui/analyst/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/genetics/gui/database/WindowApiaristDatabase.java`
+- `extrabees/src/main/java/binnie/extrabees/genetics/gui/database/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/genetics/gui/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/genetics/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/gui/ControlBiomes.java`
+- `extrabees/src/main/java/binnie/extrabees/gui/ControlClimateBar.java`
+- `extrabees/src/main/java/binnie/extrabees/gui/ControlProductsBox.java`
+- `extrabees/src/main/java/binnie/extrabees/gui/ControlProductsItem.java`
+- `extrabees/src/main/java/binnie/extrabees/gui/ExtraBeesGUID.java`
+- `extrabees/src/main/java/binnie/extrabees/gui/PageSpeciesClimate.java`
+- `extrabees/src/main/java/binnie/extrabees/gui/PageSpeciesGenome.java`
+- `extrabees/src/main/java/binnie/extrabees/gui/PageSpeciesProducts.java`
+- `extrabees/src/main/java/binnie/extrabees/gui/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/init/BlockRegister.java`
+- `extrabees/src/main/java/binnie/extrabees/init/ItemRegister.java`
+- `extrabees/src/main/java/binnie/extrabees/init/RecipeRegister.java`
+- `extrabees/src/main/java/binnie/extrabees/init/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/items/IItemModelProvider.java`
+- `extrabees/src/main/java/binnie/extrabees/items/ItemBeeDictionary.java`
+- `extrabees/src/main/java/binnie/extrabees/items/ItemBeeHive.java`
+- `extrabees/src/main/java/binnie/extrabees/items/ItemHiveFrame.java`
+- `extrabees/src/main/java/binnie/extrabees/items/ItemHoneyComb.java`
+- `extrabees/src/main/java/binnie/extrabees/items/ItemHoneyCrystal.java`
+- `extrabees/src/main/java/binnie/extrabees/items/ItemHoneyDrop.java`
+- `extrabees/src/main/java/binnie/extrabees/items/ItemIndustrialFrame.java`
+- `extrabees/src/main/java/binnie/extrabees/items/ItemMiscProduct.java`
+- `extrabees/src/main/java/binnie/extrabees/items/ItemProduct.java`
+- `extrabees/src/main/java/binnie/extrabees/items/ItemPropolis.java`
+- `extrabees/src/main/java/binnie/extrabees/items/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/items/types/EnumHiveFrame.java`
+- `extrabees/src/main/java/binnie/extrabees/items/types/EnumHoneyComb.java`
+- `extrabees/src/main/java/binnie/extrabees/items/types/EnumHoneyDrop.java`
+- `extrabees/src/main/java/binnie/extrabees/items/types/EnumIndustrialFrame.java`
+- `extrabees/src/main/java/binnie/extrabees/items/types/EnumPropolis.java`
+- `extrabees/src/main/java/binnie/extrabees/items/types/ExtraBeeItems.java`
+- `extrabees/src/main/java/binnie/extrabees/items/types/IEBEnumItem.java`
+- `extrabees/src/main/java/binnie/extrabees/items/types/IEBItemMiscProvider.java`
+- `extrabees/src/main/java/binnie/extrabees/items/types/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/ExtraBeeMachines.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/TileExtraBeeAlveary.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/frame/AlvearyFrame.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/frame/ComponentFrameModifier.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/frame/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/frame/window/SlotValidatorFrame.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/frame/window/WindowAlvearyFrame.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/frame/window/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/hatchery/AlvearyHatchery.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/hatchery/ComponentFrameModifier.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/hatchery/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/hatchery/window/SlotValidatorLarvae.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/hatchery/window/WindowAlvearyHatchery.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/hatchery/window/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/lighting/AlvearyLighting.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/lighting/ComponentLighting.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/lighting/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/mutator/AlvearyMutator.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/mutator/ComponentMutatorModifier.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/mutator/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/mutator/window/SlotValidatorMutator.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/mutator/window/WindowAlvearyMutator.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/mutator/window/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/rainshield/AlvearyRainShield.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/rainshield/ComponentRainShield.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/rainshield/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/stimulator/AlvearyStimulator.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/stimulator/ComponentStimulatorModifier.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/stimulator/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/stimulator/window/SlotValidatorCircuit.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/stimulator/window/WindowAlvearyStimulator.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/stimulator/window/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/transmission/AlvearyTransmission.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/transmission/ComponentTransmission.java`
+- `extrabees/src/main/java/binnie/extrabees/machines/transmission/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/modules/ExtraBeesModuleUIDs.java`
+- `extrabees/src/main/java/binnie/extrabees/modules/ModuleAlveary.java`
+- `extrabees/src/main/java/binnie/extrabees/modules/ModuleCore.java`
+- `extrabees/src/main/java/binnie/extrabees/modules/ModuleFrames.java`
+- `extrabees/src/main/java/binnie/extrabees/modules/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/proxy/ExtraBeesClientProxy.java`
+- `extrabees/src/main/java/binnie/extrabees/proxy/ExtraBeesCommonProxy.java`
+- `extrabees/src/main/java/binnie/extrabees/proxy/package-info.java`
+- `extrabees/src/main/java/binnie/extrabees/utils/AlvearyMutationHandler.java`
+- `extrabees/src/main/java/binnie/extrabees/utils/BeeModifierLogic.java`
+- `extrabees/src/main/java/binnie/extrabees/utils/ComponentBeeModifier.java`
+- `extrabees/src/main/java/binnie/extrabees/utils/EnumBeeBooleanModifier.java`
+- `extrabees/src/main/java/binnie/extrabees/utils/EnumBeeModifier.java`
+- `extrabees/src/main/java/binnie/extrabees/utils/HiveDrop.java`
+- `extrabees/src/main/java/binnie/extrabees/utils/MaterialBeehive.java`
+- `extrabees/src/main/java/binnie/extrabees/utils/Utils.java`
+- `extrabees/src/main/java/binnie/extrabees/utils/config/ConfigHandler.java`
+- `extrabees/src/main/java/binnie/extrabees/utils/config/ConfigurationMain.java`
+- `extrabees/src/main/java/binnie/extrabees/utils/config/IConfigurable.java`
+- `extrabees/src/main/java/binnie/extrabees/utils/config/package-info.java`
+- … and 8 more under `extrabees/src/main/java/binnie/extrabees`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

@@ -1,0 +1,407 @@
+# ForestryMC-ForestryMC — farming
+
+- Alias: `forestry12`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ForestryMC-ForestryMC`
+- Package/path root: `src/main/java/forestry/farming`
+- Java files scanned: **107**
+- Date: 2026-07-30
+
+## Summary
+Module `farming` in `ForestryMC-ForestryMC` is rooted at `src/main/java/forestry/farming` (107 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `DummyFarmRegistry`
+- `FarmHelper`
+- `FarmRegistry`
+- `FarmTarget`
+- `ModuleFarming`
+- `BlockFarm`
+- `BlockMushroom`
+- `BlockRegistryFarming`
+- `EnumFarmBlockType`
+- `package-info`
+- `CircuitFarmLogic`
+- `package-info`
+- `FarmingInfoRecipeCategory`
+- `FarmingInfoRecipeMaker`
+- `FarmingInfoRecipeWrapper`
+- `FarmingJeiPlugin`
+- `package-info`
+- `ContainerFarm`
+- `FarmLedger`
+- `FarmLogicSlot`
+- `GuiFarm`
+- `IFarmLedgerDelegate`
+- `package-info`
+- `ItemBlockFarm`
+- `package-info`
+- `FakeFarmProperties`
+- `FarmLogic`
+- `FarmLogicArboreal`
+- `FarmLogicCocoa`
+- `FarmLogicCrops`
+- `FarmLogicEnder`
+- `FarmLogicGourd`
+- `FarmLogicHomogeneous`
+- `FarmLogicInfernal`
+- `FarmLogicMushroom`
+- `FarmLogicOrchard`
+- `FarmLogicPeat`
+- `FarmLogicRedOrchid`
+- `FarmLogicReeds`
+- `FarmLogicRubber`
+- `FarmLogicSimple`
+- `FarmLogicSoil`
+- `FarmLogicSucculent`
+- `FarmLogicWatered`
+- `FarmProperties`
+- `ForestryFarmIdentifier`
+- `Soil`
+- `Crop`
+- `CropBasicAgriCraft`
+- `CropBasicGrowthCraft`
+- `CropBasicIC2Crop`
+- `CropChorusFlower`
+- `CropDestroy`
+- `CropDestroyDouble`
+- `CropFruit`
+- `CropPeat`
+- `CropRubber`
+- `package-info`
+- `FarmableAgingCrop`
+- `FarmableBase`
+- `FarmableBasicAgricraft`
+- `FarmableBasicGrowthCraft`
+- `FarmableBasicIC2Crop`
+- `FarmableChorus`
+- `FarmableCocoa`
+- `FarmableDoubleCrop`
+- `FarmableGE`
+- `FarmableGourd`
+- `FarmableInfo`
+- `FarmableRusticGrape`
+- `FarmableRusticSapling`
+- `FarmableSapling`
+- `FarmableStacked`
+- `FarmableVanillaMushroom`
+- `FarmableVanillaSapling`
+- `package-info`
+- `package-info`
+- `EnumFarmBlockTexture`
+- `ModelFarmBlock`
+- `package-info`
+- … and 27 more
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py forestry12 "farming"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `blocks`
+  - `circuits`
+  - `compat`
+  - `gui`
+  - `items`
+  - `logic`
+  - `logic/crops`
+  - `logic/farmables`
+  - `models`
+  - `multiblock`
+  - `proxy`
+  - `tiles`
+  - `triggers`
+- Declaration skim (first files):
+  - `src/main/java/forestry/farming/DummyFarmRegistry.java`
+    - L1: package forestry.farming;
+    - L19: public class DummyFarmRegistry implements IFarmRegistry {
+    - L21: @Override
+    - L22: public void registerLogic(String identifier, IFarmLogic logic) {
+    - L26: @Override
+    - L27: public void registerFarmables(String identifier, IFarmable... farmable) {
+    - L31: @Override
+    - L32: public Collection<IFarmable> getFarmables(String identifier) {
+    - L37: @Override
+    - L38: public IFarmableInfo getFarmableInfo(String identifier) {
+    - L42: @Override
+    - L43: public IFarmProperties registerLogic(String identifier, IFarmProperties farmInstance) {
+  - `src/main/java/forestry/farming/FarmHelper.java`
+    - L11: package forestry.farming;
+    - L36: public class FarmHelper {
+    - L38: public enum Stage {
+    - L41: public Stage next() {
+    - L50: public static class FarmWorkStatus {
+    - L51: public boolean didWork = false;
+    - L52: public boolean hasFarmland = false;
+    - L53: public boolean hasFertilizer = true;
+    - L54: public boolean hasLiquid = true;
+    - L71: public static FarmDirection getReversedLayoutDirection(FarmDirection farmSide) {
+    - L85: public static final ImmutableSet<Block> bricks = ImmutableSet.of(
+  - `src/main/java/forestry/farming/FarmRegistry.java`
+    - L1: package forestry.farming;
+    - L41: public final class FarmRegistry implements IFarmRegistry {
+    - L51: public static FarmRegistry getInstance() {
+    - L55: @Override
+    - L56: @Deprecated
+    - L57: public void registerLogic(String identifier, IFarmLogic logic) {
+    - L60: @Override
+    - L61: public void registerFarmables(String identifier, IFarmable... farmablesArray) {
+    - L69: @Override
+    - L70: public Collection<IFarmable> getFarmables(String identifier) {
+    - L74: @Override
+    - L75: public IFarmableInfo getFarmableInfo(String identifier) {
+  - `src/main/java/forestry/farming/FarmTarget.java`
+    - L11: package forestry.farming;
+    - L21: public class FarmTarget {
+    - L30: public FarmTarget(BlockPos start, FarmDirection direction, int limit) {
+    - L36: public BlockPos getStart() {
+    - L40: public int getYOffset() {
+    - L44: public int getExtent() {
+    - L48: public FarmDirection getDirection() {
+    - L52: public void setExtentAndYOffset(World world, @Nullable BlockPos platformPosition, IFarmHousing housing) {
+  - `src/main/java/forestry/farming/ModuleFarming.java`
+    - L11: package forestry.farming;
+    - L103: @ForestryModule(containerID = Constants.MOD_ID, moduleID = ForestryModuleUids.FARMING, name = "Farming", author = "SirSengir", url = Constants.URL, unlocalizedDescription = "for.module.farming.description")
+    - L104: public class ModuleFarming extends BlankForestryModule {
+    - L106: @SuppressWarnings("NullableProblems")
+    - L107: @SidedProxy(clientSide = "forestry.farming.proxy.ProxyFarmingClient", serverSide = "forestry.farming.proxy.ProxyFarming")
+    - L108: public static ProxyFarming proxy;
+    - L110: @Nullable
+    - L113: public static BlockRegistryFarming getBlocks() {
+    - L118: @Override
+    - L119: public void setupAPI() {
+  - `src/main/java/forestry/farming/blocks/BlockFarm.java`
+    - L11: package forestry.farming.blocks;
+    - L60: public class BlockFarm extends BlockStructure {
+    - L62: public static final PropertyEnum<EnumFarmBlockType> META = PropertyEnum.create("meta", EnumFarmBlockType.class);
+    - L64: public BlockFarm() {
+    - L73: @Override
+    - L74: public IBlockState getStateFromMeta(int meta) {
+    - L78: @Override
+    - L79: public int getMetaFromState(IBlockState state) {
+    - L83: @Override
+    - L84: public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos) {
+    - L89: @Override
+    - L90: protected BlockStateContainer createBlockState() {
+  - `src/main/java/forestry/farming/blocks/BlockMushroom.java`
+    - L11: package forestry.farming.blocks;
+    - L45: public class BlockMushroom extends BlockBush implements IItemModelRegister, IGrowable {
+    - L47: public static final PropertyEnum<MushroomType> VARIANT = PropertyEnum.create("mushroom", MushroomType.class);
+    - L48: public static final PropertyBool MATURE = PropertyBool.create("mature");
+    - L50: public enum MushroomType implements IStringSerializable {
+    - L52: @Override
+    - L53: public ItemStack getDrop() {
+    - L58: @Override
+    - L59: public ItemStack getDrop() {
+    - L64: public abstract ItemStack getDrop();
+    - L66: @Override
+    - L67: public String getName() {
+  - `src/main/java/forestry/farming/blocks/BlockRegistryFarming.java`
+    - L11: package forestry.farming.blocks;
+    - L17: public class BlockRegistryFarming extends BlockRegistry {
+    - L18: public final BlockMushroom mushroom;
+    - L19: public final BlockFarm farm;
+    - L21: public BlockRegistryFarming() {
+  - `src/main/java/forestry/farming/blocks/EnumFarmBlockType.java`
+    - L1: package forestry.farming.blocks;
+    - L18: public enum EnumFarmBlockType implements IStringSerializable {
+    - L26: public static final EnumFarmBlockType[] VALUES = values();
+    - L37: @SideOnly(Side.CLIENT)
+    - L40: @SideOnly(Side.CLIENT)
+    - L41: public static void registerSprites() {
+    - L58: @SideOnly(Side.CLIENT)
+    - L59: public static TextureAtlasSprite getSprite(EnumFarmBlockType type, int side) {
+    - L85: @Override
+    - L86: public String getName() {
+  - `src/main/java/forestry/farming/blocks/package-info.java`
+    - L1: @ParametersAreNonnullByDefault
+    - L2: @FieldsAreNonnullByDefault
+    - L3: @MethodsReturnNonnullByDefault
+    - L4: package forestry.farming.blocks;
+  - `src/main/java/forestry/farming/circuits/CircuitFarmLogic.java`
+    - L11: package forestry.farming.circuits;
+    - L22: public class CircuitFarmLogic extends Circuit implements IFarmCircuit {
+    - L27: public CircuitFarmLogic(String uid, IFarmProperties instance, boolean manual) {
+    - L32: @SuppressWarnings("unused")
+    - L33: public CircuitFarmLogic(String uid, IFarmLogic logic) {
+    - L38: @Override
+    - L39: public String getUnlocalizedName() {
+    - L43: @Override
+    - L44: public String getLocalizedName() {
+    - L48: @Override
+    - L49: public IFarmLogic getFarmLogic() {
+    - L56: @Deprecated
+  - `src/main/java/forestry/farming/circuits/package-info.java`
+    - L1: @ParametersAreNonnullByDefault
+    - L2: @FieldsAreNonnullByDefault
+    - L3: @MethodsReturnNonnullByDefault
+    - L4: package forestry.farming.circuits;
+
+## Data & assets
+Related resource paths (heuristic name match):
+- `src/main/resources/assets/forestry/manual/entries/farming.json`
+- `src/main/resources/assets/forestry/manual/en_us/farming/farm_layout.json`
+- `src/main/resources/assets/forestry/manual/en_us/farming/farm_gui.json`
+- `src/main/resources/assets/forestry/manual/en_us/farming/farm_structure.json`
+- `src/main/resources/assets/forestry/manual/en_us/farming/farm_configuration.json`
+- `src/main/resources/assets/forestry/manual/en_us/farming/multi_farms.json`
+- `src/main/resources/assets/forestry/manual/en_us/farming/farm_structure.hatch.json`
+- `src/main/resources/assets/forestry/manual/en_us/farming/farm_structure.gearbox.json`
+- `src/main/resources/assets/forestry/manual/en_us/farming/farm_structure.control.json`
+- `src/main/resources/assets/forestry/manual/en_us/farming/farm_structure.valve.json`
+- `src/main/resources/assets/forestry/manual/zh_tw/farming/farm_layout.json`
+- `src/main/resources/assets/forestry/manual/zh_tw/farming/farm_gui.json`
+- `src/main/resources/assets/forestry/manual/zh_tw/farming/farm_structure.json`
+- `src/main/resources/assets/forestry/manual/zh_tw/farming/farm_configuration.json`
+- `src/main/resources/assets/forestry/manual/zh_tw/farming/multi_farms.json`
+- `src/main/resources/assets/forestry/manual/zh_tw/farming/farm_structure.hatch.json`
+- `src/main/resources/assets/forestry/manual/zh_tw/farming/farm_structure.gearbox.json`
+- `src/main/resources/assets/forestry/manual/zh_tw/farming/farm_structure.control.json`
+- `src/main/resources/assets/forestry/manual/zh_tw/farming/farm_structure.valve.json`
+- `src/main/resources/assets/forestry/manual/zh_cn/farming/farm_layout.json`
+- `src/main/resources/assets/forestry/manual/zh_cn/farming/farm_gui.json`
+- `src/main/resources/assets/forestry/manual/zh_cn/farming/farm_structure.json`
+- `src/main/resources/assets/forestry/manual/zh_cn/farming/farm_configuration.json`
+- `src/main/resources/assets/forestry/manual/zh_cn/farming/multi_farms.json`
+- `src/main/resources/assets/forestry/manual/zh_cn/farming/farm_structure.hatch.json`
+- `src/main/resources/assets/forestry/manual/zh_cn/farming/farm_structure.gearbox.json`
+- `src/main/resources/assets/forestry/manual/zh_cn/farming/farm_structure.control.json`
+- `src/main/resources/assets/forestry/manual/zh_cn/farming/farm_structure.valve.json`
+- `src/main/resources/assets/forestry/manual/ru_ru/farming/farm_layout.json`
+- `src/main/resources/assets/forestry/manual/ru_ru/farming/farm_gui.json`
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ForestryMC-ForestryMC` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- key type `DummyFarmRegistry` (`DummyFarmRegistry.java`)
+- enum `Stage` in `FarmHelper.java`
+- key type `FarmRegistry` (`FarmRegistry.java`)
+- key type `ModuleFarming` (`ModuleFarming.java`)
+- enum `MushroomType` in `BlockMushroom.java`
+- key type `BlockRegistryFarming` (`BlockRegistryFarming.java`)
+- enum `EnumFarmBlockType` in `EnumFarmBlockType.java`
+- key type `FarmingJeiPlugin` (`FarmingJeiPlugin.java`)
+- interface `IFarmLedgerDelegate` in `IFarmLedgerDelegate.java`
+- enum `CultivationType` in `FarmLogicWatered.java`
+- enum `EnumFarmBlockTexture` in `EnumFarmBlockTexture.java`
+- interface `IFarmControllerInternal` in `IFarmControllerInternal.java`
+- interface `IFarmInventoryInternal` in `IFarmInventoryInternal.java`
+
+## Port relevance to Re-Forestry
+- Mentions of `farming` appear in `files/implemented-features.md` — check that file for port status.
+- 1.12 Forestry — useful for CE-dropped content (greenhouse, book, climatology, database, etc.).
+
+## Source map
+- `src/main/java/forestry/farming/DummyFarmRegistry.java`
+- `src/main/java/forestry/farming/FarmHelper.java`
+- `src/main/java/forestry/farming/FarmRegistry.java`
+- `src/main/java/forestry/farming/FarmTarget.java`
+- `src/main/java/forestry/farming/ModuleFarming.java`
+- `src/main/java/forestry/farming/blocks/BlockFarm.java`
+- `src/main/java/forestry/farming/blocks/BlockMushroom.java`
+- `src/main/java/forestry/farming/blocks/BlockRegistryFarming.java`
+- `src/main/java/forestry/farming/blocks/EnumFarmBlockType.java`
+- `src/main/java/forestry/farming/blocks/package-info.java`
+- `src/main/java/forestry/farming/circuits/CircuitFarmLogic.java`
+- `src/main/java/forestry/farming/circuits/package-info.java`
+- `src/main/java/forestry/farming/compat/FarmingInfoRecipeCategory.java`
+- `src/main/java/forestry/farming/compat/FarmingInfoRecipeMaker.java`
+- `src/main/java/forestry/farming/compat/FarmingInfoRecipeWrapper.java`
+- `src/main/java/forestry/farming/compat/FarmingJeiPlugin.java`
+- `src/main/java/forestry/farming/compat/package-info.java`
+- `src/main/java/forestry/farming/gui/ContainerFarm.java`
+- `src/main/java/forestry/farming/gui/FarmLedger.java`
+- `src/main/java/forestry/farming/gui/FarmLogicSlot.java`
+- `src/main/java/forestry/farming/gui/GuiFarm.java`
+- `src/main/java/forestry/farming/gui/IFarmLedgerDelegate.java`
+- `src/main/java/forestry/farming/gui/package-info.java`
+- `src/main/java/forestry/farming/items/ItemBlockFarm.java`
+- `src/main/java/forestry/farming/items/package-info.java`
+- `src/main/java/forestry/farming/logic/FakeFarmProperties.java`
+- `src/main/java/forestry/farming/logic/FarmLogic.java`
+- `src/main/java/forestry/farming/logic/FarmLogicArboreal.java`
+- `src/main/java/forestry/farming/logic/FarmLogicCocoa.java`
+- `src/main/java/forestry/farming/logic/FarmLogicCrops.java`
+- `src/main/java/forestry/farming/logic/FarmLogicEnder.java`
+- `src/main/java/forestry/farming/logic/FarmLogicGourd.java`
+- `src/main/java/forestry/farming/logic/FarmLogicHomogeneous.java`
+- `src/main/java/forestry/farming/logic/FarmLogicInfernal.java`
+- `src/main/java/forestry/farming/logic/FarmLogicMushroom.java`
+- `src/main/java/forestry/farming/logic/FarmLogicOrchard.java`
+- `src/main/java/forestry/farming/logic/FarmLogicPeat.java`
+- `src/main/java/forestry/farming/logic/FarmLogicRedOrchid.java`
+- `src/main/java/forestry/farming/logic/FarmLogicReeds.java`
+- `src/main/java/forestry/farming/logic/FarmLogicRubber.java`
+- `src/main/java/forestry/farming/logic/FarmLogicSimple.java`
+- `src/main/java/forestry/farming/logic/FarmLogicSoil.java`
+- `src/main/java/forestry/farming/logic/FarmLogicSucculent.java`
+- `src/main/java/forestry/farming/logic/FarmLogicWatered.java`
+- `src/main/java/forestry/farming/logic/FarmProperties.java`
+- `src/main/java/forestry/farming/logic/ForestryFarmIdentifier.java`
+- `src/main/java/forestry/farming/logic/Soil.java`
+- `src/main/java/forestry/farming/logic/crops/Crop.java`
+- `src/main/java/forestry/farming/logic/crops/CropBasicAgriCraft.java`
+- `src/main/java/forestry/farming/logic/crops/CropBasicGrowthCraft.java`
+- `src/main/java/forestry/farming/logic/crops/CropBasicIC2Crop.java`
+- `src/main/java/forestry/farming/logic/crops/CropChorusFlower.java`
+- `src/main/java/forestry/farming/logic/crops/CropDestroy.java`
+- `src/main/java/forestry/farming/logic/crops/CropDestroyDouble.java`
+- `src/main/java/forestry/farming/logic/crops/CropFruit.java`
+- `src/main/java/forestry/farming/logic/crops/CropPeat.java`
+- `src/main/java/forestry/farming/logic/crops/CropRubber.java`
+- `src/main/java/forestry/farming/logic/crops/package-info.java`
+- `src/main/java/forestry/farming/logic/farmables/FarmableAgingCrop.java`
+- `src/main/java/forestry/farming/logic/farmables/FarmableBase.java`
+- `src/main/java/forestry/farming/logic/farmables/FarmableBasicAgricraft.java`
+- `src/main/java/forestry/farming/logic/farmables/FarmableBasicGrowthCraft.java`
+- `src/main/java/forestry/farming/logic/farmables/FarmableBasicIC2Crop.java`
+- `src/main/java/forestry/farming/logic/farmables/FarmableChorus.java`
+- `src/main/java/forestry/farming/logic/farmables/FarmableCocoa.java`
+- `src/main/java/forestry/farming/logic/farmables/FarmableDoubleCrop.java`
+- `src/main/java/forestry/farming/logic/farmables/FarmableGE.java`
+- `src/main/java/forestry/farming/logic/farmables/FarmableGourd.java`
+- `src/main/java/forestry/farming/logic/farmables/FarmableInfo.java`
+- `src/main/java/forestry/farming/logic/farmables/FarmableRusticGrape.java`
+- `src/main/java/forestry/farming/logic/farmables/FarmableRusticSapling.java`
+- `src/main/java/forestry/farming/logic/farmables/FarmableSapling.java`
+- `src/main/java/forestry/farming/logic/farmables/FarmableStacked.java`
+- `src/main/java/forestry/farming/logic/farmables/FarmableVanillaMushroom.java`
+- `src/main/java/forestry/farming/logic/farmables/FarmableVanillaSapling.java`
+- `src/main/java/forestry/farming/logic/farmables/package-info.java`
+- `src/main/java/forestry/farming/logic/package-info.java`
+- `src/main/java/forestry/farming/models/EnumFarmBlockTexture.java`
+- `src/main/java/forestry/farming/models/ModelFarmBlock.java`
+- `src/main/java/forestry/farming/models/package-info.java`
+- `src/main/java/forestry/farming/multiblock/FakeFarmController.java`
+- `src/main/java/forestry/farming/multiblock/FarmController.java`
+- `src/main/java/forestry/farming/multiblock/FarmFertilizerManager.java`
+- `src/main/java/forestry/farming/multiblock/FarmHydrationManager.java`
+- `src/main/java/forestry/farming/multiblock/FarmMultiblockSizeLimits.java`
+- `src/main/java/forestry/farming/multiblock/IFarmControllerInternal.java`
+- `src/main/java/forestry/farming/multiblock/IFarmInventoryInternal.java`
+- `src/main/java/forestry/farming/multiblock/InventoryFarm.java`
+- `src/main/java/forestry/farming/multiblock/MultiblockLogicFarm.java`
+- `src/main/java/forestry/farming/multiblock/package-info.java`
+- `src/main/java/forestry/farming/package-info.java`
+- `src/main/java/forestry/farming/proxy/ProxyFarming.java`
+- `src/main/java/forestry/farming/proxy/ProxyFarmingClient.java`
+- `src/main/java/forestry/farming/proxy/package-info.java`
+- `src/main/java/forestry/farming/tiles/TileFarm.java`
+- `src/main/java/forestry/farming/tiles/TileFarmControl.java`
+- `src/main/java/forestry/farming/tiles/TileFarmGearbox.java`
+- `src/main/java/forestry/farming/tiles/TileFarmHatch.java`
+- `src/main/java/forestry/farming/tiles/TileFarmPlain.java`
+- `src/main/java/forestry/farming/tiles/TileFarmValve.java`
+- `src/main/java/forestry/farming/tiles/package-info.java`
+- `src/main/java/forestry/farming/triggers/FarmingTriggers.java`
+- `src/main/java/forestry/farming/triggers/TriggerLowFertilizer.java`
+- `src/main/java/forestry/farming/triggers/TriggerLowGermlings.java`
+- `src/main/java/forestry/farming/triggers/TriggerLowLiquid.java`
+- `src/main/java/forestry/farming/triggers/TriggerLowSoil.java`
+- `src/main/java/forestry/farming/triggers/package-info.java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

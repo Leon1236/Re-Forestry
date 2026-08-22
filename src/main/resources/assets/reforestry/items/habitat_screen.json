@@ -1,6 +1,22 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "reforestry:item/habitat_screen"
+    "model": "reforestry:item/habitat_screen",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -1
+      },
+      {
+        "type": "reforestry:habitat_screen_climate"
+      },
+      {
+        "type": "reforestry:habitat_screen_link"
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -1
+      }
+    ]
   }
 }

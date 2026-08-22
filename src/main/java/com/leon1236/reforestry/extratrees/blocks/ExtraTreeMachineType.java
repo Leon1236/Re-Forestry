@@ -4,6 +4,7 @@ import com.leon1236.reforestry.core.blocks.IBlockType;
 import com.leon1236.reforestry.core.blocks.IMachineProperties;
 import com.leon1236.reforestry.core.blocks.MachineProperties;
 import com.leon1236.reforestry.extratrees.features.ExtraTreesTiles;
+import com.leon1236.reforestry.extratrees.tiles.TileBottleRack;
 import com.leon1236.reforestry.extratrees.tiles.TileBrewery;
 import com.leon1236.reforestry.extratrees.tiles.TileDistillery;
 import com.leon1236.reforestry.extratrees.tiles.TileLumbermill;
@@ -21,6 +22,8 @@ public enum ExtraTreeMachineType implements IBlockType {
 			.create()),
 	DISTILLERY("distillery", new MachineProperties.Builder<>(ExtraTreesTiles.DISTILLERY, "distillery")
 			.setServerTicker(TileDistillery::serverTick)
+			.create()),
+	BOTTLE_RACK("bottle_rack", new MachineProperties.Builder<>(ExtraTreesTiles.BOTTLE_RACK, "bottle_rack")
 			.create());
 
 	public static final ExtraTreeMachineType[] VALUES = values();

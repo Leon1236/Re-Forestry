@@ -1,0 +1,481 @@
+# thedarkcolour-ForestryCE — core
+
+- Alias: `CE`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_16-21-34/thedarkcolour-ForestryCE`
+- Package/path root: `src/main/java/forestry/core`
+- Java files scanned: **487**
+- Date: 2026-07-30
+
+## Summary
+Module `core` in `thedarkcolour-ForestryCE` is rooted at `src/main/java/forestry/core` (487 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `ClientsideCode`
+- `EventHandlerCore`
+- `ForestryColors`
+- `ModuleCore`
+- `ModuleFluids`
+- `PickupHandlerCore`
+- `TranslationKeys`
+- `AdvancementHelper`
+- `ApicultureResearchTrigger`
+- `ArboricultureResearchTrigger`
+- `DiscoverSpeciesTrigger`
+- `ForestryAdvancementTriggers`
+- `BlockBase`
+- `BlockBigCandle`
+- `BlockBogEarth`
+- `BlockBurnBarrel`
+- `BlockBurnable`
+- `BlockCore`
+- `BlockForestry`
+- `BlockHumus`
+- `BlockJumboCandle`
+- `BlockMetalPlating`
+- `BlockPeat`
+- `BlockPlywoodBlock`
+- `BlockResourceStorage`
+- `BlockSheet`
+- `BlockStructure`
+- `BlockTesr`
+- `BlockTypeBigCandle`
+- `BlockTypeCoreTesr`
+- `BlockTypeJumboCandle`
+- `BlockTypeMetalPlating`
+- `CandleRefractory`
+- `CorkBlock`
+- `EnumResourceType`
+- `IBlockType`
+- `IColoredBlock`
+- `IMachineProperties`
+- `IShapeProvider`
+- `ISimpleShapeProvider`
+- `MachineProperties`
+- `TileStreamUpdateTracker`
+- `package-info`
+- `Circuit`
+- `CircuitBoard`
+- `CircuitId`
+- `CircuitLayout`
+- `CircuitManager`
+- `ContainerSolderingIron`
+- `EnumCircuitBoardType`
+- `GuiSolderingIron`
+- `IEngineUpgradeable`
+- `IMachineUpgradable`
+- `ISocketable`
+- `ISolderingIron`
+- `ItemCircuitBoard`
+- `package-info`
+- `CoreClientHandler`
+- `RefractoryWaxParticle`
+- `CoreJeiPlugin`
+- `package-info`
+- `package-info`
+- `ClimateProvider`
+- `FakeClimateProvider`
+- `ForestryClimateManager`
+- `package-info`
+- `AlleleArgument`
+- `ChromosomeArgument`
+- `CommandArgumentTypes`
+- `CommandHelpers`
+- `CommandSaveStats`
+- `DiagnosticsCommand`
+- `DumpCommand`
+- `GiveSpeciesCommand`
+- `ISpeciesArgumentType`
+- `IStatsSaveHelper`
+- `LifeStageArgument`
+- `ModifyGenomeCommand`
+- `SpeciesArgument`
+- `package-info`
+- … and 407 more
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py CE "core"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `advancements`
+  - `blocks`
+  - `circuits`
+  - `client`
+  - `client/compat`
+  - `climate`
+  - `commands`
+  - `config`
+  - `damage`
+  - `data`
+  - `data/builder`
+  - `data/models`
+  - `data/recipe`
+  - `entities`
+  - `errors`
+  - `features`
+  - `fluids`
+  - `genetics`
+  - `genetics/alleles`
+  - `genetics/capability`
+  - `genetics/mutations`
+  - `genetics/root`
+  - `gui`
+  - `gui/buttons`
+  - `gui/ledgers`
+  - `gui/slots`
+  - `gui/widgets`
+  - `inventory`
+  - `inventory/watchers`
+  - `inventory/wrappers`
+  - `items`
+  - `items/definitions`
+  - `loot`
+  - `models`
+  - `models/baker`
+  - `multiblock`
+  - `network`
+  - `network/packets`
+  - `owner`
+  - `particles`
+  - `recipes`
+  - `recipes/jei`
+  - `registration`
+  - `render`
+  - `tab`
+  - `tiles`
+  - `utils`
+  - `utils/datastructures`
+  - `worldgen`
+- Declaration skim (first files):
+  - `src/main/java/forestry/core/ClientsideCode.java`
+    - L1: package forestry.core;
+    - L20: // in another class (like this one), guarded by an if statement checking FMLEnvironment.dist == Dist.CLIENT
+    - L21: // Calls to this class must be guarded by an if statement.
+    - L23: public class ClientsideCode {
+    - L24: public static ServerBreedingHandler newBreedingHandler() {
+    - L28: @Nullable
+    - L29: public static RecipeManager getRecipeManager() {
+    - L37: public static Registry<Fluid> getFluidRegistry() {
+    - L41: public static void markForUpdate(BlockPos pos) {
+    - L45: public static RegistryAccess getRegistryAccess() {
+    - L49: public static Optional<Resource> getResource(ResourceLocation path) {
+  - `src/main/java/forestry/core/EventHandlerCore.java`
+    - L1: package forestry.core;
+    - L33: @Mod.EventBusSubscriber(modid = ForestryConstants.MOD_ID)
+    - L34: public class EventHandlerCore {
+    - L35: @SubscribeEvent
+    - L36: public static void handlePlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
+    - L41: @SubscribeEvent
+    - L42: public static void handlePlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
+    - L54: @SubscribeEvent
+    - L55: public static void onEntityJoinWorld(EntityJoinLevelEvent event) {
+    - L64: @SubscribeEvent
+    - L65: public static void doHakunaDamageReduction(LivingAttackEvent event) {
+    - L84: @SubscribeEvent
+  - `src/main/java/forestry/core/ForestryColors.java`
+    - L1: package forestry.core;
+    - L3: public class ForestryColors {
+    - L4: public static final int WHITE = 0xffffff;
+    - L6: public static final int LIGHT_GRAY = 0xaaaaaa;
+    - L7: public static final int GRAY = 0x808080;
+    - L8: public static final int DARK_GRAY = 0x404040;
+    - L9: public static final int YELLOW_GREEN = 0x99cc32;
+    - L10: public static final int GREEN = 0xebae85;
+    - L11: public static final int DOMINANT_RED = 0xec3661;
+    - L12: public static final int RECESSIVE_BLUE = 0x3687ec;
+    - L13: public static final int BLACK = 0x000000;
+    - L15: public static int color(int r, int g, int b) {
+  - `src/main/java/forestry/core/ModuleCore.java`
+    - L1: package forestry.core;
+    - L62: @ForestryModule
+    - L63: public class ModuleCore extends BlankForestryModule {
+    - L64: @Override
+    - L65: public ResourceLocation getId() {
+    - L69: @Override
+    - L70: public void registerEvents(IEventBus modBus) {
+    - L99: @SuppressWarnings({"unchecked", "rawtypes"})
+  - `src/main/java/forestry/core/ModuleFluids.java`
+    - L1: package forestry.core;
+    - L8: @ForestryModule
+    - L9: public class ModuleFluids extends BlankForestryModule {
+    - L10: @Override
+    - L11: public ResourceLocation getId() {
+  - `src/main/java/forestry/core/PickupHandlerCore.java`
+    - L1: package forestry.core;
+    - L9: public class PickupHandlerCore {
+    - L10: public static void onItemPickup(Player player, ItemEntity entity) {
+  - `src/main/java/forestry/core/TranslationKeys.java`
+    - L1: package forestry.core;
+    - L3: public class TranslationKeys {
+    - L4: public static final String HOLD_SHIFT_FOR_DETAILS = "for.gui.tooltip.tmi";
+  - `src/main/java/forestry/core/advancements/AdvancementHelper.java`
+    - L1: package forestry.core.advancements;
+    - L9: public class AdvancementHelper {
+    - L11: public static void tryUnlock(Player player, ResourceLocation id){
+  - `src/main/java/forestry/core/advancements/ApicultureResearchTrigger.java`
+    - L1: package forestry.core.advancements;
+    - L13: public class ApicultureResearchTrigger extends SimpleCriterionTrigger<ApicultureResearchTrigger.TriggerInstance> {
+    - L16: public static final ResourceLocation ID = new ResourceLocation("forestry", "apiculture_research_trigger");
+    - L18: @Override
+    - L19: public ResourceLocation getId() {
+    - L23: @Override
+    - L24: protected TriggerInstance createInstance(JsonObject json, ContextAwarePredicate player, DeserializationContext context) {
+    - L29: public void trigger(Level level, GameProfile gp, double researchCompletion) {
+    - L42: public static class TriggerInstance extends AbstractCriterionTriggerInstance {
+    - L46: public TriggerInstance(ContextAwarePredicate player, double p) {
+    - L51: public static TriggerInstance checkIfResearchIsGreaterThan(double p) {
+    - L55: public boolean check(double amount) {
+  - `src/main/java/forestry/core/advancements/ArboricultureResearchTrigger.java`
+    - L1: package forestry.core.advancements;
+    - L14: public class ArboricultureResearchTrigger extends SimpleCriterionTrigger<ArboricultureResearchTrigger.TriggerInstance> {
+    - L17: public static final ResourceLocation ID = new ResourceLocation("forestry", "arboriculture_research_trigger");
+    - L19: @Override
+    - L20: public ResourceLocation getId() {
+    - L24: @Override
+    - L25: protected TriggerInstance createInstance(JsonObject json, ContextAwarePredicate player, DeserializationContext context) {
+    - L30: public void trigger(Level level, GameProfile gp, double researchCompletion) {
+    - L43: public static class TriggerInstance extends AbstractCriterionTriggerInstance {
+    - L47: public TriggerInstance(ContextAwarePredicate player, double p) {
+    - L52: public static TriggerInstance checkIfResearchIsGreaterThan(double p) {
+    - L56: public boolean check(double amount) {
+  - `src/main/java/forestry/core/advancements/DiscoverSpeciesTrigger.java`
+    - L1: package forestry.core.advancements;
+    - L19: public class DiscoverSpeciesTrigger extends SimpleCriterionTrigger<DiscoverSpeciesTrigger.TriggerInstance> {
+    - L22: public static final ResourceLocation ID = new ResourceLocation("forestry", "pickup_species_trigger");
+    - L24: @Override
+    - L25: public ResourceLocation getId() {
+    - L29: @Override
+    - L30: protected TriggerInstance createInstance(JsonObject json, ContextAwarePredicate player, DeserializationContext context) {
+    - L35: public void trigger(Level level, GameProfile gp, ResourceLocation speciesID) {
+    - L47: public static class TriggerInstance extends AbstractCriterionTriggerInstance {
+    - L51: public TriggerInstance(ContextAwarePredicate player, ResourceLocation req) {
+    - L56: public static TriggerInstance checkDiscovered(ResourceLocation id) {
+    - L60: public boolean check(ResourceLocation speciesID) {
+  - `src/main/java/forestry/core/advancements/ForestryAdvancementTriggers.java`
+    - L1: package forestry.core.advancements;
+    - L5: public class ForestryAdvancementTriggers {
+    - L6: public static final DiscoverSpeciesTrigger DISCOVER_SPECIES_TRIGGER =
+    - L8: public static final ApicultureResearchTrigger APICULTURE_RESEARCH_TRIGGER =
+    - L10: public static final ArboricultureResearchTrigger ARBORICULTURE_RESEARCH_TRIGGER =
+    - L13: public static void init() {
+
+## Data & assets
+Related resource paths (heuristic name match):
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/core.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/gears.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/ores.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/resources.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/circuit_board.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/analyzer.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/tubes.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/casings.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/pipette.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/soldering_iron.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/wrench.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/worktable.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/portable_alyzer.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/compost.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/escritoire.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/humus.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/fertilizer_compound.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/bog_earth.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/engines/peat_engine.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/engines/clockwork_engine.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/engines/biogas_engine.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/machines/bottler.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/machines/carpenter.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/machines/still.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/machines/squeezer.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/machines/centrifuge.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/machines/moistener.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/machines/fabricator.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/machines/rainmaker.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/core/machines/fermenter.json`
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_16-21-34/thedarkcolour-ForestryCE` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- key type `EventHandlerCore` (`EventHandlerCore.java`)
+- key type `ModuleCore` (`ModuleCore.java`)
+- key type `ModuleFluids` (`ModuleFluids.java`)
+- key type `PickupHandlerCore` (`PickupHandlerCore.java`)
+- enum `CandleShape` in `BlockJumboCandle.java`
+- enum `BlockTypeBigCandle` in `BlockTypeBigCandle.java`
+- enum `BlockTypeCoreTesr` in `BlockTypeCoreTesr.java`
+- enum `BlockTypeJumboCandle` in `BlockTypeJumboCandle.java`
+- enum `BlockTypeMetalPlating` in `BlockTypeMetalPlating.java`
+- enum `EnumResourceType` in `EnumResourceType.java`
+- interface `IBlockType` in `IBlockType.java`
+- interface `IColoredBlock` in `IColoredBlock.java`
+- interface `IMachineProperties` in `IMachineProperties.java`
+- interface `IShapeProvider` in `IShapeProvider.java`
+- interface `ISimpleShapeProvider` in `ISimpleShapeProvider.java`
+- enum `EnumCircuitBoardType` in `EnumCircuitBoardType.java`
+- interface `IEngineUpgradeable` in `IEngineUpgradeable.java`
+- interface `IMachineUpgradable` in `IMachineUpgradable.java`
+- interface `ISocketable` in `ISocketable.java`
+- interface `ISolderingIron` in `ISolderingIron.java`
+- key type `CoreClientHandler` (`CoreClientHandler.java`)
+- key type `CoreJeiPlugin` (`CoreJeiPlugin.java`)
+- enum `FakeClimateProvider` in `FakeClimateProvider.java`
+- record `AlleleArgument` in `AlleleArgument.java`
+- interface `ISpeciesArgumentType` in `ISpeciesArgumentType.java`
+- interface `IStatsSaveHelper` in `IStatsSaveHelper.java`
+- record `SpeciesArgument` in `SpeciesArgument.java`
+- enum `TankLayout` in `ForestryBlockStateProvider.java`
+- enum `FakeErrorLogic` in `FakeErrorLogic.java`
+- enum `FakeErrorSource` in `FakeErrorSource.java`
+- key type `DrainOnlyFluidHandlerWrapper` (`DrainOnlyFluidHandlerWrapper.java`)
+- enum `FillStatus` in `FluidHelper.java`
+- enum `ForestryFluids` in `ForestryFluids.java`
+- interface `ITankManager` in `ITankManager.java`
+- interface `ITankUpdateHandler` in `ITankUpdateHandler.java`
+- key type `ITankUpdateHandler` (`ITankUpdateHandler.java`)
+- record `BooleanAllele` in `BooleanAllele.java`
+- record `BooleanChromosome` in `BooleanChromosome.java`
+- key type `RegistryAllele` (`RegistryAllele.java`)
+- key type `RegistryChromosome` (`RegistryChromosome.java`)
+- record `ValueAllele` in `ValueAllele.java`
+- key type `IndividualHandlerItem` (`IndividualHandlerItem.java`)
+- key type `SerializableIndividualHandlerItem` (`SerializableIndividualHandlerItem.java`)
+- enum `EnumMutateChance` in `EnumMutateChance.java`
+- enum `BreedingTrackerManager` in `BreedingTrackerManager.java`
+- key type `ClientBreedingHandler` (`ClientBreedingHandler.java`)
+- key type `ServerBreedingHandler` (`ServerBreedingHandler.java`)
+- interface `IContainerCrafting` in `IContainerCrafting.java`
+- interface `IContainerLiquidTanks` in `IContainerLiquidTanks.java`
+- interface `IContainerSocketed` in `IContainerSocketed.java`
+
+## Port relevance to Re-Forestry
+- Mentions of `core` appear in `files/implemented-features.md` — check that file for port status.
+- Primary Forestry reference for Re-Forestry port decisions.
+
+## Source map
+- `src/main/java/forestry/core/ClientsideCode.java`
+- `src/main/java/forestry/core/EventHandlerCore.java`
+- `src/main/java/forestry/core/ForestryColors.java`
+- `src/main/java/forestry/core/ModuleCore.java`
+- `src/main/java/forestry/core/ModuleFluids.java`
+- `src/main/java/forestry/core/PickupHandlerCore.java`
+- `src/main/java/forestry/core/TranslationKeys.java`
+- `src/main/java/forestry/core/advancements/AdvancementHelper.java`
+- `src/main/java/forestry/core/advancements/ApicultureResearchTrigger.java`
+- `src/main/java/forestry/core/advancements/ArboricultureResearchTrigger.java`
+- `src/main/java/forestry/core/advancements/DiscoverSpeciesTrigger.java`
+- `src/main/java/forestry/core/advancements/ForestryAdvancementTriggers.java`
+- `src/main/java/forestry/core/blocks/BlockBase.java`
+- `src/main/java/forestry/core/blocks/BlockBigCandle.java`
+- `src/main/java/forestry/core/blocks/BlockBogEarth.java`
+- `src/main/java/forestry/core/blocks/BlockBurnBarrel.java`
+- `src/main/java/forestry/core/blocks/BlockBurnable.java`
+- `src/main/java/forestry/core/blocks/BlockCore.java`
+- `src/main/java/forestry/core/blocks/BlockForestry.java`
+- `src/main/java/forestry/core/blocks/BlockHumus.java`
+- `src/main/java/forestry/core/blocks/BlockJumboCandle.java`
+- `src/main/java/forestry/core/blocks/BlockMetalPlating.java`
+- `src/main/java/forestry/core/blocks/BlockPeat.java`
+- `src/main/java/forestry/core/blocks/BlockPlywoodBlock.java`
+- `src/main/java/forestry/core/blocks/BlockResourceStorage.java`
+- `src/main/java/forestry/core/blocks/BlockSheet.java`
+- `src/main/java/forestry/core/blocks/BlockStructure.java`
+- `src/main/java/forestry/core/blocks/BlockTesr.java`
+- `src/main/java/forestry/core/blocks/BlockTypeBigCandle.java`
+- `src/main/java/forestry/core/blocks/BlockTypeCoreTesr.java`
+- `src/main/java/forestry/core/blocks/BlockTypeJumboCandle.java`
+- `src/main/java/forestry/core/blocks/BlockTypeMetalPlating.java`
+- `src/main/java/forestry/core/blocks/CandleRefractory.java`
+- `src/main/java/forestry/core/blocks/CorkBlock.java`
+- `src/main/java/forestry/core/blocks/EnumResourceType.java`
+- `src/main/java/forestry/core/blocks/IBlockType.java`
+- `src/main/java/forestry/core/blocks/IColoredBlock.java`
+- `src/main/java/forestry/core/blocks/IMachineProperties.java`
+- `src/main/java/forestry/core/blocks/IShapeProvider.java`
+- `src/main/java/forestry/core/blocks/ISimpleShapeProvider.java`
+- `src/main/java/forestry/core/blocks/MachineProperties.java`
+- `src/main/java/forestry/core/blocks/TileStreamUpdateTracker.java`
+- `src/main/java/forestry/core/blocks/package-info.java`
+- `src/main/java/forestry/core/circuits/Circuit.java`
+- `src/main/java/forestry/core/circuits/CircuitBoard.java`
+- `src/main/java/forestry/core/circuits/CircuitId.java`
+- `src/main/java/forestry/core/circuits/CircuitLayout.java`
+- `src/main/java/forestry/core/circuits/CircuitManager.java`
+- `src/main/java/forestry/core/circuits/ContainerSolderingIron.java`
+- `src/main/java/forestry/core/circuits/EnumCircuitBoardType.java`
+- `src/main/java/forestry/core/circuits/GuiSolderingIron.java`
+- `src/main/java/forestry/core/circuits/IEngineUpgradeable.java`
+- `src/main/java/forestry/core/circuits/IMachineUpgradable.java`
+- `src/main/java/forestry/core/circuits/ISocketable.java`
+- `src/main/java/forestry/core/circuits/ISolderingIron.java`
+- `src/main/java/forestry/core/circuits/ItemCircuitBoard.java`
+- `src/main/java/forestry/core/circuits/package-info.java`
+- `src/main/java/forestry/core/client/CoreClientHandler.java`
+- `src/main/java/forestry/core/client/RefractoryWaxParticle.java`
+- `src/main/java/forestry/core/client/compat/CoreJeiPlugin.java`
+- `src/main/java/forestry/core/client/compat/package-info.java`
+- `src/main/java/forestry/core/client/package-info.java`
+- `src/main/java/forestry/core/climate/ClimateProvider.java`
+- `src/main/java/forestry/core/climate/FakeClimateProvider.java`
+- `src/main/java/forestry/core/climate/ForestryClimateManager.java`
+- `src/main/java/forestry/core/climate/package-info.java`
+- `src/main/java/forestry/core/commands/AlleleArgument.java`
+- `src/main/java/forestry/core/commands/ChromosomeArgument.java`
+- `src/main/java/forestry/core/commands/CommandArgumentTypes.java`
+- `src/main/java/forestry/core/commands/CommandHelpers.java`
+- `src/main/java/forestry/core/commands/CommandSaveStats.java`
+- `src/main/java/forestry/core/commands/DiagnosticsCommand.java`
+- `src/main/java/forestry/core/commands/DumpCommand.java`
+- `src/main/java/forestry/core/commands/GiveSpeciesCommand.java`
+- `src/main/java/forestry/core/commands/ISpeciesArgumentType.java`
+- `src/main/java/forestry/core/commands/IStatsSaveHelper.java`
+- `src/main/java/forestry/core/commands/LifeStageArgument.java`
+- `src/main/java/forestry/core/commands/ModifyGenomeCommand.java`
+- `src/main/java/forestry/core/commands/SpeciesArgument.java`
+- `src/main/java/forestry/core/commands/package-info.java`
+- `src/main/java/forestry/core/config/Constants.java`
+- `src/main/java/forestry/core/config/ForestryConfig.java`
+- `src/main/java/forestry/core/config/Preference.java`
+- `src/main/java/forestry/core/config/SessionVars.java`
+- `src/main/java/forestry/core/config/package-info.java`
+- `src/main/java/forestry/core/damage/CoreDamageTypes.java`
+- `src/main/java/forestry/core/data/Data.java`
+- `src/main/java/forestry/core/data/ForestryAdvancementProvider.java`
+- `src/main/java/forestry/core/data/ForestryAtlasProvider.java`
+- `src/main/java/forestry/core/data/ForestryBackpackTagProvider.java`
+- `src/main/java/forestry/core/data/ForestryBiomeTagsProvider.java`
+- `src/main/java/forestry/core/data/ForestryBlockLootTables.java`
+- `src/main/java/forestry/core/data/ForestryBlockTagsProvider.java`
+- `src/main/java/forestry/core/data/ForestryChestLootTables.java`
+- `src/main/java/forestry/core/data/ForestryCuriosProvider.java`
+- `src/main/java/forestry/core/data/ForestryDamageTypesProvider.java`
+- `src/main/java/forestry/core/data/ForestryEnglishProvider.java`
+- `src/main/java/forestry/core/data/ForestryFeaturesProvider.java`
+- `src/main/java/forestry/core/data/ForestryFluidTagsProvider.java`
+- `src/main/java/forestry/core/data/ForestryItemModels.java`
+- `src/main/java/forestry/core/data/ForestryItemTagsProvider.java`
+- `src/main/java/forestry/core/data/ForestryLootModifierProvider.java`
+- `src/main/java/forestry/core/data/ForestryLootTableProvider.java`
+- `src/main/java/forestry/core/data/ForestryPaintingTagsProvider.java`
+- `src/main/java/forestry/core/data/ForestryPoiTypeTagProvider.java`
+- `src/main/java/forestry/core/data/LootTableHelper.java`
+- `src/main/java/forestry/core/data/builder/CarpenterRecipeBuilder.java`
+- `src/main/java/forestry/core/data/builder/CentrifugeRecipeBuilder.java`
+- `src/main/java/forestry/core/data/builder/FabricatorRecipeBuilder.java`
+- `src/main/java/forestry/core/data/builder/FabricatorSmeltingRecipeBuilder.java`
+- `src/main/java/forestry/core/data/builder/FermenterRecipeBuilder.java`
+- `src/main/java/forestry/core/data/builder/FilledCrateModelBuilder.java`
+- `src/main/java/forestry/core/data/builder/HygroregulatorRecipeBuilder.java`
+- `src/main/java/forestry/core/data/builder/MoistenerRecipeBuilder.java`
+- `src/main/java/forestry/core/data/builder/SmelterRecipeBuilder.java`
+- `src/main/java/forestry/core/data/builder/SqueezerContainerRecipeBuilder.java`
+- `src/main/java/forestry/core/data/builder/SqueezerRecipeBuilder.java`
+- `src/main/java/forestry/core/data/builder/StillRecipeBuilder.java`
+- `src/main/java/forestry/core/data/builder/package-info.java`
+- `src/main/java/forestry/core/data/models/ForestryBlockStateProvider.java`
+- … and 367 more under `src/main/java/forestry/core`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

@@ -1,0 +1,446 @@
+# ACGaming-Binnie — core
+
+- Alias: `binnie`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ACGaming-Binnie`
+- Package/path root: `core/src/main/java/binnie/core`
+- Java files scanned: **389**
+- Date: 2026-07-30
+
+## Summary
+Module `core` in `ACGaming-Binnie` is rooted at `core/src/main/java/binnie/core` (389 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `AbstractMod`
+- `Binnie`
+- `BinnieCore`
+- `Constants`
+- `IInitializable`
+- `ManagerBase`
+- `ModId`
+- `Mods`
+- `BlockMetadata`
+- `IBlockMetadata`
+- `IMultipassBlock`
+- `ItemMetadata`
+- `ItemMetadataRenderer`
+- `TileEntityMetadata`
+- `package-info`
+- `BinnieCircuit`
+- `package-info`
+- `BinnieConfiguration`
+- `ConfigFile`
+- `ConfigProperty`
+- `ConfigurationMain`
+- `ConfigurationMods`
+- `ManagerConfig`
+- `PropBoolean`
+- `PropDouble`
+- `PropInteger`
+- `PropPercentage`
+- `PropertyBase`
+- `package-info`
+- `AlleleHelper`
+- `BreedingSystem`
+- `ForestryAllele`
+- `Gene`
+- `IItemStackRepresentitive`
+- `ManagerGenetics`
+- `Tolerance`
+- `VirtualBeeHousing`
+- `VirtualHousing`
+- `package-info`
+- `Attribute`
+- `BinnieCoreGUI`
+- `BinnieGUIHandler`
+- `ControlGenesisOption`
+- `CraftGUI`
+- `IBinnieGUID`
+- `ITooltip`
+- `ITooltipHelp`
+- `KeyBindings`
+- `Tooltip`
+- `TopLevelWidget`
+- `Widget`
+- `ControlCheckbox`
+- `ControlFluidDisplay`
+- `ControlIndividualDisplay`
+- `ControlText`
+- `ControlTextCentered`
+- `ControlTextEdit`
+- `ControlToleranceBar`
+- `ControlButton`
+- `package-info`
+- `Control`
+- `IControlValue`
+- `IControlValues`
+- `package-info`
+- `ControlList`
+- `ControlListBox`
+- `ControlOption`
+- `ControlTextOption`
+- `package-info`
+- `package-info`
+- `ControlPage`
+- `ControlPages`
+- `package-info`
+- `ControlScroll`
+- `ControlScrollBar`
+- `ControlScrollableContent`
+- `IControlScrollable`
+- `package-info`
+- `ControlTab`
+- `ControlTabBar`
+- … and 309 more
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py binnie "core"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `block`
+  - `circuits`
+  - `config`
+  - `genetics`
+  - `gui`
+  - `gui/controls`
+  - `gui/controls/button`
+  - `gui/controls/core`
+  - `gui/controls/listbox`
+  - `gui/controls/page`
+  - `gui/controls/scroll`
+  - `gui/controls/tab`
+  - `gui/database`
+  - `gui/events`
+  - `gui/fieldkit`
+  - `gui/genesis`
+  - `gui/geometry`
+  - `gui/minecraft`
+  - `gui/minecraft/control`
+  - `gui/renderer`
+  - `gui/resource`
+  - `gui/resource/stylesheet`
+  - `gui/resource/textures`
+  - `gui/window`
+  - `integration/extrabees`
+  - `integration/jei`
+  - `item`
+  - `liquid`
+  - `machines`
+  - `machines/base`
+  - `machines/component`
+  - `machines/errors`
+  - `machines/inventory`
+  - `machines/network`
+  - `machines/power`
+  - `machines/render`
+  - `machines/storage`
+  - `machines/transfer`
+  - `models`
+  - `modules`
+  - `network`
+  - `network/packet`
+  - `proxy`
+  - `resource`
+  - `texture`
+  - `tile`
+  - `triggers`
+  - `util`
+  - `util/collect`
+- Declaration skim (first files):
+  - `core/src/main/java/binnie/core/AbstractMod.java`
+    - L1: package binnie.core;
+    - L20: public abstract class AbstractMod implements IPacketProvider, IInitializable {
+    - L21: protected final List<IInitializable> modules;
+    - L23: @Nullable
+    - L26: public AbstractMod() {
+    - L32: protected abstract void registerModules();
+    - L34: public abstract boolean isAvailable();
+    - L36: public abstract String getChannel();
+    - L38: @Override
+    - L39: public IPacketID[] getPacketIDs() {
+    - L43: public IBinnieGUID[] getGUIDs() {
+    - L47: public Class<?>[] getConfigs() {
+  - `core/src/main/java/binnie/core/Binnie.java`
+    - L1: package binnie.core;
+    - L12: public final class Binnie {
+    - L13: public static final List<ManagerBase> MANAGERS = new ArrayList<>();
+    - L14: public static final ManagerGenetics GENETICS = new ManagerGenetics();
+    - L15: public static final ManagerConfig CONFIGURATION = new ManagerConfig();
+    - L16: public static final ManagerLiquid LIQUID = new ManagerLiquid();
+    - L17: public static final ManagerMachine MACHINE = new ManagerMachine();
+    - L18: public static final ManagerResource RESOURCE = new ManagerResource();
+  - `core/src/main/java/binnie/core/BinnieCore.java`
+    - L1: package binnie.core;
+    - L53: @Mod(
+    - L62: public final class BinnieCore extends AbstractMod {
+    - L65: @SuppressWarnings("NullableProblems")
+    - L66: @Mod.Instance(Constants.CORE_MOD_ID)
+    - L68: @SuppressWarnings("NullableProblems")
+    - L69: @SidedProxy(clientSide = "binnie.core.proxy.BinnieProxyClient", serverSide = "binnie.core.proxy.BinnieProxyServer")
+    - L71: @Nullable
+    - L73: @Nullable
+    - L75: @Nullable
+    - L77: @Nullable
+    - L80: public BinnieCore() {
+  - `core/src/main/java/binnie/core/Constants.java`
+    - L1: package binnie.core;
+    - L3: public final class Constants {
+    - L5: public static final String FORESTRY_CONFIG_FOLDER = "forestry/";
+    - L7: public static final String CORE_MOD_ID = "binniecore";
+    - L8: public static final String BOTANY_MOD_ID = "botany";
+    - L9: public static final String DESIGN_MOD_ID = "binniedesign";
+    - L10: public static final String EXTRA_BEES_MOD_ID = "extrabees";
+    - L11: public static final String EXTRA_TREES_MOD_ID = "extratrees";
+    - L12: public static final String GENETICS_MOD_ID = "genetics";
+    - L14: public static final String BCLIB_MOD_ID = "buildcraftlib";
+    - L16: public static final String ACCEPTED_MINECRAFT_VERSIONS = "[1.12.2,1.13)";
+    - L18: public static final float SPAWN_KOEF = 1365.3999f;
+  - `core/src/main/java/binnie/core/IInitializable.java`
+    - L1: package binnie.core;
+    - L7: public interface IInitializable {
+  - `core/src/main/java/binnie/core/ManagerBase.java`
+    - L1: package binnie.core;
+    - L3: public abstract class ManagerBase implements IInitializable {
+    - L4: public ManagerBase() {
+  - `core/src/main/java/binnie/core/ModId.java`
+    - L1: package binnie.core;
+    - L3: public enum ModId {
+    - L17: public String getDomain() {
+  - `core/src/main/java/binnie/core/Mods.java`
+    - L1: package binnie.core;
+    - L14: public class Mods {
+    - L15: public static final ModNonnull Forestry = new ModNonnull("forestry");
+    - L16: public static final Mod IC2 = new Mod("ic2");
+    - L17: public static final Mod Botania = new Mod("botania");
+    - L19: public static class Mod {
+    - L20: protected final String id;
+    - L26: @Nullable
+    - L27: public Item item(final String name) {
+    - L35: @Nullable
+    - L36: public Block block(final String name) {
+    - L44: public ItemStack stackWildcard(final String name, int amount) {
+  - `core/src/main/java/binnie/core/block/BlockMetadata.java`
+    - L1: package binnie.core.block;
+    - L21: public class BlockMetadata extends BlockContainer implements IBlockMetadata {
+    - L22: public BlockMetadata(final Material material) {
+    - L26: public static ItemStack getBlockDropped(IBlockMetadata block, IBlockAccess world, BlockPos pos) {
+    - L35: public static void getDrops(NonNullList<ItemStack> drops, IBlockMetadata block, IBlockAccess world, BlockPos pos) {
+    - L42: public static boolean breakBlock(IBlockMetadata blockMetadata, @Nullable EntityPlayer player, World world, BlockPos pos) {
+    - L61: public static ItemStack getPickBlock(World world, BlockPos pos) {
+    - L66: @Override
+    - L67: public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+    - L71: @Override
+    - L72: public boolean removedByPlayer(IBlockState state, World world, BlockPos pos, EntityPlayer player, boolean willHarvest) {
+    - L76: @Override
+  - `core/src/main/java/binnie/core/block/IBlockMetadata.java`
+    - L1: package binnie.core.block;
+    - L10: public interface IBlockMetadata extends ITileEntityProvider {
+  - `core/src/main/java/binnie/core/block/IMultipassBlock.java`
+    - L1: package binnie.core.block;
+    - L14: public interface IMultipassBlock<K> {
+    - L19: @SideOnly(Side.CLIENT)
+    - L22: @SideOnly(Side.CLIENT)
+    - L25: @SideOnly(Side.CLIENT)
+    - L31: @SideOnly(Side.CLIENT)
+  - `core/src/main/java/binnie/core/block/ItemMetadata.java`
+    - L1: package binnie.core.block;
+    - L14: public class ItemMetadata extends ItemBlock {
+    - L15: public ItemMetadata(final Block block) {
+    - L19: @Override
+    - L20: public int getMetadata(final int damage) {
+    - L24: @Override
+    - L25: public boolean placeBlockAt(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, IBlockState newState) {
+    - L47: @Override
+    - L48: @SideOnly(Side.CLIENT)
+    - L49: public String getItemStackDisplayName(ItemStack itemStack) {
+
+## Data & assets
+- No strongly name-matched resources under common resource roots; check parent mod resources / datagen providers.
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ACGaming-Binnie` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- interface `IInitializable` in `IInitializable.java`
+- enum `ModId` in `ModId.java`
+- interface `IBlockMetadata` in `IBlockMetadata.java`
+- interface `IMultipassBlock` in `IMultipassBlock.java`
+- enum `Lifespan` in `ForestryAllele.java`
+- enum `Speed` in `ForestryAllele.java`
+- enum `Fertility` in `ForestryAllele.java`
+- enum `Flowering` in `ForestryAllele.java`
+- enum `Territory` in `ForestryAllele.java`
+- enum `Sappiness` in `ForestryAllele.java`
+- enum `TreeHeight` in `ForestryAllele.java`
+- enum `Size` in `ForestryAllele.java`
+- enum `Saplings` in `ForestryAllele.java`
+- enum `Yield` in `ForestryAllele.java`
+- enum `Maturation` in `ForestryAllele.java`
+- enum `Bool` in `ForestryAllele.java`
+- enum `Growth` in `ForestryAllele.java`
+- enum `Int` in `ForestryAllele.java`
+- enum `BeeSpecies` in `ForestryAllele.java`
+- interface `IItemStackRepresentitive` in `IItemStackRepresentitive.java`
+- enum `Tolerance` in `Tolerance.java`
+- enum `Attribute` in `Attribute.java`
+- enum `BinnieCoreGUI` in `BinnieCoreGUI.java`
+- key type `BinnieGUIHandler` (`BinnieGUIHandler.java`)
+- interface `IBinnieGUID` in `IBinnieGUID.java`
+- interface `ITooltip` in `ITooltip.java`
+- interface `ITooltipHelp` in `ITooltipHelp.java`
+- interface `ITooltipType` in `Tooltip.java`
+- enum `Type` in `Tooltip.java`
+- interface `IControlValue` in `IControlValue.java`
+- interface `IControlValues` in `IControlValues.java`
+- interface `IControlScrollable` in `IControlScrollable.java`
+- interface `ITabCreator` in `ControlTabBar.java`
+- enum `EnumDiscoveryState` in `EnumDiscoveryState.java`
+- interface `IDatabaseMode` in `IDatabaseMode.java`
+- interface `IListBoxCreator` in `ModeWidgets.java`
+- enum `Mode` in `WindowAbstractDatabase.java`
+- key type `EventHandler` (`EventHandler.java`)
+- enum `TextJustification` in `TextJustification.java`
+- enum `EnumColor` in `EnumColor.java`
+- enum `GUIIcon` in `GUIIcon.java`
+- interface `IMachineInformation` in `IMachineInformation.java`
+- interface `IWindowAffectsShiftClick` in `IWindowAffectsShiftClick.java`
+- enum `InventoryType` in `InventoryType.java`
+- enum `PanelType` in `MinecraftGUI.java`
+- enum `Type` in `MinecraftTooltip.java`
+- key type `ModuleCraftGUI` (`ModuleCraftGUI.java`)
+- enum `EnumHighlighting` in `EnumHighlighting.java`
+- interface `IStyleSheet` in `IStyleSheet.java`
+- enum `CraftGUITexture` in `CraftGUITexture.java`
+
+## Port relevance to Re-Forestry
+- Mentions of `core` appear in `files/implemented-features.md` — check that file for port status.
+- Data/source to extract for addon modules; not a runtime dependency.
+
+## Source map
+- `core/src/main/java/binnie/core/AbstractMod.java`
+- `core/src/main/java/binnie/core/Binnie.java`
+- `core/src/main/java/binnie/core/BinnieCore.java`
+- `core/src/main/java/binnie/core/Constants.java`
+- `core/src/main/java/binnie/core/IInitializable.java`
+- `core/src/main/java/binnie/core/ManagerBase.java`
+- `core/src/main/java/binnie/core/ModId.java`
+- `core/src/main/java/binnie/core/Mods.java`
+- `core/src/main/java/binnie/core/block/BlockMetadata.java`
+- `core/src/main/java/binnie/core/block/IBlockMetadata.java`
+- `core/src/main/java/binnie/core/block/IMultipassBlock.java`
+- `core/src/main/java/binnie/core/block/ItemMetadata.java`
+- `core/src/main/java/binnie/core/block/ItemMetadataRenderer.java`
+- `core/src/main/java/binnie/core/block/TileEntityMetadata.java`
+- `core/src/main/java/binnie/core/block/package-info.java`
+- `core/src/main/java/binnie/core/circuits/BinnieCircuit.java`
+- `core/src/main/java/binnie/core/circuits/package-info.java`
+- `core/src/main/java/binnie/core/config/BinnieConfiguration.java`
+- `core/src/main/java/binnie/core/config/ConfigFile.java`
+- `core/src/main/java/binnie/core/config/ConfigProperty.java`
+- `core/src/main/java/binnie/core/config/ConfigurationMain.java`
+- `core/src/main/java/binnie/core/config/ConfigurationMods.java`
+- `core/src/main/java/binnie/core/config/ManagerConfig.java`
+- `core/src/main/java/binnie/core/config/PropBoolean.java`
+- `core/src/main/java/binnie/core/config/PropDouble.java`
+- `core/src/main/java/binnie/core/config/PropInteger.java`
+- `core/src/main/java/binnie/core/config/PropPercentage.java`
+- `core/src/main/java/binnie/core/config/PropertyBase.java`
+- `core/src/main/java/binnie/core/config/package-info.java`
+- `core/src/main/java/binnie/core/genetics/AlleleHelper.java`
+- `core/src/main/java/binnie/core/genetics/BreedingSystem.java`
+- `core/src/main/java/binnie/core/genetics/ForestryAllele.java`
+- `core/src/main/java/binnie/core/genetics/Gene.java`
+- `core/src/main/java/binnie/core/genetics/IItemStackRepresentitive.java`
+- `core/src/main/java/binnie/core/genetics/ManagerGenetics.java`
+- `core/src/main/java/binnie/core/genetics/Tolerance.java`
+- `core/src/main/java/binnie/core/genetics/VirtualBeeHousing.java`
+- `core/src/main/java/binnie/core/genetics/VirtualHousing.java`
+- `core/src/main/java/binnie/core/genetics/package-info.java`
+- `core/src/main/java/binnie/core/gui/Attribute.java`
+- `core/src/main/java/binnie/core/gui/BinnieCoreGUI.java`
+- `core/src/main/java/binnie/core/gui/BinnieGUIHandler.java`
+- `core/src/main/java/binnie/core/gui/ControlGenesisOption.java`
+- `core/src/main/java/binnie/core/gui/CraftGUI.java`
+- `core/src/main/java/binnie/core/gui/IBinnieGUID.java`
+- `core/src/main/java/binnie/core/gui/ITooltip.java`
+- `core/src/main/java/binnie/core/gui/ITooltipHelp.java`
+- `core/src/main/java/binnie/core/gui/KeyBindings.java`
+- `core/src/main/java/binnie/core/gui/Tooltip.java`
+- `core/src/main/java/binnie/core/gui/TopLevelWidget.java`
+- `core/src/main/java/binnie/core/gui/Widget.java`
+- `core/src/main/java/binnie/core/gui/controls/ControlCheckbox.java`
+- `core/src/main/java/binnie/core/gui/controls/ControlFluidDisplay.java`
+- `core/src/main/java/binnie/core/gui/controls/ControlIndividualDisplay.java`
+- `core/src/main/java/binnie/core/gui/controls/ControlText.java`
+- `core/src/main/java/binnie/core/gui/controls/ControlTextCentered.java`
+- `core/src/main/java/binnie/core/gui/controls/ControlTextEdit.java`
+- `core/src/main/java/binnie/core/gui/controls/ControlToleranceBar.java`
+- `core/src/main/java/binnie/core/gui/controls/button/ControlButton.java`
+- `core/src/main/java/binnie/core/gui/controls/button/package-info.java`
+- `core/src/main/java/binnie/core/gui/controls/core/Control.java`
+- `core/src/main/java/binnie/core/gui/controls/core/IControlValue.java`
+- `core/src/main/java/binnie/core/gui/controls/core/IControlValues.java`
+- `core/src/main/java/binnie/core/gui/controls/core/package-info.java`
+- `core/src/main/java/binnie/core/gui/controls/listbox/ControlList.java`
+- `core/src/main/java/binnie/core/gui/controls/listbox/ControlListBox.java`
+- `core/src/main/java/binnie/core/gui/controls/listbox/ControlOption.java`
+- `core/src/main/java/binnie/core/gui/controls/listbox/ControlTextOption.java`
+- `core/src/main/java/binnie/core/gui/controls/listbox/package-info.java`
+- `core/src/main/java/binnie/core/gui/controls/package-info.java`
+- `core/src/main/java/binnie/core/gui/controls/page/ControlPage.java`
+- `core/src/main/java/binnie/core/gui/controls/page/ControlPages.java`
+- `core/src/main/java/binnie/core/gui/controls/page/package-info.java`
+- `core/src/main/java/binnie/core/gui/controls/scroll/ControlScroll.java`
+- `core/src/main/java/binnie/core/gui/controls/scroll/ControlScrollBar.java`
+- `core/src/main/java/binnie/core/gui/controls/scroll/ControlScrollableContent.java`
+- `core/src/main/java/binnie/core/gui/controls/scroll/IControlScrollable.java`
+- `core/src/main/java/binnie/core/gui/controls/scroll/package-info.java`
+- `core/src/main/java/binnie/core/gui/controls/tab/ControlTab.java`
+- `core/src/main/java/binnie/core/gui/controls/tab/ControlTabBar.java`
+- `core/src/main/java/binnie/core/gui/controls/tab/package-info.java`
+- `core/src/main/java/binnie/core/gui/database/ControlBranchBox.java`
+- `core/src/main/java/binnie/core/gui/database/ControlBranchBoxOption.java`
+- `core/src/main/java/binnie/core/gui/database/ControlBreedingProgress.java`
+- `core/src/main/java/binnie/core/gui/database/ControlIndividualDisplay.java`
+- `core/src/main/java/binnie/core/gui/database/ControlItemStackOption.java`
+- `core/src/main/java/binnie/core/gui/database/ControlMutationBox.java`
+- `core/src/main/java/binnie/core/gui/database/ControlMutationItem.java`
+- `core/src/main/java/binnie/core/gui/database/ControlMutationSymbol.java`
+- `core/src/main/java/binnie/core/gui/database/ControlSpeciesBox.java`
+- `core/src/main/java/binnie/core/gui/database/ControlSpeciesBoxOption.java`
+- `core/src/main/java/binnie/core/gui/database/DatabaseConstants.java`
+- `core/src/main/java/binnie/core/gui/database/DatabaseTab.java`
+- `core/src/main/java/binnie/core/gui/database/EnumDiscoveryState.java`
+- `core/src/main/java/binnie/core/gui/database/IDatabaseMode.java`
+- `core/src/main/java/binnie/core/gui/database/ModeWidgets.java`
+- `core/src/main/java/binnie/core/gui/database/PageAbstract.java`
+- `core/src/main/java/binnie/core/gui/database/PageBranch.java`
+- `core/src/main/java/binnie/core/gui/database/PageBranchOverview.java`
+- `core/src/main/java/binnie/core/gui/database/PageBranchSpecies.java`
+- `core/src/main/java/binnie/core/gui/database/PageBreeder.java`
+- `core/src/main/java/binnie/core/gui/database/PageSpecies.java`
+- `core/src/main/java/binnie/core/gui/database/PageSpeciesClassification.java`
+- `core/src/main/java/binnie/core/gui/database/PageSpeciesMutations.java`
+- `core/src/main/java/binnie/core/gui/database/PageSpeciesOverview.java`
+- `core/src/main/java/binnie/core/gui/database/PageSpeciesResultant.java`
+- `core/src/main/java/binnie/core/gui/database/WindowAbstractDatabase.java`
+- `core/src/main/java/binnie/core/gui/database/package-info.java`
+- `core/src/main/java/binnie/core/gui/events/EventButtonClicked.java`
+- `core/src/main/java/binnie/core/gui/events/EventHandler.java`
+- `core/src/main/java/binnie/core/gui/events/EventKey.java`
+- `core/src/main/java/binnie/core/gui/events/EventMouse.java`
+- `core/src/main/java/binnie/core/gui/events/EventTextEdit.java`
+- `core/src/main/java/binnie/core/gui/events/EventValueChanged.java`
+- `core/src/main/java/binnie/core/gui/events/EventWidget.java`
+- `core/src/main/java/binnie/core/gui/events/package-info.java`
+- `core/src/main/java/binnie/core/gui/fieldkit/ControlChromoPicker.java`
+- `core/src/main/java/binnie/core/gui/fieldkit/ControlChromosome.java`
+- `core/src/main/java/binnie/core/gui/fieldkit/SlotValidatorIndividual.java`
+- `core/src/main/java/binnie/core/gui/fieldkit/SlotValidatorPaper.java`
+- … and 269 more under `core/src/main/java/binnie/core`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

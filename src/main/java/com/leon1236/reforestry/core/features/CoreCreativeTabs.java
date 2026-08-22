@@ -1,6 +1,8 @@
 package com.leon1236.reforestry.core.features;
 
 import com.leon1236.reforestry.ReForestry;
+import com.leon1236.reforestry.climatology.features.ClimatologyBlocks;
+import com.leon1236.reforestry.climatology.features.ClimatologyItems;
 import com.leon1236.reforestry.core.blocks.BlockTypeCore;
 import com.leon1236.reforestry.core.blocks.NaturalistChestBlockType;
 import com.leon1236.reforestry.core.fluids.ForestryFluids;
@@ -82,6 +84,10 @@ public class CoreCreativeTabs {
             output.accept(CoreBlocks.NATURALIST_CHESTS.get(NaturalistChestBlockType.BUTTERFLY_CHEST).item());
             output.accept(CoreBlocks.MACHINES.get(BlockTypeCore.ANALYZER).item());
             output.accept(CoreBlocks.MACHINES.get(BlockTypeCore.ESCRITOIRE).item());
+            if (ModuleManager.INSTANCE.isModuleLoaded(ReForestry.id("climatology"))) {
+                output.accept(ClimatologyBlocks.HABITAT_FORMER.item());
+                output.accept(ClimatologyItems.HABITAT_SCREEN.item());
+            }
             if (ModuleManager.INSTANCE.isModuleLoaded(ReForestry.id("sorting"))) {
                 output.accept(SortingBlocks.FILTER.item());
             }

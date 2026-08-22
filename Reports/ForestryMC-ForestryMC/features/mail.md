@@ -1,0 +1,373 @@
+# ForestryMC-ForestryMC — mail
+
+- Alias: `forestry12`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ForestryMC-ForestryMC`
+- Package/path root: `src/main/java/forestry/mail`
+- Java files scanned: **70**
+- Date: 2026-07-30
+
+## Summary
+Module `mail` in `ForestryMC-ForestryMC` is rooted at `src/main/java/forestry/mail` (70 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `EnumDeliveryState`
+- `EventHandlerMailAlert`
+- `Letter`
+- `LetterProperties`
+- `MailAddress`
+- `ModuleMail`
+- `POBox`
+- `POBoxInfo`
+- `PostOffice`
+- `PostRegistry`
+- `PostalCarrier`
+- `ResponseNotMailable`
+- `SaveEventHandlerMail`
+- `TradeStation`
+- `TradeStationInfo`
+- `BlockMail`
+- `BlockRegistryMail`
+- `BlockTypeMail`
+- `package-info`
+- `CommandMail`
+- `package-info`
+- `MailJeiPlugin`
+- `package-info`
+- `AddresseeSlot`
+- `ContainerCatalogue`
+- `ContainerLetter`
+- `ContainerMailbox`
+- `ContainerStampCollector`
+- `ContainerTradeName`
+- `ContainerTrader`
+- `GuiCatalogue`
+- `GuiLetter`
+- `GuiMailbox`
+- `GuiMailboxInfo`
+- `GuiStampCollector`
+- `GuiTradeName`
+- `GuiTrader`
+- `ILetterInfoReceiver`
+- `package-info`
+- `InventoryStampCollector`
+- `InventoryTradeStation`
+- `ItemInventoryLetter`
+- `package-info`
+- `EnumStampDefinition`
+- `ItemCatalogue`
+- `ItemLetter`
+- `ItemRegistryMail`
+- `ItemStamps`
+- `package-info`
+- `PacketRegistryMail`
+- `package-info`
+- `PacketLetterInfoRequest`
+- `PacketLetterInfoResponse`
+- `PacketLetterTextSet`
+- `PacketPOBoxInfoResponse`
+- `PacketTraderAddressRequest`
+- `PacketTraderAddressResponse`
+- `package-info`
+- `package-info`
+- `TileMailbox`
+- `TileStampCollector`
+- `TileTrader`
+- `package-info`
+- `MailTriggers`
+- `TriggerBuffer`
+- `TriggerHasMail`
+- `TriggerLowInput`
+- `TriggerLowPaper`
+- `TriggerLowStamps`
+- `package-info`
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py forestry12 "mail"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `blocks`
+  - `commands`
+  - `compat`
+  - `gui`
+  - `inventory`
+  - `items`
+  - `network`
+  - `network/packets`
+  - `tiles`
+  - `triggers`
+- Declaration skim (first files):
+  - `src/main/java/forestry/mail/EnumDeliveryState.java`
+    - L11: package forestry.mail;
+    - L16: public enum EnumDeliveryState implements IPostalState {
+    - L30: @Override
+    - L31: public boolean isOk() {
+    - L35: @Override
+    - L36: public String getDescription() {
+  - `src/main/java/forestry/mail/EventHandlerMailAlert.java`
+    - L11: package forestry.mail;
+    - L29: public class EventHandlerMailAlert {
+    - L30: @SubscribeEvent
+    - L31: @SideOnly(Side.CLIENT)
+    - L32: public void onRenderTick(TickEvent.RenderTickEvent event) {
+    - L40: @SubscribeEvent
+    - L41: public void handlePlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
+  - `src/main/java/forestry/mail/Letter.java`
+    - L11: package forestry.mail;
+    - L32: public class Letter implements ILetter {
+    - L34: public static final short SLOT_ATTACHMENT_1 = 0;
+    - L35: public static final short SLOT_ATTACHMENT_COUNT = 18;
+    - L36: public static final short SLOT_POSTAGE_1 = 18;
+    - L37: public static final short SLOT_POSTAGE_COUNT = 4;
+    - L42: @Nullable
+    - L49: public Letter(IMailAddress sender, IMailAddress recipient) {
+    - L55: public Letter(NBTTagCompound nbttagcompound) {
+    - L65: @Override
+    - L66: public NBTTagCompound writeToNBT(NBTTagCompound nbttagcompound) {
+    - L86: @Override
+  - `src/main/java/forestry/mail/LetterProperties.java`
+    - L11: package forestry.mail;
+    - L31: public class LetterProperties {
+    - L40: public static ItemStack createStampedLetterStack(ILetter letter) {
+    - L46: public static void closeLetter(ItemStack parent, ILetter letter) {
+    - L74: public static void openLetter(ItemStack parent) {
+    - L85: @SideOnly(Side.CLIENT)
+    - L88: @SideOnly(Side.CLIENT)
+    - L89: private static class LetterMeshDefinition implements ItemMeshDefinition {
+    - L90: @Override
+    - L91: public ModelResourceLocation getModelLocation(ItemStack stack) {
+    - L99: @SideOnly(Side.CLIENT)
+    - L100: public static void registerModel(Item item, IModelManager manager) {
+  - `src/main/java/forestry/mail/MailAddress.java`
+    - L11: package forestry.mail;
+    - L29: public class MailAddress implements INbtWritable, IMailAddress {
+    - L36: public MailAddress() {
+    - L41: public MailAddress(GameProfile gameProfile) {
+    - L48: public MailAddress(String name) {
+    - L56: public MailAddress(NBTTagCompound nbt) {
+    - L79: @Override
+    - L80: public EnumAddressee getType() {
+    - L84: @Override
+    - L85: public String getName() {
+    - L89: @Override
+    - L90: public boolean isValid() {
+  - `src/main/java/forestry/mail/ModuleMail.java`
+    - L11: package forestry.mail;
+    - L53: @ForestryModule(containerID = Constants.MOD_ID, moduleID = ForestryModuleUids.MAIL, name = "Mail", author = "SirSengir", url = Constants.URL, unlocalizedDescription = "for.module.mail.description")
+    - L54: public class ModuleMail extends BlankForestryModule {
+    - L55: @Nullable
+    - L57: @Nullable
+    - L60: public static ItemRegistryMail getItems() {
+    - L65: public static BlockRegistryMail getBlocks() {
+    - L70: @Override
+    - L71: public void setupAPI() {
+    - L77: @Override
+    - L78: public void registerItemsAndBlocks() {
+    - L83: @Override
+  - `src/main/java/forestry/mail/POBox.java`
+    - L11: package forestry.mail;
+    - L31: public class POBox extends WorldSavedData implements IInventory {
+    - L33: public static final String SAVE_NAME = "POBox_";
+    - L34: public static final short SLOT_SIZE = 84;
+    - L36: @Nullable
+    - L40: public POBox(IMailAddress address) {
+    - L48: @SuppressWarnings("unused")
+    - L49: public POBox(String savename) {
+    - L53: @Override
+    - L54: public void readFromNBT(NBTTagCompound nbttagcompound) {
+    - L61: @Override
+    - L62: public NBTTagCompound writeToNBT(NBTTagCompound nbttagcompound) {
+  - `src/main/java/forestry/mail/POBoxInfo.java`
+    - L11: package forestry.mail;
+    - L13: public class POBoxInfo {
+    - L14: public final int playerLetters;
+    - L15: public final int tradeLetters;
+    - L17: public POBoxInfo(int playerLetters, int tradeLetters) {
+    - L22: public boolean hasMail() {
+  - `src/main/java/forestry/mail/PostOffice.java`
+    - L11: package forestry.mail;
+    - L33: public class PostOffice extends WorldSavedData implements IPostOffice {
+    - L36: public static final String SAVE_NAME = "ForestryMail";
+    - L41: public PostOffice() {
+    - L45: @SuppressWarnings("unused")
+    - L46: public PostOffice(String s) {
+    - L50: public void setWorld(World world) {
+    - L54: @Override
+    - L55: public void readFromNBT(NBTTagCompound nbttagcompound) {
+    - L63: @Override
+    - L64: public NBTTagCompound writeToNBT(NBTTagCompound nbttagcompound) {
+    - L73: @Override
+  - `src/main/java/forestry/mail/PostRegistry.java`
+    - L11: package forestry.mail;
+    - L39: public class PostRegistry implements IPostRegistry {
+    - L40: @Nullable
+    - L41: public static PostOffice cachedPostOffice;
+    - L42: public static final Map<IMailAddress, POBox> cachedPOBoxes = new HashMap<>();
+    - L43: public static final Map<IMailAddress, ITradeStation> cachedTradeStations = new HashMap<>();
+    - L52: @Override
+    - L53: public boolean isValidPOBox(World world, IMailAddress address) {
+    - L57: @Nullable
+    - L58: public static POBox getPOBox(World world, IMailAddress address) {
+    - L71: public static POBox getOrCreatePOBox(World world, IMailAddress address) {
+    - L94: @Override
+  - `src/main/java/forestry/mail/PostalCarrier.java`
+    - L11: package forestry.mail;
+    - L35: public class PostalCarrier implements IPostalCarrier {
+    - L40: public PostalCarrier(EnumAddressee type) {
+    - L45: @Override
+    - L46: public EnumAddressee getType() {
+    - L50: @Override
+    - L51: public String getName() {
+    - L55: @Override
+    - L56: @SideOnly(Side.CLIENT)
+    - L57: public TextureAtlasSprite getSprite() {
+    - L61: @Override
+    - L62: public IPostalState deliverLetter(World world, IPostOffice office, IMailAddress recipient, ItemStack letterStack, boolean doDeliver) {
+  - `src/main/java/forestry/mail/ResponseNotMailable.java`
+    - L1: package forestry.mail;
+    - L6: public class ResponseNotMailable implements IPostalState {
+    - L9: public ResponseNotMailable(IPostalState state) {
+    - L13: @Override
+    - L14: public boolean isOk() {
+    - L18: @Override
+    - L19: public String getDescription() {
+
+## Data & assets
+Related resource paths (heuristic name match):
+- `src/main/resources/assets/forestry/blockstates/mailbox.json`
+- `src/main/resources/assets/forestry/textures/blocks/mailbox.7.png`
+- `src/main/resources/assets/forestry/textures/blocks/mailbox.1.png`
+- `src/main/resources/assets/forestry/textures/blocks/mailbox.0.png`
+- `src/main/resources/assets/forestry/textures/blocks/mailbox.2.png`
+- `src/main/resources/assets/forestry/textures/gui/letter.png`
+- `src/main/resources/assets/forestry/textures/gui/mailtrader2.png`
+- `src/main/resources/assets/forestry/textures/gui/mailbox.png`
+- `src/main/resources/assets/forestry/textures/gui/mailalert.png`
+- `src/main/resources/assets/forestry/textures/items/mail/letter.2.fresh.png`
+- `src/main/resources/assets/forestry/textures/items/mail/letter.1.fresh.png`
+- `src/main/resources/assets/forestry/textures/items/mail/letter.2.stamped.png`
+- `src/main/resources/assets/forestry/textures/items/mail/letter.2.opened.png`
+- `src/main/resources/assets/forestry/textures/items/mail/letter.0.opened.png`
+- `src/main/resources/assets/forestry/textures/items/mail/letter.2.emptied.png`
+- `src/main/resources/assets/forestry/textures/items/mail/letter.1.opened.png`
+- `src/main/resources/assets/forestry/textures/items/mail/letter.1.emptied.png`
+- `src/main/resources/assets/forestry/textures/items/mail/letter.1.stamped.png`
+- `src/main/resources/assets/forestry/textures/items/mail/letter.0.stamped.png`
+- `src/main/resources/assets/forestry/textures/items/mail/letter.0.emptied.png`
+- `src/main/resources/assets/forestry/textures/items/mail/letter.0.fresh.png`
+- `src/main/resources/assets/forestry/textures/gui/mail/carrier.player.png`
+- `src/main/resources/assets/forestry/textures/gui/mail/carrier.trader.png`
+- `src/main/resources/assets/forestry/textures/gui/triggers/mail_buffer.png`
+- `src/main/resources/assets/forestry/textures/gui/triggers/has_mail.png`
+- `src/main/resources/assets/forestry/models/item/mailbox.json`
+- `src/main/resources/assets/forestry/models/block/mailbox.json`
+- `src/main/resources/assets/forestry/models/item/mail/letter.1.emptied.json`
+- `src/main/resources/assets/forestry/models/item/mail/letter.1.stamped.json`
+- `src/main/resources/assets/forestry/models/item/mail/letter.2.opened.json`
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ForestryMC-ForestryMC` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- enum `EnumDeliveryState` in `EnumDeliveryState.java`
+- key type `EventHandlerMailAlert` (`EventHandlerMailAlert.java`)
+- key type `ModuleMail` (`ModuleMail.java`)
+- key type `PostRegistry` (`PostRegistry.java`)
+- key type `SaveEventHandlerMail` (`SaveEventHandlerMail.java`)
+- key type `BlockRegistryMail` (`BlockRegistryMail.java`)
+- enum `BlockTypeMail` in `BlockTypeMail.java`
+- key type `MailJeiPlugin` (`MailJeiPlugin.java`)
+- enum `XPosition` in `GuiMailboxInfo.java`
+- enum `YPosition` in `GuiMailboxInfo.java`
+- interface `ILetterInfoReceiver` in `ILetterInfoReceiver.java`
+- enum `EnumStampDefinition` in `EnumStampDefinition.java`
+- key type `ItemRegistryMail` (`ItemRegistryMail.java`)
+- key type `PacketRegistryMail` (`PacketRegistryMail.java`)
+- key type `PacketLetterInfoRequest` (`PacketLetterInfoRequest.java`)
+- key type `PacketLetterInfoResponse` (`PacketLetterInfoResponse.java`)
+- key type `PacketLetterTextSet` (`PacketLetterTextSet.java`)
+- key type `PacketPOBoxInfoResponse` (`PacketPOBoxInfoResponse.java`)
+- key type `PacketTraderAddressRequest` (`PacketTraderAddressRequest.java`)
+- key type `PacketTraderAddressResponse` (`PacketTraderAddressResponse.java`)
+
+## Port relevance to Re-Forestry
+- Mentions of `mail` appear in `files/implemented-features.md` — check that file for port status.
+- 1.12 Forestry — useful for CE-dropped content (greenhouse, book, climatology, database, etc.).
+
+## Source map
+- `src/main/java/forestry/mail/EnumDeliveryState.java`
+- `src/main/java/forestry/mail/EventHandlerMailAlert.java`
+- `src/main/java/forestry/mail/Letter.java`
+- `src/main/java/forestry/mail/LetterProperties.java`
+- `src/main/java/forestry/mail/MailAddress.java`
+- `src/main/java/forestry/mail/ModuleMail.java`
+- `src/main/java/forestry/mail/POBox.java`
+- `src/main/java/forestry/mail/POBoxInfo.java`
+- `src/main/java/forestry/mail/PostOffice.java`
+- `src/main/java/forestry/mail/PostRegistry.java`
+- `src/main/java/forestry/mail/PostalCarrier.java`
+- `src/main/java/forestry/mail/ResponseNotMailable.java`
+- `src/main/java/forestry/mail/SaveEventHandlerMail.java`
+- `src/main/java/forestry/mail/TradeStation.java`
+- `src/main/java/forestry/mail/TradeStationInfo.java`
+- `src/main/java/forestry/mail/blocks/BlockMail.java`
+- `src/main/java/forestry/mail/blocks/BlockRegistryMail.java`
+- `src/main/java/forestry/mail/blocks/BlockTypeMail.java`
+- `src/main/java/forestry/mail/blocks/package-info.java`
+- `src/main/java/forestry/mail/commands/CommandMail.java`
+- `src/main/java/forestry/mail/commands/package-info.java`
+- `src/main/java/forestry/mail/compat/MailJeiPlugin.java`
+- `src/main/java/forestry/mail/compat/package-info.java`
+- `src/main/java/forestry/mail/gui/AddresseeSlot.java`
+- `src/main/java/forestry/mail/gui/ContainerCatalogue.java`
+- `src/main/java/forestry/mail/gui/ContainerLetter.java`
+- `src/main/java/forestry/mail/gui/ContainerMailbox.java`
+- `src/main/java/forestry/mail/gui/ContainerStampCollector.java`
+- `src/main/java/forestry/mail/gui/ContainerTradeName.java`
+- `src/main/java/forestry/mail/gui/ContainerTrader.java`
+- `src/main/java/forestry/mail/gui/GuiCatalogue.java`
+- `src/main/java/forestry/mail/gui/GuiLetter.java`
+- `src/main/java/forestry/mail/gui/GuiMailbox.java`
+- `src/main/java/forestry/mail/gui/GuiMailboxInfo.java`
+- `src/main/java/forestry/mail/gui/GuiStampCollector.java`
+- `src/main/java/forestry/mail/gui/GuiTradeName.java`
+- `src/main/java/forestry/mail/gui/GuiTrader.java`
+- `src/main/java/forestry/mail/gui/ILetterInfoReceiver.java`
+- `src/main/java/forestry/mail/gui/package-info.java`
+- `src/main/java/forestry/mail/inventory/InventoryStampCollector.java`
+- `src/main/java/forestry/mail/inventory/InventoryTradeStation.java`
+- `src/main/java/forestry/mail/inventory/ItemInventoryLetter.java`
+- `src/main/java/forestry/mail/inventory/package-info.java`
+- `src/main/java/forestry/mail/items/EnumStampDefinition.java`
+- `src/main/java/forestry/mail/items/ItemCatalogue.java`
+- `src/main/java/forestry/mail/items/ItemLetter.java`
+- `src/main/java/forestry/mail/items/ItemRegistryMail.java`
+- `src/main/java/forestry/mail/items/ItemStamps.java`
+- `src/main/java/forestry/mail/items/package-info.java`
+- `src/main/java/forestry/mail/network/PacketRegistryMail.java`
+- `src/main/java/forestry/mail/network/package-info.java`
+- `src/main/java/forestry/mail/network/packets/PacketLetterInfoRequest.java`
+- `src/main/java/forestry/mail/network/packets/PacketLetterInfoResponse.java`
+- `src/main/java/forestry/mail/network/packets/PacketLetterTextSet.java`
+- `src/main/java/forestry/mail/network/packets/PacketPOBoxInfoResponse.java`
+- `src/main/java/forestry/mail/network/packets/PacketTraderAddressRequest.java`
+- `src/main/java/forestry/mail/network/packets/PacketTraderAddressResponse.java`
+- `src/main/java/forestry/mail/network/packets/package-info.java`
+- `src/main/java/forestry/mail/package-info.java`
+- `src/main/java/forestry/mail/tiles/TileMailbox.java`
+- `src/main/java/forestry/mail/tiles/TileStampCollector.java`
+- `src/main/java/forestry/mail/tiles/TileTrader.java`
+- `src/main/java/forestry/mail/tiles/package-info.java`
+- `src/main/java/forestry/mail/triggers/MailTriggers.java`
+- `src/main/java/forestry/mail/triggers/TriggerBuffer.java`
+- `src/main/java/forestry/mail/triggers/TriggerHasMail.java`
+- `src/main/java/forestry/mail/triggers/TriggerLowInput.java`
+- `src/main/java/forestry/mail/triggers/TriggerLowPaper.java`
+- `src/main/java/forestry/mail/triggers/TriggerLowStamps.java`
+- `src/main/java/forestry/mail/triggers/package-info.java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

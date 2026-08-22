@@ -1,0 +1,280 @@
+# thedarkcolour-Immersive-Forestry — lepidopterology
+
+- Alias: `IF`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/thedarkcolour-Immersive-Forestry`
+- Package/path root: `src/main/java/forestry/lepidopterology`
+- Java files scanned: **49**
+- Date: 2026-07-30
+
+## Summary
+Module `lepidopterology` in `thedarkcolour-Immersive-Forestry` is rooted at `src/main/java/forestry/lepidopterology` (49 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `ButterflySpawner`
+- `ButterflySpecies`
+- `DummyButterflyEffect`
+- `LepidopterologyFilterRule`
+- `LepidopterologyFilterRuleType`
+- `ModuleLepidopterology`
+- `BlockCocoon`
+- `BlockSolidCocoon`
+- `package-info`
+- `CommandButterfly`
+- `package-info`
+- `LepidopterologyJeiPlugin`
+- `package-info`
+- `AIButterflyBase`
+- `AIButterflyFlee`
+- `AIButterflyInteract`
+- `AIButterflyMate`
+- `AIButterflyMovement`
+- `AIButterflyPollinate`
+- `AIButterflyRest`
+- `AIButterflyRise`
+- `AIButterflyWander`
+- `EntityButterfly`
+- `EnumButterflyState`
+- `package-info`
+- `LepidopterologyBlocks`
+- `LepidopterologyEntities`
+- `LepidopterologyItems`
+- `LepidopterologyRecipes`
+- `LepidopterologyTiles`
+- `package-info`
+- `Butterfly`
+- `ButterflySpeciesType`
+- `DefaultCocoon`
+- `LepidopteristTracker`
+- `package-info`
+- `ItemButterflyGE`
+- `package-info`
+- `package-info`
+- `LepidopterologyClientHandler`
+- `package-info`
+- `ButterflyMatingRecipe`
+- `package-info`
+- `ButterflyEntityRenderer`
+- `ButterflyItemModel`
+- `ButterflyModel`
+- `package-info`
+- `TileCocoon`
+- `package-info`
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py IF "lepidopterology"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `blocks`
+  - `commands`
+  - `compat`
+  - `entities`
+  - `features`
+  - `genetics`
+  - `items`
+  - `proxy`
+  - `recipe`
+  - `render`
+  - `tiles`
+- Declaration skim (first files):
+  - `src/main/java/forestry/lepidopterology/ButterflySpawner.java`
+    - L1: package forestry.lepidopterology;
+    - L19: public class ButterflySpawner implements ILeafTickHandler {
+    - L26: @Override
+    - L27: public boolean onRandomLeafTick(ITree tree, Level world, RandomSource rand, BlockPos pos, boolean isDestroyed) {
+  - `src/main/java/forestry/lepidopterology/ButterflySpecies.java`
+    - L1: package forestry.lepidopterology;
+    - L27: public class ButterflySpecies extends Species<IButterflySpeciesType, IButterfly> implements IButterflySpecies {
+    - L33: @Nullable
+    - L40: public ButterflySpecies(ResourceLocation id, IButterflySpeciesType speciesType, IGenome defaultGenome, IButterflySpeciesBuilder builder) {
+    - L55: @Override
+    - L56: public IButterfly createIndividual(IGenome genome) {
+    - L60: @Override
+    - L61: public void addTooltip(IButterfly butterfly, List<Component> tooltip) {
+    - L101: @Override
+    - L102: public TemperatureType getTemperature() {
+    - L106: @Override
+    - L107: public HumidityType getHumidity() {
+  - `src/main/java/forestry/lepidopterology/DummyButterflyEffect.java`
+    - L1: package forestry.lepidopterology;
+    - L7: public class DummyButterflyEffect implements IButterflyEffect {
+    - L8: @Override
+    - L9: public boolean isDominant() {
+    - L13: @Override
+    - L14: public IEffectData doEffect(IEntityButterfly butterfly, IEffectData storedData) {
+  - `src/main/java/forestry/lepidopterology/LepidopterologyFilterRule.java`
+    - L1: package forestry.lepidopterology;
+    - L14: public enum LepidopterologyFilterRule implements IFilterRule {
+    - L16: @Override
+    - L17: protected boolean isValid(IButterfly butterfly) {
+    - L22: @Override
+    - L23: protected boolean isValid(IButterfly butterfly) {
+    - L28: @Override
+    - L29: protected boolean isValid(IButterfly butterfly) {
+    - L34: @Override
+    - L35: protected boolean isValid(IButterfly butterfly) {
+    - L40: @Override
+    - L41: protected boolean isValid(IButterfly butterfly) {
+  - `src/main/java/forestry/lepidopterology/LepidopterologyFilterRuleType.java`
+    - L1: package forestry.lepidopterology;
+    - L13: public enum LepidopterologyFilterRuleType implements IFilterRuleType {
+    - L15: @Override
+    - L16: public boolean isValid(ItemStack stack, FilterData data) {
+    - L21: @Override
+    - L22: public boolean isValid(ItemStack stack, FilterData data) {
+    - L27: @Override
+    - L28: public boolean isValid(ItemStack stack, FilterData data) {
+    - L33: @Override
+    - L34: public boolean isValid(ItemStack stack, FilterData data) {
+    - L39: @Override
+    - L40: public boolean isValid(ItemStack stack, FilterData data) {
+  - `src/main/java/forestry/lepidopterology/ModuleLepidopterology.java`
+    - L1: package forestry.lepidopterology;
+    - L24: @ForestryModule
+    - L25: public class ModuleLepidopterology extends BlankForestryModule {
+    - L26: public static int maxDistance = 64;
+    - L28: public static final Object2FloatOpenHashMap<String> spawnRarities = new Object2FloatOpenHashMap<>();
+    - L29: public static boolean spawnButterflysFromLeaves = true;
+    - L35: @Override
+    - L36: public void registerEvents(IEventBus modBus) {
+    - L41: public static void onEntityTravelToDimension(EntityTravelToDimensionEvent event) {
+    - L47: public static void onAttributeCreate(EntityAttributeCreationEvent event) {
+    - L51: @Override
+    - L52: public ResourceLocation getId() {
+  - `src/main/java/forestry/lepidopterology/blocks/BlockCocoon.java`
+    - L1: package forestry.lepidopterology.blocks;
+    - L32: public class BlockCocoon extends Block implements EntityBlock {
+    - L33: public static final VoxelShape BOUNDING_BOX = Block.box(5f, 5f, 5f, 11f, 16F, 11f);
+    - L34: public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 2);
+    - L36: public BlockCocoon(Block.Properties properties) {
+    - L41: @Override
+    - L42: protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+    - L46: @Override
+    - L47: public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource rand) {
+    - L56: @Override
+    - L57: public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+    - L61: @Override
+  - `src/main/java/forestry/lepidopterology/blocks/BlockSolidCocoon.java`
+    - L1: package forestry.lepidopterology.blocks;
+    - L25: public class BlockSolidCocoon extends Block implements EntityBlock {
+    - L26: public BlockSolidCocoon(Block.Properties properties) {
+    - L34: @Override
+    - L35: protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+    - L39: @Override
+    - L40: public void playerDestroy(Level level, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack itemStack) {
+    - L52: @Override
+    - L53: public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+    - L57: @Override
+    - L58: public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor worldIn, BlockPos currentPos, BlockPos facingPos) {
+    - L65: @Override
+  - `src/main/java/forestry/lepidopterology/blocks/package-info.java`
+    - L1: @javax.annotation.ParametersAreNonnullByDefault
+    - L2: @forestry.core.utils.FieldsAreNonnullByDefault
+    - L3: @net.minecraft.MethodsReturnNonnullByDefault
+    - L4: package forestry.lepidopterology.blocks;
+  - `src/main/java/forestry/lepidopterology/commands/CommandButterfly.java`
+    - L1: package forestry.lepidopterology.commands;
+    - L18: public class CommandButterfly {
+    - L19: public static ArgumentBuilder<CommandSourceStack, ?> register() {
+    - L28: public static class CommandButterflyKill {
+    - L29: public static ArgumentBuilder<CommandSourceStack, ?> register() {
+    - L33: public static int execute(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
+  - `src/main/java/forestry/lepidopterology/commands/package-info.java`
+    - L1: @javax.annotation.ParametersAreNonnullByDefault
+    - L2: @forestry.core.utils.FieldsAreNonnullByDefault
+    - L3: @net.minecraft.MethodsReturnNonnullByDefault
+    - L4: package forestry.lepidopterology.commands;
+  - `src/main/java/forestry/lepidopterology/compat/LepidopterologyJeiPlugin.java`
+    - L1: package forestry.lepidopterology.compat;
+    - L12: @JeiPlugin
+    - L13: public class LepidopterologyJeiPlugin implements IModPlugin {
+    - L14: @Override
+    - L15: public ResourceLocation getPluginUid() {
+    - L19: @Override
+    - L20: public void registerItemSubtypes(ISubtypeRegistration registry) {
+
+## Data & assets
+Related resource paths (heuristic name match):
+- `src/main/resources/assets/forestry/textures/block/lepidopterology/cocoons/cocoon_late.png`
+- `src/main/resources/assets/forestry/textures/block/lepidopterology/cocoons/cocoon_silk_late.png`
+- `src/main/resources/assets/forestry/textures/block/lepidopterology/cocoons/cocoon_early.png`
+- `src/main/resources/assets/forestry/textures/block/lepidopterology/cocoons/cocoon_middle.png`
+- `src/main/resources/assets/forestry/models/item/lepidopterology/cocoons/cocoon_silk_middle.json`
+- `src/main/resources/assets/forestry/models/item/lepidopterology/cocoons/cocoon_default_middle.json`
+- `src/main/resources/assets/forestry/models/item/lepidopterology/cocoons/cocoon_default_early.json`
+- `src/main/resources/assets/forestry/models/item/lepidopterology/cocoons/cocoon_silk_early.json`
+- `src/main/resources/assets/forestry/models/item/lepidopterology/cocoons/cocoon_silk_late.json`
+- `src/main/resources/assets/forestry/models/item/lepidopterology/cocoons/cocoon_default_late.json`
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/thedarkcolour-Immersive-Forestry` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- enum `LepidopterologyFilterRule` in `LepidopterologyFilterRule.java`
+- enum `LepidopterologyFilterRuleType` in `LepidopterologyFilterRuleType.java`
+- key type `ModuleLepidopterology` (`ModuleLepidopterology.java`)
+- key type `LepidopterologyJeiPlugin` (`LepidopterologyJeiPlugin.java`)
+- enum `EnumButterflyState` in `EnumButterflyState.java`
+- key type `LepidopterologyClientHandler` (`LepidopterologyClientHandler.java`)
+- record `Geometry` in `ButterflyItemModel.java`
+
+## Port relevance to Re-Forestry
+- Mentions of `lepidopterology` appear in `files/implemented-features.md` — check that file for port status.
+- Primary Forestry reference for Re-Forestry port decisions.
+
+## Source map
+- `src/main/java/forestry/lepidopterology/ButterflySpawner.java`
+- `src/main/java/forestry/lepidopterology/ButterflySpecies.java`
+- `src/main/java/forestry/lepidopterology/DummyButterflyEffect.java`
+- `src/main/java/forestry/lepidopterology/LepidopterologyFilterRule.java`
+- `src/main/java/forestry/lepidopterology/LepidopterologyFilterRuleType.java`
+- `src/main/java/forestry/lepidopterology/ModuleLepidopterology.java`
+- `src/main/java/forestry/lepidopterology/blocks/BlockCocoon.java`
+- `src/main/java/forestry/lepidopterology/blocks/BlockSolidCocoon.java`
+- `src/main/java/forestry/lepidopterology/blocks/package-info.java`
+- `src/main/java/forestry/lepidopterology/commands/CommandButterfly.java`
+- `src/main/java/forestry/lepidopterology/commands/package-info.java`
+- `src/main/java/forestry/lepidopterology/compat/LepidopterologyJeiPlugin.java`
+- `src/main/java/forestry/lepidopterology/compat/package-info.java`
+- `src/main/java/forestry/lepidopterology/entities/AIButterflyBase.java`
+- `src/main/java/forestry/lepidopterology/entities/AIButterflyFlee.java`
+- `src/main/java/forestry/lepidopterology/entities/AIButterflyInteract.java`
+- `src/main/java/forestry/lepidopterology/entities/AIButterflyMate.java`
+- `src/main/java/forestry/lepidopterology/entities/AIButterflyMovement.java`
+- `src/main/java/forestry/lepidopterology/entities/AIButterflyPollinate.java`
+- `src/main/java/forestry/lepidopterology/entities/AIButterflyRest.java`
+- `src/main/java/forestry/lepidopterology/entities/AIButterflyRise.java`
+- `src/main/java/forestry/lepidopterology/entities/AIButterflyWander.java`
+- `src/main/java/forestry/lepidopterology/entities/EntityButterfly.java`
+- `src/main/java/forestry/lepidopterology/entities/EnumButterflyState.java`
+- `src/main/java/forestry/lepidopterology/entities/package-info.java`
+- `src/main/java/forestry/lepidopterology/features/LepidopterologyBlocks.java`
+- `src/main/java/forestry/lepidopterology/features/LepidopterologyEntities.java`
+- `src/main/java/forestry/lepidopterology/features/LepidopterologyItems.java`
+- `src/main/java/forestry/lepidopterology/features/LepidopterologyRecipes.java`
+- `src/main/java/forestry/lepidopterology/features/LepidopterologyTiles.java`
+- `src/main/java/forestry/lepidopterology/features/package-info.java`
+- `src/main/java/forestry/lepidopterology/genetics/Butterfly.java`
+- `src/main/java/forestry/lepidopterology/genetics/ButterflySpeciesType.java`
+- `src/main/java/forestry/lepidopterology/genetics/DefaultCocoon.java`
+- `src/main/java/forestry/lepidopterology/genetics/LepidopteristTracker.java`
+- `src/main/java/forestry/lepidopterology/genetics/package-info.java`
+- `src/main/java/forestry/lepidopterology/items/ItemButterflyGE.java`
+- `src/main/java/forestry/lepidopterology/items/package-info.java`
+- `src/main/java/forestry/lepidopterology/package-info.java`
+- `src/main/java/forestry/lepidopterology/proxy/LepidopterologyClientHandler.java`
+- `src/main/java/forestry/lepidopterology/proxy/package-info.java`
+- `src/main/java/forestry/lepidopterology/recipe/ButterflyMatingRecipe.java`
+- `src/main/java/forestry/lepidopterology/recipe/package-info.java`
+- `src/main/java/forestry/lepidopterology/render/ButterflyEntityRenderer.java`
+- `src/main/java/forestry/lepidopterology/render/ButterflyItemModel.java`
+- `src/main/java/forestry/lepidopterology/render/ButterflyModel.java`
+- `src/main/java/forestry/lepidopterology/render/package-info.java`
+- `src/main/java/forestry/lepidopterology/tiles/TileCocoon.java`
+- `src/main/java/forestry/lepidopterology/tiles/package-info.java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

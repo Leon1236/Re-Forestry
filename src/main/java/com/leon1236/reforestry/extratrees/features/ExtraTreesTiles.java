@@ -4,6 +4,7 @@ import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.core.energy.EnergyHelper;
 import com.leon1236.reforestry.core.fluids.FluidHelper;
 import com.leon1236.reforestry.core.inventory.InventoryHelper;
+import com.leon1236.reforestry.extratrees.tiles.TileBottleRack;
 import com.leon1236.reforestry.extratrees.tiles.TileBrewery;
 import com.leon1236.reforestry.extratrees.tiles.TileDistillery;
 import com.leon1236.reforestry.extratrees.tiles.TileLumbermill;
@@ -23,6 +24,8 @@ public class ExtraTreesTiles {
 			REGISTRY.blockEntityType("brewery", TileBrewery::new);
 	public static final FeatureBlockEntityType<TileDistillery> DISTILLERY =
 			REGISTRY.blockEntityType("distillery", TileDistillery::new);
+	public static final FeatureBlockEntityType<TileBottleRack> BOTTLE_RACK =
+			REGISTRY.blockEntityType("bottle_rack", TileBottleRack::new);
 
 	public static void init() {
 		EnergyHelper.registerSided(LUMBERMILL.type());
@@ -39,5 +42,7 @@ public class ExtraTreesTiles {
 
 		EnergyHelper.registerSided(DISTILLERY.type());
 		FluidHelper.registerSided(DISTILLERY.type(), TileDistillery::getTankManager);
+
+		FluidHelper.registerSided(BOTTLE_RACK.type(), TileBottleRack::getTankManager);
 	}
 }

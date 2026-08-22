@@ -1,0 +1,16 @@
+{
+  "repo": "mezz-JustEnoughItems",
+  "clone": "/home/ivan/Re-Forestry-src/MarkDown_Maker/Finished_github_clone/2026-08-22/mezz-JustEnoughItems",
+  "scan_roots": [
+    "Common",
+    "CommonApi",
+    "Fabric",
+    "FabricApi",
+    "Library"
+  ],
+  "graph": "/home/ivan/Re-Forestry-src/MarkDown_Maker/graphify/mezz-JustEnoughItems/graphify-out/graph.json",
+  "nodes": 6232,
+  "edges": 20458,
+  "seconds": 17.2,
+  "built_at": "2026-08-22T07:07:26Z"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": "#c:glass_blocks/colorless",
+    "R": "minecraft:redstone",
+    "T": "reforestry:electron_tube_iron",
+    "S": "reforestry:sturdy_machine",
+    "B": "reforestry:gear_bronze",
+    "C": "reforestry:circuit_board_basic"
+  },
+  "pattern": [
+    "GRG",
+    "TST",
+    "BCB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:habitat_former"
+  }
+}

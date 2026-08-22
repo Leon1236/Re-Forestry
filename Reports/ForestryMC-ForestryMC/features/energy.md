@@ -1,0 +1,262 @@
+# ForestryMC-ForestryMC — energy
+
+- Alias: `forestry12`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ForestryMC-ForestryMC`
+- Package/path root: `src/main/java/forestry/energy`
+- Java files scanned: **55**
+- Date: 2026-07-30
+
+## Summary
+Module `energy` in `ForestryMC-ForestryMC` is rooted at `src/main/java/forestry/energy` (55 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `EnergyHelper`
+- `EnergyManager`
+- `EnergyTransferMode`
+- `ModuleEnergy`
+- `BlockEngine`
+- `BlockRegistryEnergy`
+- `BlockTypeEngine`
+- `package-info`
+- `CircuitElectricBoost`
+- `CircuitElectricChange`
+- `CircuitElectricChoke`
+- `CircuitElectricEfficiency`
+- `package-info`
+- `EnergyStorageWrapper`
+- `MjConnectorWrapper`
+- `MjHelper`
+- `MjPassiveProviderWrapper`
+- `MjReadableWrapper`
+- `MjReceiverWrapper`
+- `MjRedstoneReceiverWrapper`
+- `package-info`
+- `package-info`
+- `TeslaConsumerWrapper`
+- `TeslaHelper`
+- `TeslaHolderWrapper`
+- `TeslaProducerWrapper`
+- `package-info`
+- `BiogasSlot`
+- `ContainerEngineBiogas`
+- `ContainerEngineElectric`
+- `ContainerEnginePeat`
+- `ContainerGenerator`
+- `GuiEngine`
+- `GuiEngineBiogas`
+- `GuiEngineElectric`
+- `GuiEnginePeat`
+- `GuiGenerator`
+- `package-info`
+- `InventoryEngineBiogas`
+- `InventoryEngineElectric`
+- `InventoryEnginePeat`
+- `InventoryGenerator`
+- `package-info`
+- `package-info`
+- `ProxyEnergy`
+- `ProxyEnergyClient`
+- `package-info`
+- `RenderEngine`
+- `package-info`
+- `TileEngineBiogas`
+- `TileEngineClockwork`
+- `TileEngineElectric`
+- `TileEnginePeat`
+- `TileEuGenerator`
+- `package-info`
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py forestry12 "energy"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `blocks`
+  - `circuits`
+  - `compat`
+  - `compat/mj`
+  - `compat/tesla`
+  - `gui`
+  - `inventory`
+  - `proxy`
+  - `render`
+  - `tiles`
+- Declaration skim (first files):
+  - `src/main/java/forestry/energy/EnergyHelper.java`
+    - L1: package forestry.energy;
+    - L17: public class EnergyHelper {
+    - L18: public static int scaleForDifficulty(int energyValue) {
+    - L28: public static boolean consumeEnergyToDoWork(EnergyManager energyManager, int ticksPerWorkCycle, int energyPerWorkCycle) {
+    - L48: public static int sendEnergy(EnergyManager energyManager, EnumFacing orientation, @Nullable TileEntity tile) {
+    - L58: public static int sendEnergy(EnergyManager energyManager, EnumFacing orientation, @Nullable TileEntity tile, int amount, boolean simulate) {
+    - L100: public static boolean canSendEnergy(EnergyManager energyManager, EnumFacing orientation, TileEntity tile) {
+    - L104: public static boolean isEnergyReceiverOrEngine(EnumFacing side, @Nullable TileEntity tile) {
+  - `src/main/java/forestry/energy/EnergyManager.java`
+    - L1: package forestry.energy;
+    - L40: public class EnergyManager extends EnergyStorage implements IStreamable, INbtReadable, INbtWritable {
+    - L42: @Nullable
+    - L45: public EnergyManager(int maxTransfer, int capacity) {
+    - L49: public void setChangeHandler(@Nullable Consumer<Integer> changeHandler) {
+    - L53: public void setExternalMode(EnergyTransferMode externalMode) {
+    - L57: public EnergyTransferMode getExternalMode() {
+    - L61: @Override
+    - L62: public void readFromNBT(NBTTagCompound nbt) {
+    - L75: @Override
+    - L76: public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
+    - L81: @Override
+  - `src/main/java/forestry/energy/EnergyTransferMode.java`
+    - L1: package forestry.energy;
+    - L3: public enum EnergyTransferMode {
+    - L6: public boolean canExtract() {
+    - L16: public boolean canReceive() {
+  - `src/main/java/forestry/energy/ModuleEnergy.java`
+    - L11: package forestry.energy;
+    - L32: @ForestryModule(containerID = Constants.MOD_ID, moduleID = ForestryModuleUids.ENERGY, name = "Energy", author = "SirSengir", url = Constants.URL, unlocalizedDescription = "for.module.energy.description")
+    - L33: public class ModuleEnergy extends BlankForestryModule {
+    - L35: @SuppressWarnings("NullableProblems")
+    - L36: @SidedProxy(clientSide = "forestry.energy.proxy.ProxyEnergyClient", serverSide = "forestry.energy.proxy.ProxyEnergy")
+    - L37: public static ProxyEnergy proxy;
+    - L39: @Nullable
+    - L40: public static BlockRegistryEnergy blocks;
+    - L42: public static BlockRegistryEnergy getBlocks() {
+    - L47: @Override
+    - L48: public void registerItemsAndBlocks() {
+    - L52: @Override
+  - `src/main/java/forestry/energy/blocks/BlockEngine.java`
+    - L11: package forestry.energy.blocks;
+    - L37: public class BlockEngine extends BlockBase<BlockTypeEngine> {
+    - L61: public BlockEngine(BlockTypeEngine blockType) {
+    - L66: @Override
+    - L67: public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn, boolean p_185477_7_) {
+    - L82: @Override
+    - L83: public RayTraceResult collisionRayTrace(IBlockState blockState, World worldIn, BlockPos pos, Vec3d start, Vec3d end) {
+    - L112: @Override
+    - L113: public boolean rotateBlock(World world, BlockPos pos, EnumFacing axis) {
+  - `src/main/java/forestry/energy/blocks/BlockRegistryEnergy.java`
+    - L11: package forestry.energy.blocks;
+    - L16: public class BlockRegistryEnergy extends BlockRegistry {
+    - L17: public final BlockEngine peatEngine;
+    - L18: public final BlockEngine biogasEngine;
+    - L19: public final BlockEngine clockworkEngine;
+    - L21: public BlockRegistryEnergy() {
+  - `src/main/java/forestry/energy/blocks/BlockTypeEngine.java`
+    - L11: package forestry.energy.blocks;
+    - L27: public enum BlockTypeEngine implements IBlockTypeTesr {
+    - L34: public static final BlockTypeEngine[] VALUES = values();
+    - L42: protected static IMachinePropertiesTesr<?> createEngineProperties(Class<? extends TileEngine> teClass, String name, String textureName) {
+    - L48: protected static IMachinePropertiesTesr<?> createMachineProperties(Class<? extends TileBase> teClass, String name, String textureName) {
+    - L54: @Override
+    - L55: public IMachinePropertiesTesr<?> getMachineProperties() {
+    - L59: @Override
+    - L60: public String getName() {
+  - `src/main/java/forestry/energy/blocks/package-info.java`
+    - L1: @ParametersAreNonnullByDefault
+    - L2: @FieldsAreNonnullByDefault
+    - L3: @MethodsReturnNonnullByDefault
+    - L4: package forestry.energy.blocks;
+  - `src/main/java/forestry/energy/circuits/CircuitElectricBoost.java`
+    - L11: package forestry.energy.circuits;
+    - L13: public class CircuitElectricBoost extends CircuitElectricChange {
+    - L15: public CircuitElectricBoost(String uid, int eu, int rf) {
+  - `src/main/java/forestry/energy/circuits/CircuitElectricChange.java`
+    - L11: package forestry.energy.circuits;
+    - L16: public abstract class CircuitElectricChange extends Circuit {
+    - L21: protected CircuitElectricChange(String uid) {
+    - L25: protected void configureChange(int euChange, int rfChange) {
+    - L30: @Override
+    - L31: public boolean isCircuitable(Object tile) {
+    - L35: @Override
+    - L36: public void onInsertion(int slot, Object tile) {
+    - L45: @Override
+    - L46: public void onLoad(int slot, Object tile) {
+    - L50: @Override
+    - L51: public void onRemoval(int slot, Object tile) {
+  - `src/main/java/forestry/energy/circuits/CircuitElectricChoke.java`
+    - L11: package forestry.energy.circuits;
+    - L13: public class CircuitElectricChoke extends CircuitElectricChange {
+    - L15: public CircuitElectricChoke(String uid) {
+  - `src/main/java/forestry/energy/circuits/CircuitElectricEfficiency.java`
+    - L11: package forestry.energy.circuits;
+    - L13: public class CircuitElectricEfficiency extends CircuitElectricChange {
+    - L15: public CircuitElectricEfficiency(String uid) {
+
+## Data & assets
+Related resource paths (heuristic name match):
+- `src/main/resources/assets/forestry/textures/gui/errors/no_energy_net.png`
+- `src/main/resources/assets/forestry/textures/gui/misc/energy.png`
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ForestryMC-ForestryMC` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- enum `EnergyTransferMode` in `EnergyTransferMode.java`
+- key type `ModuleEnergy` (`ModuleEnergy.java`)
+- key type `BlockRegistryEnergy` (`BlockRegistryEnergy.java`)
+- enum `BlockTypeEngine` in `BlockTypeEngine.java`
+
+## Port relevance to Re-Forestry
+- Mentions of `energy` appear in `files/implemented-features.md` — check that file for port status.
+- 1.12 Forestry — useful for CE-dropped content (greenhouse, book, climatology, database, etc.).
+
+## Source map
+- `src/main/java/forestry/energy/EnergyHelper.java`
+- `src/main/java/forestry/energy/EnergyManager.java`
+- `src/main/java/forestry/energy/EnergyTransferMode.java`
+- `src/main/java/forestry/energy/ModuleEnergy.java`
+- `src/main/java/forestry/energy/blocks/BlockEngine.java`
+- `src/main/java/forestry/energy/blocks/BlockRegistryEnergy.java`
+- `src/main/java/forestry/energy/blocks/BlockTypeEngine.java`
+- `src/main/java/forestry/energy/blocks/package-info.java`
+- `src/main/java/forestry/energy/circuits/CircuitElectricBoost.java`
+- `src/main/java/forestry/energy/circuits/CircuitElectricChange.java`
+- `src/main/java/forestry/energy/circuits/CircuitElectricChoke.java`
+- `src/main/java/forestry/energy/circuits/CircuitElectricEfficiency.java`
+- `src/main/java/forestry/energy/circuits/package-info.java`
+- `src/main/java/forestry/energy/compat/EnergyStorageWrapper.java`
+- `src/main/java/forestry/energy/compat/mj/MjConnectorWrapper.java`
+- `src/main/java/forestry/energy/compat/mj/MjHelper.java`
+- `src/main/java/forestry/energy/compat/mj/MjPassiveProviderWrapper.java`
+- `src/main/java/forestry/energy/compat/mj/MjReadableWrapper.java`
+- `src/main/java/forestry/energy/compat/mj/MjReceiverWrapper.java`
+- `src/main/java/forestry/energy/compat/mj/MjRedstoneReceiverWrapper.java`
+- `src/main/java/forestry/energy/compat/mj/package-info.java`
+- `src/main/java/forestry/energy/compat/package-info.java`
+- `src/main/java/forestry/energy/compat/tesla/TeslaConsumerWrapper.java`
+- `src/main/java/forestry/energy/compat/tesla/TeslaHelper.java`
+- `src/main/java/forestry/energy/compat/tesla/TeslaHolderWrapper.java`
+- `src/main/java/forestry/energy/compat/tesla/TeslaProducerWrapper.java`
+- `src/main/java/forestry/energy/compat/tesla/package-info.java`
+- `src/main/java/forestry/energy/gui/BiogasSlot.java`
+- `src/main/java/forestry/energy/gui/ContainerEngineBiogas.java`
+- `src/main/java/forestry/energy/gui/ContainerEngineElectric.java`
+- `src/main/java/forestry/energy/gui/ContainerEnginePeat.java`
+- `src/main/java/forestry/energy/gui/ContainerGenerator.java`
+- `src/main/java/forestry/energy/gui/GuiEngine.java`
+- `src/main/java/forestry/energy/gui/GuiEngineBiogas.java`
+- `src/main/java/forestry/energy/gui/GuiEngineElectric.java`
+- `src/main/java/forestry/energy/gui/GuiEnginePeat.java`
+- `src/main/java/forestry/energy/gui/GuiGenerator.java`
+- `src/main/java/forestry/energy/gui/package-info.java`
+- `src/main/java/forestry/energy/inventory/InventoryEngineBiogas.java`
+- `src/main/java/forestry/energy/inventory/InventoryEngineElectric.java`
+- `src/main/java/forestry/energy/inventory/InventoryEnginePeat.java`
+- `src/main/java/forestry/energy/inventory/InventoryGenerator.java`
+- `src/main/java/forestry/energy/inventory/package-info.java`
+- `src/main/java/forestry/energy/package-info.java`
+- `src/main/java/forestry/energy/proxy/ProxyEnergy.java`
+- `src/main/java/forestry/energy/proxy/ProxyEnergyClient.java`
+- `src/main/java/forestry/energy/proxy/package-info.java`
+- `src/main/java/forestry/energy/render/RenderEngine.java`
+- `src/main/java/forestry/energy/render/package-info.java`
+- `src/main/java/forestry/energy/tiles/TileEngineBiogas.java`
+- `src/main/java/forestry/energy/tiles/TileEngineClockwork.java`
+- `src/main/java/forestry/energy/tiles/TileEngineElectric.java`
+- `src/main/java/forestry/energy/tiles/TileEnginePeat.java`
+- `src/main/java/forestry/energy/tiles/TileEuGenerator.java`
+- `src/main/java/forestry/energy/tiles/package-info.java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

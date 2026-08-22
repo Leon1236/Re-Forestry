@@ -2,6 +2,7 @@ package com.leon1236.reforestry.apiculture.client;
 
 import java.util.List;
 
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockColorRegistry;
 
@@ -13,6 +14,7 @@ import com.leon1236.reforestry.apiculture.blocks.BlockHoneyComb;
 import com.leon1236.reforestry.apiculture.features.ApicultureBlocks;
 import com.leon1236.reforestry.apiculture.features.ApicultureMenuTypes;
 import com.leon1236.reforestry.apiculture.features.ApicultureParticles;
+import com.leon1236.reforestry.apiculture.network.HabitatBiomePointerPayload;
 import com.leon1236.reforestry.modules.features.FeatureBlock;
 
 public class ApicultureClientHandler implements IClientModuleHandler {
@@ -23,6 +25,9 @@ public class ApicultureClientHandler implements IClientModuleHandler {
         MenuScreens.register(ApicultureMenuTypes.ALVEARY_HYGROREGULATOR.type(), ScreenAlvearyHygroregulator::new);
         MenuScreens.register(ApicultureMenuTypes.ALVEARY_SIEVE.type(), ScreenAlvearySieve::new);
         MenuScreens.register(ApicultureMenuTypes.ALVEARY_SWARMER.type(), ScreenAlvearySwarmer::new);
+        MenuScreens.register(ApicultureMenuTypes.HABITAT_LOCATOR.type(), ScreenHabitatLocator::new);
+        ClientPlayNetworking.registerGlobalReceiver(HabitatBiomePointerPayload.TYPE, (payload, context) ->
+                context.client().execute(() -> HabitatLocatorClient.setTarget(payload.target())));
 
         ParticleProviderRegistry.getInstance().register(ApicultureParticles.BEE_ROUND_TRIP.type(), BeeTravelParticle.RoundTripProvider::new);
         ParticleProviderRegistry.getInstance().register(ApicultureParticles.BEE_EXPLORER.type(), BeeTravelParticle.ExploreProvider::new);

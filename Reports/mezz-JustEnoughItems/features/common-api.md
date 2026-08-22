@@ -1,0 +1,417 @@
+# mezz-JustEnoughItems — common-api
+
+- Alias: `JEI`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_16-21-34/mezz-JustEnoughItems`
+- Package/path root: `CommonApi/src/main/java`
+- Java files scanned: **167**
+- Date: 2026-07-30
+
+## Summary
+Module `common-api` in `mezz-JustEnoughItems` is rooted at `CommonApi/src/main/java` (167 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `IModPlugin`
+- `JeiPlugin`
+- `ModIds`
+- `RecipeTypes`
+- `Tags`
+- `VanillaTypes`
+- `package-info`
+- `IRecipeLayoutDrawable`
+- `ITickTimer`
+- `IClickableIngredientFactory`
+- `IIngredientAcceptor`
+- `IRecipeLayoutBuilder`
+- `IRecipeSlotBuilder`
+- `ITooltipBuilder`
+- `package-info`
+- `IButtonState`
+- `IIconButtonController`
+- `package-info`
+- `IDrawable`
+- `IDrawableAnimated`
+- `IDrawableBuilder`
+- `IDrawableStatic`
+- `IScalableDrawable`
+- `TilingDirection`
+- `package-info`
+- `IGhostIngredientHandler`
+- `IGlobalGuiHandler`
+- `IGuiClickableArea`
+- `IGuiContainerHandler`
+- `IGuiProperties`
+- `IScreenHandler`
+- `package-info`
+- `ICraftingGridHelper`
+- `IRecipeSlotDrawable`
+- `IRecipeSlotDrawablesView`
+- `IRecipeSlotRichTooltipCallback`
+- `IRecipeSlotView`
+- `IRecipeSlotsView`
+- `package-info`
+- `IJeiGuiEventListener`
+- `IJeiInputHandler`
+- `IJeiUserInput`
+- `RecipeSlotUnderMouse`
+- `package-info`
+- `package-info`
+- `HorizontalAlignment`
+- `IPlaceable`
+- `VerticalAlignment`
+- `package-info`
+- `IRecipeExtrasBuilder`
+- `IRecipeWidget`
+- `IScrollBoxWidget`
+- `IScrollGridWidget`
+- `ISlottedRecipeWidget`
+- `ITextWidget`
+- `package-info`
+- `ICodecHelper`
+- `IColorHelper`
+- `IGuiHelper`
+- `IJeiHelpers`
+- `IModIdHelper`
+- `IPlatformFluidHelper`
+- `IStackHelper`
+- `package-info`
+- `IIngredientHelper`
+- `IIngredientRenderer`
+- `IIngredientSupplier`
+- `IIngredientType`
+- `IIngredientTypeWithSubtypes`
+- `ITypedIngredient`
+- `package-info`
+- `BatchRenderElement`
+- `package-info`
+- `ISubtypeInterpreter`
+- `ISubtypeManager`
+- `UidContext`
+- `package-info`
+- `package-info`
+- `ICraftingStationLookup`
+- `IFocus`
+- … and 87 more
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py JEI "common-api"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `mezz/jei/api`
+  - `mezz/jei/api/constants`
+  - `mezz/jei/api/gui`
+  - `mezz/jei/api/gui/builder`
+  - `mezz/jei/api/gui/buttons`
+  - `mezz/jei/api/gui/drawable`
+  - `mezz/jei/api/gui/handlers`
+  - `mezz/jei/api/gui/ingredient`
+  - `mezz/jei/api/gui/inputs`
+  - `mezz/jei/api/gui/placement`
+  - `mezz/jei/api/gui/widgets`
+  - `mezz/jei/api/helpers`
+  - `mezz/jei/api/ingredients`
+  - `mezz/jei/api/ingredients/rendering`
+  - `mezz/jei/api/ingredients/subtypes`
+  - `mezz/jei/api/recipe`
+  - `mezz/jei/api/recipe/advanced`
+  - `mezz/jei/api/recipe/category`
+  - `mezz/jei/api/recipe/category/extensions`
+  - `mezz/jei/api/recipe/category/extensions/vanilla`
+  - `mezz/jei/api/recipe/category/extensions/vanilla/crafting`
+  - `mezz/jei/api/recipe/category/extensions/vanilla/smithing`
+  - `mezz/jei/api/recipe/transfer`
+  - `mezz/jei/api/recipe/types`
+  - `mezz/jei/api/recipe/vanilla`
+  - `mezz/jei/api/registration`
+  - `mezz/jei/api/runtime`
+  - `mezz/jei/api/runtime/config`
+  - `mezz/jei/api/search`
+- Declaration skim (first files):
+  - `CommonApi/src/main/java/mezz/jei/api/IModPlugin.java`
+    - L1: package mezz.jei.api;
+    - L24: * The main class to implement to create a JEI plugin.
+    - L28: public interface IModPlugin {
+  - `CommonApi/src/main/java/mezz/jei/api/JeiPlugin.java`
+    - L1: package mezz.jei.api;
+    - L7: public @interface JeiPlugin {
+  - `CommonApi/src/main/java/mezz/jei/api/constants/ModIds.java`
+    - L1: package mezz.jei.api.constants;
+    - L3: public class ModIds {
+    - L4: public static final String JEI_ID = "jei";
+    - L5: public static final String JEI_NAME = "Just Enough Items";
+    - L7: public static final String MINECRAFT_ID = "minecraft";
+    - L8: public static final String MINECRAFT_NAME = "Minecraft";
+  - `CommonApi/src/main/java/mezz/jei/api/constants/RecipeTypes.java`
+    - L1: package mezz.jei.api.constants;
+    - L28: public final class RecipeTypes {
+    - L36: public static final IRecipeHolderType<CraftingRecipe> CRAFTING = IRecipeHolderType.create(RecipeType.CRAFTING);
+    - L45: public static final IRecipeHolderType<StonecutterRecipe> STONECUTTING = IRecipeHolderType.create(RecipeType.STONECUTTING);
+    - L54: public static final IRecipeHolderType<SmeltingRecipe> SMELTING = IRecipeHolderType.create(RecipeType.SMELTING);
+    - L63: public static final IRecipeHolderType<SmokingRecipe> SMOKING = IRecipeHolderType.create(RecipeType.SMOKING);
+    - L72: public static final IRecipeHolderType<BlastingRecipe> BLASTING = IRecipeHolderType.create(RecipeType.BLASTING);
+    - L81: public static final IRecipeHolderType<CampfireCookingRecipe> CAMPFIRE_COOKING = IRecipeHolderType.create(RecipeType.CAMPFIRE_COOKING);
+    - L90: public static final IRecipeType<IJeiFuelingRecipe> SMELTING_FUEL = IRecipeType.create(ModIds.MINECRAFT_ID, "smelting_fuel", IJeiFuelingRecipe.class);
+    - L99: public static final IRecipeType<IJeiFuelingRecipe> BLASTING_FUEL = IRecipeType.create(ModIds.MINECRAFT_ID, "blasting_fuel", IJeiFuelingRecipe.class);
+    - L108: public static final IRecipeType<IJeiFuelingRecipe> SMOKING_FUEL = IRecipeType.create(ModIds.MINECRAFT_ID, "smoking_fuel", IJeiFuelingRecipe.class);
+    - L120: public static final IRecipeType<IJeiBrewingRecipe> BREWING = IRecipeType.create(ModIds.MINECRAFT_ID, "brewing", IJeiBrewingRecipe.class);
+  - `CommonApi/src/main/java/mezz/jei/api/constants/Tags.java`
+    - L1: package mezz.jei.api.constants;
+    - L9: public class Tags {
+    - L14: public static final Identifier HIDDEN_FROM_RECIPE_VIEWERS = Identifier.fromNamespaceAndPath("c", "hidden_from_recipe_viewers");
+  - `CommonApi/src/main/java/mezz/jei/api/constants/VanillaTypes.java`
+    - L1: package mezz.jei.api.constants;
+    - L11: public final class VanillaTypes {
+    - L15: public static final IIngredientTypeWithSubtypes<Item, ItemStack> ITEM_STACK = new IIngredientTypeWithSubtypes<>() {
+    - L16: @Override
+    - L17: public String getUid() {
+    - L21: @Override
+    - L22: public Class<? extends ItemStack> getIngredientClass() {
+    - L26: @Override
+    - L27: public Class<? extends Item> getIngredientBaseClass() {
+    - L31: @Override
+    - L32: public Item getBase(ItemStack ingredient) {
+    - L36: @Override
+  - `CommonApi/src/main/java/mezz/jei/api/constants/package-info.java`
+    - L1: @NullMarked
+    - L2: package mezz.jei.api.constants;
+  - `CommonApi/src/main/java/mezz/jei/api/gui/IRecipeLayoutDrawable.java`
+    - L1: package mezz.jei.api.gui;
+    - L25: @ApiStatus.NonExtendable
+    - L26: public interface IRecipeLayoutDrawable<R> {
+  - `CommonApi/src/main/java/mezz/jei/api/gui/ITickTimer.java`
+    - L1: package mezz.jei.api.gui;
+    - L12: @ApiStatus.NonExtendable
+    - L13: public interface ITickTimer {
+  - `CommonApi/src/main/java/mezz/jei/api/gui/builder/IClickableIngredientFactory.java`
+    - L1: package mezz.jei.api.gui.builder;
+    - L26: @ApiStatus.NonExtendable
+    - L27: public interface IClickableIngredientFactory {
+    - L57: interface IBuilder<T> {
+  - `CommonApi/src/main/java/mezz/jei/api/gui/builder/IIngredientAcceptor.java`
+    - L1: package mezz.jei.api.gui.builder;
+    - L28: @ApiStatus.NonExtendable
+    - L29: public interface IIngredientAcceptor<THIS extends IIngredientAcceptor<THIS>> {
+  - `CommonApi/src/main/java/mezz/jei/api/gui/builder/IRecipeLayoutBuilder.java`
+    - L1: package mezz.jei.api.gui.builder;
+    - L17: @ApiStatus.NonExtendable
+    - L18: public interface IRecipeLayoutBuilder {
+
+## Data & assets
+Related resource paths (heuristic name match):
+- `Common/src/main/resources/pack.mcmeta`
+- `Common/src/main/resources/jei-icon.png`
+- `Common/src/main/resources/assets/jei/atlases/gui.json`
+- `Common/src/main/resources/assets/jei/lang/no_no.json`
+- `Common/src/main/resources/assets/jei/lang/pt_pt.json`
+- `Common/src/main/resources/assets/jei/lang/lt_lt.json`
+- `Common/src/main/resources/assets/jei/lang/zh_cn.json`
+- `Common/src/main/resources/assets/jei/lang/tr_tr.json`
+- `Common/src/main/resources/assets/jei/lang/lzh.json`
+- `Common/src/main/resources/assets/jei/lang/vi_vn.json`
+- `Common/src/main/resources/assets/jei/lang/bg_bg.json`
+- `Common/src/main/resources/assets/jei/lang/fr_fr.json`
+- `Common/src/main/resources/assets/jei/lang/zh_tw.json`
+- `Common/src/main/resources/assets/jei/lang/pl_pl.json`
+- `Common/src/main/resources/assets/jei/lang/kk_kz.json`
+- `Common/src/main/resources/assets/jei/lang/sv_se.json`
+- `Common/src/main/resources/assets/jei/lang/es_ar.json`
+- `Common/src/main/resources/assets/jei/lang/uk_ua.json`
+- `Common/src/main/resources/assets/jei/lang/it_it.json`
+- `Common/src/main/resources/assets/jei/lang/ko_kr.json`
+- `Common/src/main/resources/assets/jei/lang/id_id.json`
+- `Common/src/main/resources/assets/jei/lang/fi_fi.json`
+- `Common/src/main/resources/assets/jei/lang/cs_cz.json`
+- `Common/src/main/resources/assets/jei/lang/fil_ph.json`
+- `Common/src/main/resources/assets/jei/lang/ru_ru.json`
+- `Common/src/main/resources/assets/jei/lang/pt_br.json`
+- `Common/src/main/resources/assets/jei/lang/es_es.json`
+- `Common/src/main/resources/assets/jei/lang/el_gr.json`
+- `Common/src/main/resources/assets/jei/lang/de_de.json`
+- `Common/src/main/resources/assets/jei/lang/ja_jp.json`
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_16-21-34/mezz-JustEnoughItems` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- interface `IModPlugin` in `IModPlugin.java`
+- key type `IModPlugin` (`IModPlugin.java`)
+- key type `JeiPlugin` (`JeiPlugin.java`)
+- interface `IRecipeLayoutDrawable` in `IRecipeLayoutDrawable.java`
+- interface `ITickTimer` in `ITickTimer.java`
+- interface `IClickableIngredientFactory` in `IClickableIngredientFactory.java`
+- interface `IIngredientAcceptor` in `IIngredientAcceptor.java`
+- interface `IRecipeLayoutBuilder` in `IRecipeLayoutBuilder.java`
+- interface `IRecipeSlotBuilder` in `IRecipeSlotBuilder.java`
+- interface `ITooltipBuilder` in `ITooltipBuilder.java`
+- interface `IButtonState` in `IButtonState.java`
+- interface `IIconButtonController` in `IIconButtonController.java`
+- interface `IDrawable` in `IDrawable.java`
+- interface `IDrawableAnimated` in `IDrawableAnimated.java`
+- interface `IDrawableBuilder` in `IDrawableBuilder.java`
+- interface `IDrawableStatic` in `IDrawableStatic.java`
+- interface `IScalableDrawable` in `IScalableDrawable.java`
+- enum `TilingDirection` in `TilingDirection.java`
+- interface `IGhostIngredientHandler` in `IGhostIngredientHandler.java`
+- key type `IGhostIngredientHandler` (`IGhostIngredientHandler.java`)
+- interface `IGlobalGuiHandler` in `IGlobalGuiHandler.java`
+- key type `IGlobalGuiHandler` (`IGlobalGuiHandler.java`)
+- interface `IGuiClickableArea` in `IGuiClickableArea.java`
+- interface `IGuiContainerHandler` in `IGuiContainerHandler.java`
+- key type `IGuiContainerHandler` (`IGuiContainerHandler.java`)
+- interface `IGuiProperties` in `IGuiProperties.java`
+- interface `IScreenHandler` in `IScreenHandler.java`
+- key type `IScreenHandler` (`IScreenHandler.java`)
+- interface `ICraftingGridHelper` in `ICraftingGridHelper.java`
+- interface `IRecipeSlotDrawable` in `IRecipeSlotDrawable.java`
+- interface `IRecipeSlotDrawablesView` in `IRecipeSlotDrawablesView.java`
+- interface `IRecipeSlotRichTooltipCallback` in `IRecipeSlotRichTooltipCallback.java`
+- interface `IRecipeSlotView` in `IRecipeSlotView.java`
+- interface `IRecipeSlotsView` in `IRecipeSlotsView.java`
+- interface `IJeiGuiEventListener` in `IJeiGuiEventListener.java`
+- interface `IJeiInputHandler` in `IJeiInputHandler.java`
+- key type `IJeiInputHandler` (`IJeiInputHandler.java`)
+- interface `IJeiUserInput` in `IJeiUserInput.java`
+- record `RecipeSlotUnderMouse` in `RecipeSlotUnderMouse.java`
+- enum `HorizontalAlignment` in `HorizontalAlignment.java`
+- interface `IPlaceable` in `IPlaceable.java`
+- enum `VerticalAlignment` in `VerticalAlignment.java`
+- interface `IRecipeExtrasBuilder` in `IRecipeExtrasBuilder.java`
+- interface `IRecipeWidget` in `IRecipeWidget.java`
+- interface `IScrollBoxWidget` in `IScrollBoxWidget.java`
+- interface `IScrollGridWidget` in `IScrollGridWidget.java`
+- interface `ISlottedRecipeWidget` in `ISlottedRecipeWidget.java`
+- interface `ITextWidget` in `ITextWidget.java`
+- interface `ICodecHelper` in `ICodecHelper.java`
+- interface `IColorHelper` in `IColorHelper.java`
+
+## Port relevance to Re-Forestry
+- JEI interop patterns; Re-Forestry already ships factory/core JEI plugins.
+
+## Source map
+- `CommonApi/src/main/java/mezz/jei/api/IModPlugin.java`
+- `CommonApi/src/main/java/mezz/jei/api/JeiPlugin.java`
+- `CommonApi/src/main/java/mezz/jei/api/constants/ModIds.java`
+- `CommonApi/src/main/java/mezz/jei/api/constants/RecipeTypes.java`
+- `CommonApi/src/main/java/mezz/jei/api/constants/Tags.java`
+- `CommonApi/src/main/java/mezz/jei/api/constants/VanillaTypes.java`
+- `CommonApi/src/main/java/mezz/jei/api/constants/package-info.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/IRecipeLayoutDrawable.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/ITickTimer.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/builder/IClickableIngredientFactory.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/builder/IIngredientAcceptor.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/builder/IRecipeLayoutBuilder.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/builder/IRecipeSlotBuilder.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/builder/ITooltipBuilder.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/builder/package-info.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/buttons/IButtonState.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/buttons/IIconButtonController.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/buttons/package-info.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/drawable/IDrawable.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/drawable/IDrawableAnimated.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/drawable/IDrawableBuilder.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/drawable/IDrawableStatic.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/drawable/IScalableDrawable.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/drawable/TilingDirection.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/drawable/package-info.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/handlers/IGhostIngredientHandler.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/handlers/IGlobalGuiHandler.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/handlers/IGuiClickableArea.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/handlers/IGuiContainerHandler.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/handlers/IGuiProperties.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/handlers/IScreenHandler.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/handlers/package-info.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/ingredient/ICraftingGridHelper.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/ingredient/IRecipeSlotDrawable.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/ingredient/IRecipeSlotDrawablesView.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/ingredient/IRecipeSlotRichTooltipCallback.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/ingredient/IRecipeSlotView.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/ingredient/IRecipeSlotsView.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/ingredient/package-info.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/inputs/IJeiGuiEventListener.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/inputs/IJeiInputHandler.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/inputs/IJeiUserInput.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/inputs/RecipeSlotUnderMouse.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/inputs/package-info.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/package-info.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/placement/HorizontalAlignment.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/placement/IPlaceable.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/placement/VerticalAlignment.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/placement/package-info.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/widgets/IRecipeExtrasBuilder.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/widgets/IRecipeWidget.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/widgets/IScrollBoxWidget.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/widgets/IScrollGridWidget.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/widgets/ISlottedRecipeWidget.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/widgets/ITextWidget.java`
+- `CommonApi/src/main/java/mezz/jei/api/gui/widgets/package-info.java`
+- `CommonApi/src/main/java/mezz/jei/api/helpers/ICodecHelper.java`
+- `CommonApi/src/main/java/mezz/jei/api/helpers/IColorHelper.java`
+- `CommonApi/src/main/java/mezz/jei/api/helpers/IGuiHelper.java`
+- `CommonApi/src/main/java/mezz/jei/api/helpers/IJeiHelpers.java`
+- `CommonApi/src/main/java/mezz/jei/api/helpers/IModIdHelper.java`
+- `CommonApi/src/main/java/mezz/jei/api/helpers/IPlatformFluidHelper.java`
+- `CommonApi/src/main/java/mezz/jei/api/helpers/IStackHelper.java`
+- `CommonApi/src/main/java/mezz/jei/api/helpers/package-info.java`
+- `CommonApi/src/main/java/mezz/jei/api/ingredients/IIngredientHelper.java`
+- `CommonApi/src/main/java/mezz/jei/api/ingredients/IIngredientRenderer.java`
+- `CommonApi/src/main/java/mezz/jei/api/ingredients/IIngredientSupplier.java`
+- `CommonApi/src/main/java/mezz/jei/api/ingredients/IIngredientType.java`
+- `CommonApi/src/main/java/mezz/jei/api/ingredients/IIngredientTypeWithSubtypes.java`
+- `CommonApi/src/main/java/mezz/jei/api/ingredients/ITypedIngredient.java`
+- `CommonApi/src/main/java/mezz/jei/api/ingredients/package-info.java`
+- `CommonApi/src/main/java/mezz/jei/api/ingredients/rendering/BatchRenderElement.java`
+- `CommonApi/src/main/java/mezz/jei/api/ingredients/rendering/package-info.java`
+- `CommonApi/src/main/java/mezz/jei/api/ingredients/subtypes/ISubtypeInterpreter.java`
+- `CommonApi/src/main/java/mezz/jei/api/ingredients/subtypes/ISubtypeManager.java`
+- `CommonApi/src/main/java/mezz/jei/api/ingredients/subtypes/UidContext.java`
+- `CommonApi/src/main/java/mezz/jei/api/ingredients/subtypes/package-info.java`
+- `CommonApi/src/main/java/mezz/jei/api/package-info.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/ICraftingStationLookup.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/IFocus.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/IFocusFactory.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/IFocusGroup.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/IRecipeCatalystLookup.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/IRecipeCategoriesLookup.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/IRecipeLookup.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/IRecipeManager.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/RecipeIngredientRole.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/RecipeType.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/advanced/IRecipeButtonControllerFactory.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/advanced/IRecipeManagerPlugin.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/advanced/IRecipeManagerPluginHelper.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/advanced/ISimpleRecipeManagerPlugin.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/advanced/package-info.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/category/AbstractRecipeCategory.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/category/IRecipeCategory.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/category/extensions/IRecipeCategoryDecorator.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/category/extensions/IRecipeCategoryExtension.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/category/extensions/package-info.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/category/extensions/vanilla/crafting/ICraftingCategoryExtension.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/category/extensions/vanilla/crafting/IExtendableCraftingRecipeCategory.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/category/extensions/vanilla/crafting/package-info.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/category/extensions/vanilla/package-info.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/category/extensions/vanilla/smithing/IExtendableSmithingRecipeCategory.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/category/extensions/vanilla/smithing/ISmithingCategoryExtension.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/category/extensions/vanilla/smithing/package-info.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/category/package-info.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/package-info.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/transfer/IRecipeTransferError.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/transfer/IRecipeTransferHandler.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/transfer/IRecipeTransferHandlerHelper.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/transfer/IRecipeTransferInfo.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/transfer/IRecipeTransferManager.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/transfer/IUniversalRecipeTransferHandler.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/transfer/package-info.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/types/IRecipeHolderType.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/types/IRecipeType.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/types/package-info.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/vanilla/IJeiAnvilRecipe.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/vanilla/IJeiBrewingRecipe.java`
+- `CommonApi/src/main/java/mezz/jei/api/recipe/vanilla/IJeiCompostingRecipe.java`
+- … and 47 more under `CommonApi/src/main/java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

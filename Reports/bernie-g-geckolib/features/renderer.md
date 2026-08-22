@@ -1,0 +1,242 @@
+# bernie-g-geckolib — renderer
+
+- Alias: `geckolib`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_18-01-07/bernie-g-geckolib`
+- Package/path root: `common/src/main/java/com/geckolib/renderer`
+- Java files scanned: **31**
+- Date: 2026-07-30
+
+## Summary
+Module `renderer` in `bernie-g-geckolib` is rooted at `common/src/main/java/com/geckolib/renderer` (31 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `GeoArmorRenderer`
+- `GeoBlockRenderer`
+- `GeoEntityRenderer`
+- `GeoItemRenderer`
+- `GeoObjectRenderer`
+- `GeoReplacedEntityRenderer`
+- `BoneSnapshots`
+- `GeoRenderState`
+- `GeoRenderer`
+- `GeoRendererInternals`
+- `PerBoneRender`
+- `RenderPassInfo`
+- `package-info`
+- `GeckolibItemSpecialRenderer`
+- `package-info`
+- `GeoRenderLayer`
+- `GeoRenderLayersContainer`
+- `AutoGlowingGeoLayer`
+- `BlockAndItemGeoLayer`
+- `CustomBoneTextureGeoLayer`
+- `ItemArmorGeoLayer`
+- `ItemInHandGeoLayer`
+- `TextureLayerGeoLayer`
+- `package-info`
+- `package-info`
+- `package-info`
+- `DirectionalProjectileRenderer`
+- `DyeableGeoArmorRenderer`
+- `package-info`
+- `GeckoLibAnimatedTexture`
+- `package-info`
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py geckolib "renderer"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `base`
+  - `internal`
+  - `layer`
+  - `layer/builtin`
+  - `specialty`
+  - `texture`
+- Declaration skim (first files):
+  - `common/src/main/java/com/geckolib/renderer/GeoArmorRenderer.java`
+    - L1: package com.geckolib.renderer;
+    - L53: /// @param <T> Item animatable class type
+    - L54: /// @param <R> RenderState class type. GeckoLib armor rendering requires [HumanoidRenderState] as the minimum class type
+    - L56: public class GeoArmorRenderer<T extends Item & GeoItem, R extends HumanoidRenderState> implements GeoRenderer<T, GeoArmorRenderer.RenderData, R> {
+    - L57: public static final DataTicket<Boolean> IS_GECKOLIB_WEARER = DataTicket.create("geoarmorrenderer_is_geckolib_wearer", new TypeToken<>() {});
+    - L58: public static final DataTicket<HumanoidModel<? extends HumanoidRenderState>> BASE_MODEL = DataTicket.create("geoarmorrenderer_base_model", new TypeToken<>() {});
+    - L59: public static final DataTicket<EquipmentSlot> CURRENT_SLOT = DataTicket.create("geoarmorrenderer_current_slot", new TypeToken<>() {});
+    - L60: protected static final EquipmentSlot[] ARMOR_SLOTS = new EquipmentSlot[] {EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET};
+    - L61: protected final GeoRenderLayersContainer<T, GeoArmorRenderer.RenderData, R> renderLayers = new GeoRenderLayersContainer<>(this);
+    - L62: protected final GeoModel<T> model;
+    - L64: protected float scaleWidth = 1;
+    - L65: protected float scaleHeight = 1;
+  - `common/src/main/java/com/geckolib/renderer/GeoBlockRenderer.java`
+    - L1: package com.geckolib.renderer;
+    - L39: /// Base [GeoRenderer] class for rendering [Blocks][BlockEntity] specifically
+    - L43: /// @param <T> BlockEntity animatable class type
+    - L44: /// @param <R> RenderState class type
+    - L45: public class GeoBlockRenderer<T extends BlockEntity & GeoAnimatable, R extends BlockEntityRenderState> implements GeoRenderer<T, Void, R>, BlockEntityRenderer<T, R> {
+    - L46: public static final DataTicket<Direction> DIRECTION_FACING = DataTicket.create("geoblockrenderer_direction_facing", new TypeToken<>() {});
+    - L47: protected final GeoRenderLayersContainer<T, Void, R> renderLayers = new GeoRenderLayersContainer<>(this);
+    - L48: protected final GeoModel<T> model;
+    - L49: protected final BlockModelResolver blockModelResolver;
+    - L51: protected float scaleWidth = 1;
+    - L52: protected float scaleHeight = 1;
+    - L55: public GeoBlockRenderer(BlockEntityRendererProvider.Context context, BlockEntityType<? extends T> blockEntityType) {
+  - `common/src/main/java/com/geckolib/renderer/GeoEntityRenderer.java`
+    - L1: package com.geckolib.renderer;
+    - L52: /// Base [GeoRenderer] class for rendering [Entities][Entity] specifically
+    - L58: /// @param <T> Entity animatable class type
+    - L59: /// @param <R> RenderState class type
+    - L60: public class GeoEntityRenderer<T extends Entity & GeoAnimatable, R extends EntityRenderState> extends EntityRenderer<T, R> implements GeoRenderer<T, Void, R> {
+    - L61: protected final GeoRenderLayersContainer<T, Void, R> renderLayers = new GeoRenderLayersContainer<>(this);
+    - L62: protected final GeoModel<T> model;
+    - L63: protected final ItemModelResolver itemModelResolver;
+    - L65: protected float scaleWidth = 1;
+    - L66: protected float scaleHeight = 1;
+    - L69: public GeoEntityRenderer(EntityRendererProvider.Context context, EntityType<? extends T> entityType) {
+    - L73: public GeoEntityRenderer(EntityRendererProvider.Context context, GeoModel<T> model) {
+  - `common/src/main/java/com/geckolib/renderer/GeoItemRenderer.java`
+    - L1: package com.geckolib.renderer;
+    - L36: /// Base [GeoRenderer] class for rendering [Items][Item] specifically
+    - L40: /// @param <T> Item animatable class type
+    - L41: public class GeoItemRenderer<T extends Item & GeoAnimatable> implements GeoRenderer<T, GeoItemRenderer.RenderData, GeoRenderState> {
+    - L42: public static final DataTicket<Item> CURRENT_ITEM = DataTicket.create("geoitemrenderer_current_item", new TypeToken<>() {});
+    - L43: protected final GeoRenderLayersContainer<T, RenderData, GeoRenderState> renderLayers = new GeoRenderLayersContainer<>(this);
+    - L44: protected final GeoModel<T> model;
+    - L46: protected float scaleWidth = 1;
+    - L47: protected float scaleHeight = 1;
+    - L48: protected boolean useEntityGuiLighting = false;
+    - L51: public <I extends T> GeoItemRenderer(I item) {
+    - L55: public GeoItemRenderer(GeoModel<T> model) {
+  - `common/src/main/java/com/geckolib/renderer/GeoObjectRenderer.java`
+    - L1: package com.geckolib.renderer;
+    - L20: /// Base [GeoRenderer] class for rendering anything that isn't already handled by the other builtin GeoRenderer subclasses
+    - L22: /// Before using this class you should ensure your use-case isn't already covered by one of the other existing renderers
+    - L26: /// @param <T> Animatable class type
+    - L27: /// @param <O> Associated object class type, or [Void] if none
+    - L28: /// @param <R> RenderState class type
+    - L29: @SuppressWarnings("UnusedReturnValue")
+    - L30: public class GeoObjectRenderer<T extends GeoAnimatable, O, R extends GeoRenderState> implements GeoRenderer<T, O, R> {
+    - L31: protected final GeoRenderLayersContainer<T, O, R> renderLayers = new GeoRenderLayersContainer<>(this);
+    - L32: protected final GeoModel<T> model;
+    - L34: protected float scaleWidth = 1;
+    - L35: protected float scaleHeight = 1;
+  - `common/src/main/java/com/geckolib/renderer/GeoReplacedEntityRenderer.java`
+    - L1: package com.geckolib.renderer;
+    - L54: /// @param <T> Entity animatable class type. This is the animatable being rendered
+    - L55: /// @param <E> Entity class type. This is the entity being replaced
+    - L56: /// @param <R> RenderState class type. Typically, this would match the RenderState class the replaced entity uses in their renderer
+    - L57: public class GeoReplacedEntityRenderer<T extends GeoAnimatable, E extends Entity, R extends EntityRenderState> extends EntityRenderer<E, R> implements GeoRenderer<T, E, R> {
+    - L58: protected final GeoRenderLayersContainer<T, E, R> renderLayers = new GeoRenderLayersContainer<>(this);
+    - L59: protected final GeoModel<T> model;
+    - L60: protected final ItemModelResolver itemModelResolver;
+    - L61: protected final T animatable;
+    - L63: protected float scaleWidth = 1;
+    - L64: protected float scaleHeight = 1;
+    - L66: public GeoReplacedEntityRenderer(EntityRendererProvider.Context context, GeoModel<T> model, T animatable) {
+  - `common/src/main/java/com/geckolib/renderer/base/BoneSnapshots.java`
+    - L1: package com.geckolib.renderer.base;
+    - L12: @FunctionalInterface
+    - L13: public interface BoneSnapshots {
+    - L26: @SuppressWarnings("OptionalGetWithoutIsPresent")
+  - `common/src/main/java/com/geckolib/renderer/base/GeoRenderState.java`
+    - L1: package com.geckolib.renderer.base;
+    - L23: /// This class should be safely castable to the RenderState for your renderer (E.G. [EntityRenderState] for [GeoEntityRenderer])
+    - L24: public interface GeoRenderState {
+    - L42: @SuppressWarnings({"unchecked", "rawtypes", "DataFlowIssue"})
+    - L69: @SuppressWarnings({"rawtypes", "unchecked"})
+    - L70: @Contract("_,null->null;_,!null->!null")
+    - L89: @SuppressWarnings({"rawtypes", "unchecked"})
+  - `common/src/main/java/com/geckolib/renderer/base/GeoRenderer.java`
+    - L1: package com.geckolib.renderer.base;
+    - L33: public non-sealed interface GeoRenderer<T extends GeoAnimatable, O, R extends GeoRenderState> extends GeoRendererInternals<T, O, R> {
+    - L37: @Override
+    - L47: @Override
+    - L87: @ApiStatus.OverrideOnly
+    - L94: @Override
+  - `common/src/main/java/com/geckolib/renderer/base/GeoRendererInternals.java`
+    - L1: package com.geckolib.renderer.base;
+    - L34: public sealed interface GeoRendererInternals<T extends GeoAnimatable, O, R extends GeoRenderState> permits GeoRenderer {
+    - L60: @ApiStatus.OverrideOnly
+    - L71: @ApiStatus.Internal
+    - L100: @ApiStatus.OverrideOnly
+    - L113: @ApiStatus.NonExtendable
+  - `common/src/main/java/com/geckolib/renderer/base/PerBoneRender.java`
+    - L1: package com.geckolib.renderer.base;
+    - L12: /// @param <R> RenderState class type
+    - L13: @FunctionalInterface
+    - L14: public interface PerBoneRender<R extends GeoRenderState> {
+  - `common/src/main/java/com/geckolib/renderer/base/RenderPassInfo.java`
+    - L1: package com.geckolib.renderer.base;
+    - L28: /// Container class holding all the common information relevant for a single render pass in GeckoLib.
+    - L39: /// @param <R> RenderState class type
+    - L40: public class RenderPassInfo<R extends GeoRenderState> {
+    - L41: protected final GeoRenderer<?, ?, R> renderer;
+    - L42: protected final R renderState;
+    - L43: protected final PoseStack poseStack;
+    - L44: protected final BakedGeoModel model;
+    - L45: protected final CameraRenderState cameraState;
+    - L46: protected final boolean willRender;
+    - L47: protected final PoseStack.Pose objectRenderPose;
+    - L48: protected final PoseStack.Pose modelRenderPose;
+
+## Data & assets
+- No strongly name-matched resources under common resource roots; check parent mod resources / datagen providers.
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_18-01-07/bernie-g-geckolib` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- enum `ArmorSegment` in `GeoArmorRenderer.java`
+- record `RenderData` in `GeoArmorRenderer.java`
+- record `RenderData` in `GeoItemRenderer.java`
+- interface `BoneSnapshots` in `BoneSnapshots.java`
+- interface `GeoRenderState` in `GeoRenderState.java`
+- interface `PerBoneRender` in `PerBoneRender.java`
+- interface `BoneUpdater` in `RenderPassInfo.java`
+- interface `BonePositionListener` in `RenderPassInfo.java`
+- record `RenderData` in `GeckolibItemSpecialRenderer.java`
+- record `Entry` in `AutoGlowingGeoLayer.java`
+- record `RenderData` in `BlockAndItemGeoLayer.java`
+- record `RenderData` in `ItemArmorGeoLayer.java`
+
+## Port relevance to Re-Forestry
+- Mentions of `renderer` appear in `files/implemented-features.md` — check that file for port status.
+- Optional animation library patterns; evaluate before adding soft dep.
+
+## Source map
+- `common/src/main/java/com/geckolib/renderer/GeoArmorRenderer.java`
+- `common/src/main/java/com/geckolib/renderer/GeoBlockRenderer.java`
+- `common/src/main/java/com/geckolib/renderer/GeoEntityRenderer.java`
+- `common/src/main/java/com/geckolib/renderer/GeoItemRenderer.java`
+- `common/src/main/java/com/geckolib/renderer/GeoObjectRenderer.java`
+- `common/src/main/java/com/geckolib/renderer/GeoReplacedEntityRenderer.java`
+- `common/src/main/java/com/geckolib/renderer/base/BoneSnapshots.java`
+- `common/src/main/java/com/geckolib/renderer/base/GeoRenderState.java`
+- `common/src/main/java/com/geckolib/renderer/base/GeoRenderer.java`
+- `common/src/main/java/com/geckolib/renderer/base/GeoRendererInternals.java`
+- `common/src/main/java/com/geckolib/renderer/base/PerBoneRender.java`
+- `common/src/main/java/com/geckolib/renderer/base/RenderPassInfo.java`
+- `common/src/main/java/com/geckolib/renderer/base/package-info.java`
+- `common/src/main/java/com/geckolib/renderer/internal/GeckolibItemSpecialRenderer.java`
+- `common/src/main/java/com/geckolib/renderer/internal/package-info.java`
+- `common/src/main/java/com/geckolib/renderer/layer/GeoRenderLayer.java`
+- `common/src/main/java/com/geckolib/renderer/layer/GeoRenderLayersContainer.java`
+- `common/src/main/java/com/geckolib/renderer/layer/builtin/AutoGlowingGeoLayer.java`
+- `common/src/main/java/com/geckolib/renderer/layer/builtin/BlockAndItemGeoLayer.java`
+- `common/src/main/java/com/geckolib/renderer/layer/builtin/CustomBoneTextureGeoLayer.java`
+- `common/src/main/java/com/geckolib/renderer/layer/builtin/ItemArmorGeoLayer.java`
+- `common/src/main/java/com/geckolib/renderer/layer/builtin/ItemInHandGeoLayer.java`
+- `common/src/main/java/com/geckolib/renderer/layer/builtin/TextureLayerGeoLayer.java`
+- `common/src/main/java/com/geckolib/renderer/layer/builtin/package-info.java`
+- `common/src/main/java/com/geckolib/renderer/layer/package-info.java`
+- `common/src/main/java/com/geckolib/renderer/package-info.java`
+- `common/src/main/java/com/geckolib/renderer/specialty/DirectionalProjectileRenderer.java`
+- `common/src/main/java/com/geckolib/renderer/specialty/DyeableGeoArmorRenderer.java`
+- `common/src/main/java/com/geckolib/renderer/specialty/package-info.java`
+- `common/src/main/java/com/geckolib/renderer/texture/GeckoLibAnimatedTexture.java`
+- `common/src/main/java/com/geckolib/renderer/texture/package-info.java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

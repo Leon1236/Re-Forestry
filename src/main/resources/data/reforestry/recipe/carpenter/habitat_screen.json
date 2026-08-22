@@ -1,0 +1,27 @@
+{
+  "type": "reforestry:carpenter",
+  "time": 100,
+  "recipe": {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "key": {
+      "G": "reforestry:gear_bronze",
+      "P": "#c:glass_panes/colorless",
+      "I": "#c:ingots/bronze",
+      "D": "minecraft:diamond"
+    },
+    "pattern": [
+      "IPI",
+      "IPI",
+      "GDG"
+    ],
+    "result": {
+      "id": "reforestry:habitat_screen"
+    },
+    "show_notification": true
+  },
+  "liquid": {
+    "fluid": "minecraft:water",
+    "amount": 2000
+  }
+}

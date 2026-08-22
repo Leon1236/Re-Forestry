@@ -1,0 +1,257 @@
+# Tiviacz1337-Travelers-Backpack — client
+
+- Alias: `backpack`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-30/Tiviacz1337-Travelers-Backpack`
+- Package/path root: `src/main/java/com/tiviacz/travelersbackpack/client`
+- Java files scanned: **40**
+- Date: 2026-07-30
+
+## Summary
+Module `client` in `Tiviacz1337-Travelers-Backpack` is rooted at `src/main/java/com/tiviacz/travelersbackpack/client` (40 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `BackpackDynamicModel`
+- `BackpackItemModel`
+- `BackpackModel`
+- `BackpackModelPart`
+- `StackModelPart`
+- `StarModelReloadListener`
+- `SupporterBadgeModel`
+- `BackpackEntityLayer`
+- `BackpackLayer`
+- `HoseSpecialRenderer`
+- `AbstractBackpackScreen`
+- `BackpackScreen`
+- `BackpackSettingsScreen`
+- `HudOverlay`
+- `RadialToolsOverlay`
+- `ToolsScreen`
+- `UpgradeSlot`
+- `AbilitySliderButton`
+- `Button`
+- `EquipButton`
+- `IButton`
+- `MoreButton`
+- `SleepingBagButton`
+- `UnequipButton`
+- `BackpackTooltipComponent`
+- `ClientBackpackTooltipComponent`
+- `FilterUpgradeWidgetBase`
+- `InventoryScroll`
+- `ScrollPanel`
+- `SettingsWidget`
+- `SortingButtons`
+- `ToolSlotsWidget`
+- `UpgradeWidgetBase`
+- `WidgetBase`
+- `WidgetElement`
+- `MemoryWidget`
+- `SettingsWidgetBase`
+- `SupporterBadgeWidget`
+- `UnsortablesWidget`
+- `VisibilityWidget`
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py backpack "client"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `model`
+  - `renderer`
+  - `screens`
+  - `screens/buttons`
+  - `screens/tooltip`
+  - `screens/widgets`
+  - `screens/widgets/settings`
+- Declaration skim (first files):
+  - `src/main/java/com/tiviacz/travelersbackpack/client/model/BackpackDynamicModel.java`
+    - L1: package com.tiviacz.travelersbackpack.client.model;
+    - L55: public class BackpackDynamicModel implements UnbakedModel, ResolvableModel {
+    - L62: public DynamicBlockStateModel bakeBlockStateModel(ModelBaker baker, ResolvedModel resolvedModel, ModelState modelState) {
+    - L84: @Override
+    - L85: public void resolveDependencies(ResolvableModel.Resolver resolver) {
+    - L94: public static final class DynamicBlockStateModel implements BlockStateModel {
+    - L99: public boolean isDyed;
+    - L100: public boolean isSleepingBagDeployed;
+    - L101: public int sleepingBagColor;
+    - L103: public RenderInfo renderInfo;
+    - L104: public Block block;
+    - L106: public DynamicBlockStateModel(Map<ModelParts, QuadCollection> models, ModelState modelTransform, Material.Baked particleMaterial) {
+  - `src/main/java/com/tiviacz/travelersbackpack/client/model/BackpackItemModel.java`
+    - L1: package com.tiviacz.travelersbackpack.client.model;
+    - L39: public class BackpackItemModel implements ItemModel {
+    - L96: public BackpackItemModel(BackpackDynamicModel.DynamicBlockStateModel baseModel, List<ItemTintSource> tintSources) {
+    - L102: @Override
+    - L103: public void update(ItemStackRenderState stackRenderState, ItemStack stack, ItemModelResolver itemModelResolver, ItemDisplayContext displayContext, @Nullable ClientLevel clientLevel, @Nullable ItemOwner itemOwner, int see
+  - `src/main/java/com/tiviacz/travelersbackpack/client/model/BackpackModel.java`
+    - L1: package com.tiviacz.travelersbackpack.client.model;
+    - L13: public class BackpackModel extends BackpackModelPart {
+    - L14: public final SupporterBadgeModel supporterBadgeModel;
+    - L17: public BackpackModel() {
+    - L22: public void render(PoseStack poseStack, int packedLightIn, SubmitNodeCollector collector, ItemStackRenderState backpackRenderState, StackModelPart tools, ItemStack stack) {
+  - `src/main/java/com/tiviacz/travelersbackpack/client/model/BackpackModelPart.java`
+    - L1: package com.tiviacz.travelersbackpack.client.model;
+    - L7: public class BackpackModelPart {
+    - L8: public float x = 0;
+    - L9: public float y = 0;
+    - L10: public float z = 0;
+    - L11: public float xRot = 0;
+    - L12: public float yRot = 0;
+    - L13: public float zRot = 0;
+    - L14: public float xScale = 1.0f;
+    - L15: public float yScale = 1.0f;
+    - L16: public float zScale = 1.0f;
+    - L18: public BackpackModelPart() {
+  - `src/main/java/com/tiviacz/travelersbackpack/client/model/StackModelPart.java`
+    - L1: package com.tiviacz.travelersbackpack.client.model;
+    - L18: public class StackModelPart extends BackpackModelPart {
+    - L23: public StackModelPart() {
+    - L29: public List<ItemStack> prepare(ItemStack stack) {
+    - L37: public void render(ItemStack backpack, SubmitNodeCollector collector, PoseStack poseStack, int light, int overlay) {
+    - L44: public void render(List<ItemStack> tools, PoseStack poseStack, SubmitNodeCollector collector, int pPackedLight, int pPackedOverlay) {
+    - L91: public ItemDisplayContext getDisplayContext(ItemStack stack) {
+  - `src/main/java/com/tiviacz/travelersbackpack/client/model/StarModelReloadListener.java`
+    - L1: package com.tiviacz.travelersbackpack.client.model;
+    - L15: public class StarModelReloadListener implements SimpleSynchronousResourceReloadListener {
+    - L16: public static final StarModelReloadListener INSTANCE = new StarModelReloadListener();
+    - L17: public static final Identifier ID = Identifier.fromNamespaceAndPath(TravelersBackpack.MODID, "star_model");
+    - L21: public BlockStateModel getStarModel() {
+    - L25: @Override
+    - L26: public void onResourceManagerReload(ResourceManager manager) {
+    - L30: @Override
+    - L31: public Identifier getFabricId() {
+    - L35: @Override
+    - L36: public Collection<Identifier> getFabricDependencies() {
+  - `src/main/java/com/tiviacz/travelersbackpack/client/model/SupporterBadgeModel.java`
+    - L1: package com.tiviacz.travelersbackpack.client.model;
+    - L19: public class SupporterBadgeModel {
+    - L20: public float x = 0;
+    - L21: public float y = 0;
+    - L22: public float z = 0;
+    - L23: public float xRot = 0;
+    - L24: public float yRot = 0;
+    - L25: public float zRot = 0;
+    - L26: public float xScale = 1.0f;
+    - L27: public float yScale = 1.0f;
+    - L28: public float zScale = 1.0f;
+    - L30: public SupporterBadgeModel() {
+  - `src/main/java/com/tiviacz/travelersbackpack/client/renderer/BackpackEntityLayer.java`
+    - L1: package com.tiviacz.travelersbackpack.client.renderer;
+    - L16: @Environment(EnvType.CLIENT)
+    - L17: public class BackpackEntityLayer extends RenderLayer<HumanoidRenderState, HumanoidModel<HumanoidRenderState>> {
+    - L22: public BackpackEntityLayer(RenderLayerParent<HumanoidRenderState, HumanoidModel<HumanoidRenderState>> renderer) {
+    - L28: @Override
+    - L29: public void submit(PoseStack pPoseStack, SubmitNodeCollector sumbitNodeCollector, int pPackedLight, HumanoidRenderState pLivingEntity, float p_117353_, float p_117354_) {
+  - `src/main/java/com/tiviacz/travelersbackpack/client/renderer/BackpackLayer.java`
+    - L1: package com.tiviacz.travelersbackpack.client.renderer;
+    - L23: @Environment(EnvType.CLIENT)
+    - L24: public class BackpackLayer extends RenderLayer<AvatarRenderState, PlayerModel> {
+    - L31: public BackpackLayer(RenderLayerParent<AvatarRenderState, PlayerModel> renderer) {
+    - L37: @Override
+    - L38: public void submit(PoseStack poseStack, SubmitNodeCollector sumbitNodeCollector, int packedLightIn, AvatarRenderState state, float limbSwing, float limbSwingAmount) {
+    - L48: public static void renderBackpackLayer(HumanoidModel humanoidModel, PoseStack poseStack, SubmitNodeCollector collector, int packedLightIn, HumanoidRenderState state, ItemStackRenderState backpackRenderState, StackModelPa
+    - L65: public static void alignModel(PoseStack poseStack, HumanoidModel parent, BackpackModel backpackModel, HumanoidRenderState state) {
+  - `src/main/java/com/tiviacz/travelersbackpack/client/renderer/HoseSpecialRenderer.java`
+    - L1: package com.tiviacz.travelersbackpack.client.renderer;
+    - L18: @Environment(EnvType.CLIENT)
+    - L19: public record HoseSpecialRenderer() implements SelectItemModelProperty<Integer> {
+    - L21: public static void register() {
+    - L25: public static final SelectItemModelProperty.Type<HoseSpecialRenderer, Integer> TYPE = SelectItemModelProperty.Type.create(
+    - L32: @Override
+    - L33: public @Nullable Integer get(ItemStack stack, @Nullable ClientLevel level, @Nullable LivingEntity entity, int seed, ItemDisplayContext displayContext) {
+    - L37: @Override
+    - L38: public Codec<Integer> valueCodec() {
+    - L42: @Override
+    - L43: public Type<? extends SelectItemModelProperty<Integer>, Integer> type() {
+  - `src/main/java/com/tiviacz/travelersbackpack/client/screens/AbstractBackpackScreen.java`
+    - L1: package com.tiviacz.travelersbackpack.client.screens;
+    - L24: public abstract class AbstractBackpackScreen<T extends AbstractBackpackMenu> extends AbstractContainerScreen<T> {
+    - L25: public static final Identifier BACKGROUND_11 = Identifier.fromNamespaceAndPath(TravelersBackpack.MODID, "textures/gui/background_11.png");
+    - L26: public static final Identifier BACKGROUND_9 = Identifier.fromNamespaceAndPath(TravelersBackpack.MODID, "textures/gui/background_9.png");
+    - L27: public static final Identifier SLOTS = Identifier.fromNamespaceAndPath(TravelersBackpack.MODID, "textures/gui/slots.png");
+    - L28: public static final Identifier TANKS = Identifier.fromNamespaceAndPath(TravelersBackpack.MODID, "textures/gui/tanks.png");
+    - L29: public static final Identifier ICONS = Identifier.fromNamespaceAndPath(TravelersBackpack.MODID, "textures/gui/icons.png");
+    - L30: public static final Identifier TABS = Identifier.fromNamespaceAndPath(TravelersBackpack.MODID, "textures/gui/tabs.png");
+    - L31: public static final int TOP_BAR_OFFSET = 17;
+    - L32: public int slotCount;
+    - L33: public boolean wider = false;
+    - L34: protected final BackpackWrapper wrapper;
+  - `src/main/java/com/tiviacz/travelersbackpack/client/screens/BackpackScreen.java`
+    - L1: package com.tiviacz.travelersbackpack.client.screens;
+    - L42: @Environment(EnvType.CLIENT)
+    - L43: public class BackpackScreen extends AbstractBackpackScreen<BackpackBaseMenu> implements MenuAccess<BackpackBaseMenu> {
+    - L44: public boolean tanksVisible;
+    - L45: public Map<Class<?>, WidgetBase<?>> mappedWidgets = new HashMap<>();
+    - L46: public List<UpgradeSlot> upgradeSlots = new ArrayList<>();
+    - L47: public List<IButton> buttons = new ArrayList<>();
+    - L48: public SortingButtons sortingButtons;
+    - L49: public ToolSlotsWidget toolSlotsWidget;
+    - L50: public SettingsWidget settingsWidget;
+    - L51: public int warningTicks = 0;
+    - L53: public BackpackScreen(BackpackBaseMenu backpackMenu, Inventory inventory, Component component) {
+
+## Data & assets
+- No strongly name-matched resources under common resource roots; check parent mod resources / datagen providers.
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-30/Tiviacz1337-Travelers-Backpack` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- record `UnbakedBlockStateModel` in `BackpackDynamicModel.java`
+- record `Unbaked` in `BackpackItemModel.java`
+- record `HoseSpecialRenderer` in `HoseSpecialRenderer.java`
+- interface `IButton` in `IButton.java`
+- enum `Buttons` in `SortingButtons.java`
+- record `WidgetElement` in `WidgetElement.java`
+
+## Port relevance to Re-Forestry
+- Mentions of `client` appear in `files/implemented-features.md` — check that file for port status.
+- Adopt inventory/GUI/attachment patterns into Re-Forestry packages — no donor dep.
+
+## Source map
+- `src/main/java/com/tiviacz/travelersbackpack/client/model/BackpackDynamicModel.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/model/BackpackItemModel.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/model/BackpackModel.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/model/BackpackModelPart.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/model/StackModelPart.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/model/StarModelReloadListener.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/model/SupporterBadgeModel.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/renderer/BackpackEntityLayer.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/renderer/BackpackLayer.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/renderer/HoseSpecialRenderer.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/AbstractBackpackScreen.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/BackpackScreen.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/BackpackSettingsScreen.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/HudOverlay.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/RadialToolsOverlay.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/ToolsScreen.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/UpgradeSlot.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/buttons/AbilitySliderButton.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/buttons/Button.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/buttons/EquipButton.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/buttons/IButton.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/buttons/MoreButton.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/buttons/SleepingBagButton.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/buttons/UnequipButton.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/tooltip/BackpackTooltipComponent.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/tooltip/ClientBackpackTooltipComponent.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/widgets/FilterUpgradeWidgetBase.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/widgets/InventoryScroll.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/widgets/ScrollPanel.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/widgets/SettingsWidget.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/widgets/SortingButtons.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/widgets/ToolSlotsWidget.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/widgets/UpgradeWidgetBase.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/widgets/WidgetBase.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/widgets/WidgetElement.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/widgets/settings/MemoryWidget.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/widgets/settings/SettingsWidgetBase.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/widgets/settings/SupporterBadgeWidget.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/widgets/settings/UnsortablesWidget.java`
+- `src/main/java/com/tiviacz/travelersbackpack/client/screens/widgets/settings/VisibilityWidget.java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

@@ -1,0 +1,12 @@
+{
+  "repo": "Tutorials-By-Kaupenjoe-Fabric-Tutorial-26.X",
+  "clone": "/home/ivan/Re-Forestry-src/MarkDown_Maker/Finished_github_clone/2026-08-22/Tutorials-By-Kaupenjoe-Fabric-Tutorial-26.X",
+  "scan_roots": [
+    "src"
+  ],
+  "graph": "/home/ivan/Re-Forestry-src/MarkDown_Maker/graphify/Tutorials-By-Kaupenjoe-Fabric-Tutorial-26.X/graphify-out/graph.json",
+  "nodes": 654,
+  "edges": 1745,
+  "seconds": 4.4,
+  "built_at": "2026-08-22T07:07:02Z"
+}

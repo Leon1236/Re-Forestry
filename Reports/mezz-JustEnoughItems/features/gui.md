@@ -1,0 +1,431 @@
+# mezz-JustEnoughItems — gui
+
+- Alias: `JEI`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_16-21-34/mezz-JustEnoughItems`
+- Package/path root: `Gui/src/main/java`
+- Java files scanned: **196**
+- Date: 2026-07-30
+
+## Summary
+Module `gui` in `mezz-JustEnoughItems` is rooted at `Gui/src/main/java` (196 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `GuiProperties`
+- `PageNavigation`
+- `BookmarkCodec`
+- `BookmarkFactory`
+- `BookmarkList`
+- `BookmarkType`
+- `IBookmark`
+- `IngredientBookmark`
+- `RecipeBookmark`
+- `package-info`
+- `ChatIngredientTooltip`
+- `package-info`
+- `BookmarkJsonConfig`
+- `IBookmarkConfig`
+- `ILookupHistoryConfig`
+- `IngredientTypeSortingConfig`
+- `InternalKeyMappings`
+- `LookupHistoryJsonConfig`
+- `ModNameSortingConfig`
+- `package-info`
+- `ButtonSprites`
+- `IconButton`
+- `InternalIconButton`
+- `package-info`
+- `GuiEventHandler`
+- `package-info`
+- `FilterTextSource`
+- `IFilterTextSource`
+- `package-info`
+- `GhostIngredientDrag`
+- `GhostIngredientDragManager`
+- `GhostIngredientQuickMoveManager`
+- `GhostIngredientReturning`
+- `package-info`
+- `DisplayNameUtil`
+- `GuiIngredientProperties`
+- `IListElement`
+- `IListElementInfo`
+- `IngredientFilter`
+- `IngredientFilterApi`
+- `IngredientListElementFactory`
+- `IngredientSorter`
+- `IngredientSorterComparators`
+- `ListElement`
+- `ListElementInfo`
+- `package-info`
+- `ClickableIngredientInternal`
+- `ClientInputHandler`
+- `CombinedRecipeFocusSource`
+- `DelegatingClickableIngredientInternal`
+- `DraggableIngredientInternal`
+- `GuiContainerWrapper`
+- `GuiTextFieldFilter`
+- `ICharTypedHandler`
+- `IClickableIngredientInternal`
+- `IDragHandler`
+- `IDraggableIngredientInternal`
+- `IMouseOverable`
+- `IPaged`
+- `IRecipeFocusSource`
+- `IUserInputHandler`
+- `InputType`
+- `KeyUserInput`
+- `MouseUserInput`
+- `MouseUtil`
+- `UserInput`
+- `EditBoxFocusHandler`
+- `GuiEventListenerFocusHandler`
+- `IFocusHandler`
+- `ScreenFocusHandler`
+- `package-info`
+- `BookmarkInputHandler`
+- `ChatLinkInputHandler`
+- `CombinedDragHandler`
+- `CombinedInputHandler`
+- `DeleteItemInputHandler`
+- `DragRouter`
+- `EditInputHandler`
+- `FocusInputHandler`
+- `GlobalInputHandler`
+- … and 116 more
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py JEI "gui"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `mezz/jei/gui`
+  - `mezz/jei/gui/bookmarks`
+  - `mezz/jei/gui/chat`
+  - `mezz/jei/gui/config`
+  - `mezz/jei/gui/elements`
+  - `mezz/jei/gui/events`
+  - `mezz/jei/gui/filter`
+  - `mezz/jei/gui/ghost`
+  - `mezz/jei/gui/ingredients`
+  - `mezz/jei/gui/input`
+  - `mezz/jei/gui/input/focus`
+  - `mezz/jei/gui/input/handlers`
+  - `mezz/jei/gui/network`
+  - `mezz/jei/gui/overlay`
+  - `mezz/jei/gui/overlay/bookmarks`
+  - `mezz/jei/gui/overlay/bookmarks/history`
+  - `mezz/jei/gui/overlay/elements`
+  - `mezz/jei/gui/overlay/history`
+  - `mezz/jei/gui/overlay/ingredients`
+  - `mezz/jei/gui/plugins`
+  - `mezz/jei/gui/recipes`
+  - `mezz/jei/gui/recipes/layouts`
+  - `mezz/jei/gui/recipes/lookups`
+  - `mezz/jei/gui/search`
+  - `mezz/jei/gui/startup`
+  - `mezz/jei/gui/util`
+- Declaration skim (first files):
+  - `Gui/src/main/java/mezz/jei/gui/GuiProperties.java`
+    - L1: package mezz.jei.gui;
+    - L8: public record GuiProperties(
+    - L18: @SuppressWarnings("BooleanMethodIsAlwaysInverted")
+    - L19: public static boolean areEqual(@Nullable IGuiProperties a, @Nullable IGuiProperties b) {
+    - L31: public GuiProperties {
+  - `Gui/src/main/java/mezz/jei/gui/PageNavigation.java`
+    - L1: package mezz.jei.gui;
+    - L17: public class PageNavigation {
+    - L25: public PageNavigation(IPaged paged, boolean hideOnSinglePage) {
+    - L28: @Override
+    - L29: public boolean onPress(IJeiUserInput b) {
+    - L33: @Override
+    - L34: public void initState(IButtonState state) {
+    - L39: @Override
+    - L40: public void updateState(IButtonState state) {
+    - L45: @Override
+    - L46: public boolean onPress(IJeiUserInput b) {
+    - L50: @Override
+  - `Gui/src/main/java/mezz/jei/gui/bookmarks/BookmarkCodec.java`
+    - L1: package mezz.jei.gui.bookmarks;
+    - L18: public final class BookmarkCodec {
+    - L22: public static MapCodec<IBookmark> create(ICodecHelper codecHelper, IIngredientManager ingredientManager, IRecipeManager recipeManager, BookmarkFactory bookmarkFactory) {
+  - `Gui/src/main/java/mezz/jei/gui/bookmarks/BookmarkFactory.java`
+    - L1: package mezz.jei.gui.bookmarks;
+    - L13: public class BookmarkFactory {
+    - L18: public BookmarkFactory(ICodecHelper codecHelper, RegistryAccess registryAccess, IIngredientManager ingredientManager) {
+    - L24: public <T> IngredientBookmark<T> create(ITypedIngredient<T> typedIngredient) {
+  - `Gui/src/main/java/mezz/jei/gui/bookmarks/BookmarkList.java`
+    - L1: package mezz.jei.gui.bookmarks;
+    - L26: public class BookmarkList implements IIngredientGridSource {
+    - L42: public BookmarkList(
+    - L66: public boolean add(IBookmark value) {
+    - L75: public void moveBookmark(IBookmark previousBookmark, IBookmark newBookmark, int offset) {
+    - L98: public boolean contains(IBookmark value) {
+    - L102: public <T> boolean onElementBookmarked(IElement<T> element, UserInput input, BookmarkOverlay bookmarkOverlay) {
+    - L114: public <T> boolean addIngredientBookmark(ITypedIngredient<T> ingredient) {
+    - L119: public void toggleBookmark(IBookmark bookmark) {
+  - `Gui/src/main/java/mezz/jei/gui/bookmarks/BookmarkType.java`
+    - L1: package mezz.jei.gui.bookmarks;
+    - L3: public enum BookmarkType {
+  - `Gui/src/main/java/mezz/jei/gui/bookmarks/IBookmark.java`
+    - L1: package mezz.jei.gui.bookmarks;
+    - L5: public interface IBookmark {
+  - `Gui/src/main/java/mezz/jei/gui/bookmarks/IngredientBookmark.java`
+    - L1: package mezz.jei.gui.bookmarks;
+    - L10: public class IngredientBookmark<T> implements IBookmark {
+    - L22: @Override
+    - L23: public BookmarkType getType() {
+    - L27: public ITypedIngredient<T> getIngredient() {
+    - L31: @Override
+    - L32: public IElement<?> getElement() {
+    - L36: @Override
+    - L37: public boolean isVisible() {
+    - L41: @Override
+    - L42: public void setVisible(boolean visible) {
+    - L46: @Override
+  - `Gui/src/main/java/mezz/jei/gui/bookmarks/RecipeBookmark.java`
+    - L1: package mezz.jei.gui.bookmarks;
+    - L18: public class RecipeBookmark<R, I> implements IBookmark {
+    - L27: @Nullable
+    - L28: public static <T> RecipeBookmark<T, ?> create(
+    - L59: @Nullable
+    - L74: public RecipeBookmark(
+    - L89: @Override
+    - L90: public BookmarkType getType() {
+    - L94: public IRecipeCategory<R> getRecipeCategory() {
+    - L98: public R getRecipe() {
+    - L102: public ITypedIngredient<I> getDisplayIngredient() {
+    - L106: public boolean isDisplayIsOutput() {
+  - `Gui/src/main/java/mezz/jei/gui/bookmarks/package-info.java`
+    - L1: @NullMarked
+    - L2: package mezz.jei.gui.bookmarks;
+  - `Gui/src/main/java/mezz/jei/gui/chat/ChatIngredientTooltip.java`
+    - L1: package mezz.jei.gui.chat;
+    - L21: public final class ChatIngredientTooltip {
+    - L25: public record IngredientTooltipData<T>(
+    - L31: public void draw(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY) {
+    - L36: public static boolean setTooltipForHoveredText(
+    - L52: public static Optional<IngredientTooltipData<?>> getTooltipForHoveredChatLink(@Nullable Screen screen, double mouseX, double mouseY) {
+    - L60: public static Optional<IngredientTooltipData<?>> getTooltipForHoveredText(Style hoveredStyle) {
+  - `Gui/src/main/java/mezz/jei/gui/chat/package-info.java`
+    - L1: @NullMarked
+    - L2: package mezz.jei.gui.chat;
+
+## Data & assets
+Related resource paths (heuristic name match):
+- `Common/src/main/resources/assets/jei/atlases/gui.json`
+- `Common/src/main/resources/assets/jei/textures/jei/gui/debug.png`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/exclusion_area_shadow.png`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/brewing_stand_bubbles.png`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/catalyst_tab.png.mcmeta`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/gui_background.png.mcmeta`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/recipe_catalyst_slot_background.png.mcmeta`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/scrollbar_marker.png`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/recipe_options_tab.png.mcmeta`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/brewing_stand_background.png`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/scrollbar_background.png`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/exclusion_area_shadow.png.mcmeta`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/tab_unselected.png`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/recipe_preview_background.png`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/ingredient_list_background.png`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/button_pressed_highlighted.png`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/single_recipe_background.png`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/brewing_stand_arrow.png`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/tab_selected.png`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/search_background.png.mcmeta`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/recipe_arrow_filled.png`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/brewing_stand_blaze_heat.png`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/bookmark_list_background.png.mcmeta`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/recipe_options_tab.png`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/output_slot.png`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/recipe_plus_sign.png`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/ingredient_list_slot_background.png.mcmeta`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/recipe_preview_background.png.mcmeta`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/ingredient_list_slot_background.png`
+- `Common/src/main/resources/assets/jei/textures/jei/atlas/gui/button_pressed_highlighted.png.mcmeta`
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_16-21-34/mezz-JustEnoughItems` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- record `GuiProperties` in `GuiProperties.java`
+- enum `BookmarkType` in `BookmarkType.java`
+- interface `IBookmark` in `IBookmark.java`
+- record `IngredientTooltipData` in `ChatIngredientTooltip.java`
+- interface `IBookmarkConfig` in `IBookmarkConfig.java`
+- interface `ILookupHistoryConfig` in `ILookupHistoryConfig.java`
+- key type `GuiEventHandler` (`GuiEventHandler.java`)
+- interface `IFilterTextSource` in `IFilterTextSource.java`
+- record `HandlerData` in `GhostIngredientDrag.java`
+- interface `IListElement` in `IListElement.java`
+- interface `IListElementInfo` in `IListElementInfo.java`
+- key type `ClientInputHandler` (`ClientInputHandler.java`)
+- interface `ICharTypedHandler` in `ICharTypedHandler.java`
+- key type `ICharTypedHandler` (`ICharTypedHandler.java`)
+- interface `IClickableIngredientInternal` in `IClickableIngredientInternal.java`
+- interface `IDragHandler` in `IDragHandler.java`
+- key type `IDragHandler` (`IDragHandler.java`)
+- interface `IDraggableIngredientInternal` in `IDraggableIngredientInternal.java`
+- interface `IMouseOverable` in `IMouseOverable.java`
+- interface `IPaged` in `IPaged.java`
+- interface `IRecipeFocusSource` in `IRecipeFocusSource.java`
+- interface `IUserInputHandler` in `IUserInputHandler.java`
+- key type `IUserInputHandler` (`IUserInputHandler.java`)
+- enum `InputType` in `InputType.java`
+- interface `MouseClickable` in `UserInput.java`
+- key type `EditBoxFocusHandler` (`EditBoxFocusHandler.java`)
+- key type `GuiEventListenerFocusHandler` (`GuiEventListenerFocusHandler.java`)
+- interface `IFocusHandler` in `IFocusHandler.java`
+- key type `IFocusHandler` (`IFocusHandler.java`)
+- key type `ScreenFocusHandler` (`ScreenFocusHandler.java`)
+- key type `BookmarkInputHandler` (`BookmarkInputHandler.java`)
+- key type `ChatLinkInputHandler` (`ChatLinkInputHandler.java`)
+- key type `CombinedDragHandler` (`CombinedDragHandler.java`)
+- key type `CombinedInputHandler` (`CombinedInputHandler.java`)
+- key type `DeleteItemInputHandler` (`DeleteItemInputHandler.java`)
+- key type `EditInputHandler` (`EditInputHandler.java`)
+- key type `FocusInputHandler` (`FocusInputHandler.java`)
+- key type `GlobalInputHandler` (`GlobalInputHandler.java`)
+- key type `GuiAreaInputHandler` (`GuiAreaInputHandler.java`)
+- key type `NullDragHandler` (`NullDragHandler.java`)
+- key type `NullInputHandler` (`NullInputHandler.java`)
+- key type `ProxyDragHandler` (`ProxyDragHandler.java`)
+- key type `ProxyInputHandler` (`ProxyInputHandler.java`)
+- key type `SameElementInputHandler` (`SameElementInputHandler.java`)
+- key type `TextFieldInputHandler` (`TextFieldInputHandler.java`)
+- interface `GuiPropertiesGetter` in `GuiPropertiesCache.java`
+- interface `IConfigButton` in `IConfigButton.java`
+- interface `IGuiPropertiesCache` in `IGuiPropertiesCache.java`
+- interface `IScreenPropertiesUpdater` in `IScreenPropertiesUpdater.java`
+- interface `ISearchField` in `ISearchField.java`
+
+## Port relevance to Re-Forestry
+- Mentions of `gui` appear in `files/implemented-features.md` — check that file for port status.
+- JEI interop patterns; Re-Forestry already ships factory/core JEI plugins.
+
+## Source map
+- `Gui/src/main/java/mezz/jei/gui/GuiProperties.java`
+- `Gui/src/main/java/mezz/jei/gui/PageNavigation.java`
+- `Gui/src/main/java/mezz/jei/gui/bookmarks/BookmarkCodec.java`
+- `Gui/src/main/java/mezz/jei/gui/bookmarks/BookmarkFactory.java`
+- `Gui/src/main/java/mezz/jei/gui/bookmarks/BookmarkList.java`
+- `Gui/src/main/java/mezz/jei/gui/bookmarks/BookmarkType.java`
+- `Gui/src/main/java/mezz/jei/gui/bookmarks/IBookmark.java`
+- `Gui/src/main/java/mezz/jei/gui/bookmarks/IngredientBookmark.java`
+- `Gui/src/main/java/mezz/jei/gui/bookmarks/RecipeBookmark.java`
+- `Gui/src/main/java/mezz/jei/gui/bookmarks/package-info.java`
+- `Gui/src/main/java/mezz/jei/gui/chat/ChatIngredientTooltip.java`
+- `Gui/src/main/java/mezz/jei/gui/chat/package-info.java`
+- `Gui/src/main/java/mezz/jei/gui/config/BookmarkJsonConfig.java`
+- `Gui/src/main/java/mezz/jei/gui/config/IBookmarkConfig.java`
+- `Gui/src/main/java/mezz/jei/gui/config/ILookupHistoryConfig.java`
+- `Gui/src/main/java/mezz/jei/gui/config/IngredientTypeSortingConfig.java`
+- `Gui/src/main/java/mezz/jei/gui/config/InternalKeyMappings.java`
+- `Gui/src/main/java/mezz/jei/gui/config/LookupHistoryJsonConfig.java`
+- `Gui/src/main/java/mezz/jei/gui/config/ModNameSortingConfig.java`
+- `Gui/src/main/java/mezz/jei/gui/config/package-info.java`
+- `Gui/src/main/java/mezz/jei/gui/elements/ButtonSprites.java`
+- `Gui/src/main/java/mezz/jei/gui/elements/IconButton.java`
+- `Gui/src/main/java/mezz/jei/gui/elements/InternalIconButton.java`
+- `Gui/src/main/java/mezz/jei/gui/elements/package-info.java`
+- `Gui/src/main/java/mezz/jei/gui/events/GuiEventHandler.java`
+- `Gui/src/main/java/mezz/jei/gui/events/package-info.java`
+- `Gui/src/main/java/mezz/jei/gui/filter/FilterTextSource.java`
+- `Gui/src/main/java/mezz/jei/gui/filter/IFilterTextSource.java`
+- `Gui/src/main/java/mezz/jei/gui/filter/package-info.java`
+- `Gui/src/main/java/mezz/jei/gui/ghost/GhostIngredientDrag.java`
+- `Gui/src/main/java/mezz/jei/gui/ghost/GhostIngredientDragManager.java`
+- `Gui/src/main/java/mezz/jei/gui/ghost/GhostIngredientQuickMoveManager.java`
+- `Gui/src/main/java/mezz/jei/gui/ghost/GhostIngredientReturning.java`
+- `Gui/src/main/java/mezz/jei/gui/ghost/package-info.java`
+- `Gui/src/main/java/mezz/jei/gui/ingredients/DisplayNameUtil.java`
+- `Gui/src/main/java/mezz/jei/gui/ingredients/GuiIngredientProperties.java`
+- `Gui/src/main/java/mezz/jei/gui/ingredients/IListElement.java`
+- `Gui/src/main/java/mezz/jei/gui/ingredients/IListElementInfo.java`
+- `Gui/src/main/java/mezz/jei/gui/ingredients/IngredientFilter.java`
+- `Gui/src/main/java/mezz/jei/gui/ingredients/IngredientFilterApi.java`
+- `Gui/src/main/java/mezz/jei/gui/ingredients/IngredientListElementFactory.java`
+- `Gui/src/main/java/mezz/jei/gui/ingredients/IngredientSorter.java`
+- `Gui/src/main/java/mezz/jei/gui/ingredients/IngredientSorterComparators.java`
+- `Gui/src/main/java/mezz/jei/gui/ingredients/ListElement.java`
+- `Gui/src/main/java/mezz/jei/gui/ingredients/ListElementInfo.java`
+- `Gui/src/main/java/mezz/jei/gui/ingredients/package-info.java`
+- `Gui/src/main/java/mezz/jei/gui/input/ClickableIngredientInternal.java`
+- `Gui/src/main/java/mezz/jei/gui/input/ClientInputHandler.java`
+- `Gui/src/main/java/mezz/jei/gui/input/CombinedRecipeFocusSource.java`
+- `Gui/src/main/java/mezz/jei/gui/input/DelegatingClickableIngredientInternal.java`
+- `Gui/src/main/java/mezz/jei/gui/input/DraggableIngredientInternal.java`
+- `Gui/src/main/java/mezz/jei/gui/input/GuiContainerWrapper.java`
+- `Gui/src/main/java/mezz/jei/gui/input/GuiTextFieldFilter.java`
+- `Gui/src/main/java/mezz/jei/gui/input/ICharTypedHandler.java`
+- `Gui/src/main/java/mezz/jei/gui/input/IClickableIngredientInternal.java`
+- `Gui/src/main/java/mezz/jei/gui/input/IDragHandler.java`
+- `Gui/src/main/java/mezz/jei/gui/input/IDraggableIngredientInternal.java`
+- `Gui/src/main/java/mezz/jei/gui/input/IMouseOverable.java`
+- `Gui/src/main/java/mezz/jei/gui/input/IPaged.java`
+- `Gui/src/main/java/mezz/jei/gui/input/IRecipeFocusSource.java`
+- `Gui/src/main/java/mezz/jei/gui/input/IUserInputHandler.java`
+- `Gui/src/main/java/mezz/jei/gui/input/InputType.java`
+- `Gui/src/main/java/mezz/jei/gui/input/KeyUserInput.java`
+- `Gui/src/main/java/mezz/jei/gui/input/MouseUserInput.java`
+- `Gui/src/main/java/mezz/jei/gui/input/MouseUtil.java`
+- `Gui/src/main/java/mezz/jei/gui/input/UserInput.java`
+- `Gui/src/main/java/mezz/jei/gui/input/focus/EditBoxFocusHandler.java`
+- `Gui/src/main/java/mezz/jei/gui/input/focus/GuiEventListenerFocusHandler.java`
+- `Gui/src/main/java/mezz/jei/gui/input/focus/IFocusHandler.java`
+- `Gui/src/main/java/mezz/jei/gui/input/focus/ScreenFocusHandler.java`
+- `Gui/src/main/java/mezz/jei/gui/input/focus/package-info.java`
+- `Gui/src/main/java/mezz/jei/gui/input/handlers/BookmarkInputHandler.java`
+- `Gui/src/main/java/mezz/jei/gui/input/handlers/ChatLinkInputHandler.java`
+- `Gui/src/main/java/mezz/jei/gui/input/handlers/CombinedDragHandler.java`
+- `Gui/src/main/java/mezz/jei/gui/input/handlers/CombinedInputHandler.java`
+- `Gui/src/main/java/mezz/jei/gui/input/handlers/DeleteItemInputHandler.java`
+- `Gui/src/main/java/mezz/jei/gui/input/handlers/DragRouter.java`
+- `Gui/src/main/java/mezz/jei/gui/input/handlers/EditInputHandler.java`
+- `Gui/src/main/java/mezz/jei/gui/input/handlers/FocusInputHandler.java`
+- `Gui/src/main/java/mezz/jei/gui/input/handlers/GlobalInputHandler.java`
+- `Gui/src/main/java/mezz/jei/gui/input/handlers/GuiAreaInputHandler.java`
+- `Gui/src/main/java/mezz/jei/gui/input/handlers/NullDragHandler.java`
+- `Gui/src/main/java/mezz/jei/gui/input/handlers/NullInputHandler.java`
+- `Gui/src/main/java/mezz/jei/gui/input/handlers/ProxyDragHandler.java`
+- `Gui/src/main/java/mezz/jei/gui/input/handlers/ProxyInputHandler.java`
+- `Gui/src/main/java/mezz/jei/gui/input/handlers/SameElementInputHandler.java`
+- `Gui/src/main/java/mezz/jei/gui/input/handlers/TextFieldInputHandler.java`
+- `Gui/src/main/java/mezz/jei/gui/input/handlers/UserInputRouter.java`
+- `Gui/src/main/java/mezz/jei/gui/input/handlers/package-info.java`
+- `Gui/src/main/java/mezz/jei/gui/input/package-info.java`
+- `Gui/src/main/java/mezz/jei/gui/network/package-info.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/ConfigButtonController.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/GuiPropertiesCache.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/IConfigButton.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/IGuiPropertiesCache.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/IScreenPropertiesUpdater.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/ISearchField.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/IngredientListOverlay.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/IngredientListOverlayController.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/IngredientListOverlayLayout.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/bookmarks/BookmarkButtonController.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/bookmarks/BookmarkDrag.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/bookmarks/BookmarkDragManager.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/bookmarks/BookmarkOverlay.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/bookmarks/IBookmarkDragTarget.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/bookmarks/PreviewTooltipComponent.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/bookmarks/history/ILookupHistoryOverlay.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/bookmarks/history/LookupHistory.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/bookmarks/history/LookupHistoryButtonController.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/bookmarks/history/LookupHistoryOverlay.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/bookmarks/history/package-info.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/bookmarks/package-info.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/elements/IElement.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/elements/IngredientBookmarkElement.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/elements/IngredientElement.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/elements/RecipeBookmarkElement.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/elements/package-info.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/history/LookupHistoryOverlayLayout.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/history/package-info.java`
+- `Gui/src/main/java/mezz/jei/gui/overlay/ingredients/GuiExclusionAreaShadow.java`
+- … and 76 more under `Gui/src/main/java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

@@ -1,0 +1,442 @@
+# thedarkcolour-ForestryCE — arboriculture
+
+- Alias: `CE`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_16-21-34/thedarkcolour-ForestryCE`
+- Package/path root: `src/main/java/forestry/arboriculture`
+- Java files scanned: **180**
+- Date: 2026-07-30
+
+## Summary
+Module `arboriculture` in `thedarkcolour-ForestryCE` is rooted at `src/main/java/forestry/arboriculture` (180 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `ArboricultureFilterRuleType`
+- `DummyFruit`
+- `ForestryWoodType`
+- `Fruit`
+- `IWoodTyped`
+- `ModuleArboriculture`
+- `ModuleCharcoal`
+- `PodFruit`
+- `RipeningFruit`
+- `TreeManager`
+- `TreeSpecies`
+- `VanillaWoodType`
+- `WoodAccess`
+- `WoodHelper`
+- `BlockAbstractLeaves`
+- `BlockAsh`
+- `BlockCharcoal`
+- `BlockDecorativeLeaves`
+- `BlockDefaultLeaves`
+- `BlockDefaultLeavesFruit`
+- `BlockExtendedLeaves`
+- `BlockForestryButton`
+- `BlockForestryDoor`
+- `BlockForestryFence`
+- `BlockForestryFenceGate`
+- `BlockForestryHangingSign`
+- `BlockForestryLeaves`
+- `BlockForestryLog`
+- `BlockForestryPlank`
+- `BlockForestryPressurePlate`
+- `BlockForestrySlab`
+- `BlockForestryStairs`
+- `BlockForestryStandingSign`
+- `BlockForestryTrapdoor`
+- `BlockForestryWallHangingSign`
+- `BlockForestryWallSign`
+- `BlockFruitPod`
+- `BlockSapling`
+- `DecorativeLogPileBlock`
+- `ForestryLeafType`
+- `ForestryPodType`
+- `LogPileBlock`
+- `package-info`
+- `ArmorNaturalist`
+- `package-info`
+- `CharcoalManager`
+- `CharcoalPileWall`
+- `CharcoalJeiPlugin`
+- `CharcoalPileWallCategory`
+- `package-info`
+- `package-info`
+- `ArboricultureClientHandler`
+- `BiomeLeafTint`
+- `FixedLeafTint`
+- `ForestryBoatRenderer`
+- `ProxyArboriculture`
+- `package-info`
+- `CommandTree`
+- `CommandTreeSpawn`
+- `ForestSpawner`
+- `ITreeSpawner`
+- `TreeGenHelper`
+- `TreeSpawner`
+- `TreeStatsSaveHelper`
+- `package-info`
+- `ArboricultureJeiPlugin`
+- `package-info`
+- `ForestryBoat`
+- `ForestryChestBoat`
+- `package-info`
+- `ArboricultureBlocks`
+- `ArboricultureEntities`
+- `ArboricultureFeatures`
+- `ArboricultureItems`
+- `ArboricultureTiles`
+- `CharcoalBlocks`
+- `package-info`
+- `ArboristTracker`
+- `BlossomingTreeEffect`
+- `DummyTreeEffect`
+- … and 100 more
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py CE "arboriculture"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `blocks`
+  - `capabilities`
+  - `charcoal`
+  - `charcoal/jei`
+  - `client`
+  - `commands`
+  - `compat`
+  - `entities`
+  - `features`
+  - `genetics`
+  - `items`
+  - `loot`
+  - `models`
+  - `network`
+  - `tiles`
+  - `villagers`
+  - `worldgen`
+  - `worldgen/feature`
+- Declaration skim (first files):
+  - `src/main/java/forestry/arboriculture/ArboricultureFilterRuleType.java`
+    - L1: package forestry.arboriculture;
+    - L13: public enum ArboricultureFilterRuleType implements IFilterRuleType {
+    - L15: @Override
+    - L16: public boolean isValid(ItemStack stack, FilterData data) {
+    - L21: @Override
+    - L22: public boolean isValid(ItemStack stack, FilterData data) {
+    - L27: @Override
+    - L28: public boolean isValid(ItemStack stack, FilterData data) {
+    - L41: @Override
+    - L42: public ResourceLocation getSprite() {
+    - L46: @Override
+    - L47: public ResourceLocation getSpeciesTypeId() {
+  - `src/main/java/forestry/arboriculture/DummyFruit.java`
+    - L1: package forestry.arboriculture;
+    - L20: public class DummyFruit implements IFruit {
+    - L23: public DummyFruit(boolean dominant) {
+    - L27: @Override
+    - L28: public boolean isDominant() {
+    - L32: @Override
+    - L33: public List<ItemStack> getFruits(IGenome genome, Level level, int ripeningTime) {
+    - L37: @Override
+    - L38: public boolean requiresFruitBlocks() {
+    - L42: @Override
+    - L43: public boolean trySpawnFruitBlock(IGenome genome, LevelAccessor world, RandomSource rand, BlockPos pos) {
+    - L47: @Override
+  - `src/main/java/forestry/arboriculture/ForestryWoodType.java`
+    - L1: package forestry.arboriculture;
+    - L28: public enum ForestryWoodType implements IWoodType {
+    - L76: public static final float DEFAULT_HARDNESS = 2.0f;
+    - L77: public static final ForestryWoodType[] VALUES = values();
+    - L84: public final TagKey<Block> blockTag;
+    - L85: public final TagKey<Item> itemTag;
+    - L86: public final TagKey<Block> fireproofBlockTag;
+    - L87: public final TagKey<Item> fireproofItemTag;
+    - L106: @Override
+    - L107: public float getHardness() {
+    - L111: public static ForestryWoodType getRandom(RandomSource random) {
+    - L115: @Override
+  - `src/main/java/forestry/arboriculture/Fruit.java`
+    - L1: package forestry.arboriculture;
+    - L13: public class Fruit extends DummyFruit {
+    - L15: protected final int ripeningPeriod;
+    - L17: public Fruit(boolean dominant, int ripeningPeriod, List<IProduct> products) {
+    - L24: @Override
+    - L25: public List<ItemStack> getFruits(@Nullable IGenome genome, Level level, int ripeningTime) {
+    - L43: @Override
+    - L44: public List<IProduct> getProducts() {
+  - `src/main/java/forestry/arboriculture/IWoodTyped.java`
+    - L1: package forestry.arboriculture;
+    - L6: public interface IWoodTyped {
+  - `src/main/java/forestry/arboriculture/ModuleArboriculture.java`
+    - L1: package forestry.arboriculture;
+    - L42: @ForestryModule
+    - L43: public class ModuleArboriculture extends BlankForestryModule {
+    - L44: @Override
+    - L45: public ResourceLocation getId() {
+    - L49: @Override
+    - L50: public void registerEvents(IEventBus modBus) {
+    - L86: @Override
+    - L87: public void setupApi() {
+    - L91: @Override
+    - L92: public void addToRootCommand(LiteralArgumentBuilder<CommandSourceStack> command) {
+    - L110: @Override
+  - `src/main/java/forestry/arboriculture/ModuleCharcoal.java`
+    - L1: package forestry.arboriculture;
+    - L11: @ForestryModule
+    - L12: public class ModuleCharcoal extends BlankForestryModule {
+    - L13: @Override
+    - L14: public ResourceLocation getId() {
+    - L18: @Override
+    - L19: public void setupApi() {
+  - `src/main/java/forestry/arboriculture/PodFruit.java`
+    - L1: package forestry.arboriculture;
+    - L21: public class PodFruit extends Fruit {
+    - L24: public PodFruit(boolean dominant, ForestryPodType type, List<IProduct> products) {
+    - L30: @Override
+    - L31: public boolean requiresFruitBlocks() {
+    - L35: @Override
+    - L36: public boolean trySpawnFruitBlock(IGenome genome, LevelAccessor world, RandomSource rand, BlockPos pos) {
+    - L49: @Override
+    - L50: public TagKey<Block> getLogTag() {
+    - L59: public ForestryPodType getType() {
+  - `src/main/java/forestry/arboriculture/RipeningFruit.java`
+    - L1: package forestry.arboriculture;
+    - L12: public class RipeningFruit extends Fruit {
+    - L19: public RipeningFruit(boolean dominant, int ripeningPeriod, ResourceLocation sprite, int ripe, int callow, List<IProduct> products) {
+    - L37: @Override
+    - L38: public boolean isFruitLeaf() {
+    - L42: @Override
+    - L43: public int getColour(IGenome genome, BlockGetter world, BlockPos pos, int ripeningTime) {
+    - L56: @Override
+    - L57: public int getDecorativeColor() {
+    - L61: @Override
+    - L62: public ResourceLocation getSprite(IGenome genome, BlockGetter world, BlockPos pos, int ripeningTime) {
+    - L66: @Override
+  - `src/main/java/forestry/arboriculture/TreeManager.java`
+    - L1: package forestry.arboriculture;
+    - L11: public class TreeManager implements ITreeManager {
+    - L15: public TreeManager(ImmutableMap<Block, Block> refractoryWaxables, ICharcoalManager charcoalManager) {
+    - L20: @Nullable
+    - L21: @Override
+    - L22: public Block getRefractoryWaxed(Block block) {
+    - L26: @Override
+    - L27: public ICharcoalManager getCharcoalManager() {
+    - L31: @Override
+    - L32: public IWoodAccess getWoodAccess() {
+  - `src/main/java/forestry/arboriculture/TreeSpecies.java`
+    - L1: package forestry.arboriculture;
+    - L40: public class TreeSpecies extends Species<ITreeSpeciesType, ITree> implements ITreeSpecies {
+    - L49: public TreeSpecies(ResourceLocation id, ITreeSpeciesType speciesType, IGenome defaultGenome, ITreeSpeciesBuilder builder) {
+    - L62: @Override
+    - L63: public ITreeGenerator getGenerator() {
+    - L67: @Override
+    - L68: public ItemStack getDecorativeLeaves() {
+    - L72: @Override
+    - L73: public TemperatureType getTemperature() {
+    - L77: @Override
+    - L78: public HumidityType getHumidity() {
+    - L82: @Override
+  - `src/main/java/forestry/arboriculture/VanillaWoodType.java`
+    - L1: package forestry.arboriculture;
+    - L19: public enum VanillaWoodType implements IWoodType {
+    - L28: public static final VanillaWoodType[] VALUES = values();
+    - L32: public final TagKey<Block> fireproofBlockTag;
+    - L33: public final TagKey<Item> fireproofItemTag;
+    - L43: @Override
+    - L44: public float getHardness() {
+    - L48: @Override
+    - L49: public String toString() {
+    - L53: @Override
+    - L54: public boolean setDefaultLeaves(LevelAccessor level, BlockPos pos, IGenome genome, RandomSource rand, @Nullable GameProfile owner) {
+    - L58: @Override
+
+## Data & assets
+Related resource paths (heuristic name match):
+- `src/main/resources/data/forestry/chests_old/village_naturalist/arboriculture.json`
+- `src/main/resources/data/forestry/chests_old/jungle_temple/arboriculture.json`
+- `src/main/resources/data/forestry/chests_old/end_city_treasure/arboriculture.json`
+- `src/main/resources/data/forestry/chests_old/desert_pyramid/arboriculture.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/arboriculture.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/arboriculture/introduction.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/arboriculture/grafters.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/arboriculture/pollination.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/arboriculture/tree_mutations.json`
+- `src/main/resources/assets/forestry/textures/item/fruits/walnut.png`
+- `src/main/resources/assets/forestry/textures/item/fruits/pear.png`
+- `src/main/resources/assets/forestry/textures/item/fruits/plum.png`
+- `src/main/resources/assets/forestry/textures/item/fruits/coconut.png`
+- `src/main/resources/assets/forestry/textures/item/fruits/papaya.png`
+- `src/main/resources/assets/forestry/textures/item/fruits/dates.png`
+- `src/main/resources/assets/forestry/textures/item/fruits/olive.png`
+- `src/main/resources/assets/forestry/textures/item/fruits/lemon.png`
+- `src/main/resources/assets/forestry/textures/item/fruits/feijoa.png`
+- `src/main/resources/assets/forestry/textures/item/fruits/orange.png`
+- `src/main/resources/assets/forestry/textures/item/fruits/cherry.png`
+- `src/main/resources/assets/forestry/textures/item/fruits/chestnut.png`
+- `src/main/resources/assets/forestry/textures/block/leaves/fruits.nuts.png`
+- `src/main/resources/assets/forestry/textures/block/leaves/fruits.pomes.png`
+- `src/main/resources/assets/forestry/textures/block/leaves/fruits.berries.png`
+- `src/main/resources/assets/forestry/textures/block/leaves/fruits.citrus.png`
+- `src/main/resources/assets/forestry/textures/block/leaves/fruits.plums.png`
+- `src/main/resources/assets/forestry/models/item/fruit_walnut.json`
+- `src/main/resources/assets/forestry/models/item/fruit_papaya.json`
+- `src/main/resources/assets/forestry/models/item/fruit_chestnut.json`
+- `src/main/resources/assets/forestry/models/item/fruit_pear.json`
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_16-21-34/thedarkcolour-ForestryCE` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- enum `ArboricultureFilterRuleType` in `ArboricultureFilterRuleType.java`
+- enum `ForestryWoodType` in `ForestryWoodType.java`
+- interface `IWoodTyped` in `IWoodTyped.java`
+- key type `ModuleArboriculture` (`ModuleArboriculture.java`)
+- key type `ModuleCharcoal` (`ModuleCharcoal.java`)
+- enum `VanillaWoodType` in `VanillaWoodType.java`
+- enum `WoodAccess` in `WoodAccess.java`
+- enum `ForestryPodType` in `ForestryPodType.java`
+- enum `ArmorNaturalist` in `ArmorNaturalist.java`
+- key type `CharcoalJeiPlugin` (`CharcoalJeiPlugin.java`)
+- key type `ArboricultureClientHandler` (`ArboricultureClientHandler.java`)
+- record `FixedLeafTint` in `FixedLeafTint.java`
+- interface `ITreeSpawner` in `ITreeSpawner.java`
+- key type `ArboricultureJeiPlugin` (`ArboricultureJeiPlugin.java`)
+- interface `IRipeningPacketReceiver` in `IRipeningPacketReceiver.java`
+- key type `IRipeningPacketReceiver` (`IRipeningPacketReceiver.java`)
+- record `PacketRipeningUpdate` in `PacketRipeningUpdate.java`
+- key type `PacketRipeningUpdate` (`PacketRipeningUpdate.java`)
+- interface `ITreeBlockType` in `ITreeBlockType.java`
+- record `ForestryTreeFeatureConfig` in `ForestryTreeFeatureConfig.java`
+
+## Port relevance to Re-Forestry
+- Mentions of `arboriculture` appear in `files/implemented-features.md` — check that file for port status.
+- Primary Forestry reference for Re-Forestry port decisions.
+
+## Source map
+- `src/main/java/forestry/arboriculture/ArboricultureFilterRuleType.java`
+- `src/main/java/forestry/arboriculture/DummyFruit.java`
+- `src/main/java/forestry/arboriculture/ForestryWoodType.java`
+- `src/main/java/forestry/arboriculture/Fruit.java`
+- `src/main/java/forestry/arboriculture/IWoodTyped.java`
+- `src/main/java/forestry/arboriculture/ModuleArboriculture.java`
+- `src/main/java/forestry/arboriculture/ModuleCharcoal.java`
+- `src/main/java/forestry/arboriculture/PodFruit.java`
+- `src/main/java/forestry/arboriculture/RipeningFruit.java`
+- `src/main/java/forestry/arboriculture/TreeManager.java`
+- `src/main/java/forestry/arboriculture/TreeSpecies.java`
+- `src/main/java/forestry/arboriculture/VanillaWoodType.java`
+- `src/main/java/forestry/arboriculture/WoodAccess.java`
+- `src/main/java/forestry/arboriculture/WoodHelper.java`
+- `src/main/java/forestry/arboriculture/blocks/BlockAbstractLeaves.java`
+- `src/main/java/forestry/arboriculture/blocks/BlockAsh.java`
+- `src/main/java/forestry/arboriculture/blocks/BlockCharcoal.java`
+- `src/main/java/forestry/arboriculture/blocks/BlockDecorativeLeaves.java`
+- `src/main/java/forestry/arboriculture/blocks/BlockDefaultLeaves.java`
+- `src/main/java/forestry/arboriculture/blocks/BlockDefaultLeavesFruit.java`
+- `src/main/java/forestry/arboriculture/blocks/BlockExtendedLeaves.java`
+- `src/main/java/forestry/arboriculture/blocks/BlockForestryButton.java`
+- `src/main/java/forestry/arboriculture/blocks/BlockForestryDoor.java`
+- `src/main/java/forestry/arboriculture/blocks/BlockForestryFence.java`
+- `src/main/java/forestry/arboriculture/blocks/BlockForestryFenceGate.java`
+- `src/main/java/forestry/arboriculture/blocks/BlockForestryHangingSign.java`
+- `src/main/java/forestry/arboriculture/blocks/BlockForestryLeaves.java`
+- `src/main/java/forestry/arboriculture/blocks/BlockForestryLog.java`
+- `src/main/java/forestry/arboriculture/blocks/BlockForestryPlank.java`
+- `src/main/java/forestry/arboriculture/blocks/BlockForestryPressurePlate.java`
+- `src/main/java/forestry/arboriculture/blocks/BlockForestrySlab.java`
+- `src/main/java/forestry/arboriculture/blocks/BlockForestryStairs.java`
+- `src/main/java/forestry/arboriculture/blocks/BlockForestryStandingSign.java`
+- `src/main/java/forestry/arboriculture/blocks/BlockForestryTrapdoor.java`
+- `src/main/java/forestry/arboriculture/blocks/BlockForestryWallHangingSign.java`
+- `src/main/java/forestry/arboriculture/blocks/BlockForestryWallSign.java`
+- `src/main/java/forestry/arboriculture/blocks/BlockFruitPod.java`
+- `src/main/java/forestry/arboriculture/blocks/BlockSapling.java`
+- `src/main/java/forestry/arboriculture/blocks/DecorativeLogPileBlock.java`
+- `src/main/java/forestry/arboriculture/blocks/ForestryLeafType.java`
+- `src/main/java/forestry/arboriculture/blocks/ForestryPodType.java`
+- `src/main/java/forestry/arboriculture/blocks/LogPileBlock.java`
+- `src/main/java/forestry/arboriculture/blocks/package-info.java`
+- `src/main/java/forestry/arboriculture/capabilities/ArmorNaturalist.java`
+- `src/main/java/forestry/arboriculture/capabilities/package-info.java`
+- `src/main/java/forestry/arboriculture/charcoal/CharcoalManager.java`
+- `src/main/java/forestry/arboriculture/charcoal/CharcoalPileWall.java`
+- `src/main/java/forestry/arboriculture/charcoal/jei/CharcoalJeiPlugin.java`
+- `src/main/java/forestry/arboriculture/charcoal/jei/CharcoalPileWallCategory.java`
+- `src/main/java/forestry/arboriculture/charcoal/jei/package-info.java`
+- `src/main/java/forestry/arboriculture/charcoal/package-info.java`
+- `src/main/java/forestry/arboriculture/client/ArboricultureClientHandler.java`
+- `src/main/java/forestry/arboriculture/client/BiomeLeafTint.java`
+- `src/main/java/forestry/arboriculture/client/FixedLeafTint.java`
+- `src/main/java/forestry/arboriculture/client/ForestryBoatRenderer.java`
+- `src/main/java/forestry/arboriculture/client/ProxyArboriculture.java`
+- `src/main/java/forestry/arboriculture/client/package-info.java`
+- `src/main/java/forestry/arboriculture/commands/CommandTree.java`
+- `src/main/java/forestry/arboriculture/commands/CommandTreeSpawn.java`
+- `src/main/java/forestry/arboriculture/commands/ForestSpawner.java`
+- `src/main/java/forestry/arboriculture/commands/ITreeSpawner.java`
+- `src/main/java/forestry/arboriculture/commands/TreeGenHelper.java`
+- `src/main/java/forestry/arboriculture/commands/TreeSpawner.java`
+- `src/main/java/forestry/arboriculture/commands/TreeStatsSaveHelper.java`
+- `src/main/java/forestry/arboriculture/commands/package-info.java`
+- `src/main/java/forestry/arboriculture/compat/ArboricultureJeiPlugin.java`
+- `src/main/java/forestry/arboriculture/compat/package-info.java`
+- `src/main/java/forestry/arboriculture/entities/ForestryBoat.java`
+- `src/main/java/forestry/arboriculture/entities/ForestryChestBoat.java`
+- `src/main/java/forestry/arboriculture/entities/package-info.java`
+- `src/main/java/forestry/arboriculture/features/ArboricultureBlocks.java`
+- `src/main/java/forestry/arboriculture/features/ArboricultureEntities.java`
+- `src/main/java/forestry/arboriculture/features/ArboricultureFeatures.java`
+- `src/main/java/forestry/arboriculture/features/ArboricultureItems.java`
+- `src/main/java/forestry/arboriculture/features/ArboricultureTiles.java`
+- `src/main/java/forestry/arboriculture/features/CharcoalBlocks.java`
+- `src/main/java/forestry/arboriculture/features/package-info.java`
+- `src/main/java/forestry/arboriculture/genetics/ArboristTracker.java`
+- `src/main/java/forestry/arboriculture/genetics/BlossomingTreeEffect.java`
+- `src/main/java/forestry/arboriculture/genetics/DummyTreeEffect.java`
+- `src/main/java/forestry/arboriculture/genetics/Tree.java`
+- `src/main/java/forestry/arboriculture/genetics/TreeGrowthHelper.java`
+- `src/main/java/forestry/arboriculture/genetics/TreePollenType.java`
+- `src/main/java/forestry/arboriculture/genetics/TreeSpeciesType.java`
+- `src/main/java/forestry/arboriculture/genetics/package-info.java`
+- `src/main/java/forestry/arboriculture/items/ForestryBoatDispenserBehavior.java`
+- `src/main/java/forestry/arboriculture/items/ItemBlockDecorativeLeaves.java`
+- `src/main/java/forestry/arboriculture/items/ItemBlockHangingSign.java`
+- `src/main/java/forestry/arboriculture/items/ItemBlockLeaves.java`
+- `src/main/java/forestry/arboriculture/items/ItemBlockSign.java`
+- `src/main/java/forestry/arboriculture/items/ItemBlockWood.java`
+- `src/main/java/forestry/arboriculture/items/ItemBlockWoodDoor.java`
+- `src/main/java/forestry/arboriculture/items/ItemBlockWoodSlab.java`
+- `src/main/java/forestry/arboriculture/items/ItemForestryBoat.java`
+- `src/main/java/forestry/arboriculture/items/ItemGermlingGE.java`
+- `src/main/java/forestry/arboriculture/items/ItemGrafter.java`
+- `src/main/java/forestry/arboriculture/items/package-info.java`
+- `src/main/java/forestry/arboriculture/loot/CountBlockFunction.java`
+- `src/main/java/forestry/arboriculture/loot/GrafterLootModifier.java`
+- `src/main/java/forestry/arboriculture/loot/package-info.java`
+- `src/main/java/forestry/arboriculture/models/LeafSprite.java`
+- `src/main/java/forestry/arboriculture/models/ModelDecorativeLeaves.java`
+- `src/main/java/forestry/arboriculture/models/ModelDefaultLeaves.java`
+- `src/main/java/forestry/arboriculture/models/ModelDefaultLeavesFruit.java`
+- `src/main/java/forestry/arboriculture/models/ModelLeaves.java`
+- `src/main/java/forestry/arboriculture/models/ModelSapling.java`
+- `src/main/java/forestry/arboriculture/models/SaplingModelLoader.java`
+- `src/main/java/forestry/arboriculture/models/package-info.java`
+- `src/main/java/forestry/arboriculture/network/IRipeningPacketReceiver.java`
+- `src/main/java/forestry/arboriculture/network/PacketRipeningUpdate.java`
+- `src/main/java/forestry/arboriculture/network/package-info.java`
+- `src/main/java/forestry/arboriculture/package-info.java`
+- `src/main/java/forestry/arboriculture/tiles/TileFruitPod.java`
+- `src/main/java/forestry/arboriculture/tiles/TileLeaves.java`
+- `src/main/java/forestry/arboriculture/tiles/TileSapling.java`
+- `src/main/java/forestry/arboriculture/tiles/TileTreeContainer.java`
+- `src/main/java/forestry/arboriculture/tiles/package-info.java`
+- `src/main/java/forestry/arboriculture/villagers/ArboricultureVillagers.java`
+- `src/main/java/forestry/arboriculture/villagers/package-info.java`
+- `src/main/java/forestry/arboriculture/worldgen/DefaultTreeGenerator.java`
+- … and 60 more under `src/main/java/forestry/arboriculture`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

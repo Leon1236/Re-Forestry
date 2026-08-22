@@ -1,0 +1,447 @@
+# mezz-JustEnoughItems — common
+
+- Alias: `JEI`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_16-21-34/mezz-JustEnoughItems`
+- Package/path root: `Common/src/main/java`
+- Java files scanned: **193**
+- Date: 2026-07-30
+
+## Summary
+Module `common` in `mezz-JustEnoughItems` is rooted at `Common/src/main/java` (193 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `Constants`
+- `Internal`
+- `JeiFeatures`
+- `JeiChatItemLinkHover`
+- `JeiChatItemLinkRecipeLookup`
+- `JeiChatItemLinks`
+- `package-info`
+- `EnumCodec`
+- `TupleCodec`
+- `TypedIngredientCodecs`
+- `package-info`
+- `ListMultiMap`
+- `MultiMap`
+- `SetMultiMap`
+- `Table`
+- `package-info`
+- `BookmarkTooltipFeature`
+- `ClientConfig`
+- `ClientToggleState`
+- `ConfigManager`
+- `DebugConfig`
+- `GiveMode`
+- `HistoryDisplaySide`
+- `IClientConfig`
+- `IClientToggleState`
+- `IIngredientFilterConfig`
+- `IIngredientGridConfig`
+- `IJeiClientConfigs`
+- `IServerConfig`
+- `IngredientFilterConfig`
+- `IngredientGridConfig`
+- `IngredientGridNavigationMode`
+- `IngredientSortStage`
+- `JeiClientConfigs`
+- `RecipeSorterStage`
+- `ConfigCategory`
+- `ConfigCategoryBuilder`
+- `ConfigSchema`
+- `ConfigSchemaBuilder`
+- `ConfigSerializer`
+- `ConfigValue`
+- `FileWatcher`
+- `FileWatcherThread`
+- `IConfigCategoryBuilder`
+- `IConfigListener`
+- `IConfigSchema`
+- `IConfigSchemaBuilder`
+- `JsonArrayFileHelper`
+- `JsonArrayWriter`
+- `package-info`
+- `BooleanSerializer`
+- `DeserializeResult`
+- `EnumSerializer`
+- `IntegerSerializer`
+- `ListSerializer`
+- `package-info`
+- `package-info`
+- `MappedSortingConfig`
+- `SortingConfig`
+- `package-info`
+- `ISortingSerializer`
+- `SortingSerializers`
+- `package-info`
+- `IngredientTooltipComponent`
+- `IngredientsTooltipComponent`
+- `JeiTooltip`
+- `OffsetJeiInputHandler`
+- `RecipeLayoutDrawableErrored`
+- `DrawableAnimated`
+- `DrawableBlank`
+- `DrawableCombined`
+- `DrawableIngredient`
+- `DrawableResource`
+- `DrawableSprite`
+- `DrawableText`
+- `DrawableWrappedText`
+- `HighResolutionDrawable`
+- `OffsetDrawable`
+- `ScalableDrawable`
+- `TextWidget`
+- … and 113 more
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py JEI "common"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `mezz/jei`
+  - `mezz/jei/common`
+  - `mezz/jei/common/chat`
+  - `mezz/jei/common/codecs`
+  - `mezz/jei/common/collect`
+  - `mezz/jei/common/config`
+  - `mezz/jei/common/config/file`
+  - `mezz/jei/common/config/file/serializers`
+  - `mezz/jei/common/config/sorting`
+  - `mezz/jei/common/config/sorting/serializers`
+  - `mezz/jei/common/gui`
+  - `mezz/jei/common/gui/elements`
+  - `mezz/jei/common/gui/textures`
+  - `mezz/jei/common/ingredients`
+  - `mezz/jei/common/input`
+  - `mezz/jei/common/input/keys`
+  - `mezz/jei/common/network`
+  - `mezz/jei/common/network/codecs`
+  - `mezz/jei/common/network/packets`
+  - `mezz/jei/common/network/packets/handlers`
+  - `mezz/jei/common/platform`
+  - `mezz/jei/common/recipes`
+  - `mezz/jei/common/search`
+  - `mezz/jei/common/transfer`
+  - `mezz/jei/common/util`
+  - `mezz/jei/common/util/function`
+- Declaration skim (first files):
+  - `Common/src/main/java/mezz/jei/common/Constants.java`
+    - L1: package mezz.jei.common;
+    - L7: public final class Constants {
+    - L8: public static final IRecipeType<?> UNIVERSAL_RECIPE_TRANSFER_TYPE = IRecipeType.create(ModIds.JEI_ID, "universal_recipe_transfer_handler", Object.class);
+    - L9: public static final Identifier LOCATION_JEI_GUI_TEXTURE_ATLAS = Identifier.fromNamespaceAndPath(ModIds.JEI_ID, "textures/atlas/gui.png");
+    - L10: public static final Identifier JEI_GUI_TEXTURE_ATLAS_ID = Identifier.fromNamespaceAndPath(ModIds.JEI_ID, "gui");
+  - `Common/src/main/java/mezz/jei/common/Internal.java`
+    - L1: package mezz.jei.common;
+    - L30: public final class Internal {
+    - L31: @Nullable
+    - L33: @Nullable
+    - L35: @Nullable
+    - L37: @Nullable
+    - L39: @Nullable
+    - L41: @Nullable
+    - L43: @Nullable
+    - L52: public static Textures getTextures() {
+    - L68: public static IConnectionToServer getServerConnection() {
+    - L73: public static void setServerConnection(IConnectionToServer serverConnection) {
+  - `Common/src/main/java/mezz/jei/common/JeiFeatures.java`
+    - L1: package mezz.jei.common;
+    - L5: public class JeiFeatures implements IJeiFeatures {
+    - L9: @Override
+    - L10: public void disableJeiGui() {
+    - L14: @Override
+    - L15: public boolean isJeiGuiEnabled() {
+    - L19: @Override
+    - L20: public void disableInventoryEffectRendererGuiHandler() {
+    - L24: public boolean getInventoryEffectRendererGuiHandlerEnabled() {
+  - `Common/src/main/java/mezz/jei/common/chat/JeiChatItemLinkHover.java`
+    - L1: package mezz.jei.common.chat;
+    - L32: public final class JeiChatItemLinkHover {
+    - L36: public record HoveredText(Style style, Rect2i area) {
+    - L39: public static Optional<Style> getHoveredStyle(Screen screen, double mouseX, double mouseY) {
+    - L55: public static Optional<HoveredText> getHoveredText(Screen screen, double mouseX, double mouseY) {
+    - L68: public static Optional<IngredientLink> getIngredientLink(Style style) {
+    - L92: private static final class HoveredTextFinder implements ActiveTextCollector {
+    - L100: @Nullable
+    - L103: public HoveredTextFinder(Font font, int mouseX, int mouseY) {
+    - L109: @Override
+    - L110: public ActiveTextCollector.Parameters defaultParameters() {
+    - L114: @Override
+  - `Common/src/main/java/mezz/jei/common/chat/JeiChatItemLinkRecipeLookup.java`
+    - L1: package mezz.jei.common.chat;
+    - L14: public final class JeiChatItemLinkRecipeLookup {
+    - L18: public static int executeShowRecipeCommand(String linkText) {
+    - L38: public static boolean showRecipeForIngredient(IJeiRuntime runtime, JeiChatItemLinks.IngredientLink link) {
+  - `Common/src/main/java/mezz/jei/common/chat/JeiChatItemLinks.java`
+    - L1: package mezz.jei.common.chat;
+    - L28: public final class JeiChatItemLinks {
+    - L29: public static final String SHOW_RECIPE_COMMAND = "jei_internal_show";
+    - L30: public static final String LINK_ARGUMENT = "link";
+    - L41: public record IngredientLink(String ingredientTypeUid, String ingredientUid) {
+    - L44: public static String createLinkMarker(ITypedIngredient<?> typedIngredient, IIngredientManager ingredientManager) {
+    - L48: public static Component parse(String rawText) {
+    - L52: public static Component parse(String rawText, Function<IngredientLink, Optional<String>> ingredientNameLookup) {
+    - L89: public static Optional<Component> parseChatMessage(Component message) {
+    - L93: public static Optional<Component> parseChatMessage(Component message, Function<IngredientLink, Optional<String>> ingredientNameLookup) {
+    - L103: public static boolean hasLinkMarkers(String rawText) {
+    - L119: public static Optional<ITypedIngredient<?>> resolveTypedIngredient(IngredientLink link, IIngredientManager ingredientManager) {
+  - `Common/src/main/java/mezz/jei/common/chat/package-info.java`
+    - L1: @NullMarked
+    - L2: package mezz.jei.common.chat;
+  - `Common/src/main/java/mezz/jei/common/codecs/EnumCodec.java`
+    - L1: package mezz.jei.common.codecs;
+    - L6: public class EnumCodec {
+    - L7: public static <T extends Enum<T>> Codec<T> create(Class<T> enumClass) {
+  - `Common/src/main/java/mezz/jei/common/codecs/TupleCodec.java`
+    - L1: package mezz.jei.common.codecs;
+    - L15: public class TupleCodec<F, S> implements Codec<Pair<F, S>> {
+    - L16: public static <F, S> TupleCodec<F, S> of(Codec<F> first, Codec<S> second) {
+    - L28: @Override
+    - L29: public <T> DataResult<Pair<Pair<F, S>, T>> decode(final DynamicOps<T> ops, final T input) {
+    - L39: @Override
+    - L40: public <T> DataResult<T> encode(final Pair<F, S> input, final DynamicOps<T> ops, final T prefix) {
+    - L47: @Override
+    - L48: public boolean equals(final Object o) {
+    - L58: @Override
+    - L59: public int hashCode() {
+    - L63: @Override
+  - `Common/src/main/java/mezz/jei/common/codecs/TypedIngredientCodecs.java`
+    - L1: package mezz.jei.common.codecs;
+    - L16: public class TypedIngredientCodecs {
+    - L21: public static Codec<IIngredientType<?>> getIngredientTypeCodec(IIngredientManager ingredientManager) {
+    - L38: public static MapCodec<ITypedIngredient<?>> getIngredientCodec(IIngredientManager ingredientManager) {
+    - L49: @SuppressWarnings("unchecked")
+    - L50: public static <T> Codec<ITypedIngredient<T>> getIngredientCodec(IIngredientType<T> ingredientType, IIngredientManager ingredientManager) {
+  - `Common/src/main/java/mezz/jei/common/codecs/package-info.java`
+    - L1: @NullMarked
+    - L2: package mezz.jei.common.codecs;
+  - `Common/src/main/java/mezz/jei/common/collect/ListMultiMap.java`
+    - L1: package mezz.jei.common.collect;
+    - L11: public class ListMultiMap<K, V> extends MultiMap<K, V, List<V>> {
+    - L12: public ListMultiMap() {
+    - L16: public ListMultiMap(Supplier<List<V>> collectionSupplier) {
+    - L20: public ListMultiMap(Map<K, List<V>> map, Supplier<List<V>> collectionSupplier) {
+    - L24: @Override
+    - L25: public List<V> get(K key) {
+    - L33: @Override
+    - L34: public ImmutableListMultimap<K, V> toImmutable() {
+
+## Data & assets
+Related resource paths (heuristic name match):
+- `Common/src/main/resources/pack.mcmeta`
+- `Common/src/main/resources/jei-icon.png`
+- `Common/src/main/resources/assets/jei/atlases/gui.json`
+- `Common/src/main/resources/assets/jei/lang/no_no.json`
+- `Common/src/main/resources/assets/jei/lang/pt_pt.json`
+- `Common/src/main/resources/assets/jei/lang/lt_lt.json`
+- `Common/src/main/resources/assets/jei/lang/zh_cn.json`
+- `Common/src/main/resources/assets/jei/lang/tr_tr.json`
+- `Common/src/main/resources/assets/jei/lang/lzh.json`
+- `Common/src/main/resources/assets/jei/lang/vi_vn.json`
+- `Common/src/main/resources/assets/jei/lang/bg_bg.json`
+- `Common/src/main/resources/assets/jei/lang/fr_fr.json`
+- `Common/src/main/resources/assets/jei/lang/zh_tw.json`
+- `Common/src/main/resources/assets/jei/lang/pl_pl.json`
+- `Common/src/main/resources/assets/jei/lang/kk_kz.json`
+- `Common/src/main/resources/assets/jei/lang/sv_se.json`
+- `Common/src/main/resources/assets/jei/lang/es_ar.json`
+- `Common/src/main/resources/assets/jei/lang/uk_ua.json`
+- `Common/src/main/resources/assets/jei/lang/it_it.json`
+- `Common/src/main/resources/assets/jei/lang/ko_kr.json`
+- `Common/src/main/resources/assets/jei/lang/id_id.json`
+- `Common/src/main/resources/assets/jei/lang/fi_fi.json`
+- `Common/src/main/resources/assets/jei/lang/cs_cz.json`
+- `Common/src/main/resources/assets/jei/lang/fil_ph.json`
+- `Common/src/main/resources/assets/jei/lang/ru_ru.json`
+- `Common/src/main/resources/assets/jei/lang/pt_br.json`
+- `Common/src/main/resources/assets/jei/lang/es_es.json`
+- `Common/src/main/resources/assets/jei/lang/el_gr.json`
+- `Common/src/main/resources/assets/jei/lang/de_de.json`
+- `Common/src/main/resources/assets/jei/lang/ja_jp.json`
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_16-21-34/mezz-JustEnoughItems` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- record `HoveredText` in `JeiChatItemLinkHover.java`
+- record `IngredientLink` in `JeiChatItemLinks.java`
+- enum `BookmarkTooltipFeature` in `BookmarkTooltipFeature.java`
+- enum `GiveMode` in `GiveMode.java`
+- enum `HistoryDisplaySide` in `HistoryDisplaySide.java`
+- interface `IClientConfig` in `IClientConfig.java`
+- interface `IClientToggleState` in `IClientToggleState.java`
+- interface `IIngredientFilterConfig` in `IIngredientFilterConfig.java`
+- interface `IIngredientGridConfig` in `IIngredientGridConfig.java`
+- interface `IJeiClientConfigs` in `IJeiClientConfigs.java`
+- interface `IServerConfig` in `IServerConfig.java`
+- enum `IngredientGridNavigationMode` in `IngredientGridNavigationMode.java`
+- enum `IngredientSortStage` in `IngredientSortStage.java`
+- enum `RecipeSorterStage` in `RecipeSorterStage.java`
+- interface `IConfigCategoryBuilder` in `IConfigCategoryBuilder.java`
+- interface `IConfigListener` in `IConfigListener.java`
+- interface `IConfigSchema` in `IConfigSchema.java`
+- interface `IConfigSchemaBuilder` in `IConfigSchemaBuilder.java`
+- interface `ISortingSerializer` in `ISortingSerializer.java`
+- record `TooltipRenderData` in `JeiTooltip.java`
+- key type `OffsetJeiInputHandler` (`OffsetJeiInputHandler.java`)
+- record `DrawableBlank` in `DrawableBlank.java`
+- record `Config` in `JeiAtlasManager.java`
+- interface `ITypedIngredientFactory` in `ITypedIngredientFactory.java`
+- interface `IInternalKeyMappings` in `IInternalKeyMappings.java`
+- record `MouseButtonEventData` in `MouseButtonEventData.java`
+- interface `IJeiKeyMappingBuilder` in `IJeiKeyMappingBuilder.java`
+- interface `IJeiKeyMappingCategoryBuilder` in `IJeiKeyMappingCategoryBuilder.java`
+- interface `IJeiKeyMappingInternal` in `IJeiKeyMappingInternal.java`
+- enum `JeiKeyConflictContext` in `JeiKeyConflictContext.java`
+- enum `JeiKeyModifier` in `JeiKeyModifier.java`
+- record `ClientPacketContext` in `ClientPacketContext.java`
+- key type `ClientPacketContext` (`ClientPacketContext.java`)
+- interface `IConnectionToClient` in `IConnectionToClient.java`
+- interface `IConnectionToServer` in `IConnectionToServer.java`
+- record `ServerPacketContext` in `ServerPacketContext.java`
+- key type `ServerPacketContext` (`ServerPacketContext.java`)
+- key type `PacketCheatPermission` (`PacketCheatPermission.java`)
+- key type `PacketDeletePlayerItem` (`PacketDeletePlayerItem.java`)
+- key type `PacketGiveItemStack` (`PacketGiveItemStack.java`)
+- key type `PacketRecipeTransfer` (`PacketRecipeTransfer.java`)
+- key type `PacketRecipeTransferCounted` (`PacketRecipeTransferCounted.java`)
+- key type `PacketRequestCheatPermission` (`PacketRequestCheatPermission.java`)
+- key type `PacketSetHotbarItemStack` (`PacketSetHotbarItemStack.java`)
+- key type `PlayToClientPacket` (`PlayToClientPacket.java`)
+- key type `PlayToServerPacket` (`PlayToServerPacket.java`)
+- key type `ClientCheatPermissionHandler` (`ClientCheatPermissionHandler.java`)
+- interface `IPlatformConfigHelper` in `IPlatformConfigHelper.java`
+- interface `IPlatformFluidHelperInternal` in `IPlatformFluidHelperInternal.java`
+- interface `IPlatformHelper` in `IPlatformHelper.java`
+
+## Port relevance to Re-Forestry
+- Mentions of `common` appear in `files/implemented-features.md` — check that file for port status.
+- JEI interop patterns; Re-Forestry already ships factory/core JEI plugins.
+
+## Source map
+- `Common/src/main/java/mezz/jei/common/Constants.java`
+- `Common/src/main/java/mezz/jei/common/Internal.java`
+- `Common/src/main/java/mezz/jei/common/JeiFeatures.java`
+- `Common/src/main/java/mezz/jei/common/chat/JeiChatItemLinkHover.java`
+- `Common/src/main/java/mezz/jei/common/chat/JeiChatItemLinkRecipeLookup.java`
+- `Common/src/main/java/mezz/jei/common/chat/JeiChatItemLinks.java`
+- `Common/src/main/java/mezz/jei/common/chat/package-info.java`
+- `Common/src/main/java/mezz/jei/common/codecs/EnumCodec.java`
+- `Common/src/main/java/mezz/jei/common/codecs/TupleCodec.java`
+- `Common/src/main/java/mezz/jei/common/codecs/TypedIngredientCodecs.java`
+- `Common/src/main/java/mezz/jei/common/codecs/package-info.java`
+- `Common/src/main/java/mezz/jei/common/collect/ListMultiMap.java`
+- `Common/src/main/java/mezz/jei/common/collect/MultiMap.java`
+- `Common/src/main/java/mezz/jei/common/collect/SetMultiMap.java`
+- `Common/src/main/java/mezz/jei/common/collect/Table.java`
+- `Common/src/main/java/mezz/jei/common/collect/package-info.java`
+- `Common/src/main/java/mezz/jei/common/config/BookmarkTooltipFeature.java`
+- `Common/src/main/java/mezz/jei/common/config/ClientConfig.java`
+- `Common/src/main/java/mezz/jei/common/config/ClientToggleState.java`
+- `Common/src/main/java/mezz/jei/common/config/ConfigManager.java`
+- `Common/src/main/java/mezz/jei/common/config/DebugConfig.java`
+- `Common/src/main/java/mezz/jei/common/config/GiveMode.java`
+- `Common/src/main/java/mezz/jei/common/config/HistoryDisplaySide.java`
+- `Common/src/main/java/mezz/jei/common/config/IClientConfig.java`
+- `Common/src/main/java/mezz/jei/common/config/IClientToggleState.java`
+- `Common/src/main/java/mezz/jei/common/config/IIngredientFilterConfig.java`
+- `Common/src/main/java/mezz/jei/common/config/IIngredientGridConfig.java`
+- `Common/src/main/java/mezz/jei/common/config/IJeiClientConfigs.java`
+- `Common/src/main/java/mezz/jei/common/config/IServerConfig.java`
+- `Common/src/main/java/mezz/jei/common/config/IngredientFilterConfig.java`
+- `Common/src/main/java/mezz/jei/common/config/IngredientGridConfig.java`
+- `Common/src/main/java/mezz/jei/common/config/IngredientGridNavigationMode.java`
+- `Common/src/main/java/mezz/jei/common/config/IngredientSortStage.java`
+- `Common/src/main/java/mezz/jei/common/config/JeiClientConfigs.java`
+- `Common/src/main/java/mezz/jei/common/config/RecipeSorterStage.java`
+- `Common/src/main/java/mezz/jei/common/config/file/ConfigCategory.java`
+- `Common/src/main/java/mezz/jei/common/config/file/ConfigCategoryBuilder.java`
+- `Common/src/main/java/mezz/jei/common/config/file/ConfigSchema.java`
+- `Common/src/main/java/mezz/jei/common/config/file/ConfigSchemaBuilder.java`
+- `Common/src/main/java/mezz/jei/common/config/file/ConfigSerializer.java`
+- `Common/src/main/java/mezz/jei/common/config/file/ConfigValue.java`
+- `Common/src/main/java/mezz/jei/common/config/file/FileWatcher.java`
+- `Common/src/main/java/mezz/jei/common/config/file/FileWatcherThread.java`
+- `Common/src/main/java/mezz/jei/common/config/file/IConfigCategoryBuilder.java`
+- `Common/src/main/java/mezz/jei/common/config/file/IConfigListener.java`
+- `Common/src/main/java/mezz/jei/common/config/file/IConfigSchema.java`
+- `Common/src/main/java/mezz/jei/common/config/file/IConfigSchemaBuilder.java`
+- `Common/src/main/java/mezz/jei/common/config/file/JsonArrayFileHelper.java`
+- `Common/src/main/java/mezz/jei/common/config/file/JsonArrayWriter.java`
+- `Common/src/main/java/mezz/jei/common/config/file/package-info.java`
+- `Common/src/main/java/mezz/jei/common/config/file/serializers/BooleanSerializer.java`
+- `Common/src/main/java/mezz/jei/common/config/file/serializers/DeserializeResult.java`
+- `Common/src/main/java/mezz/jei/common/config/file/serializers/EnumSerializer.java`
+- `Common/src/main/java/mezz/jei/common/config/file/serializers/IntegerSerializer.java`
+- `Common/src/main/java/mezz/jei/common/config/file/serializers/ListSerializer.java`
+- `Common/src/main/java/mezz/jei/common/config/file/serializers/package-info.java`
+- `Common/src/main/java/mezz/jei/common/config/package-info.java`
+- `Common/src/main/java/mezz/jei/common/config/sorting/MappedSortingConfig.java`
+- `Common/src/main/java/mezz/jei/common/config/sorting/SortingConfig.java`
+- `Common/src/main/java/mezz/jei/common/config/sorting/package-info.java`
+- `Common/src/main/java/mezz/jei/common/config/sorting/serializers/ISortingSerializer.java`
+- `Common/src/main/java/mezz/jei/common/config/sorting/serializers/SortingSerializers.java`
+- `Common/src/main/java/mezz/jei/common/config/sorting/serializers/package-info.java`
+- `Common/src/main/java/mezz/jei/common/gui/IngredientTooltipComponent.java`
+- `Common/src/main/java/mezz/jei/common/gui/IngredientsTooltipComponent.java`
+- `Common/src/main/java/mezz/jei/common/gui/JeiTooltip.java`
+- `Common/src/main/java/mezz/jei/common/gui/OffsetJeiInputHandler.java`
+- `Common/src/main/java/mezz/jei/common/gui/RecipeLayoutDrawableErrored.java`
+- `Common/src/main/java/mezz/jei/common/gui/elements/DrawableAnimated.java`
+- `Common/src/main/java/mezz/jei/common/gui/elements/DrawableBlank.java`
+- `Common/src/main/java/mezz/jei/common/gui/elements/DrawableCombined.java`
+- `Common/src/main/java/mezz/jei/common/gui/elements/DrawableIngredient.java`
+- `Common/src/main/java/mezz/jei/common/gui/elements/DrawableResource.java`
+- `Common/src/main/java/mezz/jei/common/gui/elements/DrawableSprite.java`
+- `Common/src/main/java/mezz/jei/common/gui/elements/DrawableText.java`
+- `Common/src/main/java/mezz/jei/common/gui/elements/DrawableWrappedText.java`
+- `Common/src/main/java/mezz/jei/common/gui/elements/HighResolutionDrawable.java`
+- `Common/src/main/java/mezz/jei/common/gui/elements/OffsetDrawable.java`
+- `Common/src/main/java/mezz/jei/common/gui/elements/ScalableDrawable.java`
+- `Common/src/main/java/mezz/jei/common/gui/elements/TextWidget.java`
+- `Common/src/main/java/mezz/jei/common/gui/elements/package-info.java`
+- `Common/src/main/java/mezz/jei/common/gui/package-info.java`
+- `Common/src/main/java/mezz/jei/common/gui/textures/JeiAtlasManager.java`
+- `Common/src/main/java/mezz/jei/common/gui/textures/Textures.java`
+- `Common/src/main/java/mezz/jei/common/gui/textures/package-info.java`
+- `Common/src/main/java/mezz/jei/common/ingredients/ITypedIngredientFactory.java`
+- `Common/src/main/java/mezz/jei/common/ingredients/package-info.java`
+- `Common/src/main/java/mezz/jei/common/input/ClickableIngredient.java`
+- `Common/src/main/java/mezz/jei/common/input/ClickableIngredientFactory.java`
+- `Common/src/main/java/mezz/jei/common/input/IInternalKeyMappings.java`
+- `Common/src/main/java/mezz/jei/common/input/KeyNameUtil.java`
+- `Common/src/main/java/mezz/jei/common/input/MouseButtonEventData.java`
+- `Common/src/main/java/mezz/jei/common/input/keys/AbstractJeiKeyMappingBuilder.java`
+- `Common/src/main/java/mezz/jei/common/input/keys/IJeiKeyMappingBuilder.java`
+- `Common/src/main/java/mezz/jei/common/input/keys/IJeiKeyMappingCategoryBuilder.java`
+- `Common/src/main/java/mezz/jei/common/input/keys/IJeiKeyMappingInternal.java`
+- `Common/src/main/java/mezz/jei/common/input/keys/JeiKeyConflictContext.java`
+- `Common/src/main/java/mezz/jei/common/input/keys/JeiKeyModifier.java`
+- `Common/src/main/java/mezz/jei/common/input/keys/JeiMultiKeyMapping.java`
+- `Common/src/main/java/mezz/jei/common/input/keys/package-info.java`
+- `Common/src/main/java/mezz/jei/common/input/package-info.java`
+- `Common/src/main/java/mezz/jei/common/network/ClientConnectionHelper.java`
+- `Common/src/main/java/mezz/jei/common/network/ClientPacketContext.java`
+- `Common/src/main/java/mezz/jei/common/network/IConnectionToClient.java`
+- `Common/src/main/java/mezz/jei/common/network/IConnectionToServer.java`
+- `Common/src/main/java/mezz/jei/common/network/ServerPacketContext.java`
+- `Common/src/main/java/mezz/jei/common/network/codecs/EnumStreamCodec.java`
+- `Common/src/main/java/mezz/jei/common/network/codecs/package-info.java`
+- `Common/src/main/java/mezz/jei/common/network/package-info.java`
+- `Common/src/main/java/mezz/jei/common/network/packets/PacketCheatPermission.java`
+- `Common/src/main/java/mezz/jei/common/network/packets/PacketDeletePlayerItem.java`
+- `Common/src/main/java/mezz/jei/common/network/packets/PacketGiveItemStack.java`
+- `Common/src/main/java/mezz/jei/common/network/packets/PacketRecipeTransfer.java`
+- `Common/src/main/java/mezz/jei/common/network/packets/PacketRecipeTransferCounted.java`
+- `Common/src/main/java/mezz/jei/common/network/packets/PacketRequestCheatPermission.java`
+- `Common/src/main/java/mezz/jei/common/network/packets/PacketSetHotbarItemStack.java`
+- `Common/src/main/java/mezz/jei/common/network/packets/PlayToClientPacket.java`
+- `Common/src/main/java/mezz/jei/common/network/packets/PlayToServerPacket.java`
+- `Common/src/main/java/mezz/jei/common/network/packets/handlers/ClientCheatPermissionHandler.java`
+- `Common/src/main/java/mezz/jei/common/network/packets/handlers/package-info.java`
+- … and 73 more under `Common/src/main/java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

@@ -2,12 +2,15 @@ package com.leon1236.reforestry.apiculture.features;
 
 import net.minecraft.core.BlockPos;
 
+import net.minecraft.network.codec.ByteBufCodecs;
+
 import com.leon1236.reforestry.ReForestry;
 import com.leon1236.reforestry.apiculture.gui.ContainerAlveary;
 import com.leon1236.reforestry.apiculture.gui.ContainerAlvearyHygroregulator;
 import com.leon1236.reforestry.apiculture.gui.ContainerAlvearySieve;
 import com.leon1236.reforestry.apiculture.gui.ContainerAlvearySwarmer;
 import com.leon1236.reforestry.apiculture.gui.ContainerBeeHousing;
+import com.leon1236.reforestry.apiculture.gui.ContainerHabitatLocator;
 import com.leon1236.reforestry.modules.features.FeatureMenuType;
 import com.leon1236.reforestry.modules.features.IFeatureRegistry;
 import com.leon1236.reforestry.modules.features.ModFeatureRegistry;
@@ -29,6 +32,9 @@ public class ApicultureMenuTypes {
 
     public static final FeatureMenuType<ContainerAlvearySwarmer, BlockPos> ALVEARY_SWARMER =
             REGISTRY.menuType("alveary_swarmer", ContainerAlvearySwarmer::new, BlockPos.STREAM_CODEC);
+
+    public static final FeatureMenuType<ContainerHabitatLocator, Boolean> HABITAT_LOCATOR =
+            REGISTRY.menuType("habitat_locator", ContainerHabitatLocator::fromNetwork, ByteBufCodecs.BOOL);
 
     public static void init() {
     }

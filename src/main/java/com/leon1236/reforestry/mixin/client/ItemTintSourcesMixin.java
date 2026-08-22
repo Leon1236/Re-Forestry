@@ -18,6 +18,8 @@ import com.leon1236.reforestry.apiculture.client.BeeBodyTintSource;
 import com.leon1236.reforestry.apiculture.client.BeeOutlineTintSource;
 import com.leon1236.reforestry.apiculture.client.BeeStripesTintSource;
 import com.leon1236.reforestry.arboriculture.client.PollenTintSource;
+import com.leon1236.reforestry.climatology.client.HabitatScreenClimateTintSource;
+import com.leon1236.reforestry.climatology.client.HabitatScreenLinkTintSource;
 import com.leon1236.reforestry.core.client.FluidContainerTintSource;
 import com.leon1236.reforestry.core.client.PipetteFluidTintSource;
 import com.leon1236.reforestry.lepidopterology.client.ButterflySerumTintSource;
@@ -37,5 +39,7 @@ public class ItemTintSourcesMixin {
         ID_MAPPER.put(ReForestry.id("pipette_fluid"), PipetteFluidTintSource.MAP_CODEC);
         ID_MAPPER.put(ReForestry.id("fluid_container"), FluidContainerTintSource.MAP_CODEC);
         ID_MAPPER.put(ReForestry.id("butterfly_serum"), ButterflySerumTintSource.MAP_CODEC);
+        ID_MAPPER.put(ReForestry.id("habitat_screen_climate"), HabitatScreenClimateTintSource.MAP_CODEC);
+        ID_MAPPER.put(ReForestry.id("habitat_screen_link"), HabitatScreenLinkTintSource.MAP_CODEC);
     }
 }

@@ -3,7 +3,7 @@
 What is **done and working** in the mod today.  
 Update this file when a roadmap step lands. For how-to-build guidance, see `CLAUDE.md`. For the next work items, see **Next up** at the bottom.
 
-Last updated: 2026-08-22 (Wave 9 complete: stages 0–11 + 13)
+Last updated: 2026-08-22 (OR0 Habitat Former + Habitat Screen)
 
 ---
 
@@ -44,6 +44,10 @@ Last updated: 2026-08-22 (Wave 9 complete: stages 0–11 + 13)
 | W9-CORE-UX | Farm + analyzer UX | Farm CONTROL redstone wire connect; portable alyzer taxonomy + climate icons; farm/arbor almanac verified. See `queries/wave9-stage9.md` |
 | W9-BOOK-BEE | Beekeeping almanac batch | 19 beekeeping + alveary pages; `tools/validate_book.py`. See `queries/wave9-stage10.md` |
 | TR1 | Trinkets spectacles slot | Optional `compat/trinkets/` — spectacles in head face/hat when Trinkets loaded; helmet slot unchanged (A5). See `queries/wave9-stage11-tr1.md` |
+| POST-W9-RECIPES | Core recipe catch-up | 12 almanac recipes (compost, gears, humus, resource storage). `validate_book.py` OK. See `queries/post-wave9-core-recipes.md` |
+| OR3 | Habitat locator | 1.12 restore: bee + honey → biome search GUI. See `queries/wave8-or3-habitat-locator.md` |
+| OR0 | Habitat Former + Habitat Screen | 1.12 climatology restore: world climate overlay + Former machine/GUI + Screen probe/preview. See `queries/or0-climatology-port.md` |
+| ET-K | Bottle rack | 36-tank ET fluid storage machine. See `queries/extra-trees-ET-K.md` |
 
 ---
 
@@ -248,11 +252,19 @@ Play notes: `queries/storage-B1-b3-backpacks.md`, `queries/storage-B4-naturalist
 
 ## Next up (not implemented yet)
 
-**Wave 9 is complete** (stages 0–11 + 13). Optional **Wave 8 restore** (Stage 12): climatology/greenhouse/database/decorative blocks — see `queries/remaining-work-stages.md`.
+**Wave 9** and **post–Wave 9 recipe polish** are complete (`validate_book.py` OK).
 
-Remaining almanac gaps: `validate_book.py` flags ~12 core pages referencing CE resource-storage / compost recipe ids not ported (tin/bronze/apatite blocks never registered).
+Optional **Wave 8 restore** remaining:
 
-**Wave 7 addons:** GD0 + EB1 + GD1–GD8 + EB5 + EB6 + EB-FLOWERS+EB3 + EB2a–EB2e + EB4 + ET1a + ET1b + ET2 + ET3 + ET4 + ET5 + ET6 + S2 **done**.
+| ID | Feature | Size | Notes |
+|---|---|---|---|
+| OR1 | Greenhouse multiblock | L | After OR0 (OR0 done — see `queries/or0-climatology-port.md`) |
+| OR2 | Species database | M | 1.12 restore |
+| CORE-D1..D3 | Decorative ash/waxstone/candle blocks | L | CE 1.21.1 dropped; restore-only |
+
+**Extra Trees:** ET-D designer/stained glass — **deferred** (`queries/et-d-et-k-port.md`). ET-K bottle rack **done**.
+
+**Factory deferrals (cosmetic):** animated machine BER / squeezer fill animation — smelter texture already present under `textures/block/machines/smelter/`.
 
 | ID | Status | Notes |
 |---|---|---|

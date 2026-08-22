@@ -1,0 +1,5 @@
+# ForestryCE dual clone 2026-08-17
+# Folders were created with git clone --depth 1 --branch <branch> --single-branch
+# thedarkcolour-ForestryCE-1.20.1  branch 1.20.1  (final frozen snapshot, df32704)
+# thedarkcolour-ForestryCE         branch 1.21.1  (primary CE reference, 3ab0463)
+https://github.com/thedarkcolour/ForestryCE.git

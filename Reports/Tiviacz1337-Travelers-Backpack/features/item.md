@@ -1,0 +1,241 @@
+# Tiviacz1337-Travelers-Backpack — item
+
+- Alias: `backpack`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-30/Tiviacz1337-Travelers-Backpack`
+- Package/path root: `src/main/java/com/tiviacz/travelersbackpack/item`
+- Java files scanned: **18**
+- Date: 2026-07-30
+
+## Summary
+Module `item` in `Tiviacz1337-Travelers-Backpack` is rooted at `src/main/java/com/tiviacz/travelersbackpack/item` (18 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `BackpackTankItem`
+- `HoseItem`
+- `SleepingBagItem`
+- `TravelersBackpackItem`
+- `BlastFurnaceUpgradeItem`
+- `CraftingUpgradeItem`
+- `FeedingUpgradeItem`
+- `FurnaceUpgradeItem`
+- `JukeboxUpgradeItem`
+- `LanternUpgradeItem`
+- `MagnetUpgradeItem`
+- `PickupUpgradeItem`
+- `RefillUpgradeItem`
+- `SmokerUpgradeItem`
+- `TanksUpgradeItem`
+- `TierUpgrade`
+- `UpgradeItem`
+- `VoidUpgradeItem`
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py backpack "item"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `upgrade`
+- Declaration skim (first files):
+  - `src/main/java/com/tiviacz/travelersbackpack/item/BackpackTankItem.java`
+    - L1: package com.tiviacz.travelersbackpack.item;
+    - L7: public class BackpackTankItem extends Item {
+    - L8: public BackpackTankItem(Properties properties) {
+    - L12: @Override
+    - L13: public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+  - `src/main/java/com/tiviacz/travelersbackpack/item/HoseItem.java`
+    - L1: package com.tiviacz.travelersbackpack.item;
+    - L68: public class HoseItem extends Item {
+    - L69: public HoseItem(Properties properties) {
+    - L74: @Override
+    - L75: public ItemUseAnimation getUseAnimation(ItemStack stack) {
+    - L82: @Override
+    - L83: public int getUseDuration(ItemStack pStack, LivingEntity pEntity) {
+    - L87: @Override
+    - L88: public void onUseTick(Level level, LivingEntity livingEntity, ItemStack stack, int remainingUseDuration) {
+    - L94: public boolean shouldEmitDrinkingSounds(int remainingUseDuration) {
+    - L101: public int consumeTicks() {
+    - L105: public float consumeSeconds() {
+  - `src/main/java/com/tiviacz/travelersbackpack/item/SleepingBagItem.java`
+    - L1: package com.tiviacz.travelersbackpack.item;
+    - L12: public class SleepingBagItem extends BedItem {
+    - L13: public SleepingBagItem(Block block, Properties properties) {
+    - L17: @Override
+    - L18: public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+    - L25: public static int getDefaultColor() {
+    - L32: @Override
+    - L33: public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay tooltipDisplay, Consumer<Component> componentConsumer, TooltipFlag tooltipFlag) {
+  - `src/main/java/com/tiviacz/travelersbackpack/item/TravelersBackpackItem.java`
+    - L1: package com.tiviacz.travelersbackpack.item;
+    - L67: public class TravelersBackpackItem extends BlockItem {
+    - L68: public TravelersBackpackItem(Properties properties, Block block) {
+    - L75: @Override
+    - L76: public InteractionResult use(Level level, Player player, InteractionHand hand) {
+    - L94: @Override
+    - L95: public InteractionResult useOn(UseOnContext context) {
+    - L100: @Override
+    - L101: public InteractionResult place(BlockPlaceContext context) {
+  - `src/main/java/com/tiviacz/travelersbackpack/item/upgrade/BlastFurnaceUpgradeItem.java`
+    - L1: package com.tiviacz.travelersbackpack.item.upgrade;
+    - L17: public class BlastFurnaceUpgradeItem extends UpgradeItem {
+    - L18: public BlastFurnaceUpgradeItem(Properties pProperties) {
+    - L22: @Override
+    - L23: public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+    - L30: @Override
+    - L31: public boolean isTickingUpgrade() {
+    - L35: @Override
+    - L36: public Class<? extends UpgradeBase<?>> getUpgradeClass() {
+    - L40: @Override
+    - L41: public TriFunction<UpgradeManager, Integer, ItemStack, Optional<? extends UpgradeBase<?>>> getUpgrade() {
+  - `src/main/java/com/tiviacz/travelersbackpack/item/upgrade/CraftingUpgradeItem.java`
+    - L1: package com.tiviacz.travelersbackpack.item.upgrade;
+    - L17: public class CraftingUpgradeItem extends UpgradeItem {
+    - L18: public CraftingUpgradeItem(Properties pProperties) {
+    - L22: @Override
+    - L23: public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+    - L30: @Override
+    - L31: public boolean requiresEquippedBackpack() {
+    - L35: @Override
+    - L36: public Class<? extends UpgradeBase<?>> getUpgradeClass() {
+    - L40: @Override
+    - L41: public TriFunction<UpgradeManager, Integer, ItemStack, Optional<? extends UpgradeBase<?>>> getUpgrade() {
+  - `src/main/java/com/tiviacz/travelersbackpack/item/upgrade/FeedingUpgradeItem.java`
+    - L1: package com.tiviacz.travelersbackpack.item.upgrade;
+    - L17: public class FeedingUpgradeItem extends UpgradeItem {
+    - L18: public FeedingUpgradeItem(Properties pProperties) {
+    - L22: @Override
+    - L23: public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+    - L30: @Override
+    - L31: public boolean isTickingUpgrade() {
+    - L35: @Override
+    - L36: public Class<? extends UpgradeBase<?>> getUpgradeClass() {
+    - L40: @Override
+    - L41: public TriFunction<UpgradeManager, Integer, ItemStack, Optional<? extends UpgradeBase<?>>> getUpgrade() {
+  - `src/main/java/com/tiviacz/travelersbackpack/item/upgrade/FurnaceUpgradeItem.java`
+    - L1: package com.tiviacz.travelersbackpack.item.upgrade;
+    - L17: public class FurnaceUpgradeItem extends UpgradeItem {
+    - L18: public FurnaceUpgradeItem(Properties pProperties) {
+    - L22: @Override
+    - L23: public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+    - L30: @Override
+    - L31: public boolean isTickingUpgrade() {
+    - L35: @Override
+    - L36: public Class<? extends UpgradeBase<?>> getUpgradeClass() {
+    - L40: @Override
+    - L41: public TriFunction<UpgradeManager, Integer, ItemStack, Optional<? extends UpgradeBase<?>>> getUpgrade() {
+  - `src/main/java/com/tiviacz/travelersbackpack/item/upgrade/JukeboxUpgradeItem.java`
+    - L1: package com.tiviacz.travelersbackpack.item.upgrade;
+    - L17: public class JukeboxUpgradeItem extends UpgradeItem {
+    - L18: public JukeboxUpgradeItem(Properties pProperties) {
+    - L22: @Override
+    - L23: public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+    - L30: @Override
+    - L31: public boolean hasBlockFunctionality() {
+    - L35: @Override
+    - L36: public Class<? extends UpgradeBase<?>> getUpgradeClass() {
+    - L40: @Override
+    - L41: public TriFunction<UpgradeManager, Integer, ItemStack, Optional<? extends UpgradeBase<?>>> getUpgrade() {
+  - `src/main/java/com/tiviacz/travelersbackpack/item/upgrade/LanternUpgradeItem.java`
+    - L1: package com.tiviacz.travelersbackpack.item.upgrade;
+    - L21: public class LanternUpgradeItem extends UpgradeItem {
+    - L22: public LanternUpgradeItem(Properties pProperties) {
+    - L26: @Override
+    - L27: public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+    - L34: @Environment(EnvType.CLIENT)
+    - L35: @Override
+    - L36: public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay tooltipDisplay, Consumer<Component> componentConsumer, TooltipFlag tooltipFlag) {
+    - L41: public static void addStatusTooltip(Consumer<Component> consumer) {
+    - L49: @Override
+    - L50: public boolean hasBlockFunctionality() {
+    - L54: @Override
+  - `src/main/java/com/tiviacz/travelersbackpack/item/upgrade/MagnetUpgradeItem.java`
+    - L1: package com.tiviacz.travelersbackpack.item.upgrade;
+    - L27: public class MagnetUpgradeItem extends UpgradeItem {
+    - L28: public MagnetUpgradeItem(Properties pProperties) {
+    - L32: @Override
+    - L33: public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+    - L40: @Environment(EnvType.CLIENT)
+    - L41: @Override
+    - L42: public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay tooltipDisplay, Consumer<Component> componentConsumer, TooltipFlag tooltipFlag) {
+    - L47: @Override
+    - L48: public boolean isTickingUpgrade() {
+    - L52: @Override
+    - L53: public Class<? extends UpgradeBase<?>> getUpgradeClass() {
+  - `src/main/java/com/tiviacz/travelersbackpack/item/upgrade/PickupUpgradeItem.java`
+    - L1: package com.tiviacz.travelersbackpack.item.upgrade;
+    - L19: public class PickupUpgradeItem extends UpgradeItem {
+    - L20: public PickupUpgradeItem(Properties pProperties) {
+    - L24: @Override
+    - L25: public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+    - L32: @Override
+    - L33: public Class<? extends UpgradeBase<?>> getUpgradeClass() {
+    - L37: @Override
+    - L38: public TriFunction<UpgradeManager, Integer, ItemStack, Optional<? extends UpgradeBase<?>>> getUpgrade() {
+
+## Data & assets
+Related resource paths (heuristic name match):
+- `src/main/resources/data/travelersbackpack/tags/item/blacklisted_items.json`
+- `src/main/resources/data/travelersbackpack/tags/item/acceptable_tools.json`
+- `src/main/resources/data/travelersbackpack/tags/item/sleeping_bags.json`
+- `src/main/resources/data/travelersbackpack/tags/item/backpack_upgrades.json`
+- `src/main/resources/data/travelersbackpack/tags/item/readme.txt`
+- `src/main/resources/data/travelersbackpack/tags/item/custom_travelers_backpack.json`
+- `src/main/resources/data/accessories/tags/item/back.json`
+- `src/main/resources/data/minecraft/tags/item/cauldron_can_remove_dye.json`
+- `src/main/resources/data/trinkets/tags/item/chest/back.json`
+- `src/main/resources/assets/travelersbackpack/items/cactus.json`
+- `src/main/resources/assets/travelersbackpack/items/iron_tier_upgrade.json`
+- `src/main/resources/assets/travelersbackpack/items/wolf.json`
+- `src/main/resources/assets/travelersbackpack/items/lantern_upgrade.json`
+- `src/main/resources/assets/travelersbackpack/items/brown_sleeping_bag.json`
+- `src/main/resources/assets/travelersbackpack/items/wither.json`
+- `src/main/resources/assets/travelersbackpack/items/coal.json`
+- `src/main/resources/assets/travelersbackpack/items/purple_sleeping_bag.json`
+- `src/main/resources/assets/travelersbackpack/items/squid.json`
+- `src/main/resources/assets/travelersbackpack/items/pig.json`
+- `src/main/resources/assets/travelersbackpack/items/melon.json`
+- `src/main/resources/assets/travelersbackpack/items/red_sleeping_bag.json`
+- `src/main/resources/assets/travelersbackpack/items/villager.json`
+- `src/main/resources/assets/travelersbackpack/items/skeleton.json`
+- `src/main/resources/assets/travelersbackpack/items/emerald.json`
+- `src/main/resources/assets/travelersbackpack/items/magnet_upgrade.json`
+- `src/main/resources/assets/travelersbackpack/items/pink_sleeping_bag.json`
+- `src/main/resources/assets/travelersbackpack/items/fox.json`
+- `src/main/resources/assets/travelersbackpack/items/pumpkin.json`
+- `src/main/resources/assets/travelersbackpack/items/cake.json`
+- `src/main/resources/assets/travelersbackpack/items/netherite.json`
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-30/Tiviacz1337-Travelers-Backpack` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- enum `Upgrade` in `TierUpgrade.java`
+
+## Port relevance to Re-Forestry
+- Mentions of `item` appear in `files/implemented-features.md` — check that file for port status.
+- Adopt inventory/GUI/attachment patterns into Re-Forestry packages — no donor dep.
+
+## Source map
+- `src/main/java/com/tiviacz/travelersbackpack/item/BackpackTankItem.java`
+- `src/main/java/com/tiviacz/travelersbackpack/item/HoseItem.java`
+- `src/main/java/com/tiviacz/travelersbackpack/item/SleepingBagItem.java`
+- `src/main/java/com/tiviacz/travelersbackpack/item/TravelersBackpackItem.java`
+- `src/main/java/com/tiviacz/travelersbackpack/item/upgrade/BlastFurnaceUpgradeItem.java`
+- `src/main/java/com/tiviacz/travelersbackpack/item/upgrade/CraftingUpgradeItem.java`
+- `src/main/java/com/tiviacz/travelersbackpack/item/upgrade/FeedingUpgradeItem.java`
+- `src/main/java/com/tiviacz/travelersbackpack/item/upgrade/FurnaceUpgradeItem.java`
+- `src/main/java/com/tiviacz/travelersbackpack/item/upgrade/JukeboxUpgradeItem.java`
+- `src/main/java/com/tiviacz/travelersbackpack/item/upgrade/LanternUpgradeItem.java`
+- `src/main/java/com/tiviacz/travelersbackpack/item/upgrade/MagnetUpgradeItem.java`
+- `src/main/java/com/tiviacz/travelersbackpack/item/upgrade/PickupUpgradeItem.java`
+- `src/main/java/com/tiviacz/travelersbackpack/item/upgrade/RefillUpgradeItem.java`
+- `src/main/java/com/tiviacz/travelersbackpack/item/upgrade/SmokerUpgradeItem.java`
+- `src/main/java/com/tiviacz/travelersbackpack/item/upgrade/TanksUpgradeItem.java`
+- `src/main/java/com/tiviacz/travelersbackpack/item/upgrade/TierUpgrade.java`
+- `src/main/java/com/tiviacz/travelersbackpack/item/upgrade/UpgradeItem.java`
+- `src/main/java/com/tiviacz/travelersbackpack/item/upgrade/VoidUpgradeItem.java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

@@ -1,0 +1,291 @@
+# mezz-JustEnoughItems — fabric-loader
+
+- Alias: `JEI`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_16-21-34/mezz-JustEnoughItems`
+- Package/path root: `Fabric/src/main/java`
+- Java files scanned: **62**
+- Date: 2026-07-30
+
+## Summary
+Module `fabric-loader` in `mezz-JustEnoughItems` is rooted at `Fabric/src/main/java` (62 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `JustEnoughItems`
+- `JustEnoughItemsClient`
+- `JeiChatEventHandler`
+- `JeiInternalShowCommand`
+- `package-info`
+- `ServerConfig`
+- `package-info`
+- `JeiCharTypedEvents`
+- `JeiLifecycleEvents`
+- `JeiScreenEvents`
+- `package-info`
+- `JeiFluidIngredient`
+- `package-info`
+- `package-info`
+- `AbstractJeiKeyMapping`
+- `AmecsHelper`
+- `AmecsJeiKeyMapping`
+- `AmecsJeiKeyMappingBuilder`
+- `AmecsJeiKeyMappingManagerLayer`
+- `AmecsJeiKeyModifier`
+- `AmecsKeyMappingWithContext`
+- `FabricAmecsSupport`
+- `FabricJeiKeyMapping`
+- `FabricJeiKeyMappingBuilder`
+- `FabricJeiKeyMappingCategoryBuilder`
+- `FabricKeyMapping`
+- `package-info`
+- `AmecsKeyModifiersEarlyInitMixin`
+- `ClientPacketListenerRecipeUpdateMixin`
+- `EffectsInInventoryMixin`
+- `GuiGraphicsExtractorMixin`
+- `KeyboardHandlerMixin`
+- `MinecraftMixin`
+- `ScreenMixin`
+- `package-info`
+- `ClientNetworkHandler`
+- `ConnectionToClient`
+- `ConnectionToServer`
+- `ServerNetworkHandler`
+- `package-info`
+- `package-info`
+- `BrewingRecipeMaker`
+- `ConfigHelper`
+- `FluidHelper`
+- `IngredientHelper`
+- `InputHelper`
+- `ItemStackHelper`
+- `ModHelper`
+- `PlatformHelper`
+- `RecipeHelper`
+- `RenderHelper`
+- `ScreenHelper`
+- `TestHelper`
+- `WorldHelper`
+- `package-info`
+- `FabricGuiPlugin`
+- `package-info`
+- `package-info`
+- `ClientLifecycleHandler`
+- `EventRegistration`
+- `FabricPluginFinder`
+- `package-info`
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py JEI "fabric-loader"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `mezz/jei/fabric`
+  - `mezz/jei/fabric/chat`
+  - `mezz/jei/fabric/config`
+  - `mezz/jei/fabric/events`
+  - `mezz/jei/fabric/ingredients`
+  - `mezz/jei/fabric/ingredients/fluid`
+  - `mezz/jei/fabric/input`
+  - `mezz/jei/fabric/mixin`
+  - `mezz/jei/fabric/network`
+  - `mezz/jei/fabric/platform`
+  - `mezz/jei/fabric/plugins`
+  - `mezz/jei/fabric/plugins/fabric`
+  - `mezz/jei/fabric/startup`
+- Declaration skim (first files):
+  - `Fabric/src/main/java/mezz/jei/fabric/JustEnoughItems.java`
+    - L1: package mezz.jei.fabric;
+    - L21: public class JustEnoughItems implements ModInitializer {
+    - L24: @Override
+    - L25: public void onInitialize() {
+  - `Fabric/src/main/java/mezz/jei/fabric/JustEnoughItemsClient.java`
+    - L1: package mezz.jei.fabric;
+    - L23: @SuppressWarnings("unused")
+    - L24: public class JustEnoughItemsClient implements ClientModInitializer {
+    - L25: @Override
+    - L26: public void onInitializeClient() {
+    - L55: public ResourceManagerReloadListener createReloadListener() {
+  - `Fabric/src/main/java/mezz/jei/fabric/chat/JeiChatEventHandler.java`
+    - L1: package mezz.jei.fabric.chat;
+    - L10: public final class JeiChatEventHandler {
+    - L14: public static void register() {
+  - `Fabric/src/main/java/mezz/jei/fabric/chat/JeiInternalShowCommand.java`
+    - L1: package mezz.jei.fabric.chat;
+    - L9: public final class JeiInternalShowCommand {
+    - L13: public static void register() {
+  - `Fabric/src/main/java/mezz/jei/fabric/chat/package-info.java`
+    - L1: @NullMarked
+    - L2: package mezz.jei.fabric.chat;
+  - `Fabric/src/main/java/mezz/jei/fabric/config/ServerConfig.java`
+    - L1: package mezz.jei.fabric.config;
+    - L19: public final class ServerConfig implements IServerConfig {
+    - L39: @Nullable
+    - L46: public static ServerConfig getInstance() {
+  - `Fabric/src/main/java/mezz/jei/fabric/config/package-info.java`
+    - L1: @NullMarked
+    - L2: package mezz.jei.fabric.config;
+  - `Fabric/src/main/java/mezz/jei/fabric/events/JeiCharTypedEvents.java`
+    - L1: package mezz.jei.fabric.events;
+    - L9: public class JeiCharTypedEvents {
+    - L10: public static final Event<BeforeCharTyped> BEFORE_CHAR_TYPED = createBeforeCharTypedEvent();
+    - L12: public static final Event<AfterCharTyped> AFTER_CHAR_TYPED = createAfterCharTypedEvent();
+    - L44: @Environment(EnvType.CLIENT)
+    - L45: @FunctionalInterface
+    - L46: public interface BeforeCharTyped {
+    - L50: @Environment(EnvType.CLIENT)
+    - L51: @FunctionalInterface
+    - L52: public interface AfterCharTyped {
+  - `Fabric/src/main/java/mezz/jei/fabric/events/JeiLifecycleEvents.java`
+    - L1: package mezz.jei.fabric.events;
+    - L10: public class JeiLifecycleEvents {
+    - L11: public static final Event<Runnable> GAME_STOP = createRunnableEvent();
+    - L13: public static final Event<Runnable> AFTER_RECIPES_UPDATED = createRunnableEvent();
+    - L15: public static final Event<RegisterResourceReloadListener> REGISTER_RESOURCE_RELOAD_LISTENER = createResourceReloadListenerEvent();
+    - L41: @Environment(EnvType.CLIENT)
+    - L42: @FunctionalInterface
+    - L43: public interface RegisterResourceReloadListener {
+  - `Fabric/src/main/java/mezz/jei/fabric/events/JeiScreenEvents.java`
+    - L1: package mezz.jei.fabric.events;
+    - L11: public class JeiScreenEvents {
+    - L12: public static final Event<DrawForeground> DRAW_FOREGROUND = createDrawForegroundEvent();
+    - L26: @Environment(EnvType.CLIENT)
+    - L27: @FunctionalInterface
+    - L28: public interface DrawForeground {
+    - L32: public static final Event<DrawBackground> DRAW_BACKGROUND = createDrawBackgroundEvent();
+    - L46: @Environment(EnvType.CLIENT)
+    - L47: @FunctionalInterface
+    - L48: public interface DrawBackground {
+  - `Fabric/src/main/java/mezz/jei/fabric/events/package-info.java`
+    - L1: @NullMarked
+    - L2: package mezz.jei.fabric.events;
+  - `Fabric/src/main/java/mezz/jei/fabric/ingredients/fluid/JeiFluidIngredient.java`
+    - L1: package mezz.jei.fabric.ingredients.fluid;
+    - L6: public final class JeiFluidIngredient implements IJeiFluidIngredient {
+    - L10: public JeiFluidIngredient(FluidVariant fluid, long amount) {
+    - L15: @Override
+    - L16: public FluidVariant getFluidVariant() {
+    - L20: @Override
+    - L21: public long getAmount() {
+
+## Data & assets
+Related resource paths (heuristic name match):
+- `Common/src/main/resources/pack.mcmeta`
+- `Common/src/main/resources/jei-icon.png`
+- `Common/src/main/resources/assets/jei/atlases/gui.json`
+- `Common/src/main/resources/assets/jei/lang/no_no.json`
+- `Common/src/main/resources/assets/jei/lang/pt_pt.json`
+- `Common/src/main/resources/assets/jei/lang/lt_lt.json`
+- `Common/src/main/resources/assets/jei/lang/zh_cn.json`
+- `Common/src/main/resources/assets/jei/lang/tr_tr.json`
+- `Common/src/main/resources/assets/jei/lang/lzh.json`
+- `Common/src/main/resources/assets/jei/lang/vi_vn.json`
+- `Common/src/main/resources/assets/jei/lang/bg_bg.json`
+- `Common/src/main/resources/assets/jei/lang/fr_fr.json`
+- `Common/src/main/resources/assets/jei/lang/zh_tw.json`
+- `Common/src/main/resources/assets/jei/lang/pl_pl.json`
+- `Common/src/main/resources/assets/jei/lang/kk_kz.json`
+- `Common/src/main/resources/assets/jei/lang/sv_se.json`
+- `Common/src/main/resources/assets/jei/lang/es_ar.json`
+- `Common/src/main/resources/assets/jei/lang/uk_ua.json`
+- `Common/src/main/resources/assets/jei/lang/it_it.json`
+- `Common/src/main/resources/assets/jei/lang/ko_kr.json`
+- `Common/src/main/resources/assets/jei/lang/id_id.json`
+- `Common/src/main/resources/assets/jei/lang/fi_fi.json`
+- `Common/src/main/resources/assets/jei/lang/cs_cz.json`
+- `Common/src/main/resources/assets/jei/lang/fil_ph.json`
+- `Common/src/main/resources/assets/jei/lang/ru_ru.json`
+- `Common/src/main/resources/assets/jei/lang/pt_br.json`
+- `Common/src/main/resources/assets/jei/lang/es_es.json`
+- `Common/src/main/resources/assets/jei/lang/el_gr.json`
+- `Common/src/main/resources/assets/jei/lang/de_de.json`
+- `Common/src/main/resources/assets/jei/lang/ja_jp.json`
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_16-21-34/mezz-JustEnoughItems` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- key type `JeiChatEventHandler` (`JeiChatEventHandler.java`)
+- interface `BeforeCharTyped` in `JeiCharTypedEvents.java`
+- interface `AfterCharTyped` in `JeiCharTypedEvents.java`
+- interface `RegisterResourceReloadListener` in `JeiLifecycleEvents.java`
+- interface `DrawForeground` in `JeiScreenEvents.java`
+- interface `DrawBackground` in `JeiScreenEvents.java`
+- key type `ClientPacketListenerRecipeUpdateMixin` (`ClientPacketListenerRecipeUpdateMixin.java`)
+- key type `KeyboardHandlerMixin` (`KeyboardHandlerMixin.java`)
+- key type `ClientNetworkHandler` (`ClientNetworkHandler.java`)
+- key type `ServerNetworkHandler` (`ServerNetworkHandler.java`)
+- key type `FabricGuiPlugin` (`FabricGuiPlugin.java`)
+- key type `ClientLifecycleHandler` (`ClientLifecycleHandler.java`)
+- key type `FabricPluginFinder` (`FabricPluginFinder.java`)
+
+## Port relevance to Re-Forestry
+- JEI interop patterns; Re-Forestry already ships factory/core JEI plugins.
+
+## Source map
+- `Fabric/src/main/java/mezz/jei/fabric/JustEnoughItems.java`
+- `Fabric/src/main/java/mezz/jei/fabric/JustEnoughItemsClient.java`
+- `Fabric/src/main/java/mezz/jei/fabric/chat/JeiChatEventHandler.java`
+- `Fabric/src/main/java/mezz/jei/fabric/chat/JeiInternalShowCommand.java`
+- `Fabric/src/main/java/mezz/jei/fabric/chat/package-info.java`
+- `Fabric/src/main/java/mezz/jei/fabric/config/ServerConfig.java`
+- `Fabric/src/main/java/mezz/jei/fabric/config/package-info.java`
+- `Fabric/src/main/java/mezz/jei/fabric/events/JeiCharTypedEvents.java`
+- `Fabric/src/main/java/mezz/jei/fabric/events/JeiLifecycleEvents.java`
+- `Fabric/src/main/java/mezz/jei/fabric/events/JeiScreenEvents.java`
+- `Fabric/src/main/java/mezz/jei/fabric/events/package-info.java`
+- `Fabric/src/main/java/mezz/jei/fabric/ingredients/fluid/JeiFluidIngredient.java`
+- `Fabric/src/main/java/mezz/jei/fabric/ingredients/fluid/package-info.java`
+- `Fabric/src/main/java/mezz/jei/fabric/ingredients/package-info.java`
+- `Fabric/src/main/java/mezz/jei/fabric/input/AbstractJeiKeyMapping.java`
+- `Fabric/src/main/java/mezz/jei/fabric/input/AmecsHelper.java`
+- `Fabric/src/main/java/mezz/jei/fabric/input/AmecsJeiKeyMapping.java`
+- `Fabric/src/main/java/mezz/jei/fabric/input/AmecsJeiKeyMappingBuilder.java`
+- `Fabric/src/main/java/mezz/jei/fabric/input/AmecsJeiKeyMappingManagerLayer.java`
+- `Fabric/src/main/java/mezz/jei/fabric/input/AmecsJeiKeyModifier.java`
+- `Fabric/src/main/java/mezz/jei/fabric/input/AmecsKeyMappingWithContext.java`
+- `Fabric/src/main/java/mezz/jei/fabric/input/FabricAmecsSupport.java`
+- `Fabric/src/main/java/mezz/jei/fabric/input/FabricJeiKeyMapping.java`
+- `Fabric/src/main/java/mezz/jei/fabric/input/FabricJeiKeyMappingBuilder.java`
+- `Fabric/src/main/java/mezz/jei/fabric/input/FabricJeiKeyMappingCategoryBuilder.java`
+- `Fabric/src/main/java/mezz/jei/fabric/input/FabricKeyMapping.java`
+- `Fabric/src/main/java/mezz/jei/fabric/input/package-info.java`
+- `Fabric/src/main/java/mezz/jei/fabric/mixin/AmecsKeyModifiersEarlyInitMixin.java`
+- `Fabric/src/main/java/mezz/jei/fabric/mixin/ClientPacketListenerRecipeUpdateMixin.java`
+- `Fabric/src/main/java/mezz/jei/fabric/mixin/EffectsInInventoryMixin.java`
+- `Fabric/src/main/java/mezz/jei/fabric/mixin/GuiGraphicsExtractorMixin.java`
+- `Fabric/src/main/java/mezz/jei/fabric/mixin/KeyboardHandlerMixin.java`
+- `Fabric/src/main/java/mezz/jei/fabric/mixin/MinecraftMixin.java`
+- `Fabric/src/main/java/mezz/jei/fabric/mixin/ScreenMixin.java`
+- `Fabric/src/main/java/mezz/jei/fabric/mixin/package-info.java`
+- `Fabric/src/main/java/mezz/jei/fabric/network/ClientNetworkHandler.java`
+- `Fabric/src/main/java/mezz/jei/fabric/network/ConnectionToClient.java`
+- `Fabric/src/main/java/mezz/jei/fabric/network/ConnectionToServer.java`
+- `Fabric/src/main/java/mezz/jei/fabric/network/ServerNetworkHandler.java`
+- `Fabric/src/main/java/mezz/jei/fabric/network/package-info.java`
+- `Fabric/src/main/java/mezz/jei/fabric/package-info.java`
+- `Fabric/src/main/java/mezz/jei/fabric/platform/BrewingRecipeMaker.java`
+- `Fabric/src/main/java/mezz/jei/fabric/platform/ConfigHelper.java`
+- `Fabric/src/main/java/mezz/jei/fabric/platform/FluidHelper.java`
+- `Fabric/src/main/java/mezz/jei/fabric/platform/IngredientHelper.java`
+- `Fabric/src/main/java/mezz/jei/fabric/platform/InputHelper.java`
+- `Fabric/src/main/java/mezz/jei/fabric/platform/ItemStackHelper.java`
+- `Fabric/src/main/java/mezz/jei/fabric/platform/ModHelper.java`
+- `Fabric/src/main/java/mezz/jei/fabric/platform/PlatformHelper.java`
+- `Fabric/src/main/java/mezz/jei/fabric/platform/RecipeHelper.java`
+- `Fabric/src/main/java/mezz/jei/fabric/platform/RenderHelper.java`
+- `Fabric/src/main/java/mezz/jei/fabric/platform/ScreenHelper.java`
+- `Fabric/src/main/java/mezz/jei/fabric/platform/TestHelper.java`
+- `Fabric/src/main/java/mezz/jei/fabric/platform/WorldHelper.java`
+- `Fabric/src/main/java/mezz/jei/fabric/platform/package-info.java`
+- `Fabric/src/main/java/mezz/jei/fabric/plugins/fabric/FabricGuiPlugin.java`
+- `Fabric/src/main/java/mezz/jei/fabric/plugins/fabric/package-info.java`
+- `Fabric/src/main/java/mezz/jei/fabric/plugins/package-info.java`
+- `Fabric/src/main/java/mezz/jei/fabric/startup/ClientLifecycleHandler.java`
+- `Fabric/src/main/java/mezz/jei/fabric/startup/EventRegistration.java`
+- `Fabric/src/main/java/mezz/jei/fabric/startup/FabricPluginFinder.java`
+- `Fabric/src/main/java/mezz/jei/fabric/startup/package-info.java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

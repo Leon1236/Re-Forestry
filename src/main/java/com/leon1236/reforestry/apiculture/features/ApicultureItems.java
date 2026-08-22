@@ -19,6 +19,7 @@ import com.leon1236.reforestry.apiculture.items.ItemArmorApiarist;
 import com.leon1236.reforestry.apiculture.items.ItemBeeGE;
 import com.leon1236.reforestry.apiculture.items.ItemCreativeHiveFrame;
 import com.leon1236.reforestry.apiculture.items.ItemHiveFrame;
+import com.leon1236.reforestry.apiculture.items.ItemHabitatLocator;
 import com.leon1236.reforestry.apiculture.items.ItemScoop;
 import com.leon1236.reforestry.apiculture.items.ItemSmoker;
 import com.leon1236.reforestry.modules.features.FeatureItem;
@@ -105,6 +106,8 @@ public class ApicultureItems {
     public static final FeatureItem<ItemScoop> SCOOP_PROVEN = REGISTRY.item("scoop_proven",
             properties -> new ItemScoop(properties, 160));
     public static final FeatureItem<ItemSmoker> SMOKER = REGISTRY.item("smoker", ItemSmoker::new);
+    public static final FeatureItem<ItemHabitatLocator> HABITAT_LOCATOR =
+            REGISTRY.item("habitat_locator", ItemHabitatLocator::new);
 
     public static void init() {
     }

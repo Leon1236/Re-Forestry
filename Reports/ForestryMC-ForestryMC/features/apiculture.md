@@ -1,0 +1,442 @@
+# ForestryMC-ForestryMC — apiculture
+
+- Alias: `forestry12`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ForestryMC-ForestryMC`
+- Package/path root: `src/main/java/forestry/apiculture`
+- Java files scanned: **208**
+- Date: 2026-07-30
+
+## Summary
+Module `apiculture` in `ForestryMC-ForestryMC` is rooted at `src/main/java/forestry/apiculture` (208 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `AlvearyBeeModifier`
+- `ApiaristAI`
+- `ApiaryBeeListener`
+- `ApiaryBeeModifier`
+- `ApicultureFilterRule`
+- `ApicultureFilterRuleType`
+- `ArmorApiaristHelper`
+- `BeeHousingListener`
+- `BeeHousingModifier`
+- `BeehouseBeeModifier`
+- `BeekeepingLogic`
+- `FakeBeekeepingLogic`
+- `HasFlowersCache`
+- `HiveConfig`
+- `IApiary`
+- `InventoryBeeHousing`
+- `MaterialBeehive`
+- `ModuleApiculture`
+- `SaveEventHandlerApiculture`
+- `VillageCreationApiculture`
+- `VillagerApiaristTrades`
+- `WorldgenBeekeepingLogic`
+- `AlvearyItemModel`
+- `BlockAlveary`
+- `BlockAlvearyType`
+- `BlockApiculture`
+- `BlockBeeHives`
+- `BlockBeeProductType`
+- `BlockCandle`
+- `BlockHoneyComb`
+- `BlockRegistryApiculture`
+- `BlockStump`
+- `BlockTypeApiculture`
+- `BlockTypeApicultureTesr`
+- `package-info`
+- `ArmorApiarist`
+- `package-info`
+- `BeeModeHelper`
+- `BeeStatsSaveHelper`
+- `CommandBee`
+- `CommandBeeGive`
+- `package-info`
+- `ApicultureJeiPlugin`
+- `package-info`
+- `AIAvoidPlayers`
+- `EntityMinecartApiary`
+- `EntityMinecartBeeHousingBase`
+- `EntityMinecartBeehouse`
+- `ParticleBeeExplore`
+- `ParticleBeeRoundTrip`
+- `ParticleBeeTargetEntity`
+- `package-info`
+- `Flower`
+- `FlowerProvider`
+- `FlowerRegistry`
+- `GrowthRuleDirtGrass`
+- `GrowthRuleFertilize`
+- `GrowthRuleMycelium`
+- `GrowthRuleNone`
+- `GrowthRuleSnow`
+- `package-info`
+- `ApiaristTracker`
+- `Bee`
+- `BeeAlyzerPlugin`
+- `BeeBranchDefinition`
+- `BeeDatabaseTab`
+- `BeeDefinition`
+- `BeeFactory`
+- `BeeGenome`
+- `BeeMutation`
+- `BeeMutationFactory`
+- `BeePlugin`
+- `BeeRoot`
+- `BeeVariation`
+- `BeekeepingMode`
+- `BranchBees`
+- `DefaultBeeModelProvider`
+- `DefaultBeeSpriteColourProvider`
+- `HiveDrop`
+- `IBeeDefinition`
+- … and 128 more
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py forestry12 "apiculture"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `blocks`
+  - `capabilities`
+  - `commands`
+  - `compat`
+  - `entities`
+  - `flowers`
+  - `genetics`
+  - `genetics/alleles`
+  - `gui`
+  - `inventory`
+  - `items`
+  - `multiblock`
+  - `network`
+  - `network/packets`
+  - `render`
+  - `tiles`
+  - `trigger`
+  - `worldgen`
+- Declaration skim (first files):
+  - `src/main/java/forestry/apiculture/AlvearyBeeModifier.java`
+    - L11: package forestry.apiculture;
+    - L16: public class AlvearyBeeModifier extends DefaultBeeModifier {
+    - L17: @Override
+    - L18: public float getTerritoryModifier(IBeeGenome genome, float currentModifier) {
+  - `src/main/java/forestry/apiculture/ApiaristAI.java`
+    - L12: package forestry.apiculture;
+    - L29: public class ApiaristAI extends EntityAIMoveToBlock {
+    - L40: public ApiaristAI(EntityVillager villager, double speed) {
+    - L46: @Override
+    - L47: public boolean shouldExecute() {
+    - L55: @Override
+    - L56: public void updateTask() {
+    - L115: public boolean hasBeeType(EnumBeeType type) {
+  - `src/main/java/forestry/apiculture/ApiaryBeeListener.java`
+    - L11: package forestry.apiculture;
+    - L16: public class ApiaryBeeListener extends DefaultBeeListener {
+    - L19: public ApiaryBeeListener(IApiary apiary) {
+    - L23: @Override
+    - L24: public void wearOutEquipment(int amount) {
+  - `src/main/java/forestry/apiculture/ApiaryBeeModifier.java`
+    - L11: package forestry.apiculture;
+    - L16: public class ApiaryBeeModifier extends DefaultBeeModifier {
+    - L17: @Override
+    - L18: public float getProductionModifier(IBeeGenome genome, float currentModifier) {
+  - `src/main/java/forestry/apiculture/ApicultureFilterRule.java`
+    - L1: package forestry.apiculture;
+    - L14: public enum ApicultureFilterRule implements IFilterRule {
+    - L16: @Override
+    - L17: protected boolean isValid(IBee bee) {
+    - L22: @Override
+    - L23: protected boolean isValid(IBee bee) {
+    - L28: @Override
+    - L29: protected boolean isValid(IBee bee) {
+    - L34: @Override
+    - L35: protected boolean isValid(IBee bee) {
+    - L40: @Override
+    - L41: protected boolean isValid(IBee bee) {
+  - `src/main/java/forestry/apiculture/ApicultureFilterRuleType.java`
+    - L1: package forestry.apiculture;
+    - L20: public enum ApicultureFilterRuleType implements IFilterRuleType {
+    - L22: @Override
+    - L23: public boolean isValid(ItemStack itemStack, IFilterData data) {
+    - L28: @Override
+    - L29: public boolean isValid(ItemStack itemStack, IFilterData data) {
+    - L34: @Override
+    - L35: public boolean isValid(ItemStack itemStack, IFilterData data) {
+    - L40: @Override
+    - L41: public boolean isValid(ItemStack itemStack, IFilterData data) {
+    - L52: public static void init() {
+    - L58: @Override
+  - `src/main/java/forestry/apiculture/ArmorApiaristHelper.java`
+    - L11: package forestry.apiculture;
+    - L21: public class ArmorApiaristHelper implements IArmorApiaristHelper {
+    - L23: @Override
+    - L24: public boolean isArmorApiarist(ItemStack stack, EntityLivingBase entity, String cause, boolean doProtect) {
+    - L42: @Override
+    - L43: public int wearsItems(EntityLivingBase entity, String cause, boolean doProtect) {
+  - `src/main/java/forestry/apiculture/BeeHousingListener.java`
+    - L11: package forestry.apiculture;
+    - L17: public class BeeHousingListener implements IBeeListener {
+    - L20: public BeeHousingListener(IBeeHousing beeHousing) {
+    - L24: @Override
+    - L25: public void wearOutEquipment(int amount) {
+    - L31: @Override
+    - L32: public void onQueenDeath() {
+    - L38: @Override
+    - L39: public boolean onPollenRetrieved(IIndividual pollen) {
+  - `src/main/java/forestry/apiculture/BeeHousingModifier.java`
+    - L11: package forestry.apiculture;
+    - L19: public class BeeHousingModifier implements IBeeModifier {
+    - L22: public BeeHousingModifier(IBeeHousing beeHousing) {
+    - L26: @Override
+    - L27: public float getTerritoryModifier(IBeeGenome genome, final float currentModifier) {
+    - L35: @Override
+    - L36: public float getMutationModifier(IBeeGenome genome, IBeeGenome mate, final float currentModifier) {
+    - L44: @Override
+    - L45: public float getLifespanModifier(IBeeGenome genome, @Nullable IBeeGenome mate, final float currentModifier) {
+    - L53: @Override
+    - L54: public float getProductionModifier(IBeeGenome genome, final float currentModifier) {
+    - L62: @Override
+  - `src/main/java/forestry/apiculture/BeehouseBeeModifier.java`
+    - L11: package forestry.apiculture;
+    - L18: public class BeehouseBeeModifier extends DefaultBeeModifier {
+    - L19: @Override
+    - L20: public float getProductionModifier(IBeeGenome genome, float currentModifier) {
+    - L24: @Override
+    - L25: public float getMutationModifier(IBeeGenome genome, IBeeGenome mate, float currentModifier) {
+    - L29: @Override
+    - L30: public float getLifespanModifier(IBeeGenome genome, @Nullable IBeeGenome mate, float currentModifier) {
+    - L34: @Override
+    - L35: public float getFloweringModifier(IBeeGenome genome, float currentModifier) {
+    - L39: @Override
+    - L40: public float getGeneticDecay(IBeeGenome genome, float currentModifier) {
+  - `src/main/java/forestry/apiculture/BeekeepingLogic.java`
+    - L11: package forestry.apiculture;
+    - L60: public class BeekeepingLogic implements IBeekeepingLogic {
+    - L82: @Nullable
+    - L86: public BeekeepingLogic(IBeeHousing housing) {
+    - L93: @Override
+    - L94: public void readFromNBT(NBTTagCompound nbttagcompound) {
+    - L114: @Override
+    - L115: public NBTTagCompound writeToNBT(NBTTagCompound nbttagcompound) {
+  - `src/main/java/forestry/apiculture/FakeBeekeepingLogic.java`
+    - L11: package forestry.apiculture;
+    - L22: public class FakeBeekeepingLogic implements IBeekeepingLogic {
+    - L23: public static final FakeBeekeepingLogic instance = new FakeBeekeepingLogic();
+    - L29: @Override
+    - L30: public boolean canWork() {
+    - L34: @Override
+    - L35: public void doWork() {
+    - L39: @Override
+    - L40: public void clearCachedValues() {
+    - L44: @Override
+    - L45: public void syncToClient() {
+    - L49: @Override
+
+## Data & assets
+Related resource paths (heuristic name match):
+- `src/main/resources/assets/forestry/blockstates/apiculture/alveary_hygro.json`
+- `src/main/resources/assets/forestry/blockstates/apiculture/alveary_sieve.json`
+- `src/main/resources/assets/forestry/blockstates/apiculture/alveary_plain.json`
+- `src/main/resources/assets/forestry/blockstates/apiculture/alveary_swarmer.json`
+- `src/main/resources/assets/forestry/blockstates/apiculture/alveary_heater.json`
+- `src/main/resources/assets/forestry/blockstates/apiculture/alveary_fan.json`
+- `src/main/resources/assets/forestry/blockstates/apiculture/alveary_stabiliser.json`
+- `src/main/resources/assets/forestry/textures/blocks/apiculture/alveary.heater.off.png`
+- `src/main/resources/assets/forestry/textures/blocks/apiculture/alveary.plain.png`
+- `src/main/resources/assets/forestry/textures/blocks/apiculture/alveary.swarmer.on.png`
+- `src/main/resources/assets/forestry/textures/blocks/apiculture/alveary.entrance.png`
+- `src/main/resources/assets/forestry/textures/blocks/apiculture/alveary.stabiliser.png`
+- `src/main/resources/assets/forestry/textures/blocks/apiculture/alveary.swarmer.off.png`
+- `src/main/resources/assets/forestry/textures/blocks/apiculture/alveary.valve.png`
+- `src/main/resources/assets/forestry/textures/blocks/apiculture/alveary.fan.on.png`
+- `src/main/resources/assets/forestry/textures/blocks/apiculture/alveary.right.png`
+- `src/main/resources/assets/forestry/textures/blocks/apiculture/alveary.left.png`
+- `src/main/resources/assets/forestry/textures/blocks/apiculture/alveary.bottom.png`
+- `src/main/resources/assets/forestry/textures/blocks/apiculture/alveary.heater.on.png`
+- `src/main/resources/assets/forestry/textures/blocks/apiculture/alveary.sieve.png`
+- `src/main/resources/assets/forestry/textures/blocks/apiculture/alveary.fan.off.png`
+- `src/main/resources/assets/forestry/models/item/apiculture/alveary.heater.json`
+- `src/main/resources/assets/forestry/models/item/apiculture/alveary.plain.json`
+- `src/main/resources/assets/forestry/models/item/apiculture/alveary.fan.json`
+- `src/main/resources/assets/forestry/models/item/apiculture/alveary.sieve.json`
+- `src/main/resources/assets/forestry/models/item/apiculture/alveary.hygro.json`
+- `src/main/resources/assets/forestry/models/item/apiculture/alveary.entrance.json`
+- `src/main/resources/assets/forestry/models/item/apiculture/alveary.stabiliser.json`
+- `src/main/resources/assets/forestry/models/item/apiculture/alveary.swarmer.json`
+- `src/main/resources/assets/forestry/models/block/apiculture/alveary_plain_normal.json`
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ForestryMC-ForestryMC` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- enum `ApicultureFilterRule` in `ApicultureFilterRule.java`
+- enum `ApicultureFilterRuleType` in `ApicultureFilterRuleType.java`
+- interface `IApiary` in `IApiary.java`
+- key type `ModuleApiculture` (`ModuleApiculture.java`)
+- key type `SaveEventHandlerApiculture` (`SaveEventHandlerApiculture.java`)
+- enum `BlockAlvearyType` in `BlockAlvearyType.java`
+- enum `BlockBeeProductType` in `BlockBeeProductType.java`
+- key type `BlockRegistryApiculture` (`BlockRegistryApiculture.java`)
+- enum `BlockTypeApiculture` in `BlockTypeApiculture.java`
+- enum `BlockTypeApicultureTesr` in `BlockTypeApicultureTesr.java`
+- key type `ApicultureJeiPlugin` (`ApicultureJeiPlugin.java`)
+- key type `FlowerRegistry` (`FlowerRegistry.java`)
+- key type `BeeAlyzerPlugin` (`BeeAlyzerPlugin.java`)
+- enum `BeeBranchDefinition` in `BeeBranchDefinition.java`
+- enum `BeeDefinition` in `BeeDefinition.java`
+- key type `BeePlugin` (`BeePlugin.java`)
+- interface `IBeeDefinition` in `IBeeDefinition.java`
+- enum `Icon` in `GuiBeeHousing.java`
+- interface `IContainerBeeHousing` in `IContainerBeeHousing.java`
+- interface `IGuiBeeHousingDelegate` in `IGuiBeeHousingDelegate.java`
+- interface `IApiaryInventory` in `IApiaryInventory.java`
+- enum `EnumHoneyComb` in `EnumHoneyComb.java`
+- enum `EnumHoneyDrop` in `EnumHoneyDrop.java`
+- enum `EnumPollenCluster` in `EnumPollenCluster.java`
+- enum `EnumPropolis` in `EnumPropolis.java`
+- key type `ItemRegistryApiculture` (`ItemRegistryApiculture.java`)
+- interface `IAlvearyControllerInternal` in `IAlvearyControllerInternal.java`
+- key type `PacketRegistryApiculture` (`PacketRegistryApiculture.java`)
+- key type `PacketAlvearyChange` (`PacketAlvearyChange.java`)
+- key type `PacketBeeLogicActive` (`PacketBeeLogicActive.java`)
+- key type `PacketBeeLogicActiveEntity` (`PacketBeeLogicActiveEntity.java`)
+- key type `PacketBeeLogicEntityRequest` (`PacketBeeLogicEntityRequest.java`)
+- key type `PacketCandleUpdate` (`PacketCandleUpdate.java`)
+- key type `PacketHabitatBiomePointer` (`PacketHabitatBiomePointer.java`)
+- key type `PacketImprintSelectionResponse` (`PacketImprintSelectionResponse.java`)
+- enum `HiveDescription` in `HiveDescription.java`
+- key type `HiveRegistry` (`HiveRegistry.java`)
+
+## Port relevance to Re-Forestry
+- Mentions of `apiculture` appear in `files/implemented-features.md` — check that file for port status.
+- 1.12 Forestry — useful for CE-dropped content (greenhouse, book, climatology, database, etc.).
+
+## Source map
+- `src/main/java/forestry/apiculture/AlvearyBeeModifier.java`
+- `src/main/java/forestry/apiculture/ApiaristAI.java`
+- `src/main/java/forestry/apiculture/ApiaryBeeListener.java`
+- `src/main/java/forestry/apiculture/ApiaryBeeModifier.java`
+- `src/main/java/forestry/apiculture/ApicultureFilterRule.java`
+- `src/main/java/forestry/apiculture/ApicultureFilterRuleType.java`
+- `src/main/java/forestry/apiculture/ArmorApiaristHelper.java`
+- `src/main/java/forestry/apiculture/BeeHousingListener.java`
+- `src/main/java/forestry/apiculture/BeeHousingModifier.java`
+- `src/main/java/forestry/apiculture/BeehouseBeeModifier.java`
+- `src/main/java/forestry/apiculture/BeekeepingLogic.java`
+- `src/main/java/forestry/apiculture/FakeBeekeepingLogic.java`
+- `src/main/java/forestry/apiculture/HasFlowersCache.java`
+- `src/main/java/forestry/apiculture/HiveConfig.java`
+- `src/main/java/forestry/apiculture/IApiary.java`
+- `src/main/java/forestry/apiculture/InventoryBeeHousing.java`
+- `src/main/java/forestry/apiculture/MaterialBeehive.java`
+- `src/main/java/forestry/apiculture/ModuleApiculture.java`
+- `src/main/java/forestry/apiculture/SaveEventHandlerApiculture.java`
+- `src/main/java/forestry/apiculture/VillageCreationApiculture.java`
+- `src/main/java/forestry/apiculture/VillagerApiaristTrades.java`
+- `src/main/java/forestry/apiculture/WorldgenBeekeepingLogic.java`
+- `src/main/java/forestry/apiculture/blocks/AlvearyItemModel.java`
+- `src/main/java/forestry/apiculture/blocks/BlockAlveary.java`
+- `src/main/java/forestry/apiculture/blocks/BlockAlvearyType.java`
+- `src/main/java/forestry/apiculture/blocks/BlockApiculture.java`
+- `src/main/java/forestry/apiculture/blocks/BlockBeeHives.java`
+- `src/main/java/forestry/apiculture/blocks/BlockBeeProductType.java`
+- `src/main/java/forestry/apiculture/blocks/BlockCandle.java`
+- `src/main/java/forestry/apiculture/blocks/BlockHoneyComb.java`
+- `src/main/java/forestry/apiculture/blocks/BlockRegistryApiculture.java`
+- `src/main/java/forestry/apiculture/blocks/BlockStump.java`
+- `src/main/java/forestry/apiculture/blocks/BlockTypeApiculture.java`
+- `src/main/java/forestry/apiculture/blocks/BlockTypeApicultureTesr.java`
+- `src/main/java/forestry/apiculture/blocks/package-info.java`
+- `src/main/java/forestry/apiculture/capabilities/ArmorApiarist.java`
+- `src/main/java/forestry/apiculture/capabilities/package-info.java`
+- `src/main/java/forestry/apiculture/commands/BeeModeHelper.java`
+- `src/main/java/forestry/apiculture/commands/BeeStatsSaveHelper.java`
+- `src/main/java/forestry/apiculture/commands/CommandBee.java`
+- `src/main/java/forestry/apiculture/commands/CommandBeeGive.java`
+- `src/main/java/forestry/apiculture/commands/package-info.java`
+- `src/main/java/forestry/apiculture/compat/ApicultureJeiPlugin.java`
+- `src/main/java/forestry/apiculture/compat/package-info.java`
+- `src/main/java/forestry/apiculture/entities/AIAvoidPlayers.java`
+- `src/main/java/forestry/apiculture/entities/EntityMinecartApiary.java`
+- `src/main/java/forestry/apiculture/entities/EntityMinecartBeeHousingBase.java`
+- `src/main/java/forestry/apiculture/entities/EntityMinecartBeehouse.java`
+- `src/main/java/forestry/apiculture/entities/ParticleBeeExplore.java`
+- `src/main/java/forestry/apiculture/entities/ParticleBeeRoundTrip.java`
+- `src/main/java/forestry/apiculture/entities/ParticleBeeTargetEntity.java`
+- `src/main/java/forestry/apiculture/entities/package-info.java`
+- `src/main/java/forestry/apiculture/flowers/Flower.java`
+- `src/main/java/forestry/apiculture/flowers/FlowerProvider.java`
+- `src/main/java/forestry/apiculture/flowers/FlowerRegistry.java`
+- `src/main/java/forestry/apiculture/flowers/GrowthRuleDirtGrass.java`
+- `src/main/java/forestry/apiculture/flowers/GrowthRuleFertilize.java`
+- `src/main/java/forestry/apiculture/flowers/GrowthRuleMycelium.java`
+- `src/main/java/forestry/apiculture/flowers/GrowthRuleNone.java`
+- `src/main/java/forestry/apiculture/flowers/GrowthRuleSnow.java`
+- `src/main/java/forestry/apiculture/flowers/package-info.java`
+- `src/main/java/forestry/apiculture/genetics/ApiaristTracker.java`
+- `src/main/java/forestry/apiculture/genetics/Bee.java`
+- `src/main/java/forestry/apiculture/genetics/BeeAlyzerPlugin.java`
+- `src/main/java/forestry/apiculture/genetics/BeeBranchDefinition.java`
+- `src/main/java/forestry/apiculture/genetics/BeeDatabaseTab.java`
+- `src/main/java/forestry/apiculture/genetics/BeeDefinition.java`
+- `src/main/java/forestry/apiculture/genetics/BeeFactory.java`
+- `src/main/java/forestry/apiculture/genetics/BeeGenome.java`
+- `src/main/java/forestry/apiculture/genetics/BeeMutation.java`
+- `src/main/java/forestry/apiculture/genetics/BeeMutationFactory.java`
+- `src/main/java/forestry/apiculture/genetics/BeePlugin.java`
+- `src/main/java/forestry/apiculture/genetics/BeeRoot.java`
+- `src/main/java/forestry/apiculture/genetics/BeeVariation.java`
+- `src/main/java/forestry/apiculture/genetics/BeekeepingMode.java`
+- `src/main/java/forestry/apiculture/genetics/BranchBees.java`
+- `src/main/java/forestry/apiculture/genetics/DefaultBeeModelProvider.java`
+- `src/main/java/forestry/apiculture/genetics/DefaultBeeSpriteColourProvider.java`
+- `src/main/java/forestry/apiculture/genetics/HiveDrop.java`
+- `src/main/java/forestry/apiculture/genetics/IBeeDefinition.java`
+- `src/main/java/forestry/apiculture/genetics/JubilanceDefault.java`
+- `src/main/java/forestry/apiculture/genetics/JubilanceFactory.java`
+- `src/main/java/forestry/apiculture/genetics/JubilanceProviderHermit.java`
+- `src/main/java/forestry/apiculture/genetics/JubilanceRequiresResource.java`
+- `src/main/java/forestry/apiculture/genetics/alleles/AlleleBeeSpecies.java`
+- `src/main/java/forestry/apiculture/genetics/alleles/AlleleEffect.java`
+- `src/main/java/forestry/apiculture/genetics/alleles/AlleleEffectAggressive.java`
+- `src/main/java/forestry/apiculture/genetics/alleles/AlleleEffectCreeper.java`
+- `src/main/java/forestry/apiculture/genetics/alleles/AlleleEffectExploration.java`
+- `src/main/java/forestry/apiculture/genetics/alleles/AlleleEffectFertile.java`
+- `src/main/java/forestry/apiculture/genetics/alleles/AlleleEffectFungification.java`
+- `src/main/java/forestry/apiculture/genetics/alleles/AlleleEffectGlacial.java`
+- `src/main/java/forestry/apiculture/genetics/alleles/AlleleEffectHeroic.java`
+- `src/main/java/forestry/apiculture/genetics/alleles/AlleleEffectIgnition.java`
+- `src/main/java/forestry/apiculture/genetics/alleles/AlleleEffectMisanthrope.java`
+- `src/main/java/forestry/apiculture/genetics/alleles/AlleleEffectNone.java`
+- `src/main/java/forestry/apiculture/genetics/alleles/AlleleEffectPotion.java`
+- `src/main/java/forestry/apiculture/genetics/alleles/AlleleEffectRadioactive.java`
+- `src/main/java/forestry/apiculture/genetics/alleles/AlleleEffectRepulsion.java`
+- `src/main/java/forestry/apiculture/genetics/alleles/AlleleEffectResurrection.java`
+- `src/main/java/forestry/apiculture/genetics/alleles/AlleleEffectSnowing.java`
+- `src/main/java/forestry/apiculture/genetics/alleles/AlleleEffectThrottled.java`
+- `src/main/java/forestry/apiculture/genetics/alleles/AlleleEffects.java`
+- `src/main/java/forestry/apiculture/genetics/alleles/AlleleFlowers.java`
+- `src/main/java/forestry/apiculture/genetics/alleles/package-info.java`
+- `src/main/java/forestry/apiculture/genetics/package-info.java`
+- `src/main/java/forestry/apiculture/gui/ContainerAlveary.java`
+- `src/main/java/forestry/apiculture/gui/ContainerAlvearyHygroregulator.java`
+- `src/main/java/forestry/apiculture/gui/ContainerAlvearySieve.java`
+- `src/main/java/forestry/apiculture/gui/ContainerAlvearySwarmer.java`
+- `src/main/java/forestry/apiculture/gui/ContainerBeeHelper.java`
+- `src/main/java/forestry/apiculture/gui/ContainerBeeHousing.java`
+- `src/main/java/forestry/apiculture/gui/ContainerHabitatLocator.java`
+- `src/main/java/forestry/apiculture/gui/ContainerImprinter.java`
+- `src/main/java/forestry/apiculture/gui/ContainerMinecartBeehouse.java`
+- `src/main/java/forestry/apiculture/gui/GuiAlveary.java`
+- `src/main/java/forestry/apiculture/gui/GuiAlvearyHygroregulator.java`
+- `src/main/java/forestry/apiculture/gui/GuiAlvearySieve.java`
+- `src/main/java/forestry/apiculture/gui/GuiAlvearySwarmer.java`
+- `src/main/java/forestry/apiculture/gui/GuiBeeHousing.java`
+- … and 88 more under `src/main/java/forestry/apiculture`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

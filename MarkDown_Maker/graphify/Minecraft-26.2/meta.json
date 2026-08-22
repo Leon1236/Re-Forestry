@@ -1,0 +1,12 @@
+{
+  "repo": "Minecraft-26.2",
+  "clone": "/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/tmp_minecraft_26_2_src",
+  "scan_roots": [
+    "."
+  ],
+  "graph": "/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/graphify/Minecraft-26.2/graphify-out/graph.json",
+  "nodes": 80222,
+  "edges": 297589,
+  "seconds": null,
+  "built_at": "2026-07-29T13:15:09Z"
+}

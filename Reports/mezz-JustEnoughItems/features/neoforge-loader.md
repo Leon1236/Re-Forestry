@@ -1,0 +1,239 @@
+# mezz-JustEnoughItems — neoforge-loader
+
+- Alias: `JEI`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_16-21-34/mezz-JustEnoughItems`
+- Package/path root: `NeoForge/src/main/java`
+- Java files scanned: **45**
+- Date: 2026-07-30
+
+## Summary
+Module `neoforge-loader` in `mezz-JustEnoughItems` is rooted at `NeoForge/src/main/java` (45 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `JustEnoughItems`
+- `JustEnoughItemsClient`
+- `JustEnoughItemsClientSafeRunner`
+- `JeiChatEventHandler`
+- `JeiChatTooltipEventHandler`
+- `JeiInternalShowCommand`
+- `package-info`
+- `ServerConfig`
+- `package-info`
+- `EventSubscription`
+- `PermanentEventSubscriptions`
+- `RuntimeEventSubscriptions`
+- `package-info`
+- `ForgeJeiKeyMappingBuilder`
+- `ForgeJeiKeyMappingCategoryBuilder`
+- `ForgeUserInput`
+- `JeiForgeKeyConflictContexts`
+- `NeoForgeJeiKeyMapping`
+- `package-info`
+- `ConnectionToClient`
+- `ConnectionToServer`
+- `NetworkHandler`
+- `package-info`
+- `package-info`
+- `BrewingRecipeMaker`
+- `ConfigHelper`
+- `FluidHelper`
+- `IngredientHelper`
+- `InputHelper`
+- `ItemStackHelper`
+- `ModHelper`
+- `PlatformHelper`
+- `RecipeHelper`
+- `RenderHelper`
+- `ScreenHelper`
+- `TestHelper`
+- `WorldHelper`
+- `package-info`
+- `NeoForgeGuiPlugin`
+- `package-info`
+- `package-info`
+- `EventRegistration`
+- `ForgePluginFinder`
+- `StartEventObserver`
+- `package-info`
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py JEI "neoforge-loader"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `mezz/jei/neoforge`
+  - `mezz/jei/neoforge/chat`
+  - `mezz/jei/neoforge/config`
+  - `mezz/jei/neoforge/events`
+  - `mezz/jei/neoforge/input`
+  - `mezz/jei/neoforge/network`
+  - `mezz/jei/neoforge/platform`
+  - `mezz/jei/neoforge/plugins`
+  - `mezz/jei/neoforge/plugins/neoforge`
+  - `mezz/jei/neoforge/startup`
+- Declaration skim (first files):
+  - `NeoForge/src/main/java/mezz/jei/neoforge/JustEnoughItems.java`
+    - L1: package mezz.jei.neoforge;
+    - L18: @Mod(ModIds.JEI_ID)
+    - L19: public class JustEnoughItems {
+    - L21: public JustEnoughItems(IEventBus modEventBus, Dist dist) {
+  - `NeoForge/src/main/java/mezz/jei/neoforge/JustEnoughItemsClient.java`
+    - L1: package mezz.jei.neoforge;
+    - L45: public class JustEnoughItemsClient {
+    - L48: public JustEnoughItemsClient(
+    - L67: public void register() {
+  - `NeoForge/src/main/java/mezz/jei/neoforge/JustEnoughItemsClientSafeRunner.java`
+    - L1: package mezz.jei.neoforge;
+    - L6: public class JustEnoughItemsClientSafeRunner {
+    - L10: public JustEnoughItemsClientSafeRunner(
+    - L18: public void registerClient() {
+  - `NeoForge/src/main/java/mezz/jei/neoforge/chat/JeiChatEventHandler.java`
+    - L1: package mezz.jei.neoforge.chat;
+    - L10: public final class JeiChatEventHandler {
+    - L14: public static void register(PermanentEventSubscriptions subscriptions) {
+  - `NeoForge/src/main/java/mezz/jei/neoforge/chat/JeiChatTooltipEventHandler.java`
+    - L1: package mezz.jei.neoforge.chat;
+    - L18: public final class JeiChatTooltipEventHandler {
+    - L24: public static void register(PermanentEventSubscriptions subscriptions) {
+  - `NeoForge/src/main/java/mezz/jei/neoforge/chat/JeiInternalShowCommand.java`
+    - L1: package mezz.jei.neoforge.chat;
+    - L10: public final class JeiInternalShowCommand {
+    - L14: public static void register(PermanentEventSubscriptions subscriptions) {
+  - `NeoForge/src/main/java/mezz/jei/neoforge/chat/package-info.java`
+    - L1: @NullMarked
+    - L2: package mezz.jei.neoforge.chat;
+  - `NeoForge/src/main/java/mezz/jei/neoforge/config/ServerConfig.java`
+    - L1: package mezz.jei.neoforge.config;
+    - L11: public final class ServerConfig implements IServerConfig {
+    - L17: public static IServerConfig register(ModLoadingContext modLoadingContext) {
+    - L41: @Override
+    - L42: public boolean isCheatModeEnabledForOp() {
+    - L46: @Override
+    - L47: public boolean isCheatModeEnabledForCreative() {
+    - L51: @Override
+    - L52: public boolean isCheatModeEnabledForGive() {
+  - `NeoForge/src/main/java/mezz/jei/neoforge/config/package-info.java`
+    - L1: @NullMarked
+    - L2: package mezz.jei.neoforge.config;
+  - `NeoForge/src/main/java/mezz/jei/neoforge/events/EventSubscription.java`
+    - L1: package mezz.jei.neoforge.events;
+    - L10: public class EventSubscription<T extends Event> {
+    - L11: public static <T extends Event> EventSubscription<T> register(IEventBus eventBus, Class<T> eventType, Consumer<T> listener) {
+    - L15: public static <T extends Event> EventSubscription<T> register(IEventBus eventBus, EventPriority priority, Class<T> eventType, Consumer<T> listener) {
+    - L24: @SuppressWarnings({"FieldCanBeLocal", "unused"})
+    - L43: public void unregister() {
+  - `NeoForge/src/main/java/mezz/jei/neoforge/events/PermanentEventSubscriptions.java`
+    - L1: package mezz.jei.neoforge.events;
+    - L13: public class PermanentEventSubscriptions {
+    - L17: public PermanentEventSubscriptions(IEventBus eventBus, IEventBus modEventBus) {
+    - L22: public <T extends Event> void register(Class<T> eventType, Consumer<T> listener) {
+    - L26: public <T extends Event> void register(EventPriority priority, Class<T> eventType, Consumer<T> listener) {
+    - L34: public IEventBus getModEventBus() {
+  - `NeoForge/src/main/java/mezz/jei/neoforge/events/RuntimeEventSubscriptions.java`
+    - L1: package mezz.jei.neoforge.events;
+    - L17: public class RuntimeEventSubscriptions {
+    - L21: public RuntimeEventSubscriptions(IEventBus eventBus) {
+    - L26: public <T extends Event> void register(Class<T> eventType, Consumer<T> listener) {
+    - L30: public <T extends Event> void register(EventPriority priority, Class<T> eventType, Consumer<T> listener) {
+    - L39: public boolean isEmpty() {
+    - L43: public void clear() {
+
+## Data & assets
+Related resource paths (heuristic name match):
+- `Common/src/main/resources/pack.mcmeta`
+- `Common/src/main/resources/jei-icon.png`
+- `Common/src/main/resources/assets/jei/atlases/gui.json`
+- `Common/src/main/resources/assets/jei/lang/no_no.json`
+- `Common/src/main/resources/assets/jei/lang/pt_pt.json`
+- `Common/src/main/resources/assets/jei/lang/lt_lt.json`
+- `Common/src/main/resources/assets/jei/lang/zh_cn.json`
+- `Common/src/main/resources/assets/jei/lang/tr_tr.json`
+- `Common/src/main/resources/assets/jei/lang/lzh.json`
+- `Common/src/main/resources/assets/jei/lang/vi_vn.json`
+- `Common/src/main/resources/assets/jei/lang/bg_bg.json`
+- `Common/src/main/resources/assets/jei/lang/fr_fr.json`
+- `Common/src/main/resources/assets/jei/lang/zh_tw.json`
+- `Common/src/main/resources/assets/jei/lang/pl_pl.json`
+- `Common/src/main/resources/assets/jei/lang/kk_kz.json`
+- `Common/src/main/resources/assets/jei/lang/sv_se.json`
+- `Common/src/main/resources/assets/jei/lang/es_ar.json`
+- `Common/src/main/resources/assets/jei/lang/uk_ua.json`
+- `Common/src/main/resources/assets/jei/lang/it_it.json`
+- `Common/src/main/resources/assets/jei/lang/ko_kr.json`
+- `Common/src/main/resources/assets/jei/lang/id_id.json`
+- `Common/src/main/resources/assets/jei/lang/fi_fi.json`
+- `Common/src/main/resources/assets/jei/lang/cs_cz.json`
+- `Common/src/main/resources/assets/jei/lang/fil_ph.json`
+- `Common/src/main/resources/assets/jei/lang/ru_ru.json`
+- `Common/src/main/resources/assets/jei/lang/pt_br.json`
+- `Common/src/main/resources/assets/jei/lang/es_es.json`
+- `Common/src/main/resources/assets/jei/lang/el_gr.json`
+- `Common/src/main/resources/assets/jei/lang/de_de.json`
+- `Common/src/main/resources/assets/jei/lang/ja_jp.json`
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_16-21-34/mezz-JustEnoughItems` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- key type `JeiChatEventHandler` (`JeiChatEventHandler.java`)
+- key type `JeiChatTooltipEventHandler` (`JeiChatTooltipEventHandler.java`)
+- enum `JeiForgeKeyConflictContexts` in `JeiForgeKeyConflictContexts.java`
+- key type `NetworkHandler` (`NetworkHandler.java`)
+- key type `NeoForgeGuiPlugin` (`NeoForgeGuiPlugin.java`)
+- key type `ForgePluginFinder` (`ForgePluginFinder.java`)
+
+## Port relevance to Re-Forestry
+- JEI interop patterns; Re-Forestry already ships factory/core JEI plugins.
+
+## Source map
+- `NeoForge/src/main/java/mezz/jei/neoforge/JustEnoughItems.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/JustEnoughItemsClient.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/JustEnoughItemsClientSafeRunner.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/chat/JeiChatEventHandler.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/chat/JeiChatTooltipEventHandler.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/chat/JeiInternalShowCommand.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/chat/package-info.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/config/ServerConfig.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/config/package-info.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/events/EventSubscription.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/events/PermanentEventSubscriptions.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/events/RuntimeEventSubscriptions.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/events/package-info.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/input/ForgeJeiKeyMappingBuilder.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/input/ForgeJeiKeyMappingCategoryBuilder.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/input/ForgeUserInput.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/input/JeiForgeKeyConflictContexts.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/input/NeoForgeJeiKeyMapping.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/input/package-info.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/network/ConnectionToClient.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/network/ConnectionToServer.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/network/NetworkHandler.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/network/package-info.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/package-info.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/platform/BrewingRecipeMaker.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/platform/ConfigHelper.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/platform/FluidHelper.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/platform/IngredientHelper.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/platform/InputHelper.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/platform/ItemStackHelper.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/platform/ModHelper.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/platform/PlatformHelper.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/platform/RecipeHelper.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/platform/RenderHelper.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/platform/ScreenHelper.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/platform/TestHelper.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/platform/WorldHelper.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/platform/package-info.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/plugins/neoforge/NeoForgeGuiPlugin.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/plugins/neoforge/package-info.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/plugins/package-info.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/startup/EventRegistration.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/startup/ForgePluginFinder.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/startup/StartEventObserver.java`
+- `NeoForge/src/main/java/mezz/jei/neoforge/startup/package-info.java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

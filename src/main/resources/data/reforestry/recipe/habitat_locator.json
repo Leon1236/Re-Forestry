@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": "minecraft:compass",
+    "G": "#c:gears/bronze",
+    "E": "reforestry:electron_tube_emerald"
+  },
+  "pattern": [
+    "GEG",
+    "GCG",
+    "GEG"
+  ],
+  "result": {
+    "id": "reforestry:habitat_locator"
+  }
+}

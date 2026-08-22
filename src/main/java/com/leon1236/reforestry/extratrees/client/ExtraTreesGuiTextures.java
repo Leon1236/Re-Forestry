@@ -14,6 +14,7 @@ public final class ExtraTreesGuiTextures {
 	public static final Identifier PRESS = ReForestry.id("textures/gui/press.png");
 	public static final Identifier BREWERY = ReForestry.id("textures/gui/brewery.png");
 	public static final Identifier DISTILLERY = ReForestry.id("textures/gui/distillery.png");
+	public static final Identifier BOTTLE_RACK = ReForestry.id("textures/gui/bottle_rack.png");
 
 	public static void blitBackground(GuiGraphicsExtractor guiGraphics, Identifier texture, int left, int top, int width, int height) {
 		guiGraphics.blit(RenderPipelines.GUI_TEXTURED, texture, left, top, 0.0f, 0.0f, width, height, 256, 256);

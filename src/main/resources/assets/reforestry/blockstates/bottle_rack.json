@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "reforestry:block/bottle_rack"
+    },
+    "facing=south": {
+      "model": "reforestry:block/bottle_rack",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "reforestry:block/bottle_rack",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "reforestry:block/bottle_rack",
+      "y": 90
+    }
+  }
+}

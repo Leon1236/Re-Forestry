@@ -1,0 +1,294 @@
+# ForestryMC-ForestryMC — book
+
+- Alias: `forestry12`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ForestryMC-ForestryMC`
+- Package/path root: `src/main/java/forestry/book`
+- Java files scanned: **58**
+- Date: 2026-07-30
+
+## Summary
+Module `book` in `ForestryMC-ForestryMC` is rooted at `src/main/java/forestry/book` (58 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `BookCategory`
+- `BookEntry`
+- `BookEntryBuilder`
+- `BookLoader`
+- `EventHandlerBook`
+- `ForesterBook`
+- `ModuleBook`
+- `CraftingData`
+- `EntryData`
+- `IndexData`
+- `IndexEntry`
+- `TextData`
+- `CarpenterContent`
+- `CraftingContent`
+- `FabricatorContent`
+- `ImageContent`
+- `IndexContent`
+- `MutationContent`
+- `StructureContent`
+- `TextContent`
+- `package-info`
+- `BookCategoryDeserializer`
+- `BookContentDeserializer`
+- `package-info`
+- `package-info`
+- `BlockData`
+- `StructureBlockAccess`
+- `StructureData`
+- `StructureInfo`
+- `package-info`
+- `GuiForesterBook`
+- `GuiForestryBookCategories`
+- `GuiForestryBookEntries`
+- `GuiForestryBookPages`
+- `GuiButtonBack`
+- `GuiButtonBookCategory`
+- `GuiButtonEntry`
+- `GuiButtonPage`
+- `GuiButtonSubEntry`
+- `package-info`
+- `CarpenterElement`
+- `CraftingElement`
+- `FabricatorElement`
+- `IndexElement`
+- `MultiblockElement`
+- `MutationElement`
+- `SelectionElement`
+- `TextDataElement`
+- `package-info`
+- `package-info`
+- `ItemForesterBook`
+- `ItemRegistryBook`
+- `package-info`
+- `package-info`
+- `JsonPageFactory`
+- `package-info`
+- `ProxyBook`
+- `ProxyBookClient`
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py forestry12 "book"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `data`
+  - `data/content`
+  - `data/deserializer`
+  - `data/structure`
+  - `gui`
+  - `gui/buttons`
+  - `gui/elements`
+  - `items`
+  - `pages`
+  - `proxy`
+- Declaration skim (first files):
+  - `src/main/java/forestry/book/BookCategory.java`
+    - L1: package forestry.book;
+    - L18: @SideOnly(Side.CLIENT)
+    - L19: public class BookCategory implements IBookCategory {
+    - L24: public BookCategory(String name) {
+    - L28: @Override
+    - L29: public ItemStack getStack() {
+    - L33: @Override
+    - L34: public IBookCategory setStack(ItemStack stack) {
+    - L39: @Override
+    - L40: public IBookCategory addEntry(IBookEntry entry) {
+    - L45: @Override
+    - L46: public IBookCategory addEntry(String name, ItemStack stack) {
+  - `src/main/java/forestry/book/BookEntry.java`
+    - L1: package forestry.book;
+    - L15: @SideOnly(Side.CLIENT)
+    - L16: public class BookEntry implements IBookEntry {
+    - L20: @Nullable
+    - L36: @Override
+    - L37: public BookContent[][] getContent() {
+    - L41: @Override
+    - L42: public IBookPageFactory getPageFactory() {
+    - L46: @Override
+    - L47: public ItemStack getStack() {
+    - L51: @Override
+    - L52: public String getTitle() {
+  - `src/main/java/forestry/book/BookEntryBuilder.java`
+    - L1: package forestry.book;
+    - L19: @SideOnly(Side.CLIENT)
+    - L20: public class BookEntryBuilder implements IBookEntryBuilder {
+    - L34: @Override
+    - L35: public BookEntryBuilder setStack(ItemStack stack) {
+    - L40: @Override
+    - L41: public BookEntryBuilder setLoader(IBookPageFactory loader) {
+    - L46: @Override
+    - L47: public BookEntryBuilder createSubEntry(String name, ItemStack stack) {
+    - L53: @Override
+    - L54: public IBookEntryBuilder setContent(BookContent[][] content) {
+    - L59: @Override
+  - `src/main/java/forestry/book/BookLoader.java`
+    - L1: package forestry.book;
+    - L56: @SideOnly(Side.CLIENT)
+    - L57: public class BookLoader implements IResourceManagerReloadListener, IBookLoader {
+    - L58: public static final Gson GSON = new GsonBuilder()
+    - L65: public static final BookLoader INSTANCE = new BookLoader();
+    - L71: @Nullable
+    - L86: @Override
+    - L87: public void registerContentType(String name, Class<? extends BookContent> contentClass) {
+    - L91: @Override
+    - L92: public void registerPageFactory(String name, IBookPageFactory factory) {
+    - L96: @Override
+    - L97: public IBookPageFactory getPageFactory(String name) {
+  - `src/main/java/forestry/book/EventHandlerBook.java`
+    - L1: package forestry.book;
+    - L14: public class EventHandlerBook {
+    - L18: @SubscribeEvent
+    - L19: public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
+  - `src/main/java/forestry/book/ForesterBook.java`
+    - L1: package forestry.book;
+    - L16: @SideOnly(Side.CLIENT)
+    - L17: public class ForesterBook implements IForesterBook {
+    - L21: @Override
+    - L22: public Collection<String> getCategoryNames() {
+    - L26: @Override
+    - L27: public IBookCategory addCategory(String name) {
+    - L41: @Nullable
+    - L42: @Override
+    - L43: public IBookCategory getCategory(String name) {
+    - L47: @Override
+    - L48: public Collection<IBookCategory> getCategories() {
+  - `src/main/java/forestry/book/ModuleBook.java`
+    - L1: package forestry.book;
+    - L27: @ForestryModule(containerID = Constants.MOD_ID, moduleID = ForestryModuleUids.BOOK, name = "Book", author = "Nedelosk", url = Constants.URL, unlocalizedDescription = "for.module.book.description")
+    - L28: public class ModuleBook extends BlankForestryModule {
+    - L29: @SuppressWarnings("NullableProblems")
+    - L30: @SidedProxy(clientSide = "forestry.book.proxy.ProxyBookClient", serverSide = "forestry.book.proxy.ProxyBook")
+    - L31: public static ProxyBook proxy;
+    - L33: @Nullable
+    - L36: public static ItemRegistryBook getItems() {
+    - L41: @Override
+    - L42: public void setupAPI() {
+    - L46: @Override
+    - L47: public void registerItemsAndBlocks() {
+  - `src/main/java/forestry/book/data/CraftingData.java`
+    - L1: package forestry.book.data;
+    - L9: @SideOnly(Side.CLIENT)
+    - L10: public class CraftingData {
+    - L14: public ResourceLocation[] locations = new ResourceLocation[0];
+    - L18: public ItemStack stack = ItemStack.EMPTY;
+    - L22: public ItemStack[] stacks = new ItemStack[0];
+  - `src/main/java/forestry/book/data/EntryData.java`
+    - L1: package forestry.book.data;
+    - L10: @SideOnly(Side.CLIENT)
+    - L11: public class EntryData {
+    - L15: public String title = "";
+    - L19: public BookContent[][] content = new BookContent[0][0];
+    - L23: public String[] subEntries = new String[0];
+    - L27: public String loader = "json";
+    - L31: public ItemStack icon = ItemStack.EMPTY;
+    - L33: public EntryData() {
+  - `src/main/java/forestry/book/data/IndexData.java`
+    - L1: package forestry.book.data;
+    - L6: @SideOnly(Side.CLIENT)
+    - L7: public class IndexData {
+    - L11: public IndexEntry[] entries = new IndexEntry[0];
+  - `src/main/java/forestry/book/data/IndexEntry.java`
+    - L1: package forestry.book.data;
+    - L9: @SideOnly(Side.CLIENT)
+    - L10: public class IndexEntry {
+    - L14: public String title;
+    - L18: public int page;
+  - `src/main/java/forestry/book/data/TextData.java`
+    - L1: package forestry.book.data;
+    - L6: @SideOnly(Side.CLIENT)
+    - L7: public class TextData {
+    - L8: public String text = "";
+    - L10: public String color = "black";
+    - L11: public boolean bold = false;
+    - L12: public boolean italic = false;
+    - L13: public boolean underlined = false;
+    - L14: public boolean strikethrough = false;
+    - L15: public boolean obfuscated = false;
+    - L16: public boolean paragraph = false;
+    - L17: public boolean dropshadow = false;
+
+## Data & assets
+Related resource paths (heuristic name match):
+- `src/main/resources/assets/forestry/textures/items/book_forester.png`
+- `src/main/resources/assets/forestry/models/item/book_forester.json`
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ForestryMC-ForestryMC` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- key type `EventHandlerBook` (`EventHandlerBook.java`)
+- key type `ModuleBook` (`ModuleBook.java`)
+- key type `ItemRegistryBook` (`ItemRegistryBook.java`)
+
+## Port relevance to Re-Forestry
+- Mentions of `book` appear in `files/implemented-features.md` — check that file for port status.
+- 1.12 Forestry — useful for CE-dropped content (greenhouse, book, climatology, database, etc.).
+
+## Source map
+- `src/main/java/forestry/book/BookCategory.java`
+- `src/main/java/forestry/book/BookEntry.java`
+- `src/main/java/forestry/book/BookEntryBuilder.java`
+- `src/main/java/forestry/book/BookLoader.java`
+- `src/main/java/forestry/book/EventHandlerBook.java`
+- `src/main/java/forestry/book/ForesterBook.java`
+- `src/main/java/forestry/book/ModuleBook.java`
+- `src/main/java/forestry/book/data/CraftingData.java`
+- `src/main/java/forestry/book/data/EntryData.java`
+- `src/main/java/forestry/book/data/IndexData.java`
+- `src/main/java/forestry/book/data/IndexEntry.java`
+- `src/main/java/forestry/book/data/TextData.java`
+- `src/main/java/forestry/book/data/content/CarpenterContent.java`
+- `src/main/java/forestry/book/data/content/CraftingContent.java`
+- `src/main/java/forestry/book/data/content/FabricatorContent.java`
+- `src/main/java/forestry/book/data/content/ImageContent.java`
+- `src/main/java/forestry/book/data/content/IndexContent.java`
+- `src/main/java/forestry/book/data/content/MutationContent.java`
+- `src/main/java/forestry/book/data/content/StructureContent.java`
+- `src/main/java/forestry/book/data/content/TextContent.java`
+- `src/main/java/forestry/book/data/content/package-info.java`
+- `src/main/java/forestry/book/data/deserializer/BookCategoryDeserializer.java`
+- `src/main/java/forestry/book/data/deserializer/BookContentDeserializer.java`
+- `src/main/java/forestry/book/data/deserializer/package-info.java`
+- `src/main/java/forestry/book/data/package-info.java`
+- `src/main/java/forestry/book/data/structure/BlockData.java`
+- `src/main/java/forestry/book/data/structure/StructureBlockAccess.java`
+- `src/main/java/forestry/book/data/structure/StructureData.java`
+- `src/main/java/forestry/book/data/structure/StructureInfo.java`
+- `src/main/java/forestry/book/data/structure/package-info.java`
+- `src/main/java/forestry/book/gui/GuiForesterBook.java`
+- `src/main/java/forestry/book/gui/GuiForestryBookCategories.java`
+- `src/main/java/forestry/book/gui/GuiForestryBookEntries.java`
+- `src/main/java/forestry/book/gui/GuiForestryBookPages.java`
+- `src/main/java/forestry/book/gui/buttons/GuiButtonBack.java`
+- `src/main/java/forestry/book/gui/buttons/GuiButtonBookCategory.java`
+- `src/main/java/forestry/book/gui/buttons/GuiButtonEntry.java`
+- `src/main/java/forestry/book/gui/buttons/GuiButtonPage.java`
+- `src/main/java/forestry/book/gui/buttons/GuiButtonSubEntry.java`
+- `src/main/java/forestry/book/gui/buttons/package-info.java`
+- `src/main/java/forestry/book/gui/elements/CarpenterElement.java`
+- `src/main/java/forestry/book/gui/elements/CraftingElement.java`
+- `src/main/java/forestry/book/gui/elements/FabricatorElement.java`
+- `src/main/java/forestry/book/gui/elements/IndexElement.java`
+- `src/main/java/forestry/book/gui/elements/MultiblockElement.java`
+- `src/main/java/forestry/book/gui/elements/MutationElement.java`
+- `src/main/java/forestry/book/gui/elements/SelectionElement.java`
+- `src/main/java/forestry/book/gui/elements/TextDataElement.java`
+- `src/main/java/forestry/book/gui/elements/package-info.java`
+- `src/main/java/forestry/book/gui/package-info.java`
+- `src/main/java/forestry/book/items/ItemForesterBook.java`
+- `src/main/java/forestry/book/items/ItemRegistryBook.java`
+- `src/main/java/forestry/book/items/package-info.java`
+- `src/main/java/forestry/book/package-info.java`
+- `src/main/java/forestry/book/pages/JsonPageFactory.java`
+- `src/main/java/forestry/book/pages/package-info.java`
+- `src/main/java/forestry/book/proxy/ProxyBook.java`
+- `src/main/java/forestry/book/proxy/ProxyBookClient.java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

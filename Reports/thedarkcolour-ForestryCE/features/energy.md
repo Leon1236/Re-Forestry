@@ -1,0 +1,233 @@
+# thedarkcolour-ForestryCE — energy
+
+- Alias: `CE`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_16-21-34/thedarkcolour-ForestryCE`
+- Package/path root: `src/main/java/forestry/energy`
+- Java files scanned: **37**
+- Date: 2026-07-30
+
+## Summary
+Module `energy` in `thedarkcolour-ForestryCE` is rooted at `src/main/java/forestry/energy` (37 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `EnergyHelper`
+- `EnergyTransferMode`
+- `ForestryEnergyStorage`
+- `ModuleEnergy`
+- `EngineBlock`
+- `EngineBlockType`
+- `SolarPanelBlock`
+- `package-info`
+- `CircuitEngineUpgrade`
+- `EnergyClientHandler`
+- `package-info`
+- `EnergyBlocks`
+- `EnergyMenus`
+- `EnergyTiles`
+- `package-info`
+- `InventoryEngineBiogas`
+- `InventoryEngineCombustion`
+- `InventoryEnginePeat`
+- `package-info`
+- `BiogasEngineMenu`
+- `CombustionEngineMenu`
+- `PeatEngineMenu`
+- `package-info`
+- `package-info`
+- `BiogasEngineScreen`
+- `BiogasSlot`
+- `CombustionEngineScreen`
+- `EngineScreen`
+- `PeatEngineScreen`
+- `package-info`
+- `BiogasEngineBlockEntity`
+- `ClockworkEngineBlockEntity`
+- `CombustionEngineTileEntity`
+- `EngineBlockEntity`
+- `PeatEngineBlockEntity`
+- `SolarEngineTileEntity`
+- `package-info`
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py CE "energy"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `blocks`
+  - `circuits`
+  - `client`
+  - `features`
+  - `inventory`
+  - `menu`
+  - `render`
+  - `screen`
+  - `tiles`
+- Declaration skim (first files):
+  - `src/main/java/forestry/energy/EnergyHelper.java`
+    - L1: package forestry.energy;
+    - L13: public class EnergyHelper {
+    - L14: public static int scaleForDifficulty(int energyValue) {
+    - L23: public static boolean consumeEnergyToDoWork(ForestryEnergyStorage energyStorage, int ticksPerWorkCycle, int energyPerWorkCycle) {
+    - L37: public static int sendEnergy(ForestryEnergyStorage energyStorage, Direction orientation, @Nullable BlockEntity tile) {
+    - L41: public static int sendEnergy(ForestryEnergyStorage energyStorage, Direction face, @Nullable BlockEntity tile, int amount, boolean simulate) {
+    - L66: public static boolean canSendEnergy(ForestryEnergyStorage energyStorage, Direction orientation, BlockEntity tile) {
+    - L70: public static boolean isEnergyReceiverOrEngine(Direction side, @Nullable BlockEntity tile) {
+  - `src/main/java/forestry/energy/EnergyTransferMode.java`
+    - L1: package forestry.energy;
+    - L3: public enum EnergyTransferMode {
+    - L6: public boolean canExtract() {
+    - L10: public boolean canReceive() {
+  - `src/main/java/forestry/energy/ForestryEnergyStorage.java`
+    - L1: package forestry.energy;
+    - L11: public class ForestryEnergyStorage extends EnergyStorage implements IStreamable, INbtReadable, INbtWritable {
+    - L12: public ForestryEnergyStorage(int maxTransfer, int capacity) {
+    - L16: public ForestryEnergyStorage(int maxTransfer, int capacity, EnergyTransferMode mode) {
+    - L24: @Override
+    - L25: public void read(CompoundTag nbt) {
+    - L29: @Override
+    - L30: public CompoundTag write(CompoundTag nbt) {
+    - L35: @Override
+    - L36: public void writeData(FriendlyByteBuf data) {
+    - L40: @Override
+    - L41: public void readData(FriendlyByteBuf data) {
+  - `src/main/java/forestry/energy/ModuleEnergy.java`
+    - L1: package forestry.energy;
+    - L27: @ForestryModule
+    - L28: public class ModuleEnergy extends BlankForestryModule {
+    - L29: @Override
+    - L30: public ResourceLocation getId() {
+    - L34: @Override
+    - L35: public void setupApi() {
+    - L85: @Override
+    - L86: public void registerClientHandler(Consumer<IClientModuleHandler> registrar) {
+  - `src/main/java/forestry/energy/blocks/EngineBlock.java`
+    - L1: package forestry.energy.blocks;
+    - L26: public class EngineBlock extends BlockBase<EngineBlockType> {
+    - L29: public static final EnumProperty<Direction> VERTICAL_FACING = EnumProperty.create("facing", Direction.class, Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST, Direction.DOWN, Direction.UP);
+    - L40: public EngineBlock(EngineBlockType blockType) {
+    - L46: @Override
+    - L47: protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+    - L51: @Override
+    - L52: public VoxelShape getShape(BlockState state, BlockGetter reader, BlockPos pos, CollisionContext context) {
+    - L57: @Override
+    - L58: public BlockState rotate(BlockState state, LevelAccessor world, BlockPos pos, Rotation rot) {
+    - L79: @Nullable
+    - L80: @Override
+  - `src/main/java/forestry/energy/blocks/EngineBlockType.java`
+    - L1: package forestry.energy.blocks;
+    - L10: public enum EngineBlockType implements IBlockType {
+    - L17: public static final EngineBlockType[] VALUES = values();
+    - L32: @Override
+    - L33: public IMachineProperties<?> getMachineProperties() {
+    - L37: @Override
+    - L38: public String getSerializedName() {
+  - `src/main/java/forestry/energy/blocks/SolarPanelBlock.java`
+    - L1: package forestry.energy.blocks;
+    - L25: public class SolarPanelBlock extends Block {
+    - L26: public static final BooleanProperty CONNECTED = BlockStateProperties.ATTACHED;
+    - L27: public static final BooleanProperty IN_DAYLIGHT = BlockStateProperties.LIT;
+    - L28: protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 6.0D, 16.0D);
+    - L30: public SolarPanelBlock(Properties properties) {
+    - L35: @Override
+    - L36: public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    - L40: @Override
+    - L41: public boolean useShapeForLightOcclusion(BlockState state) {
+    - L45: @Override
+    - L46: public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
+  - `src/main/java/forestry/energy/blocks/package-info.java`
+    - L1: @javax.annotation.ParametersAreNonnullByDefault
+    - L2: @forestry.core.utils.FieldsAreNonnullByDefault
+    - L3: @net.minecraft.MethodsReturnNonnullByDefault
+    - L4: package forestry.energy.blocks;
+  - `src/main/java/forestry/energy/circuits/CircuitEngineUpgrade.java`
+    - L1: package forestry.energy.circuits;
+    - L6: public class CircuitEngineUpgrade extends Circuit {
+    - L11: public CircuitEngineUpgrade(String id,float boost, float eff, int heat){
+    - L18: @Override
+    - L19: public boolean isCircuitable(Object tile) {
+    - L23: @Override
+    - L24: public void onInsertion(int slot, Object tile) {
+    - L30: @Override
+    - L31: public void onLoad(int slot, Object tile) {
+    - L35: @Override
+    - L36: public void onRemoval(int slot, Object tile) {
+    - L42: @Override
+  - `src/main/java/forestry/energy/client/EnergyClientHandler.java`
+    - L1: package forestry.energy.client;
+    - L11: public class EnergyClientHandler implements forestry.api.client.IClientModuleHandler {
+    - L12: @Override
+    - L13: public void registerEvents(IEventBus modBus) {
+  - `src/main/java/forestry/energy/client/package-info.java`
+    - L1: @javax.annotation.ParametersAreNonnullByDefault
+    - L2: @forestry.core.utils.FieldsAreNonnullByDefault
+    - L3: @net.minecraft.MethodsReturnNonnullByDefault
+    - L4: package forestry.energy.client;
+  - `src/main/java/forestry/energy/features/EnergyBlocks.java`
+    - L1: package forestry.energy.features;
+    - L16: @FeatureProvider
+    - L17: public class EnergyBlocks {
+    - L20: public static final FeatureBlockGroup<EngineBlock, EngineBlockType> ENGINES = REGISTRY.blockGroup(EngineBlock::new, EngineBlockType.VALUES).item(ItemBlockTesr::new).identifier("engine").create();
+    - L22: public static final FeatureBlock<Block, BlockItem> SOLAR_PANEL = REGISTRY.block(()->new SolarPanelBlock(BlockBehaviour.Properties.copy(Blocks.DAYLIGHT_DETECTOR).sound(SoundType.METAL)), ItemBlockForestry::new, "solar_pan
+
+## Data & assets
+Related resource paths (heuristic name match):
+- `src/main/resources/assets/forestry/textures/forestry/atlas/gui/errors/no_energy_net.png`
+- `src/main/resources/assets/forestry/textures/forestry/atlas/gui/misc/energy.png`
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_16-21-34/thedarkcolour-ForestryCE` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- enum `EnergyTransferMode` in `EnergyTransferMode.java`
+- key type `ModuleEnergy` (`ModuleEnergy.java`)
+- enum `EngineBlockType` in `EngineBlockType.java`
+- key type `EnergyClientHandler` (`EnergyClientHandler.java`)
+
+## Port relevance to Re-Forestry
+- Mentions of `energy` appear in `files/implemented-features.md` — check that file for port status.
+- Primary Forestry reference for Re-Forestry port decisions.
+
+## Source map
+- `src/main/java/forestry/energy/EnergyHelper.java`
+- `src/main/java/forestry/energy/EnergyTransferMode.java`
+- `src/main/java/forestry/energy/ForestryEnergyStorage.java`
+- `src/main/java/forestry/energy/ModuleEnergy.java`
+- `src/main/java/forestry/energy/blocks/EngineBlock.java`
+- `src/main/java/forestry/energy/blocks/EngineBlockType.java`
+- `src/main/java/forestry/energy/blocks/SolarPanelBlock.java`
+- `src/main/java/forestry/energy/blocks/package-info.java`
+- `src/main/java/forestry/energy/circuits/CircuitEngineUpgrade.java`
+- `src/main/java/forestry/energy/client/EnergyClientHandler.java`
+- `src/main/java/forestry/energy/client/package-info.java`
+- `src/main/java/forestry/energy/features/EnergyBlocks.java`
+- `src/main/java/forestry/energy/features/EnergyMenus.java`
+- `src/main/java/forestry/energy/features/EnergyTiles.java`
+- `src/main/java/forestry/energy/features/package-info.java`
+- `src/main/java/forestry/energy/inventory/InventoryEngineBiogas.java`
+- `src/main/java/forestry/energy/inventory/InventoryEngineCombustion.java`
+- `src/main/java/forestry/energy/inventory/InventoryEnginePeat.java`
+- `src/main/java/forestry/energy/inventory/package-info.java`
+- `src/main/java/forestry/energy/menu/BiogasEngineMenu.java`
+- `src/main/java/forestry/energy/menu/CombustionEngineMenu.java`
+- `src/main/java/forestry/energy/menu/PeatEngineMenu.java`
+- `src/main/java/forestry/energy/package-info.java`
+- `src/main/java/forestry/energy/render/package-info.java`
+- `src/main/java/forestry/energy/screen/BiogasEngineScreen.java`
+- `src/main/java/forestry/energy/screen/BiogasSlot.java`
+- `src/main/java/forestry/energy/screen/CombustionEngineScreen.java`
+- `src/main/java/forestry/energy/screen/EngineScreen.java`
+- `src/main/java/forestry/energy/screen/PeatEngineScreen.java`
+- `src/main/java/forestry/energy/screen/package-info.java`
+- `src/main/java/forestry/energy/tiles/BiogasEngineBlockEntity.java`
+- `src/main/java/forestry/energy/tiles/ClockworkEngineBlockEntity.java`
+- `src/main/java/forestry/energy/tiles/CombustionEngineTileEntity.java`
+- `src/main/java/forestry/energy/tiles/EngineBlockEntity.java`
+- `src/main/java/forestry/energy/tiles/PeatEngineBlockEntity.java`
+- `src/main/java/forestry/energy/tiles/SolarEngineTileEntity.java`
+- `src/main/java/forestry/energy/tiles/package-info.java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

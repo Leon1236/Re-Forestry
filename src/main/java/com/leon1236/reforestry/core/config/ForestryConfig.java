@@ -25,6 +25,9 @@ public final class ForestryConfig {
     private static boolean legacyFarmsUseRings = true;
     private static int legacyFarmsRingSize = 4;
     private static boolean disableButterflySpawning = false;
+    private static int habitatFormerRange = 10;
+    private static float habitatFormerAreaCostModifier = 0.5F;
+    private static float habitatFormerAreaSpeedModifier = 0.5F;
 
     private ForestryConfig() {
     }
@@ -77,6 +80,18 @@ public final class ForestryConfig {
         return disableButterflySpawning;
     }
 
+    public static int habitatFormerRange() {
+        return habitatFormerRange;
+    }
+
+    public static float habitatFormerAreaCostModifier() {
+        return habitatFormerAreaCostModifier;
+    }
+
+    public static float habitatFormerAreaSpeedModifier() {
+        return habitatFormerAreaSpeedModifier;
+    }
+
     public static void init() {
         Map<String, String> existing = read();
         write(existing);
@@ -123,6 +138,15 @@ public final class ForestryConfig {
             legacyFarmsRingSize = 10;
         }
         disableButterflySpawning = parseBoolean(loaded.get("lepidopterology.disable_butterfly_spawning"), false);
+        habitatFormerRange = parseInt(loaded.get("climatology.habitat_former_range"), 10);
+        if (habitatFormerRange < 1) {
+            habitatFormerRange = 1;
+        }
+        if (habitatFormerRange > 16) {
+            habitatFormerRange = 16;
+        }
+        habitatFormerAreaCostModifier = (float) parseDouble(loaded.get("climatology.habitat_former_area_cost_modifier"), 0.5);
+        habitatFormerAreaSpeedModifier = (float) parseDouble(loaded.get("climatology.habitat_former_area_speed_modifier"), 0.5);
     }
 
     private static void write(Map<String, String> existing) {
@@ -204,6 +228,24 @@ public final class ForestryConfig {
                 writer.newLine();
                 String butterflySpawn = existing.getOrDefault("lepidopterology.disable_butterfly_spawning", "false");
                 writer.write("lepidopterology.disable_butterfly_spawning=" + butterflySpawn);
+                writer.newLine();
+                writer.newLine();
+                writer.write("# Default Habitat Former range (1-16).");
+                writer.newLine();
+                String formerRange = existing.getOrDefault("climatology.habitat_former_range", "10");
+                writer.write("climatology.habitat_former_range=" + formerRange);
+                writer.newLine();
+                writer.newLine();
+                writer.write("# Multiplies Habitat Former energy/fluid cost with area size.");
+                writer.newLine();
+                String formerCost = existing.getOrDefault("climatology.habitat_former_area_cost_modifier", "0.5");
+                writer.write("climatology.habitat_former_area_cost_modifier=" + formerCost);
+                writer.newLine();
+                writer.newLine();
+                writer.write("# Multiplies Habitat Former climate change speed with area size.");
+                writer.newLine();
+                String formerSpeed = existing.getOrDefault("climatology.habitat_former_area_speed_modifier", "0.5");
+                writer.write("climatology.habitat_former_area_speed_modifier=" + formerSpeed);
                 writer.newLine();
             }
         } catch (IOException e) {

@@ -1,0 +1,443 @@
+# thedarkcolour-ForestryCE — api
+
+- Alias: `CE`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_16-21-34/thedarkcolour-ForestryCE`
+- Package/path root: `src/main/java/forestry/api`
+- Java files scanned: **317**
+- Date: 2026-07-30
+
+## Summary
+Module `api` in `thedarkcolour-ForestryCE` is rooted at `src/main/java/forestry/api` (317 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `ForestryCapabilities`
+- `ForestryConstants`
+- `ForestryTags`
+- `IForestryApi`
+- `BeeManager`
+- `ForestryActivityTypes`
+- `ForestryBeeEffects`
+- `ForestryBeeSpecies`
+- `ForestryFlowerTypes`
+- `IActivityType`
+- `IApiaristTracker`
+- `IArmorApiarist`
+- `IArmorApiaristHelper`
+- `IBeeHousing`
+- `IBeeHousingInventory`
+- `IBeeJubilance`
+- `IBeeListener`
+- `IBeeModelProvider`
+- `IBeeModifier`
+- `IBeeSpriteColourProvider`
+- `IBeekeepingLogic`
+- `IBeekeepingMode`
+- `IFlowerType`
+- `IJubilanceFactory`
+- `LightPreference`
+- `BeeLifeStage`
+- `IBee`
+- `IBeeEffect`
+- `IBeeSpecies`
+- `IBeeSpeciesType`
+- `IEffect`
+- `package-info`
+- `IHive`
+- `IHiveDefinition`
+- `IHiveDrop`
+- `IHiveFrame`
+- `IHiveGen`
+- `IHiveManager`
+- `IHiveTile`
+- `package-info`
+- `package-info`
+- `ForestryFruits`
+- `ForestryTreeSpecies`
+- `IArboristTracker`
+- `ICharcoalManager`
+- `ICharcoalPileWall`
+- `ILeafTickHandler`
+- `IToolGrafter`
+- `ITreeGenData`
+- `ITreeGenerator`
+- `ITreeManager`
+- `ITreeModifier`
+- `ITreeSpecies`
+- `IWoodAccess`
+- `IWoodType`
+- `TreeManager`
+- `WoodBlockKind`
+- `IFruit`
+- `ITree`
+- `ITreeEffect`
+- `ITreeSpeciesType`
+- `TreeLifeStage`
+- `package-info`
+- `package-info`
+- `CircuitHolder`
+- `ForestryCircuitLayouts`
+- `ForestryCircuitSocketTypes`
+- `ICircuit`
+- `ICircuitBoard`
+- `ICircuitLayout`
+- `ICircuitLibrary`
+- `ICircuitManager`
+- `package-info`
+- `ForestrySprites`
+- `IClientModuleHandler`
+- `IForestryClientApi`
+- `ITextureManager`
+- `InteractableTextOptions`
+- `TextOptions`
+- `IBeeClientManager`
+- … and 237 more
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py CE "api"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `apiculture`
+  - `apiculture/genetics`
+  - `apiculture/hives`
+  - `arboriculture`
+  - `arboriculture/genetics`
+  - `circuits`
+  - `client`
+  - `client/apiculture`
+  - `client/arboriculture`
+  - `client/genetics`
+  - `client/lepidopterology`
+  - `client/plugin`
+  - `climate`
+  - `core`
+  - `core/tooltips`
+  - `farming`
+  - `fuels`
+  - `genetics`
+  - `genetics/alleles`
+  - `genetics/alyzer`
+  - `genetics/capability`
+  - `genetics/filter`
+  - `genetics/pollen`
+  - `lepidopterology`
+  - `lepidopterology/genetics`
+  - `mail`
+  - `modules`
+  - `multiblock`
+  - `plugin`
+  - `recipes`
+  - `storage`
+  - `util`
+- Declaration skim (first files):
+  - `src/main/java/forestry/api/ForestryCapabilities.java`
+    - L1: package forestry.api;
+    - L17: public class ForestryCapabilities {
+    - L19: public static Capability<IArmorApiarist> ARMOR_APIARIST = CapabilityManager.get(new CapabilityToken<>() {
+    - L23: public static Capability<IArmorNaturalist> ARMOR_NATURALIST = CapabilityManager.get(new CapabilityToken<>() {
+    - L27: public static Capability<IIndividualHandlerItem> INDIVIDUAL_HANDLER_ITEM = CapabilityManager.get(new CapabilityToken<>() {
+    - L31: public static Capability<IFilterLogic> FILTER_LOGIC = CapabilityManager.get(new CapabilityToken<>() {
+  - `src/main/java/forestry/api/ForestryConstants.java`
+    - L1: package forestry.api;
+    - L8: public class ForestryConstants {
+    - L12: public static final String MOD_ID = "forestry";
+    - L17: public static ResourceLocation forestry(String path) {
+  - `src/main/java/forestry/api/ForestryTags.java`
+    - L1: package forestry.api;
+    - L17: public class ForestryTags {
+    - L18: public static class Blocks {
+    - L19: public static final TagKey<Block> MINEABLE_SCOOP = blockTag("scoop");
+    - L20: public static final TagKey<Block> MINEABLE_GRAFTER = blockTag("grafter");
+    - L23: public static final TagKey<Block> VALID_FARM_BASE = blockTag("valid_farm_base");
+    - L25: public static final TagKey<Block> CHARCOAL_BLOCK = forgeTag("storage_blocks/charcoal");
+    - L27: public static final TagKey<Block> STORAGE_BLOCKS_APATITE = forgeTag("storage_blocks/apatite");
+    - L28: public static final TagKey<Block> STORAGE_BLOCKS_TIN = forgeTag("storage_blocks/tin");
+    - L29: public static final TagKey<Block> STORAGE_BLOCKS_BRONZE = forgeTag("storage_blocks/bronze");
+    - L30: public static final TagKey<Block> STORAGE_BLOCKS_AMBER = forgeTag("storage_blocks/amber");
+    - L31: public static final TagKey<Block> STORAGE_BLOCKS_SILICON = forgeTag("storage_blocks/silicon");
+  - `src/main/java/forestry/api/IForestryApi.java`
+    - L1: package forestry.api;
+    - L19: * The Forestry API class is used to query all sorts of data used by Forestry.
+    - L21: public interface IForestryApi {
+  - `src/main/java/forestry/api/apiculture/BeeManager.java`
+    - L1: package forestry.api.apiculture;
+    - L8: public class BeeManager {
+    - L12: @Nullable
+    - L13: public static IArmorApiaristHelper armorApiaristHelper;
+  - `src/main/java/forestry/api/apiculture/ForestryActivityTypes.java`
+    - L1: package forestry.api.apiculture;
+    - L10: public class ForestryActivityTypes {
+    - L15: public static final ResourceLocation DIURNAL = ForestryConstants.forestry("activity_diurnal");
+    - L20: public static final ResourceLocation NOCTURNAL = ForestryConstants.forestry("activity_nocturnal");
+    - L25: public static final ResourceLocation CREPUSCULAR = ForestryConstants.forestry("activity_crepuscular");
+    - L30: public static final ResourceLocation METATURNAL = ForestryConstants.forestry("activity_metaturnal");
+    - L35: public static final ResourceLocation CATHEMERAL = ForestryConstants.forestry("activity_cathemeral");
+  - `src/main/java/forestry/api/apiculture/ForestryBeeEffects.java`
+    - L1: package forestry.api.apiculture;
+    - L9: public class ForestryBeeEffects {
+    - L10: public static final ResourceLocation NONE = ForestryConstants.forestry("bee_effect_none");
+    - L11: public static final ResourceLocation AGGRESSIVE = ForestryConstants.forestry("bee_effect_aggressive");
+    - L12: public static final ResourceLocation HEROIC = ForestryConstants.forestry("bee_effect_heroic");
+    - L13: public static final ResourceLocation BEATIFIC = ForestryConstants.forestry("bee_effect_beatific");
+    - L14: public static final ResourceLocation MIASMIC = ForestryConstants.forestry("bee_effect_miasmic");
+    - L15: public static final ResourceLocation MISANTHROPE = ForestryConstants.forestry("bee_effect_misanthrope");
+    - L16: public static final ResourceLocation GLACIAL = ForestryConstants.forestry("bee_effect_glacial");
+    - L17: public static final ResourceLocation RADIOACTIVE = ForestryConstants.forestry("bee_effect_radioactive");
+    - L18: public static final ResourceLocation CREEPER = ForestryConstants.forestry("bee_effect_creeper");
+    - L19: public static final ResourceLocation IGNITION = ForestryConstants.forestry("bee_effect_ignition");
+  - `src/main/java/forestry/api/apiculture/ForestryBeeSpecies.java`
+    - L1: package forestry.api.apiculture;
+    - L10: public class ForestryBeeSpecies {
+    - L11: public static final ResourceLocation FOREST = forestry("bee_forest");
+    - L12: public static final ResourceLocation MEADOWS = forestry("bee_meadows");
+    - L13: public static final ResourceLocation COMMON = forestry("bee_common");
+    - L14: public static final ResourceLocation CULTIVATED = forestry("bee_cultivated");
+    - L15: public static final ResourceLocation NOBLE = forestry("bee_noble");
+    - L16: public static final ResourceLocation MAJESTIC = forestry("bee_majestic");
+    - L17: public static final ResourceLocation IMPERIAL = forestry("bee_imperial");
+    - L18: public static final ResourceLocation DILIGENT = forestry("bee_diligent");
+    - L19: public static final ResourceLocation UNWEARY = forestry("bee_unweary");
+    - L20: public static final ResourceLocation INDUSTRIOUS = forestry("bee_industrious");
+  - `src/main/java/forestry/api/apiculture/ForestryFlowerTypes.java`
+    - L1: package forestry.api.apiculture;
+    - L9: public class ForestryFlowerTypes {
+    - L10: public static final ResourceLocation VANILLA = ForestryConstants.forestry("flower_type_vanilla");
+    - L11: public static final ResourceLocation NETHER = ForestryConstants.forestry("flower_type_nether");
+    - L12: public static final ResourceLocation CACTI = ForestryConstants.forestry("flower_type_cacti");
+    - L13: public static final ResourceLocation MUSHROOMS = ForestryConstants.forestry("flower_type_mushrooms");
+    - L14: public static final ResourceLocation END = ForestryConstants.forestry("flower_type_end");
+    - L15: public static final ResourceLocation JUNGLE = ForestryConstants.forestry("flower_type_jungle");
+    - L16: public static final ResourceLocation SNOW = ForestryConstants.forestry("flower_type_snow");
+    - L17: public static final ResourceLocation WHEAT = ForestryConstants.forestry("flower_type_wheat");
+    - L18: public static final ResourceLocation GOURD = ForestryConstants.forestry("flower_type_gourd");
+    - L19: public static final ResourceLocation CAVE = ForestryConstants.forestry("flower_type_cave");
+  - `src/main/java/forestry/api/apiculture/IActivityType.java`
+    - L1: package forestry.api.apiculture;
+    - L14: public interface IActivityType extends IRegistryAlleleValue {
+  - `src/main/java/forestry/api/apiculture/IApiaristTracker.java`
+    - L1: package forestry.api.apiculture;
+    - L10: public interface IApiaristTracker extends IBreedingTracker {
+  - `src/main/java/forestry/api/apiculture/IArmorApiarist.java`
+    - L1: package forestry.api.apiculture;
+    - L15: public interface IArmorApiarist {
+
+## Data & assets
+Related resource paths (heuristic name match):
+- `src/main/resources/data/forestry/structures/village/apiarist_house_snowy_1.nbt`
+- `src/main/resources/data/forestry/structures/village/apiarist_house_taiga_1.nbt`
+- `src/main/resources/data/forestry/structures/village/apiarist_house_plains_1.nbt`
+- `src/main/resources/data/forestry/structures/village/apiarist_house_desert_1.nbt`
+- `src/main/resources/data/forestry/structures/village/apiarist_house_savanna_1.nbt`
+- `src/main/resources/data/forestry/chests_old/abandoned_mineshaft/apiculture.json`
+- `src/main/resources/data/forestry/chests_old/village_naturalist/apiculture.json`
+- `src/main/resources/data/forestry/chests_old/nether_bridge/apiculture.json`
+- `src/main/resources/data/forestry/chests_old/jungle_temple/apiculture.json`
+- `src/main/resources/data/forestry/chests_old/stronghold_corridor/apiculture.json`
+- `src/main/resources/data/forestry/chests_old/simple_dungeon/apiculture.json`
+- `src/main/resources/data/forestry/chests_old/spawn_bonus_chest/apiculture.json`
+- `src/main/resources/data/forestry/chests_old/stronghold_library/apiculture.json`
+- `src/main/resources/data/forestry/chests_old/end_city_treasure/apiculture.json`
+- `src/main/resources/data/forestry/chests_old/igloo_chest/apiculture.json`
+- `src/main/resources/data/forestry/chests_old/stronghold_crossing/apiculture.json`
+- `src/main/resources/data/forestry/chests_old/desert_pyramid/apiculture.json`
+- `src/main/resources/assets/forestry/blockstates/apiary.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/beekeeping/apiary.json`
+- `src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/beekeeping/apiarist_suit.json`
+- `src/main/resources/assets/forestry/textures/item/electron_tube_lapis.png`
+- `src/main/resources/assets/forestry/textures/item/apiarist_armor_1.png`
+- `src/main/resources/assets/forestry/textures/item/cart.apiary.png`
+- `src/main/resources/assets/forestry/textures/item/apiarist_legs.png`
+- `src/main/resources/assets/forestry/textures/item/apiarist_armor_2.png`
+- `src/main/resources/assets/forestry/textures/item/apiarist_chest.png`
+- `src/main/resources/assets/forestry/textures/item/apiarist_helmet.png`
+- `src/main/resources/assets/forestry/textures/item/apiarist_boots.png`
+- `src/main/resources/assets/forestry/textures/gui/apiary.png`
+- `src/main/resources/assets/forestry/textures/gui/apiaristinventory.png`
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_16-21-34/thedarkcolour-ForestryCE` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- interface `IForestryApi` in `IForestryApi.java`
+- interface `IActivityType` in `IActivityType.java`
+- interface `IApiaristTracker` in `IApiaristTracker.java`
+- interface `IArmorApiarist` in `IArmorApiarist.java`
+- interface `IArmorApiaristHelper` in `IArmorApiaristHelper.java`
+- interface `IBeeHousing` in `IBeeHousing.java`
+- interface `IBeeHousingInventory` in `IBeeHousingInventory.java`
+- interface `IBeeJubilance` in `IBeeJubilance.java`
+- interface `IBeeListener` in `IBeeListener.java`
+- interface `IBeeModelProvider` in `IBeeModelProvider.java`
+- interface `IBeeModifier` in `IBeeModifier.java`
+- interface `IBeeSpriteColourProvider` in `IBeeSpriteColourProvider.java`
+- interface `IBeekeepingLogic` in `IBeekeepingLogic.java`
+- interface `IBeekeepingMode` in `IBeekeepingMode.java`
+- interface `IFlowerType` in `IFlowerType.java`
+- interface `IJubilanceFactory` in `IJubilanceFactory.java`
+- enum `LightPreference` in `LightPreference.java`
+- enum `BeeLifeStage` in `BeeLifeStage.java`
+- interface `IBee` in `IBee.java`
+- interface `IBeeEffect` in `IBeeEffect.java`
+- interface `IBeeSpecies` in `IBeeSpecies.java`
+- interface `IBeeSpeciesType` in `IBeeSpeciesType.java`
+- interface `IEffect` in `IEffect.java`
+- interface `IHive` in `IHive.java`
+- interface `IHiveDefinition` in `IHiveDefinition.java`
+- interface `IHiveDrop` in `IHiveDrop.java`
+- interface `IHiveFrame` in `IHiveFrame.java`
+- interface `IHiveGen` in `IHiveGen.java`
+- interface `IHiveManager` in `IHiveManager.java`
+- interface `IHiveTile` in `IHiveTile.java`
+- interface `IArboristTracker` in `IArboristTracker.java`
+- interface `ICharcoalManager` in `ICharcoalManager.java`
+- interface `ICharcoalPileWall` in `ICharcoalPileWall.java`
+- interface `ILeafTickHandler` in `ILeafTickHandler.java`
+- key type `ILeafTickHandler` (`ILeafTickHandler.java`)
+- interface `IToolGrafter` in `IToolGrafter.java`
+- interface `ITreeGenData` in `ITreeGenData.java`
+- interface `ITreeGenerator` in `ITreeGenerator.java`
+- interface `ITreeManager` in `ITreeManager.java`
+- interface `ITreeModifier` in `ITreeModifier.java`
+- interface `ITreeSpecies` in `ITreeSpecies.java`
+- interface `IWoodAccess` in `IWoodAccess.java`
+- interface `IWoodType` in `IWoodType.java`
+- enum `WoodBlockKind` in `WoodBlockKind.java`
+- interface `IFruit` in `IFruit.java`
+- interface `ITree` in `ITree.java`
+- interface `ITreeEffect` in `ITreeEffect.java`
+- interface `ITreeSpeciesType` in `ITreeSpeciesType.java`
+- enum `TreeLifeStage` in `TreeLifeStage.java`
+- record `CircuitHolder` in `CircuitHolder.java`
+
+## Port relevance to Re-Forestry
+- Mentions of `api` appear in `files/implemented-features.md` — check that file for port status.
+- Primary Forestry reference for Re-Forestry port decisions.
+
+## Source map
+- `src/main/java/forestry/api/ForestryCapabilities.java`
+- `src/main/java/forestry/api/ForestryConstants.java`
+- `src/main/java/forestry/api/ForestryTags.java`
+- `src/main/java/forestry/api/IForestryApi.java`
+- `src/main/java/forestry/api/apiculture/BeeManager.java`
+- `src/main/java/forestry/api/apiculture/ForestryActivityTypes.java`
+- `src/main/java/forestry/api/apiculture/ForestryBeeEffects.java`
+- `src/main/java/forestry/api/apiculture/ForestryBeeSpecies.java`
+- `src/main/java/forestry/api/apiculture/ForestryFlowerTypes.java`
+- `src/main/java/forestry/api/apiculture/IActivityType.java`
+- `src/main/java/forestry/api/apiculture/IApiaristTracker.java`
+- `src/main/java/forestry/api/apiculture/IArmorApiarist.java`
+- `src/main/java/forestry/api/apiculture/IArmorApiaristHelper.java`
+- `src/main/java/forestry/api/apiculture/IBeeHousing.java`
+- `src/main/java/forestry/api/apiculture/IBeeHousingInventory.java`
+- `src/main/java/forestry/api/apiculture/IBeeJubilance.java`
+- `src/main/java/forestry/api/apiculture/IBeeListener.java`
+- `src/main/java/forestry/api/apiculture/IBeeModelProvider.java`
+- `src/main/java/forestry/api/apiculture/IBeeModifier.java`
+- `src/main/java/forestry/api/apiculture/IBeeSpriteColourProvider.java`
+- `src/main/java/forestry/api/apiculture/IBeekeepingLogic.java`
+- `src/main/java/forestry/api/apiculture/IBeekeepingMode.java`
+- `src/main/java/forestry/api/apiculture/IFlowerType.java`
+- `src/main/java/forestry/api/apiculture/IJubilanceFactory.java`
+- `src/main/java/forestry/api/apiculture/LightPreference.java`
+- `src/main/java/forestry/api/apiculture/genetics/BeeLifeStage.java`
+- `src/main/java/forestry/api/apiculture/genetics/IBee.java`
+- `src/main/java/forestry/api/apiculture/genetics/IBeeEffect.java`
+- `src/main/java/forestry/api/apiculture/genetics/IBeeSpecies.java`
+- `src/main/java/forestry/api/apiculture/genetics/IBeeSpeciesType.java`
+- `src/main/java/forestry/api/apiculture/genetics/IEffect.java`
+- `src/main/java/forestry/api/apiculture/genetics/package-info.java`
+- `src/main/java/forestry/api/apiculture/hives/IHive.java`
+- `src/main/java/forestry/api/apiculture/hives/IHiveDefinition.java`
+- `src/main/java/forestry/api/apiculture/hives/IHiveDrop.java`
+- `src/main/java/forestry/api/apiculture/hives/IHiveFrame.java`
+- `src/main/java/forestry/api/apiculture/hives/IHiveGen.java`
+- `src/main/java/forestry/api/apiculture/hives/IHiveManager.java`
+- `src/main/java/forestry/api/apiculture/hives/IHiveTile.java`
+- `src/main/java/forestry/api/apiculture/hives/package-info.java`
+- `src/main/java/forestry/api/apiculture/package-info.java`
+- `src/main/java/forestry/api/arboriculture/ForestryFruits.java`
+- `src/main/java/forestry/api/arboriculture/ForestryTreeSpecies.java`
+- `src/main/java/forestry/api/arboriculture/IArboristTracker.java`
+- `src/main/java/forestry/api/arboriculture/ICharcoalManager.java`
+- `src/main/java/forestry/api/arboriculture/ICharcoalPileWall.java`
+- `src/main/java/forestry/api/arboriculture/ILeafTickHandler.java`
+- `src/main/java/forestry/api/arboriculture/IToolGrafter.java`
+- `src/main/java/forestry/api/arboriculture/ITreeGenData.java`
+- `src/main/java/forestry/api/arboriculture/ITreeGenerator.java`
+- `src/main/java/forestry/api/arboriculture/ITreeManager.java`
+- `src/main/java/forestry/api/arboriculture/ITreeModifier.java`
+- `src/main/java/forestry/api/arboriculture/ITreeSpecies.java`
+- `src/main/java/forestry/api/arboriculture/IWoodAccess.java`
+- `src/main/java/forestry/api/arboriculture/IWoodType.java`
+- `src/main/java/forestry/api/arboriculture/TreeManager.java`
+- `src/main/java/forestry/api/arboriculture/WoodBlockKind.java`
+- `src/main/java/forestry/api/arboriculture/genetics/IFruit.java`
+- `src/main/java/forestry/api/arboriculture/genetics/ITree.java`
+- `src/main/java/forestry/api/arboriculture/genetics/ITreeEffect.java`
+- `src/main/java/forestry/api/arboriculture/genetics/ITreeSpeciesType.java`
+- `src/main/java/forestry/api/arboriculture/genetics/TreeLifeStage.java`
+- `src/main/java/forestry/api/arboriculture/genetics/package-info.java`
+- `src/main/java/forestry/api/arboriculture/package-info.java`
+- `src/main/java/forestry/api/circuits/CircuitHolder.java`
+- `src/main/java/forestry/api/circuits/ForestryCircuitLayouts.java`
+- `src/main/java/forestry/api/circuits/ForestryCircuitSocketTypes.java`
+- `src/main/java/forestry/api/circuits/ICircuit.java`
+- `src/main/java/forestry/api/circuits/ICircuitBoard.java`
+- `src/main/java/forestry/api/circuits/ICircuitLayout.java`
+- `src/main/java/forestry/api/circuits/ICircuitLibrary.java`
+- `src/main/java/forestry/api/circuits/ICircuitManager.java`
+- `src/main/java/forestry/api/circuits/package-info.java`
+- `src/main/java/forestry/api/client/ForestrySprites.java`
+- `src/main/java/forestry/api/client/IClientModuleHandler.java`
+- `src/main/java/forestry/api/client/IForestryClientApi.java`
+- `src/main/java/forestry/api/client/ITextureManager.java`
+- `src/main/java/forestry/api/client/InteractableTextOptions.java`
+- `src/main/java/forestry/api/client/TextOptions.java`
+- `src/main/java/forestry/api/client/apiculture/IBeeClientManager.java`
+- `src/main/java/forestry/api/client/apiculture/package-info.java`
+- `src/main/java/forestry/api/client/arboriculture/ForestryLeafSprites.java`
+- `src/main/java/forestry/api/client/arboriculture/ILeafSprite.java`
+- `src/main/java/forestry/api/client/arboriculture/ILeafTint.java`
+- `src/main/java/forestry/api/client/arboriculture/ITreeClientManager.java`
+- `src/main/java/forestry/api/client/arboriculture/package-info.java`
+- `src/main/java/forestry/api/client/genetics/IAnalyzerGraphics.java`
+- `src/main/java/forestry/api/client/genetics/IAnalyzerPlugin.java`
+- `src/main/java/forestry/api/client/genetics/IGeneticClientManager.java`
+- `src/main/java/forestry/api/client/genetics/package-info.java`
+- `src/main/java/forestry/api/client/lepidopterology/IButterflyClientManager.java`
+- `src/main/java/forestry/api/client/lepidopterology/package-info.java`
+- `src/main/java/forestry/api/client/package-info.java`
+- `src/main/java/forestry/api/client/plugin/IClientHelper.java`
+- `src/main/java/forestry/api/client/plugin/IClientRegistration.java`
+- `src/main/java/forestry/api/client/plugin/package-info.java`
+- `src/main/java/forestry/api/climate/ClimateState.java`
+- `src/main/java/forestry/api/climate/ClimateType.java`
+- `src/main/java/forestry/api/climate/IBiomeProvider.java`
+- `src/main/java/forestry/api/climate/IClimateControlled.java`
+- `src/main/java/forestry/api/climate/IClimateManager.java`
+- `src/main/java/forestry/api/climate/IClimateProvider.java`
+- `src/main/java/forestry/api/climate/package-info.java`
+- `src/main/java/forestry/api/core/ForestryError.java`
+- `src/main/java/forestry/api/core/ForestryEvent.java`
+- `src/main/java/forestry/api/core/HumidityType.java`
+- `src/main/java/forestry/api/core/IArmorNaturalist.java`
+- `src/main/java/forestry/api/core/IBlockProvider.java`
+- `src/main/java/forestry/api/core/IBlockSubtype.java`
+- `src/main/java/forestry/api/core/IClimateSensitive.java`
+- `src/main/java/forestry/api/core/IError.java`
+- `src/main/java/forestry/api/core/IErrorLogic.java`
+- `src/main/java/forestry/api/core/IErrorLogicSource.java`
+- `src/main/java/forestry/api/core/IErrorManager.java`
+- `src/main/java/forestry/api/core/IErrorSource.java`
+- `src/main/java/forestry/api/core/IFeatureSubtype.java`
+- `src/main/java/forestry/api/core/IItemProvider.java`
+- `src/main/java/forestry/api/core/IItemSubtype.java`
+- `src/main/java/forestry/api/core/ILocationProvider.java`
+- `src/main/java/forestry/api/core/IMenuTypeProvider.java`
+- … and 197 more under `src/main/java/forestry/api`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

@@ -1,0 +1,245 @@
+# Tiviacz1337-Travelers-Backpack — compat
+
+- Alias: `backpack`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-30/Tiviacz1337-Travelers-Backpack`
+- Package/path root: `src/main/java/com/tiviacz/travelersbackpack/compat`
+- Java files scanned: **35**
+- Date: 2026-07-30
+
+## Summary
+Module `compat` in `Tiviacz1337-Travelers-Backpack` is rooted at `src/main/java/com/tiviacz/travelersbackpack/compat` (35 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `TravelersBackpackAccessory`
+- `ComfortsCompat`
+- `BackpackCraftingGridAddition`
+- `BackpackCraftingGridProvider`
+- `CraftingTweaksCompat`
+- `ICraftingTweaks`
+- `DragDropHandler`
+- `EmiCompat`
+- `BackpackUpgradeCategoryExtension`
+- `BlockEntityTransferHandler`
+- `BlockEntityTransferInfo`
+- `ItemTransferHandler`
+- `ItemTransferInfo`
+- `JeiGhostIngredientHandler`
+- `TravelersBackpackPlugin`
+- `BackpackDynamicLight`
+- `BackpackEntityLuminance`
+- `BackpackDataType`
+- `PneumonoGravestonesCompat`
+- `PolymorphCompat`
+- `PolymorphWidget`
+- `ReiClientCompat`
+- `ReiGhostIngredientHandler`
+- `ReiTransferHandler`
+- `ToughAsNailsPotionEffect`
+- `ToughAsNailsWaterCanteenEffect`
+- `ToughAsNailsWaterEffect`
+- `BackpackLayout`
+- `TrashSlotCompat`
+- `BackpackTrinket`
+- `BackpackTrinketRenderer`
+- `UniversalGravesCompat`
+- `ServerboundVinURLStartPacket`
+- `ServerboundVinURLStopPacket`
+- `VinURLNetwork`
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py backpack "compat"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `accessories`
+  - `comforts`
+  - `craftingtweaks`
+  - `emi`
+  - `jei`
+  - `lambdynamiclight`
+  - `pneumonogravestones`
+  - `polymorph`
+  - `rei`
+  - `toughasnails`
+  - `trashslot`
+  - `trinkets`
+  - `universalgraves`
+  - `vinurl`
+- Declaration skim (first files):
+  - `src/main/java/com/tiviacz/travelersbackpack/compat/accessories/TravelersBackpackAccessory.java`
+    - L1: package com.tiviacz.travelersbackpack.compat.accessories;
+    - L3: /*public class TravelersBackpackAccessory implements Accessory {
+    - L4: public static void init() {
+    - L10: @Environment(EnvType.CLIENT)
+    - L11: public static void initClient() {
+    - L17: @Override
+    - L18: public boolean canEquip(ItemStack stack, SlotReference reference) {
+    - L22: @Override
+    - L23: public boolean canEquipFromUse(ItemStack stack, SlotReference reference) {
+    - L27: @Override
+    - L28: public void tick(ItemStack stack, SlotReference reference) {
+    - L35: @Environment(EnvType.CLIENT)
+  - `src/main/java/com/tiviacz/travelersbackpack/compat/comforts/ComfortsCompat.java`
+    - L1: package com.tiviacz.travelersbackpack.compat.comforts;
+    - L6: public class ComfortsCompat {
+    - L7: public static int getComfortsSleepingBagColor(Item item) {
+  - `src/main/java/com/tiviacz/travelersbackpack/compat/craftingtweaks/BackpackCraftingGridAddition.java`
+    - L1: package com.tiviacz.travelersbackpack.compat.craftingtweaks;
+    - L14: public class BackpackCraftingGridAddition implements ICraftingTweaks {
+    - L18: public static void registerCraftingTweaksAddition() {
+    - L27: @Override
+    - L28: public void onCraftingSlotsHidden() {
+    - L36: @Override
+    - L37: public void onCraftingSlotsDisplayed() {
+    - L46: @Override
+    - L47: public void setScreen(BackpackScreen screen) {
+  - `src/main/java/com/tiviacz/travelersbackpack/compat/craftingtweaks/BackpackCraftingGridProvider.java`
+    - L1: package com.tiviacz.travelersbackpack.compat.craftingtweaks;
+    - L23: public class BackpackCraftingGridProvider implements CraftingGridProvider {
+    - L24: @Override
+    - L25: public String getModId() {
+    - L29: @Override
+    - L30: public boolean requiresServerSide() {
+    - L34: @Override
+    - L35: public boolean handles(AbstractContainerMenu menu) {
+    - L39: @Override
+    - L40: public void buildCraftingGrids(CraftingGridBuilder craftingGridBuilder, AbstractContainerMenu abstractContainerMenu) {
+    - L49: public void clearGrid(CraftingGrid grid, Player player, AbstractContainerMenu menu, boolean forced) {
+    - L80: protected boolean ignoresSlotId(int slotId) {
+  - `src/main/java/com/tiviacz/travelersbackpack/compat/craftingtweaks/CraftingTweaksCompat.java`
+    - L1: package com.tiviacz.travelersbackpack.compat.craftingtweaks;
+    - L5: public class CraftingTweaksCompat {
+    - L6: public static void registerCraftingTweaksAddition() {
+    - L10: public static void registerCraftingTweaksAdditionClient() {
+  - `src/main/java/com/tiviacz/travelersbackpack/compat/craftingtweaks/ICraftingTweaks.java`
+    - L1: package com.tiviacz.travelersbackpack.compat.craftingtweaks;
+    - L5: public interface ICraftingTweaks {
+    - L13: @Override
+    - L14: public void onCraftingSlotsHidden() {
+    - L17: @Override
+    - L18: public void onCraftingSlotsDisplayed() {
+    - L21: @Override
+    - L22: public void setScreen(BackpackScreen screen) {
+  - `src/main/java/com/tiviacz/travelersbackpack/compat/emi/DragDropHandler.java`
+    - L1: package com.tiviacz.travelersbackpack.compat.emi;
+    - L3: /*public class DragDropHandler implements EmiDragDropHandler<BackpackScreen> {
+    - L6: public DragDropHandler() {
+    - L30: @Override
+    - L31: public boolean dropStack(BackpackScreen backpackScreen, EmiIngredient emiIngredient, int x, int y) {
+    - L42: @Override
+    - L43: public void render(BackpackScreen screen, EmiIngredient dragged, GuiGraphicsExtractor draw, int mouseX, int mouseY, float delta) {
+  - `src/main/java/com/tiviacz/travelersbackpack/compat/emi/EmiCompat.java`
+    - L1: package com.tiviacz.travelersbackpack.compat.emi;
+    - L4: public class EmiCompat implements EmiPlugin {
+    - L5: @Override
+    - L6: public void register(EmiRegistry emiRegistry) {
+    - L35: private static class GridMenuInfo<T extends BackpackBaseMenu> implements StandardRecipeHandler<T> {
+    - L36: @Override
+    - L37: public @Nullable Slot getOutputSlot(T handler) {
+    - L41: @Override
+    - L42: public List<Slot> getInputSources(T handler) {
+    - L58: @Override
+    - L59: public List<Slot> getCraftingSlots(T handler) {
+    - L68: @Override
+  - `src/main/java/com/tiviacz/travelersbackpack/compat/jei/BackpackUpgradeCategoryExtension.java`
+    - L1: package com.tiviacz.travelersbackpack.compat.jei;
+    - L18: public class BackpackUpgradeCategoryExtension implements ISmithingCategoryExtension<BackpackUpgradeRecipe> {
+    - L19: @Override
+    - L20: public <T extends IIngredientAcceptor<T>> void setTemplate(BackpackUpgradeRecipe recipe, T ingredientAcceptor) {
+    - L26: public <T extends IIngredientAcceptor<T>> void setBase(BackpackUpgradeRecipe recipe, T ingredientAcceptor) {
+    - L31: public <T extends IIngredientAcceptor<T>> void setAddition(BackpackUpgradeRecipe recipe, T ingredientAcceptor) {
+    - L37: public <T extends IIngredientAcceptor<T>> void setOutput(BackpackUpgradeRecipe recipe, T ingredientAcceptor) {
+  - `src/main/java/com/tiviacz/travelersbackpack/compat/jei/BlockEntityTransferHandler.java`
+    - L1: package com.tiviacz.travelersbackpack.compat.jei;
+    - L19: public class BlockEntityTransferHandler extends BasicRecipeTransferHandler<BackpackBlockEntityMenu, RecipeHolder<CraftingRecipe>> {
+    - L20: public BlockEntityTransferHandler(IConnectionToServer serverConnection, IStackHelper stackHelper, IRecipeTransferHandlerHelper handlerHelper, IRecipeTransferInfo<BackpackBlockEntityMenu, RecipeHolder<CraftingRecipe>> tra
+    - L24: @Nullable
+    - L25: @Override
+    - L26: public IRecipeTransferError transferRecipe(BackpackBlockEntityMenu menu, RecipeHolder<CraftingRecipe> recipe, IRecipeSlotsView recipeSlotsView, Player player, boolean maxTransfer, boolean doTransfer) {
+  - `src/main/java/com/tiviacz/travelersbackpack/compat/jei/BlockEntityTransferInfo.java`
+    - L1: package com.tiviacz.travelersbackpack.compat.jei;
+    - L18: public class BlockEntityTransferInfo implements IRecipeTransferInfo<BackpackBlockEntityMenu, RecipeHolder<CraftingRecipe>> {
+    - L19: @Override
+    - L20: public Class<? extends BackpackBlockEntityMenu> getContainerClass() {
+    - L24: @Override
+    - L25: public Optional<MenuType<BackpackBlockEntityMenu>> getMenuType() {
+    - L29: @Override
+    - L30: public IRecipeType<RecipeHolder<CraftingRecipe>> getRecipeType() {
+    - L34: @Override
+    - L35: public boolean canHandle(BackpackBlockEntityMenu menu, RecipeHolder<CraftingRecipe> recipe) {
+    - L39: @Override
+    - L40: public List<Slot> getRecipeSlots(BackpackBlockEntityMenu menu, RecipeHolder<CraftingRecipe> recipe) {
+  - `src/main/java/com/tiviacz/travelersbackpack/compat/jei/ItemTransferHandler.java`
+    - L1: package com.tiviacz.travelersbackpack.compat.jei;
+    - L19: public class ItemTransferHandler extends BasicRecipeTransferHandler<BackpackItemMenu, RecipeHolder<CraftingRecipe>> {
+    - L20: public ItemTransferHandler(IConnectionToServer serverConnection, IStackHelper stackHelper, IRecipeTransferHandlerHelper handlerHelper, IRecipeTransferInfo<BackpackItemMenu, RecipeHolder<CraftingRecipe>> transferInfo) {
+    - L24: @Nullable
+    - L25: @Override
+    - L26: public IRecipeTransferError transferRecipe(BackpackItemMenu menu, RecipeHolder<CraftingRecipe> recipe, IRecipeSlotsView recipeSlotsView, Player player, boolean maxTransfer, boolean doTransfer) {
+
+## Data & assets
+- No strongly name-matched resources under common resource roots; check parent mod resources / datagen providers.
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-30/Tiviacz1337-Travelers-Backpack` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- interface `ICraftingTweaks` in `ICraftingTweaks.java`
+- key type `DragDropHandler` (`DragDropHandler.java`)
+- key type `BlockEntityTransferHandler` (`BlockEntityTransferHandler.java`)
+- key type `ItemTransferHandler` (`ItemTransferHandler.java`)
+- key type `JeiGhostIngredientHandler` (`JeiGhostIngredientHandler.java`)
+- key type `TravelersBackpackPlugin` (`TravelersBackpackPlugin.java`)
+- key type `ReiGhostIngredientHandler` (`ReiGhostIngredientHandler.java`)
+- key type `ReiTransferHandler` (`ReiTransferHandler.java`)
+- record `ServerboundVinURLStartPacket` in `ServerboundVinURLStartPacket.java`
+- key type `ServerboundVinURLStartPacket` (`ServerboundVinURLStartPacket.java`)
+- record `ServerboundVinURLStopPacket` in `ServerboundVinURLStopPacket.java`
+- key type `ServerboundVinURLStopPacket` (`ServerboundVinURLStopPacket.java`)
+- key type `VinURLNetwork` (`VinURLNetwork.java`)
+
+## Port relevance to Re-Forestry
+- Adopt inventory/GUI/attachment patterns into Re-Forestry packages — no donor dep.
+
+## Source map
+- `src/main/java/com/tiviacz/travelersbackpack/compat/accessories/TravelersBackpackAccessory.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/comforts/ComfortsCompat.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/craftingtweaks/BackpackCraftingGridAddition.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/craftingtweaks/BackpackCraftingGridProvider.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/craftingtweaks/CraftingTweaksCompat.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/craftingtweaks/ICraftingTweaks.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/emi/DragDropHandler.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/emi/EmiCompat.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/jei/BackpackUpgradeCategoryExtension.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/jei/BlockEntityTransferHandler.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/jei/BlockEntityTransferInfo.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/jei/ItemTransferHandler.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/jei/ItemTransferInfo.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/jei/JeiGhostIngredientHandler.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/jei/TravelersBackpackPlugin.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/lambdynamiclight/BackpackDynamicLight.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/lambdynamiclight/BackpackEntityLuminance.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/pneumonogravestones/BackpackDataType.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/pneumonogravestones/PneumonoGravestonesCompat.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/polymorph/PolymorphCompat.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/polymorph/PolymorphWidget.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/rei/ReiClientCompat.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/rei/ReiGhostIngredientHandler.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/rei/ReiTransferHandler.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/toughasnails/ToughAsNailsPotionEffect.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/toughasnails/ToughAsNailsWaterCanteenEffect.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/toughasnails/ToughAsNailsWaterEffect.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/trashslot/BackpackLayout.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/trashslot/TrashSlotCompat.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/trinkets/BackpackTrinket.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/trinkets/BackpackTrinketRenderer.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/universalgraves/UniversalGravesCompat.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/vinurl/ServerboundVinURLStartPacket.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/vinurl/ServerboundVinURLStopPacket.java`
+- `src/main/java/com/tiviacz/travelersbackpack/compat/vinurl/VinURLNetwork.java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

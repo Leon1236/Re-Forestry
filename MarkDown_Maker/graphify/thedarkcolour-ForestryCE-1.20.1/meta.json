@@ -1,0 +1,12 @@
+{
+  "repo": "thedarkcolour-ForestryCE-1.20.1",
+  "clone": "/home/ivan/Re-Forestry-src/MarkDown_Maker/Finished_github_clone/2026-08-22/thedarkcolour-ForestryCE-1.20.1",
+  "scan_roots": [
+    "src"
+  ],
+  "graph": "/home/ivan/Re-Forestry-src/MarkDown_Maker/graphify/thedarkcolour-ForestryCE-1.20.1/graphify-out/graph.json",
+  "nodes": 14457,
+  "edges": 52207,
+  "seconds": 89.1,
+  "built_at": "2026-08-22T07:10:54Z"
+}

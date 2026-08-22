@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": "reforestry:gear_bronze",
+    "P": "#c:glass_panes/colorless",
+    "I": "#c:ingots/bronze",
+    "D": "minecraft:diamond"
+  },
+  "pattern": [
+    "IPI",
+    "IPI",
+    "GDG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reforestry:habitat_screen"
+  }
+}

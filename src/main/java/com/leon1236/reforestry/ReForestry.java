@@ -21,6 +21,7 @@ import com.leon1236.reforestry.cultivation.ModuleCultivation;
 import com.leon1236.reforestry.energy.ModuleEnergy;
 import com.leon1236.reforestry.extra_bees.ModuleExtraBees;
 import com.leon1236.reforestry.extratrees.ModuleExtraTrees;
+import com.leon1236.reforestry.climatology.ModuleClimatology;
 import com.leon1236.reforestry.factory.ModuleFactory;
 import com.leon1236.reforestry.farming.ModuleFarming;
 import com.leon1236.reforestry.gendustry.ModuleGendustry;
@@ -44,6 +45,7 @@ public class ReForestry implements ModInitializer {
 				new ModuleArboriculture(),
 				new ModuleLepidopterology(),
 				new ModuleFactory(),
+				new ModuleClimatology(),
 				new ModuleEnergy(),
 				new ModuleStorage(),
 				new ModuleWorktable(),

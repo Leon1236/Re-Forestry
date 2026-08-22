@@ -1,0 +1,223 @@
+# ForestryMC-ForestryMC — plugins
+
+- Alias: `forestry12`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ForestryMC-ForestryMC`
+- Package/path root: `src/main/java/forestry/plugins`
+- Java files scanned: **23**
+- Date: 2026-07-30
+
+## Summary
+Module `plugins` in `ForestryMC-ForestryMC` is rooted at `src/main/java/forestry/plugins` (23 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `BlockRegistryIC2`
+- `CompatPlugin`
+- `ForestryCompatPlugins`
+- `ForestryJeiPlugin`
+- `PluginActuallyAdditions`
+- `PluginAgriCraft`
+- `PluginBetterWithMods`
+- `PluginBiomesOPlenty`
+- `PluginBuildCraftFuels`
+- `PluginBuildCraftRecipes`
+- `PluginBuildCraftStatements`
+- `PluginBuildCraftTransport`
+- `PluginEnderIO`
+- `PluginExtraUtilities`
+- `PluginHarvestCraft`
+- `PluginIC2`
+- `PluginImmersiveEngineering`
+- `PluginMysticalAgriculture`
+- `PluginNatura`
+- `PluginRoots`
+- `PluginRustic`
+- `PluginTechReborn`
+- `package-info`
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py forestry12 "plugins"`
+- Source root exists: **True**
+- Declaration skim (first files):
+  - `src/main/java/forestry/plugins/BlockRegistryIC2.java`
+    - L1: package forestry.plugins;
+    - L9: public class BlockRegistryIC2 extends BlockRegistry {
+    - L10: public final BlockBase electricalEngine;
+    - L11: public final BlockEngine generator;
+    - L13: public BlockRegistryIC2() {
+  - `src/main/java/forestry/plugins/CompatPlugin.java`
+    - L1: package forestry.plugins;
+    - L22: public abstract class CompatPlugin extends BlankForestryModule {
+    - L24: protected final String modName;
+    - L25: protected final String modID;
+    - L27: public CompatPlugin(String modName, String modID) {
+    - L32: @Override
+    - L33: public final boolean isAvailable() {
+    - L37: @Override
+    - L38: public final String getFailMessage() {
+    - L42: @Nullable
+    - L43: protected ItemStack getItemStack(@Nonnull String itemName) {
+    - L47: @Nullable
+  - `src/main/java/forestry/plugins/ForestryCompatPlugins.java`
+    - L1: package forestry.plugins;
+    - L15: public class ForestryCompatPlugins implements IModuleContainer {
+    - L18: public static final String ID = "forestry_compat";
+    - L21: @Override
+    - L22: public String getID() {
+    - L26: @Override
+    - L27: public boolean isAvailable() {
+    - L31: @Override
+    - L32: public Configuration getModulesConfig() {
+    - L36: @Override
+    - L37: public boolean isModuleEnabled(IForestryModule module) {
+    - L45: @Override
+  - `src/main/java/forestry/plugins/ForestryJeiPlugin.java`
+    - L1: package forestry.plugins;
+    - L19: @JEIPlugin
+    - L20: @SuppressWarnings("unused")
+    - L21: public class ForestryJeiPlugin implements IModPlugin {
+    - L22: @Override
+    - L23: public void register(IModRegistry registry) {
+  - `src/main/java/forestry/plugins/PluginActuallyAdditions.java`
+    - L1: package forestry.plugins;
+    - L23: @SuppressWarnings("unused")
+    - L24: @ForestryModule(containerID = ForestryCompatPlugins.ID, moduleID = ForestryModuleUids.ACT_ADD, name = "Actually Additions", author = "Ellpeck", url = "http://ellpeck.de/actadd", unlocalizedDescription = "for.module.actua
+    - L25: public class PluginActuallyAdditions extends CompatPlugin {
+    - L29: public PluginActuallyAdditions() {
+    - L33: @Override
+    - L34: public void registerRecipes() {
+  - `src/main/java/forestry/plugins/PluginAgriCraft.java`
+    - L1: package forestry.plugins;
+    - L20: @ForestryModule(containerID = Constants.MOD_ID, moduleID = "AgriCraft", name = "AgriCraft", author = "Nirek", url = Constants.URL, unlocalizedDescription = "for.plugin.agricraft.description")
+    - L21: public class PluginAgriCraft extends CompatPlugin {
+    - L23: public PluginAgriCraft() {
+    - L27: @Override
+    - L28: public void registerRecipes() {
+  - `src/main/java/forestry/plugins/PluginBetterWithMods.java`
+    - L1: package forestry.plugins;
+    - L20: @SuppressWarnings("unused")
+    - L21: @ForestryModule(containerID = ForestryCompatPlugins.ID, moduleID = ForestryModuleUids.BETTER_WITH_MODS, name = "Better With Mods", author = "Nedelosk", url = Constants.URL, unlocalizedDescription = "for.module.betterwith
+    - L22: public class PluginBetterWithMods extends CompatPlugin {
+    - L23: public PluginBetterWithMods() {
+    - L27: @Override
+    - L28: public void registerRecipes() {
+  - `src/main/java/forestry/plugins/PluginBiomesOPlenty.java`
+    - L11: package forestry.plugins;
+    - L31: @SuppressWarnings("unused")
+    - L32: @ForestryModule(containerID = ForestryCompatPlugins.ID, moduleID = ForestryModuleUids.BIOMES_O_PLENTY, name = "BiomesOPlenty", author = "Nirek", url = Constants.URL, unlocalizedDescription = "for.module.biomesoplenty.des
+    - L33: public class PluginBiomesOPlenty extends CompatPlugin {
+    - L35: public PluginBiomesOPlenty() {
+    - L39: @Override
+    - L40: public void doInit() {
+    - L49: @Override
+    - L50: public void registerRecipes() {
+    - L87: @SuppressWarnings("deprecation")
+  - `src/main/java/forestry/plugins/PluginBuildCraftFuels.java`
+    - L11: package forestry.plugins;
+    - L30: @ForestryModule(containerID = ForestryCompatPlugins.ID, moduleID = ForestryModuleUids.BUILDCRAFT_FUELS, name = "BuildCraft 6 Fuels", author = "mezz", url = Constants.URL, unlocalizedDescription = "for.module.buildcraft6.
+    - L31: public class PluginBuildCraftFuels extends BlankForestryModule {
+    - L33: public static final String MOD_ID = "buildcraftenergy";
+    - L35: @Override
+    - L36: public boolean isAvailable() {
+    - L40: @Override
+    - L41: public String getFailMessage() {
+    - L45: @Override
+    - L46: public void doInit() {
+  - `src/main/java/forestry/plugins/PluginBuildCraftRecipes.java`
+    - L11: package forestry.plugins;
+    - L25: @ForestryModule(containerID = ForestryCompatPlugins.ID, moduleID = ForestryModuleUids.BUILDCRAFT_RECIPES, name = "BuildCraft 6 Recipes", author = "SirSengir", url = Constants.URL, unlocalizedDescription = "for.module.bui
+    - L26: public class PluginBuildCraftRecipes extends BlankForestryModule {
+    - L28: @Override
+    - L29: public boolean isAvailable() {
+    - L33: @Override
+    - L34: public String getFailMessage() {
+    - L38: @Optional.Method(modid = Constants.BCLIB_MOD_ID)
+    - L39: @Override
+    - L40: public void registerRecipes() {
+  - `src/main/java/forestry/plugins/PluginBuildCraftStatements.java`
+    - L11: package forestry.plugins;
+    - L34: @ForestryModule(containerID = ForestryCompatPlugins.ID, moduleID = ForestryModuleUids.BUILDCRAFT_STATEMENTS, name = "BuildCraft 6 Statements", author = "mezz", url = Constants.URL, unlocalizedDescription = "for.module.bu
+    - L35: @Optional.Interface(iface = "buildcraft.api.statements.ITriggerProvider", modid = Constants.BCLIB_MOD_ID)
+    - L36: public class PluginBuildCraftStatements extends BlankForestryModule implements ITriggerProvider {
+    - L38: @Override
+    - L39: public boolean isAvailable() {
+    - L43: @Override
+    - L44: public String getFailMessage() {
+    - L48: @Optional.Method(modid = Constants.BCLIB_MOD_ID)
+    - L49: @Override
+    - L50: public void doInit() {
+    - L57: @Optional.Method(modid = Constants.BCLIB_MOD_ID)
+  - `src/main/java/forestry/plugins/PluginBuildCraftTransport.java`
+    - L11: package forestry.plugins;
+    - L28: @ForestryModule(containerID = ForestryCompatPlugins.ID, moduleID = ForestryModuleUids.BUILDCRAFT_TRANSPORT, name = "BuildCraft 6 Transport", author = "mezz", url = Constants.URL, unlocalizedDescription = "for.module.buil
+    - L29: public class PluginBuildCraftTransport extends BlankForestryModule {
+    - L33: @Override
+    - L34: public boolean isAvailable() {
+    - L38: @Override
+    - L39: public String getFailMessage() {
+    - L43: @Override
+    - L44: public void registerRecipes() {
+
+## Data & assets
+- No strongly name-matched resources under common resource roots; check parent mod resources / datagen providers.
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ForestryMC-ForestryMC` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- key type `BlockRegistryIC2` (`BlockRegistryIC2.java`)
+- key type `CompatPlugin` (`CompatPlugin.java`)
+- key type `ForestryCompatPlugins` (`ForestryCompatPlugins.java`)
+- key type `ForestryJeiPlugin` (`ForestryJeiPlugin.java`)
+- key type `PluginActuallyAdditions` (`PluginActuallyAdditions.java`)
+- key type `PluginAgriCraft` (`PluginAgriCraft.java`)
+- key type `PluginBetterWithMods` (`PluginBetterWithMods.java`)
+- key type `PluginBiomesOPlenty` (`PluginBiomesOPlenty.java`)
+- key type `PluginBuildCraftFuels` (`PluginBuildCraftFuels.java`)
+- key type `PluginBuildCraftRecipes` (`PluginBuildCraftRecipes.java`)
+- key type `PluginBuildCraftStatements` (`PluginBuildCraftStatements.java`)
+- key type `PluginBuildCraftTransport` (`PluginBuildCraftTransport.java`)
+- key type `PluginEnderIO` (`PluginEnderIO.java`)
+- key type `PluginExtraUtilities` (`PluginExtraUtilities.java`)
+- key type `PluginHarvestCraft` (`PluginHarvestCraft.java`)
+- key type `PluginIC2` (`PluginIC2.java`)
+- key type `PluginImmersiveEngineering` (`PluginImmersiveEngineering.java`)
+- key type `PluginMysticalAgriculture` (`PluginMysticalAgriculture.java`)
+- key type `PluginNatura` (`PluginNatura.java`)
+- key type `PluginRoots` (`PluginRoots.java`)
+- key type `PluginRustic` (`PluginRustic.java`)
+- key type `PluginTechReborn` (`PluginTechReborn.java`)
+
+## Port relevance to Re-Forestry
+- 1.12 Forestry — useful for CE-dropped content (greenhouse, book, climatology, database, etc.).
+
+## Source map
+- `src/main/java/forestry/plugins/BlockRegistryIC2.java`
+- `src/main/java/forestry/plugins/CompatPlugin.java`
+- `src/main/java/forestry/plugins/ForestryCompatPlugins.java`
+- `src/main/java/forestry/plugins/ForestryJeiPlugin.java`
+- `src/main/java/forestry/plugins/PluginActuallyAdditions.java`
+- `src/main/java/forestry/plugins/PluginAgriCraft.java`
+- `src/main/java/forestry/plugins/PluginBetterWithMods.java`
+- `src/main/java/forestry/plugins/PluginBiomesOPlenty.java`
+- `src/main/java/forestry/plugins/PluginBuildCraftFuels.java`
+- `src/main/java/forestry/plugins/PluginBuildCraftRecipes.java`
+- `src/main/java/forestry/plugins/PluginBuildCraftStatements.java`
+- `src/main/java/forestry/plugins/PluginBuildCraftTransport.java`
+- `src/main/java/forestry/plugins/PluginEnderIO.java`
+- `src/main/java/forestry/plugins/PluginExtraUtilities.java`
+- `src/main/java/forestry/plugins/PluginHarvestCraft.java`
+- `src/main/java/forestry/plugins/PluginIC2.java`
+- `src/main/java/forestry/plugins/PluginImmersiveEngineering.java`
+- `src/main/java/forestry/plugins/PluginMysticalAgriculture.java`
+- `src/main/java/forestry/plugins/PluginNatura.java`
+- `src/main/java/forestry/plugins/PluginRoots.java`
+- `src/main/java/forestry/plugins/PluginRustic.java`
+- `src/main/java/forestry/plugins/PluginTechReborn.java`
+- `src/main/java/forestry/plugins/package-info.java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

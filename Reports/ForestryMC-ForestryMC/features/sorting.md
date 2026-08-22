@@ -1,0 +1,259 @@
+# ForestryMC-ForestryMC — sorting
+
+- Alias: `forestry12`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ForestryMC-ForestryMC`
+- Package/path root: `src/main/java/forestry/sorting`
+- Java files scanned: **35**
+- Date: 2026-07-30
+
+## Summary
+Module `sorting` in `ForestryMC-ForestryMC` is rooted at `src/main/java/forestry/sorting` (35 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `AlleleFilter`
+- `DefaultFilterRuleType`
+- `DummyFilterRegistry`
+- `FakeFilterLogic`
+- `FilterData`
+- `FilterLogic`
+- `FilterRegistry`
+- `ModuleSorting`
+- `BlockGeneticFilter`
+- `BlockRegistrySorting`
+- `package-info`
+- `ContainerGeneticFilter`
+- `GuiGeneticFilter`
+- `ISelectableProvider`
+- `SlotFilterFacing`
+- `SlotGeneticFilter`
+- `package-info`
+- `RuleWidget`
+- `SelectionLogic`
+- `SelectionWidget`
+- `SpeciesWidget`
+- `package-info`
+- `InventoryFilter`
+- `ItemHandlerFilter`
+- `package-info`
+- `PacketRegistrySorting`
+- `package-info`
+- `PacketFilterChangeGenome`
+- `PacketFilterChangeRule`
+- `PacketGuiFilterUpdate`
+- `package-info`
+- `package-info`
+- `IFilterContainer`
+- `TileGeneticFilter`
+- `package-info`
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py forestry12 "sorting"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `blocks`
+  - `gui`
+  - `gui/widgets`
+  - `inventory`
+  - `network`
+  - `network/packets`
+  - `tiles`
+- Declaration skim (first files):
+  - `src/main/java/forestry/sorting/AlleleFilter.java`
+    - L1: package forestry.sorting;
+    - L7: public class AlleleFilter {
+    - L8: @Nullable
+    - L9: public IAllele activeAllele;
+    - L11: @Nullable
+    - L12: public IAllele inactiveAllele;
+    - L14: public boolean isValid(String activeUID, String inactiveUID) {
+    - L19: public boolean isEmpty() {
+  - `src/main/java/forestry/sorting/DefaultFilterRuleType.java`
+    - L1: package forestry.sorting;
+    - L20: public enum DefaultFilterRuleType implements IFilterRuleType {
+    - L22: @Override
+    - L23: public boolean isValid(ItemStack itemStack, IFilterData data) {
+    - L28: @Override
+    - L29: public boolean isValid(ItemStack itemStack, IFilterData data) {
+    - L34: @Override
+    - L35: public boolean isValid(ItemStack itemStack, IFilterData data) {
+    - L63: public static void init() {
+    - L69: @Override
+    - L70: public boolean isValid(ItemStack itemStack, IFilterData data) {
+    - L79: @Override
+  - `src/main/java/forestry/sorting/DummyFilterRegistry.java`
+    - L1: package forestry.sorting;
+    - L12: public class DummyFilterRegistry implements IFilterRegistry {
+    - L13: @Override
+    - L14: public void registerFilter(IFilterRuleType rule) {
+    - L17: @Override
+    - L18: public Collection<IFilterRuleType> getRules() {
+    - L22: @Override
+    - L23: public IFilterRuleType getDefaultRule() {
+    - L27: @Nullable
+    - L28: @Override
+    - L29: public IFilterRuleType getRule(String uid) {
+    - L33: @Nullable
+  - `src/main/java/forestry/sorting/FakeFilterLogic.java`
+    - L1: package forestry.sorting;
+    - L17: public final class FakeFilterLogic implements IFilterLogic {
+    - L18: public static final FakeFilterLogic INSTANCE = new FakeFilterLogic();
+    - L23: @Override
+    - L24: public void writeGuiData(PacketBuffer data) {
+    - L28: @Override
+    - L29: public void readGuiData(PacketBuffer data) {
+    - L33: @Override
+    - L34: public Collection<EnumFacing> getValidDirections(ItemStack itemStack, EnumFacing from) {
+    - L38: @Override
+    - L39: public boolean isValid(ItemStack itemStack, EnumFacing facing) {
+    - L43: @Override
+  - `src/main/java/forestry/sorting/FilterData.java`
+    - L1: package forestry.sorting;
+    - L11: public class FilterData implements IFilterData {
+    - L12: @Nullable
+    - L14: @Nullable
+    - L16: @Nullable
+    - L19: public FilterData(@Nullable ISpeciesRoot root, @Nullable IIndividual individual, @Nullable ISpeciesType type) {
+    - L25: @Override
+    - L26: public ISpeciesRoot getRoot() {
+    - L33: @Override
+    - L34: public IIndividual getIndividual() {
+    - L41: @Override
+    - L42: public ISpeciesType getType() {
+  - `src/main/java/forestry/sorting/FilterLogic.java`
+    - L1: package forestry.sorting;
+    - L30: public class FilterLogic implements IFilterLogic {
+    - L36: public FilterLogic(ILocatable locatable, INetworkHandler networkHandler) {
+    - L44: @Override
+    - L45: public INetworkHandler getNetworkHandler() {
+    - L49: @Override
+    - L50: public NBTTagCompound writeToNBT(NBTTagCompound data) {
+    - L72: @Override
+    - L73: public void readFromNBT(NBTTagCompound data) {
+    - L92: @Override
+    - L93: public void writeGuiData(PacketBuffer data) {
+  - `src/main/java/forestry/sorting/FilterRegistry.java`
+    - L1: package forestry.sorting;
+    - L16: public class FilterRegistry implements IFilterRegistry {
+    - L23: @Override
+    - L24: public void registerFilter(IFilterRuleType rule) {
+    - L31: public void init() {
+    - L42: @Override
+    - L43: public Collection<IFilterRuleType> getRules() {
+    - L47: @Override
+    - L48: public IFilterRuleType getDefaultRule() {
+    - L52: @Nullable
+    - L53: @Override
+    - L54: public IFilterRuleType getRule(String uid) {
+  - `src/main/java/forestry/sorting/ModuleSorting.java`
+    - L1: package forestry.sorting;
+    - L29: @ForestryModule(containerID = Constants.MOD_ID, moduleID = ForestryModuleUids.SORTING, name = "Sorting", author = "Nedelosk", url = Constants.URL, unlocalizedDescription = "for.module.sorting.description")
+    - L30: public class ModuleSorting extends BlankForestryModule {
+    - L31: @Nullable
+    - L34: public static BlockRegistrySorting getBlocks() {
+    - L39: @Override
+    - L40: public IPacketRegistry getPacketRegistry() {
+    - L44: @Override
+    - L45: public void setupAPI() {
+    - L51: @Override
+    - L52: public void disabledSetupAPI() {
+    - L58: @Override
+  - `src/main/java/forestry/sorting/blocks/BlockGeneticFilter.java`
+    - L1: package forestry.sorting.blocks;
+    - L35: public class BlockGeneticFilter extends BlockForestry implements IItemModelRegister {
+    - L36: public static final PropertyBool NORTH = PropertyBool.create("north");
+    - L37: public static final PropertyBool EAST = PropertyBool.create("east");
+    - L38: public static final PropertyBool SOUTH = PropertyBool.create("south");
+    - L39: public static final PropertyBool WEST = PropertyBool.create("west");
+    - L40: public static final PropertyBool UP = PropertyBool.create("up");
+    - L41: public static final PropertyBool DOWN = PropertyBool.create("down");
+    - L52: public BlockGeneticFilter() {
+    - L67: @Override
+    - L68: public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+    - L81: @Override
+  - `src/main/java/forestry/sorting/blocks/BlockRegistrySorting.java`
+    - L1: package forestry.sorting.blocks;
+    - L6: public class BlockRegistrySorting extends BlockRegistry {
+    - L8: public final BlockGeneticFilter filter;
+    - L10: public BlockRegistrySorting() {
+  - `src/main/java/forestry/sorting/blocks/package-info.java`
+    - L1: @ParametersAreNonnullByDefault
+    - L2: @FieldsAreNonnullByDefault
+    - L3: @MethodsReturnNonnullByDefault
+    - L4: package forestry.sorting.blocks;
+  - `src/main/java/forestry/sorting/gui/ContainerGeneticFilter.java`
+    - L1: package forestry.sorting.gui;
+    - L11: public class ContainerGeneticFilter extends ContainerTile<TileEntity> {
+    - L15: public ContainerGeneticFilter(IFilterContainer container, InventoryPlayer playerInventory) {
+    - L21: protected void addInventory(InventoryPlayer playerInventory, int xInv, int yInv) {
+    - L41: public void setGuiNeedsUpdate(boolean guiNeedsUpdate) {
+    - L45: @Override
+    - L46: public void detectAndSendChanges() {
+    - L55: public boolean hasSameTile(ContainerGeneticFilter openContainer) {
+
+## Data & assets
+- No strongly name-matched resources under common resource roots; check parent mod resources / datagen providers.
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ForestryMC-ForestryMC` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- enum `DefaultFilterRuleType` in `DefaultFilterRuleType.java`
+- key type `DummyFilterRegistry` (`DummyFilterRegistry.java`)
+- key type `FilterRegistry` (`FilterRegistry.java`)
+- key type `ModuleSorting` (`ModuleSorting.java`)
+- key type `BlockRegistrySorting` (`BlockRegistrySorting.java`)
+- interface `ISelectableProvider` in `ISelectableProvider.java`
+- key type `ItemHandlerFilter` (`ItemHandlerFilter.java`)
+- key type `PacketRegistrySorting` (`PacketRegistrySorting.java`)
+- key type `PacketFilterChangeGenome` (`PacketFilterChangeGenome.java`)
+- key type `PacketFilterChangeRule` (`PacketFilterChangeRule.java`)
+- key type `PacketGuiFilterUpdate` (`PacketGuiFilterUpdate.java`)
+- interface `IFilterContainer` in `IFilterContainer.java`
+
+## Port relevance to Re-Forestry
+- Mentions of `sorting` appear in `files/implemented-features.md` — check that file for port status.
+- 1.12 Forestry — useful for CE-dropped content (greenhouse, book, climatology, database, etc.).
+
+## Source map
+- `src/main/java/forestry/sorting/AlleleFilter.java`
+- `src/main/java/forestry/sorting/DefaultFilterRuleType.java`
+- `src/main/java/forestry/sorting/DummyFilterRegistry.java`
+- `src/main/java/forestry/sorting/FakeFilterLogic.java`
+- `src/main/java/forestry/sorting/FilterData.java`
+- `src/main/java/forestry/sorting/FilterLogic.java`
+- `src/main/java/forestry/sorting/FilterRegistry.java`
+- `src/main/java/forestry/sorting/ModuleSorting.java`
+- `src/main/java/forestry/sorting/blocks/BlockGeneticFilter.java`
+- `src/main/java/forestry/sorting/blocks/BlockRegistrySorting.java`
+- `src/main/java/forestry/sorting/blocks/package-info.java`
+- `src/main/java/forestry/sorting/gui/ContainerGeneticFilter.java`
+- `src/main/java/forestry/sorting/gui/GuiGeneticFilter.java`
+- `src/main/java/forestry/sorting/gui/ISelectableProvider.java`
+- `src/main/java/forestry/sorting/gui/SlotFilterFacing.java`
+- `src/main/java/forestry/sorting/gui/SlotGeneticFilter.java`
+- `src/main/java/forestry/sorting/gui/package-info.java`
+- `src/main/java/forestry/sorting/gui/widgets/RuleWidget.java`
+- `src/main/java/forestry/sorting/gui/widgets/SelectionLogic.java`
+- `src/main/java/forestry/sorting/gui/widgets/SelectionWidget.java`
+- `src/main/java/forestry/sorting/gui/widgets/SpeciesWidget.java`
+- `src/main/java/forestry/sorting/gui/widgets/package-info.java`
+- `src/main/java/forestry/sorting/inventory/InventoryFilter.java`
+- `src/main/java/forestry/sorting/inventory/ItemHandlerFilter.java`
+- `src/main/java/forestry/sorting/inventory/package-info.java`
+- `src/main/java/forestry/sorting/network/PacketRegistrySorting.java`
+- `src/main/java/forestry/sorting/network/package-info.java`
+- `src/main/java/forestry/sorting/network/packets/PacketFilterChangeGenome.java`
+- `src/main/java/forestry/sorting/network/packets/PacketFilterChangeRule.java`
+- `src/main/java/forestry/sorting/network/packets/PacketGuiFilterUpdate.java`
+- `src/main/java/forestry/sorting/network/packets/package-info.java`
+- `src/main/java/forestry/sorting/package-info.java`
+- `src/main/java/forestry/sorting/tiles/IFilterContainer.java`
+- `src/main/java/forestry/sorting/tiles/TileGeneticFilter.java`
+- `src/main/java/forestry/sorting/tiles/package-info.java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

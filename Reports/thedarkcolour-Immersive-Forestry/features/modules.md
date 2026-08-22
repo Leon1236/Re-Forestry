@@ -1,0 +1,254 @@
+# thedarkcolour-Immersive-Forestry — modules
+
+- Alias: `IF`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/thedarkcolour-Immersive-Forestry`
+- Package/path root: `src/main/java/forestry/modules`
+- Java files scanned: **32**
+- Date: 2026-07-30
+
+## Summary
+Module `modules` in `thedarkcolour-Immersive-Forestry` is rooted at `src/main/java/forestry/modules` (32 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `BlankForestryModule`
+- `ForestryModuleManager`
+- `ModuleUtil`
+- `FeatureBlock`
+- `FeatureBlockGroup`
+- `FeatureBlockTable`
+- `FeatureCreativeTab`
+- `FeatureEntityType`
+- `FeatureFluid`
+- `FeatureGroup`
+- `FeatureItem`
+- `FeatureItemGroup`
+- `FeatureItemTable`
+- `FeatureMenuType`
+- `FeatureProvider`
+- `FeatureRecipeType`
+- `FeatureRegistry`
+- `FeatureTable`
+- `FeatureTileType`
+- `FluidProperties`
+- `IBlockFeature`
+- `IEntityTypeFeature`
+- `IFeatureRegistry`
+- `IFluidFeature`
+- `IItemFeature`
+- `IMenuTypeFeature`
+- `IModFeature`
+- `ITileTypeFeature`
+- `ModFeature`
+- `ModFeatureRegistry`
+- `package-info`
+- `package-info`
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py IF "modules"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `features`
+- Declaration skim (first files):
+  - `src/main/java/forestry/modules/BlankForestryModule.java`
+    - L1: package forestry.modules;
+    - L11: public abstract class BlankForestryModule implements IForestryModule {
+    - L12: @Override
+    - L13: public List<ResourceLocation> getModuleDependencies() {
+    - L18: @Override
+    - L19: public String toString() {
+    - L24: public void addToRootCommand(LiteralArgumentBuilder<CommandSourceStack> command) {
+  - `src/main/java/forestry/modules/ForestryModuleManager.java`
+    - L1: package forestry.modules;
+    - L20: public class ForestryModuleManager implements IModuleManager {
+    - L24: @Override
+    - L25: public Collection<IForestryModule> getLoadedModules() {
+    - L29: @Override
+    - L30: public boolean isModuleLoaded(ResourceLocation id) {
+    - L34: @Override
+    - L35: public List<IForestryModule> getModulesForMod(String modId) {
+    - L104: public void init() {
+  - `src/main/java/forestry/modules/ModuleUtil.java`
+    - L1: package forestry.modules;
+    - L16: public class ModuleUtil {
+    - L20: public static void loadFeatureProviders() {
+    - L47: public static IEventBus getModBus(String modid) {
+    - L51: // look up which field in the mod container class contains the mod bus
+    - L53: // iterate class hierarchy in case of anonymous or subclass weirdness of JVM languages
+  - `src/main/java/forestry/modules/features/FeatureBlock.java`
+    - L1: package forestry.modules.features;
+    - L20: public class FeatureBlock<B extends Block, I extends BlockItem> extends ModFeature implements IBlockFeature<B, I> {
+    - L22: @Nullable
+    - L25: public FeatureBlock(IFeatureRegistry features, ResourceLocation moduleId, String identifier, Supplier<B> constructorBlock, @Nullable Function<B, I> constructorItem) {
+    - L31: public String getTranslationKey() {
+    - L35: @Override
+    - L36: public BlockState defaultState() {
+    - L40: @Override
+    - L41: public <V extends Comparable<V>> BlockState setValue(Property<V> property, V value) {
+    - L45: @Override
+    - L46: public B block() {
+    - L50: @Override
+  - `src/main/java/forestry/modules/features/FeatureBlockGroup.java`
+    - L1: package forestry.modules.features;
+    - L19: public class FeatureBlockGroup<B extends Block, S extends IBlockSubtype> extends FeatureGroup<FeatureBlockGroup.Builder<B, S>, FeatureBlock<B, BlockItem>, S> {
+    - L24: @Override
+    - L25: protected FeatureBlock<B, BlockItem> createFeature(Builder<B, S> builder, S type) {
+    - L37: public List<B> getList() {
+    - L45: public Collection<BlockItem> getItems() {
+    - L53: public Block[] blockArray() {
+    - L57: public static class Builder<B extends Block, S extends IBlockSubtype> extends FeatureGroup.Builder<S, FeatureBlockGroup<B, S>> {
+    - L60: @Nullable
+    - L62: @Nullable
+    - L65: public Builder(FeatureRegistry registry, Collection<S> types, BiFunction<BlockBehaviour.Properties, S, B> blockConstructor) {
+    - L71: public Builder<B, S> item(BiFunction<B, Item.Properties, BlockItem> itemConstructor) {
+  - `src/main/java/forestry/modules/features/FeatureBlockTable.java`
+    - L1: package forestry.modules.features;
+    - L17: public class FeatureBlockTable<B extends Block, R extends IBlockSubtype, C extends IBlockSubtype> extends FeatureTable<FeatureBlockTable.Builder<B, R, C>, FeatureBlock<B, BlockItem>, R, C> {
+    - L18: public FeatureBlockTable(Builder<B, R, C> builder) {
+    - L22: @Override
+    - L23: protected FeatureBlock<B, BlockItem> createFeature(Builder<B, R, C> builder, R rowType, C columnType) {
+    - L31: public Collection<B> getBlocks() {
+    - L39: public Collection<BlockItem> getItems() {
+    - L47: public Collection<B> getRowBlocks(R rowType) {
+    - L51: public Collection<B> getColumnBlocks(C columnType) {
+    - L55: public static class Builder<B extends Block, R extends IBlockSubtype, C extends IBlockSubtype> extends FeatureTable.Builder<R, C, FeatureBlockTable<B, R, C>> {
+    - L58: @Nullable
+    - L61: public Builder(FeatureRegistry registry, TriFunction<BlockBehaviour.Properties, R, C, B> constructor) {
+  - `src/main/java/forestry/modules/features/FeatureCreativeTab.java`
+    - L1: package forestry.modules.features;
+    - L14: public class FeatureCreativeTab extends ModFeature {
+    - L17: public FeatureCreativeTab(IFeatureRegistry registry, ResourceLocation moduleId, String name, Consumer<CreativeModeTab.Builder> builder) {
+    - L27: public CreativeModeTab creativeTab() {
+    - L31: @Override
+    - L32: public ResourceKey<? extends Registry<?>> getRegistry() {
+    - L36: public ResourceKey<CreativeModeTab> getKey() {
+  - `src/main/java/forestry/modules/features/FeatureEntityType.java`
+    - L1: package forestry.modules.features;
+    - L16: public class FeatureEntityType<T extends Entity> extends ModFeature implements IEntityTypeFeature<T> {
+    - L17: protected final Supplier<AttributeSupplier.Builder> attributes;
+    - L18: protected final EntityType.EntityFactory<T> factory;
+    - L19: protected final MobCategory classification;
+    - L22: public FeatureEntityType(IFeatureRegistry registry, ResourceLocation moduleId, String name, UnaryOperator<EntityType.Builder<T>> consumer, EntityType.EntityFactory<T> factory, MobCategory classification, Supplier<Attribu
+    - L30: @Override
+    - L31: public AttributeSupplier.Builder createAttributes() {
+    - L35: @Override
+    - L36: public EntityType<T> entityType() {
+    - L40: @Override
+    - L41: public ResourceKey<? extends Registry<?>> getRegistry() {
+  - `src/main/java/forestry/modules/features/FeatureFluid.java`
+    - L1: package forestry.modules.features;
+    - L24: public class FeatureFluid extends ModFeature implements IFluidFeature {
+    - L32: public FeatureFluid(Builder builder) {
+    - L46: @Override
+    - L47: public ResourceKey<? extends Registry<?>> getRegistry() {
+    - L51: @Override
+    - L52: public IBlockFeature<BlockForestryFluid, BlockItem> fluidBlock() {
+    - L56: @Override
+    - L57: public FlowingFluid fluid() {
+    - L61: @Override
+    - L62: public FlowingFluid flowing() {
+    - L66: @Override
+  - `src/main/java/forestry/modules/features/FeatureGroup.java`
+    - L1: package forestry.modules.features;
+    - L13: public abstract class FeatureGroup<B extends FeatureGroup.Builder<S, ? extends FeatureGroup<B, F, S>>, F extends IModFeature, S extends IFeatureSubtype> {
+    - L14: protected final ImmutableMap<S, F> featureByType;
+    - L16: protected FeatureGroup(B builder) {
+    - L22: protected abstract F createFeature(B builder, S type);
+    - L24: public boolean has(S subType) {
+    - L28: public F get(S subType) {
+    - L32: public ImmutableMap<S, F> getFeatureByType() {
+    - L36: public Collection<F> getFeatures() {
+    - L40: public boolean itemEqual(ItemStack stack) {
+    - L50: public boolean itemEqual(Item item) {
+    - L60: public ItemStack stack(S subType) {
+  - `src/main/java/forestry/modules/features/FeatureItem.java`
+    - L1: package forestry.modules.features;
+    - L12: public class FeatureItem<I extends Item> extends ModFeature implements IItemFeature<I> {
+    - L15: public FeatureItem(IFeatureRegistry registry, ResourceLocation moduleId, String identifier, Supplier<I> constructor) {
+    - L20: @Override
+    - L21: public ResourceKey<? extends Registry<?>> getRegistry() {
+    - L25: @Override
+    - L26: public I item() {
+    - L30: @Override
+    - L31: public ResourceLocation id() {
+  - `src/main/java/forestry/modules/features/FeatureItemGroup.java`
+    - L1: package forestry.modules.features;
+    - L9: public class FeatureItemGroup<I extends Item, S extends IItemSubtype> extends FeatureGroup<FeatureItemGroup.Builder<I, S>, FeatureItem<I>, S> {
+    - L10: public FeatureItemGroup(Builder<I, S> builder) {
+    - L14: public ArrayList<I> getItems() {
+    - L22: public Item[] itemArray() {
+    - L26: @Override
+    - L27: protected FeatureItem<I> createFeature(Builder<I, S> builder, S type) {
+    - L31: public I item(S variant) {
+    - L35: public static class Builder<I extends Item, S extends IItemSubtype> extends FeatureGroup.Builder<S, FeatureItemGroup<I, S>> {
+    - L39: public Builder(FeatureRegistry registry, Function<S, I> constructor) {
+    - L45: @Override
+    - L46: public FeatureItemGroup<I, S> create() {
+
+## Data & assets
+- No strongly name-matched resources under common resource roots; check parent mod resources / datagen providers.
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/thedarkcolour-Immersive-Forestry` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- key type `BlankForestryModule` (`BlankForestryModule.java`)
+- key type `ForestryModuleManager` (`ForestryModuleManager.java`)
+- key type `ModuleUtil` (`ModuleUtil.java`)
+- interface `ItemConstructor` in `FeatureBlockTable.java`
+- enum `IdentifierType` in `FeatureGroup.java`
+- key type `FeatureRegistry` (`FeatureRegistry.java`)
+- interface `IBlockFeature` in `IBlockFeature.java`
+- interface `IEntityTypeFeature` in `IEntityTypeFeature.java`
+- interface `IFeatureRegistry` in `IFeatureRegistry.java`
+- key type `IFeatureRegistry` (`IFeatureRegistry.java`)
+- interface `IFluidFeature` in `IFluidFeature.java`
+- interface `IItemFeature` in `IItemFeature.java`
+- interface `IMenuTypeFeature` in `IMenuTypeFeature.java`
+- interface `IModFeature` in `IModFeature.java`
+- interface `ITileTypeFeature` in `ITileTypeFeature.java`
+- key type `ModFeatureRegistry` (`ModFeatureRegistry.java`)
+
+## Port relevance to Re-Forestry
+- Mentions of `modules` appear in `files/implemented-features.md` — check that file for port status.
+- Primary Forestry reference for Re-Forestry port decisions.
+
+## Source map
+- `src/main/java/forestry/modules/BlankForestryModule.java`
+- `src/main/java/forestry/modules/ForestryModuleManager.java`
+- `src/main/java/forestry/modules/ModuleUtil.java`
+- `src/main/java/forestry/modules/features/FeatureBlock.java`
+- `src/main/java/forestry/modules/features/FeatureBlockGroup.java`
+- `src/main/java/forestry/modules/features/FeatureBlockTable.java`
+- `src/main/java/forestry/modules/features/FeatureCreativeTab.java`
+- `src/main/java/forestry/modules/features/FeatureEntityType.java`
+- `src/main/java/forestry/modules/features/FeatureFluid.java`
+- `src/main/java/forestry/modules/features/FeatureGroup.java`
+- `src/main/java/forestry/modules/features/FeatureItem.java`
+- `src/main/java/forestry/modules/features/FeatureItemGroup.java`
+- `src/main/java/forestry/modules/features/FeatureItemTable.java`
+- `src/main/java/forestry/modules/features/FeatureMenuType.java`
+- `src/main/java/forestry/modules/features/FeatureProvider.java`
+- `src/main/java/forestry/modules/features/FeatureRecipeType.java`
+- `src/main/java/forestry/modules/features/FeatureRegistry.java`
+- `src/main/java/forestry/modules/features/FeatureTable.java`
+- `src/main/java/forestry/modules/features/FeatureTileType.java`
+- `src/main/java/forestry/modules/features/FluidProperties.java`
+- `src/main/java/forestry/modules/features/IBlockFeature.java`
+- `src/main/java/forestry/modules/features/IEntityTypeFeature.java`
+- `src/main/java/forestry/modules/features/IFeatureRegistry.java`
+- `src/main/java/forestry/modules/features/IFluidFeature.java`
+- `src/main/java/forestry/modules/features/IItemFeature.java`
+- `src/main/java/forestry/modules/features/IMenuTypeFeature.java`
+- `src/main/java/forestry/modules/features/IModFeature.java`
+- `src/main/java/forestry/modules/features/ITileTypeFeature.java`
+- `src/main/java/forestry/modules/features/ModFeature.java`
+- `src/main/java/forestry/modules/features/ModFeatureRegistry.java`
+- `src/main/java/forestry/modules/features/package-info.java`
+- `src/main/java/forestry/modules/package-info.java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

@@ -1,0 +1,12 @@
+{
+  "repo": "Tiviacz1337-Travelers-Backpack",
+  "clone": "/home/ivan/Re-Forestry-src/MarkDown_Maker/Finished_github_clone/2026-08-22/Tiviacz1337-Travelers-Backpack",
+  "scan_roots": [
+    "src"
+  ],
+  "graph": "/home/ivan/Re-Forestry-src/MarkDown_Maker/graphify/Tiviacz1337-Travelers-Backpack/graphify-out/graph.json",
+  "nodes": 2990,
+  "edges": 10821,
+  "seconds": 11.9,
+  "built_at": "2026-08-22T07:06:57Z"
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "reforestry:resource_storage_apatite"
+  ],
+  "result": {
+    "count": 9,
+    "id": "reforestry:apatite"
+  }
+}

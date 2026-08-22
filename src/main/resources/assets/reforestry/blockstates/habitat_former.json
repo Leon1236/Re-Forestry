@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "reforestry:block/habitat_former", "y": 180 },
+    "facing=east": { "model": "reforestry:block/habitat_former", "y": 270 },
+    "facing=south": { "model": "reforestry:block/habitat_former" },
+    "facing=west": { "model": "reforestry:block/habitat_former", "y": 90 }
+  }
+}

@@ -1,0 +1,405 @@
+# ACGaming-Binnie — genetics
+
+- Alias: `binnie`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ACGaming-Binnie`
+- Package/path root: `genetics/src/main/java/binnie/genetics`
+- Java files scanned: **194**
+- Date: 2026-07-30
+
+## Summary
+Module `genetics` in `ACGaming-Binnie` is rooted at `genetics/src/main/java/binnie/genetics` (194 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `CreativeTabGenetics`
+- `Genetics`
+- `ConfigHandler`
+- `ConfigurationMain`
+- `IConfigurable`
+- `package-info`
+- `GeneticsGUI`
+- `GeneticsPacket`
+- `GeneticsTexture`
+- `package-info`
+- `Engineering`
+- `GeneArrayItem`
+- `GeneItem`
+- `GeneTracker`
+- `IGeneItem`
+- `SequencerItem`
+- `TreeBreedingSystem`
+- `package-info`
+- `Icons`
+- `AnalystManager`
+- `AnalystPageBehaviour`
+- `AnalystPageBiology`
+- `AnalystPageDatabase`
+- `AnalystPageDescription`
+- `AnalystPageGenome`
+- `AnalystPageKaryogram`
+- `AnalystPageMutations`
+- `AnalystPanel`
+- `ControlAnalystButton`
+- `ControlAnalystChromosome`
+- `ControlBiome`
+- `ControlFurtherMutation`
+- `ControlMutation`
+- `ControlResultantMutation`
+- `ControlSystemButton`
+- `GeneticsProducePlugin`
+- `WindowAnalyst`
+- `package-info`
+- `package-info`
+- `package-info`
+- `package-info`
+- `AnalystPageClimate`
+- `package-info`
+- `package-info`
+- `package-info`
+- `ControlChromosome`
+- `ControlPunnett`
+- `WindowPunnettSquare`
+- `package-info`
+- `GeneticsJeiPlugin`
+- `RecipeUids`
+- `DatabaseRecipeCategory`
+- `DatabaseRecipeMaker`
+- `DatabaseRecipeWrapper`
+- `package-info`
+- `GenepoolRecipeCategory`
+- `GenepoolRecipeMaker`
+- `GenepoolRecipeWrapper`
+- `package-info`
+- `IncubatorRecipeCategory`
+- `IncubatorRecipeWrapper`
+- `LarvaeIncubatorRecipeCategory`
+- `LarvaeIncubatorRecipeMaker`
+- `LarvaeIncubatorRecipeWrapper`
+- `package-info`
+- `InoculatorRecipeCategory`
+- `InoculatorRecipeMaker`
+- `InoculatorRecipeWrapper`
+- `SplicerRecipeCategory`
+- `SplicerRecipeWrapper`
+- `package-info`
+- `IsolatorRecipeCategory`
+- `IsolatorRecipeMaker`
+- `IsolatorRecipeWrapper`
+- `package-info`
+- `package-info`
+- `PolymeriserRecipeCategory`
+- `PolymeriserRecipeMaker`
+- `PolymeriserRecipeWrapper`
+- `package-info`
+- … and 114 more
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py binnie "genetics"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `config`
+  - `core`
+  - `genetics`
+  - `gui`
+  - `gui/analyst`
+  - `gui/analyst/bee`
+  - `gui/analyst/butterfly`
+  - `gui/analyst/flower`
+  - `gui/analyst/tree`
+  - `gui/database/bee`
+  - `gui/punnett`
+  - `integration/jei`
+  - `integration/jei/database`
+  - `integration/jei/genepool`
+  - `integration/jei/incubator`
+  - `integration/jei/inoculator`
+  - `integration/jei/isolator`
+  - `integration/jei/polymeriser`
+  - `integration/jei/sequencer`
+  - `item`
+  - `machine`
+  - `machine/acclimatiser`
+  - `machine/analyser`
+  - `machine/craftgui`
+  - `machine/genepool`
+  - `machine/incubator`
+  - `machine/indexer`
+  - `machine/inoculator`
+  - `machine/isolator`
+  - `machine/lab`
+  - `machine/polymeriser`
+  - `machine/sequencer`
+  - `machine/splicer`
+  - `modules`
+  - `proxy`
+  - `recipes`
+- Declaration skim (first files):
+  - `genetics/src/main/java/binnie/genetics/CreativeTabGenetics.java`
+    - L1: package binnie.genetics;
+    - L10: public class CreativeTabGenetics extends CreativeTabs {
+    - L11: public static final CreativeTabs INSTANCE = new CreativeTabGenetics();
+    - L13: public CreativeTabGenetics() {
+    - L17: @Override
+    - L18: @SideOnly(Side.CLIENT)
+    - L19: public String getTranslationKey() {
+    - L23: @Override
+    - L24: @SideOnly(Side.CLIENT)
+    - L25: public String getTabLabel() {
+    - L29: @Override
+    - L30: @SideOnly(Side.CLIENT)
+  - `genetics/src/main/java/binnie/genetics/Genetics.java`
+    - L1: package binnie.genetics;
+    - L40: @Mod(
+    - L47: public class Genetics extends BlankModuleContainer {
+    - L48: @Mod.Instance(Constants.GENETICS_MOD_ID)
+    - L49: public static Genetics instance;
+    - L50: @SidedProxy(clientSide = "binnie.genetics.proxy.ProxyClient", serverSide = "binnie.genetics.proxy.ProxyServer")
+    - L51: public static Proxy proxy;
+    - L52: @Nullable
+    - L54: @Nullable
+    - L56: @Nullable
+    - L59: public static ConfigHandler configHandler;
+    - L61: public static IAnalystManager getAnalystManager() {
+  - `genetics/src/main/java/binnie/genetics/config/ConfigHandler.java`
+    - L1: package binnie.genetics.config;
+    - L10: public class ConfigHandler {
+    - L15: public ConfigHandler(File location) {
+    - L20: public boolean addConfigurable(IConfigurable configurable) {
+    - L24: public void reload(boolean load) {
+  - `genetics/src/main/java/binnie/genetics/config/ConfigurationMain.java`
+    - L1: package binnie.genetics.config;
+    - L7: @ConfigFile(filename = "/config/forestry/genetics/main.conf")
+    - L8: public class ConfigurationMain implements IConfigurable {
+    - L12: public static int acclimatiserEnergy = 2;
+    - L14: public static int analyserEnergy = 9000;
+    - L15: public static int analyserTime = 300;
+    - L17: public static int genepoolEnergy = 8000;
+    - L18: public static int genepoolTime = 400;
+    - L20: public static int incubatorEnergy = 2;
+    - L22: public static int inoculatorEnergy = 60000;
+    - L23: public static int inoculatorTime = 12000;
+    - L25: public static int isolatorEnergy = 192000;
+  - `genetics/src/main/java/binnie/genetics/config/IConfigurable.java`
+    - L1: package binnie.genetics.config;
+    - L5: public interface IConfigurable {
+  - `genetics/src/main/java/binnie/genetics/config/package-info.java`
+    - L1: @ParametersAreNonnullByDefault
+    - L2: @MethodsReturnNonnullByDefault
+    - L3: @FieldsAreNonnullByDefault
+    - L4: package binnie.genetics.config;
+  - `genetics/src/main/java/binnie/genetics/core/GeneticsGUI.java`
+    - L1: package binnie.genetics.core;
+    - L27: public enum GeneticsGUI implements IBinnieGUID {
+    - L51: public Window getWindow(EntityPlayer player, @Nullable IInventory object, Side side) {
+    - L55: @Override
+    - L56: public Window getWindow(EntityPlayer player, World world, int x, int y, int z, Side side) {
+    - L65: public interface WindowFactory {
+  - `genetics/src/main/java/binnie/genetics/core/GeneticsPacket.java`
+    - L1: package binnie.genetics.core;
+    - L12: public enum GeneticsPacket implements IPacketID {
+    - L15: @Override
+    - L16: public void onMessage(MessageBinnie message, MessageContext context) {
+  - `genetics/src/main/java/binnie/genetics/core/GeneticsTexture.java`
+    - L1: package binnie.genetics.core;
+    - L14: public enum GeneticsTexture implements IBinnieTexture {
+    - L20: public static BinnieSprite dnaIcon;
+    - L25: @SideOnly(Side.CLIENT)
+    - L26: @Nullable
+    - L34: @Override
+    - L35: @SideOnly(Side.CLIENT)
+    - L36: public BinnieResource getTexture() {
+  - `genetics/src/main/java/binnie/genetics/core/package-info.java`
+    - L1: @ParametersAreNonnullByDefault
+    - L2: @MethodsReturnNonnullByDefault
+    - L3: @FieldsAreNonnullByDefault
+    - L4: package binnie.genetics.core;
+  - `genetics/src/main/java/binnie/genetics/genetics/Engineering.java`
+    - L1: package binnie.genetics.genetics;
+    - L15: public class Engineering {
+    - L16: public static boolean isGeneAcceptor(ItemStack stack) {
+    - L31: public static boolean canAcceptGene(ItemStack stack, IGene gene) {
+    - L42: @Nullable
+    - L43: public static IGene getGene(ItemStack stack, int chromosome) {
+    - L51: public static ItemStack addGene(ItemStack stack, IGene gene) {
+    - L68: public static IGene[] getGenes(ItemStack serum) {
+    - L85: public static int getCharges(ItemStack serum) {
+  - `genetics/src/main/java/binnie/genetics/genetics/GeneArrayItem.java`
+    - L1: package binnie.genetics.genetics;
+    - L23: public class GeneArrayItem implements INbtReadable, INbtWritable, IGeneItem {
+    - L28: public GeneArrayItem(ItemStack stack) {
+    - L33: public GeneArrayItem(IGene gene) {
+    - L38: public GeneArrayItem() {
+    - L42: @Override
+    - L43: public int getColor(int renderPass) {
+    - L53: @Override
+    - L54: @SideOnly(Side.CLIENT)
+    - L55: public void getInfo(List<String> list) {
+    - L74: @Nullable
+    - L75: public IBreedingSystem getBreedingSystem() {
+
+## Data & assets
+- No strongly name-matched resources under common resource roots; check parent mod resources / datagen providers.
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ACGaming-Binnie` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- key type `ConfigHandler` (`ConfigHandler.java`)
+- interface `IConfigurable` in `IConfigurable.java`
+- interface `WindowFactory` in `GeneticsGUI.java`
+- enum `GeneticsGUI` in `GeneticsGUI.java`
+- enum `GeneticsPacket` in `GeneticsPacket.java`
+- key type `GeneticsPacket` (`GeneticsPacket.java`)
+- enum `GeneticsTexture` in `GeneticsTexture.java`
+- interface `IGeneItem` in `IGeneItem.java`
+- key type `GeneticsProducePlugin` (`GeneticsProducePlugin.java`)
+- key type `GeneticsJeiPlugin` (`GeneticsJeiPlugin.java`)
+- enum `GeneticLiquid` in `GeneticLiquid.java`
+- enum `GeneticsItems` in `GeneticsItems.java`
+- key type `ItemMasterRegistry` (`ItemMasterRegistry.java`)
+- key type `ItemRegistry` (`ItemRegistry.java`)
+- enum `AdvGeneticMachine` in `AdvGeneticMachine.java`
+- enum `GeneticMachine` in `GeneticMachine.java`
+- enum `GeneticsErrorCode` in `GeneticsErrorCode.java`
+- enum `LaboratoryMachine` in `LaboratoryMachine.java`
+- enum `ToleranceType` in `ToleranceType.java`
+- interface `IIncubatorRecipe` in `IIncubatorRecipe.java`
+- enum `Mode` in `ComponentApiaristIndexerInventory.java`
+- key type `GeneticsModuleUIDs` (`GeneticsModuleUIDs.java`)
+- key type `ModuleCore` (`ModuleCore.java`)
+- key type `ModuleMachine` (`ModuleMachine.java`)
+- interface `IGeneticsProxy` in `IGeneticsProxy.java`
+- key type `RegistryRecipe` (`RegistryRecipe.java`)
+
+## Port relevance to Re-Forestry
+- Mentions of `genetics` appear in `files/implemented-features.md` — check that file for port status.
+- Data/source to extract for addon modules; not a runtime dependency.
+
+## Source map
+- `genetics/src/main/java/binnie/genetics/CreativeTabGenetics.java`
+- `genetics/src/main/java/binnie/genetics/Genetics.java`
+- `genetics/src/main/java/binnie/genetics/config/ConfigHandler.java`
+- `genetics/src/main/java/binnie/genetics/config/ConfigurationMain.java`
+- `genetics/src/main/java/binnie/genetics/config/IConfigurable.java`
+- `genetics/src/main/java/binnie/genetics/config/package-info.java`
+- `genetics/src/main/java/binnie/genetics/core/GeneticsGUI.java`
+- `genetics/src/main/java/binnie/genetics/core/GeneticsPacket.java`
+- `genetics/src/main/java/binnie/genetics/core/GeneticsTexture.java`
+- `genetics/src/main/java/binnie/genetics/core/package-info.java`
+- `genetics/src/main/java/binnie/genetics/genetics/Engineering.java`
+- `genetics/src/main/java/binnie/genetics/genetics/GeneArrayItem.java`
+- `genetics/src/main/java/binnie/genetics/genetics/GeneItem.java`
+- `genetics/src/main/java/binnie/genetics/genetics/GeneTracker.java`
+- `genetics/src/main/java/binnie/genetics/genetics/IGeneItem.java`
+- `genetics/src/main/java/binnie/genetics/genetics/SequencerItem.java`
+- `genetics/src/main/java/binnie/genetics/genetics/TreeBreedingSystem.java`
+- `genetics/src/main/java/binnie/genetics/genetics/package-info.java`
+- `genetics/src/main/java/binnie/genetics/gui/Icons.java`
+- `genetics/src/main/java/binnie/genetics/gui/analyst/AnalystManager.java`
+- `genetics/src/main/java/binnie/genetics/gui/analyst/AnalystPageBehaviour.java`
+- `genetics/src/main/java/binnie/genetics/gui/analyst/AnalystPageBiology.java`
+- `genetics/src/main/java/binnie/genetics/gui/analyst/AnalystPageDatabase.java`
+- `genetics/src/main/java/binnie/genetics/gui/analyst/AnalystPageDescription.java`
+- `genetics/src/main/java/binnie/genetics/gui/analyst/AnalystPageGenome.java`
+- `genetics/src/main/java/binnie/genetics/gui/analyst/AnalystPageKaryogram.java`
+- `genetics/src/main/java/binnie/genetics/gui/analyst/AnalystPageMutations.java`
+- `genetics/src/main/java/binnie/genetics/gui/analyst/AnalystPanel.java`
+- `genetics/src/main/java/binnie/genetics/gui/analyst/ControlAnalystButton.java`
+- `genetics/src/main/java/binnie/genetics/gui/analyst/ControlAnalystChromosome.java`
+- `genetics/src/main/java/binnie/genetics/gui/analyst/ControlBiome.java`
+- `genetics/src/main/java/binnie/genetics/gui/analyst/ControlFurtherMutation.java`
+- `genetics/src/main/java/binnie/genetics/gui/analyst/ControlMutation.java`
+- `genetics/src/main/java/binnie/genetics/gui/analyst/ControlResultantMutation.java`
+- `genetics/src/main/java/binnie/genetics/gui/analyst/ControlSystemButton.java`
+- `genetics/src/main/java/binnie/genetics/gui/analyst/GeneticsProducePlugin.java`
+- `genetics/src/main/java/binnie/genetics/gui/analyst/WindowAnalyst.java`
+- `genetics/src/main/java/binnie/genetics/gui/analyst/bee/package-info.java`
+- `genetics/src/main/java/binnie/genetics/gui/analyst/butterfly/package-info.java`
+- `genetics/src/main/java/binnie/genetics/gui/analyst/flower/package-info.java`
+- `genetics/src/main/java/binnie/genetics/gui/analyst/package-info.java`
+- `genetics/src/main/java/binnie/genetics/gui/analyst/tree/AnalystPageClimate.java`
+- `genetics/src/main/java/binnie/genetics/gui/analyst/tree/package-info.java`
+- `genetics/src/main/java/binnie/genetics/gui/database/bee/package-info.java`
+- `genetics/src/main/java/binnie/genetics/gui/package-info.java`
+- `genetics/src/main/java/binnie/genetics/gui/punnett/ControlChromosome.java`
+- `genetics/src/main/java/binnie/genetics/gui/punnett/ControlPunnett.java`
+- `genetics/src/main/java/binnie/genetics/gui/punnett/WindowPunnettSquare.java`
+- `genetics/src/main/java/binnie/genetics/gui/punnett/package-info.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/GeneticsJeiPlugin.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/RecipeUids.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/database/DatabaseRecipeCategory.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/database/DatabaseRecipeMaker.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/database/DatabaseRecipeWrapper.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/database/package-info.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/genepool/GenepoolRecipeCategory.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/genepool/GenepoolRecipeMaker.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/genepool/GenepoolRecipeWrapper.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/genepool/package-info.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/incubator/IncubatorRecipeCategory.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/incubator/IncubatorRecipeWrapper.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/incubator/LarvaeIncubatorRecipeCategory.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/incubator/LarvaeIncubatorRecipeMaker.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/incubator/LarvaeIncubatorRecipeWrapper.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/incubator/package-info.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/inoculator/InoculatorRecipeCategory.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/inoculator/InoculatorRecipeMaker.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/inoculator/InoculatorRecipeWrapper.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/inoculator/SplicerRecipeCategory.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/inoculator/SplicerRecipeWrapper.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/inoculator/package-info.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/isolator/IsolatorRecipeCategory.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/isolator/IsolatorRecipeMaker.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/isolator/IsolatorRecipeWrapper.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/isolator/package-info.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/package-info.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/polymeriser/PolymeriserRecipeCategory.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/polymeriser/PolymeriserRecipeMaker.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/polymeriser/PolymeriserRecipeWrapper.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/polymeriser/package-info.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/sequencer/SequencerRecipeCategory.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/sequencer/SequencerRecipeMaker.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/sequencer/SequencerRecipeWrapper.java`
+- `genetics/src/main/java/binnie/genetics/integration/jei/sequencer/package-info.java`
+- `genetics/src/main/java/binnie/genetics/item/GeneticLiquid.java`
+- `genetics/src/main/java/binnie/genetics/item/GeneticsItems.java`
+- `genetics/src/main/java/binnie/genetics/item/ItemAnalyst.java`
+- `genetics/src/main/java/binnie/genetics/item/ItemDatabase.java`
+- `genetics/src/main/java/binnie/genetics/item/ItemGene.java`
+- `genetics/src/main/java/binnie/genetics/item/ItemMasterRegistry.java`
+- `genetics/src/main/java/binnie/genetics/item/ItemPunnettSquare.java`
+- `genetics/src/main/java/binnie/genetics/item/ItemRegistry.java`
+- `genetics/src/main/java/binnie/genetics/item/ItemSequence.java`
+- `genetics/src/main/java/binnie/genetics/item/ItemSerum.java`
+- `genetics/src/main/java/binnie/genetics/item/ItemSerumArray.java`
+- `genetics/src/main/java/binnie/genetics/item/package-info.java`
+- `genetics/src/main/java/binnie/genetics/machine/AdvGeneticMachine.java`
+- `genetics/src/main/java/binnie/genetics/machine/ComponentGeneticGUI.java`
+- `genetics/src/main/java/binnie/genetics/machine/EthanolTankValidator.java`
+- `genetics/src/main/java/binnie/genetics/machine/GeneticMachine.java`
+- `genetics/src/main/java/binnie/genetics/machine/GeneticsErrorCode.java`
+- `genetics/src/main/java/binnie/genetics/machine/LaboratoryMachine.java`
+- `genetics/src/main/java/binnie/genetics/machine/acclimatiser/Acclimatiser.java`
+- `genetics/src/main/java/binnie/genetics/machine/acclimatiser/AcclimatiserLogic.java`
+- `genetics/src/main/java/binnie/genetics/machine/acclimatiser/AcclimatiserManager.java`
+- `genetics/src/main/java/binnie/genetics/machine/acclimatiser/PackageAcclimatiser.java`
+- `genetics/src/main/java/binnie/genetics/machine/acclimatiser/ToleranceSystem.java`
+- `genetics/src/main/java/binnie/genetics/machine/acclimatiser/ToleranceType.java`
+- `genetics/src/main/java/binnie/genetics/machine/acclimatiser/ValidatorAcclimatiserItem.java`
+- `genetics/src/main/java/binnie/genetics/machine/acclimatiser/WindowAcclimatiser.java`
+- `genetics/src/main/java/binnie/genetics/machine/acclimatiser/package-info.java`
+- `genetics/src/main/java/binnie/genetics/machine/analyser/Analyser.java`
+- `genetics/src/main/java/binnie/genetics/machine/analyser/AnalyserFX.java`
+- `genetics/src/main/java/binnie/genetics/machine/analyser/AnalyserLogic.java`
+- `genetics/src/main/java/binnie/genetics/machine/analyser/PackageAnalyser.java`
+- `genetics/src/main/java/binnie/genetics/machine/analyser/SlotValidatorUnanalysed.java`
+- `genetics/src/main/java/binnie/genetics/machine/analyser/WindowAnalyser.java`
+- `genetics/src/main/java/binnie/genetics/machine/analyser/package-info.java`
+- `genetics/src/main/java/binnie/genetics/machine/craftgui/ControlGene.java`
+- `genetics/src/main/java/binnie/genetics/machine/craftgui/ControlGeneScroll.java`
+- … and 74 more under `genetics/src/main/java/binnie/genetics`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

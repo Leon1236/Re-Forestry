@@ -1,0 +1,253 @@
+# ForestryMC-ForestryMC — climatology
+
+- Alias: `forestry12`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ForestryMC-ForestryMC`
+- Package/path root: `src/main/java/forestry/climatology`
+- Java files scanned: **30**
+- Date: 2026-07-30
+
+## Summary
+Module `climatology` in `ForestryMC-ForestryMC` is rooted at `src/main/java/forestry/climatology` (30 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `ModuleClimatology`
+- `PreviewHandlerClient`
+- `BlockHabitatFormer`
+- `BlockRegistryClimatology`
+- `BlockTypeClimatology`
+- `State`
+- `package-info`
+- `ContainerHabitatFormer`
+- `GuiHabitatFormer`
+- `ClimateBarElement`
+- `HabitatFormerButton`
+- `HabitatSelectionElement`
+- `SpeciesSelectionElement`
+- `package-info`
+- `package-info`
+- `InventoryHabitatFormer`
+- `package-info`
+- `ItemHabitatScreen`
+- `ItemRegistryClimatology`
+- `package-info`
+- `PacketRegistryClimatology`
+- `package-info`
+- `PacketSelectClimateTargeted`
+- `package-info`
+- `package-info`
+- `ProxyClimatology`
+- `ProxyClimatologyClient`
+- `package-info`
+- `TileHabitatFormer`
+- `package-info`
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py forestry12 "climatology"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `blocks`
+  - `gui`
+  - `gui/elements`
+  - `inventory`
+  - `items`
+  - `network`
+  - `network/packets`
+  - `proxy`
+  - `tiles`
+- Declaration skim (first files):
+  - `src/main/java/forestry/climatology/ModuleClimatology.java`
+    - L11: package forestry.climatology;
+    - L50: @ForestryModule(containerID = Constants.MOD_ID, moduleID = ForestryModuleUids.CLIMATOLOGY, name = "Climatology", author = "Nedelosk", url = Constants.URL, unlocalizedDescription = "for.module.greenhouse.description")
+    - L51: public class ModuleClimatology extends BlankForestryModule {
+    - L53: @SuppressWarnings("NullableProblems")
+    - L54: @SidedProxy(clientSide = "forestry.climatology.proxy.ProxyClimatologyClient", serverSide = "forestry.climatology.proxy.ProxyClimatology")
+    - L55: public static ProxyClimatology proxy;
+    - L57: @Nullable
+    - L59: @Nullable
+    - L62: public static BlockRegistryClimatology getBlocks() {
+    - L67: public static ItemRegistryClimatology getItems() {
+    - L72: @Override
+    - L73: public void registerItemsAndBlocks() {
+  - `src/main/java/forestry/climatology/PreviewHandlerClient.java`
+    - L11: package forestry.climatology;
+    - L43: @SideOnly(Side.CLIENT)
+    - L44: public class PreviewHandlerClient {
+    - L49: @SubscribeEvent
+    - L50: public void onClientTick(TickEvent.ClientTickEvent tickEvent) {
+    - L81: @SubscribeEvent
+    - L82: public void worldUnloaded(WorldEvent.Unload event) {
+    - L86: private class PreviewRenderer {
+    - L90: @Nullable
+    - L95: public void setPreview(BlockPos centerPosition, int range, boolean circular) {
+  - `src/main/java/forestry/climatology/blocks/BlockHabitatFormer.java`
+    - L11: package forestry.climatology.blocks;
+    - L32: public class BlockHabitatFormer extends BlockBase<BlockTypeClimatology> implements IColoredBlock {
+    - L33: public BlockHabitatFormer() {
+    - L40: @SideOnly(Side.CLIENT)
+    - L41: @Override
+    - L42: public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
+    - L49: @SideOnly(Side.CLIENT)
+    - L50: @Override
+    - L51: public BlockRenderLayer getRenderLayer() {
+    - L55: @Override
+    - L56: public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos, int tintIndex) {
+  - `src/main/java/forestry/climatology/blocks/BlockRegistryClimatology.java`
+    - L11: package forestry.climatology.blocks;
+    - L16: public class BlockRegistryClimatology extends BlockRegistry {
+    - L18: public final BlockHabitatFormer habitatformer;
+    - L20: public BlockRegistryClimatology() {
+  - `src/main/java/forestry/climatology/blocks/BlockTypeClimatology.java`
+    - L11: package forestry.climatology.blocks;
+    - L19: public enum BlockTypeClimatology implements IBlockTypeCustom {
+    - L28: @Override
+    - L29: public IMachineProperties<?> getMachineProperties() {
+    - L33: @Override
+    - L34: public String getName() {
+  - `src/main/java/forestry/climatology/blocks/State.java`
+    - L11: package forestry.climatology.blocks;
+    - L18: public enum State implements IStringSerializable {
+    - L21: public static final PropertyEnum<State> PROPERTY = PropertyEnum.create("state", State.class);
+    - L23: public static State fromBool(boolean value) {
+    - L27: @Override
+    - L28: public String getName() {
+  - `src/main/java/forestry/climatology/blocks/package-info.java`
+    - L11: @ParametersAreNonnullByDefault
+    - L12: @FieldsAreNonnullByDefault
+    - L13: @MethodsReturnNonnullByDefault
+    - L14: package forestry.climatology.blocks;
+  - `src/main/java/forestry/climatology/gui/ContainerHabitatFormer.java`
+    - L11: package forestry.climatology.gui;
+    - L35: public class ContainerHabitatFormer extends ContainerTile<TileHabitatFormer> implements IContainerLiquidTanks, IGuiSelectable {
+    - L51: public ContainerHabitatFormer(InventoryPlayer playerInventory, TileHabitatFormer tile) {
+    - L58: @Override
+    - L59: public void detectAndSendChanges() {
+    - L102: @Override
+    - L103: public void handleSelectionRequest(EntityPlayerMP player, int primary, int secondary) {
+    - L117: @Override
+    - L118: @SideOnly(Side.CLIENT)
+    - L119: public void handlePipetteClickClient(int slot, EntityPlayer player) {
+  - `src/main/java/forestry/climatology/gui/GuiHabitatFormer.java`
+    - L11: package forestry.climatology.gui;
+    - L45: @SideOnly(Side.CLIENT)
+    - L46: public class GuiHabitatFormer extends GuiForestryTitled<ContainerHabitatFormer> implements IScrollable {
+    - L47: public static final ResourceLocation TEXTURE = new ResourceLocation(Constants.MOD_ID, "textures/gui/habitat_former.png");
+    - L65: public GuiHabitatFormer(EntityPlayer player, TileHabitatFormer tile) {
+    - L98: @Override
+    - L99: public void updateScreen() {
+    - L117: @Override
+    - L118: protected void drawGuiContainerBackgroundLayer(float f, int mouseX, int mouseY) {
+  - `src/main/java/forestry/climatology/gui/elements/ClimateBarElement.java`
+    - L11: package forestry.climatology.gui.elements;
+    - L31: @SideOnly(Side.CLIENT)
+    - L32: public class ClimateBarElement extends GuiElement {
+    - L33: public static final float MAX_VALUE = 2.0F;
+    - L39: public ClimateBarElement(int xPos, int yPos, IClimateTransformer transformer, ClimateType type) {
+    - L73: @Override
+    - L74: public void drawElement(int mouseX, int mouseY) {
+  - `src/main/java/forestry/climatology/gui/elements/HabitatFormerButton.java`
+    - L11: package forestry.climatology.gui.elements;
+    - L26: public class HabitatFormerButton extends ButtonElement {
+    - L32: public HabitatFormerButton(int xPos, int yPos, boolean selectionButton, Consumer<Boolean> onClicked) {
+    - L37: @Override
+    - L38: public void drawElement(int mouseX, int mouseY) {
+  - `src/main/java/forestry/climatology/gui/elements/HabitatSelectionElement.java`
+    - L11: package forestry.climatology.gui.elements;
+    - L41: @SideOnly(Side.CLIENT)
+    - L42: public class HabitatSelectionElement extends ElementGroup {
+    - L47: public HabitatSelectionElement(int xPos, int yPos, IClimateTransformer transformer) {
+    - L64: @Override
+    - L65: public void drawElement(int mouseX, int mouseY) {
+    - L92: @SideOnly(Side.CLIENT)
+    - L93: public TextureAtlasSprite getSprite() {
+    - L98: private class ClimateButton extends GuiElement {
+    - L116: @Override
+    - L117: public void drawElement(int mouseX, int mouseY) {
+
+## Data & assets
+Related resource paths (heuristic name match):
+- `src/main/resources/assets/forestry/blockstates/germlings.json`
+- `src/main/resources/assets/forestry/blockstates/genetic_filter.json`
+- `src/main/resources/assets/forestry/blockstates/loam.json`
+- `src/main/resources/assets/forestry/blockstates/ash_brick.json`
+- `src/main/resources/assets/forestry/blockstates/ash_stairs.json`
+- `src/main/resources/assets/forestry/blockstates/charcoal.json`
+- `src/main/resources/assets/forestry/blockstates/ash_block.json`
+- `src/main/resources/assets/forestry/blockstates/peat_bog.json`
+- `src/main/resources/assets/forestry/blockstates/raintank.json`
+- `src/main/resources/assets/forestry/blockstates/resources.json`
+- `src/main/resources/assets/forestry/blockstates/candle.json`
+- `src/main/resources/assets/forestry/blockstates/stump.json`
+- `src/main/resources/assets/forestry/blockstates/trade_station.json`
+- `src/main/resources/assets/forestry/blockstates/plantation.json`
+- `src/main/resources/assets/forestry/blockstates/farm_gourd.json`
+- `src/main/resources/assets/forestry/blockstates/farm_ender.json`
+- `src/main/resources/assets/forestry/blockstates/blockforestryfluid.json`
+- `src/main/resources/assets/forestry/blockstates/wood_pile_decorative.json`
+- `src/main/resources/assets/forestry/blockstates/mailbox.json`
+- `src/main/resources/assets/forestry/blockstates/arboretum.json`
+- `src/main/resources/assets/forestry/blockstates/resource_storage.json`
+- `src/main/resources/assets/forestry/blockstates/mushroom.json`
+- `src/main/resources/assets/forestry/blockstates/greenhouse.json`
+- `src/main/resources/assets/forestry/blockstates/worktable.json`
+- `src/main/resources/assets/forestry/blockstates/habitat_former.json`
+- `src/main/resources/assets/forestry/blockstates/wood_pile.json`
+- `src/main/resources/assets/forestry/blockstates/farm_mushroom.json`
+- `src/main/resources/assets/forestry/blockstates/crafting_table.json`
+- `src/main/resources/assets/forestry/blockstates/fabricator.json`
+- `src/main/resources/assets/forestry/blockstates/climatiser.json`
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ForestryMC-ForestryMC` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- key type `ModuleClimatology` (`ModuleClimatology.java`)
+- key type `PreviewHandlerClient` (`PreviewHandlerClient.java`)
+- key type `BlockRegistryClimatology` (`BlockRegistryClimatology.java`)
+- enum `BlockTypeClimatology` in `BlockTypeClimatology.java`
+- enum `State` in `State.java`
+- key type `ItemRegistryClimatology` (`ItemRegistryClimatology.java`)
+- key type `PacketRegistryClimatology` (`PacketRegistryClimatology.java`)
+- key type `PacketSelectClimateTargeted` (`PacketSelectClimateTargeted.java`)
+
+## Port relevance to Re-Forestry
+- Mentions of `climatology` appear in `files/implemented-features.md` — check that file for port status.
+- 1.12 Forestry — useful for CE-dropped content (greenhouse, book, climatology, database, etc.).
+
+## Source map
+- `src/main/java/forestry/climatology/ModuleClimatology.java`
+- `src/main/java/forestry/climatology/PreviewHandlerClient.java`
+- `src/main/java/forestry/climatology/blocks/BlockHabitatFormer.java`
+- `src/main/java/forestry/climatology/blocks/BlockRegistryClimatology.java`
+- `src/main/java/forestry/climatology/blocks/BlockTypeClimatology.java`
+- `src/main/java/forestry/climatology/blocks/State.java`
+- `src/main/java/forestry/climatology/blocks/package-info.java`
+- `src/main/java/forestry/climatology/gui/ContainerHabitatFormer.java`
+- `src/main/java/forestry/climatology/gui/GuiHabitatFormer.java`
+- `src/main/java/forestry/climatology/gui/elements/ClimateBarElement.java`
+- `src/main/java/forestry/climatology/gui/elements/HabitatFormerButton.java`
+- `src/main/java/forestry/climatology/gui/elements/HabitatSelectionElement.java`
+- `src/main/java/forestry/climatology/gui/elements/SpeciesSelectionElement.java`
+- `src/main/java/forestry/climatology/gui/elements/package-info.java`
+- `src/main/java/forestry/climatology/gui/package-info.java`
+- `src/main/java/forestry/climatology/inventory/InventoryHabitatFormer.java`
+- `src/main/java/forestry/climatology/inventory/package-info.java`
+- `src/main/java/forestry/climatology/items/ItemHabitatScreen.java`
+- `src/main/java/forestry/climatology/items/ItemRegistryClimatology.java`
+- `src/main/java/forestry/climatology/items/package-info.java`
+- `src/main/java/forestry/climatology/network/PacketRegistryClimatology.java`
+- `src/main/java/forestry/climatology/network/package-info.java`
+- `src/main/java/forestry/climatology/network/packets/PacketSelectClimateTargeted.java`
+- `src/main/java/forestry/climatology/network/packets/package-info.java`
+- `src/main/java/forestry/climatology/package-info.java`
+- `src/main/java/forestry/climatology/proxy/ProxyClimatology.java`
+- `src/main/java/forestry/climatology/proxy/ProxyClimatologyClient.java`
+- `src/main/java/forestry/climatology/proxy/package-info.java`
+- `src/main/java/forestry/climatology/tiles/TileHabitatFormer.java`
+- `src/main/java/forestry/climatology/tiles/package-info.java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

@@ -23,6 +23,12 @@ public interface IClimateManager {
 
     ClimateState getBiomeState(LevelReader level, BlockPos pos);
 
+    IClimateState getExactBiomeState(LevelReader level, BlockPos pos);
+
+    IWorldClimateHolder getWorldClimate(ServerLevel level);
+
+    IClimateStateHelper getStateHelper();
+
     @Deprecated
     default IClimateProvider getDefaultClimate(LevelReader level, BlockPos pos) {
         return createClimateProvider(level, pos);

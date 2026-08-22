@@ -1,0 +1,12 @@
+{
+  "repo": "ACGaming-Binnie",
+  "clone": "/home/ivan/Re-Forestry-src/MarkDown_Maker/Finished_github_clone/2026-08-22/ACGaming-Binnie",
+  "scan_roots": [
+    "."
+  ],
+  "graph": "/home/ivan/Re-Forestry-src/MarkDown_Maker/graphify/ACGaming-Binnie/graphify-out/graph.json",
+  "nodes": 13280,
+  "edges": 41564,
+  "seconds": 49.6,
+  "built_at": "2026-08-22T07:04:52Z"
+}

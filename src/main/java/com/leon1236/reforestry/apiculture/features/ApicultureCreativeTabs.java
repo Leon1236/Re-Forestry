@@ -41,6 +41,7 @@ public class ApicultureCreativeTabs {
             output.accept(ApicultureItems.SCOOP.item());
             output.accept(ApicultureItems.SCOOP_PROVEN.item());
             output.accept(ApicultureItems.SMOKER.item());
+            output.accept(ApicultureItems.HABITAT_LOCATOR.item());
             output.accept(ApicultureItems.FRAME_UNTREATED.item());
             output.accept(ApicultureItems.FRAME_IMPREGNATED.item());
             output.accept(ApicultureItems.FRAME_PROVEN.item());

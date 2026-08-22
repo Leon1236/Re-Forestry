@@ -1,0 +1,12 @@
+{
+  "repo": "TechReborn-Energy",
+  "clone": "/home/ivan/Re-Forestry-src/MarkDown_Maker/Finished_github_clone/2026-08-22/TechReborn-Energy",
+  "scan_roots": [
+    "src"
+  ],
+  "graph": "/home/ivan/Re-Forestry-src/MarkDown_Maker/graphify/TechReborn-Energy/graphify-out/graph.json",
+  "nodes": 144,
+  "edges": 347,
+  "seconds": 2.5,
+  "built_at": "2026-08-22T07:06:45Z"
+}

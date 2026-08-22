@@ -1,0 +1,351 @@
+# bernie-g-geckolib — loading
+
+- Alias: `geckolib`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_18-01-07/bernie-g-geckolib`
+- Package/path root: `common/src/main/java/com/geckolib/loading`
+- Java files scanned: **87**
+- Date: 2026-07-30
+
+## Summary
+Module `loading` in `bernie-g-geckolib` is rooted at `common/src/main/java/com/geckolib/loading` (87 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `ActorAnimation`
+- `ActorAnimationParticleEffect`
+- `ActorAnimationSoundEffect`
+- `ActorAnimations`
+- `ActorBoneAnimation`
+- `ActorBoneAnimationEntry`
+- `ActorBoneAnimationKeyframe`
+- `ActorBoneAnimationKeyframeValues`
+- `DoubleOrString`
+- `KeyframeTriplet`
+- `package-info`
+- `package-info`
+- `Geometry`
+- `GeometryBone`
+- `GeometryCube`
+- `GeometryDefinition`
+- `GeometryDescription`
+- `GeometryLocator`
+- `GeometryPolyIndex`
+- `GeometryPolyIndices`
+- `GeometryPolyMesh`
+- `GeometryTextureMesh`
+- `GeometryUv`
+- `GeometryUvMapping`
+- `GeometryUvMappingDetails`
+- `GeometryUvPair`
+- `GeometryQuadUvs`
+- `ModelFormatVersion`
+- `UvFaceRotation`
+- `VertexSet`
+- `package-info`
+- `package-info`
+- `GeckoLibGsonLoader`
+- `GeckoLibLoader`
+- `package-info`
+- `MathParser`
+- `MathValue`
+- `MolangQueries`
+- `Operator`
+- `MathFunction`
+- `ACosFunction`
+- `ASinFunction`
+- `ATan2Function`
+- `ATanFunction`
+- `AbsFunction`
+- `CosFunction`
+- `ExpFunction`
+- `LogFunction`
+- `ModFunction`
+- `PowFunction`
+- `SinFunction`
+- `SqrtFunction`
+- `package-info`
+- `ClampFunction`
+- `MaxFunction`
+- `MinFunction`
+- `package-info`
+- `PiFunction`
+- `ToDegFunction`
+- `ToRadFunction`
+- `package-info`
+- `package-info`
+- `DieRollFunction`
+- `DieRollIntegerFunction`
+- `RandomFunction`
+- `RandomIntegerFunction`
+- `package-info`
+- `CeilFunction`
+- `FloorFunction`
+- `HermiteBlendFunction`
+- `LerpFunction`
+- `LerpRotFunction`
+- `RoundFunction`
+- `TruncateFunction`
+- `package-info`
+- `package-info`
+- `BooleanNegate`
+- `Calculation`
+- `CompoundValue`
+- `Constant`
+- … and 7 more
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py geckolib "loading"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `definition/animation`
+  - `definition/animation/object`
+  - `definition/geometry`
+  - `definition/geometry/object`
+  - `loader`
+  - `math`
+  - `math/function`
+  - `math/function/generic`
+  - `math/function/limit`
+  - `math/function/misc`
+  - `math/function/random`
+  - `math/function/round`
+  - `math/value`
+- Declaration skim (first files):
+  - `common/src/main/java/com/geckolib/loading/definition/animation/ActorAnimation.java`
+    - L1: package com.geckolib.loading.definition.animation;
+    - L25: /// Container class for a single actor animation, only used for intermediary steps between .json deserialization and GeckoLib object creation
+    - L41: @ApiStatus.Internal
+    - L42: public record ActorAnimation(@Nullable Float animLength, @Nullable Either<Boolean, String> loop, @Nullable String startDelay, @Nullable String loopDelay, @Nullable String animTimeUpdate,
+    - L43: @Nullable String blendWeight, @Nullable Boolean overridePrevAnimation, @Nullable Map<String, ActorBoneAnimation> boneAnimations,
+    - L44: @Nullable Map<String, ActorAnimationParticleEffect> particleEffects, @Nullable Map<String, ActorAnimationSoundEffect> soundEffects, @Nullable Map<String, String> timeline) {
+    - L46: public static JsonDeserializer<ActorAnimation> gsonDeserializer() throws JsonParseException {
+    - L68: public Animation bake(String name, MathParser mathParser) {
+  - `common/src/main/java/com/geckolib/loading/definition/animation/ActorAnimationParticleEffect.java`
+    - L1: package com.geckolib.loading.definition.animation;
+    - L14: /// Container class for a single actor animation's particle effects track keyframe marker,
+    - L24: @ApiStatus.Internal
+    - L25: public record ActorAnimationParticleEffect(String effect, @Nullable String locator, @Nullable String preEffectScript, @Nullable Boolean bindToActor) {
+    - L27: public static JsonDeserializer<ActorAnimationParticleEffect> gsonDeserializer() throws JsonParseException {
+    - L40: public ParticleKeyframeData bake(double timestamp) {
+  - `common/src/main/java/com/geckolib/loading/definition/animation/ActorAnimationSoundEffect.java`
+    - L1: package com.geckolib.loading.definition.animation;
+    - L14: /// Container class for a single actor animation's sound effects track keyframe marker,
+    - L27: @ApiStatus.Internal
+    - L28: public record ActorAnimationSoundEffect(String effect, @Nullable String locator, @Nullable String preEffectScript, @Nullable Boolean bindToActor) {
+    - L30: public static JsonDeserializer<ActorAnimationSoundEffect> gsonDeserializer() throws JsonParseException {
+    - L43: public SoundKeyframeData bake(double timestamp) {
+  - `common/src/main/java/com/geckolib/loading/definition/animation/ActorAnimations.java`
+    - L1: package com.geckolib.loading.definition.animation;
+    - L17: /// Container class for a full animation file definition, only used for intermediary steps between .json deserialization and GeckoLib object creation
+    - L24: @ApiStatus.Internal
+    - L25: public record ActorAnimations(String formatVersion, Map<String, ActorAnimation> animations) {
+    - L27: public static final Gson GSON = new GsonBuilder().setStrictness(Strictness.LENIENT)
+    - L40: public static JsonDeserializer<ActorAnimations> gsonDeserializer() throws JsonParseException {
+    - L57: public BakedAnimations bake(Identifier resourcePath, MathParser mathParser) throws RuntimeException {
+  - `common/src/main/java/com/geckolib/loading/definition/animation/ActorBoneAnimation.java`
+    - L1: package com.geckolib.loading.definition.animation;
+    - L15: /// Container class for a single actor animation's bone animation data,
+    - L25: @ApiStatus.Internal
+    - L26: public record ActorBoneAnimation(@Nullable String relativeTo,
+    - L27: @Nullable ActorBoneAnimationEntry positionKeyframes, @Nullable ActorBoneAnimationEntry rotationKeyframes, @Nullable ActorBoneAnimationEntry scaleKeyframes) {
+    - L29: public double getAnimationLength() {
+    - L38: public static JsonDeserializer<ActorBoneAnimation> gsonDeserializer() throws JsonParseException {
+    - L51: public BoneAnimation bake(String boneName, MathParser mathParser) {
+  - `common/src/main/java/com/geckolib/loading/definition/animation/ActorBoneAnimationEntry.java`
+    - L1: package com.geckolib.loading.definition.animation;
+    - L21: /// Container class for a single actor animation's bone animation data for a specific transformation type,
+    - L29: @ApiStatus.Internal
+    - L30: public record ActorBoneAnimationEntry(Either<ActorBoneAnimationKeyframe, Double2ObjectArrayMap<ActorBoneAnimationKeyframe>> keyframes) {
+    - L32: public boolean isSingleKeyframe() {
+    - L37: public double getAnimationLength() {
+    - L53: public int size() {
+    - L58: public static JsonDeserializer<ActorBoneAnimationEntry> gsonDeserializer() throws JsonParseException {
+  - `common/src/main/java/com/geckolib/loading/definition/animation/ActorBoneAnimationKeyframe.java`
+    - L1: package com.geckolib.loading.definition.animation;
+    - L25: /// Container class for a single actor animation's bone animation keyframe,
+    - L36: @ApiStatus.Internal
+    - L37: public record ActorBoneAnimationKeyframe(@Nullable ActorBoneAnimationKeyframeValues values, @Nullable String interpolationType, DoubleOrString @Nullable [] easingArgs,
+    - L38: @Nullable ActorBoneAnimationKeyframe preKeyframe, @Nullable ActorBoneAnimationKeyframe postKeyframe) {
+    - L40: public static JsonDeserializer<ActorBoneAnimationKeyframe> gsonDeserializer() throws JsonParseException {
+    - L64: public KeyframeTriplet[] bake(double timestamp, AnimationPoint.Transform transformType, boolean forceLinearInterpolation, @Nullable KeyframeTriplet lastTriplet, MathParser mathParser) {
+    - L99: @Nullable KeyframeTriplet lastTriplet, MathParser mathParser) {
+  - `common/src/main/java/com/geckolib/loading/definition/animation/ActorBoneAnimationKeyframeValues.java`
+    - L1: package com.geckolib.loading.definition.animation;
+    - L6: /// Container class for a single actor animation's bone animation keyframe,
+    - L13: @ApiStatus.Internal
+    - L14: public record ActorBoneAnimationKeyframeValues(DoubleOrString xValue, DoubleOrString yValue, DoubleOrString zValue) {
+    - L16: public static JsonDeserializer<ActorBoneAnimationKeyframeValues> gsonDeserializer() throws JsonParseException {
+  - `common/src/main/java/com/geckolib/loading/definition/animation/DoubleOrString.java`
+    - L1: package com.geckolib.loading.definition.animation;
+    - L11: @ApiStatus.Internal
+    - L12: public sealed interface DoubleOrString permits DoubleOrString.DoubleValue, DoubleOrString.StringValue {
+    - L39: record DoubleValue(double doubleValue) implements DoubleOrString {
+    - L40: @Override
+    - L41: public boolean isDouble() {
+    - L45: @Override
+    - L46: public String stringValue() {
+    - L51: record StringValue(String stringValue) implements DoubleOrString {
+    - L52: @Override
+    - L53: public boolean isDouble() {
+    - L57: @Override
+  - `common/src/main/java/com/geckolib/loading/definition/animation/object/KeyframeTriplet.java`
+    - L1: package com.geckolib.loading.definition.animation.object;
+    - L9: public record KeyframeTriplet(Keyframe x, Keyframe y, Keyframe z) {
+    - L11: public KeyframeTriplet(double timestamp, double keyframeLength, @Nullable KeyframeTriplet previousTriplet,
+  - `common/src/main/java/com/geckolib/loading/definition/animation/object/package-info.java`
+    - L2: @NullMarked
+    - L3: @ApiStatus.Internal
+    - L4: package com.geckolib.loading.definition.animation.object;
+  - `common/src/main/java/com/geckolib/loading/definition/animation/package-info.java`
+    - L2: @NullMarked
+    - L3: @ApiStatus.Internal
+    - L4: package com.geckolib.loading.definition.animation;
+
+## Data & assets
+- No strongly name-matched resources under common resource roots; check parent mod resources / datagen providers.
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_18-01-07/bernie-g-geckolib` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- record `ActorAnimation` in `ActorAnimation.java`
+- record `ActorAnimationParticleEffect` in `ActorAnimationParticleEffect.java`
+- record `ActorAnimationSoundEffect` in `ActorAnimationSoundEffect.java`
+- record `ActorAnimations` in `ActorAnimations.java`
+- record `ActorBoneAnimation` in `ActorBoneAnimation.java`
+- record `ActorBoneAnimationEntry` in `ActorBoneAnimationEntry.java`
+- record `ActorBoneAnimationKeyframe` in `ActorBoneAnimationKeyframe.java`
+- record `ActorBoneAnimationKeyframeValues` in `ActorBoneAnimationKeyframeValues.java`
+- record `KeyframeTriplet` in `KeyframeTriplet.java`
+- record `Geometry` in `Geometry.java`
+- record `GeometryBone` in `GeometryBone.java`
+- record `GeometryCube` in `GeometryCube.java`
+- record `GeometryDefinition` in `GeometryDefinition.java`
+- record `GeometryDescription` in `GeometryDescription.java`
+- record `GeometryLocator` in `GeometryLocator.java`
+- record `GeometryPolyIndex` in `GeometryPolyIndex.java`
+- record `GeometryPolyIndices` in `GeometryPolyIndices.java`
+- record `GeometryPolyMesh` in `GeometryPolyMesh.java`
+- record `GeometryTextureMesh` in `GeometryTextureMesh.java`
+- record `GeometryUv` in `GeometryUv.java`
+- record `GeometryUvMapping` in `GeometryUvMapping.java`
+- record `GeometryUvMappingDetails` in `GeometryUvMappingDetails.java`
+- record `GeometryUvPair` in `GeometryUvPair.java`
+- record `GeometryQuadUvs` in `GeometryQuadUvs.java`
+- enum `ModelFormatVersion` in `ModelFormatVersion.java`
+- enum `UvFaceRotation` in `UvFaceRotation.java`
+- record `VertexSet` in `VertexSet.java`
+- interface `GeckoLibLoader` in `GeckoLibLoader.java`
+- interface `Deduplicator` in `MathParser.java`
+- interface `MathValue` in `MathValue.java`
+- record `Actor` in `MolangQueries.java`
+- interface `Operation` in `Operator.java`
+- record `Operator` in `Operator.java`
+- interface `Factory` in `MathFunction.java`
+- record `BooleanNegate` in `BooleanNegate.java`
+- record `Calculation` in `Calculation.java`
+- record `CompoundValue` in `CompoundValue.java`
+- record `Constant` in `Constant.java`
+- record `Group` in `Group.java`
+- record `Negative` in `Negative.java`
+- record `Ternary` in `Ternary.java`
+- record `Variable` in `Variable.java`
+- record `VariableAssignment` in `VariableAssignment.java`
+
+## Port relevance to Re-Forestry
+- Optional animation library patterns; evaluate before adding soft dep.
+
+## Source map
+- `common/src/main/java/com/geckolib/loading/definition/animation/ActorAnimation.java`
+- `common/src/main/java/com/geckolib/loading/definition/animation/ActorAnimationParticleEffect.java`
+- `common/src/main/java/com/geckolib/loading/definition/animation/ActorAnimationSoundEffect.java`
+- `common/src/main/java/com/geckolib/loading/definition/animation/ActorAnimations.java`
+- `common/src/main/java/com/geckolib/loading/definition/animation/ActorBoneAnimation.java`
+- `common/src/main/java/com/geckolib/loading/definition/animation/ActorBoneAnimationEntry.java`
+- `common/src/main/java/com/geckolib/loading/definition/animation/ActorBoneAnimationKeyframe.java`
+- `common/src/main/java/com/geckolib/loading/definition/animation/ActorBoneAnimationKeyframeValues.java`
+- `common/src/main/java/com/geckolib/loading/definition/animation/DoubleOrString.java`
+- `common/src/main/java/com/geckolib/loading/definition/animation/object/KeyframeTriplet.java`
+- `common/src/main/java/com/geckolib/loading/definition/animation/object/package-info.java`
+- `common/src/main/java/com/geckolib/loading/definition/animation/package-info.java`
+- `common/src/main/java/com/geckolib/loading/definition/geometry/Geometry.java`
+- `common/src/main/java/com/geckolib/loading/definition/geometry/GeometryBone.java`
+- `common/src/main/java/com/geckolib/loading/definition/geometry/GeometryCube.java`
+- `common/src/main/java/com/geckolib/loading/definition/geometry/GeometryDefinition.java`
+- `common/src/main/java/com/geckolib/loading/definition/geometry/GeometryDescription.java`
+- `common/src/main/java/com/geckolib/loading/definition/geometry/GeometryLocator.java`
+- `common/src/main/java/com/geckolib/loading/definition/geometry/GeometryPolyIndex.java`
+- `common/src/main/java/com/geckolib/loading/definition/geometry/GeometryPolyIndices.java`
+- `common/src/main/java/com/geckolib/loading/definition/geometry/GeometryPolyMesh.java`
+- `common/src/main/java/com/geckolib/loading/definition/geometry/GeometryTextureMesh.java`
+- `common/src/main/java/com/geckolib/loading/definition/geometry/GeometryUv.java`
+- `common/src/main/java/com/geckolib/loading/definition/geometry/GeometryUvMapping.java`
+- `common/src/main/java/com/geckolib/loading/definition/geometry/GeometryUvMappingDetails.java`
+- `common/src/main/java/com/geckolib/loading/definition/geometry/GeometryUvPair.java`
+- `common/src/main/java/com/geckolib/loading/definition/geometry/object/GeometryQuadUvs.java`
+- `common/src/main/java/com/geckolib/loading/definition/geometry/object/ModelFormatVersion.java`
+- `common/src/main/java/com/geckolib/loading/definition/geometry/object/UvFaceRotation.java`
+- `common/src/main/java/com/geckolib/loading/definition/geometry/object/VertexSet.java`
+- `common/src/main/java/com/geckolib/loading/definition/geometry/object/package-info.java`
+- `common/src/main/java/com/geckolib/loading/definition/geometry/package-info.java`
+- `common/src/main/java/com/geckolib/loading/loader/GeckoLibGsonLoader.java`
+- `common/src/main/java/com/geckolib/loading/loader/GeckoLibLoader.java`
+- `common/src/main/java/com/geckolib/loading/loader/package-info.java`
+- `common/src/main/java/com/geckolib/loading/math/MathParser.java`
+- `common/src/main/java/com/geckolib/loading/math/MathValue.java`
+- `common/src/main/java/com/geckolib/loading/math/MolangQueries.java`
+- `common/src/main/java/com/geckolib/loading/math/Operator.java`
+- `common/src/main/java/com/geckolib/loading/math/function/MathFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/generic/ACosFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/generic/ASinFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/generic/ATan2Function.java`
+- `common/src/main/java/com/geckolib/loading/math/function/generic/ATanFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/generic/AbsFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/generic/CosFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/generic/ExpFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/generic/LogFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/generic/ModFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/generic/PowFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/generic/SinFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/generic/SqrtFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/generic/package-info.java`
+- `common/src/main/java/com/geckolib/loading/math/function/limit/ClampFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/limit/MaxFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/limit/MinFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/limit/package-info.java`
+- `common/src/main/java/com/geckolib/loading/math/function/misc/PiFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/misc/ToDegFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/misc/ToRadFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/misc/package-info.java`
+- `common/src/main/java/com/geckolib/loading/math/function/package-info.java`
+- `common/src/main/java/com/geckolib/loading/math/function/random/DieRollFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/random/DieRollIntegerFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/random/RandomFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/random/RandomIntegerFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/random/package-info.java`
+- `common/src/main/java/com/geckolib/loading/math/function/round/CeilFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/round/FloorFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/round/HermiteBlendFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/round/LerpFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/round/LerpRotFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/round/RoundFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/round/TruncateFunction.java`
+- `common/src/main/java/com/geckolib/loading/math/function/round/package-info.java`
+- `common/src/main/java/com/geckolib/loading/math/package-info.java`
+- `common/src/main/java/com/geckolib/loading/math/value/BooleanNegate.java`
+- `common/src/main/java/com/geckolib/loading/math/value/Calculation.java`
+- `common/src/main/java/com/geckolib/loading/math/value/CompoundValue.java`
+- `common/src/main/java/com/geckolib/loading/math/value/Constant.java`
+- `common/src/main/java/com/geckolib/loading/math/value/Group.java`
+- `common/src/main/java/com/geckolib/loading/math/value/Negative.java`
+- `common/src/main/java/com/geckolib/loading/math/value/Ternary.java`
+- `common/src/main/java/com/geckolib/loading/math/value/Variable.java`
+- `common/src/main/java/com/geckolib/loading/math/value/VariableAssignment.java`
+- `common/src/main/java/com/geckolib/loading/math/value/package-info.java`
+- `common/src/main/java/com/geckolib/loading/package-info.java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

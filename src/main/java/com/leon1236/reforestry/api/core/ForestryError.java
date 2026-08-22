@@ -26,6 +26,7 @@ public enum ForestryError implements IError {
     NO_RESOURCE("no_resource"),
     NO_RESOURCE_INVENTORY("no_resource_inventory", "no_resource"),
     NO_RESOURCE_LIQUID("no_resource_liquid", "no_liquid"),
+    WRONG_RESOURCE("wrong_resource", "no_recipe"),
     NO_RECIPE("no_recipe"),
     NO_SPACE_INVENTORY("no_space"),
     NO_SPACE_TANK("no_space_tank"),

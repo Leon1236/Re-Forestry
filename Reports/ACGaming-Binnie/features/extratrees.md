@@ -1,0 +1,443 @@
+# ACGaming-Binnie — extratrees
+
+- Alias: `binnie`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ACGaming-Binnie`
+- Package/path root: `extratrees/src/main/java/binnie/extratrees`
+- Java files scanned: **286**
+- Date: 2026-07-30
+
+## Summary
+Module `extratrees` in `ACGaming-Binnie` is rooted at `extratrees/src/main/java/binnie/extratrees` (286 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `CreativeTabCarpentry`
+- `ExtraTrees`
+- `CocktailLiquid`
+- `GlasswareType`
+- `ICocktailIngredient`
+- `ICocktailIngredientProvider`
+- `ICocktailLiquid`
+- `BlockDrinkRenderer`
+- `DrinkLiquid`
+- `FluidHandlerItemGlassware`
+- `package-info`
+- `package-info`
+- `BlockCarpentry`
+- `BlockCarpentryPanel`
+- `BlockDrink`
+- `BlockETDecorativeLeaves`
+- `BlockETDefaultLeaves`
+- `BlockETDefaultLeavesFruit`
+- `BlockHops`
+- `BlockStainedDesign`
+- `BlockHedge`
+- `BlockMultiFence`
+- `FenceDescription`
+- `FenceType`
+- `HedgeRenderer`
+- `IBlockFence`
+- `ItemHedge`
+- `MultiFenceRecipeEmbedded`
+- `MultiFenceRecipePattern`
+- `MultiFenceRecipeSize`
+- `MultiFenceRecipeSolid`
+- `package-info`
+- `package-info`
+- `ETWoodTypePredicate`
+- `PropertyETType`
+- `PropertyETTypeFruit`
+- `PropertyETWoodType`
+- `TreeTypePredicate`
+- `package-info`
+- `BlockETDoor`
+- `BlockETFence`
+- `BlockETLog`
+- `BlockETPlank`
+- `BlockETSlab`
+- `BlockShrubLog`
+- `ItemBlockETWood`
+- `ItemBlockETWoodDoor`
+- `ItemETSlab`
+- `package-info`
+- `CarpentryInterface`
+- `DesignSystem`
+- `GlassType`
+- `package-info`
+- `ConfigurationMain`
+- `package-info`
+- `ExtraTreeTexture`
+- `package-info`
+- `BinnieWorldGenTree`
+- `TreeGenBase`
+- `WorldGenAlder`
+- `WorldGenApple`
+- `WorldGenAsh`
+- `WorldGenBanana`
+- `WorldGenBeech`
+- `WorldGenConifer`
+- `WorldGenDefault`
+- `WorldGenEucalyptus`
+- `WorldGenFir`
+- `WorldGenHolly`
+- `WorldGenJungle`
+- `WorldGenLazy`
+- `WorldGenMaple`
+- `WorldGenPalm`
+- `WorldGenPoplar`
+- `WorldGenPrune`
+- `WorldGenShrub`
+- `WorldGenSorbus`
+- `WorldGenSpruce`
+- `WorldGenTilia`
+- `WorldGenTree2`
+- … and 206 more
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py binnie "extratrees"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `alcohol`
+  - `alcohol/drink`
+  - `blocks`
+  - `blocks/decor`
+  - `blocks/property`
+  - `blocks/wood`
+  - `carpentry`
+  - `config`
+  - `core`
+  - `gen`
+  - `genetics`
+  - `genetics/fruits`
+  - `genetics/gui/analyst`
+  - `gui`
+  - `gui/database`
+  - `integration/crafttweaker`
+  - `integration/crafttweaker/handlers`
+  - `integration/jei`
+  - `integration/jei/brewery`
+  - `integration/jei/distillery`
+  - `integration/jei/fruitpress`
+  - `integration/jei/lumbermill`
+  - `integration/jei/multifence`
+  - `items`
+  - `kitchen`
+  - `kitchen/craftgui`
+  - `liquid`
+  - `machines`
+  - `machines/brewery`
+  - `machines/brewery/recipes`
+  - `machines/brewery/window`
+  - `machines/designer`
+  - `machines/designer/window`
+  - `machines/distillery`
+  - `machines/distillery/recipes`
+  - `machines/distillery/window`
+  - `machines/fruitpress`
+  - `machines/fruitpress/recipes`
+  - `machines/fruitpress/window`
+  - `machines/infuser`
+  - `machines/lumbermill`
+  - `machines/lumbermill/recipes`
+  - `machines/lumbermill/window`
+  - `machines/nursery`
+  - `models`
+  - `modules`
+  - `proxy`
+  - `tiles`
+  - `village`
+  - `wood`
+  - … and 2 more
+- Declaration skim (first files):
+  - `extratrees/src/main/java/binnie/extratrees/CreativeTabCarpentry.java`
+    - L1: package binnie.extratrees;
+    - L10: public class CreativeTabCarpentry extends CreativeTabs {
+    - L11: public static final CreativeTabs INSTANCE = new CreativeTabCarpentry();
+    - L13: public CreativeTabCarpentry() {
+    - L17: @Override
+    - L18: @SideOnly(Side.CLIENT)
+    - L19: public String getTranslationKey() {
+    - L23: @Override
+    - L24: @SideOnly(Side.CLIENT)
+    - L25: public String getTabLabel() {
+    - L29: @Override
+    - L30: @SideOnly(Side.CLIENT)
+  - `extratrees/src/main/java/binnie/extratrees/ExtraTrees.java`
+    - L1: package binnie.extratrees;
+    - L33: @Mod(
+    - L41: public class ExtraTrees extends BlankModuleContainer {
+    - L43: @SuppressWarnings("NullableProblems")
+    - L44: @Mod.Instance(Constants.EXTRA_TREES_MOD_ID)
+    - L45: public static ExtraTrees instance;
+    - L47: @SuppressWarnings("NullableProblems")
+    - L48: @SidedProxy(clientSide = "binnie.extratrees.proxy.ProxyClient", serverSide = "binnie.extratrees.proxy.ProxyServer")
+    - L49: public static Proxy proxy;
+    - L50: public static IBreedingSystem mothBreedingSystem;
+    - L52: public ExtraTrees() {
+    - L57: @Mod.EventHandler
+  - `extratrees/src/main/java/binnie/extratrees/alcohol/CocktailLiquid.java`
+    - L1: package binnie.extratrees.alcohol;
+    - L7: public class CocktailLiquid implements ICocktailLiquid {
+    - L11: public CocktailLiquid(FluidType definition, float abv) {
+    - L16: @Override
+    - L17: public FluidStack get(int amount) {
+    - L21: @Override
+    - L22: public String getDisplayName() {
+    - L26: @Override
+    - L27: public String getIdentifier() {
+    - L31: @Override
+    - L32: public int getColor() {
+    - L36: @Override
+  - `extratrees/src/main/java/binnie/extratrees/alcohol/GlasswareType.java`
+    - L1: package binnie.extratrees.alcohol;
+    - L13: public enum GlasswareType {
+    - L30: public static final float SPRITE_PIXELS = 32.0F;
+    - L32: public static final int MB_PER_GLASS = 100;
+    - L59: public String getName() {
+    - L63: public String getName(@Nullable String liquid) {
+    - L70: public int getCapacity() {
+    - L74: public ModelResourceLocation getModelLocation() {
+    - L78: public ItemStack get(final int i) {
+    - L82: public float getContentBottom() {
+    - L86: public float getContentHeight() {
+    - L90: public int getVolume() {
+  - `extratrees/src/main/java/binnie/extratrees/alcohol/ICocktailIngredient.java`
+    - L1: package binnie.extratrees.alcohol;
+    - L3: public interface ICocktailIngredient {
+  - `extratrees/src/main/java/binnie/extratrees/alcohol/ICocktailIngredientProvider.java`
+    - L1: package binnie.extratrees.alcohol;
+    - L3: public interface ICocktailIngredientProvider {
+  - `extratrees/src/main/java/binnie/extratrees/alcohol/ICocktailLiquid.java`
+    - L1: package binnie.extratrees.alcohol;
+    - L5: public interface ICocktailLiquid extends ICocktailIngredient {
+  - `extratrees/src/main/java/binnie/extratrees/alcohol/drink/BlockDrinkRenderer.java`
+    - L1: package binnie.extratrees.alcohol.drink;
+    - L4: public class BlockDrinkRenderer //implements ISimpleBlockRenderingHandler
+    - L7: public void renderInventoryBlock(final Block block, final int metadata, final int modelId, final RenderBlocks renderer) {
+    - L10: @Override
+    - L11: public boolean renderWorldBlock(final IBlockAccess world, final int x, final int y, final int z, final Block block, final int modelId, final RenderBlocks renderer) {
+    - L31: @Override
+    - L32: public boolean shouldRender3DInInventory(final int modelId) {
+    - L36: @Override
+    - L37: public int getRenderId() {
+  - `extratrees/src/main/java/binnie/extratrees/alcohol/drink/DrinkLiquid.java`
+    - L1: package binnie.extratrees.alcohol.drink;
+    - L7: public class DrinkLiquid implements IDrinkLiquid {
+    - L14: public DrinkLiquid(final String name, final int colour, final float transparency, final float abv, final String ident) {
+    - L22: @Override
+    - L23: public boolean isConsumable() {
+    - L27: @Override
+    - L28: public int getColour() {
+    - L32: @Override
+    - L33: public String getName() {
+    - L37: @Override
+    - L38: public float getTransparency() {
+    - L42: @Override
+  - `extratrees/src/main/java/binnie/extratrees/alcohol/drink/FluidHandlerItemGlassware.java`
+    - L1: package binnie.extratrees.alcohol.drink;
+    - L11: public class FluidHandlerItemGlassware extends FluidHandlerItemStackSimple {
+    - L13: public FluidHandlerItemGlassware(ItemStack container, GlasswareType glasswareType) {
+    - L22: @Override
+    - L23: public boolean canFillFluidType(FluidStack fluid) {
+    - L27: @Override
+    - L28: public boolean canDrainFluidType(FluidStack fluid) {
+  - `extratrees/src/main/java/binnie/extratrees/alcohol/drink/package-info.java`
+    - L1: @ParametersAreNonnullByDefault
+    - L2: @MethodsReturnNonnullByDefault
+    - L3: @FieldsAreNonnullByDefault
+    - L4: package binnie.extratrees.alcohol.drink;
+  - `extratrees/src/main/java/binnie/extratrees/alcohol/package-info.java`
+    - L1: @ParametersAreNonnullByDefault
+    - L2: @MethodsReturnNonnullByDefault
+    - L3: @FieldsAreNonnullByDefault
+    - L4: package binnie.extratrees.alcohol;
+
+## Data & assets
+- No strongly name-matched resources under common resource roots; check parent mod resources / datagen providers.
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ACGaming-Binnie` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- enum `GlasswareType` in `GlasswareType.java`
+- interface `ICocktailIngredient` in `ICocktailIngredient.java`
+- interface `ICocktailIngredientProvider` in `ICocktailIngredientProvider.java`
+- interface `ICocktailLiquid` in `ICocktailLiquid.java`
+- key type `FluidHandlerItemGlassware` (`FluidHandlerItemGlassware.java`)
+- enum `HopsHalf` in `BlockHops.java`
+- interface `IBlockFence` in `IBlockFence.java`
+- enum `DesignSystem` in `DesignSystem.java`
+- enum `ExtraTreeTexture` in `ExtraTreeTexture.java`
+- enum `AlleleETFruitDefinition` in `AlleleETFruitDefinition.java`
+- enum `ButterflySpecies` in `ButterflySpecies.java`
+- enum `ETTreeDefinition` in `ETTreeDefinition.java`
+- enum `EnumSaplingType` in `EnumSaplingType.java`
+- enum `ETFruitFamily` in `ETFruitFamily.java`
+- enum `FruitPod` in `FruitPod.java`
+- enum `FruitSprite` in `FruitSprite.java`
+- key type `ButterflyAnalystPagePlugin` (`ButterflyAnalystPagePlugin.java`)
+- key type `TreeAnalystPagePlugin` (`TreeAnalystPagePlugin.java`)
+- key type `TreeProducePlugin` (`TreeProducePlugin.java`)
+- enum `ExtraTreesGUID` in `ExtraTreesGUID.java`
+- key type `BreweryRecipeHandler` (`BreweryRecipeHandler.java`)
+- key type `DistilleryRecipeHandler` (`DistilleryRecipeHandler.java`)
+- key type `FruitPressRecipeHandler` (`FruitPressRecipeHandler.java`)
+- key type `GenericRecipeHandler` (`GenericRecipeHandler.java`)
+- key type `LumbermillRecipeHandler` (`LumbermillRecipeHandler.java`)
+- key type `ExtraTreesJeiPlugin` (`ExtraTreesJeiPlugin.java`)
+- key type `MultiFenceRecipeRegistryPlugin` (`MultiFenceRecipeRegistryPlugin.java`)
+- enum `ExtraTreeItems` in `ExtraTreeItems.java`
+- enum `ExtraTreeLiquid` in `ExtraTreeLiquid.java`
+- enum `Food` in `Food.java`
+- enum `EnumSetSquareMode` in `ItemSetSquare.java`
+- enum `KitchenMachine` in `KitchenMachine.java`
+- enum `Alcohol` in `Alcohol.java`
+- enum `Cocktail` in `Cocktail.java`
+- enum `Juice` in `Juice.java`
+- enum `Liqueur` in `Liqueur.java`
+- enum `MiscFluid` in `MiscFluid.java`
+- enum `Spirit` in `Spirit.java`
+- enum `ExtraTreeMachine` in `ExtraTreeMachine.java`
+- enum `ExtraTreesErrorCode` in `ExtraTreesErrorCode.java`
+- enum `DesignerType` in `DesignerType.java`
+- key type `ModuleAlcohol` (`ModuleAlcohol.java`)
+- key type `ModuleCarpentry` (`ModuleCarpentry.java`)
+- key type `ModuleCore` (`ModuleCore.java`)
+- key type `ModuleKitchen` (`ModuleKitchen.java`)
+- key type `ModuleMachine` (`ModuleMachine.java`)
+- key type `ModuleMothDatabase` (`ModuleMothDatabase.java`)
+- key type `ModuleTreeDatabase` (`ModuleTreeDatabase.java`)
+- key type `ModuleWood` (`ModuleWood.java`)
+- interface `IExtraTreeProxy` in `IExtraTreeProxy.java`
+
+## Port relevance to Re-Forestry
+- Data/source to extract for addon modules; not a runtime dependency.
+
+## Source map
+- `extratrees/src/main/java/binnie/extratrees/CreativeTabCarpentry.java`
+- `extratrees/src/main/java/binnie/extratrees/ExtraTrees.java`
+- `extratrees/src/main/java/binnie/extratrees/alcohol/CocktailLiquid.java`
+- `extratrees/src/main/java/binnie/extratrees/alcohol/GlasswareType.java`
+- `extratrees/src/main/java/binnie/extratrees/alcohol/ICocktailIngredient.java`
+- `extratrees/src/main/java/binnie/extratrees/alcohol/ICocktailIngredientProvider.java`
+- `extratrees/src/main/java/binnie/extratrees/alcohol/ICocktailLiquid.java`
+- `extratrees/src/main/java/binnie/extratrees/alcohol/drink/BlockDrinkRenderer.java`
+- `extratrees/src/main/java/binnie/extratrees/alcohol/drink/DrinkLiquid.java`
+- `extratrees/src/main/java/binnie/extratrees/alcohol/drink/FluidHandlerItemGlassware.java`
+- `extratrees/src/main/java/binnie/extratrees/alcohol/drink/package-info.java`
+- `extratrees/src/main/java/binnie/extratrees/alcohol/package-info.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/BlockCarpentry.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/BlockCarpentryPanel.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/BlockDrink.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/BlockETDecorativeLeaves.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/BlockETDefaultLeaves.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/BlockETDefaultLeavesFruit.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/BlockHops.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/BlockStainedDesign.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/decor/BlockHedge.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/decor/BlockMultiFence.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/decor/FenceDescription.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/decor/FenceType.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/decor/HedgeRenderer.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/decor/IBlockFence.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/decor/ItemHedge.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/decor/MultiFenceRecipeEmbedded.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/decor/MultiFenceRecipePattern.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/decor/MultiFenceRecipeSize.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/decor/MultiFenceRecipeSolid.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/decor/package-info.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/package-info.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/property/ETWoodTypePredicate.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/property/PropertyETType.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/property/PropertyETTypeFruit.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/property/PropertyETWoodType.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/property/TreeTypePredicate.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/property/package-info.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/wood/BlockETDoor.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/wood/BlockETFence.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/wood/BlockETLog.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/wood/BlockETPlank.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/wood/BlockETSlab.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/wood/BlockShrubLog.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/wood/ItemBlockETWood.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/wood/ItemBlockETWoodDoor.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/wood/ItemETSlab.java`
+- `extratrees/src/main/java/binnie/extratrees/blocks/wood/package-info.java`
+- `extratrees/src/main/java/binnie/extratrees/carpentry/CarpentryInterface.java`
+- `extratrees/src/main/java/binnie/extratrees/carpentry/DesignSystem.java`
+- `extratrees/src/main/java/binnie/extratrees/carpentry/GlassType.java`
+- `extratrees/src/main/java/binnie/extratrees/carpentry/package-info.java`
+- `extratrees/src/main/java/binnie/extratrees/config/ConfigurationMain.java`
+- `extratrees/src/main/java/binnie/extratrees/config/package-info.java`
+- `extratrees/src/main/java/binnie/extratrees/core/ExtraTreeTexture.java`
+- `extratrees/src/main/java/binnie/extratrees/core/package-info.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/BinnieWorldGenTree.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/TreeGenBase.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenAlder.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenApple.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenAsh.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenBanana.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenBeech.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenConifer.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenDefault.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenEucalyptus.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenFir.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenHolly.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenJungle.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenLazy.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenMaple.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenPalm.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenPoplar.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenPrune.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenShrub.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenSorbus.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenSpruce.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenTilia.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenTree2.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenTree3.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenTropical.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenUtils.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/WorldGenWalnut.java`
+- `extratrees/src/main/java/binnie/extratrees/gen/package-info.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/AlleleETFruit.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/AlleleETFruitDefinition.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/ButterflySpecies.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/ETLeafProvider.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/ETTreeDefinition.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/EnumSaplingType.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/ExtraTreeMutation.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/MothBreedingSystem.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/WoodProvider.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/fruits/ETFruitFamily.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/fruits/ETFruitProviderNone.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/fruits/ETFruitProviderPod.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/fruits/ETFruitProviderRipening.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/fruits/FruitPod.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/fruits/FruitSprite.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/fruits/package-info.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/gui/analyst/AnalystPageFruit.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/gui/analyst/AnalystPageGrowth.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/gui/analyst/AnalystPageSpecimen.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/gui/analyst/AnalystPageWood.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/gui/analyst/ButterflyAnalystPagePlugin.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/gui/analyst/TreeAnalystPagePlugin.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/gui/analyst/TreeProducePlugin.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/gui/analyst/package-info.java`
+- `extratrees/src/main/java/binnie/extratrees/genetics/package-info.java`
+- `extratrees/src/main/java/binnie/extratrees/gui/ExtraTreesGUID.java`
+- `extratrees/src/main/java/binnie/extratrees/gui/WindowSetSquare.java`
+- `extratrees/src/main/java/binnie/extratrees/gui/database/ControlBlockIconDisplay.java`
+- `extratrees/src/main/java/binnie/extratrees/gui/database/PageFruit.java`
+- `extratrees/src/main/java/binnie/extratrees/gui/database/PagePlanksOverview.java`
+- `extratrees/src/main/java/binnie/extratrees/gui/database/PagePlanksTrees.java`
+- `extratrees/src/main/java/binnie/extratrees/gui/database/PageSpeciesImage.java`
+- `extratrees/src/main/java/binnie/extratrees/gui/database/PageSpeciesTreeGenome.java`
+- `extratrees/src/main/java/binnie/extratrees/gui/database/PageWood.java`
+- `extratrees/src/main/java/binnie/extratrees/gui/database/WindowArboristDatabase.java`
+- … and 166 more under `extratrees/src/main/java/binnie/extratrees`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

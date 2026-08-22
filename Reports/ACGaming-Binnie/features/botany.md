@@ -1,0 +1,416 @@
+# ACGaming-Binnie — botany
+
+- Alias: `binnie`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ACGaming-Binnie`
+- Package/path root: `botany/src/main/java/binnie/botany`
+- Java files scanned: **116**
+- Date: 2026-07-30
+
+## Summary
+Module `botany` in `ACGaming-Binnie` is rooted at `botany/src/main/java/binnie/botany` (116 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `Botany`
+- `CreativeTabBotany`
+- `EnumHelper`
+- `GardeningManager`
+- `BlockCeramic`
+- `BlockCeramicBrick`
+- `BlockCeramicPatterned`
+- `BlockFlower`
+- `BlockPlant`
+- `BlockSoil`
+- `BlockStainedGlass`
+- `PlantType`
+- `package-info`
+- `PropertyFlower`
+- `package-info`
+- `CeramicColor`
+- `CeramicDesignSystem`
+- `CeramicBrickPair`
+- `CeramicBrickType`
+- `package-info`
+- `package-info`
+- `BotanyCore`
+- `package-info`
+- `CircuitGarden`
+- `FarmLogic`
+- `FarmableFlower`
+- `FarmableVanillaFlower`
+- `FlowerCrop`
+- `GardenLogic`
+- `package-info`
+- `AlleleFlowerColor`
+- `BotanistTracker`
+- `ColorMix`
+- `EnumFlowerType`
+- `Flower`
+- `FlowerAlyzerPlugin`
+- `FlowerBreedingSystem`
+- `FlowerColorMutations`
+- `FlowerDefinition`
+- `FlowerFactory`
+- `FlowerGenome`
+- `FlowerMutation`
+- `FlowerRoot`
+- `TolerancePh`
+- `AlleleEffectNone`
+- `AlleleFlowerSpecies`
+- `package-info`
+- `AnalystPageAppearance`
+- `AnalystPageSoil`
+- `FlowerAnalystPagePlugin`
+- `package-info`
+- `package-info`
+- `BotanyGUI`
+- `ControlColorDisplay`
+- `ControlColorMixBox`
+- `ControlColorMixItem`
+- `ControlColorMixSymbol`
+- `ControlColorOption`
+- `PageColorMix`
+- `PageColorMixResultant`
+- `PageSpeciesFlowerGenome`
+- `WindowBotanistDatabase`
+- `package-info`
+- `package-info`
+- `BotanyJeiPlugin`
+- `BotanyItems`
+- `CeramicItems`
+- `EnumTubeInsulate`
+- `EnumTubeMaterial`
+- `ItemBotany`
+- `ItemCeramic`
+- `ItemCeramicBrick`
+- `ItemClay`
+- `ItemDatabaseBotany`
+- `ItemFlowerGE`
+- `ItemInsulatedTube`
+- `ItemPigment`
+- `ItemSoil`
+- `ItemSoilMeter`
+- `ItemStainedGlass`
+- … and 36 more
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py binnie "botany"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `blocks`
+  - `blocks/properties`
+  - `ceramic`
+  - `ceramic/brick`
+  - `core`
+  - `farming`
+  - `genetics`
+  - `genetics/allele`
+  - `genetics/gui/analyst`
+  - `gui`
+  - `gui/database`
+  - `integration/jei`
+  - `items`
+  - `machines`
+  - `machines/designer`
+  - `models`
+  - `modules`
+  - `network`
+  - `proxy`
+  - `recipes`
+  - `tile`
+- Declaration skim (first files):
+  - `botany/src/main/java/binnie/botany/Botany.java`
+    - L1: package binnie.botany;
+    - L27: @Mod(
+    - L36: public class Botany extends BlankModuleContainer {
+    - L37: public static final float AGE_CHANCE = 0.2f;
+    - L39: @SuppressWarnings("NullableProblems")
+    - L40: @Mod.Instance(Constants.BOTANY_MOD_ID)
+    - L41: public static Botany instance;
+    - L42: @SuppressWarnings("NullableProblems")
+    - L43: @SidedProxy(clientSide = "binnie.botany.proxy.ProxyClient", serverSide = "binnie.botany.proxy.ProxyServer")
+    - L44: public static Proxy proxy;
+    - L46: @Mod.EventHandler
+    - L47: public void preInit(FMLPreInitializationEvent evt) {
+  - `botany/src/main/java/binnie/botany/CreativeTabBotany.java`
+    - L1: package binnie.botany;
+    - L10: public class CreativeTabBotany extends CreativeTabs {
+    - L11: public static final CreativeTabs INSTANCE = new CreativeTabBotany();
+    - L13: public CreativeTabBotany() {
+    - L17: @Override
+    - L18: @SideOnly(Side.CLIENT)
+    - L19: public String getTranslationKey() {
+    - L23: @Override
+    - L24: @SideOnly(Side.CLIENT)
+    - L25: public String getTabLabel() {
+    - L29: @Override
+    - L30: @SideOnly(Side.CLIENT)
+  - `botany/src/main/java/binnie/botany/EnumHelper.java`
+    - L1: package binnie.botany;
+    - L12: public class EnumHelper {
+    - L13: public static String getLocalisedName(final IBotanyColored enumClass, boolean withColor) {
+  - `botany/src/main/java/binnie/botany/GardeningManager.java`
+    - L1: package binnie.botany;
+    - L36: public class GardeningManager implements IGardeningManager {
+    - L39: public GardeningManager() {
+    - L45: @Override
+    - L46: public boolean isSoil(Block block) {
+    - L50: @Override
+    - L51: public boolean isSoil(Item item) {
+    - L55: @Override
+    - L56: public boolean isSoil(ItemStack item) {
+    - L60: @Override
+    - L61: public EnumMoisture getNaturalMoisture(World world, BlockPos pos) {
+    - L94: @Override
+  - `botany/src/main/java/binnie/botany/blocks/BlockCeramic.java`
+    - L1: package binnie.botany.blocks;
+    - L32: public class BlockCeramic extends Block implements IColoredBlock, IItemModelRegister {
+    - L33: public BlockCeramic() {
+    - L41: @Override
+    - L42: @SideOnly(Side.CLIENT)
+    - L43: public void registerModel(Item item, IModelManager manager) {
+    - L49: @Override
+    - L50: public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+    - L54: @Override
+    - L55: public boolean removedByPlayer(IBlockState state, World world, BlockPos pos, @Nullable EntityPlayer player, boolean willHarvest) {
+    - L70: @Override
+    - L71: public TileEntity createTileEntity(World world, IBlockState state) {
+  - `botany/src/main/java/binnie/botany/blocks/BlockCeramicBrick.java`
+    - L1: package binnie.botany.blocks;
+    - L62: public class BlockCeramicBrick extends Block implements IMultipassBlock<CeramicBrickPair>, IColoredBlock, ISpriteRegister, IStateMapperRegister, IItemModelRegister {
+    - L65: public BlockCeramicBrick() {
+    - L73: @Override
+    - L74: public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+    - L78: @Override
+    - L79: public boolean removedByPlayer(IBlockState state, World world, BlockPos pos, @Nullable EntityPlayer player, boolean willHarvest) {
+    - L94: @Override
+    - L95: public TileEntity createTileEntity(World world, IBlockState state) {
+    - L99: @Override
+    - L100: public boolean hasTileEntity(IBlockState state) {
+    - L104: @Override
+  - `botany/src/main/java/binnie/botany/blocks/BlockCeramicPatterned.java`
+    - L1: package binnie.botany.blocks;
+    - L14: public class BlockCeramicPatterned extends BlockDesign {
+    - L15: public BlockCeramicPatterned() {
+    - L22: @Override
+    - L23: public ItemStack getCreativeStack(IDesign design) {
+    - L27: @Override
+    - L28: public String getBlockName(DesignBlock design) {
+  - `botany/src/main/java/binnie/botany/blocks/BlockFlower.java`
+    - L1: package binnie.botany.blocks;
+    - L54: public class BlockFlower extends BlockContainer implements IColoredBlock, IStateMapperRegister {
+    - L55: public static final AxisAlignedBB FLOWER_BLOCK_AABB = new AxisAlignedBB(0.3D, 0.0D, 0.3D, 0.7D, 0.6D, 0.7D);
+    - L57: public static final PropertyFlower FLOWER = new PropertyFlower("flower", IFlowerType.class);
+    - L58: public static final PropertyInteger SECTION = PropertyInteger.create("section", 0, EnumFlowerType.highestSection - 1);
+    - L59: public static final PropertyBool FLOWERED = PropertyBool.create("flowered");
+    - L60: public static final PropertyBool SEED = PropertyBool.create("seed");
+    - L62: public BlockFlower() {
+    - L69: @Override
+    - L70: public TileEntity createNewTileEntity(World world, int meta) {
+    - L74: @Override
+    - L75: @SideOnly(Side.CLIENT)
+  - `botany/src/main/java/binnie/botany/blocks/BlockPlant.java`
+    - L1: package binnie.botany.blocks;
+    - L27: public class BlockPlant extends BlockBush implements IItemModelRegister {
+    - L28: public static final PropertyEnum<PlantType> PLANT_TYPE = PropertyEnum.create("plant_type", PlantType.class);
+    - L30: public BlockPlant() {
+    - L37: public static boolean isWeed(IBlockAccess world, BlockPos pos) {
+    - L47: @Override
+    - L48: @SideOnly(Side.CLIENT)
+    - L49: public void registerModel(Item item, IModelManager manager) {
+    - L56: @Override
+    - L57: protected BlockStateContainer createBlockState() {
+    - L61: @Override
+    - L62: public int getMetaFromState(IBlockState state) {
+  - `botany/src/main/java/binnie/botany/blocks/BlockSoil.java`
+    - L1: package binnie.botany.blocks;
+    - L42: public class BlockSoil extends Block implements IBlockSoil, IItemModelRegister {
+    - L43: public static final PropertyEnum<EnumMoisture> MOISTURE = PropertyEnum.create("moisture", EnumMoisture.class);
+    - L44: public static final PropertyEnum<EnumAcidity> ACIDITY = PropertyEnum.create("acidity", EnumAcidity.class);
+    - L45: public static final AxisAlignedBB SOIL_BLOCK_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.9375D, 1.0D);
+    - L49: public BlockSoil(EnumSoilType type, String blockName, boolean weedKilled) {
+    - L62: public static int getMeta(EnumAcidity acid, EnumMoisture moisture) {
+    - L66: public static String getPH(ItemStack stack, boolean withColor, boolean byNeutralNone) {
+    - L78: public static String getMoisture(ItemStack stack, boolean withColor, boolean byNormalNone) {
+    - L88: @Override
+    - L89: @SideOnly(Side.CLIENT)
+    - L90: @SuppressWarnings("deprecation")
+  - `botany/src/main/java/binnie/botany/blocks/BlockStainedGlass.java`
+    - L1: package binnie.botany.blocks;
+    - L41: public class BlockStainedGlass extends Block implements IBlockMetadata, IColoredBlock, IItemModelRegister {
+    - L42: public BlockStainedGlass() {
+    - L50: @Override
+    - L51: public int quantityDropped(Random rand) {
+    - L55: @Override
+    - L56: @SuppressWarnings("deprecation")
+    - L57: public boolean isOpaqueCube(IBlockState state) {
+    - L61: @SideOnly(Side.CLIENT)
+    - L62: @Override
+    - L63: public BlockRenderLayer getRenderLayer() {
+    - L67: @SideOnly(Side.CLIENT)
+  - `botany/src/main/java/binnie/botany/blocks/PlantType.java`
+    - L1: package binnie.botany.blocks;
+    - L7: public enum PlantType implements IStringSerializable {
+    - L26: public static PlantType getType(int meta) {
+    - L33: public ItemStack get() {
+    - L37: public boolean isWeed() {
+    - L41: @Override
+    - L42: public String getName() {
+
+## Data & assets
+- No strongly name-matched resources under common resource roots; check parent mod resources / datagen providers.
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ACGaming-Binnie` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- enum `PlantType` in `PlantType.java`
+- enum `CeramicBrickType` in `CeramicBrickType.java`
+- enum `EnumFlowerType` in `EnumFlowerType.java`
+- key type `FlowerAlyzerPlugin` (`FlowerAlyzerPlugin.java`)
+- enum `FlowerDefinition` in `FlowerDefinition.java`
+- key type `FlowerAnalystPagePlugin` (`FlowerAnalystPagePlugin.java`)
+- enum `BotanyGUI` in `BotanyGUI.java`
+- key type `BotanyJeiPlugin` (`BotanyJeiPlugin.java`)
+- enum `BotanyItems` in `BotanyItems.java`
+- enum `CeramicItems` in `CeramicItems.java`
+- enum `EnumTubeInsulate` in `EnumTubeInsulate.java`
+- enum `EnumTubeMaterial` in `EnumTubeMaterial.java`
+- enum `BotanyMachine` in `BotanyMachine.java`
+- key type `ModuleCeramic` (`ModuleCeramic.java`)
+- key type `ModuleCore` (`ModuleCore.java`)
+- key type `ModuleDatabase` (`ModuleDatabase.java`)
+- key type `ModuleFarming` (`ModuleFarming.java`)
+- key type `ModuleFlowers` (`ModuleFlowers.java`)
+- key type `ModuleGardening` (`ModuleGardening.java`)
+- key type `ModuleMachine` (`ModuleMachine.java`)
+- enum `PacketID` in `PacketID.java`
+- key type `PacketID` (`PacketID.java`)
+- interface `IBotanyProxy` in `IBotanyProxy.java`
+
+## Port relevance to Re-Forestry
+- Data/source to extract for addon modules; not a runtime dependency.
+
+## Source map
+- `botany/src/main/java/binnie/botany/Botany.java`
+- `botany/src/main/java/binnie/botany/CreativeTabBotany.java`
+- `botany/src/main/java/binnie/botany/EnumHelper.java`
+- `botany/src/main/java/binnie/botany/GardeningManager.java`
+- `botany/src/main/java/binnie/botany/blocks/BlockCeramic.java`
+- `botany/src/main/java/binnie/botany/blocks/BlockCeramicBrick.java`
+- `botany/src/main/java/binnie/botany/blocks/BlockCeramicPatterned.java`
+- `botany/src/main/java/binnie/botany/blocks/BlockFlower.java`
+- `botany/src/main/java/binnie/botany/blocks/BlockPlant.java`
+- `botany/src/main/java/binnie/botany/blocks/BlockSoil.java`
+- `botany/src/main/java/binnie/botany/blocks/BlockStainedGlass.java`
+- `botany/src/main/java/binnie/botany/blocks/PlantType.java`
+- `botany/src/main/java/binnie/botany/blocks/package-info.java`
+- `botany/src/main/java/binnie/botany/blocks/properties/PropertyFlower.java`
+- `botany/src/main/java/binnie/botany/blocks/properties/package-info.java`
+- `botany/src/main/java/binnie/botany/ceramic/CeramicColor.java`
+- `botany/src/main/java/binnie/botany/ceramic/CeramicDesignSystem.java`
+- `botany/src/main/java/binnie/botany/ceramic/brick/CeramicBrickPair.java`
+- `botany/src/main/java/binnie/botany/ceramic/brick/CeramicBrickType.java`
+- `botany/src/main/java/binnie/botany/ceramic/brick/package-info.java`
+- `botany/src/main/java/binnie/botany/ceramic/package-info.java`
+- `botany/src/main/java/binnie/botany/core/BotanyCore.java`
+- `botany/src/main/java/binnie/botany/core/package-info.java`
+- `botany/src/main/java/binnie/botany/farming/CircuitGarden.java`
+- `botany/src/main/java/binnie/botany/farming/FarmLogic.java`
+- `botany/src/main/java/binnie/botany/farming/FarmableFlower.java`
+- `botany/src/main/java/binnie/botany/farming/FarmableVanillaFlower.java`
+- `botany/src/main/java/binnie/botany/farming/FlowerCrop.java`
+- `botany/src/main/java/binnie/botany/farming/GardenLogic.java`
+- `botany/src/main/java/binnie/botany/farming/package-info.java`
+- `botany/src/main/java/binnie/botany/genetics/AlleleFlowerColor.java`
+- `botany/src/main/java/binnie/botany/genetics/BotanistTracker.java`
+- `botany/src/main/java/binnie/botany/genetics/ColorMix.java`
+- `botany/src/main/java/binnie/botany/genetics/EnumFlowerType.java`
+- `botany/src/main/java/binnie/botany/genetics/Flower.java`
+- `botany/src/main/java/binnie/botany/genetics/FlowerAlyzerPlugin.java`
+- `botany/src/main/java/binnie/botany/genetics/FlowerBreedingSystem.java`
+- `botany/src/main/java/binnie/botany/genetics/FlowerColorMutations.java`
+- `botany/src/main/java/binnie/botany/genetics/FlowerDefinition.java`
+- `botany/src/main/java/binnie/botany/genetics/FlowerFactory.java`
+- `botany/src/main/java/binnie/botany/genetics/FlowerGenome.java`
+- `botany/src/main/java/binnie/botany/genetics/FlowerMutation.java`
+- `botany/src/main/java/binnie/botany/genetics/FlowerRoot.java`
+- `botany/src/main/java/binnie/botany/genetics/TolerancePh.java`
+- `botany/src/main/java/binnie/botany/genetics/allele/AlleleEffectNone.java`
+- `botany/src/main/java/binnie/botany/genetics/allele/AlleleFlowerSpecies.java`
+- `botany/src/main/java/binnie/botany/genetics/allele/package-info.java`
+- `botany/src/main/java/binnie/botany/genetics/gui/analyst/AnalystPageAppearance.java`
+- `botany/src/main/java/binnie/botany/genetics/gui/analyst/AnalystPageSoil.java`
+- `botany/src/main/java/binnie/botany/genetics/gui/analyst/FlowerAnalystPagePlugin.java`
+- `botany/src/main/java/binnie/botany/genetics/gui/analyst/package-info.java`
+- `botany/src/main/java/binnie/botany/genetics/package-info.java`
+- `botany/src/main/java/binnie/botany/gui/BotanyGUI.java`
+- `botany/src/main/java/binnie/botany/gui/database/ControlColorDisplay.java`
+- `botany/src/main/java/binnie/botany/gui/database/ControlColorMixBox.java`
+- `botany/src/main/java/binnie/botany/gui/database/ControlColorMixItem.java`
+- `botany/src/main/java/binnie/botany/gui/database/ControlColorMixSymbol.java`
+- `botany/src/main/java/binnie/botany/gui/database/ControlColorOption.java`
+- `botany/src/main/java/binnie/botany/gui/database/PageColorMix.java`
+- `botany/src/main/java/binnie/botany/gui/database/PageColorMixResultant.java`
+- `botany/src/main/java/binnie/botany/gui/database/PageSpeciesFlowerGenome.java`
+- `botany/src/main/java/binnie/botany/gui/database/WindowBotanistDatabase.java`
+- `botany/src/main/java/binnie/botany/gui/database/package-info.java`
+- `botany/src/main/java/binnie/botany/gui/package-info.java`
+- `botany/src/main/java/binnie/botany/integration/jei/BotanyJeiPlugin.java`
+- `botany/src/main/java/binnie/botany/items/BotanyItems.java`
+- `botany/src/main/java/binnie/botany/items/CeramicItems.java`
+- `botany/src/main/java/binnie/botany/items/EnumTubeInsulate.java`
+- `botany/src/main/java/binnie/botany/items/EnumTubeMaterial.java`
+- `botany/src/main/java/binnie/botany/items/ItemBotany.java`
+- `botany/src/main/java/binnie/botany/items/ItemCeramic.java`
+- `botany/src/main/java/binnie/botany/items/ItemCeramicBrick.java`
+- `botany/src/main/java/binnie/botany/items/ItemClay.java`
+- `botany/src/main/java/binnie/botany/items/ItemDatabaseBotany.java`
+- `botany/src/main/java/binnie/botany/items/ItemFlowerGE.java`
+- `botany/src/main/java/binnie/botany/items/ItemInsulatedTube.java`
+- `botany/src/main/java/binnie/botany/items/ItemPigment.java`
+- `botany/src/main/java/binnie/botany/items/ItemSoil.java`
+- `botany/src/main/java/binnie/botany/items/ItemSoilMeter.java`
+- `botany/src/main/java/binnie/botany/items/ItemStainedGlass.java`
+- `botany/src/main/java/binnie/botany/items/ItemTrowel.java`
+- `botany/src/main/java/binnie/botany/items/ItemWeed.java`
+- `botany/src/main/java/binnie/botany/items/package-info.java`
+- `botany/src/main/java/binnie/botany/machines/BotanyMachine.java`
+- `botany/src/main/java/binnie/botany/machines/ComponentBotanyGUI.java`
+- `botany/src/main/java/binnie/botany/machines/designer/PackageDesigner.java`
+- `botany/src/main/java/binnie/botany/machines/designer/Tileworker.java`
+- `botany/src/main/java/binnie/botany/machines/designer/package-info.java`
+- `botany/src/main/java/binnie/botany/machines/package-info.java`
+- `botany/src/main/java/binnie/botany/models/FlowerSpriteManager.java`
+- `botany/src/main/java/binnie/botany/models/StateMapperFlower.java`
+- `botany/src/main/java/binnie/botany/models/package-info.java`
+- `botany/src/main/java/binnie/botany/modules/ModuleCeramic.java`
+- `botany/src/main/java/binnie/botany/modules/ModuleCore.java`
+- `botany/src/main/java/binnie/botany/modules/ModuleDatabase.java`
+- `botany/src/main/java/binnie/botany/modules/ModuleFarming.java`
+- `botany/src/main/java/binnie/botany/modules/ModuleFlowers.java`
+- `botany/src/main/java/binnie/botany/modules/ModuleGardening.java`
+- `botany/src/main/java/binnie/botany/modules/ModuleMachine.java`
+- `botany/src/main/java/binnie/botany/modules/package-info.java`
+- `botany/src/main/java/binnie/botany/network/PacketID.java`
+- `botany/src/main/java/binnie/botany/network/package-info.java`
+- `botany/src/main/java/binnie/botany/package-info.java`
+- `botany/src/main/java/binnie/botany/proxy/IBotanyProxy.java`
+- `botany/src/main/java/binnie/botany/proxy/Proxy.java`
+- `botany/src/main/java/binnie/botany/proxy/ProxyClient.java`
+- `botany/src/main/java/binnie/botany/proxy/ProxyServer.java`
+- `botany/src/main/java/binnie/botany/proxy/package-info.java`
+- `botany/src/main/java/binnie/botany/recipes/CeramicTileRecipe.java`
+- `botany/src/main/java/binnie/botany/recipes/PigmentRecipe.java`
+- `botany/src/main/java/binnie/botany/recipes/package-info.java`
+- `botany/src/main/java/binnie/botany/tile/FlowerRenderInfo.java`
+- `botany/src/main/java/binnie/botany/tile/TileCeramic.java`
+- `botany/src/main/java/binnie/botany/tile/TileCeramicBrick.java`
+- `botany/src/main/java/binnie/botany/tile/TileEntityFlower.java`
+- `botany/src/main/java/binnie/botany/tile/package-info.java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

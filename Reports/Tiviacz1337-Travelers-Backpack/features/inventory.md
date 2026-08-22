@@ -1,0 +1,351 @@
+# Tiviacz1337-Travelers-Backpack — inventory
+
+- Alias: `backpack`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-30/Tiviacz1337-Travelers-Backpack`
+- Package/path root: `src/main/java/com/tiviacz/travelersbackpack/inventory`
+- Java files scanned: **73**
+- Date: 2026-07-30
+
+## Summary
+Module `inventory` in `Tiviacz1337-Travelers-Backpack` is rooted at `src/main/java/com/tiviacz/travelersbackpack/inventory` (73 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `BackpackContainer`
+- `BackpackSettingsContainer`
+- `BackpackWrapper`
+- `CommonFluid`
+- `FluidTank`
+- `FluidVariantWrapper`
+- `InventoryActions`
+- `Tiers`
+- `UpgradeManager`
+- `IItemHandlerModifiable`
+- `ItemStackHandler`
+- `StorageAccessWrapper`
+- `AbstractBackpackMenu`
+- `BackpackBaseMenu`
+- `BackpackBlockEntityMenu`
+- `BackpackItemMenu`
+- `BackpackSettingsMenu`
+- `BackpackSlotItemHandler`
+- `CraftingSlot`
+- `DisabledSlot`
+- `FilterSlotItemHandler`
+- `FluidSlotItemHandler`
+- `ResultSlotExt`
+- `SlotItemHandler`
+- `ToolSlotItemHandler`
+- `UpgradeLockableSlotItemHandler`
+- `UpgradeSlotItemHandler`
+- `ContainerSorter`
+- `InvWrapper`
+- `SortSelector`
+- `FilterSettingsBase`
+- `FilterUpgradeBase`
+- `IEnable`
+- `IMoveSelector`
+- `ITickableUpgrade`
+- `IUpgrade`
+- `Point`
+- `ResultArrowElement`
+- `UpgradeBase`
+- `CraftingContainerImproved`
+- `CraftingUpgrade`
+- `CraftingWidget`
+- `FeedingFilterSettings`
+- `FeedingUpgrade`
+- `FeedingWidget`
+- `ButtonStates`
+- `FilterButton`
+- `FilterHandler`
+- `IFilter`
+- `IFilterSlots`
+- `JukeboxUpgrade`
+- `JukeboxWidget`
+- `LanternUpgrade`
+- `LanternWidget`
+- `MagnetFilterSettings`
+- `MagnetUpgrade`
+- `MagnetWidget`
+- `AutoPickupFilterSettings`
+- `AutoPickupUpgrade`
+- `AutoPickupWidget`
+- `RefillUpgrade`
+- `AbstractSmeltingUpgrade`
+- `AbstractSmeltingWidget`
+- `BlastFurnaceUpgrade`
+- `FurnaceUpgrade`
+- `SmokerUpgrade`
+- `FluidStorageItemWrapper`
+- `TankActions`
+- `TankWidget`
+- `TanksUpgrade`
+- `VoidFilterSettings`
+- `VoidUpgrade`
+- `VoidWidget`
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py backpack "inventory"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `handler`
+  - `menu`
+  - `menu/slot`
+  - `sorter`
+  - `upgrades`
+  - `upgrades/crafting`
+  - `upgrades/feeding`
+  - `upgrades/filter`
+  - `upgrades/jukebox`
+  - `upgrades/lantern`
+  - `upgrades/magnet`
+  - `upgrades/pickup`
+  - `upgrades/refill`
+  - `upgrades/smelting`
+  - `upgrades/tanks`
+  - `upgrades/voiding`
+- Declaration skim (first files):
+  - `src/main/java/com/tiviacz/travelersbackpack/inventory/BackpackContainer.java`
+    - L1: package com.tiviacz.travelersbackpack.inventory;
+    - L18: public record BackpackContainer(ItemStack stack, Player player, int screenID, int index) {
+    - L19: public static ModScreenHandlerTypes.ItemScreenData saveExtraData(@Nullable Player target, int screenID) {
+    - L23: public static ModScreenHandlerTypes.ItemScreenData saveExtraData(int index, int screenID) {
+    - L28: public static void openBackpack(ServerPlayer serverPlayerEntity, ItemStack stack, int screenID) {
+    - L31: @Override
+    - L32: public Component getDisplayName() {
+    - L36: @Override
+    - L37: public @Nullable AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
+    - L45: @Override
+    - L46: public ModScreenHandlerTypes.ItemScreenData getScreenOpeningData(ServerPlayer player) {
+    - L54: public static void openBackpack(ServerPlayer serverPlayerEntity, ItemStack stack, int screenID, int index) {
+  - `src/main/java/com/tiviacz/travelersbackpack/inventory/BackpackSettingsContainer.java`
+    - L1: package com.tiviacz.travelersbackpack.inventory;
+    - L17: public record BackpackSettingsContainer(ItemStack stack, Player player, int screenID,
+    - L19: @Override
+    - L20: public ModScreenHandlerTypes.SettingsScreenData getScreenOpeningData(ServerPlayer serverPlayer) {
+    - L24: @Override
+    - L25: public Component getDisplayName() {
+    - L29: @Override
+    - L30: public boolean shouldCloseCurrentScreen() {
+    - L34: @Override
+    - L35: public @Nullable AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
+    - L43: public static void openSettings(ServerPlayer serverPlayerEntity, ItemStack stack, int screenID, int index) {
+  - `src/main/java/com/tiviacz/travelersbackpack/inventory/BackpackWrapper.java`
+    - L1: package com.tiviacz.travelersbackpack.inventory;
+    - L56: public class BackpackWrapper {
+    - L57: public static final BackpackWrapper DUMMY = new BackpackWrapper(ModItems.STANDARD_TRAVELERS_BACKPACK.getDefaultInstance(), Reference.BLOCK_ENTITY_SCREEN_ID, null, null);
+    - L59: protected ItemStack stack;
+    - L64: public ItemStackHandler upgradesTracker;
+    - L68: public ArrayList<Player> playersUsing = new ArrayList<>();
+    - L69: protected Level level;
+    - L72: public int index = -1;
+    - L76: public int[] dataLoad = new int[]{1, 1, 1};
+    - L78: public Runnable saveHandler = () -> {
+    - L80: public Runnable abilityHandler = () -> {
+    - L82: public BlockPos backpackPos;
+  - `src/main/java/com/tiviacz/travelersbackpack/inventory/CommonFluid.java`
+    - L1: package com.tiviacz.travelersbackpack.inventory;
+    - L6: public class CommonFluid {
+    - L7: public static FluidVariantWrapper empty() {
+    - L11: public static Component getFluidName(FluidVariantWrapper fluidStack) {
+  - `src/main/java/com/tiviacz/travelersbackpack/inventory/FluidTank.java`
+    - L1: package com.tiviacz.travelersbackpack.inventory;
+    - L14: public class FluidTank extends SingleVariantStorage<FluidVariant> {
+    - L15: protected Predicate<FluidVariantWrapper> validator;
+    - L16: protected FluidVariantWrapper fluidVariant = FluidVariantWrapper.blank();
+    - L17: protected long capacity;
+    - L19: public FluidTank(long capacity) {
+    - L23: public FluidTank(long capacity, Predicate<FluidVariantWrapper> validator) {
+    - L28: public FluidTank setCapacity(long capacity) {
+    - L33: public FluidTank setValidator(Predicate<FluidVariantWrapper> validator) {
+    - L40: public boolean isFluidValid(FluidVariantWrapper stack) {
+    - L44: @Override
+    - L45: protected FluidVariant getBlankVariant() {
+  - `src/main/java/com/tiviacz/travelersbackpack/inventory/FluidVariantWrapper.java`
+    - L1: package com.tiviacz.travelersbackpack.inventory;
+    - L16: public record FluidVariantWrapper(FluidVariant fluidVariant, long amount) {
+    - L17: public static final Codec<FluidVariantWrapper> CODEC = RecordCodecBuilder.create(instance ->
+    - L24: public static final StreamCodec<RegistryFriendlyByteBuf, FluidVariantWrapper> STREAM_CODEC = StreamCodec.composite(
+    - L30: public static Optional<FluidVariantWrapper> parse(Tag tag) {
+    - L34: public static FluidVariantWrapper parseOptional(Tag tag) {
+    - L38: public Optional<Tag> save() {
+    - L42: public Tag saveOptional() {
+    - L46: public boolean isEmpty() {
+    - L50: public long getAmount() {
+    - L54: public long getViewAmount() {
+    - L58: public static FluidVariantWrapper blank() {
+  - `src/main/java/com/tiviacz/travelersbackpack/inventory/InventoryActions.java`
+    - L1: package com.tiviacz.travelersbackpack.inventory;
+    - L31: public class InventoryActions {
+    - L32: public static boolean transferContainerTank(TanksUpgrade upgrade, ItemStack stackIn, FluidTank tank, int slotIn) {
+  - `src/main/java/com/tiviacz/travelersbackpack/inventory/Tiers.java`
+    - L1: package com.tiviacz.travelersbackpack.inventory;
+    - L9: public class Tiers {
+    - L10: public static final Tier LEATHER = new Tier("leather", (9 * 3), 2, 2, 81000);
+    - L11: public static final Tier IRON = new Tier("iron", (9 * 5), 3, 3, 81000);
+    - L12: public static final Tier GOLD = new Tier("gold", (9 * 7), 4, 4, 81000);
+    - L13: public static final Tier DIAMOND = new Tier("diamond", (9 * 9), 5, 5, 81000);
+    - L14: public static final Tier NETHERITE = new Tier("netherite", (9 * 11), 6, 6, 81000);
+    - L16: public static class Tier {
+    - L17: public final String name;
+    - L18: public int toolSlots;
+    - L19: public final int storageSlots;
+    - L20: public final int upgradeSlots;
+  - `src/main/java/com/tiviacz/travelersbackpack/inventory/UpgradeManager.java`
+    - L1: package com.tiviacz.travelersbackpack.inventory;
+    - L18: public class UpgradeManager {
+    - L19: public final BackpackWrapper wrapper;
+    - L20: public final ItemStackHandler upgradesHandler;
+    - L21: public BiMap<Integer, Optional<UpgradeBase<?>>> mappedUpgrades;
+    - L22: public List<UpgradeBase<?>> upgrades = new ArrayList<>();
+    - L24: public UpgradeManager(BackpackWrapper wrapper) {
+    - L33: public BackpackWrapper getWrapper() {
+    - L37: public ItemStackHandler getUpgradesHandler() {
+    - L41: public boolean hasUpgradeInSlot(int slot) {
+    - L45: public <T extends UpgradeBase<T>> Optional<T> getUpgrade(Class<T> upgradeClass) {
+    - L52: public boolean canAddUpgrade(UpgradeItem upgradeItem) {
+  - `src/main/java/com/tiviacz/travelersbackpack/inventory/handler/IItemHandlerModifiable.java`
+    - L1: package com.tiviacz.travelersbackpack.inventory.handler;
+    - L5: public interface IItemHandlerModifiable {
+  - `src/main/java/com/tiviacz/travelersbackpack/inventory/handler/ItemStackHandler.java`
+    - L1: package com.tiviacz.travelersbackpack.inventory.handler;
+    - L13: public class ItemStackHandler extends SimpleContainer implements IItemHandlerModifiable {
+    - L14: public NonNullList<ItemStack> stacks;
+    - L16: public ItemStackHandler() {
+    - L20: public ItemStackHandler(int size) {
+    - L24: public ItemStackHandler(NonNullList<ItemStack> stacks) {
+    - L28: public void setSize(int size) {
+    - L32: public void setStackInSlot(int slot, ItemStack stack) {
+    - L38: public int getSlots() {
+    - L42: public ItemStack getStackInSlot(int slot) {
+    - L47: public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
+    - L84: public ItemStack extractItem(int slot, int amount, boolean simulate) {
+  - `src/main/java/com/tiviacz/travelersbackpack/inventory/handler/StorageAccessWrapper.java`
+    - L1: package com.tiviacz.travelersbackpack.inventory.handler;
+    - L16: public class StorageAccessWrapper extends ItemStackHandler {
+    - L17: public final BackpackWrapper wrapper;
+    - L18: public final ItemStackHandler parent;
+    - L20: public StorageAccessWrapper(BackpackWrapper wrapper, ItemStackHandler parent) {
+    - L25: public void setStackInSlot(int slot, @NotNull ItemStack stack) {
+    - L29: public int getSlots() {
+    - L33: public @NotNull ItemStack getStackInSlot(int slot) {
+    - L37: public @NotNull ItemStack insertItem(int slot, @NotNull ItemStack stack, boolean simulate) {
+    - L62: public int matchesStack(ItemStack inserted, Pair<Integer, Pair<ItemStack, Boolean>> memorizedStack) {
+    - L70: public boolean tryVoiding(ItemStack stack) {
+    - L74: public @NotNull ItemStack extractItem(int slot, int amount, boolean simulate) {
+
+## Data & assets
+- No strongly name-matched resources under common resource roots; check parent mod resources / datagen providers.
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-30/Tiviacz1337-Travelers-Backpack` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- record `BackpackContainer` in `BackpackContainer.java`
+- record `BackpackSettingsContainer` in `BackpackSettingsContainer.java`
+- record `FluidVariantWrapper` in `FluidVariantWrapper.java`
+- interface `IItemHandlerModifiable` in `IItemHandlerModifiable.java`
+- key type `IItemHandlerModifiable` (`IItemHandlerModifiable.java`)
+- key type `ItemStackHandler` (`ItemStackHandler.java`)
+- key type `BackpackSlotItemHandler` (`BackpackSlotItemHandler.java`)
+- key type `FilterSlotItemHandler` (`FilterSlotItemHandler.java`)
+- key type `FluidSlotItemHandler` (`FluidSlotItemHandler.java`)
+- key type `SlotItemHandler` (`SlotItemHandler.java`)
+- key type `ToolSlotItemHandler` (`ToolSlotItemHandler.java`)
+- key type `UpgradeLockableSlotItemHandler` (`UpgradeLockableSlotItemHandler.java`)
+- key type `UpgradeSlotItemHandler` (`UpgradeSlotItemHandler.java`)
+- enum `SortType` in `SortSelector.java`
+- interface `IEnable` in `IEnable.java`
+- interface `IMoveSelector` in `IMoveSelector.java`
+- interface `ITickableUpgrade` in `ITickableUpgrade.java`
+- interface `IUpgrade` in `IUpgrade.java`
+- record `Point` in `Point.java`
+- key type `FilterHandler` (`FilterHandler.java`)
+- interface `IFilter` in `IFilter.java`
+- interface `IFilterSlots` in `IFilterSlots.java`
+
+## Port relevance to Re-Forestry
+- Mentions of `inventory` appear in `files/implemented-features.md` — check that file for port status.
+- Adopt inventory/GUI/attachment patterns into Re-Forestry packages — no donor dep.
+
+## Source map
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/BackpackContainer.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/BackpackSettingsContainer.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/BackpackWrapper.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/CommonFluid.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/FluidTank.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/FluidVariantWrapper.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/InventoryActions.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/Tiers.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/UpgradeManager.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/handler/IItemHandlerModifiable.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/handler/ItemStackHandler.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/handler/StorageAccessWrapper.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/menu/AbstractBackpackMenu.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/menu/BackpackBaseMenu.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/menu/BackpackBlockEntityMenu.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/menu/BackpackItemMenu.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/menu/BackpackSettingsMenu.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/menu/slot/BackpackSlotItemHandler.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/menu/slot/CraftingSlot.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/menu/slot/DisabledSlot.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/menu/slot/FilterSlotItemHandler.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/menu/slot/FluidSlotItemHandler.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/menu/slot/ResultSlotExt.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/menu/slot/SlotItemHandler.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/menu/slot/ToolSlotItemHandler.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/menu/slot/UpgradeLockableSlotItemHandler.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/menu/slot/UpgradeSlotItemHandler.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/sorter/ContainerSorter.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/sorter/InvWrapper.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/sorter/SortSelector.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/FilterSettingsBase.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/FilterUpgradeBase.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/IEnable.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/IMoveSelector.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/ITickableUpgrade.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/IUpgrade.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/Point.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/ResultArrowElement.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/UpgradeBase.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/crafting/CraftingContainerImproved.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/crafting/CraftingUpgrade.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/crafting/CraftingWidget.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/feeding/FeedingFilterSettings.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/feeding/FeedingUpgrade.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/feeding/FeedingWidget.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/filter/ButtonStates.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/filter/FilterButton.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/filter/FilterHandler.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/filter/IFilter.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/filter/IFilterSlots.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/jukebox/JukeboxUpgrade.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/jukebox/JukeboxWidget.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/lantern/LanternUpgrade.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/lantern/LanternWidget.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/magnet/MagnetFilterSettings.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/magnet/MagnetUpgrade.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/magnet/MagnetWidget.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/pickup/AutoPickupFilterSettings.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/pickup/AutoPickupUpgrade.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/pickup/AutoPickupWidget.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/refill/RefillUpgrade.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/smelting/AbstractSmeltingUpgrade.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/smelting/AbstractSmeltingWidget.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/smelting/BlastFurnaceUpgrade.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/smelting/FurnaceUpgrade.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/smelting/SmokerUpgrade.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/tanks/FluidStorageItemWrapper.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/tanks/TankActions.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/tanks/TankWidget.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/tanks/TanksUpgrade.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/voiding/VoidFilterSettings.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/voiding/VoidUpgrade.java`
+- `src/main/java/com/tiviacz/travelersbackpack/inventory/upgrades/voiding/VoidWidget.java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

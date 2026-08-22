@@ -1,0 +1,12 @@
+{
+  "repo": "thedarkcolour-Immersive-Forestry",
+  "clone": "/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/thedarkcolour-Immersive-Forestry",
+  "scan_roots": [
+    "src"
+  ],
+  "graph": "/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/graphify/thedarkcolour-Immersive-Forestry/graphify-out/graph.json",
+  "nodes": 18308,
+  "edges": 47300,
+  "seconds": 59.9,
+  "built_at": "2026-07-29T13:11:16Z"
+}

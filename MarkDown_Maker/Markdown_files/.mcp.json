@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "minecraft-mods": {
+      "command": "/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Markdown_files/.venv/bin/python",
+      "args": [
+        "/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Markdown_files/server.py"
+      ]
+    }
+  }
+}

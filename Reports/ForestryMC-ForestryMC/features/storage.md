@@ -1,0 +1,244 @@
+# ForestryMC-ForestryMC — storage
+
+- Alias: `forestry12`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ForestryMC-ForestryMC`
+- Package/path root: `src/main/java/forestry/storage`
+- Java files scanned: **34**
+- Date: 2026-07-30
+
+## Summary
+Module `storage` in `ForestryMC-ForestryMC` is rooted at `src/main/java/forestry/storage` (34 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `BackpackDefinition`
+- `BackpackFilter`
+- `BackpackFilterNaturalist`
+- `BackpackInterface`
+- `BackpackMode`
+- `CrateRegistry`
+- `ModuleBackpacks`
+- `ModuleCrates`
+- `PickupHandlerStorage`
+- `ResupplyHandler`
+- `StorageJeiPlugin`
+- `package-info`
+- `ContainerBackpack`
+- `ContainerNaturalistBackpack`
+- `GuiBackpack`
+- `GuiBackpackT2`
+- `package-info`
+- `ItemInventoryBackpack`
+- `ItemInventoryBackpackPaged`
+- `package-info`
+- `ItemBackpack`
+- `ItemBackpackNaturalist`
+- `ItemCrated`
+- `ItemRegistryBackpacks`
+- `ItemRegistryCrates`
+- `package-info`
+- `ModelCrate`
+- `ModelCrateBaked`
+- `ModelLoaderCrate`
+- `package-info`
+- `package-info`
+- `ProxyCrates`
+- `ProxyCratesClient`
+- `package-info`
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py forestry12 "storage"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `compat`
+  - `gui`
+  - `inventory`
+  - `items`
+  - `models`
+  - `proxy`
+- Declaration skim (first files):
+  - `src/main/java/forestry/storage/BackpackDefinition.java`
+    - L11: package forestry.storage;
+    - L24: public class BackpackDefinition implements IBackpackDefinition {
+    - L29: public BackpackDefinition(Color primaryColor, Color secondaryColor) {
+    - L33: public BackpackDefinition(Color primaryColor, Color secondaryColor, Predicate<ItemStack> filter) {
+    - L39: @Override
+    - L40: public Predicate<ItemStack> getFilter() {
+    - L44: @Override
+    - L45: public String getName(ItemStack backpack) {
+    - L61: @Override
+    - L62: public int getPrimaryColour() {
+    - L66: @Override
+    - L67: public int getSecondaryColour() {
+  - `src/main/java/forestry/storage/BackpackFilter.java`
+    - L1: package forestry.storage;
+    - L14: public class BackpackFilter implements IBackpackFilterConfigurable {
+    - L19: @Override
+    - L20: public void acceptItem(ItemStack validItem) {
+    - L27: @Override
+    - L28: public void acceptOreDictName(String oreDictName) {
+    - L35: @Override
+    - L36: public void rejectOreDictName(String oreDictName) {
+    - L43: @Override
+    - L44: public void rejectItem(ItemStack invalidItem) {
+    - L51: @Override
+    - L52: public void clear() {
+  - `src/main/java/forestry/storage/BackpackFilterNaturalist.java`
+    - L1: package forestry.storage;
+    - L10: public class BackpackFilterNaturalist implements Predicate<ItemStack> {
+    - L13: public BackpackFilterNaturalist(String speciesRootUid) {
+    - L17: @Override
+    - L18: public boolean test(ItemStack itemStack) {
+  - `src/main/java/forestry/storage/BackpackInterface.java`
+    - L11: package forestry.storage;
+    - L35: public class BackpackInterface implements IBackpackInterface {
+    - L40: public Map<String, List<String>> getBackpackAcceptedItems() {
+    - L44: @Override
+    - L45: public void addItemToForestryBackpack(String backpackUid, ItemStack itemStack) {
+    - L57: @Override
+    - L58: public void registerBackpackDefinition(String backpackUid, IBackpackDefinition definition) {
+    - L65: @Nullable
+    - L66: @Override
+    - L67: public IBackpackDefinition getBackpackDefinition(String backpackUid) {
+    - L73: @Override
+    - L74: public Item createBackpack(String backpackUid, EnumBackpackType type) {
+  - `src/main/java/forestry/storage/BackpackMode.java`
+    - L11: package forestry.storage;
+    - L15: public enum BackpackMode {
+    - L21: @Nullable
+    - L28: @Nullable
+    - L29: public String getUnlocalizedInfo() {
+  - `src/main/java/forestry/storage/CrateRegistry.java`
+    - L11: package forestry.storage;
+    - L31: public class CrateRegistry implements ICrateRegistry {
+    - L63: @Override
+    - L64: public void registerCrate(String oreDictName) {
+    - L78: @Override
+    - L79: public void registerCrate(Block block) {
+    - L83: @Override
+    - L84: public void registerCrate(Item item) {
+    - L88: @Override
+    - L89: public void registerCrate(ItemStack stack) {
+    - L99: @Override
+    - L100: public void blacklistCrate(ItemStack stack) {
+  - `src/main/java/forestry/storage/ModuleBackpacks.java`
+    - L11: package forestry.storage;
+    - L69: @ForestryModule(moduleID = ForestryModuleUids.BACKPACKS, containerID = Constants.MOD_ID, name = "Backpack", author = "SirSengir", url = Constants.URL, unlocalizedDescription = "for.module.backpacks.description", lootTabl
+    - L70: public class ModuleBackpacks extends BlankForestryModule {
+    - L74: @Nullable
+    - L89: public static ItemRegistryBackpacks getItems() {
+    - L94: @Override
+    - L95: public void setupAPI() {
+  - `src/main/java/forestry/storage/ModuleCrates.java`
+    - L1: package forestry.storage;
+    - L43: @ForestryModule(moduleID = ForestryModuleUids.CRATE, containerID = Constants.MOD_ID, name = "Crate", author = "SirSengir", url = Constants.URL, unlocalizedDescription = "for.module.crates.description")
+    - L44: public class ModuleCrates extends BlankForestryModule {
+    - L48: public static final List<String> cratesRejectedOreDict = new ArrayList<>();
+    - L49: public static Multimap<Item, ItemStack> cratesRejectedItem = HashMultimap.create();
+    - L53: @SuppressWarnings("NullableProblems")
+    - L54: @SidedProxy(clientSide = "forestry.storage.proxy.ProxyCratesClient", serverSide = "forestry.storage.proxy.ProxyCrates")
+    - L55: public static ProxyCrates proxy;
+    - L57: @Nullable
+    - L60: public static ItemRegistryCrates getItems() {
+    - L65: @Override
+    - L66: public void setupAPI() {
+  - `src/main/java/forestry/storage/PickupHandlerStorage.java`
+    - L11: package forestry.storage;
+    - L23: public class PickupHandlerStorage implements IPickupHandler {
+    - L25: @Override
+    - L26: public boolean onItemPickup(EntityPlayer player, EntityItem entityitem) {
+  - `src/main/java/forestry/storage/ResupplyHandler.java`
+    - L11: package forestry.storage;
+    - L32: public class ResupplyHandler implements IResupplyHandler {
+    - L44: @Override
+    - L45: public void resupply(EntityPlayer player) {
+  - `src/main/java/forestry/storage/compat/StorageJeiPlugin.java`
+    - L1: package forestry.storage.compat;
+    - L13: @JEIPlugin
+    - L14: public class StorageJeiPlugin implements IModPlugin {
+    - L15: @Override
+    - L16: public void register(IModRegistry registry) {
+  - `src/main/java/forestry/storage/compat/package-info.java`
+    - L1: @ParametersAreNonnullByDefault
+    - L2: @FieldsAreNonnullByDefault
+    - L3: @MethodsReturnNonnullByDefault
+    - L4: package forestry.storage.compat;
+
+## Data & assets
+Related resource paths (heuristic name match):
+- `src/main/resources/assets/forestry/blockstates/resource_storage.json`
+- `src/main/resources/assets/forestry/textures/blocks/storage/bronze.png`
+- `src/main/resources/assets/forestry/textures/blocks/storage/tin.png`
+- `src/main/resources/assets/forestry/textures/blocks/storage/copper.png`
+- `src/main/resources/assets/forestry/textures/blocks/storage/apatite.png`
+- `src/main/resources/assets/forestry/models/item/storage/copper.json`
+- `src/main/resources/assets/forestry/models/item/storage/apatite.json`
+- `src/main/resources/assets/forestry/models/item/storage/tin.json`
+- `src/main/resources/assets/forestry/models/item/storage/bronze.json`
+- `src/main/resources/assets/forestry/models/block/storage/copper.json`
+- `src/main/resources/assets/forestry/models/block/storage/apatite.json`
+- `src/main/resources/assets/forestry/models/block/storage/tin.json`
+- `src/main/resources/assets/forestry/models/block/storage/bronze.json`
+- `src/main/resources/assets/forestry/loot_tables/chests/abandoned_mineshaft/storage.json`
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ForestryMC-ForestryMC` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- enum `BackpackMode` in `BackpackMode.java`
+- key type `CrateRegistry` (`CrateRegistry.java`)
+- key type `ModuleBackpacks` (`ModuleBackpacks.java`)
+- key type `ModuleCrates` (`ModuleCrates.java`)
+- key type `PickupHandlerStorage` (`PickupHandlerStorage.java`)
+- key type `ResupplyHandler` (`ResupplyHandler.java`)
+- key type `StorageJeiPlugin` (`StorageJeiPlugin.java`)
+- enum `Size` in `ContainerBackpack.java`
+- key type `ItemRegistryBackpacks` (`ItemRegistryBackpacks.java`)
+- key type `ItemRegistryCrates` (`ItemRegistryCrates.java`)
+- enum `ModelLoaderCrate` in `ModelLoaderCrate.java`
+
+## Port relevance to Re-Forestry
+- Mentions of `storage` appear in `files/implemented-features.md` — check that file for port status.
+- 1.12 Forestry — useful for CE-dropped content (greenhouse, book, climatology, database, etc.).
+
+## Source map
+- `src/main/java/forestry/storage/BackpackDefinition.java`
+- `src/main/java/forestry/storage/BackpackFilter.java`
+- `src/main/java/forestry/storage/BackpackFilterNaturalist.java`
+- `src/main/java/forestry/storage/BackpackInterface.java`
+- `src/main/java/forestry/storage/BackpackMode.java`
+- `src/main/java/forestry/storage/CrateRegistry.java`
+- `src/main/java/forestry/storage/ModuleBackpacks.java`
+- `src/main/java/forestry/storage/ModuleCrates.java`
+- `src/main/java/forestry/storage/PickupHandlerStorage.java`
+- `src/main/java/forestry/storage/ResupplyHandler.java`
+- `src/main/java/forestry/storage/compat/StorageJeiPlugin.java`
+- `src/main/java/forestry/storage/compat/package-info.java`
+- `src/main/java/forestry/storage/gui/ContainerBackpack.java`
+- `src/main/java/forestry/storage/gui/ContainerNaturalistBackpack.java`
+- `src/main/java/forestry/storage/gui/GuiBackpack.java`
+- `src/main/java/forestry/storage/gui/GuiBackpackT2.java`
+- `src/main/java/forestry/storage/gui/package-info.java`
+- `src/main/java/forestry/storage/inventory/ItemInventoryBackpack.java`
+- `src/main/java/forestry/storage/inventory/ItemInventoryBackpackPaged.java`
+- `src/main/java/forestry/storage/inventory/package-info.java`
+- `src/main/java/forestry/storage/items/ItemBackpack.java`
+- `src/main/java/forestry/storage/items/ItemBackpackNaturalist.java`
+- `src/main/java/forestry/storage/items/ItemCrated.java`
+- `src/main/java/forestry/storage/items/ItemRegistryBackpacks.java`
+- `src/main/java/forestry/storage/items/ItemRegistryCrates.java`
+- `src/main/java/forestry/storage/items/package-info.java`
+- `src/main/java/forestry/storage/models/ModelCrate.java`
+- `src/main/java/forestry/storage/models/ModelCrateBaked.java`
+- `src/main/java/forestry/storage/models/ModelLoaderCrate.java`
+- `src/main/java/forestry/storage/models/package-info.java`
+- `src/main/java/forestry/storage/package-info.java`
+- `src/main/java/forestry/storage/proxy/ProxyCrates.java`
+- `src/main/java/forestry/storage/proxy/ProxyCratesClient.java`
+- `src/main/java/forestry/storage/proxy/package-info.java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

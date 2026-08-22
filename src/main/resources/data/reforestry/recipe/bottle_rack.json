@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": "#c:glass_blocks/colorless",
+    "P": "#minecraft:planks",
+    "I": "#c:ingots/iron"
+  },
+  "pattern": [
+    "GIG",
+    "G G",
+    "PPP"
+  ],
+  "result": {
+    "id": "reforestry:bottle_rack"
+  }
+}

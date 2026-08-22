@@ -1,0 +1,231 @@
+# thedarkcolour-ForestryCE — apiimpl
+
+- Alias: `CE`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_16-21-34/thedarkcolour-ForestryCE`
+- Package/path root: `src/main/java/forestry/apiimpl`
+- Java files scanned: **35**
+- Date: 2026-07-30
+
+## Summary
+Module `apiimpl` in `thedarkcolour-ForestryCE` is rooted at `src/main/java/forestry/apiimpl` (35 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `ForestryApiImpl`
+- `GeneticManager`
+- `BeeClientManager`
+- `ButterflyClientManager`
+- `ForestryClientApiImpl`
+- `TreeClientManager`
+- `AnalyzerScreenGraphics`
+- `GeneticClientManager`
+- `package-info`
+- `package-info`
+- `ClientHelper`
+- `ClientRegistration`
+- `package-info`
+- `package-info`
+- `ApicultureRegistration`
+- `ArboricultureRegistration`
+- `BeeSpeciesBuilder`
+- `ButterflySpeciesBuilder`
+- `CircuitRegistration`
+- `ErrorRegistration`
+- `FarmTypeBuilder`
+- `FarmingRegistration`
+- `GeneticRegistration`
+- `HiveBuilder`
+- `LepidopterologyRegistration`
+- `ModifiableRegistrar`
+- `MutationsRegistration`
+- `PluginManager`
+- `Registrar`
+- `SpeciesBuilder`
+- `SpeciesRegistration`
+- `SpeciesTypeBuilder`
+- `TreeSpeciesBuilder`
+- `WindfallFarmableBuilder`
+- `package-info`
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py CE "apiimpl"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `client`
+  - `client/genetics`
+  - `client/plugin`
+  - `plugin`
+- Declaration skim (first files):
+  - `src/main/java/forestry/apiimpl/ForestryApiImpl.java`
+    - L1: package forestry.apiimpl;
+    - L27: public class ForestryApiImpl implements IForestryApi {
+    - L29: @Nullable
+    - L32: @Nullable
+    - L34: @Nullable
+    - L37: @Nullable
+    - L39: @Nullable
+    - L41: @Nullable
+    - L43: @Nullable
+    - L45: @Nullable
+    - L48: @Override
+    - L49: public IModuleManager getModuleManager() {
+  - `src/main/java/forestry/apiimpl/GeneticManager.java`
+    - L1: package forestry.apiimpl;
+    - L12: public class GeneticManager implements IGeneticManager {
+    - L15: @Nullable
+    - L18: public GeneticManager(ImmutableMap<String, ITaxon> taxa, ImmutableMap<ResourceLocation, ISpeciesType<?, ?>> speciesTypes) {
+    - L23: @Override
+    - L24: public ITaxon getTaxon(String name) {
+    - L32: @Override
+    - L33: public ITaxon[] getParentTaxa(String name) {
+    - L46: @SuppressWarnings("unchecked")
+    - L47: @Override
+    - L48: public <S extends ISpecies<?>> IMutationManager<S> getMutations(ISpeciesType<?, ?> speciesType) {
+    - L59: @Override
+  - `src/main/java/forestry/apiimpl/client/BeeClientManager.java`
+    - L1: package forestry.apiimpl.client;
+    - L11: public class BeeClientManager implements IBeeClientManager {
+    - L14: public BeeClientManager(IdentityHashMap<ILifeStage, Map<IBeeSpecies, ResourceLocation>> beeModels) {
+    - L18: @Override
+    - L19: public Map<IBeeSpecies, ResourceLocation> getBeeModels(ILifeStage stage) {
+  - `src/main/java/forestry/apiimpl/client/ButterflyClientManager.java`
+    - L1: package forestry.apiimpl.client;
+    - L10: public class ButterflyClientManager implements IButterflyClientManager {
+    - L13: public ButterflyClientManager(IdentityHashMap<IButterflySpecies, Pair<ResourceLocation, ResourceLocation>> textures) {
+    - L17: @Override
+    - L18: public Pair<ResourceLocation, ResourceLocation> getTextures(IButterflySpecies species) {
+  - `src/main/java/forestry/apiimpl/client/ForestryClientApiImpl.java`
+    - L1: package forestry.apiimpl.client;
+    - L16: public class ForestryClientApiImpl implements IForestryClientApi {
+    - L19: @Nullable
+    - L21: @Nullable
+    - L23: @Nullable
+    - L25: @Nullable
+    - L27: @Nullable
+    - L30: @Override
+    - L31: public ITextureManager getTextureManager() {
+    - L38: @Override
+    - L39: public IGeneticClientManager getGeneticManager() {
+    - L47: public IBeeClientManager getBeeManager() {
+  - `src/main/java/forestry/apiimpl/client/TreeClientManager.java`
+    - L1: package forestry.apiimpl.client;
+    - L16: public class TreeClientManager implements ITreeClientManager {
+    - L21: public TreeClientManager(IdentityHashMap<ITreeSpecies, ILeafSprite> sprites, IdentityHashMap<ITreeSpecies, ILeafTint> tints, IdentityHashMap<ITreeSpecies, Pair<ResourceLocation, ResourceLocation>> models) {
+    - L27: @Override
+    - L28: public ILeafSprite getLeafSprite(@Nullable ITreeSpecies species) {
+    - L33: @Override
+    - L34: public Collection<ILeafSprite> getAllLeafSprites() {
+    - L39: @Override
+    - L40: public ILeafTint getTint(@Nullable ITreeSpecies species) {
+    - L44: @Override
+    - L45: public Pair<ResourceLocation, ResourceLocation> getSaplingModels(ITreeSpecies species) {
+    - L53: @Override
+  - `src/main/java/forestry/apiimpl/client/genetics/AnalyzerScreenGraphics.java`
+    - L1: package forestry.apiimpl.client.genetics;
+    - L38: public class AnalyzerScreenGraphics<S extends ISpecies<I>, I extends IIndividual> implements IAnalyzerGraphics<S, I> {
+    - L39: public static final int COLUMN_1 = 78;
+    - L40: public static final int COLUMN_2 = 143;
+    - L54: public AnalyzerScreenGraphics(GuiGraphics graphics, PortableAnalyzerScreen parent, int mouseX, int mouseY, I individual) {
+    - L70: @Override
+    - L71: public <C extends IChromosome<A>, A extends IAllele> void drawChromosomeRow(C chromosome, @Nullable IChromosomeRowOptions<C, A> options) {
+    - L86: public void drawSplitLine(Component label, Component left, Component right, boolean showRight, @Nullable ISplitLineOptions options) {
+    - L107: @Override
+    - L108: public void drawSpeciesIconsRow(@Nullable Function<S, ItemStack> iconGetter) {
+  - `src/main/java/forestry/apiimpl/client/genetics/GeneticClientManager.java`
+    - L1: package forestry.apiimpl.client.genetics;
+    - L13: public class GeneticClientManager implements IGeneticClientManager {
+    - L16: public GeneticClientManager(IdentityHashMap<ISpeciesType<?, ?>, IAnalyzerPlugin<?, ?>> plugins) {
+    - L20: @SuppressWarnings("unchecked")
+    - L21: @Override
+    - L22: public @Nullable <S extends ISpecies<I>, I extends IIndividual> IAnalyzerPlugin<S, I> getAnalyzerPlugin(ISpeciesType<S, I> type) {
+  - `src/main/java/forestry/apiimpl/client/genetics/package-info.java`
+    - L1: @javax.annotation.ParametersAreNonnullByDefault
+    - L2: @forestry.core.utils.FieldsAreNonnullByDefault
+    - L3: @net.minecraft.MethodsReturnNonnullByDefault
+    - L4: package forestry.apiimpl.client.genetics;
+  - `src/main/java/forestry/apiimpl/client/package-info.java`
+    - L1: @javax.annotation.ParametersAreNonnullByDefault
+    - L2: @forestry.core.utils.FieldsAreNonnullByDefault
+    - L3: @net.minecraft.MethodsReturnNonnullByDefault
+    - L4: package forestry.apiimpl.client;
+  - `src/main/java/forestry/apiimpl/client/plugin/ClientHelper.java`
+    - L1: package forestry.apiimpl.client.plugin;
+    - L17: public class ClientHelper implements IClientHelper {
+    - L18: @Override
+    - L19: public ILeafTint createNoneTint() {
+    - L23: @Override
+    - L24: public ILeafTint createFixedTint(Color color) {
+    - L28: @Override
+    - L29: public ILeafTint createBiomeTint() {
+    - L33: @Override
+    - L34: public ILeafTint createBiomeTint(Int2IntFunction mapper) {
+    - L36: @Override
+    - L37: public int get(@Nullable BlockAndTintGetter level, @Nullable BlockPos pos) {
+  - `src/main/java/forestry/apiimpl/client/plugin/ClientRegistration.java`
+    - L1: package forestry.apiimpl.client.plugin;
+    - L15: public class ClientRegistration implements IClientRegistration {
+    - L31: @Override
+    - L32: public void setDefaultBeeModel(ILifeStage stage, ResourceLocation modelLocation) {
+    - L36: @Override
+    - L37: public void setCustomBeeModel(ResourceLocation speciesId, ILifeStage stage, ResourceLocation model) {
+    - L41: @Override
+    - L42: public void setSaplingModel(ResourceLocation speciesId, ResourceLocation blockModel, ResourceLocation itemModel) {
+    - L46: @Override
+    - L47: public void setLeafSprite(ResourceLocation speciesId, ILeafSprite sprite) {
+    - L51: @Override
+    - L52: public void setLeafTint(ResourceLocation speciesId, ILeafTint tint) {
+
+## Data & assets
+- No strongly name-matched resources under common resource roots; check parent mod resources / datagen providers.
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_16-21-34/thedarkcolour-ForestryCE` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- key type `PluginManager` (`PluginManager.java`)
+
+## Port relevance to Re-Forestry
+- Primary Forestry reference for Re-Forestry port decisions.
+
+## Source map
+- `src/main/java/forestry/apiimpl/ForestryApiImpl.java`
+- `src/main/java/forestry/apiimpl/GeneticManager.java`
+- `src/main/java/forestry/apiimpl/client/BeeClientManager.java`
+- `src/main/java/forestry/apiimpl/client/ButterflyClientManager.java`
+- `src/main/java/forestry/apiimpl/client/ForestryClientApiImpl.java`
+- `src/main/java/forestry/apiimpl/client/TreeClientManager.java`
+- `src/main/java/forestry/apiimpl/client/genetics/AnalyzerScreenGraphics.java`
+- `src/main/java/forestry/apiimpl/client/genetics/GeneticClientManager.java`
+- `src/main/java/forestry/apiimpl/client/genetics/package-info.java`
+- `src/main/java/forestry/apiimpl/client/package-info.java`
+- `src/main/java/forestry/apiimpl/client/plugin/ClientHelper.java`
+- `src/main/java/forestry/apiimpl/client/plugin/ClientRegistration.java`
+- `src/main/java/forestry/apiimpl/client/plugin/package-info.java`
+- `src/main/java/forestry/apiimpl/package-info.java`
+- `src/main/java/forestry/apiimpl/plugin/ApicultureRegistration.java`
+- `src/main/java/forestry/apiimpl/plugin/ArboricultureRegistration.java`
+- `src/main/java/forestry/apiimpl/plugin/BeeSpeciesBuilder.java`
+- `src/main/java/forestry/apiimpl/plugin/ButterflySpeciesBuilder.java`
+- `src/main/java/forestry/apiimpl/plugin/CircuitRegistration.java`
+- `src/main/java/forestry/apiimpl/plugin/ErrorRegistration.java`
+- `src/main/java/forestry/apiimpl/plugin/FarmTypeBuilder.java`
+- `src/main/java/forestry/apiimpl/plugin/FarmingRegistration.java`
+- `src/main/java/forestry/apiimpl/plugin/GeneticRegistration.java`
+- `src/main/java/forestry/apiimpl/plugin/HiveBuilder.java`
+- `src/main/java/forestry/apiimpl/plugin/LepidopterologyRegistration.java`
+- `src/main/java/forestry/apiimpl/plugin/ModifiableRegistrar.java`
+- `src/main/java/forestry/apiimpl/plugin/MutationsRegistration.java`
+- `src/main/java/forestry/apiimpl/plugin/PluginManager.java`
+- `src/main/java/forestry/apiimpl/plugin/Registrar.java`
+- `src/main/java/forestry/apiimpl/plugin/SpeciesBuilder.java`
+- `src/main/java/forestry/apiimpl/plugin/SpeciesRegistration.java`
+- `src/main/java/forestry/apiimpl/plugin/SpeciesTypeBuilder.java`
+- `src/main/java/forestry/apiimpl/plugin/TreeSpeciesBuilder.java`
+- `src/main/java/forestry/apiimpl/plugin/WindfallFarmableBuilder.java`
+- `src/main/java/forestry/apiimpl/plugin/package-info.java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

@@ -1,0 +1,234 @@
+# thedarkcolour-ForestryCE — storage
+
+- Alias: `CE`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_16-21-34/thedarkcolour-ForestryCE`
+- Package/path root: `src/main/java/forestry/storage`
+- Java files scanned: **29**
+- Date: 2026-07-30
+
+## Summary
+Module `storage` in `thedarkcolour-ForestryCE` is rooted at `src/main/java/forestry/storage` (29 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `BackpackDefinition`
+- `BackpackFilter`
+- `BackpackFilterNaturalist`
+- `BackpackInterface`
+- `BackpackMode`
+- `BackpackResupplyHandler`
+- `ModuleStorage`
+- `PickupHandlerStorage`
+- `FilledCrateModel`
+- `StorageClientHandler`
+- `package-info`
+- `StorageJeiPlugin`
+- `package-info`
+- `BackpackItems`
+- `BackpackMenuTypes`
+- `CrateItems`
+- `package-info`
+- `ContainerBackpack`
+- `ContainerNaturalistBackpack`
+- `GuiBackpack`
+- `package-info`
+- `ItemInventoryBackpack`
+- `ItemInventoryBackpackPaged`
+- `package-info`
+- `ItemBackpack`
+- `ItemBackpackNaturalist`
+- `ItemCrated`
+- `package-info`
+- `package-info`
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py CE "storage"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `client`
+  - `compat`
+  - `features`
+  - `gui`
+  - `inventory`
+  - `items`
+- Declaration skim (first files):
+  - `src/main/java/forestry/storage/BackpackDefinition.java`
+    - L1: package forestry.storage;
+    - L11: public class BackpackDefinition implements IBackpackDefinition {
+    - L16: public BackpackDefinition(int primaryColor, int secondaryColor, Predicate<ItemStack> filter) {
+    - L22: @Override
+    - L23: public Predicate<ItemStack> getFilter() {
+    - L27: @Override
+    - L28: public Component getName(ItemStack backpack) {
+    - L44: @Override
+    - L45: public int getPrimaryColour() {
+    - L49: @Override
+    - L50: public int getSecondaryColour() {
+  - `src/main/java/forestry/storage/BackpackFilter.java`
+    - L1: package forestry.storage;
+    - L13: public class BackpackFilter implements Predicate<ItemStack> {
+    - L16: @Nullable
+    - L18: @Nullable
+    - L21: public BackpackFilter(TagKey<Item> acceptKey, TagKey<Item> rejectKey) {
+    - L45: @Override
+    - L46: public boolean test(ItemStack itemStack) {
+  - `src/main/java/forestry/storage/BackpackFilterNaturalist.java`
+    - L1: package forestry.storage;
+    - L9: public class BackpackFilterNaturalist implements Predicate<ItemStack> {
+    - L12: public BackpackFilterNaturalist(ResourceLocation speciesType) {
+    - L16: @Override
+    - L17: public boolean test(ItemStack stack) {
+  - `src/main/java/forestry/storage/BackpackInterface.java`
+    - L1: package forestry.storage;
+    - L17: public class BackpackInterface implements IBackpackInterface {
+    - L18: @Override
+    - L19: public Item createBackpack(IBackpackDefinition definition, EnumBackpackType type) {
+    - L27: @Override
+    - L28: public Item createNaturalistBackpack(IBackpackDefinition definition, ResourceLocation speciesTypeId, CreativeModeTab tab) {
+    - L35: @Override
+    - L36: public Predicate<ItemStack> createNaturalistBackpackFilter(ResourceLocation speciesRootUid) {
+  - `src/main/java/forestry/storage/BackpackMode.java`
+    - L1: package forestry.storage;
+    - L8: public enum BackpackMode implements StringRepresentable {
+    - L14: public static final BackpackMode[] VALUES = values();
+    - L16: @Nullable
+    - L23: @Override
+    - L24: public String getSerializedName() {
+    - L28: @Nullable
+    - L29: public String getTranslationKey() {
+  - `src/main/java/forestry/storage/BackpackResupplyHandler.java`
+    - L1: package forestry.storage;
+    - L18: public class BackpackResupplyHandler {
+    - L29: public static void resupply(Player player) {
+  - `src/main/java/forestry/storage/ModuleStorage.java`
+    - L1: package forestry.storage;
+    - L23: @ForestryModule
+    - L24: public class ModuleStorage extends BlankForestryModule {
+    - L25: public static final IBackpackInterface BACKPACK_INTERFACE = new BackpackInterface();
+    - L27: public static final BackpackDefinition APIARIST = new BackpackDefinition(0xc4923d, ForestryColors.WHITE, BACKPACK_INTERFACE.createNaturalistBackpackFilter(ForestrySpeciesTypes.BEE));
+    - L28: public static final BackpackDefinition ARBORIST = new BackpackDefinition(0x657e3a, ForestryColors.WHITE, BACKPACK_INTERFACE.createNaturalistBackpackFilter(ForestrySpeciesTypes.TREE));
+    - L29: public static final BackpackDefinition LEPIDOPTERIST = new BackpackDefinition(0x995b31, ForestryColors.WHITE, BACKPACK_INTERFACE.createNaturalistBackpackFilter(ForestrySpeciesTypes.BUTTERFLY));
+    - L30: public static final BackpackDefinition MINER = new BackpackDefinition(0x36187d, ForestryColors.WHITE, new BackpackFilter(ForestryTags.Items.MINER_ALLOW, ForestryTags.Items.MINER_REJECT));
+    - L31: public static final BackpackDefinition DIGGER = new BackpackDefinition(0x363cc5, ForestryColors.WHITE, new BackpackFilter(ForestryTags.Items.DIGGER_ALLOW, ForestryTags.Items.DIGGER_REJECT));
+    - L32: public static final BackpackDefinition FORESTER = new BackpackDefinition(0x347427, ForestryColors.WHITE, new BackpackFilter(ForestryTags.Items.FORESTER_ALLOW, ForestryTags.Items.FORESTER_REJECT));
+    - L33: public static final BackpackDefinition HUNTER = new BackpackDefinition(0x412215, ForestryColors.WHITE, new BackpackFilter(ForestryTags.Items.HUNTER_ALLOW, ForestryTags.Items.HUNTER_REJECT));
+    - L34: public static final BackpackDefinition ADVENTURER = new BackpackDefinition(0x7fb8c2, ForestryColors.WHITE, new BackpackFilter(ForestryTags.Items.ADVENTURER_ALLOW, ForestryTags.Items.ADVENTURER_REJECT));
+  - `src/main/java/forestry/storage/PickupHandlerStorage.java`
+    - L1: package forestry.storage;
+    - L11: public class PickupHandlerStorage {
+    - L12: public static boolean onItemPickup(Player player, ItemEntity entityitem) {
+  - `src/main/java/forestry/storage/client/FilledCrateModel.java`
+    - L1: package forestry.storage.client;
+    - L31: @SuppressWarnings("deprecation")
+    - L32: public class FilledCrateModel implements IUnbakedGeometry<FilledCrateModel> {
+    - L33: @Nullable
+    - L34: public static BakedModel cachedBaseModel = null;
+    - L35: @Nullable
+    - L36: public static ItemTransforms cachedTransforms = null;
+    - L37: @Nullable
+    - L38: public static List<BakedQuad> cachedQuads;
+    - L42: public FilledCrateModel(BlockModel contents) {
+    - L46: @SuppressWarnings("DataFlowIssue")
+    - L47: @Override
+  - `src/main/java/forestry/storage/client/StorageClientHandler.java`
+    - L1: package forestry.storage.client;
+    - L25: public class StorageClientHandler implements IClientModuleHandler {
+    - L26: public static final ModelResourceLocation FILLED_CRATE_MODEL = new ModelResourceLocation(ForestryConstants.MOD_ID, "filled_crate", "inventory");
+    - L28: @Override
+    - L29: public void registerEvents(IEventBus modBus) {
+    - L38: @SuppressWarnings("deprecation")
+  - `src/main/java/forestry/storage/client/package-info.java`
+    - L1: @javax.annotation.ParametersAreNonnullByDefault
+    - L2: @forestry.core.utils.FieldsAreNonnullByDefault
+    - L3: @net.minecraft.MethodsReturnNonnullByDefault
+    - L4: package forestry.storage.client;
+  - `src/main/java/forestry/storage/compat/StorageJeiPlugin.java`
+    - L1: package forestry.storage.compat;
+    - L11: @JeiPlugin
+    - L12: public class StorageJeiPlugin implements IModPlugin {
+    - L13: @Override
+    - L14: public ResourceLocation getPluginUid() {
+    - L18: @Override
+    - L19: public void registerRecipes(IRecipeRegistration registration) {
+
+## Data & assets
+Related resource paths (heuristic name match):
+- `src/main/resources/data/forestry/chests_old/abandoned_mineshaft/storage.json`
+- `src/main/resources/assets/forestry/blockstates/resource_storage_apatite.json`
+- `src/main/resources/assets/forestry/blockstates/resource_storage_silicon.json`
+- `src/main/resources/assets/forestry/blockstates/resource_storage_tin.json`
+- `src/main/resources/assets/forestry/blockstates/resource_storage_amber.json`
+- `src/main/resources/assets/forestry/blockstates/resource_storage_bronze.json`
+- `src/main/resources/assets/forestry/textures/block/storage/wax.png`
+- `src/main/resources/assets/forestry/textures/block/storage/bronze.png`
+- `src/main/resources/assets/forestry/textures/block/storage/tin.png`
+- `src/main/resources/assets/forestry/textures/block/storage/silicon.png`
+- `src/main/resources/assets/forestry/textures/block/storage/apatite.png`
+- `src/main/resources/assets/forestry/textures/block/storage/refractory_wax.png`
+- `src/main/resources/assets/forestry/textures/block/storage/amber.png`
+- `src/main/resources/assets/forestry/models/item/resource_storage_apatite.json`
+- `src/main/resources/assets/forestry/models/item/resource_storage_silicon.json`
+- `src/main/resources/assets/forestry/models/item/resource_storage_tin.json`
+- `src/main/resources/assets/forestry/models/item/resource_storage_amber.json`
+- `src/main/resources/assets/forestry/models/item/resource_storage_bronze.json`
+- `src/main/resources/assets/forestry/models/block/storage/copper.json`
+- `src/main/resources/assets/forestry/models/block/storage/refractory_wax.json`
+- `src/main/resources/assets/forestry/models/block/storage/apatite.json`
+- `src/main/resources/assets/forestry/models/block/storage/silicon.json`
+- `src/main/resources/assets/forestry/models/block/storage/tin.json`
+- `src/main/resources/assets/forestry/models/block/storage/bronze.json`
+- `src/main/resources/assets/forestry/models/block/storage/wax.json`
+- `src/main/resources/assets/forestry/models/block/storage/amber.json`
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_16-21-34/thedarkcolour-ForestryCE` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- enum `BackpackMode` in `BackpackMode.java`
+- key type `BackpackResupplyHandler` (`BackpackResupplyHandler.java`)
+- key type `ModuleStorage` (`ModuleStorage.java`)
+- key type `PickupHandlerStorage` (`PickupHandlerStorage.java`)
+- key type `StorageClientHandler` (`StorageClientHandler.java`)
+- key type `StorageJeiPlugin` (`StorageJeiPlugin.java`)
+- enum `Size` in `ContainerBackpack.java`
+
+## Port relevance to Re-Forestry
+- Mentions of `storage` appear in `files/implemented-features.md` — check that file for port status.
+- Primary Forestry reference for Re-Forestry port decisions.
+
+## Source map
+- `src/main/java/forestry/storage/BackpackDefinition.java`
+- `src/main/java/forestry/storage/BackpackFilter.java`
+- `src/main/java/forestry/storage/BackpackFilterNaturalist.java`
+- `src/main/java/forestry/storage/BackpackInterface.java`
+- `src/main/java/forestry/storage/BackpackMode.java`
+- `src/main/java/forestry/storage/BackpackResupplyHandler.java`
+- `src/main/java/forestry/storage/ModuleStorage.java`
+- `src/main/java/forestry/storage/PickupHandlerStorage.java`
+- `src/main/java/forestry/storage/client/FilledCrateModel.java`
+- `src/main/java/forestry/storage/client/StorageClientHandler.java`
+- `src/main/java/forestry/storage/client/package-info.java`
+- `src/main/java/forestry/storage/compat/StorageJeiPlugin.java`
+- `src/main/java/forestry/storage/compat/package-info.java`
+- `src/main/java/forestry/storage/features/BackpackItems.java`
+- `src/main/java/forestry/storage/features/BackpackMenuTypes.java`
+- `src/main/java/forestry/storage/features/CrateItems.java`
+- `src/main/java/forestry/storage/features/package-info.java`
+- `src/main/java/forestry/storage/gui/ContainerBackpack.java`
+- `src/main/java/forestry/storage/gui/ContainerNaturalistBackpack.java`
+- `src/main/java/forestry/storage/gui/GuiBackpack.java`
+- `src/main/java/forestry/storage/gui/package-info.java`
+- `src/main/java/forestry/storage/inventory/ItemInventoryBackpack.java`
+- `src/main/java/forestry/storage/inventory/ItemInventoryBackpackPaged.java`
+- `src/main/java/forestry/storage/inventory/package-info.java`
+- `src/main/java/forestry/storage/items/ItemBackpack.java`
+- `src/main/java/forestry/storage/items/ItemBackpackNaturalist.java`
+- `src/main/java/forestry/storage/items/ItemCrated.java`
+- `src/main/java/forestry/storage/items/package-info.java`
+- `src/main/java/forestry/storage/package-info.java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

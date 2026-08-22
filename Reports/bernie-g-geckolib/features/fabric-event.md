@@ -1,0 +1,252 @@
+# bernie-g-geckolib — fabric-event
+
+- Alias: `geckolib`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_18-01-07/bernie-g-geckolib`
+- Package/path root: `fabric/src/main/java/com/geckolib/event`
+- Java files scanned: **25**
+- Date: 2026-07-30
+
+## Summary
+Module `fabric-event` in `bernie-g-geckolib` is rooted at `fabric/src/main/java/com/geckolib/event` (25 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `GeckoLibEventsFabric`
+- `CompileArmorRenderLayersEvent`
+- `CompileArmorRenderStateEvent`
+- `GeoArmorPreRenderEvent`
+- `package-info`
+- `CompileBlockRenderLayersEvent`
+- `CompileBlockRenderStateEvent`
+- `GeoBlockPreRenderEvent`
+- `package-info`
+- `CompileEntityRenderLayersEvent`
+- `CompileEntityRenderStateEvent`
+- `GeoEntityPreRenderEvent`
+- `package-info`
+- `CompileItemRenderLayersEvent`
+- `CompileItemRenderStateEvent`
+- `GeoItemPreRenderEvent`
+- `package-info`
+- `CompileObjectRenderLayersEvent`
+- `CompileObjectRenderStateEvent`
+- `GeoObjectPreRenderEvent`
+- `package-info`
+- `CompileReplacedEntityRenderLayersEvent`
+- `CompileReplacedEntityRenderStateEvent`
+- `GeoReplacedEntityPreRenderEvent`
+- `package-info`
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py geckolib "fabric-event"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `armor`
+  - `block`
+  - `entity`
+  - `item`
+  - `object`
+  - `replacedentity`
+- Declaration skim (first files):
+  - `fabric/src/main/java/com/geckolib/event/GeckoLibEventsFabric.java`
+    - L1: package com.geckolib.event;
+    - L38: @SuppressWarnings("unchecked")
+    - L39: public class GeckoLibEventsFabric implements GeckoLibEvents {
+    - L41: @Override
+    - L42: public <T extends BlockEntity & GeoAnimatable, R extends BlockEntityRenderState>
+    - L48: @Override
+    - L49: public <T extends BlockEntity & GeoAnimatable, R extends BlockEntityRenderState>
+    - L54: @Override
+    - L55: public <T extends BlockEntity & GeoAnimatable, R extends BlockEntityRenderState>
+    - L61: @Override
+    - L62: public <T extends Item & GeoItem, R extends HumanoidRenderState>
+    - L68: @Override
+  - `fabric/src/main/java/com/geckolib/event/armor/CompileArmorRenderLayersEvent.java`
+    - L1: package com.geckolib.event.armor;
+    - L19: /// @param <T> Item animatable class type
+    - L20: /// @param <R> RenderState class type. GeckoLib armor rendering requires [HumanoidRenderState] as the minimum class type
+    - L23: public class CompileArmorRenderLayersEvent<T extends Item & GeoItem, R extends HumanoidRenderState> implements GeoRenderEvent.Armor.CompileRenderLayers<T, R> {
+    - L24: public static final Event<Listener> EVENT = EventFactory.createArrayBacked(Listener.class, post -> {}, listeners -> event -> {
+    - L32: public CompileArmorRenderLayersEvent(GeoArmorRenderer<T, R> renderer) {
+    - L36: @Override
+    - L37: public GeoArmorRenderer<T, R> getRenderer() {
+    - L43: /// @param <T> Item animatable class type
+    - L44: /// @param <R> RenderState class type
+    - L45: @FunctionalInterface
+    - L46: public interface Listener<T extends net.minecraft.world.item.Item & GeoItem, R extends HumanoidRenderState> {
+  - `fabric/src/main/java/com/geckolib/event/armor/CompileArmorRenderStateEvent.java`
+    - L1: package com.geckolib.event.armor;
+    - L21: /// @param <T> Item animatable class type
+    - L22: /// @param <R> RenderState class type - GeckoLib armor is based on Humanoid rendering and requires [HumanoidRenderState] as a minimum
+    - L25: public class CompileArmorRenderStateEvent<T extends Item & GeoItem, R extends HumanoidRenderState> implements GeoRenderEvent.Armor.CompileRenderState<T, R> {
+    - L26: public static final Event<Listener> EVENT = EventFactory.createArrayBacked(Listener.class, post -> {}, listeners -> event -> {
+    - L36: public CompileArmorRenderStateEvent(GeoArmorRenderer<T, R> renderer, R renderState, T animatable, GeoArmorRenderer.RenderData renderData) {
+    - L43: @Override
+    - L44: public GeoArmorRenderer<T, R> getRenderer() {
+    - L48: @Override
+    - L49: public T getAnimatable() {
+    - L53: @ApiStatus.Internal
+    - L54: @Override
+  - `fabric/src/main/java/com/geckolib/event/armor/GeoArmorPreRenderEvent.java`
+    - L1: package com.geckolib.event.armor;
+    - L28: /// @param <T> Item animatable class type
+    - L29: /// @param <R> RenderState class type - GeckoLib armor is based on Humanoid rendering and requires [HumanoidRenderState] as a minimum
+    - L32: public class GeoArmorPreRenderEvent<T extends Item & GeoItem, R extends HumanoidRenderState> implements GeoRenderEvent.Armor.Pre<T, R> {
+    - L33: public static final Event<Listener> EVENT = EventFactory.createArrayBacked(Listener.class, event -> true, listeners -> event -> {
+    - L44: public GeoArmorPreRenderEvent(RenderPassInfo<R> renderPassInfo, SubmitNodeCollector renderTasks) {
+    - L49: @Override
+    - L50: public RenderPassInfo<R> getRenderPassInfo() {
+    - L54: @Override
+    - L55: public GeoArmorRenderer<T, R> getRenderer() {
+    - L59: @ApiStatus.Internal
+    - L60: @Override
+  - `fabric/src/main/java/com/geckolib/event/armor/package-info.java`
+    - L2: @NullMarked
+    - L3: package com.geckolib.event.armor;
+  - `fabric/src/main/java/com/geckolib/event/block/CompileBlockRenderLayersEvent.java`
+    - L1: package com.geckolib.event.block;
+    - L19: /// @param <T> BlockEntity animatable class type
+    - L20: /// @param <R> RenderState class type
+    - L23: public class CompileBlockRenderLayersEvent<T extends BlockEntity & GeoAnimatable, R extends BlockEntityRenderState> implements GeoRenderEvent.Block.CompileRenderLayers<T, R> {
+    - L24: public static final Event<Listener> EVENT = EventFactory.createArrayBacked(Listener.class, post -> {}, listeners -> event -> {
+    - L31: public CompileBlockRenderLayersEvent(GeoBlockRenderer<T, R> renderer) {
+    - L35: @Override
+    - L36: public GeoBlockRenderer<T, R> getRenderer() {
+    - L42: /// @param <T> BlockEntity animatable class type
+    - L43: /// @param <R> RenderState class type
+    - L44: @FunctionalInterface
+    - L45: public interface Listener<T extends BlockEntity & GeoAnimatable, R extends BlockEntityRenderState> {
+  - `fabric/src/main/java/com/geckolib/event/block/CompileBlockRenderStateEvent.java`
+    - L1: package com.geckolib.event.block;
+    - L21: /// @param <T> BlockEntity animatable class type
+    - L22: /// @param <R> RenderState class type
+    - L25: public class CompileBlockRenderStateEvent<T extends BlockEntity & GeoAnimatable, R extends BlockEntityRenderState> implements GeoRenderEvent.Block.CompileRenderState<T, R> {
+    - L26: public static final Event<Listener> EVENT = EventFactory.createArrayBacked(Listener.class, post -> {}, listeners -> event -> {
+    - L35: public CompileBlockRenderStateEvent(GeoBlockRenderer<T, R> renderer, R renderState, T animatable) {
+    - L41: @Override
+    - L42: public GeoBlockRenderer<T, R> getRenderer() {
+    - L46: @Override
+    - L47: public T getAnimatable() {
+    - L51: @ApiStatus.Internal
+    - L52: @Override
+  - `fabric/src/main/java/com/geckolib/event/block/GeoBlockPreRenderEvent.java`
+    - L1: package com.geckolib.event.block;
+    - L28: /// @param <T> BlockEntity animatable class type
+    - L29: /// @param <R> RenderState class type
+    - L32: public class GeoBlockPreRenderEvent<T extends BlockEntity & GeoAnimatable, R extends BlockEntityRenderState> implements GeoRenderEvent.Block.Pre<T, R> {
+    - L33: public static final Event<Listener> EVENT = EventFactory.createArrayBacked(Listener.class, event -> true, listeners -> event -> {
+    - L44: public GeoBlockPreRenderEvent(RenderPassInfo<R> renderPassInfo, SubmitNodeCollector renderTasks) {
+    - L49: @Override
+    - L50: public RenderPassInfo<R> getRenderPassInfo() {
+    - L54: @Override
+    - L55: public GeoBlockRenderer<T, R> getRenderer() {
+    - L59: @ApiStatus.Internal
+    - L60: @Override
+  - `fabric/src/main/java/com/geckolib/event/block/package-info.java`
+    - L2: @NullMarked
+    - L3: package com.geckolib.event.block;
+  - `fabric/src/main/java/com/geckolib/event/entity/CompileEntityRenderLayersEvent.java`
+    - L1: package com.geckolib.event.entity;
+    - L18: /// @param <T> Entity animatable class type
+    - L19: /// @param <R> RenderState class type
+    - L22: public class CompileEntityRenderLayersEvent<T extends Entity & GeoAnimatable, R extends EntityRenderState> implements GeoRenderEvent.Entity.CompileRenderLayers<T, R> {
+    - L23: public static final Event<Listener> EVENT = EventFactory.createArrayBacked(Listener.class, post -> {}, listeners -> event -> {
+    - L30: public CompileEntityRenderLayersEvent(GeoEntityRenderer<T, R> renderer) {
+    - L34: @Override
+    - L35: public GeoEntityRenderer<T, R> getRenderer() {
+    - L41: /// @param <T> Entity animatable class type
+    - L42: /// @param <R> RenderState class type
+    - L43: @FunctionalInterface
+    - L44: public interface Listener<T extends net.minecraft.world.entity.Entity & GeoAnimatable, R extends EntityRenderState> {
+  - `fabric/src/main/java/com/geckolib/event/entity/CompileEntityRenderStateEvent.java`
+    - L1: package com.geckolib.event.entity;
+    - L21: /// @param <T> Entity animatable class type
+    - L22: /// @param <R> RenderState class type
+    - L25: public class CompileEntityRenderStateEvent<T extends Entity & GeoAnimatable, R extends EntityRenderState> implements GeoRenderEvent.Entity.CompileRenderState<T, R> {
+    - L26: public static final Event<Listener> EVENT = EventFactory.createArrayBacked(Listener.class, post -> {}, listeners -> event -> {
+    - L35: public CompileEntityRenderStateEvent(GeoEntityRenderer<T, R> renderer, R renderState, T animatable) {
+    - L41: @Override
+    - L42: public GeoEntityRenderer<T, R> getRenderer() {
+    - L46: @Override
+    - L47: public T getAnimatable() {
+    - L51: @ApiStatus.Internal
+    - L52: @Override
+  - `fabric/src/main/java/com/geckolib/event/entity/GeoEntityPreRenderEvent.java`
+    - L1: package com.geckolib.event.entity;
+    - L28: /// @param <T> Entity animatable class type
+    - L29: /// @param <R> RenderState class type
+    - L32: public class GeoEntityPreRenderEvent<T extends Entity & GeoAnimatable, R extends EntityRenderState> implements GeoRenderEvent.Entity.Pre<T, R> {
+    - L33: public static final Event<Listener> EVENT = EventFactory.createArrayBacked(Listener.class, event -> true, listeners -> event -> {
+    - L44: public GeoEntityPreRenderEvent(RenderPassInfo<R> renderPassInfo, SubmitNodeCollector renderTasks) {
+    - L49: @Override
+    - L50: public RenderPassInfo<R> getRenderPassInfo() {
+    - L54: @Override
+    - L55: public GeoEntityRenderer<T, R> getRenderer() {
+    - L59: @ApiStatus.Internal
+    - L60: @Override
+
+## Data & assets
+Related resource paths (heuristic name match):
+- `fabric/src/main/resources/fabric.mod.json`
+- `common/src/main/resources/geckolib.mixins.json`
+- `common/src/main/resources/geckolib.png`
+- `common/src/main/resources/META-INF/interface_injections.json`
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_18-01-07/bernie-g-geckolib` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- interface `Listener` in `CompileArmorRenderLayersEvent.java`
+- interface `Listener` in `CompileArmorRenderStateEvent.java`
+- interface `Listener` in `GeoArmorPreRenderEvent.java`
+- interface `Listener` in `CompileBlockRenderLayersEvent.java`
+- interface `Listener` in `CompileBlockRenderStateEvent.java`
+- interface `Listener` in `GeoBlockPreRenderEvent.java`
+- interface `Listener` in `CompileEntityRenderLayersEvent.java`
+- interface `Listener` in `CompileEntityRenderStateEvent.java`
+- interface `Listener` in `GeoEntityPreRenderEvent.java`
+- interface `Listener` in `CompileItemRenderLayersEvent.java`
+- interface `Listener` in `CompileItemRenderStateEvent.java`
+- interface `Listener` in `GeoItemPreRenderEvent.java`
+- interface `Listener` in `CompileObjectRenderLayersEvent.java`
+- interface `Listener` in `CompileObjectRenderStateEvent.java`
+- interface `Listener` in `GeoObjectPreRenderEvent.java`
+- interface `Listener` in `CompileReplacedEntityRenderLayersEvent.java`
+- interface `Listener` in `CompileReplacedEntityRenderStateEvent.java`
+- interface `Listener` in `GeoReplacedEntityPreRenderEvent.java`
+
+## Port relevance to Re-Forestry
+- Optional animation library patterns; evaluate before adding soft dep.
+
+## Source map
+- `fabric/src/main/java/com/geckolib/event/GeckoLibEventsFabric.java`
+- `fabric/src/main/java/com/geckolib/event/armor/CompileArmorRenderLayersEvent.java`
+- `fabric/src/main/java/com/geckolib/event/armor/CompileArmorRenderStateEvent.java`
+- `fabric/src/main/java/com/geckolib/event/armor/GeoArmorPreRenderEvent.java`
+- `fabric/src/main/java/com/geckolib/event/armor/package-info.java`
+- `fabric/src/main/java/com/geckolib/event/block/CompileBlockRenderLayersEvent.java`
+- `fabric/src/main/java/com/geckolib/event/block/CompileBlockRenderStateEvent.java`
+- `fabric/src/main/java/com/geckolib/event/block/GeoBlockPreRenderEvent.java`
+- `fabric/src/main/java/com/geckolib/event/block/package-info.java`
+- `fabric/src/main/java/com/geckolib/event/entity/CompileEntityRenderLayersEvent.java`
+- `fabric/src/main/java/com/geckolib/event/entity/CompileEntityRenderStateEvent.java`
+- `fabric/src/main/java/com/geckolib/event/entity/GeoEntityPreRenderEvent.java`
+- `fabric/src/main/java/com/geckolib/event/entity/package-info.java`
+- `fabric/src/main/java/com/geckolib/event/item/CompileItemRenderLayersEvent.java`
+- `fabric/src/main/java/com/geckolib/event/item/CompileItemRenderStateEvent.java`
+- `fabric/src/main/java/com/geckolib/event/item/GeoItemPreRenderEvent.java`
+- `fabric/src/main/java/com/geckolib/event/item/package-info.java`
+- `fabric/src/main/java/com/geckolib/event/object/CompileObjectRenderLayersEvent.java`
+- `fabric/src/main/java/com/geckolib/event/object/CompileObjectRenderStateEvent.java`
+- `fabric/src/main/java/com/geckolib/event/object/GeoObjectPreRenderEvent.java`
+- `fabric/src/main/java/com/geckolib/event/object/package-info.java`
+- `fabric/src/main/java/com/geckolib/event/replacedentity/CompileReplacedEntityRenderLayersEvent.java`
+- `fabric/src/main/java/com/geckolib/event/replacedentity/CompileReplacedEntityRenderStateEvent.java`
+- `fabric/src/main/java/com/geckolib/event/replacedentity/GeoReplacedEntityPreRenderEvent.java`
+- `fabric/src/main/java/com/geckolib/event/replacedentity/package-info.java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

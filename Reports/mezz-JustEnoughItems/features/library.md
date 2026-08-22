@@ -1,0 +1,400 @@
+# mezz-JustEnoughItems — library
+
+- Alias: `JEI`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_16-21-34/mezz-JustEnoughItems`
+- Package/path root: `Library/src/main/java`
+- Java files scanned: **223**
+- Date: 2026-07-30
+
+## Summary
+Module `library` in `mezz-JustEnoughItems` is rooted at `Library/src/main/java` (223 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `ColorGetter`
+- `ColorHelper`
+- `ColorName`
+- `ColorThief`
+- `ColorUtil`
+- `MMCQ`
+- `package-info`
+- `ColorNameConfig`
+- `EditModeConfig`
+- `IModIdFormatConfig`
+- `ModIdFormatConfig`
+- `RecipeCategorySortingConfig`
+- `StyledTextHelper`
+- `package-info`
+- `ChatFormattingSerializer`
+- `ColorNameSerializer`
+- `package-info`
+- `Focus`
+- `FocusFactory`
+- `FocusGroup`
+- `package-info`
+- `BookmarkOverlayDummy`
+- `GuiContainerHandlers`
+- `IngredientListOverlayDummy`
+- `DrawableBuilder`
+- `package-info`
+- `CraftingGridHelper`
+- `GuiHelper`
+- `ScreenHelper`
+- `package-info`
+- `CycleTicker`
+- `CycleTimer`
+- `ICycler`
+- `RecipeSlot`
+- `RendererOverrides`
+- `TagContentTooltipComponent`
+- `package-info`
+- `package-info`
+- `IngredientsTooltipCallback`
+- `OutputSlotTooltipCallback`
+- `RecipeLayout`
+- `RecipeLayoutIngredientSupplier`
+- `RecipeLayoutInputHandler`
+- `RecipesGuiDummy`
+- `ShapelessIcon`
+- `RecipeLayoutBuilder`
+- `RecipeSlotBuilder`
+- `package-info`
+- `package-info`
+- `package-info`
+- `IngredientSlotBuilder`
+- `IngredientSupplierBuilder`
+- `package-info`
+- `package-info`
+- `AbstractScrollWidget`
+- `ScrollBoxRecipeWidget`
+- `ScrollGridRecipeWidget`
+- `package-info`
+- `CodecHelper`
+- `ModIdHelper`
+- `package-info`
+- `DisplayIngredientAcceptor`
+- `IngredientBlacklistInternal`
+- `IngredientFilterApiDummy`
+- `IngredientInfo`
+- `IngredientManager`
+- `IngredientSet`
+- `IngredientVisibility`
+- `RegisteredIngredients`
+- `SimpleIngredientAcceptor`
+- `TypedIngredient`
+- `TypedIngredientSet`
+- `FullTypedItemStack`
+- `NormalizedTypedItem`
+- `NormalizedTypedItemStack`
+- `TypedItemStack`
+- `package-info`
+- `package-info`
+- `SubtypeInterpreters`
+- `SubtypeManager`
+- … and 143 more
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py JEI "library"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `mezz/jei/library`
+  - `mezz/jei/library/color`
+  - `mezz/jei/library/config`
+  - `mezz/jei/library/config/serializers`
+  - `mezz/jei/library/focus`
+  - `mezz/jei/library/gui`
+  - `mezz/jei/library/gui/elements`
+  - `mezz/jei/library/gui/helpers`
+  - `mezz/jei/library/gui/ingredients`
+  - `mezz/jei/library/gui/recipes`
+  - `mezz/jei/library/gui/recipes/layout`
+  - `mezz/jei/library/gui/recipes/layout/builder`
+  - `mezz/jei/library/gui/recipes/supplier`
+  - `mezz/jei/library/gui/recipes/supplier/builder`
+  - `mezz/jei/library/gui/widgets`
+  - `mezz/jei/library/helpers`
+  - `mezz/jei/library/ingredients`
+  - `mezz/jei/library/ingredients/itemStacks`
+  - `mezz/jei/library/ingredients/subtypes`
+  - `mezz/jei/library/load`
+  - `mezz/jei/library/load/registration`
+  - `mezz/jei/library/plugins`
+  - `mezz/jei/library/plugins/jei`
+  - `mezz/jei/library/plugins/jei/info`
+  - `mezz/jei/library/plugins/jei/tags`
+  - `mezz/jei/library/plugins/vanilla`
+  - `mezz/jei/library/plugins/vanilla/anvil`
+  - `mezz/jei/library/plugins/vanilla/brewing`
+  - `mezz/jei/library/plugins/vanilla/compostable`
+  - `mezz/jei/library/plugins/vanilla/cooking`
+  - `mezz/jei/library/plugins/vanilla/cooking/fuel`
+  - `mezz/jei/library/plugins/vanilla/crafting`
+  - `mezz/jei/library/plugins/vanilla/crafting/replacers`
+  - `mezz/jei/library/plugins/vanilla/grindstone`
+  - `mezz/jei/library/plugins/vanilla/gui`
+  - `mezz/jei/library/plugins/vanilla/ingredients`
+  - `mezz/jei/library/plugins/vanilla/ingredients/fluid`
+  - `mezz/jei/library/plugins/vanilla/ingredients/subtypes`
+  - `mezz/jei/library/plugins/vanilla/stonecutting`
+  - `mezz/jei/library/recipes`
+  - `mezz/jei/library/recipes/collect`
+  - `mezz/jei/library/render`
+  - `mezz/jei/library/render/batch`
+  - `mezz/jei/library/runtime`
+  - `mezz/jei/library/startup`
+  - `mezz/jei/library/transfer`
+  - `mezz/jei/library/util`
+- Declaration skim (first files):
+  - `Library/src/main/java/mezz/jei/library/color/ColorGetter.java`
+    - L1: package mezz.jei.library.color;
+    - L26: public final class ColorGetter {
+    - L29: public ColorGetter() {
+    - L33: public List<Integer> getColors(ItemStack itemStack, int colorCount) {
+    - L74: public List<Integer> getColors(TextureAtlasSprite textureAtlasSprite, int renderColor, int colorCount) {
+  - `Library/src/main/java/mezz/jei/library/color/ColorHelper.java`
+    - L1: package mezz.jei.library.color;
+    - L10: public class ColorHelper implements IColorHelper {
+    - L14: public ColorHelper(ColorNameConfig colorNameConfig) {
+    - L19: @Override
+    - L20: public List<Integer> getColors(TextureAtlasSprite textureAtlasSprite, int renderColor, int colorCount) {
+    - L24: @Override
+    - L25: public List<Integer> getColors(ItemStack itemStack, int colorCount) {
+    - L29: @Override
+    - L30: public String getClosestColorName(int color) {
+  - `Library/src/main/java/mezz/jei/library/color/ColorName.java`
+    - L1: package mezz.jei.library.color;
+    - L3: public record ColorName(String name, int color) {
+  - `Library/src/main/java/mezz/jei/library/color/ColorThief.java`
+    - L1: package mezz.jei.library.color;
+    - L27: public class ColorThief {
+    - L42: public static int[][] getPalette(NativeImage sourceImage, int colorCount, int quality, boolean ignoreWhite) {
+    - L62: public static MMCQ.@Nullable CMap getColorMap(NativeImage sourceImage, int colorCount, int quality, boolean ignoreWhite) {
+  - `Library/src/main/java/mezz/jei/library/color/ColorUtil.java`
+    - L1: package mezz.jei.library.color;
+    - L3: public final class ColorUtil {
+    - L14: public static double fastPerceptualColorDistanceSquared(int[] color1, int[] color2) {
+    - L32: public static double slowPerceptualColorDistanceSquared(int color1, int color2) {
+  - `Library/src/main/java/mezz/jei/library/color/MMCQ.java`
+    - L1: package mezz.jei.library.color;
+    - L29: @SuppressWarnings("ALL")
+    - L30: public class MMCQ {
+    - L55: public static class VBox {
+    - L69: public VBox(int r1, int r2, int g1, int g2, int b1, int b2, int[] histo) {
+    - L80: @Override
+    - L81: public String toString() {
+    - L86: public int volume(boolean force) {
+    - L94: public int count(boolean force) {
+    - L114: @Override
+    - L115: public VBox clone() {
+    - L119: public int[] avg(boolean force) {
+  - `Library/src/main/java/mezz/jei/library/color/package-info.java`
+    - L1: @NullMarked
+    - L2: package mezz.jei.library.color;
+  - `Library/src/main/java/mezz/jei/library/config/ColorNameConfig.java`
+    - L1: package mezz.jei.library.config;
+    - L14: public final class ColorNameConfig {
+    - L55: public ColorNameConfig(IConfigSchemaBuilder schema) {
+    - L64: public String getClosestColorName(int color) {
+  - `Library/src/main/java/mezz/jei/library/config/EditModeConfig.java`
+    - L1: package mezz.jei.library.config;
+    - L37: public class EditModeConfig implements IEditModeConfig {
+    - L46: public EditModeConfig(ISerializer serializer, IIngredientManager ingredientManager) {
+    - L53: public <V> void addIngredientToConfigBlacklist(ITypedIngredient<V> typedIngredient, HideMode blacklistType, IIngredientHelper<V> ingredientHelper) {
+    - L89: public <V> boolean isIngredientOnConfigBlacklist(ITypedIngredient<V> typedIngredient, IIngredientHelper<V> ingredientHelper) {
+    - L119: public <V> boolean isIngredientOnConfigBlacklist(ITypedIngredient<V> typedIngredient, HideMode blacklistType, IIngredientHelper<V> ingredientHelper) {
+  - `Library/src/main/java/mezz/jei/library/config/IModIdFormatConfig.java`
+    - L1: package mezz.jei.library.config;
+    - L5: public interface IModIdFormatConfig {
+  - `Library/src/main/java/mezz/jei/library/config/ModIdFormatConfig.java`
+    - L1: package mezz.jei.library.config;
+    - L24: public class ModIdFormatConfig implements IModIdFormatConfig {
+    - L26: protected static final List<ChatFormatting> defaultModNameFormat = List.of(ChatFormatting.BLUE, ChatFormatting.ITALIC);
+    - L27: public static final String MOD_NAME_FORMAT_CODE = "%MODNAME%";
+    - L30: @Nullable
+    - L33: public ModIdFormatConfig(IConfigSchemaBuilder builder) {
+    - L58: @Override
+    - L59: public final Component getModNameFormat() {
+    - L67: @Override
+    - L68: public final boolean isModNameFormatOverrideActive() {
+    - L88: public static Component detectModNameTooltipFormatting(List<Component> tooltip) {
+    - L108: public static Component replaceModNameFormatCode(Component format, String modName) {
+  - `Library/src/main/java/mezz/jei/library/config/RecipeCategorySortingConfig.java`
+    - L1: package mezz.jei.library.config;
+    - L12: public class RecipeCategorySortingConfig extends MappedSortingConfig<IRecipeType<?>, String> {
+    - L13: public RecipeCategorySortingConfig(Path path) {
+    - L17: @Override
+    - L18: protected Comparator<String> getDefaultSortOrder() {
+
+## Data & assets
+- No strongly name-matched resources under common resource roots; check parent mod resources / datagen providers.
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-28_16-21-34/mezz-JustEnoughItems` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- record `ColorName` in `ColorName.java`
+- interface `ISerializer` in `EditModeConfig.java`
+- interface `IModIdFormatConfig` in `IModIdFormatConfig.java`
+- key type `GuiContainerHandlers` (`GuiContainerHandlers.java`)
+- interface `ICycler` in `ICycler.java`
+- key type `RecipeLayoutInputHandler` (`RecipeLayoutInputHandler.java`)
+- key type `PluginCaller` (`PluginCaller.java`)
+- key type `PluginCallerTimer` (`PluginCallerTimer.java`)
+- key type `PluginCallerTimerRunnable` (`PluginCallerTimerRunnable.java`)
+- key type `PluginHelper` (`PluginHelper.java`)
+- key type `PluginLoader` (`PluginLoader.java`)
+- key type `GuiHandlerRegistration` (`GuiHandlerRegistration.java`)
+- key type `RecipeManagerPluginHelper` (`RecipeManagerPluginHelper.java`)
+- key type `SingleTypeRecipeManagerPluginAdapter` (`SingleTypeRecipeManagerPluginAdapter.java`)
+- key type `JeiInternalPlugin` (`JeiInternalPlugin.java`)
+- interface `ITagInfoRecipe` in `ITagInfoRecipe.java`
+- record `TagInfoRecipeMaker` in `TagInfoRecipeMaker.java`
+- key type `VanillaPlugin` (`VanillaPlugin.java`)
+- record `AnvilRecipe` in `AnvilRecipe.java`
+- interface `IRecipeReplacer` in `IRecipeReplacer.java`
+- key type `InventoryEffectRendererGuiHandler` (`InventoryEffectRendererGuiHandler.java`)
+- key type `RecipeBookGuiHandler` (`RecipeBookGuiHandler.java`)
+- key type `ToastGuiHandler` (`ToastGuiHandler.java`)
+- key type `InternalRecipeManagerPlugin` (`InternalRecipeManagerPlugin.java`)
+- key type `PluginManager` (`PluginManager.java`)
+- key type `UniversalRecipeTransferHandlerAdapter` (`UniversalRecipeTransferHandlerAdapter.java`)
+- interface `IItemStackBatchRenderer` in `IItemStackBatchRenderer.java`
+- interface `IStopCallback` in `IStopCallback.java`
+- key type `PluginAwareJeiFeatures` (`PluginAwareJeiFeatures.java`)
+- record `StartData` in `StartData.java`
+- record `InventoryState` in `BasicRecipeTransferHandler.java`
+- key type `BasicRecipeTransferHandler` (`BasicRecipeTransferHandler.java`)
+- key type `PlayerRecipeTransferHandler` (`PlayerRecipeTransferHandler.java`)
+- key type `RecipeTransferHandlerHelper` (`RecipeTransferHandlerHelper.java`)
+
+## Port relevance to Re-Forestry
+- JEI interop patterns; Re-Forestry already ships factory/core JEI plugins.
+
+## Source map
+- `Library/src/main/java/mezz/jei/library/color/ColorGetter.java`
+- `Library/src/main/java/mezz/jei/library/color/ColorHelper.java`
+- `Library/src/main/java/mezz/jei/library/color/ColorName.java`
+- `Library/src/main/java/mezz/jei/library/color/ColorThief.java`
+- `Library/src/main/java/mezz/jei/library/color/ColorUtil.java`
+- `Library/src/main/java/mezz/jei/library/color/MMCQ.java`
+- `Library/src/main/java/mezz/jei/library/color/package-info.java`
+- `Library/src/main/java/mezz/jei/library/config/ColorNameConfig.java`
+- `Library/src/main/java/mezz/jei/library/config/EditModeConfig.java`
+- `Library/src/main/java/mezz/jei/library/config/IModIdFormatConfig.java`
+- `Library/src/main/java/mezz/jei/library/config/ModIdFormatConfig.java`
+- `Library/src/main/java/mezz/jei/library/config/RecipeCategorySortingConfig.java`
+- `Library/src/main/java/mezz/jei/library/config/StyledTextHelper.java`
+- `Library/src/main/java/mezz/jei/library/config/package-info.java`
+- `Library/src/main/java/mezz/jei/library/config/serializers/ChatFormattingSerializer.java`
+- `Library/src/main/java/mezz/jei/library/config/serializers/ColorNameSerializer.java`
+- `Library/src/main/java/mezz/jei/library/config/serializers/package-info.java`
+- `Library/src/main/java/mezz/jei/library/focus/Focus.java`
+- `Library/src/main/java/mezz/jei/library/focus/FocusFactory.java`
+- `Library/src/main/java/mezz/jei/library/focus/FocusGroup.java`
+- `Library/src/main/java/mezz/jei/library/focus/package-info.java`
+- `Library/src/main/java/mezz/jei/library/gui/BookmarkOverlayDummy.java`
+- `Library/src/main/java/mezz/jei/library/gui/GuiContainerHandlers.java`
+- `Library/src/main/java/mezz/jei/library/gui/IngredientListOverlayDummy.java`
+- `Library/src/main/java/mezz/jei/library/gui/elements/DrawableBuilder.java`
+- `Library/src/main/java/mezz/jei/library/gui/elements/package-info.java`
+- `Library/src/main/java/mezz/jei/library/gui/helpers/CraftingGridHelper.java`
+- `Library/src/main/java/mezz/jei/library/gui/helpers/GuiHelper.java`
+- `Library/src/main/java/mezz/jei/library/gui/helpers/ScreenHelper.java`
+- `Library/src/main/java/mezz/jei/library/gui/helpers/package-info.java`
+- `Library/src/main/java/mezz/jei/library/gui/ingredients/CycleTicker.java`
+- `Library/src/main/java/mezz/jei/library/gui/ingredients/CycleTimer.java`
+- `Library/src/main/java/mezz/jei/library/gui/ingredients/ICycler.java`
+- `Library/src/main/java/mezz/jei/library/gui/ingredients/RecipeSlot.java`
+- `Library/src/main/java/mezz/jei/library/gui/ingredients/RendererOverrides.java`
+- `Library/src/main/java/mezz/jei/library/gui/ingredients/TagContentTooltipComponent.java`
+- `Library/src/main/java/mezz/jei/library/gui/ingredients/package-info.java`
+- `Library/src/main/java/mezz/jei/library/gui/package-info.java`
+- `Library/src/main/java/mezz/jei/library/gui/recipes/IngredientsTooltipCallback.java`
+- `Library/src/main/java/mezz/jei/library/gui/recipes/OutputSlotTooltipCallback.java`
+- `Library/src/main/java/mezz/jei/library/gui/recipes/RecipeLayout.java`
+- `Library/src/main/java/mezz/jei/library/gui/recipes/RecipeLayoutIngredientSupplier.java`
+- `Library/src/main/java/mezz/jei/library/gui/recipes/RecipeLayoutInputHandler.java`
+- `Library/src/main/java/mezz/jei/library/gui/recipes/RecipesGuiDummy.java`
+- `Library/src/main/java/mezz/jei/library/gui/recipes/ShapelessIcon.java`
+- `Library/src/main/java/mezz/jei/library/gui/recipes/layout/builder/RecipeLayoutBuilder.java`
+- `Library/src/main/java/mezz/jei/library/gui/recipes/layout/builder/RecipeSlotBuilder.java`
+- `Library/src/main/java/mezz/jei/library/gui/recipes/layout/builder/package-info.java`
+- `Library/src/main/java/mezz/jei/library/gui/recipes/layout/package-info.java`
+- `Library/src/main/java/mezz/jei/library/gui/recipes/package-info.java`
+- `Library/src/main/java/mezz/jei/library/gui/recipes/supplier/builder/IngredientSlotBuilder.java`
+- `Library/src/main/java/mezz/jei/library/gui/recipes/supplier/builder/IngredientSupplierBuilder.java`
+- `Library/src/main/java/mezz/jei/library/gui/recipes/supplier/builder/package-info.java`
+- `Library/src/main/java/mezz/jei/library/gui/recipes/supplier/package-info.java`
+- `Library/src/main/java/mezz/jei/library/gui/widgets/AbstractScrollWidget.java`
+- `Library/src/main/java/mezz/jei/library/gui/widgets/ScrollBoxRecipeWidget.java`
+- `Library/src/main/java/mezz/jei/library/gui/widgets/ScrollGridRecipeWidget.java`
+- `Library/src/main/java/mezz/jei/library/gui/widgets/package-info.java`
+- `Library/src/main/java/mezz/jei/library/helpers/CodecHelper.java`
+- `Library/src/main/java/mezz/jei/library/helpers/ModIdHelper.java`
+- `Library/src/main/java/mezz/jei/library/helpers/package-info.java`
+- `Library/src/main/java/mezz/jei/library/ingredients/DisplayIngredientAcceptor.java`
+- `Library/src/main/java/mezz/jei/library/ingredients/IngredientBlacklistInternal.java`
+- `Library/src/main/java/mezz/jei/library/ingredients/IngredientFilterApiDummy.java`
+- `Library/src/main/java/mezz/jei/library/ingredients/IngredientInfo.java`
+- `Library/src/main/java/mezz/jei/library/ingredients/IngredientManager.java`
+- `Library/src/main/java/mezz/jei/library/ingredients/IngredientSet.java`
+- `Library/src/main/java/mezz/jei/library/ingredients/IngredientVisibility.java`
+- `Library/src/main/java/mezz/jei/library/ingredients/RegisteredIngredients.java`
+- `Library/src/main/java/mezz/jei/library/ingredients/SimpleIngredientAcceptor.java`
+- `Library/src/main/java/mezz/jei/library/ingredients/TypedIngredient.java`
+- `Library/src/main/java/mezz/jei/library/ingredients/TypedIngredientSet.java`
+- `Library/src/main/java/mezz/jei/library/ingredients/itemStacks/FullTypedItemStack.java`
+- `Library/src/main/java/mezz/jei/library/ingredients/itemStacks/NormalizedTypedItem.java`
+- `Library/src/main/java/mezz/jei/library/ingredients/itemStacks/NormalizedTypedItemStack.java`
+- `Library/src/main/java/mezz/jei/library/ingredients/itemStacks/TypedItemStack.java`
+- `Library/src/main/java/mezz/jei/library/ingredients/itemStacks/package-info.java`
+- `Library/src/main/java/mezz/jei/library/ingredients/package-info.java`
+- `Library/src/main/java/mezz/jei/library/ingredients/subtypes/SubtypeInterpreters.java`
+- `Library/src/main/java/mezz/jei/library/ingredients/subtypes/SubtypeManager.java`
+- `Library/src/main/java/mezz/jei/library/ingredients/subtypes/package-info.java`
+- `Library/src/main/java/mezz/jei/library/load/PluginCaller.java`
+- `Library/src/main/java/mezz/jei/library/load/PluginCallerTimer.java`
+- `Library/src/main/java/mezz/jei/library/load/PluginCallerTimerRunnable.java`
+- `Library/src/main/java/mezz/jei/library/load/PluginHelper.java`
+- `Library/src/main/java/mezz/jei/library/load/PluginLoader.java`
+- `Library/src/main/java/mezz/jei/library/load/package-info.java`
+- `Library/src/main/java/mezz/jei/library/load/registration/AdvancedRegistration.java`
+- `Library/src/main/java/mezz/jei/library/load/registration/AdvancedSearchRegistration.java`
+- `Library/src/main/java/mezz/jei/library/load/registration/GuiHandlerRegistration.java`
+- `Library/src/main/java/mezz/jei/library/load/registration/IngredientManagerBuilder.java`
+- `Library/src/main/java/mezz/jei/library/load/registration/ModInfoRegistration.java`
+- `Library/src/main/java/mezz/jei/library/load/registration/RecipeCatalystRegistration.java`
+- `Library/src/main/java/mezz/jei/library/load/registration/RecipeCategoryRegistration.java`
+- `Library/src/main/java/mezz/jei/library/load/registration/RecipeManagerPluginHelper.java`
+- `Library/src/main/java/mezz/jei/library/load/registration/RecipeRegistration.java`
+- `Library/src/main/java/mezz/jei/library/load/registration/RecipeTransferRegistration.java`
+- `Library/src/main/java/mezz/jei/library/load/registration/RuntimeRegistration.java`
+- `Library/src/main/java/mezz/jei/library/load/registration/SingleTypeRecipeManagerPluginAdapter.java`
+- `Library/src/main/java/mezz/jei/library/load/registration/SubtypeRegistration.java`
+- `Library/src/main/java/mezz/jei/library/load/registration/VanillaCategoryExtensionRegistration.java`
+- `Library/src/main/java/mezz/jei/library/load/registration/package-info.java`
+- `Library/src/main/java/mezz/jei/library/package-info.java`
+- `Library/src/main/java/mezz/jei/library/plugins/jei/JeiInternalPlugin.java`
+- `Library/src/main/java/mezz/jei/library/plugins/jei/info/IngredientInfoRecipe.java`
+- `Library/src/main/java/mezz/jei/library/plugins/jei/info/IngredientInfoRecipeCategory.java`
+- `Library/src/main/java/mezz/jei/library/plugins/jei/info/package-info.java`
+- `Library/src/main/java/mezz/jei/library/plugins/jei/package-info.java`
+- `Library/src/main/java/mezz/jei/library/plugins/jei/tags/ITagInfoRecipe.java`
+- `Library/src/main/java/mezz/jei/library/plugins/jei/tags/TagInfoRecipe.java`
+- `Library/src/main/java/mezz/jei/library/plugins/jei/tags/TagInfoRecipeCategory.java`
+- `Library/src/main/java/mezz/jei/library/plugins/jei/tags/TagInfoRecipeMaker.java`
+- `Library/src/main/java/mezz/jei/library/plugins/jei/tags/package-info.java`
+- `Library/src/main/java/mezz/jei/library/plugins/package-info.java`
+- `Library/src/main/java/mezz/jei/library/plugins/vanilla/VanillaPlugin.java`
+- `Library/src/main/java/mezz/jei/library/plugins/vanilla/VanillaRecipeFactory.java`
+- `Library/src/main/java/mezz/jei/library/plugins/vanilla/anvil/AnvilHelper.java`
+- `Library/src/main/java/mezz/jei/library/plugins/vanilla/anvil/AnvilRecipe.java`
+- `Library/src/main/java/mezz/jei/library/plugins/vanilla/anvil/AnvilRecipeCategory.java`
+- `Library/src/main/java/mezz/jei/library/plugins/vanilla/anvil/AnvilRecipeMaker.java`
+- … and 103 more under `Library/src/main/java`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

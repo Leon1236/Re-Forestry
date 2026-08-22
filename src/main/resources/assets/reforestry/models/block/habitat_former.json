@@ -1,8 +1,8 @@
 {
 	"textures": {
-      "particle": "reforestry:block/habitat_former/particle",
-      "base": "reforestry:block/habitat_former/base",
-      "sides": "reforestry:block/habitat_former/base_sides"
+      "particle": "rereforestry:block/habitat_former/particle",
+      "base": "rereforestry:block/habitat_former/base",
+      "sides": "rereforestry:block/habitat_former/base_sides"
 	},
 	"render_type": "minecraft:cutout_mipped",
 	"elements": [ 	 

@@ -3,6 +3,7 @@ package com.leon1236.reforestry.extratrees.features;
 import net.minecraft.core.BlockPos;
 
 import com.leon1236.reforestry.ReForestry;
+import com.leon1236.reforestry.extratrees.gui.ContainerBottleRack;
 import com.leon1236.reforestry.extratrees.gui.ContainerBrewery;
 import com.leon1236.reforestry.extratrees.gui.ContainerDistillery;
 import com.leon1236.reforestry.extratrees.gui.ContainerLumbermill;
@@ -22,6 +23,8 @@ public class ExtraTreesMenuTypes {
 			REGISTRY.menuType("brewery", ContainerBrewery::new, BlockPos.STREAM_CODEC);
 	public static final FeatureMenuType<ContainerDistillery, BlockPos> DISTILLERY =
 			REGISTRY.menuType("distillery", ContainerDistillery::new, BlockPos.STREAM_CODEC);
+	public static final FeatureMenuType<ContainerBottleRack, BlockPos> BOTTLE_RACK =
+			REGISTRY.menuType("bottle_rack", ContainerBottleRack::new, BlockPos.STREAM_CODEC);
 
 	public static void init() {
 	}

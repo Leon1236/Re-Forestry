@@ -12,10 +12,23 @@
 !/queries/
 !/files/
 !/tools/
+!/MarkDown_Maker/
+!/MarkDown_Maker/**
+!/Reports/
+!/Reports/**
 
 __pycache__/
 *.pyc
 **/graphify-out/
+!/graphify-out/
+!/graphify-out/**
+MarkDown_Maker/Markdown_files/mods.db
+MarkDown_Maker/graphify/Minecraft-26.2/graphify-out/graph.json
+MarkDown_Maker/**/.venv/
+MarkDown_Maker/**/__pycache__/
+MarkDown_Maker/Finished_github_clone/
+MarkDown_Maker/graphify/SuperMartijn642-SuperMartijn642sCoreLib/
+MarkDown_Maker/graphify/bernie-g-geckolib/
 /files/CoFH/
 /files/mods MD/
 queries/_ce_material_usage_tmp.txt

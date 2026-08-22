@@ -1,0 +1,12 @@
+{
+  "repo": "ForestryMC-ForestryMC",
+  "clone": "/home/ivan/Re-Forestry-src/MarkDown_Maker/Finished_github_clone/2026-08-22/ForestryMC-ForestryMC",
+  "scan_roots": [
+    "src"
+  ],
+  "graph": "/home/ivan/Re-Forestry-src/MarkDown_Maker/graphify/ForestryMC-ForestryMC/graphify-out/graph.json",
+  "nodes": 18196,
+  "edges": 63455,
+  "seconds": 52.4,
+  "built_at": "2026-08-22T07:06:36Z"
+}

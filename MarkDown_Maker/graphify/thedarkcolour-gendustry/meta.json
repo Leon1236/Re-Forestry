@@ -1,0 +1,12 @@
+{
+  "repo": "thedarkcolour-gendustry",
+  "clone": "/home/ivan/Re-Forestry-src/MarkDown_Maker/Finished_github_clone/2026-08-22/thedarkcolour-gendustry",
+  "scan_roots": [
+    "src"
+  ],
+  "graph": "/home/ivan/Re-Forestry-src/MarkDown_Maker/graphify/thedarkcolour-gendustry/graphify-out/graph.json",
+  "nodes": 856,
+  "edges": 2505,
+  "seconds": 4.1,
+  "built_at": "2026-08-22T07:09:25Z"
+}

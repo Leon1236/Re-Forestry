@@ -99,6 +99,8 @@
     "reforestry:lumbermill",
     "reforestry:press",
     "reforestry:brewery",
-    "reforestry:distillery"
+    "reforestry:bottle_rack",
+    "reforestry:distillery",
+    "reforestry:habitat_former"
   ]
 }

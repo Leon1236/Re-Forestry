@@ -1,0 +1,12 @@
+{
+  "repo": "thedarkcolour-ModKit",
+  "clone": "/home/ivan/Re-Forestry-src/MarkDown_Maker/Finished_github_clone/2026-08-22/thedarkcolour-ModKit",
+  "scan_roots": [
+    "src"
+  ],
+  "graph": "/home/ivan/Re-Forestry-src/MarkDown_Maker/graphify/thedarkcolour-ModKit/graphify-out/graph.json",
+  "nodes": 442,
+  "edges": 1293,
+  "seconds": 2.5,
+  "built_at": "2026-08-22T07:09:21Z"
+}

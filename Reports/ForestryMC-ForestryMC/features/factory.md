@@ -1,0 +1,375 @@
+# ForestryMC-ForestryMC — factory
+
+- Alias: `forestry12`
+- Clone: `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ForestryMC-ForestryMC`
+- Package/path root: `src/main/java/forestry/factory`
+- Java files scanned: **124**
+- Date: 2026-07-30
+
+## Summary
+Module `factory` in `ForestryMC-ForestryMC` is rooted at `src/main/java/forestry/factory` (124 Java sources). This annotated inventory covers its surface, layout, contracts, assets hooks, and Re-Forestry port relevance.
+
+## Player / API surface
+Primary types (Java file stems):
+- `DummyManagers`
+- `MachineUIDs`
+- `ModuleFactory`
+- `BlockFactoryPlain`
+- `BlockFactoryTESR`
+- `BlockRegistryFactory`
+- `BlockTypeFactoryPlain`
+- `BlockTypeFactoryTesr`
+- `package-info`
+- `CircuitSpeedUpgrade`
+- `package-info`
+- `ContainerBottler`
+- `ContainerCarpenter`
+- `ContainerCentrifuge`
+- `ContainerFabricator`
+- `ContainerFermenter`
+- `ContainerMoistener`
+- `ContainerRaintank`
+- `ContainerSqueezer`
+- `ContainerStill`
+- `GuiBottler`
+- `GuiCarpenter`
+- `GuiCentrifuge`
+- `GuiFabricator`
+- `GuiFermenter`
+- `GuiMoistener`
+- `GuiRaintank`
+- `GuiSqueezer`
+- `GuiStill`
+- `package-info`
+- `InventoryBottler`
+- `InventoryCarpenter`
+- `InventoryCentrifuge`
+- `InventoryFabricator`
+- `InventoryFermenter`
+- `InventoryMoistener`
+- `InventoryRainmaker`
+- `InventoryRaintank`
+- `InventorySqueezer`
+- `InventoryStill`
+- `package-info`
+- `PacketRegistryFactory`
+- `package-info`
+- `PacketRecipeTransferRequest`
+- `PacketRecipeTransferUpdate`
+- `package-info`
+- `package-info`
+- `BottlerRecipe`
+- `CarpenterRecipe`
+- `CarpenterRecipeManager`
+- `CentrifugeRecipe`
+- `CentrifugeRecipeManager`
+- `FabricatorRecipe`
+- `FabricatorRecipeManager`
+- `FabricatorSmeltingRecipe`
+- `FabricatorSmeltingRecipeManager`
+- `FermenterRecipe`
+- `FermenterRecipeManager`
+- `ISqueezerContainerRecipe`
+- `MoistenerRecipe`
+- `MoistenerRecipeManager`
+- `SqueezerContainerRecipe`
+- `SqueezerRecipe`
+- `SqueezerRecipeManager`
+- `StillRecipe`
+- `StillRecipeManager`
+- `FactoryJeiPlugin`
+- `BottlerRecipeCategory`
+- `BottlerRecipeMaker`
+- `BottlerRecipeWrapper`
+- `package-info`
+- `CarpenterRecipeCategory`
+- `CarpenterRecipeMaker`
+- `CarpenterRecipeTransferHandler`
+- `CarpenterRecipeWrapper`
+- `package-info`
+- `CentrifugeRecipeCategory`
+- `CentrifugeRecipeMaker`
+- `CentrifugeRecipeWrapper`
+- `package-info`
+- … and 44 more
+
+## Architecture
+- Graph follow-up: `python3 tools/graphify_query.py forestry12 "factory"`
+- Source root exists: **True**
+- Nested packages under this module:
+  - `blocks`
+  - `circuits`
+  - `gui`
+  - `inventory`
+  - `network`
+  - `network/packets`
+  - `recipes`
+  - `recipes/jei`
+  - `recipes/jei/bottler`
+  - `recipes/jei/carpenter`
+  - `recipes/jei/centrifuge`
+  - `recipes/jei/fabricator`
+  - `recipes/jei/fermenter`
+  - `recipes/jei/moistener`
+  - `recipes/jei/rainmaker`
+  - `recipes/jei/squeezer`
+  - `recipes/jei/still`
+  - `tiles`
+  - `triggers`
+- Declaration skim (first files):
+  - `src/main/java/forestry/factory/DummyManagers.java`
+    - L11: package forestry.factory;
+    - L43: public class DummyManagers {
+    - L45: public static abstract class DummyCraftingProvider<T extends IForestryRecipe> implements ICraftingProvider<T> {
+    - L46: @Override
+    - L47: public boolean addRecipe(T recipe) {
+    - L51: @Override
+    - L52: public boolean removeRecipe(T recipe) {
+    - L56: @Override
+    - L57: public Set<T> recipes() {
+    - L62: public static class DummyCarpenterManager extends DummyCraftingProvider<ICarpenterRecipe> implements ICarpenterManager {
+    - L64: @Override
+    - L65: public void addRecipe(ItemStack box, ItemStack product, Object... materials) {
+  - `src/main/java/forestry/factory/MachineUIDs.java`
+    - L1: package forestry.factory;
+    - L7: public class MachineUIDs {
+    - L12: public static final String BOTTLER = "bottler";
+    - L13: public static final String CARPENTER = "carpenter";
+    - L14: public static final String CENTRIFUGE = "centrifuge";
+    - L15: public static final String FABRICATOR = "fabricator";
+    - L16: public static final String FERMENTER = "fermenter";
+    - L17: public static final String MOISTENER = "moistener";
+    - L18: public static final String RAINMAKER = "rainmaker";
+    - L19: public static final String RAINTANK = "raintank";
+    - L20: public static final String SQUEEZER = "squeezer";
+    - L21: public static final String STILL = "still";
+  - `src/main/java/forestry/factory/ModuleFactory.java`
+    - L11: package forestry.factory;
+    - L85: @ForestryModule(containerID = Constants.MOD_ID, moduleID = ForestryModuleUids.FACTORY, name = "Factory", author = "SirSengir", url = Constants.URL, unlocalizedDescription = "for.module.factory.description", lootTable = "
+    - L86: public class ModuleFactory extends BlankForestryModule {
+    - L88: public static final Map<String, Boolean> MACHINE_ENABLED = Maps.newHashMap();
+    - L90: @Nullable
+    - L93: public static BlockRegistryFactory getBlocks() {
+    - L98: @Override
+    - L99: public void setupAPI() {
+    - L112: @Override
+    - L113: public void disabledSetupAPI() {
+  - `src/main/java/forestry/factory/blocks/BlockFactoryPlain.java`
+    - L11: package forestry.factory.blocks;
+    - L15: public class BlockFactoryPlain extends BlockBase<BlockTypeFactoryPlain> {
+    - L16: public BlockFactoryPlain(BlockTypeFactoryPlain type) {
+  - `src/main/java/forestry/factory/blocks/BlockFactoryTESR.java`
+    - L11: package forestry.factory.blocks;
+    - L15: public class BlockFactoryTESR extends BlockBase<BlockTypeFactoryTesr> {
+    - L16: public BlockFactoryTESR(BlockTypeFactoryTesr type) {
+  - `src/main/java/forestry/factory/blocks/BlockRegistryFactory.java`
+    - L11: package forestry.factory.blocks;
+    - L18: public class BlockRegistryFactory extends BlockRegistry {
+    - L19: public final BlockFactoryTESR bottler;
+    - L20: public final BlockFactoryTESR carpenter;
+    - L21: public final BlockFactoryTESR centrifuge;
+    - L22: public final BlockFactoryTESR fermenter;
+    - L23: public final BlockFactoryTESR moistener;
+    - L24: public final BlockFactoryTESR squeezer;
+    - L25: public final BlockFactoryTESR still;
+    - L26: public final BlockFactoryTESR rainmaker;
+    - L28: public final BlockFactoryPlain fabricator;
+    - L29: public final BlockFactoryPlain raintank;
+  - `src/main/java/forestry/factory/blocks/BlockTypeFactoryPlain.java`
+    - L11: package forestry.factory.blocks;
+    - L20: public enum BlockTypeFactoryPlain implements IBlockType {
+    - L24: public static final BlockTypeFactoryPlain[] VALUES = values();
+    - L32: @Override
+    - L33: public IMachineProperties getMachineProperties() {
+    - L37: @Override
+    - L38: public String getName() {
+  - `src/main/java/forestry/factory/blocks/BlockTypeFactoryTesr.java`
+    - L11: package forestry.factory.blocks;
+    - L29: public enum BlockTypeFactoryTesr implements IBlockTypeTesr {
+    - L39: public static final BlockTypeFactoryTesr[] VALUES = values();
+    - L55: @Override
+    - L56: public IMachinePropertiesTesr<?> getMachineProperties() {
+    - L60: @Override
+    - L61: public String getName() {
+  - `src/main/java/forestry/factory/blocks/package-info.java`
+    - L1: @ParametersAreNonnullByDefault
+    - L2: @FieldsAreNonnullByDefault
+    - L3: @MethodsReturnNonnullByDefault
+    - L4: package forestry.factory.blocks;
+  - `src/main/java/forestry/factory/circuits/CircuitSpeedUpgrade.java`
+    - L11: package forestry.factory.circuits;
+    - L16: public class CircuitSpeedUpgrade extends Circuit {
+    - L21: public CircuitSpeedUpgrade(String uid, double speedBoost, float powerDraw) {
+    - L27: @Override
+    - L28: public boolean isCircuitable(Object tile) {
+    - L32: @Override
+    - L33: public void onInsertion(int slot, Object tile) {
+    - L43: @Override
+    - L44: public void onLoad(int slot, Object tile) {
+    - L48: @Override
+    - L49: public void onRemoval(int slot, Object tile) {
+    - L59: @Override
+  - `src/main/java/forestry/factory/circuits/package-info.java`
+    - L1: @ParametersAreNonnullByDefault
+    - L2: @FieldsAreNonnullByDefault
+    - L3: @MethodsReturnNonnullByDefault
+    - L4: package forestry.factory.circuits;
+  - `src/main/java/forestry/factory/gui/ContainerBottler.java`
+    - L11: package forestry.factory.gui;
+    - L22: public class ContainerBottler extends ContainerLiquidTanks<TileBottler> {
+    - L24: public ContainerBottler(InventoryPlayer player, TileBottler tile) {
+
+## Data & assets
+Related resource paths (heuristic name match):
+- `src/main/resources/assets/forestry/models/item/factory_tesr.json`
+- `src/main/resources/assets/forestry/loot_tables/chests/abandoned_mineshaft/factory.json`
+- `src/main/resources/assets/forestry/loot_tables/chests/desert_pyramid/factory.json`
+
+## Dependencies
+- In-mod: treat other packages as edges only (depends on / used by); do not expand this report into sibling modules.
+- External: inspect clone build metadata under `/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/ForestryMC-ForestryMC` (`build.gradle*`, `fabric.mod.json`, `mods.toml`, `gradle.properties`).
+
+## Notable algorithms / contracts
+- key type `ModuleFactory` (`ModuleFactory.java`)
+- key type `BlockRegistryFactory` (`BlockRegistryFactory.java`)
+- enum `BlockTypeFactoryPlain` in `BlockTypeFactoryPlain.java`
+- enum `BlockTypeFactoryTesr` in `BlockTypeFactoryTesr.java`
+- key type `PacketRegistryFactory` (`PacketRegistryFactory.java`)
+- key type `PacketRecipeTransferRequest` (`PacketRecipeTransferRequest.java`)
+- key type `PacketRecipeTransferUpdate` (`PacketRecipeTransferUpdate.java`)
+- interface `ISqueezerContainerRecipe` in `ISqueezerContainerRecipe.java`
+- key type `FactoryJeiPlugin` (`FactoryJeiPlugin.java`)
+- key type `CarpenterRecipeTransferHandler` (`CarpenterRecipeTransferHandler.java`)
+- key type `FabricatorRecipeTransferHandler` (`FabricatorRecipeTransferHandler.java`)
+
+## Port relevance to Re-Forestry
+- Mentions of `factory` appear in `files/implemented-features.md` — check that file for port status.
+- 1.12 Forestry — useful for CE-dropped content (greenhouse, book, climatology, database, etc.).
+
+## Source map
+- `src/main/java/forestry/factory/DummyManagers.java`
+- `src/main/java/forestry/factory/MachineUIDs.java`
+- `src/main/java/forestry/factory/ModuleFactory.java`
+- `src/main/java/forestry/factory/blocks/BlockFactoryPlain.java`
+- `src/main/java/forestry/factory/blocks/BlockFactoryTESR.java`
+- `src/main/java/forestry/factory/blocks/BlockRegistryFactory.java`
+- `src/main/java/forestry/factory/blocks/BlockTypeFactoryPlain.java`
+- `src/main/java/forestry/factory/blocks/BlockTypeFactoryTesr.java`
+- `src/main/java/forestry/factory/blocks/package-info.java`
+- `src/main/java/forestry/factory/circuits/CircuitSpeedUpgrade.java`
+- `src/main/java/forestry/factory/circuits/package-info.java`
+- `src/main/java/forestry/factory/gui/ContainerBottler.java`
+- `src/main/java/forestry/factory/gui/ContainerCarpenter.java`
+- `src/main/java/forestry/factory/gui/ContainerCentrifuge.java`
+- `src/main/java/forestry/factory/gui/ContainerFabricator.java`
+- `src/main/java/forestry/factory/gui/ContainerFermenter.java`
+- `src/main/java/forestry/factory/gui/ContainerMoistener.java`
+- `src/main/java/forestry/factory/gui/ContainerRaintank.java`
+- `src/main/java/forestry/factory/gui/ContainerSqueezer.java`
+- `src/main/java/forestry/factory/gui/ContainerStill.java`
+- `src/main/java/forestry/factory/gui/GuiBottler.java`
+- `src/main/java/forestry/factory/gui/GuiCarpenter.java`
+- `src/main/java/forestry/factory/gui/GuiCentrifuge.java`
+- `src/main/java/forestry/factory/gui/GuiFabricator.java`
+- `src/main/java/forestry/factory/gui/GuiFermenter.java`
+- `src/main/java/forestry/factory/gui/GuiMoistener.java`
+- `src/main/java/forestry/factory/gui/GuiRaintank.java`
+- `src/main/java/forestry/factory/gui/GuiSqueezer.java`
+- `src/main/java/forestry/factory/gui/GuiStill.java`
+- `src/main/java/forestry/factory/gui/package-info.java`
+- `src/main/java/forestry/factory/inventory/InventoryBottler.java`
+- `src/main/java/forestry/factory/inventory/InventoryCarpenter.java`
+- `src/main/java/forestry/factory/inventory/InventoryCentrifuge.java`
+- `src/main/java/forestry/factory/inventory/InventoryFabricator.java`
+- `src/main/java/forestry/factory/inventory/InventoryFermenter.java`
+- `src/main/java/forestry/factory/inventory/InventoryMoistener.java`
+- `src/main/java/forestry/factory/inventory/InventoryRainmaker.java`
+- `src/main/java/forestry/factory/inventory/InventoryRaintank.java`
+- `src/main/java/forestry/factory/inventory/InventorySqueezer.java`
+- `src/main/java/forestry/factory/inventory/InventoryStill.java`
+- `src/main/java/forestry/factory/inventory/package-info.java`
+- `src/main/java/forestry/factory/network/PacketRegistryFactory.java`
+- `src/main/java/forestry/factory/network/package-info.java`
+- `src/main/java/forestry/factory/network/packets/PacketRecipeTransferRequest.java`
+- `src/main/java/forestry/factory/network/packets/PacketRecipeTransferUpdate.java`
+- `src/main/java/forestry/factory/network/packets/package-info.java`
+- `src/main/java/forestry/factory/package-info.java`
+- `src/main/java/forestry/factory/recipes/BottlerRecipe.java`
+- `src/main/java/forestry/factory/recipes/CarpenterRecipe.java`
+- `src/main/java/forestry/factory/recipes/CarpenterRecipeManager.java`
+- `src/main/java/forestry/factory/recipes/CentrifugeRecipe.java`
+- `src/main/java/forestry/factory/recipes/CentrifugeRecipeManager.java`
+- `src/main/java/forestry/factory/recipes/FabricatorRecipe.java`
+- `src/main/java/forestry/factory/recipes/FabricatorRecipeManager.java`
+- `src/main/java/forestry/factory/recipes/FabricatorSmeltingRecipe.java`
+- `src/main/java/forestry/factory/recipes/FabricatorSmeltingRecipeManager.java`
+- `src/main/java/forestry/factory/recipes/FermenterRecipe.java`
+- `src/main/java/forestry/factory/recipes/FermenterRecipeManager.java`
+- `src/main/java/forestry/factory/recipes/ISqueezerContainerRecipe.java`
+- `src/main/java/forestry/factory/recipes/MoistenerRecipe.java`
+- `src/main/java/forestry/factory/recipes/MoistenerRecipeManager.java`
+- `src/main/java/forestry/factory/recipes/SqueezerContainerRecipe.java`
+- `src/main/java/forestry/factory/recipes/SqueezerRecipe.java`
+- `src/main/java/forestry/factory/recipes/SqueezerRecipeManager.java`
+- `src/main/java/forestry/factory/recipes/StillRecipe.java`
+- `src/main/java/forestry/factory/recipes/StillRecipeManager.java`
+- `src/main/java/forestry/factory/recipes/jei/FactoryJeiPlugin.java`
+- `src/main/java/forestry/factory/recipes/jei/bottler/BottlerRecipeCategory.java`
+- `src/main/java/forestry/factory/recipes/jei/bottler/BottlerRecipeMaker.java`
+- `src/main/java/forestry/factory/recipes/jei/bottler/BottlerRecipeWrapper.java`
+- `src/main/java/forestry/factory/recipes/jei/bottler/package-info.java`
+- `src/main/java/forestry/factory/recipes/jei/carpenter/CarpenterRecipeCategory.java`
+- `src/main/java/forestry/factory/recipes/jei/carpenter/CarpenterRecipeMaker.java`
+- `src/main/java/forestry/factory/recipes/jei/carpenter/CarpenterRecipeTransferHandler.java`
+- `src/main/java/forestry/factory/recipes/jei/carpenter/CarpenterRecipeWrapper.java`
+- `src/main/java/forestry/factory/recipes/jei/carpenter/package-info.java`
+- `src/main/java/forestry/factory/recipes/jei/centrifuge/CentrifugeRecipeCategory.java`
+- `src/main/java/forestry/factory/recipes/jei/centrifuge/CentrifugeRecipeMaker.java`
+- `src/main/java/forestry/factory/recipes/jei/centrifuge/CentrifugeRecipeWrapper.java`
+- `src/main/java/forestry/factory/recipes/jei/centrifuge/package-info.java`
+- `src/main/java/forestry/factory/recipes/jei/fabricator/FabricatorRecipeCategory.java`
+- `src/main/java/forestry/factory/recipes/jei/fabricator/FabricatorRecipeMaker.java`
+- `src/main/java/forestry/factory/recipes/jei/fabricator/FabricatorRecipeTransferHandler.java`
+- `src/main/java/forestry/factory/recipes/jei/fabricator/FabricatorRecipeWrapper.java`
+- `src/main/java/forestry/factory/recipes/jei/fabricator/package-info.java`
+- `src/main/java/forestry/factory/recipes/jei/fermenter/FermenterRecipeCategory.java`
+- `src/main/java/forestry/factory/recipes/jei/fermenter/FermenterRecipeMaker.java`
+- `src/main/java/forestry/factory/recipes/jei/fermenter/FermenterRecipeWrapper.java`
+- `src/main/java/forestry/factory/recipes/jei/fermenter/package-info.java`
+- `src/main/java/forestry/factory/recipes/jei/moistener/MoistenerRecipeCategory.java`
+- `src/main/java/forestry/factory/recipes/jei/moistener/MoistenerRecipeMaker.java`
+- `src/main/java/forestry/factory/recipes/jei/moistener/MoistenerRecipeWrapper.java`
+- `src/main/java/forestry/factory/recipes/jei/moistener/package-info.java`
+- `src/main/java/forestry/factory/recipes/jei/package-info.java`
+- `src/main/java/forestry/factory/recipes/jei/rainmaker/RainmakerRecipeCategory.java`
+- `src/main/java/forestry/factory/recipes/jei/rainmaker/RainmakerRecipeMaker.java`
+- `src/main/java/forestry/factory/recipes/jei/rainmaker/RainmakerRecipeWrapper.java`
+- `src/main/java/forestry/factory/recipes/jei/rainmaker/package-info.java`
+- `src/main/java/forestry/factory/recipes/jei/squeezer/AbstractSqueezerRecipeWrapper.java`
+- `src/main/java/forestry/factory/recipes/jei/squeezer/SqueezerContainerRecipeWrapper.java`
+- `src/main/java/forestry/factory/recipes/jei/squeezer/SqueezerRecipeCategory.java`
+- `src/main/java/forestry/factory/recipes/jei/squeezer/SqueezerRecipeMaker.java`
+- `src/main/java/forestry/factory/recipes/jei/squeezer/SqueezerRecipeWrapper.java`
+- `src/main/java/forestry/factory/recipes/jei/squeezer/package-info.java`
+- `src/main/java/forestry/factory/recipes/jei/still/StillRecipeCategory.java`
+- `src/main/java/forestry/factory/recipes/jei/still/StillRecipeMaker.java`
+- `src/main/java/forestry/factory/recipes/jei/still/StillRecipeWrapper.java`
+- `src/main/java/forestry/factory/recipes/jei/still/package-info.java`
+- `src/main/java/forestry/factory/recipes/package-info.java`
+- `src/main/java/forestry/factory/tiles/TileBottler.java`
+- `src/main/java/forestry/factory/tiles/TileCarpenter.java`
+- `src/main/java/forestry/factory/tiles/TileCentrifuge.java`
+- `src/main/java/forestry/factory/tiles/TileFabricator.java`
+- `src/main/java/forestry/factory/tiles/TileFermenter.java`
+- `src/main/java/forestry/factory/tiles/TileMillRainmaker.java`
+- `src/main/java/forestry/factory/tiles/TileMoistener.java`
+- `src/main/java/forestry/factory/tiles/TileRaintank.java`
+- `src/main/java/forestry/factory/tiles/TileSqueezer.java`
+- `src/main/java/forestry/factory/tiles/TileStill.java`
+- `src/main/java/forestry/factory/tiles/package-info.java`
+- … and 4 more under `src/main/java/forestry/factory`
+
+## Open questions / gaps
+- Confirm nested submodule boundaries called out in the repo inventory notes.
+- Deepen with graphify `--path` / `--explain` and MCP `get_file` on key classes when porting.
+- Cross-check CE vs Immersive Forestry when the module is Forestry content.

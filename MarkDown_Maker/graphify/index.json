@@ -1,0 +1,192 @@
+{
+  "TechReborn-Energy": {
+    "repo": "TechReborn-Energy",
+    "clone": "/home/ivan/Re-Forestry-src/MarkDown_Maker/Finished_github_clone/2026-08-22/TechReborn-Energy",
+    "scan_roots": [
+      "src"
+    ],
+    "graph": "/home/ivan/Re-Forestry-src/MarkDown_Maker/graphify/TechReborn-Energy/graphify-out/graph.json",
+    "nodes": 144,
+    "edges": 347,
+    "seconds": 2.5,
+    "built_at": "2026-08-22T07:06:45Z"
+  },
+  "thedarkcolour-ModKit": {
+    "repo": "thedarkcolour-ModKit",
+    "clone": "/home/ivan/Re-Forestry-src/MarkDown_Maker/Finished_github_clone/2026-08-22/thedarkcolour-ModKit",
+    "scan_roots": [
+      "src"
+    ],
+    "graph": "/home/ivan/Re-Forestry-src/MarkDown_Maker/graphify/thedarkcolour-ModKit/graphify-out/graph.json",
+    "nodes": 442,
+    "edges": 1293,
+    "seconds": 2.5,
+    "built_at": "2026-08-22T07:09:21Z"
+  },
+  "bernie-g-geckolib": {
+    "repo": "bernie-g-geckolib",
+    "clone": "/home/ivan/Re-Forestry-src/MarkDown_Maker/Finished_github_clone/2026-08-22/bernie-g-geckolib",
+    "scan_roots": [
+      "common",
+      "fabric"
+    ],
+    "graph": "/home/ivan/Re-Forestry-src/MarkDown_Maker/graphify/bernie-g-geckolib/graphify-out/graph.json",
+    "nodes": 2578,
+    "edges": 7609,
+    "seconds": 7.3,
+    "built_at": "2026-08-22T07:07:09Z"
+  },
+  "thedarkcolour-gendustry": {
+    "repo": "thedarkcolour-gendustry",
+    "clone": "/home/ivan/Re-Forestry-src/MarkDown_Maker/Finished_github_clone/2026-08-22/thedarkcolour-gendustry",
+    "scan_roots": [
+      "src"
+    ],
+    "graph": "/home/ivan/Re-Forestry-src/MarkDown_Maker/graphify/thedarkcolour-gendustry/graphify-out/graph.json",
+    "nodes": 856,
+    "edges": 2505,
+    "seconds": 4.1,
+    "built_at": "2026-08-22T07:09:25Z"
+  },
+  "Tutorials-By-Kaupenjoe-Fabric-Tutorial-26.X": {
+    "repo": "Tutorials-By-Kaupenjoe-Fabric-Tutorial-26.X",
+    "clone": "/home/ivan/Re-Forestry-src/MarkDown_Maker/Finished_github_clone/2026-08-22/Tutorials-By-Kaupenjoe-Fabric-Tutorial-26.X",
+    "scan_roots": [
+      "src"
+    ],
+    "graph": "/home/ivan/Re-Forestry-src/MarkDown_Maker/graphify/Tutorials-By-Kaupenjoe-Fabric-Tutorial-26.X/graphify-out/graph.json",
+    "nodes": 654,
+    "edges": 1745,
+    "seconds": 4.4,
+    "built_at": "2026-08-22T07:07:02Z"
+  },
+  "SuperMartijn642-SuperMartijn642sCoreLib": {
+    "repo": "SuperMartijn642-SuperMartijn642sCoreLib",
+    "clone": "/home/ivan/Re-Forestry-src/MarkDown_Maker/Finished_github_clone/2026-08-22/SuperMartijn642-SuperMartijn642sCoreLib",
+    "scan_roots": [
+      "src"
+    ],
+    "graph": "/home/ivan/Re-Forestry-src/MarkDown_Maker/graphify/SuperMartijn642-SuperMartijn642sCoreLib/graphify-out/graph.json",
+    "nodes": 2017,
+    "edges": 5244,
+    "seconds": 6.8,
+    "built_at": "2026-08-22T07:06:43Z"
+  },
+  "Tiviacz1337-Travelers-Backpack": {
+    "repo": "Tiviacz1337-Travelers-Backpack",
+    "clone": "/home/ivan/Re-Forestry-src/MarkDown_Maker/Finished_github_clone/2026-08-22/Tiviacz1337-Travelers-Backpack",
+    "scan_roots": [
+      "src"
+    ],
+    "graph": "/home/ivan/Re-Forestry-src/MarkDown_Maker/graphify/Tiviacz1337-Travelers-Backpack/graphify-out/graph.json",
+    "nodes": 2990,
+    "edges": 10821,
+    "seconds": 11.9,
+    "built_at": "2026-08-22T07:06:57Z"
+  },
+  "ForestryMC-ForestryMC": {
+    "repo": "ForestryMC-ForestryMC",
+    "clone": "/home/ivan/Re-Forestry-src/MarkDown_Maker/Finished_github_clone/2026-08-22/ForestryMC-ForestryMC",
+    "scan_roots": [
+      "src"
+    ],
+    "graph": "/home/ivan/Re-Forestry-src/MarkDown_Maker/graphify/ForestryMC-ForestryMC/graphify-out/graph.json",
+    "nodes": 18196,
+    "edges": 63455,
+    "seconds": 52.4,
+    "built_at": "2026-08-22T07:06:36Z"
+  },
+  "mezz-JustEnoughItems": {
+    "repo": "mezz-JustEnoughItems",
+    "clone": "/home/ivan/Re-Forestry-src/MarkDown_Maker/Finished_github_clone/2026-08-22/mezz-JustEnoughItems",
+    "scan_roots": [
+      "Common",
+      "CommonApi",
+      "Fabric",
+      "FabricApi",
+      "Library"
+    ],
+    "graph": "/home/ivan/Re-Forestry-src/MarkDown_Maker/graphify/mezz-JustEnoughItems/graphify-out/graph.json",
+    "nodes": 6232,
+    "edges": 20458,
+    "seconds": 17.2,
+    "built_at": "2026-08-22T07:07:26Z"
+  },
+  "thedarkcolour-ForestryCE": {
+    "repo": "thedarkcolour-ForestryCE",
+    "clone": "/home/ivan/Re-Forestry-src/MarkDown_Maker/Finished_github_clone/2026-08-22/thedarkcolour-ForestryCE",
+    "scan_roots": [
+      "src"
+    ],
+    "graph": "/home/ivan/Re-Forestry-src/MarkDown_Maker/graphify/thedarkcolour-ForestryCE/graphify-out/graph.json",
+    "nodes": 15704,
+    "edges": 58372,
+    "seconds": 112.1,
+    "built_at": "2026-08-22T07:09:18Z"
+  },
+  "ACGaming-Binnie": {
+    "repo": "ACGaming-Binnie",
+    "clone": "/home/ivan/Re-Forestry-src/MarkDown_Maker/Finished_github_clone/2026-08-22/ACGaming-Binnie",
+    "scan_roots": [
+      "."
+    ],
+    "graph": "/home/ivan/Re-Forestry-src/MarkDown_Maker/graphify/ACGaming-Binnie/graphify-out/graph.json",
+    "nodes": 13280,
+    "edges": 41564,
+    "seconds": 49.6,
+    "built_at": "2026-08-22T07:04:52Z"
+  },
+  "thedarkcolour-Immersive-Forestry": {
+    "repo": "thedarkcolour-Immersive-Forestry",
+    "clone": "/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/Finished_github_clone/2026-07-24/thedarkcolour-Immersive-Forestry",
+    "scan_roots": [
+      "src"
+    ],
+    "graph": "/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/graphify/thedarkcolour-Immersive-Forestry/graphify-out/graph.json",
+    "nodes": 18308,
+    "edges": 47300,
+    "seconds": 59.9,
+    "built_at": "2026-07-29T13:11:16Z"
+  },
+  "FabricMC-fabric-api": {
+    "repo": "FabricMC-fabric-api",
+    "clone": "/home/ivan/Re-Forestry-src/MarkDown_Maker/Finished_github_clone/2026-08-22/FabricMC-fabric-api",
+    "scan_roots": [
+      "."
+    ],
+    "graph": "/home/ivan/Re-Forestry-src/MarkDown_Maker/graphify/FabricMC-fabric-api/graphify-out/graph.json",
+    "nodes": 12814,
+    "edges": 41271,
+    "seconds": 51.1,
+    "built_at": "2026-08-22T07:05:44Z"
+  },
+  "Minecraft-26.2": {
+    "repo": "Minecraft-26.2",
+    "clone": "/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/tmp_minecraft_26_2_src",
+    "scan_roots": [
+      "."
+    ],
+    "graph": "/home/ivan/Documents/Kodiranje/Fabric Forestry 26.2/MarkDown_Maker/graphify/Minecraft-26.2/graphify-out/graph.json",
+    "nodes": 80222,
+    "edges": 297589,
+    "seconds": null,
+    "built_at": "2026-07-29T13:15:09Z"
+  },
+  "reforestry-local": {
+    "nodes": 11766,
+    "edges": 42016,
+    "graph": "/home/ivan/Re-Forestry-src/graphify-out/graph.json"
+  },
+  "thedarkcolour-ForestryCE-1.20.1": {
+    "repo": "thedarkcolour-ForestryCE-1.20.1",
+    "clone": "/home/ivan/Re-Forestry-src/MarkDown_Maker/Finished_github_clone/2026-08-22/thedarkcolour-ForestryCE-1.20.1",
+    "scan_roots": [
+      "src"
+    ],
+    "graph": "/home/ivan/Re-Forestry-src/MarkDown_Maker/graphify/thedarkcolour-ForestryCE-1.20.1/graphify-out/graph.json",
+    "nodes": 14457,
+    "edges": 52207,
+    "seconds": 89.1,
+    "built_at": "2026-08-22T07:10:54Z"
+  }
+}

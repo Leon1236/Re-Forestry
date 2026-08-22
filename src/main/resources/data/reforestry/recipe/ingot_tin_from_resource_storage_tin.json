@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "reforestry:resource_storage_tin"
+  ],
+  "result": {
+    "count": 9,
+    "id": "reforestry:ingot_tin"
+  }
+}

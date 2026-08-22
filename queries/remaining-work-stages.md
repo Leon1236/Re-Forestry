@@ -484,7 +484,7 @@ Skip Binnie Genetics serums/isolator (Gendustry is the modern line).
 | `TR1`         | S    | Yes           | Optional Trinkets head slot for spectacles. Soft `compat/` + `isModLoaded`. Helmet already works (A5).          |
 | `OR3`         | S    | Optional      | 1.12 habitat locator. CE dropped it. Texture leftovers only.                                                    |
 | `OR2`         | M    | Late          | 1.12 species database machine.                                                                                  |
-| `OR0`         | L    | Late          | 1.12 Habitat Former / Habitat Screen (climatology).                                                             |
+| `OR0`         | L    | **done**      | Habitat Former + Habitat Screen (`climatology`). See `queries/or0-climatology-port.md`.                          |
 | `OR1`         | L    | After OR0     | 1.12 greenhouse multiblock.                                                                                     |
 | `CORE-D1..D3` | L    | Only if asked | CE **1.20.1** decorative brick/waxstone/candle families. **Dropped in CE 1.21.1.** Restore-only.                |
 
@@ -509,16 +509,17 @@ Skip Binnie Genetics serums/isolator (Gendustry is the modern line).
 | 9 | CORE-UX + BOOK-FARM-ARBOR | **done** | Farm redstone vis, alyzer taxonomy/climate, 13 farm/arbor pages verified — see `queries/wave9-stage9.md` |
 | 10 | BOOK-BEE | **done** | 19 bee/alveary pages + `tools/validate_book.py` — see `queries/wave9-stage10.md` |
 | 11 | TR1 | **done** | Optional Trinkets spectacles slot — see `queries/wave9-stage11-tr1.md` |
-| 12 | WAVE8-RESTORE | **skipped** | Optional OR0/greenhouse/database — not started (confirm before port) |
+| 12 | WAVE8-RESTORE | **partial** | OR0 climatology done; OR1 greenhouse / OR2 database still optional |
 | 13 | DOC-SYNC | **done** | Status docs + `queries/wave9-implementation-report.md` |
 
 ---
 
 ## Suggested next sessions (human order)
 
-1. Wave 9 Stages **0–11 + 13** are **done**; Stage **12** (Wave 8 restore) remains optional.  
-2. Optional: Stage 12 OR0 climatology / greenhouse / decorative blocks if desired.  
-3. Post-Wave-9 polish: fix remaining almanac recipe refs flagged by `validate_book.py` (core resource-storage CE recipes never ported).
+1. Wave 9 Stages **0–11 + 13** are **done**; post–Wave 9 core recipes **done** (2026-08-22).  
+2. **OR3** habitat locator **done**; **ET-K** bottle rack **done**.  
+3. Optional: **OR1** greenhouse / **OR2** database / decorative blocks — see `queries/or0-climatology-port.md`.  
+4. **ET-D** designer deferred until rendering spike (`queries/et-d-et-k-port.md`).
 
 ---
 

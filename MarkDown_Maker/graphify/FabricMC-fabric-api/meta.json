@@ -1,0 +1,12 @@
+{
+  "repo": "FabricMC-fabric-api",
+  "clone": "/home/ivan/Re-Forestry-src/MarkDown_Maker/Finished_github_clone/2026-08-22/FabricMC-fabric-api",
+  "scan_roots": [
+    "."
+  ],
+  "graph": "/home/ivan/Re-Forestry-src/MarkDown_Maker/graphify/FabricMC-fabric-api/graphify-out/graph.json",
+  "nodes": 12814,
+  "edges": 41271,
+  "seconds": 51.1,
+  "built_at": "2026-08-22T07:05:44Z"
+}
