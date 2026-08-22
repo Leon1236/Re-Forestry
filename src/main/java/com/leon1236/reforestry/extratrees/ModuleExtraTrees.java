@@ -3,6 +3,8 @@ package com.leon1236.reforestry.extratrees;
 import java.util.List;
 import java.util.function.Consumer;
 
+import net.fabricmc.fabric.api.event.lifecycle.v1.CommonLifecycleEvents;
+
 import net.minecraft.resources.Identifier;
 
 import com.leon1236.reforestry.ReForestry;
@@ -40,7 +42,7 @@ public class ModuleExtraTrees implements IForestryModule {
 		ExtraTreesMenuTypes.init();
 		ExtraTreesCreativeTabs.init();
 		ExtraTreesFluids.init();
-		ExtraTreesAlcoholRecipes.init();
+		CommonLifecycleEvents.TAGS_LOADED.register((registries, client) -> ExtraTreesAlcoholRecipes.init());
 	}
 
 	@Override

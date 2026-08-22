@@ -11,10 +11,16 @@ import com.leon1236.reforestry.extratrees.items.EnumExtraTreesFood;
 import com.leon1236.reforestry.extratrees.tags.ExtraTreesTags;
 
 public final class ExtraTreesAlcoholRecipes {
+	private static boolean seeded;
+
 	private ExtraTreesAlcoholRecipes() {
 	}
 
 	public static void init() {
+		if (seeded) {
+			return;
+		}
+		seeded = true;
 		registerPress();
 		registerBrewery();
 		registerDistillery();
